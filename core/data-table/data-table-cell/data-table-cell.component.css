@@ -1,0 +1,17 @@
+:host {
+  font-size: 13px;
+  vertical-align: middle;
+  text-align: left;
+  padding: 0 28px 0 28px; }
+  :host:first-child {
+    padding-left: 24px; }
+  :host:last-child {
+    padding-right: 24px; }
+  :host > * {
+    vertical-align: middle; }
+  :host.md-clickable {
+    cursor: pointer; }
+    :host.md-clickable:focus {
+      outline: none; }
+  :host.md-numeric {
+    text-align: right; }

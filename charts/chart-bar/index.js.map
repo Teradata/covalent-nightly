@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["index.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,mBAAmB,EAAE,MAAM,uBAAuB,CAAC","sourcesContent":["export { TdChartBarComponent } from './chart-bar.component';\n\ninterface DecoratorInvocation {\n  type: Function;\n  args?: any[];\n}\n"]}

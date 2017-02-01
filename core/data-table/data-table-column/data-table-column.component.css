@@ -1,0 +1,41 @@
+:host {
+  font-size: 12px;
+  font-weight: bold;
+  white-space: nowrap;
+  padding: 0 28px 0 28px;
+  position: relative;
+  vertical-align: middle;
+  text-align: left; }
+  :host:first-child {
+    padding-left: 24px; }
+  :host:last-child {
+    padding-right: 24px; }
+  :host md-icon {
+    height: 16px;
+    width: 16px;
+    font-size: 16px !important;
+    line-height: 16px !important; }
+    :host md-icon.td-data-table-sort-icon {
+      opacity: 0;
+      transition: transform 0.25s, opacity 0.25s; }
+      :host md-icon.td-data-table-sort-icon.md-asc {
+        transform: rotate(0deg); }
+      :host md-icon.td-data-table-sort-icon.md-desc {
+        transform: rotate(180deg); }
+  :host:hover.md-sortable md-icon.td-data-table-sort-icon,
+  :host.md-active.md-sortable md-icon.td-data-table-sort-icon {
+    opacity: 1; }
+  :host > * {
+    vertical-align: middle; }
+  :host.md-clickable {
+    cursor: pointer; }
+    :host.md-clickable:focus {
+      outline: none; }
+  :host md-icon.td-data-table-sort-icon {
+    position: absolute; }
+  :host.md-numeric {
+    text-align: right; }
+    :host.md-numeric md-icon.td-data-table-sort-icon {
+      margin-left: -22px; }
+  :host:not(.md-numeric) md-icon.td-data-table-sort-icon {
+    margin-left: 6px; }

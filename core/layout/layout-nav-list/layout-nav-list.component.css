@@ -1,0 +1,26 @@
+:host {
+  display: flex;
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  overflow: hidden; }
+  :host md-sidenav-container.td-layout-nav-list > md-sidenav.md-sidenav-opened, :host md-sidenav-container.td-layout-nav-list > md-sidenav.md-sidenav-opening, :host md-sidenav-container.td-layout-nav-list > md-sidenav.md-sidenav-closed, :host md-sidenav-container.td-layout-nav-list > md-sidenav.md-sidenav-closing {
+    box-shadow: none; }
+  :host .td-menu-button {
+    margin-left: 0px; }
+  :host .list {
+    text-align: start; }
+
+:host /deep/ md-sidenav-container.td-layout-nav-list {
+  /* Ensure the left sidenav is a flex column & 100% height */ }
+  :host /deep/ md-sidenav-container.td-layout-nav-list > .md-sidenav-content {
+    flex-grow: 1; }
+  :host /deep/ md-sidenav-container.td-layout-nav-list > md-sidenav > cdk-focus-trap, :host /deep/ md-sidenav-container.td-layout-nav-list > md-sidenav > cdk-focus-trap > div {
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column; }

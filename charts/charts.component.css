@@ -1,0 +1,13 @@
+:host {
+  display: block; }
+
+:host /deep/ .grid path {
+  stroke-width: 0; }
+
+:host /deep/ .axisTitle {
+  font-size: 11px;
+  font-weight: bold; }
+
+:host /deep/ .line {
+  fill: none;
+  stroke-width: 2px; }

@@ -1,0 +1,32 @@
+:host /deep/ {
+  display: block;
+  overflow-x: auto;
+  padding: 16px; }
+  :host /deep/ pre,
+  :host /deep/ code,
+  :host /deep/ .highlight {
+    font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace; }
+  :host /deep/ pre {
+    display: block;
+    overflow-x: auto;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
+    line-height: 1.45;
+    tab-size: 2;
+    -webkit-font-smoothing: auto;
+    -webkit-text-size-adjust: none;
+    position: relative;
+    border-radius: 2px;
+    font-size: 0.8rem; }
+  :host /deep/ code {
+    margin: 0;
+    padding: 0;
+    overflow-wrap: break-word;
+    white-space: pre-wrap; }
+  :host /deep/ .highlight {
+    display: block;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    margin: 0; }

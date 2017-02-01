@@ -1,0 +1,16 @@
+md-toolbar {
+    [md-button] {
+        &:first-of-type:not(:last-child) {
+            margin-left: -6px;
+        }
+        &:last-of-type:not(:first-child) {
+            margin-right: -6px;
+        }
+    }
+    .md-icon-logo {
+        margin-right: 10px;
+    }
+    [md-icon-button] {
+        margin: 0 6px;
+    }
+}

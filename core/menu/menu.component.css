@@ -1,0 +1,41 @@
+:host {
+  display: block;
+  margin-top: -8px;
+  margin-bottom: -8px; }
+
+:host /deep/ [td-menu-header] {
+  padding: 8px;
+  text-align: center; }
+
+:host /deep/ md-list a[md-list-item].md-2-line .md-list-item,
+:host /deep/ md-list md-list-item.md-2-line .md-list-item,
+:host /deep/ md-list[dense] a[md-list-item].md-2-line .md-list-item,
+:host /deep/ md-list[dense] md-list-item.md-2-line .md-list-item,
+:host /deep/ md-nav-list a[md-list-item].md-2-line .md-list-item,
+:host /deep/ md-nav-list md-list-item.md-2-line .md-list-item,
+:host /deep/ md-nav-list[dense] a[md-list-item].md-2-line .md-list-item,
+:host /deep/ md-nav-list[dense] md-list-item.md-2-line .md-list-item {
+  height: auto;
+  padding: 8px; }
+  :host /deep/ md-list a[md-list-item].md-2-line .md-list-item .md-list-text,
+  :host /deep/ md-list md-list-item.md-2-line .md-list-item .md-list-text,
+  :host /deep/ md-list[dense] a[md-list-item].md-2-line .md-list-item .md-list-text,
+  :host /deep/ md-list[dense] md-list-item.md-2-line .md-list-item .md-list-text,
+  :host /deep/ md-nav-list a[md-list-item].md-2-line .md-list-item .md-list-text,
+  :host /deep/ md-nav-list md-list-item.md-2-line .md-list-item .md-list-text,
+  :host /deep/ md-nav-list[dense] a[md-list-item].md-2-line .md-list-item .md-list-text,
+  :host /deep/ md-nav-list[dense] md-list-item.md-2-line .md-list-item .md-list-text {
+    padding-right: 0px; }
+  :host /deep/ md-list a[md-list-item].md-2-line .md-list-item [md-line] + [md-line],
+  :host /deep/ md-list md-list-item.md-2-line .md-list-item [md-line] + [md-line],
+  :host /deep/ md-list[dense] a[md-list-item].md-2-line .md-list-item [md-line] + [md-line],
+  :host /deep/ md-list[dense] md-list-item.md-2-line .md-list-item [md-line] + [md-line],
+  :host /deep/ md-nav-list a[md-list-item].md-2-line .md-list-item [md-line] + [md-line],
+  :host /deep/ md-nav-list md-list-item.md-2-line .md-list-item [md-line] + [md-line],
+  :host /deep/ md-nav-list[dense] a[md-list-item].md-2-line .md-list-item [md-line] + [md-line],
+  :host /deep/ md-nav-list[dense] md-list-item.md-2-line .md-list-item [md-line] + [md-line] {
+    margin-top: 4px; }
+
+.td-menu-content {
+  max-height: calc(50vh);
+  overflow-y: auto; }

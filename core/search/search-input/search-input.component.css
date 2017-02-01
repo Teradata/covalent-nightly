@@ -1,0 +1,5 @@
+.td-search-input {
+  height: 64px;
+  overflow-x: hidden; }
+  .td-search-input /deep/ md-input-container.md-hide-underline .md-input-underline {
+    display: none; }
