@@ -46,6 +46,13 @@ export declare class TdNavigationDrawerComponent implements OnInit, OnDestroy {
      */
     color: string;
     /**
+     * navigationRoute?: string
+     *
+     * option to set the combined logo, icon, toolbar title route
+     * defaults to '/'
+     */
+    navigationRoute: string;
+    /**
      * backgroundUrl?: SafeResourceUrl
      *
      * image to be displayed as the background of the toolbar.

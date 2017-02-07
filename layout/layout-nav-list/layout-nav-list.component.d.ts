@@ -58,6 +58,13 @@ export declare class TdLayoutNavListComponent {
      */
     sidenavWidth: string;
     /**
+     * navigationRoute?: string
+     *
+     * option to set the combined logo, icon, toolbar title route
+     * defaults to '/'
+     */
+    navigationRoute: string;
+    /**
      * Checks if there is a [TdLayoutComponent] as parent.
      */
     readonly isMainSidenavAvailable: boolean;

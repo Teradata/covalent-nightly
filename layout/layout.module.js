@@ -6,6 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 import { TdLayoutComponent } from './layout.component';
 import { TdLayoutNavComponent } from './layout-nav/layout-nav.component';
@@ -40,6 +41,7 @@ CovalentLayoutModule = CovalentLayoutModule_1 = __decorate([
     NgModule({
         imports: [
             CommonModule,
+            RouterModule,
             MaterialModule.forRoot(),
         ],
         declarations: [
