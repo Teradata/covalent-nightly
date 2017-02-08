@@ -6,8 +6,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '@angular/material';
-import { CovalentCommonModule } from '../common/common.module';
 import { TdNotificationCountComponent } from './notification-count.component';
 var TD_NOTIFICATIONS = [
     TdNotificationCountComponent,
@@ -28,16 +26,11 @@ CovalentNotificationsModule = CovalentNotificationsModule_1 = __decorate([
     NgModule({
         imports: [
             CommonModule,
-            MaterialModule.forRoot(),
-            CovalentCommonModule.forRoot(),
         ],
         declarations: [
             TD_NOTIFICATIONS,
         ],
         exports: [
-            CommonModule,
-            MaterialModule,
-            CovalentCommonModule,
             TD_NOTIFICATIONS,
         ],
     })

@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MaterialModule } from '@angular/material';
+import { MdDialogModule, MdInputModule, MdButtonModule } from '@angular/material';
 import { TdDialogComponent, TdDialogTitleDirective, TdDialogActionsDirective, TdDialogContentDirective } from './dialog.component';
 import { TdAlertDialogComponent } from './alert-dialog/alert-dialog.component';
 import { TdConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
@@ -44,15 +44,14 @@ CovalentDialogsModule = CovalentDialogsModule_1 = __decorate([
         imports: [
             FormsModule,
             CommonModule,
-            MaterialModule.forRoot(),
+            MdDialogModule.forRoot(),
+            MdInputModule.forRoot(),
+            MdButtonModule.forRoot(),
         ],
         declarations: [
             TD_DIALOGS,
         ],
         exports: [
-            FormsModule,
-            CommonModule,
-            MaterialModule,
             TD_DIALOGS,
         ],
         entryComponents: [

@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MaterialModule } from '@angular/material';
+import { MdIconModule, MdSelectModule, MdButtonModule } from '@angular/material';
 import { TdPagingBarComponent } from './paging-bar.component';
 export { TdPagingBarComponent } from './paging-bar.component';
 var CovalentPagingModule = CovalentPagingModule_1 = (function () {
@@ -26,7 +26,9 @@ CovalentPagingModule = CovalentPagingModule_1 = __decorate([
         imports: [
             FormsModule,
             CommonModule,
-            MaterialModule.forRoot(),
+            MdIconModule.forRoot(),
+            MdSelectModule.forRoot(),
+            MdButtonModule.forRoot(),
         ],
         declarations: [
             TdPagingBarComponent,

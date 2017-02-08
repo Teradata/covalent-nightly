@@ -6,7 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '@angular/material';
+import { MdListModule, MdIconModule, PortalModule } from '@angular/material';
 import { TdExpansionPanelComponent, TdExpansionPanelHeaderDirective, TdExpansionPanelLabelDirective, TdExpansionPanelSublabelDirective, TdExpansionPanelSummaryComponent } from './expansion-panel.component';
 var TD_EXPANSION_PANEL = [
     TdExpansionPanelComponent,
@@ -31,14 +31,14 @@ CovalentExpansionPanelModule = CovalentExpansionPanelModule_1 = __decorate([
     NgModule({
         imports: [
             CommonModule,
-            MaterialModule.forRoot(),
+            MdListModule.forRoot(),
+            MdIconModule.forRoot(),
+            PortalModule.forRoot(),
         ],
         declarations: [
             TD_EXPANSION_PANEL,
         ],
         exports: [
-            CommonModule,
-            MaterialModule,
             TD_EXPANSION_PANEL,
         ],
     })

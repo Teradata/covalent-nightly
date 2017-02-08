@@ -6,8 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '@angular/material';
-import { CovalentCommonModule } from '../common/common.module';
+import { MdMenuModule, MdListModule } from '@angular/material';
 import { TdMenuComponent } from './menu.component';
 var TD_MENU = [
     TdMenuComponent,
@@ -28,16 +27,13 @@ CovalentMenuModule = CovalentMenuModule_1 = __decorate([
     NgModule({
         imports: [
             CommonModule,
-            MaterialModule.forRoot(),
-            CovalentCommonModule.forRoot(),
+            MdMenuModule.forRoot(),
+            MdListModule.forRoot(),
         ],
         declarations: [
             TD_MENU,
         ],
         exports: [
-            CommonModule,
-            MaterialModule,
-            CovalentCommonModule,
             TD_MENU,
         ],
     })

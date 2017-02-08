@@ -8,7 +8,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
-import { MaterialModule } from '@angular/material';
+import { MdIconModule, MdButtonModule } from '@angular/material';
 import { TdFileSelectDirective } from './directives/file-select.directive';
 import { TdFileDropDirective } from './directives/file-drop.directive';
 import { TdFileUploadComponent } from './file-upload.component';
@@ -40,7 +40,8 @@ CovalentFileModule = CovalentFileModule_1 = __decorate([
             JsonpModule,
             FormsModule,
             CommonModule,
-            MaterialModule.forRoot(),
+            MdIconModule.forRoot(),
+            MdButtonModule.forRoot(),
         ],
         declarations: [
             TD_FILE,

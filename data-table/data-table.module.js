@@ -6,7 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '@angular/material';
+import { MdCheckboxModule, MdTooltipModule, MdIconModule } from '@angular/material';
 import { TdDataTableComponent } from './data-table.component';
 import { TdDataTableColumnComponent } from './data-table-column/data-table-column.component';
 import { TdDataTableCellComponent } from './data-table-cell/data-table-cell.component';
@@ -42,8 +42,10 @@ var CovalentDataTableModule = CovalentDataTableModule_1 = (function () {
 CovalentDataTableModule = CovalentDataTableModule_1 = __decorate([
     NgModule({
         imports: [
-            MaterialModule.forRoot(),
             CommonModule,
+            MdCheckboxModule.forRoot(),
+            MdTooltipModule.forRoot(),
+            MdIconModule.forRoot(),
         ],
         declarations: [
             TD_DATA_TABLE,

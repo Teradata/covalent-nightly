@@ -32,7 +32,6 @@ CovalentMediaModule = CovalentMediaModule_1 = __decorate([
             TD_MEDIA,
         ],
         exports: [
-            CommonModule,
             TD_MEDIA,
         ],
     })

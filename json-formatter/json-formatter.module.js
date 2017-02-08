@@ -6,7 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '@angular/material';
+import { MdTooltipModule, MdIconModule } from '@angular/material';
 import { TdJsonFormatterComponent } from './json-formatter.component';
 export { TdJsonFormatterComponent } from './json-formatter.component';
 var CovalentJsonFormatterModule = CovalentJsonFormatterModule_1 = (function () {
@@ -24,7 +24,8 @@ CovalentJsonFormatterModule = CovalentJsonFormatterModule_1 = __decorate([
     NgModule({
         imports: [
             CommonModule,
-            MaterialModule.forRoot(),
+            MdTooltipModule.forRoot(),
+            MdIconModule.forRoot(),
         ],
         declarations: [
             TdJsonFormatterComponent,

@@ -2211,8 +2211,10 @@ exports.CovalentDataTableModule = CovalentDataTableModule_1 = (function () {
 exports.CovalentDataTableModule = CovalentDataTableModule_1 = __decorate$18([
     _angular_core.NgModule({
         imports: [
-            _angular_material.MaterialModule.forRoot(),
             _angular_common.CommonModule,
+            _angular_material.MdCheckboxModule.forRoot(),
+            _angular_material.MdTooltipModule.forRoot(),
+            _angular_material.MdIconModule.forRoot(),
         ],
         declarations: [
             TD_DATA_TABLE,
@@ -2543,15 +2545,14 @@ exports.CovalentDialogsModule = CovalentDialogsModule_1 = __decorate$26([
         imports: [
             _angular_forms.FormsModule,
             _angular_common.CommonModule,
-            _angular_material.MaterialModule.forRoot(),
+            _angular_material.MdDialogModule.forRoot(),
+            _angular_material.MdInputModule.forRoot(),
+            _angular_material.MdButtonModule.forRoot(),
         ],
         declarations: [
             TD_DIALOGS,
         ],
         exports: [
-            _angular_forms.FormsModule,
-            _angular_common.CommonModule,
-            _angular_material.MaterialModule,
             TD_DIALOGS,
         ],
         entryComponents: [
@@ -2812,14 +2813,14 @@ exports.CovalentExpansionPanelModule = CovalentExpansionPanelModule_1 = __decora
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
-            _angular_material.MaterialModule.forRoot(),
+            _angular_material.MdListModule.forRoot(),
+            _angular_material.MdIconModule.forRoot(),
+            _angular_material.PortalModule.forRoot(),
         ],
         declarations: [
             TD_EXPANSION_PANEL,
         ],
         exports: [
-            _angular_common.CommonModule,
-            _angular_material.MaterialModule,
             TD_EXPANSION_PANEL,
         ],
     })
@@ -3337,7 +3338,8 @@ exports.CovalentFileModule = CovalentFileModule_1 = __decorate$34([
             _angular_http.JsonpModule,
             _angular_forms.FormsModule,
             _angular_common.CommonModule,
-            _angular_material.MaterialModule.forRoot(),
+            _angular_material.MdIconModule.forRoot(),
+            _angular_material.MdButtonModule.forRoot(),
         ],
         declarations: [
             TD_FILE,
@@ -3614,7 +3616,8 @@ exports.CovalentJsonFormatterModule = CovalentJsonFormatterModule_1 = __decorate
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
-            _angular_material.MaterialModule.forRoot(),
+            _angular_material.MdTooltipModule.forRoot(),
+            _angular_material.MdIconModule.forRoot(),
         ],
         declarations: [
             exports.TdJsonFormatterComponent,
@@ -4250,14 +4253,17 @@ exports.CovalentLayoutModule = CovalentLayoutModule_1 = __decorate$41([
         imports: [
             _angular_common.CommonModule,
             _angular_router.RouterModule,
-            _angular_material.MaterialModule.forRoot(),
+            _angular_material.MdSidenavModule.forRoot(),
+            _angular_material.MdToolbarModule.forRoot(),
+            _angular_material.MdButtonModule.forRoot(),
+            _angular_material.MdIconModule.forRoot(),
+            _angular_material.MdCardModule.forRoot(),
+            _angular_material.MdListModule.forRoot(),
         ],
         declarations: [
             TD_LAYOUTS,
         ],
         exports: [
-            _angular_common.CommonModule,
-            _angular_material.MaterialModule,
             TD_LAYOUTS,
         ],
     })
@@ -5027,16 +5033,15 @@ exports.CovalentLoadingModule = CovalentLoadingModule_1 = __decorate$49([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
-            _angular_material.MaterialModule.forRoot(),
-            exports.CovalentCommonModule.forRoot(),
+            _angular_material.MdProgressBarModule.forRoot(),
+            _angular_material.MdProgressSpinnerModule.forRoot(),
+            _angular_material.OverlayModule.forRoot(),
+            _angular_material.PortalModule.forRoot(),
         ],
         declarations: [
             TD_LOADING,
         ],
         exports: [
-            _angular_common.CommonModule,
-            _angular_material.MaterialModule,
-            exports.CovalentCommonModule,
             TD_LOADING,
         ],
         entryComponents: [
@@ -5305,7 +5310,6 @@ exports.CovalentMediaModule = CovalentMediaModule_1 = __decorate$54([
             TD_MEDIA,
         ],
         exports: [
-            _angular_common.CommonModule,
             TD_MEDIA,
         ],
     })
@@ -5355,16 +5359,13 @@ exports.CovalentMenuModule = CovalentMenuModule_1 = __decorate$57([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
-            _angular_material.MaterialModule.forRoot(),
-            exports.CovalentCommonModule.forRoot(),
+            _angular_material.MdMenuModule.forRoot(),
+            _angular_material.MdListModule.forRoot(),
         ],
         declarations: [
             TD_MENU,
         ],
         exports: [
-            _angular_common.CommonModule,
-            _angular_material.MaterialModule,
-            exports.CovalentCommonModule,
             TD_MENU,
         ],
     })
@@ -5568,16 +5569,11 @@ exports.CovalentNotificationsModule = CovalentNotificationsModule_1 = __decorate
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
-            _angular_material.MaterialModule.forRoot(),
-            exports.CovalentCommonModule.forRoot(),
         ],
         declarations: [
             TD_NOTIFICATIONS,
         ],
         exports: [
-            _angular_common.CommonModule,
-            _angular_material.MaterialModule,
-            exports.CovalentCommonModule,
             TD_NOTIFICATIONS,
         ],
     })
@@ -5831,7 +5827,9 @@ exports.CovalentPagingModule = CovalentPagingModule_1 = __decorate$61([
         imports: [
             _angular_forms.FormsModule,
             _angular_common.CommonModule,
-            _angular_material.MaterialModule.forRoot(),
+            _angular_material.MdIconModule.forRoot(),
+            _angular_material.MdSelectModule.forRoot(),
+            _angular_material.MdButtonModule.forRoot(),
         ],
         declarations: [
             exports.TdPagingBarComponent,
@@ -6141,7 +6139,9 @@ exports.CovalentSearchModule = CovalentSearchModule_1 = __decorate$63([
         imports: [
             _angular_forms.FormsModule,
             _angular_common.CommonModule,
-            _angular_material.MaterialModule.forRoot(),
+            _angular_material.MdInputModule.forRoot(),
+            _angular_material.MdIconModule.forRoot(),
+            _angular_material.MdButtonModule.forRoot(),
         ],
         declarations: [
             exports.TdSearchInputComponent,
@@ -6711,16 +6711,16 @@ exports.CovalentStepsModule = CovalentStepsModule_1 = __decorate$66([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
-            _angular_material.MaterialModule.forRoot(),
+            _angular_material.MdIconModule.forRoot(),
+            _angular_material.MdListModule.forRoot(),
+            _angular_material.MdRippleModule.forRoot(),
+            _angular_material.PortalModule.forRoot(),
             exports.CovalentCommonModule.forRoot(),
         ],
         declarations: [
             TD_STEPS,
         ],
         exports: [
-            _angular_common.CommonModule,
-            _angular_material.MaterialModule,
-            exports.CovalentCommonModule,
             TD_STEPS,
         ],
     })
