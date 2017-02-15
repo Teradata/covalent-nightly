@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 /**
  * COMMON
  */
@@ -103,6 +104,7 @@ CovalentCoreModule = CovalentCoreModule_1 = __decorate([
             FormsModule,
             CommonModule,
             MaterialModule.forRoot(),
+            FlexLayoutModule,
             CovalentCommonModule.forRoot(),
             CovalentChipsModule.forRoot(),
             CovalentDataTableModule.forRoot(),
@@ -125,6 +127,7 @@ CovalentCoreModule = CovalentCoreModule_1 = __decorate([
             FormsModule,
             CommonModule,
             MaterialModule,
+            FlexLayoutModule,
             CovalentCommonModule,
             CovalentChipsModule,
             CovalentDataTableModule,

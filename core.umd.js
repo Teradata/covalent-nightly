@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/http'), require('@angular/forms'), require('@angular/material'), require('@angular/router'), require('rxjs/Observable'), require('rxjs/Subject'), require('@angular/platform-browser'), require('rxjs/add/operator/debounceTime')) :
-    typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/http', '@angular/forms', '@angular/material', '@angular/router', 'rxjs/Observable', 'rxjs/Subject', '@angular/platform-browser', 'rxjs/add/operator/debounceTime'], factory) :
-    (factory((global.td = global.td || {}, global.td.core = global.td.core || {}),global.ng.core,global.ng.common,global.ng.http,global.ng.forms,global.ng.material,global.ng.router,global.Rx,global.Rx,global.ng.platformBrowser,global.Rx.Observable.prototype));
-}(this, (function (exports,_angular_core,_angular_common,_angular_http,_angular_forms,_angular_material,_angular_router,rxjs_Observable,rxjs_Subject,_angular_platformBrowser,rxjs_add_operator_debounceTime) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/http'), require('@angular/forms'), require('@angular/material'), require('@angular/flex-layout'), require('@angular/router'), require('rxjs/Observable'), require('rxjs/Subject'), require('@angular/platform-browser'), require('rxjs/add/operator/debounceTime')) :
+    typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/http', '@angular/forms', '@angular/material', '@angular/flex-layout', '@angular/router', 'rxjs/Observable', 'rxjs/Subject', '@angular/platform-browser', 'rxjs/add/operator/debounceTime'], factory) :
+    (factory((global.td = global.td || {}, global.td.core = global.td.core || {}),global.ng.core,global.ng.common,global.ng.http,global.ng.forms,global.ng.material,global._angular_flexLayout,global.ng.router,global.Rx,global.Rx,global.ng.platformBrowser,global.Rx.Observable.prototype));
+}(this, (function (exports,_angular_core,_angular_common,_angular_http,_angular_forms,_angular_material,_angular_flexLayout,_angular_router,rxjs_Observable,rxjs_Subject,_angular_platformBrowser,rxjs_add_operator_debounceTime) { 'use strict';
 
 var __decorate$2 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5801,7 +5801,7 @@ exports.TdPagingBarComponent = __decorate$62([
     _angular_core.Component({
         selector: 'td-paging-bar',
         template: "<div layout=\"row\" layout-align=\"end center\" class=\"md-caption td-paging-bar\"> <span class=\"td-paging-bar-per-page\"> Rows per page: </span> <md-select [(ngModel)]=\"pageSize\"> <template let-size ngFor [ngForOf]=\"pageSizes\"> <md-option [value]=\"size\"> {{size}} </md-option> </template> <md-option *ngIf=\"pageSizeAll\" [value]=\"total\">All</md-option> </md-select> <span class=\"td-paging-bar-ranges\"> {{range}} <span>of</span> {{total}} </span> <div class=\"td-paging-bar-navigation\"> <button md-icon-button type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMinPage()\" (click)=\"firstPage()\"> <md-icon>skip_previous</md-icon> </button> <button md-icon-button type=\"button\" [disabled]=\"isMinPage()\" (click)=\"prevPage()\"> <md-icon>navigate_before</md-icon> </button> <button md-icon-button type=\"button\" [disabled]=\"isMaxPage()\" (click)=\"nextPage()\"> <md-icon>navigate_next</md-icon> </button> <button md-icon-button type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMaxPage()\" (click)=\"lastPage()\"> <md-icon>skip_next</md-icon> </button> </div> </div>",
-        styles: [":host { display: block; } .td-paging-bar { height: 48px; } [layout=\"row\"] > * { margin: 0 10px; } [md-icon-button] { font-size: 12px; font-weight: normal; } md-select /deep/ .md-select-trigger { min-width: 44px; border-bottom: 0 !important; } md-select /deep/ .md-select-value { top: auto; position: static; } .td-paging-size { margin-right: -5px; } "],
+        styles: [":host { display: block; } .td-paging-bar { height: 48px; } .td-paging-bar > * { margin: 0 10px; } [md-icon-button] { font-size: 12px; font-weight: normal; } md-select /deep/ .md-select-trigger { min-width: 44px; border-bottom: 0 !important; } md-select /deep/ .md-select-value { top: auto; position: static; } .td-paging-size { margin-right: -5px; } "],
     })
 ], exports.TdPagingBarComponent);
 
@@ -6797,6 +6797,7 @@ exports.CovalentCoreModule = CovalentCoreModule_1 = __decorate([
             _angular_forms.FormsModule,
             _angular_common.CommonModule,
             _angular_material.MaterialModule.forRoot(),
+            _angular_flexLayout.FlexLayoutModule,
             exports.CovalentCommonModule.forRoot(),
             exports.CovalentChipsModule.forRoot(),
             exports.CovalentDataTableModule.forRoot(),
@@ -6819,6 +6820,7 @@ exports.CovalentCoreModule = CovalentCoreModule_1 = __decorate([
             _angular_forms.FormsModule,
             _angular_common.CommonModule,
             _angular_material.MaterialModule,
+            _angular_flexLayout.FlexLayoutModule,
             exports.CovalentCommonModule,
             exports.CovalentChipsModule,
             exports.CovalentDataTableModule,
