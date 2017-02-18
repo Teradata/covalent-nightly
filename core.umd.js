@@ -1,7 +1,7 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/http'), require('@angular/forms'), require('@angular/material'), require('@angular/flex-layout'), require('@angular/router'), require('rxjs/Observable'), require('rxjs/Subject'), require('@angular/platform-browser'), require('rxjs/add/operator/debounceTime')) :
     typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/http', '@angular/forms', '@angular/material', '@angular/flex-layout', '@angular/router', 'rxjs/Observable', 'rxjs/Subject', '@angular/platform-browser', 'rxjs/add/operator/debounceTime'], factory) :
-    (factory((global.td = global.td || {}, global.td.core = global.td.core || {}),global.ng.core,global.ng.common,global.ng.http,global.ng.forms,global.ng.material,global._angular_flexLayout,global.ng.router,global.Rx,global.Rx,global.ng.platformBrowser,global.Rx.Observable.prototype));
+    (factory((global.td = global.td || {}, global.td.core = global.td.core || {}),global.ng.core,global.ng.common,global.ng.http,global.ng.forms,global.ng.material,global.ng.flexLayout,global.ng.router,global.Rx,global.Rx,global.ng.platformBrowser,global.Rx.Observable.prototype));
 }(this, (function (exports,_angular_core,_angular_common,_angular_http,_angular_forms,_angular_material,_angular_flexLayout,_angular_router,rxjs_Observable,rxjs_Subject,_angular_platformBrowser,rxjs_add_operator_debounceTime) { 'use strict';
 
 var __decorate$2 = (window && window.__decorate) || function (decorators, target, key, desc) {
