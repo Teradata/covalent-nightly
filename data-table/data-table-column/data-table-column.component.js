@@ -91,7 +91,7 @@ var TdDataTableColumnComponent = (function () {
         configurable: true
     });
     TdDataTableColumnComponent.prototype.handleSortBy = function () {
-        this.onSortChange.emit({ name: name, order: this._sortOrder });
+        this.onSortChange.emit({ name: this.name, order: this._sortOrder });
     };
     TdDataTableColumnComponent.prototype.isAscending = function () {
         return this._sortOrder === TdDataTableSortingOrder.Ascending;
