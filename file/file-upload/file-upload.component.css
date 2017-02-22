@@ -1,0 +1,20 @@
+:host {
+  /**
+  * Class that is added ondragenter by the [TdFileDrop] directive.
+  */ }
+  :host .td-file-upload {
+    padding-left: 8px;
+    padding-right: 8px; }
+  :host .td-file-upload-cancel {
+    height: 24px;
+    width: 24px;
+    position: relative;
+    top: 24px;
+    left: -12px; }
+    :host .td-file-upload-cancel md-icon {
+      border-radius: 12px;
+      vertical-align: baseline; }
+  :host .drop-zone {
+    border-radius: 3px; }
+    :host .drop-zone * {
+      pointer-events: none; }

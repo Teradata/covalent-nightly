@@ -1,0 +1,13 @@
+:host {
+  /**
+  * Class that is added ondragenter by the [TdFileDrop] directive.
+  */ }
+  :host .td-file-input {
+    padding-left: 8px;
+    padding-right: 8px; }
+  :host input.td-file-input-hidden {
+    display: none; }
+  :host .drop-zone {
+    border-radius: 3px; }
+    :host .drop-zone * {
+      pointer-events: none; }

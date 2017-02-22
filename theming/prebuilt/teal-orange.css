@@ -637,13 +637,14 @@ td-chips .md-input-underline {
     td-chips .md-input-underline .md-input-ripple.md-warn {
       background-color: #e53935; }
 
-td-file-upload {
+td-file-upload .td-file-upload-cancel md-icon {
+  background-color: #fafafa; }
+
+td-file-input {
   /**
     * Class that is added ondragenter by the [TdFileDrop] directive.
     */ }
-  td-file-upload .td-file-cancel md-icon {
-    background-color: #fafafa; }
-  td-file-upload .drop-zone {
+  td-file-input .drop-zone {
     transition: background 400ms cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12); }
 

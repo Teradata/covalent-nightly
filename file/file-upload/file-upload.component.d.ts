@@ -1,8 +1,11 @@
-import { EventEmitter } from '@angular/core';
+import { EventEmitter, ChangeDetectorRef } from '@angular/core';
+import { TdFileInputLabelDirective } from '../file-input/file-input.component';
 export declare class TdFileUploadComponent {
+    private _changeDetectorRef;
     private _multiple;
     private _disabled;
     files: FileList | File;
+    inputLabel: TdFileInputLabelDirective;
     /**
      * defaultColor?: string
      * Sets browse button color. Uses same color palette accepted as [mdButton] and defaults to 'primary'.
@@ -35,15 +38,26 @@ export declare class TdFileUploadComponent {
      */
     disabled: boolean;
     /**
+     * select?: function
+     * Event emitted when a file is selecte.
+     * Emits a [File | FileList] object.
+     */
+    onSelect: EventEmitter<File | FileList>;
+    /**
      * upload?: function
      * Event emitted when upload button is clicked.
      * Emits a [File | FileList] object.
      */
     onUpload: EventEmitter<File | FileList>;
+    constructor(_changeDetectorRef: ChangeDetectorRef);
     /**
      * Method executed when upload button is clicked.
      */
     uploadPressed(): void;
+    /**
+     * Method executed when a file is selected.
+     */
+    handleSelect(files: File | FileList): void;
     /**
      * Methods executed when cancel button is clicked.
      * Clears files.
