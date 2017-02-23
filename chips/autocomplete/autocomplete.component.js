@@ -162,7 +162,7 @@ TdAutoCompleteComponent = __decorate([
         providers: [TD_AUTOCOMPLETE_CONTROL_VALUE_ACCESSOR],
         selector: 'td-autocomplete',
         styles: [":host { display: block; } "],
-        template: "<div flex> <md-input flex=\"100\"  [(ngModel)]=\"value\" [placeholder]=\"placeholder\" [autofocus]=\"autoFocus\" [list]=\"listName\" [max]=\"max\" [maxlength]=\"maxLength\" [min]=\"min\" [minlength]=\"minLength\" [readonly]=\"readOnly\" [disabled]=\"disabled\" [required]=\"required\" [name]=\"name\" (keyup.enter)=\"handleItemSelect()\" (focus)=\"handleFocus()\" (blur)=\"handleBlur()\"> </md-input> <datalist [id]=\"listName\"> <template let-item ngFor [ngForOf]=\"searchItems\"> <option [value]=\"item\"></option> </template> </datalist> </div> ",
+        template: "<div flex> <md-input-container> <input mdInput flex=\"100\"  [(ngModel)]=\"value\" [placeholder]=\"placeholder\" [autofocus]=\"autoFocus\" [attr.list]=\"listName\" [max]=\"max\" [maxlength]=\"maxLength\" [min]=\"min\" [minlength]=\"minLength\" [readonly]=\"readOnly\" [disabled]=\"disabled\" [required]=\"required\" [name]=\"name\" (keyup.enter)=\"handleItemSelect()\" (focus)=\"handleFocus()\" (blur)=\"handleBlur()\"> </md-input-container> <datalist [id]=\"listName\"> <template let-item ngFor [ngForOf]=\"searchItems\"> <option [value]=\"item\"></option> </template> </datalist> </div> ",
     })
 ], TdAutoCompleteComponent);
 export { TdAutoCompleteComponent };

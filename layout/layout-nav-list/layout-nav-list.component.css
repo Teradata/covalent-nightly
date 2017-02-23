@@ -5,7 +5,7 @@
   min-height: 100%;
   height: 100%;
   overflow: hidden; }
-  :host md-sidenav-container.td-layout-nav-list > md-sidenav.md-sidenav-opened, :host md-sidenav-container.td-layout-nav-list > md-sidenav.md-sidenav-opening, :host md-sidenav-container.td-layout-nav-list > md-sidenav.md-sidenav-closed, :host md-sidenav-container.td-layout-nav-list > md-sidenav.md-sidenav-closing {
+  :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-opened, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-opening, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-closed, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-closing {
     box-shadow: none; }
   :host .td-menu-button {
     margin-left: 0px; }
@@ -14,7 +14,7 @@
 
 :host /deep/ md-sidenav-container.td-layout-nav-list {
   /* Ensure the left sidenav is a flex column & 100% height */ }
-  :host /deep/ md-sidenav-container.td-layout-nav-list > .md-sidenav-content {
+  :host /deep/ md-sidenav-container.td-layout-nav-list > .mat-sidenav-content {
     flex-grow: 1; }
   :host /deep/ md-sidenav-container.td-layout-nav-list > md-sidenav > cdk-focus-trap, :host /deep/ md-sidenav-container.td-layout-nav-list > md-sidenav > cdk-focus-trap > div {
     box-sizing: border-box;

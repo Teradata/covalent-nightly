@@ -9,9 +9,9 @@
     padding-right: 24px; }
   :host > * {
     vertical-align: middle; }
-  :host.md-clickable {
+  :host.mat-clickable {
     cursor: pointer; }
-    :host.md-clickable:focus {
+    :host.mat-clickable:focus {
       outline: none; }
-  :host.md-numeric {
+  :host.mat-numeric {
     text-align: right; }

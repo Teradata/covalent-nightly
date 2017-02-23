@@ -32,6 +32,11 @@ export declare class TdLayoutManageListComponent {
      */
     sidenavWidth: string;
     /**
+     * Checks if `ESC` should close the sidenav
+     * Should only close it for `push` and `over` modes
+     */
+    readonly disableClose: boolean;
+    /**
      * Proxy toggle method to access sidenav from outside (from td-layout template).
      */
     toggle(): Promise<MdSidenavToggleResult>;

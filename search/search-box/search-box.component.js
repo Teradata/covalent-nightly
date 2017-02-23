@@ -129,7 +129,7 @@ TdSearchBoxComponent = __decorate([
     Component({
         selector: 'td-search-box',
         template: "<div class=\"td-search-box\" layout=\"row\" layout-align=\"end center\"> <button md-icon-button type=\"button\" class=\"td-search-icon\" flex=\"none\" (click)=\"searchClicked()\"> <md-icon *ngIf=\"searchVisible && !alwaysVisible\">{{backIcon}}</md-icon> <md-icon *ngIf=\"!searchVisible || alwaysVisible\">search</md-icon> </button> <td-search-input #searchInput [@inputState]=\"alwaysVisible || searchVisible\" [debounce]=\"debounce\" [showUnderline]=\"showUnderline\" [placeholder]=\"placeholder\" (searchDebounce)=\"handleSearchDebounce($event)\" (search)=\"handleSearch($event)\" (clear)=\"handleClear(); toggleVisibility()\"> </td-search-input> </div>",
-        styles: [":host { display: block; } .td-search-box { height: 64px; } .td-search-box td-search-input { margin-left: 12px; } .td-search-box td-search-input /deep/ .md-input-placeholder.md-focused { visibility: hidden; } "],
+        styles: [":host { display: block; } .td-search-box { height: 64px; } .td-search-box td-search-input { margin-left: 12px; } .td-search-box td-search-input /deep/ .mat-input-placeholder.mat-focused { visibility: hidden; } "],
         animations: [
             trigger('inputState', [
                 state('false', style({

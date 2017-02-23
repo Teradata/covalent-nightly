@@ -18,24 +18,24 @@
     :host md-icon.td-data-table-sort-icon {
       opacity: 0;
       transition: transform 0.25s, opacity 0.25s; }
-      :host md-icon.td-data-table-sort-icon.md-asc {
+      :host md-icon.td-data-table-sort-icon.mat-asc {
         transform: rotate(0deg); }
-      :host md-icon.td-data-table-sort-icon.md-desc {
+      :host md-icon.td-data-table-sort-icon.mat-desc {
         transform: rotate(180deg); }
-  :host:hover.md-sortable md-icon.td-data-table-sort-icon,
-  :host.md-active.md-sortable md-icon.td-data-table-sort-icon {
+  :host:hover.mat-sortable md-icon.td-data-table-sort-icon,
+  :host.mat-active.mat-sortable md-icon.td-data-table-sort-icon {
     opacity: 1; }
   :host > * {
     vertical-align: middle; }
-  :host.md-clickable {
+  :host.mat-clickable {
     cursor: pointer; }
-    :host.md-clickable:focus {
+    :host.mat-clickable:focus {
       outline: none; }
   :host md-icon.td-data-table-sort-icon {
     position: absolute; }
-  :host.md-numeric {
+  :host.mat-numeric {
     text-align: right; }
-    :host.md-numeric md-icon.td-data-table-sort-icon {
+    :host.mat-numeric md-icon.td-data-table-sort-icon {
       margin-left: -22px; }
-  :host:not(.md-numeric) md-icon.td-data-table-sort-icon {
+  :host:not(.mat-numeric) md-icon.td-data-table-sort-icon {
     margin-left: 6px; }

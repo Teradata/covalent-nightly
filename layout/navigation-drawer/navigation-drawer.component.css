@@ -5,5 +5,5 @@
     :host md-toolbar.td-toolbar-background {
       background-repeat: no-repeat;
       background-size: cover; }
-    :host md-toolbar /deep/ > .md-toolbar-layout > md-toolbar-row {
+    :host md-toolbar /deep/ > .mat-toolbar-layout > md-toolbar-row {
       height: auto !important; }

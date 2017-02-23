@@ -127,22 +127,22 @@ __decorate([
     __metadata("design:type", EventEmitter)
 ], TdDataTableColumnComponent.prototype, "onSortChange", void 0);
 __decorate([
-    HostBinding('class.md-clickable'),
+    HostBinding('class.mat-clickable'),
     __metadata("design:type", Boolean),
     __metadata("design:paramtypes", [])
 ], TdDataTableColumnComponent.prototype, "bindClickable", null);
 __decorate([
-    HostBinding('class.md-sortable'),
+    HostBinding('class.mat-sortable'),
     __metadata("design:type", Boolean),
     __metadata("design:paramtypes", [])
 ], TdDataTableColumnComponent.prototype, "bingSortable", null);
 __decorate([
-    HostBinding('class.md-active'),
+    HostBinding('class.mat-active'),
     __metadata("design:type", Boolean),
     __metadata("design:paramtypes", [])
 ], TdDataTableColumnComponent.prototype, "bindActive", null);
 __decorate([
-    HostBinding('class.md-numeric'),
+    HostBinding('class.mat-numeric'),
     __metadata("design:type", Boolean),
     __metadata("design:paramtypes", [])
 ], TdDataTableColumnComponent.prototype, "bindNumeric", null);
@@ -150,8 +150,8 @@ TdDataTableColumnComponent = __decorate([
     Component({
         /* tslint:disable-next-line */
         selector: 'th[td-data-table-column]',
-        styles: [":host { font-size: 12px; font-weight: bold; white-space: nowrap; padding: 0 28px 0 28px; position: relative; vertical-align: middle; text-align: left; } :host:first-child { padding-left: 24px; } :host:last-child { padding-right: 24px; } :host md-icon { height: 16px; width: 16px; font-size: 16px !important; line-height: 16px !important; } :host md-icon.td-data-table-sort-icon { opacity: 0; transition: transform 0.25s, opacity 0.25s; } :host md-icon.td-data-table-sort-icon.md-asc { transform: rotate(0deg); } :host md-icon.td-data-table-sort-icon.md-desc { transform: rotate(180deg); } :host:hover.md-sortable md-icon.td-data-table-sort-icon, :host.md-active.md-sortable md-icon.td-data-table-sort-icon { opacity: 1; } :host > * { vertical-align: middle; } :host.md-clickable { cursor: pointer; } :host.md-clickable:focus { outline: none; } :host md-icon.td-data-table-sort-icon { position: absolute; } :host.md-numeric { text-align: right; } :host.md-numeric md-icon.td-data-table-sort-icon { margin-left: -22px; } :host:not(.md-numeric) md-icon.td-data-table-sort-icon { margin-left: 6px; } "],
-        template: "<md-icon  class=\"td-data-table-sort-icon\"  *ngIf=\"sortable && numeric\" [class.md-asc]=\"(!(active) || isAscending())\" [class.md-desc]=\"(active && isDescending())\" (click)=\"sortable && handleSortBy()\"> arrow_upward </md-icon> <span class=\"md-caption\" (click)=\"sortable && handleSortBy()\"> <ng-content></ng-content> </span> <md-icon  class=\"td-data-table-sort-icon\"  *ngIf=\"sortable && !numeric\" [class.md-asc]=\"(!(active) || isAscending())\" [class.md-desc]=\"(active && isDescending())\" (click)=\"sortable && handleSortBy()\"> arrow_upward </md-icon>",
+        styles: [":host { font-size: 12px; font-weight: bold; white-space: nowrap; padding: 0 28px 0 28px; position: relative; vertical-align: middle; text-align: left; } :host:first-child { padding-left: 24px; } :host:last-child { padding-right: 24px; } :host md-icon { height: 16px; width: 16px; font-size: 16px !important; line-height: 16px !important; } :host md-icon.td-data-table-sort-icon { opacity: 0; transition: transform 0.25s, opacity 0.25s; } :host md-icon.td-data-table-sort-icon.mat-asc { transform: rotate(0deg); } :host md-icon.td-data-table-sort-icon.mat-desc { transform: rotate(180deg); } :host:hover.mat-sortable md-icon.td-data-table-sort-icon, :host.mat-active.mat-sortable md-icon.td-data-table-sort-icon { opacity: 1; } :host > * { vertical-align: middle; } :host.mat-clickable { cursor: pointer; } :host.mat-clickable:focus { outline: none; } :host md-icon.td-data-table-sort-icon { position: absolute; } :host.mat-numeric { text-align: right; } :host.mat-numeric md-icon.td-data-table-sort-icon { margin-left: -22px; } :host:not(.mat-numeric) md-icon.td-data-table-sort-icon { margin-left: 6px; } "],
+        template: "<md-icon  class=\"td-data-table-sort-icon\"  *ngIf=\"sortable && numeric\" [class.mat-asc]=\"(!(active) || isAscending())\" [class.mat-desc]=\"(active && isDescending())\" (click)=\"sortable && handleSortBy()\"> arrow_upward </md-icon> <span class=\"md-caption\" (click)=\"sortable && handleSortBy()\"> <ng-content></ng-content> </span> <md-icon  class=\"td-data-table-sort-icon\"  *ngIf=\"sortable && !numeric\" [class.mat-asc]=\"(!(active) || isAscending())\" [class.mat-desc]=\"(active && isDescending())\" (click)=\"sortable && handleSortBy()\"> arrow_upward </md-icon>",
     }),
     __metadata("design:paramtypes", [ElementRef, Renderer])
 ], TdDataTableColumnComponent);

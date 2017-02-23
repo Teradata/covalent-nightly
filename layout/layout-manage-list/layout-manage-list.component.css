@@ -5,7 +5,7 @@
   min-height: 100%;
   height: 100%;
   overflow: hidden; }
-  :host md-sidenav-container.td-layout-manage-list > md-sidenav.md-sidenav-opened, :host md-sidenav-container.td-layout-manage-list > md-sidenav.md-sidenav-opening, :host md-sidenav-container.td-layout-manage-list > md-sidenav.md-sidenav-closed, :host md-sidenav-container.td-layout-manage-list > md-sidenav.md-sidenav-closing {
+  :host md-sidenav-container.td-layout-manage-list > md-sidenav.mat-sidenav-opened, :host md-sidenav-container.td-layout-manage-list > md-sidenav.mat-sidenav-opening, :host md-sidenav-container.td-layout-manage-list > md-sidenav.mat-sidenav-closed, :host md-sidenav-container.td-layout-manage-list > md-sidenav.mat-sidenav-closing {
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2); }
   :host .td-menu-button {
     margin-left: 0px; }
@@ -14,7 +14,7 @@
 
 :host /deep/ md-sidenav-container.td-layout-manage-list {
   /* Ensure the left sidenav is a flex column & 100% height */ }
-  :host /deep/ md-sidenav-container.td-layout-manage-list > .md-sidenav-content {
+  :host /deep/ md-sidenav-container.td-layout-manage-list > .mat-sidenav-content {
     flex-grow: 1; }
   :host /deep/ md-sidenav-container.td-layout-manage-list > md-sidenav > cdk-focus-trap, :host /deep/ md-sidenav-container.td-layout-manage-list > md-sidenav > cdk-focus-trap > div {
     box-sizing: border-box;
@@ -25,5 +25,5 @@
     display: flex;
     flex-direction: column; }
 
-:host /deep/ md-nav-list a[md-list-item] .md-list-item {
+:host /deep/ md-nav-list a[md-list-item] .mat-list-item-content {
   font-size: 14px; }

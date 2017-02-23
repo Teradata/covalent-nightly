@@ -68,6 +68,11 @@ export declare class TdLayoutNavListComponent {
      * Checks if there is a [TdLayoutComponent] as parent.
      */
     readonly isMainSidenavAvailable: boolean;
+    /**
+     * Checks if `ESC` should close the sidenav
+     * Should only close it for `push` and `over` modes
+     */
+    readonly disableClose: boolean;
     constructor(_layout: TdLayoutComponent);
     /**
      * Proxy toggle method to access sidenav from outside (from td-layout template).

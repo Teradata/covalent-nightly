@@ -41,10 +41,6 @@ export declare class TdJsonFormatterComponent {
      */
     refresh(): void;
     /**
-     * Workaround for https://github.com/angular/material2/issues/1825
-     */
-    tooltipRefresh(): void;
-    /**
      * Toggles collapse/expanded state of component.
      */
     toggle(): void;

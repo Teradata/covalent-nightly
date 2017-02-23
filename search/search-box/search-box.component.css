@@ -5,5 +5,5 @@
   height: 64px; }
   .td-search-box td-search-input {
     margin-left: 12px; }
-    .td-search-box td-search-input /deep/ .md-input-placeholder.md-focused {
+    .td-search-box td-search-input /deep/ .mat-input-placeholder.mat-focused {
       visibility: hidden; }

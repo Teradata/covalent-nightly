@@ -130,10 +130,6 @@ export declare class TdDataTableComponent implements ControlValueAccessor, After
      */
     refresh(): void;
     /**
-     * Workaround for https://github.com/angular/material2/issues/1825
-     */
-    tooltipRefresh(): void;
-    /**
      * Checks if all visible rows are selected.
      */
     areAllSelected(): boolean;
