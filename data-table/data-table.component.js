@@ -72,6 +72,7 @@ var TdDataTableComponent = (function () {
             if (v !== this._value) {
                 this._value = v;
                 this._onChangeCallback(v);
+                this.refresh();
             }
         },
         enumerable: true,
