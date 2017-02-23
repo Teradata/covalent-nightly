@@ -23,10 +23,20 @@ var TdPagingBarComponent = (function () {
          */
         this.pageSizeAll = false;
         /**
+         * pageSizeAllText?: string
+         * Text for the 'all' menu item in the page size menu. Defaults to 'All'
+         */
+        this.pageSizeAllText = 'All';
+        /**
          * firstLast?: boolean
          * Shows or hides the first and last page buttons of the paging bar. Defaults to 'false'
          */
         this.firstLast = true;
+        /**
+         * initialPage?: number
+         * Sets starting page for the paging bar. Defaults to '1'
+         */
+        this.initialPage = 1;
         /**
          * change?: function
          * Method to be executed when page size changes or any button is clicked in the paging bar.
@@ -121,6 +131,7 @@ var TdPagingBarComponent = (function () {
         configurable: true
     });
     TdPagingBarComponent.prototype.ngOnInit = function () {
+        this._page = this.initialPage;
         this._calculateRows();
         this._initialized = true;
     };
@@ -194,9 +205,17 @@ __decorate([
     __metadata("design:type", Boolean)
 ], TdPagingBarComponent.prototype, "pageSizeAll", void 0);
 __decorate([
+    Input('pageSizeAllText'),
+    __metadata("design:type", String)
+], TdPagingBarComponent.prototype, "pageSizeAllText", void 0);
+__decorate([
     Input('firstLast'),
     __metadata("design:type", Boolean)
 ], TdPagingBarComponent.prototype, "firstLast", void 0);
+__decorate([
+    Input('initialPage'),
+    __metadata("design:type", Number)
+], TdPagingBarComponent.prototype, "initialPage", void 0);
 __decorate([
     Input('pageSizes'),
     __metadata("design:type", Array),
@@ -219,7 +238,7 @@ __decorate([
 TdPagingBarComponent = __decorate([
     Component({
         selector: 'td-paging-bar',
-        template: "<div layout=\"row\" layout-align=\"end center\" class=\"md-caption td-paging-bar\"> <span class=\"td-paging-bar-per-page\"> Rows per page: </span> <md-select [(ngModel)]=\"pageSize\"> <template let-size ngFor [ngForOf]=\"pageSizes\"> <md-option [value]=\"size\"> {{size}} </md-option> </template> <md-option *ngIf=\"pageSizeAll\" [value]=\"total\">All</md-option> </md-select> <span class=\"td-paging-bar-ranges\"> {{range}} <span>of</span> {{total}} </span> <div class=\"td-paging-bar-navigation\"> <button md-icon-button type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMinPage()\" (click)=\"firstPage()\"> <md-icon>skip_previous</md-icon> </button> <button md-icon-button type=\"button\" [disabled]=\"isMinPage()\" (click)=\"prevPage()\"> <md-icon>navigate_before</md-icon> </button> <button md-icon-button type=\"button\" [disabled]=\"isMaxPage()\" (click)=\"nextPage()\"> <md-icon>navigate_next</md-icon> </button> <button md-icon-button type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMaxPage()\" (click)=\"lastPage()\"> <md-icon>skip_next</md-icon> </button> </div> </div>",
+        template: "<div layout=\"row\" layout-align=\"end center\" class=\"md-caption td-paging-bar\"> <ng-content select=\"[td-paging-bar-label]\"></ng-content> <md-select [(ngModel)]=\"pageSize\"> <template let-size ngFor [ngForOf]=\"pageSizes\"> <md-option [value]=\"size\"> {{size}} </md-option> </template> <md-option *ngIf=\"pageSizeAll\" [value]=\"total\">{{pageSizeAllText}}</md-option> </md-select> <div> <ng-content></ng-content> </div> <div class=\"td-paging-bar-navigation\"> <button md-icon-button type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMinPage()\" (click)=\"firstPage()\"> <md-icon>skip_previous</md-icon> </button> <button md-icon-button type=\"button\" [disabled]=\"isMinPage()\" (click)=\"prevPage()\"> <md-icon>navigate_before</md-icon> </button> <button md-icon-button type=\"button\" [disabled]=\"isMaxPage()\" (click)=\"nextPage()\"> <md-icon>navigate_next</md-icon> </button> <button md-icon-button type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMaxPage()\" (click)=\"lastPage()\"> <md-icon>skip_next</md-icon> </button> </div> </div>",
         styles: [":host { display: block; } .td-paging-bar { height: 48px; } .td-paging-bar > * { margin: 0 10px; } [md-icon-button] { font-size: 12px; font-weight: normal; } md-select /deep/ .mat-select-trigger { min-width: 44px; font-size: 12px; } md-select /deep/ .mat-select-value { top: auto; position: static; } md-select /deep/ .mat-select-underline { display: none; } .td-paging-size { margin-right: -5px; } "],
     })
 ], TdPagingBarComponent);

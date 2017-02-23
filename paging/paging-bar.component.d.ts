@@ -21,10 +21,20 @@ export declare class TdPagingBarComponent implements OnInit {
      */
     pageSizeAll: boolean;
     /**
+     * pageSizeAllText?: string
+     * Text for the 'all' menu item in the page size menu. Defaults to 'All'
+     */
+    pageSizeAllText: string;
+    /**
      * firstLast?: boolean
      * Shows or hides the first and last page buttons of the paging bar. Defaults to 'false'
      */
     firstLast: boolean;
+    /**
+     * initialPage?: number
+     * Sets starting page for the paging bar. Defaults to '1'
+     */
+    initialPage: number;
     /**
      * pageSizes?: number[]
      * Array that populates page size menu. Defaults to [50, 100, 200, 500, 1000]
