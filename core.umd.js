@@ -5394,7 +5394,9 @@ exports.TdMediaToggleDirective = (function () {
         });
     };
     TdMediaToggleDirective.prototype.ngOnDestroy = function () {
-        this._subscription.unsubscribe();
+        if (this._subscription) {
+            this._subscription.unsubscribe();
+        }
     };
     TdMediaToggleDirective.prototype._mediaChange = function (matches) {
         this._matches = matches;
