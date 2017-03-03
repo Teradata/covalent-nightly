@@ -4921,16 +4921,6 @@ exports.TdLoadingService = (function () {
         this._context[fullscreenConfig.name] = this._loadingFactory.createFullScreenComponent(fullscreenConfig);
     };
     /**
-     * @deprecated in 1.0.0-beta.1
-     *
-     * Please use the `create()` method.
-     */
-    TdLoadingService.prototype.createOverlayComponent = function (config, viewContainerRef) {
-        /* tslint:disable-next-line */
-        console.warn("createOverlayComponent() is deprecated.  Please use create() instead");
-        this.create(config);
-    };
-    /**
      * params:
      * - name: string
      *
@@ -5055,20 +5045,6 @@ var TdLoadingDirective = (function () {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(TdLoadingDirective.prototype, "typeDeprecated", {
-        /**
-         * @deprecated in 1.0.0-beta.1
-         *
-         * Please use the `tdLoadingType` method.
-         */
-        set: function (type) {
-            /* tslint:disable-next-line */
-            console.warn("loadingType is deprecated.  Please use tdLoadingType instead");
-            this.type = type;
-        },
-        enumerable: true,
-        configurable: true
-    });
     Object.defineProperty(TdLoadingDirective.prototype, "type", {
         /**
          * tdLoadingType?: LoadingType or ['linear' | 'circular']
@@ -5084,20 +5060,6 @@ var TdLoadingDirective = (function () {
                     this._type = exports.LoadingType.Circular;
                     break;
             }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(TdLoadingDirective.prototype, "modeDeprecated", {
-        /**
-         * @deprecated in 1.0.0-beta.1
-         *
-         * Please use the `tdLoadingMode` method.
-         */
-        set: function (mode) {
-            /* tslint:disable-next-line */
-            console.warn("loadingMode is deprecated.  Please use tdLoadingMode instead");
-            this.mode = mode;
         },
         enumerable: true,
         configurable: true
@@ -5182,20 +5144,10 @@ __decorate$54([
     __metadata$36("design:paramtypes", [String])
 ], TdLoadingDirective.prototype, "name", null);
 __decorate$54([
-    _angular_core.Input('loadingType'),
-    __metadata$36("design:type", Number),
-    __metadata$36("design:paramtypes", [Number])
-], TdLoadingDirective.prototype, "typeDeprecated", null);
-__decorate$54([
     _angular_core.Input('tdLoadingType'),
     __metadata$36("design:type", Number),
     __metadata$36("design:paramtypes", [Number])
 ], TdLoadingDirective.prototype, "type", null);
-__decorate$54([
-    _angular_core.Input('loadingMode'),
-    __metadata$36("design:type", Number),
-    __metadata$36("design:paramtypes", [Number])
-], TdLoadingDirective.prototype, "modeDeprecated", null);
 __decorate$54([
     _angular_core.Input('tdLoadingMode'),
     __metadata$36("design:type", Number),

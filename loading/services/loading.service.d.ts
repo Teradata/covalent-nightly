@@ -1,14 +1,6 @@
 import { ViewContainerRef, TemplateRef } from '@angular/core';
 import { LoadingMode, LoadingStrategy, LoadingType } from '../loading.component';
 import { TdLoadingFactory, ILoadingRef } from './loading.factory';
-/**
- * @deprecated in 1.0.0-beta.1
- */
-export interface ILoadingOptions {
-    name: string;
-    type?: LoadingType;
-    mode?: LoadingMode;
-}
 export interface ITdLoadingConfig {
     name: string;
     type?: LoadingType;
@@ -56,12 +48,6 @@ export declare class TdLoadingService {
      * Only displayed when the mask has a request registered on it.
      */
     create(config: ITdLoadingConfig): void;
-    /**
-     * @deprecated in 1.0.0-beta.1
-     *
-     * Please use the `create()` method.
-     */
-    createOverlayComponent(config: ITdLoadingConfig, viewContainerRef: ViewContainerRef): void;
     /**
      * params:
      * - name: string

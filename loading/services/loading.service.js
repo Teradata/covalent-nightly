@@ -83,16 +83,6 @@ var TdLoadingService = (function () {
         this._context[fullscreenConfig.name] = this._loadingFactory.createFullScreenComponent(fullscreenConfig);
     };
     /**
-     * @deprecated in 1.0.0-beta.1
-     *
-     * Please use the `create()` method.
-     */
-    TdLoadingService.prototype.createOverlayComponent = function (config, viewContainerRef) {
-        /* tslint:disable-next-line */
-        console.warn("createOverlayComponent() is deprecated.  Please use create() instead");
-        this.create(config);
-    };
-    /**
      * params:
      * - name: string
      *

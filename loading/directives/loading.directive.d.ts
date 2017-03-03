@@ -17,23 +17,11 @@ export declare class TdLoadingDirective implements OnInit, OnDestroy {
      */
     name: string;
     /**
-     * @deprecated in 1.0.0-beta.1
-     *
-     * Please use the `tdLoadingType` method.
-     */
-    typeDeprecated: LoadingType;
-    /**
      * tdLoadingType?: LoadingType or ['linear' | 'circular']
      * Sets the type of loading mask depending on value.
      * Defaults to [LoadingType.Circular | 'circular'].
      */
     type: LoadingType;
-    /**
-     * @deprecated in 1.0.0-beta.1
-     *
-     * Please use the `tdLoadingMode` method.
-     */
-    modeDeprecated: LoadingMode;
     /**
      * tdLoadingMode?: LoadingMode or ['determinate' | 'indeterminate']
      * Sets the mode of loading mask depending on value.
