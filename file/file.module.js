@@ -29,10 +29,17 @@ export { TdFileService } from './services/file.service';
 var CovalentFileModule = CovalentFileModule_1 = (function () {
     function CovalentFileModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentFileModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentFileModule');
         return {
             ngModule: CovalentFileModule_1,
-            providers: [TdFileService],
+            providers: [],
         };
     };
     return CovalentFileModule;
@@ -44,15 +51,18 @@ CovalentFileModule = CovalentFileModule_1 = __decorate([
             JsonpModule,
             FormsModule,
             CommonModule,
-            MdIconModule.forRoot(),
-            MdButtonModule.forRoot(),
-            PortalModule.forRoot(),
+            MdIconModule,
+            MdButtonModule,
+            PortalModule,
         ],
         declarations: [
             TD_FILE,
         ],
         exports: [
             TD_FILE,
+        ],
+        providers: [
+            TdFileService,
         ],
     })
 ], CovalentFileModule);

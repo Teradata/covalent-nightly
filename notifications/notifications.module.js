@@ -14,7 +14,14 @@ export { TdNotificationCountComponent, TdNotificationCountPositionX, TdNotificat
 var CovalentNotificationsModule = CovalentNotificationsModule_1 = (function () {
     function CovalentNotificationsModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentNotificationsModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentNotificationsModule');
         return {
             ngModule: CovalentNotificationsModule_1,
             providers: [],

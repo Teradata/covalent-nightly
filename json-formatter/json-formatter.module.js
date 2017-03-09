@@ -12,7 +12,14 @@ export { TdJsonFormatterComponent } from './json-formatter.component';
 var CovalentJsonFormatterModule = CovalentJsonFormatterModule_1 = (function () {
     function CovalentJsonFormatterModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentJsonFormatterModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentJsonFormatterModule');
         return {
             ngModule: CovalentJsonFormatterModule_1,
             providers: [],
@@ -24,8 +31,8 @@ CovalentJsonFormatterModule = CovalentJsonFormatterModule_1 = __decorate([
     NgModule({
         imports: [
             CommonModule,
-            MdTooltipModule.forRoot(),
-            MdIconModule.forRoot(),
+            MdTooltipModule,
+            MdIconModule,
         ],
         declarations: [
             TdJsonFormatterComponent,

@@ -13,7 +13,14 @@ export { TdPagingBarComponent } from './paging-bar.component';
 var CovalentPagingModule = CovalentPagingModule_1 = (function () {
     function CovalentPagingModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentPagingModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentPagingModule');
         return {
             ngModule: CovalentPagingModule_1,
             providers: [],
@@ -26,9 +33,9 @@ CovalentPagingModule = CovalentPagingModule_1 = __decorate([
         imports: [
             FormsModule,
             CommonModule,
-            MdIconModule.forRoot(),
-            MdSelectModule.forRoot(),
-            MdButtonModule.forRoot(),
+            MdIconModule,
+            MdSelectModule,
+            MdButtonModule,
         ],
         declarations: [
             TdPagingBarComponent,

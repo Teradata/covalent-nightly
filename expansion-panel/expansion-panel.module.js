@@ -19,7 +19,14 @@ export { TdExpansionPanelComponent } from './expansion-panel.component';
 var CovalentExpansionPanelModule = CovalentExpansionPanelModule_1 = (function () {
     function CovalentExpansionPanelModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentExpansionPanelModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentExpansionPanelModule');
         return {
             ngModule: CovalentExpansionPanelModule_1,
             providers: [],
@@ -31,9 +38,9 @@ CovalentExpansionPanelModule = CovalentExpansionPanelModule_1 = __decorate([
     NgModule({
         imports: [
             CommonModule,
-            MdListModule.forRoot(),
-            MdIconModule.forRoot(),
-            PortalModule.forRoot(),
+            MdListModule,
+            MdIconModule,
+            PortalModule,
         ],
         declarations: [
             TD_EXPANSION_PANEL,

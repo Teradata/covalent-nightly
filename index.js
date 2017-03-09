@@ -88,7 +88,14 @@ export * from './steps/steps.module';
 var CovalentCoreModule = CovalentCoreModule_1 = (function () {
     function CovalentCoreModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentCoreModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentCoreModule');
         return {
             ngModule: CovalentCoreModule_1,
             providers: [],
@@ -103,23 +110,23 @@ CovalentCoreModule = CovalentCoreModule_1 = __decorate([
             JsonpModule,
             FormsModule,
             CommonModule,
-            MaterialModule.forRoot(),
+            MaterialModule,
             FlexLayoutModule,
-            CovalentCommonModule.forRoot(),
-            CovalentChipsModule.forRoot(),
-            CovalentDataTableModule.forRoot(),
-            CovalentDialogsModule.forRoot(),
-            CovalentExpansionPanelModule.forRoot(),
-            CovalentFileModule.forRoot(),
-            CovalentJsonFormatterModule.forRoot(),
-            CovalentLayoutModule.forRoot(),
-            CovalentLoadingModule.forRoot(),
-            CovalentMediaModule.forRoot(),
-            CovalentMenuModule.forRoot(),
-            CovalentNotificationsModule.forRoot(),
-            CovalentPagingModule.forRoot(),
-            CovalentSearchModule.forRoot(),
-            CovalentStepsModule.forRoot(),
+            CovalentCommonModule,
+            CovalentChipsModule,
+            CovalentDataTableModule,
+            CovalentDialogsModule,
+            CovalentExpansionPanelModule,
+            CovalentFileModule,
+            CovalentJsonFormatterModule,
+            CovalentLayoutModule,
+            CovalentLoadingModule,
+            CovalentMediaModule,
+            CovalentMenuModule,
+            CovalentNotificationsModule,
+            CovalentPagingModule,
+            CovalentSearchModule,
+            CovalentStepsModule,
         ],
         exports: [
             HttpModule,

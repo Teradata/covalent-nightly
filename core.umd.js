@@ -941,10 +941,17 @@ var TD_PIPES = [
 exports.CovalentCommonModule = CovalentCommonModule_1 = (function () {
     function CovalentCommonModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentCommonModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentCommonModule');
         return {
             ngModule: CovalentCommonModule_1,
-            providers: [RouterPathService],
+            providers: [],
         };
     };
     return CovalentCommonModule;
@@ -968,6 +975,9 @@ exports.CovalentCommonModule = CovalentCommonModule_1 = __decorate$1([
             TD_PIPES,
             TD_ANIMATIONS,
             TD_VALIDATORS,
+        ],
+        providers: [
+            RouterPathService,
         ],
     })
 ], exports.CovalentCommonModule);
@@ -1372,7 +1382,14 @@ var __decorate$14 = (window && window.__decorate) || function (decorators, targe
 exports.CovalentChipsModule = CovalentChipsModule_1 = (function () {
     function CovalentChipsModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentChipsModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentChipsModule');
         return {
             ngModule: CovalentChipsModule_1,
             providers: [],
@@ -1385,8 +1402,8 @@ exports.CovalentChipsModule = CovalentChipsModule_1 = __decorate$14([
         imports: [
             _angular_forms.FormsModule,
             _angular_common.CommonModule,
-            _angular_material.MdInputModule.forRoot(),
-            _angular_material.MdIconModule.forRoot(),
+            _angular_material.MdInputModule,
+            _angular_material.MdIconModule,
         ],
         declarations: [
             exports.TdChipsComponent,
@@ -2201,10 +2218,17 @@ var TD_DATA_TABLE = [
 exports.CovalentDataTableModule = CovalentDataTableModule_1 = (function () {
     function CovalentDataTableModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentDataTableModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentDataTableModule');
         return {
             ngModule: CovalentDataTableModule_1,
-            providers: [exports.TdDataTableService],
+            providers: [],
         };
     };
     return CovalentDataTableModule;
@@ -2213,9 +2237,9 @@ exports.CovalentDataTableModule = CovalentDataTableModule_1 = __decorate$18([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
-            _angular_material.MdCheckboxModule.forRoot(),
-            _angular_material.MdTooltipModule.forRoot(),
-            _angular_material.MdIconModule.forRoot(),
+            _angular_material.MdCheckboxModule,
+            _angular_material.MdTooltipModule,
+            _angular_material.MdIconModule,
             _angular_material.MdSelectionModule,
         ],
         declarations: [
@@ -2223,6 +2247,9 @@ exports.CovalentDataTableModule = CovalentDataTableModule_1 = __decorate$18([
         ],
         exports: [
             TD_DATA_TABLE,
+        ],
+        providers: [
+            exports.TdDataTableService,
         ],
     })
 ], exports.CovalentDataTableModule);
@@ -2534,10 +2561,17 @@ var TD_DIALOGS_ENTRY_COMPONENTS = [
 exports.CovalentDialogsModule = CovalentDialogsModule_1 = (function () {
     function CovalentDialogsModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentDialogsModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentDialogsModule');
         return {
             ngModule: CovalentDialogsModule_1,
-            providers: [exports.TdDialogService],
+            providers: [],
         };
     };
     return CovalentDialogsModule;
@@ -2547,15 +2581,18 @@ exports.CovalentDialogsModule = CovalentDialogsModule_1 = __decorate$26([
         imports: [
             _angular_forms.FormsModule,
             _angular_common.CommonModule,
-            _angular_material.MdDialogModule.forRoot(),
-            _angular_material.MdInputModule.forRoot(),
-            _angular_material.MdButtonModule.forRoot(),
+            _angular_material.MdDialogModule,
+            _angular_material.MdInputModule,
+            _angular_material.MdButtonModule,
         ],
         declarations: [
             TD_DIALOGS,
         ],
         exports: [
             TD_DIALOGS,
+        ],
+        providers: [
+            exports.TdDialogService,
         ],
         entryComponents: [
             TD_DIALOGS_ENTRY_COMPONENTS,
@@ -2803,7 +2840,14 @@ var TD_EXPANSION_PANEL = [
 exports.CovalentExpansionPanelModule = CovalentExpansionPanelModule_1 = (function () {
     function CovalentExpansionPanelModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentExpansionPanelModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentExpansionPanelModule');
         return {
             ngModule: CovalentExpansionPanelModule_1,
             providers: [],
@@ -2815,9 +2859,9 @@ exports.CovalentExpansionPanelModule = CovalentExpansionPanelModule_1 = __decora
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
-            _angular_material.MdListModule.forRoot(),
-            _angular_material.MdIconModule.forRoot(),
-            _angular_material.PortalModule.forRoot(),
+            _angular_material.MdListModule,
+            _angular_material.MdIconModule,
+            _angular_material.PortalModule,
         ],
         declarations: [
             TD_EXPANSION_PANEL,
@@ -3523,10 +3567,17 @@ var TD_FILE = [
 exports.CovalentFileModule = CovalentFileModule_1 = (function () {
     function CovalentFileModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentFileModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentFileModule');
         return {
             ngModule: CovalentFileModule_1,
-            providers: [exports.TdFileService],
+            providers: [],
         };
     };
     return CovalentFileModule;
@@ -3538,15 +3589,18 @@ exports.CovalentFileModule = CovalentFileModule_1 = __decorate$34([
             _angular_http.JsonpModule,
             _angular_forms.FormsModule,
             _angular_common.CommonModule,
-            _angular_material.MdIconModule.forRoot(),
-            _angular_material.MdButtonModule.forRoot(),
-            _angular_material.PortalModule.forRoot(),
+            _angular_material.MdIconModule,
+            _angular_material.MdButtonModule,
+            _angular_material.PortalModule,
         ],
         declarations: [
             TD_FILE,
         ],
         exports: [
             TD_FILE,
+        ],
+        providers: [
+            exports.TdFileService,
         ],
     })
 ], exports.CovalentFileModule);
@@ -3796,7 +3850,14 @@ var __decorate$40 = (window && window.__decorate) || function (decorators, targe
 exports.CovalentJsonFormatterModule = CovalentJsonFormatterModule_1 = (function () {
     function CovalentJsonFormatterModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentJsonFormatterModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentJsonFormatterModule');
         return {
             ngModule: CovalentJsonFormatterModule_1,
             providers: [],
@@ -3808,8 +3869,8 @@ exports.CovalentJsonFormatterModule = CovalentJsonFormatterModule_1 = __decorate
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
-            _angular_material.MdTooltipModule.forRoot(),
-            _angular_material.MdIconModule.forRoot(),
+            _angular_material.MdTooltipModule,
+            _angular_material.MdIconModule,
         ],
         declarations: [
             exports.TdJsonFormatterComponent,
@@ -4454,7 +4515,14 @@ var TD_LAYOUTS = [
 exports.CovalentLayoutModule = CovalentLayoutModule_1 = (function () {
     function CovalentLayoutModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentLayoutModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentLayoutModule');
         return {
             ngModule: CovalentLayoutModule_1,
             providers: [],
@@ -4467,12 +4535,12 @@ exports.CovalentLayoutModule = CovalentLayoutModule_1 = __decorate$42([
         imports: [
             _angular_common.CommonModule,
             _angular_router.RouterModule,
-            _angular_material.MdSidenavModule.forRoot(),
-            _angular_material.MdToolbarModule.forRoot(),
-            _angular_material.MdButtonModule.forRoot(),
-            _angular_material.MdIconModule.forRoot(),
-            _angular_material.MdCardModule.forRoot(),
-            _angular_material.MdListModule.forRoot(),
+            _angular_material.MdSidenavModule,
+            _angular_material.MdToolbarModule,
+            _angular_material.MdButtonModule,
+            _angular_material.MdIconModule,
+            _angular_material.MdCardModule,
+            _angular_material.MdListModule,
         ],
         declarations: [
             TD_LAYOUTS,
@@ -5187,10 +5255,17 @@ var TD_LOADING_ENTRY_COMPONENTS = [
 exports.CovalentLoadingModule = CovalentLoadingModule_1 = (function () {
     function CovalentLoadingModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentLoadingModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentLoadingModule');
         return {
             ngModule: CovalentLoadingModule_1,
-            providers: [exports.TdLoadingService, TdLoadingFactory],
+            providers: [],
         };
     };
     return CovalentLoadingModule;
@@ -5199,16 +5274,20 @@ exports.CovalentLoadingModule = CovalentLoadingModule_1 = __decorate$50([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
-            _angular_material.MdProgressBarModule.forRoot(),
-            _angular_material.MdProgressSpinnerModule.forRoot(),
-            _angular_material.OverlayModule.forRoot(),
-            _angular_material.PortalModule.forRoot(),
+            _angular_material.MdProgressBarModule,
+            _angular_material.MdProgressSpinnerModule,
+            _angular_material.OverlayModule,
+            _angular_material.PortalModule,
         ],
         declarations: [
             TD_LOADING,
         ],
         exports: [
             TD_LOADING,
+        ],
+        providers: [
+            exports.TdLoadingService,
+            TdLoadingFactory,
         ],
         entryComponents: [
             TD_LOADING_ENTRY_COMPONENTS,
@@ -5461,10 +5540,17 @@ var TD_MEDIA = [
 exports.CovalentMediaModule = CovalentMediaModule_1 = (function () {
     function CovalentMediaModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentMediaModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentMediaModule');
         return {
             ngModule: CovalentMediaModule_1,
-            providers: [exports.TdMediaService],
+            providers: [],
         };
     };
     return CovalentMediaModule;
@@ -5479,6 +5565,9 @@ exports.CovalentMediaModule = CovalentMediaModule_1 = __decorate$55([
         ],
         exports: [
             TD_MEDIA,
+        ],
+        providers: [
+            exports.TdMediaService,
         ],
     })
 ], exports.CovalentMediaModule);
@@ -5515,7 +5604,14 @@ var TD_MENU = [
 exports.CovalentMenuModule = CovalentMenuModule_1 = (function () {
     function CovalentMenuModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentMenuModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentMenuModule');
         return {
             ngModule: CovalentMenuModule_1,
             providers: [],
@@ -5527,8 +5623,8 @@ exports.CovalentMenuModule = CovalentMenuModule_1 = __decorate$58([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
-            _angular_material.MdMenuModule.forRoot(),
-            _angular_material.MdListModule.forRoot(),
+            _angular_material.MdMenuModule,
+            _angular_material.MdListModule,
         ],
         declarations: [
             TD_MENU,
@@ -5725,7 +5821,14 @@ var TD_NOTIFICATIONS = [
 exports.CovalentNotificationsModule = CovalentNotificationsModule_1 = (function () {
     function CovalentNotificationsModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentNotificationsModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentNotificationsModule');
         return {
             ngModule: CovalentNotificationsModule_1,
             providers: [],
@@ -6001,7 +6104,14 @@ var __decorate$62 = (window && window.__decorate) || function (decorators, targe
 exports.CovalentPagingModule = CovalentPagingModule_1 = (function () {
     function CovalentPagingModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentPagingModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentPagingModule');
         return {
             ngModule: CovalentPagingModule_1,
             providers: [],
@@ -6014,9 +6124,9 @@ exports.CovalentPagingModule = CovalentPagingModule_1 = __decorate$62([
         imports: [
             _angular_forms.FormsModule,
             _angular_common.CommonModule,
-            _angular_material.MdIconModule.forRoot(),
-            _angular_material.MdSelectModule.forRoot(),
-            _angular_material.MdButtonModule.forRoot(),
+            _angular_material.MdIconModule,
+            _angular_material.MdSelectModule,
+            _angular_material.MdButtonModule,
         ],
         declarations: [
             exports.TdPagingBarComponent,
@@ -6314,7 +6424,14 @@ var __decorate$64 = (window && window.__decorate) || function (decorators, targe
 exports.CovalentSearchModule = CovalentSearchModule_1 = (function () {
     function CovalentSearchModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentSearchModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentSearchModule');
         return {
             ngModule: CovalentSearchModule_1,
             providers: [],
@@ -6327,9 +6444,9 @@ exports.CovalentSearchModule = CovalentSearchModule_1 = __decorate$64([
         imports: [
             _angular_forms.FormsModule,
             _angular_common.CommonModule,
-            _angular_material.MdInputModule.forRoot(),
-            _angular_material.MdIconModule.forRoot(),
-            _angular_material.MdButtonModule.forRoot(),
+            _angular_material.MdInputModule,
+            _angular_material.MdIconModule,
+            _angular_material.MdButtonModule,
         ],
         declarations: [
             exports.TdSearchInputComponent,
@@ -6887,7 +7004,14 @@ var TD_STEPS = [
 exports.CovalentStepsModule = CovalentStepsModule_1 = (function () {
     function CovalentStepsModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentStepsModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentStepsModule');
         return {
             ngModule: CovalentStepsModule_1,
             providers: [],
@@ -6899,11 +7023,11 @@ exports.CovalentStepsModule = CovalentStepsModule_1 = __decorate$67([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
-            _angular_material.MdIconModule.forRoot(),
-            _angular_material.MdListModule.forRoot(),
-            _angular_material.MdRippleModule.forRoot(),
-            _angular_material.PortalModule.forRoot(),
-            exports.CovalentCommonModule.forRoot(),
+            _angular_material.MdIconModule,
+            _angular_material.MdListModule,
+            _angular_material.MdRippleModule,
+            _angular_material.PortalModule,
+            exports.CovalentCommonModule,
         ],
         declarations: [
             TD_STEPS,
@@ -6969,7 +7093,14 @@ var __decorate = (window && window.__decorate) || function (decorators, target, 
 exports.CovalentCoreModule = CovalentCoreModule_1 = (function () {
     function CovalentCoreModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentCoreModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentCoreModule');
         return {
             ngModule: CovalentCoreModule_1,
             providers: [],
@@ -6984,23 +7115,23 @@ exports.CovalentCoreModule = CovalentCoreModule_1 = __decorate([
             _angular_http.JsonpModule,
             _angular_forms.FormsModule,
             _angular_common.CommonModule,
-            _angular_material.MaterialModule.forRoot(),
+            _angular_material.MaterialModule,
             _angular_flexLayout.FlexLayoutModule,
-            exports.CovalentCommonModule.forRoot(),
-            exports.CovalentChipsModule.forRoot(),
-            exports.CovalentDataTableModule.forRoot(),
-            exports.CovalentDialogsModule.forRoot(),
-            exports.CovalentExpansionPanelModule.forRoot(),
-            exports.CovalentFileModule.forRoot(),
-            exports.CovalentJsonFormatterModule.forRoot(),
-            exports.CovalentLayoutModule.forRoot(),
-            exports.CovalentLoadingModule.forRoot(),
-            exports.CovalentMediaModule.forRoot(),
-            exports.CovalentMenuModule.forRoot(),
-            exports.CovalentNotificationsModule.forRoot(),
-            exports.CovalentPagingModule.forRoot(),
-            exports.CovalentSearchModule.forRoot(),
-            exports.CovalentStepsModule.forRoot(),
+            exports.CovalentCommonModule,
+            exports.CovalentChipsModule,
+            exports.CovalentDataTableModule,
+            exports.CovalentDialogsModule,
+            exports.CovalentExpansionPanelModule,
+            exports.CovalentFileModule,
+            exports.CovalentJsonFormatterModule,
+            exports.CovalentLayoutModule,
+            exports.CovalentLoadingModule,
+            exports.CovalentMediaModule,
+            exports.CovalentMenuModule,
+            exports.CovalentNotificationsModule,
+            exports.CovalentPagingModule,
+            exports.CovalentSearchModule,
+            exports.CovalentStepsModule,
         ],
         exports: [
             _angular_http.HttpModule,

@@ -31,10 +31,17 @@ export { TdDataTableTableComponent } from './data-table-table/data-table-table.c
 var CovalentDataTableModule = CovalentDataTableModule_1 = (function () {
     function CovalentDataTableModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentDataTableModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentDataTableModule');
         return {
             ngModule: CovalentDataTableModule_1,
-            providers: [TdDataTableService],
+            providers: [],
         };
     };
     return CovalentDataTableModule;
@@ -43,9 +50,9 @@ CovalentDataTableModule = CovalentDataTableModule_1 = __decorate([
     NgModule({
         imports: [
             CommonModule,
-            MdCheckboxModule.forRoot(),
-            MdTooltipModule.forRoot(),
-            MdIconModule.forRoot(),
+            MdCheckboxModule,
+            MdTooltipModule,
+            MdIconModule,
             MdSelectionModule,
         ],
         declarations: [
@@ -53,6 +60,9 @@ CovalentDataTableModule = CovalentDataTableModule_1 = __decorate([
         ],
         exports: [
             TD_DATA_TABLE,
+        ],
+        providers: [
+            TdDataTableService,
         ],
     })
 ], CovalentDataTableModule);

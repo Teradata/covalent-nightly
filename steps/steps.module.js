@@ -27,7 +27,14 @@ export { TdStepsComponent, StepMode } from './steps.component';
 var CovalentStepsModule = CovalentStepsModule_1 = (function () {
     function CovalentStepsModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentStepsModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentStepsModule');
         return {
             ngModule: CovalentStepsModule_1,
             providers: [],
@@ -39,11 +46,11 @@ CovalentStepsModule = CovalentStepsModule_1 = __decorate([
     NgModule({
         imports: [
             CommonModule,
-            MdIconModule.forRoot(),
-            MdListModule.forRoot(),
-            MdRippleModule.forRoot(),
-            PortalModule.forRoot(),
-            CovalentCommonModule.forRoot(),
+            MdIconModule,
+            MdListModule,
+            MdRippleModule,
+            PortalModule,
+            CovalentCommonModule,
         ],
         declarations: [
             TD_STEPS,

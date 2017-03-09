@@ -15,10 +15,17 @@ export { TdMediaService, TdMediaToggleDirective };
 var CovalentMediaModule = CovalentMediaModule_1 = (function () {
     function CovalentMediaModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentMediaModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentMediaModule');
         return {
             ngModule: CovalentMediaModule_1,
-            providers: [TdMediaService],
+            providers: [],
         };
     };
     return CovalentMediaModule;
@@ -33,6 +40,9 @@ CovalentMediaModule = CovalentMediaModule_1 = __decorate([
         ],
         exports: [
             TD_MEDIA,
+        ],
+        providers: [
+            TdMediaService,
         ],
     })
 ], CovalentMediaModule);

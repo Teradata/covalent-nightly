@@ -15,7 +15,14 @@ export { TdMenuComponent } from './menu.component';
 var CovalentMenuModule = CovalentMenuModule_1 = (function () {
     function CovalentMenuModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentMenuModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentMenuModule');
         return {
             ngModule: CovalentMenuModule_1,
             providers: [],
@@ -27,8 +34,8 @@ CovalentMenuModule = CovalentMenuModule_1 = __decorate([
     NgModule({
         imports: [
             CommonModule,
-            MdMenuModule.forRoot(),
-            MdListModule.forRoot(),
+            MdMenuModule,
+            MdListModule,
         ],
         declarations: [
             TD_MENU,

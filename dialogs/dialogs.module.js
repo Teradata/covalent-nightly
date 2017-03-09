@@ -31,10 +31,17 @@ export { TdDialogService, TdDialogComponent, TdDialogTitleDirective, TdAlertDial
 var CovalentDialogsModule = CovalentDialogsModule_1 = (function () {
     function CovalentDialogsModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentDialogsModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentDialogsModule');
         return {
             ngModule: CovalentDialogsModule_1,
-            providers: [TdDialogService],
+            providers: [],
         };
     };
     return CovalentDialogsModule;
@@ -44,15 +51,18 @@ CovalentDialogsModule = CovalentDialogsModule_1 = __decorate([
         imports: [
             FormsModule,
             CommonModule,
-            MdDialogModule.forRoot(),
-            MdInputModule.forRoot(),
-            MdButtonModule.forRoot(),
+            MdDialogModule,
+            MdInputModule,
+            MdButtonModule,
         ],
         declarations: [
             TD_DIALOGS,
         ],
         exports: [
             TD_DIALOGS,
+        ],
+        providers: [
+            TdDialogService,
         ],
         entryComponents: [
             TD_DIALOGS_ENTRY_COMPONENTS,

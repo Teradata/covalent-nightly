@@ -23,10 +23,17 @@ export { TdLoadingService } from './services/loading.service';
 var CovalentLoadingModule = CovalentLoadingModule_1 = (function () {
     function CovalentLoadingModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentLoadingModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentLoadingModule');
         return {
             ngModule: CovalentLoadingModule_1,
-            providers: [TdLoadingService, TdLoadingFactory],
+            providers: [],
         };
     };
     return CovalentLoadingModule;
@@ -35,16 +42,20 @@ CovalentLoadingModule = CovalentLoadingModule_1 = __decorate([
     NgModule({
         imports: [
             CommonModule,
-            MdProgressBarModule.forRoot(),
-            MdProgressSpinnerModule.forRoot(),
-            OverlayModule.forRoot(),
-            PortalModule.forRoot(),
+            MdProgressBarModule,
+            MdProgressSpinnerModule,
+            OverlayModule,
+            PortalModule,
         ],
         declarations: [
             TD_LOADING,
         ],
         exports: [
             TD_LOADING,
+        ],
+        providers: [
+            TdLoadingService,
+            TdLoadingFactory,
         ],
         entryComponents: [
             TD_LOADING_ENTRY_COMPONENTS,

@@ -29,7 +29,14 @@ export { TdLayoutComponent, TdLayoutNavComponent, TdLayoutNavListComponent, TdLa
 var CovalentLayoutModule = CovalentLayoutModule_1 = (function () {
     function CovalentLayoutModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentLayoutModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentLayoutModule');
         return {
             ngModule: CovalentLayoutModule_1,
             providers: [],
@@ -42,12 +49,12 @@ CovalentLayoutModule = CovalentLayoutModule_1 = __decorate([
         imports: [
             CommonModule,
             RouterModule,
-            MdSidenavModule.forRoot(),
-            MdToolbarModule.forRoot(),
-            MdButtonModule.forRoot(),
-            MdIconModule.forRoot(),
-            MdCardModule.forRoot(),
-            MdListModule.forRoot(),
+            MdSidenavModule,
+            MdToolbarModule,
+            MdButtonModule,
+            MdIconModule,
+            MdCardModule,
+            MdListModule,
         ],
         declarations: [
             TD_LAYOUTS,

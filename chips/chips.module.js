@@ -15,7 +15,14 @@ export { TdChipsComponent } from './chips.component';
 var CovalentChipsModule = CovalentChipsModule_1 = (function () {
     function CovalentChipsModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentChipsModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentChipsModule');
         return {
             ngModule: CovalentChipsModule_1,
             providers: [],
@@ -28,8 +35,8 @@ CovalentChipsModule = CovalentChipsModule_1 = __decorate([
         imports: [
             FormsModule,
             CommonModule,
-            MdInputModule.forRoot(),
-            MdIconModule.forRoot(),
+            MdInputModule,
+            MdIconModule,
         ],
         declarations: [
             TdChipsComponent,

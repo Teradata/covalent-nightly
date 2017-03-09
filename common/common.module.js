@@ -58,10 +58,17 @@ export { TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTrunc
 var CovalentCommonModule = CovalentCommonModule_1 = (function () {
     function CovalentCommonModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentCommonModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentCommonModule');
         return {
             ngModule: CovalentCommonModule_1,
-            providers: [RouterPathService],
+            providers: [],
         };
     };
     return CovalentCommonModule;
@@ -85,6 +92,9 @@ CovalentCommonModule = CovalentCommonModule_1 = __decorate([
             TD_PIPES,
             TD_ANIMATIONS,
             TD_VALIDATORS,
+        ],
+        providers: [
+            RouterPathService,
         ],
     })
 ], CovalentCommonModule);

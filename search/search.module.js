@@ -15,7 +15,14 @@ export { TdSearchInputComponent } from './search-input/search-input.component';
 var CovalentSearchModule = CovalentSearchModule_1 = (function () {
     function CovalentSearchModule() {
     }
+    /**
+     * @deprecated in 1.0.0-beta.3
+     *
+     * Please use without calling forRoot()
+     */
     CovalentSearchModule.forRoot = function () {
+        /* tslint:disable-next-line */
+        console.warn('forRoot() has been deprecated in CovalentSearchModule');
         return {
             ngModule: CovalentSearchModule_1,
             providers: [],
@@ -28,9 +35,9 @@ CovalentSearchModule = CovalentSearchModule_1 = __decorate([
         imports: [
             FormsModule,
             CommonModule,
-            MdInputModule.forRoot(),
-            MdIconModule.forRoot(),
-            MdButtonModule.forRoot(),
+            MdInputModule,
+            MdIconModule,
+            MdButtonModule,
         ],
         declarations: [
             TdSearchInputComponent,
