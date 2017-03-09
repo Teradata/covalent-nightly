@@ -7,8 +7,10 @@
   overflow: hidden; }
   :host md-sidenav-container.td-layout-manage-list > md-sidenav.mat-sidenav-opened, :host md-sidenav-container.td-layout-manage-list > md-sidenav.mat-sidenav-opening, :host md-sidenav-container.td-layout-manage-list > md-sidenav.mat-sidenav-closed, :host md-sidenav-container.td-layout-manage-list > md-sidenav.mat-sidenav-closing {
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2); }
-  :host .td-menu-button {
+  [dir='ltr'] :host .td-menu-button {
     margin-left: 0px; }
+  [dir='rtl'] :host .td-menu-button {
+    margin-right: 0px; }
   :host .list {
     text-align: start; }
 

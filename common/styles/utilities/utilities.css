@@ -38,128 +38,176 @@ body .focus-weight:focus {
 body .cursor-pointer:hover {
   cursor: pointer; }
 
-body .pad {
+.pad {
   padding: 20px; }
 
-body .pad-xxl {
+.pad-xxl {
   padding: 60px; }
 
-body .pad-xl {
+.pad-xl {
   padding: 50px; }
 
-body .pad-lg {
+.pad-lg {
   padding: 40px; }
 
-body .pad-md {
+.pad-md {
   padding: 30px; }
 
-body .pad-sm {
+.pad-sm {
   padding: 10px; }
 
-body .pad-xs {
+.pad-xs {
   padding: 5px; }
 
-body .pad-none {
+.pad-none {
   padding: 0px; }
 
-body .pad-top {
+.pad-top {
   padding-top: 20px; }
 
-body .pad-top-xxl {
+.pad-top-xxl {
   padding-top: 60px; }
 
-body .pad-top-xl {
+.pad-top-xl {
   padding-top: 50px; }
 
-body .pad-top-lg {
+.pad-top-lg {
   padding-top: 40px; }
 
-body .pad-top-md {
+.pad-top-md {
   padding-top: 30px; }
 
-body .pad-top-sm {
+.pad-top-sm {
   padding-top: 10px; }
 
-body .pad-top-xs {
+.pad-top-xs {
   padding-top: 5px; }
 
-body .pad-top-none {
+.pad-top-none {
   padding-top: 0px; }
 
-body .pad-right {
+[dir='ltr'] .pad-right {
   padding-right: 20px; }
 
-body .pad-right-xxl {
-  padding-right: 60px; }
-
-body .pad-right-xl {
-  padding-right: 50px; }
-
-body .pad-right-lg {
-  padding-right: 40px; }
-
-body .pad-right-md {
-  padding-right: 30px; }
-
-body .pad-right-sm {
-  padding-right: 10px; }
-
-body .pad-right-xs {
-  padding-right: 5px; }
-
-body .pad-right-none {
-  padding-right: 0px; }
-
-body .pad-bottom {
-  padding-bottom: 20px; }
-
-body .pad-bottom-button {
-  padding-bottom: 100px; }
-
-body .pad-bottom-xxl {
-  padding-bottom: 60px; }
-
-body .pad-bottom-xl {
-  padding-bottom: 50px; }
-
-body .pad-bottom-lg {
-  padding-bottom: 40px; }
-
-body .pad-bottom-md {
-  padding-bottom: 30px; }
-
-body .pad-bottom-sm {
-  padding-bottom: 10px; }
-
-body .pad-bottom-xs {
-  padding-bottom: 5px; }
-
-body .pad-bottom-none {
-  padding-bottom: 0px; }
-
-body .pad-left {
+[dir='rtl'] .pad-right {
   padding-left: 20px; }
 
-body .pad-left-xxl {
+[dir='ltr'] .pad-right-xxl {
+  padding-right: 60px; }
+
+[dir='rtl'] .pad-right-xxl {
   padding-left: 60px; }
 
-body .pad-left-xl {
+[dir='ltr'] .pad-right-xl {
+  padding-right: 50px; }
+
+[dir='rtl'] .pad-right-xl {
   padding-left: 50px; }
 
-body .pad-left-lg {
+[dir='ltr'] .pad-right-lg {
+  padding-right: 40px; }
+
+[dir='rtl'] .pad-right-lg {
   padding-left: 40px; }
 
-body .pad-left-md {
+[dir='ltr'] .pad-right-md {
+  padding-right: 30px; }
+
+[dir='rtl'] .pad-right-md {
   padding-left: 30px; }
 
-body .pad-left-sm {
+[dir='ltr'] .pad-right-sm {
+  padding-right: 10px; }
+
+[dir='rtl'] .pad-right-sm {
   padding-left: 10px; }
 
-body .pad-left-xs {
+[dir='ltr'] .pad-right-xs {
+  padding-right: 5px; }
+
+[dir='rtl'] .pad-right-xs {
   padding-left: 5px; }
 
-body .pad-left-none {
+[dir='ltr'] .pad-right-none {
+  padding-right: 0px; }
+
+[dir='rtl'] .pad-right-none {
   padding-left: 0px; }
+
+.pad-bottom {
+  padding-bottom: 20px; }
+
+.pad-bottom-button {
+  padding-bottom: 100px; }
+
+.pad-bottom-xxl {
+  padding-bottom: 60px; }
+
+.pad-bottom-xl {
+  padding-bottom: 50px; }
+
+.pad-bottom-lg {
+  padding-bottom: 40px; }
+
+.pad-bottom-md {
+  padding-bottom: 30px; }
+
+.pad-bottom-sm {
+  padding-bottom: 10px; }
+
+.pad-bottom-xs {
+  padding-bottom: 5px; }
+
+.pad-bottom-none {
+  padding-bottom: 0px; }
+
+[dir='ltr'] .pad-left {
+  padding-left: 20px; }
+
+[dir='rtl'] .pad-left {
+  padding-right: 20px; }
+
+[dir='ltr'] .pad-left-xxl {
+  padding-left: 60px; }
+
+[dir='rtl'] .pad-left-xxl {
+  padding-right: 60px; }
+
+[dir='ltr'] .pad-left-xl {
+  padding-left: 50px; }
+
+[dir='rtl'] .pad-left-xl {
+  padding-right: 50px; }
+
+[dir='ltr'] .pad-left-lg {
+  padding-left: 40px; }
+
+[dir='rtl'] .pad-left-lg {
+  padding-right: 40px; }
+
+[dir='ltr'] .pad-left-md {
+  padding-left: 30px; }
+
+[dir='rtl'] .pad-left-md {
+  padding-right: 30px; }
+
+[dir='ltr'] .pad-left-sm {
+  padding-left: 10px; }
+
+[dir='rtl'] .pad-left-sm {
+  padding-right: 10px; }
+
+[dir='ltr'] .pad-left-xs {
+  padding-left: 5px; }
+
+[dir='rtl'] .pad-left-xs {
+  padding-right: 5px; }
+
+[dir='ltr'] .pad-left-none {
+  padding-left: 0px; }
+
+[dir='rtl'] .pad-left-none {
+  padding-right: 0px; }
 
 body .pull {
   margin: -20px; }

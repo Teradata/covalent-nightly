@@ -67,7 +67,7 @@ TdDialogComponent = __decorate([
     Component({
         selector: 'td-dialog',
         template: "<div class=\"td-dialog-wrapper\"> <h3 class=\"td-dialog-title md-title\" *ngIf=\"dialogTitle.length > 0\"> <ng-content select=\"td-dialog-title\"></ng-content> </h3> <div class=\"td-dialog-content\" *ngIf=\"dialogContent.length > 0\"> <ng-content select=\"td-dialog-content\"></ng-content> </div> <div class=\"td-dialog-actions\" *ngIf=\"dialogActions.length > 0\" layout=\"row\"> <span flex></span> <ng-content select=\"td-dialog-actions\"></ng-content> </div> </div>",
-        styles: [".td-dialog-title { margin-top: 0; margin-bottom: 20px; } .td-dialog-content { margin-bottom: 16px; } .td-dialog-actions { position: relative; top: 16px; left: 16px; } :host { display: block; } :host .td-dialog-actions /deep/ button { text-transform: uppercase; margin-left: 8px; padding-left: 8px; padding-right: 8px; min-width: 64px; } "],
+        styles: [".td-dialog-title { margin-top: 0; margin-bottom: 20px; } .td-dialog-content { margin-bottom: 16px; } .td-dialog-actions { position: relative; top: 16px; } [dir='ltr'] .td-dialog-actions { left: 16px; } [dir='rtl'] .td-dialog-actions { right: 16px; } :host { display: block; } :host .td-dialog-actions /deep/ button { text-transform: uppercase; padding-left: 8px; padding-right: 8px; min-width: 64px; } [dir='ltr'] :host .td-dialog-actions /deep/ button { margin-left: 8px; } [dir='rtl'] :host .td-dialog-actions /deep/ button { margin-right: 8px; } "],
     })
 ], TdDialogComponent);
 export { TdDialogComponent };

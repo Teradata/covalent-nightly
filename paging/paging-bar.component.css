@@ -23,3 +23,7 @@ md-select /deep/ .mat-select-underline {
 
 .td-paging-size {
   margin-right: -5px; }
+  [dir='ltr'] .td-paging-size {
+    margin-right: -5px; }
+  [dir='rtl'] .td-paging-size {
+    margin-left: -5px; }

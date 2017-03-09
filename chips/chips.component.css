@@ -6,18 +6,24 @@
     cursor: default;
     border-radius: 16px;
     line-height: 32px;
-    margin: 8px 8px 0 0;
     padding: 0 12px;
     box-sizing: border-box;
     max-width: 100%;
     position: relative; }
+    [dir='ltr'] :host /deep/ .td-chip {
+      margin: 8px 8px 0 0; }
+    [dir='rtl'] :host /deep/ .td-chip {
+      margin: 8px 0 0 8px; }
     :host /deep/ .td-chip md-icon {
       position: relative;
       top: 5px;
-      left: 5px;
       height: 18px;
       width: 18px;
       font-size: 19px; }
+      [dir='ltr'] :host /deep/ .td-chip md-icon {
+        left: 5px; }
+      [dir='rtl'] :host /deep/ .td-chip md-icon {
+        right: 5px; }
       :host /deep/ .td-chip md-icon:hover {
         cursor: pointer; }
 

@@ -1,3 +1,7 @@
+/**
+ * Mixin that creates a new stacking context.
+ * see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
+ */
 :host {
   position: relative;
   display: block;
@@ -30,10 +34,14 @@
     top: 0px; }
   .td-notification-count.td-notification-bottom {
     bottom: 0px; }
-  .td-notification-count.td-notification-before {
+  [dir='ltr'] .td-notification-count.td-notification-before {
     left: 0px; }
-  .td-notification-count.td-notification-after {
+  [dir='rtl'] .td-notification-count.td-notification-before {
     right: 0px; }
+  [dir='ltr'] .td-notification-count.td-notification-after {
+    right: 0px; }
+  [dir='rtl'] .td-notification-count.td-notification-after {
+    left: 0px; }
   .td-notification-count.td-notification-no-count {
     width: 8px;
     height: 8px; }
@@ -41,22 +49,146 @@
       top: 8px; }
     .td-notification-count.td-notification-no-count.td-notification-bottom {
       bottom: 8px; }
-    .td-notification-count.td-notification-no-count.td-notification-before {
+    [dir='ltr'] .td-notification-count.td-notification-no-count.td-notification-before {
       left: 8px; }
-    .td-notification-count.td-notification-no-count.td-notification-after {
+    [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-before {
       right: 8px; }
+    [dir='ltr'] .td-notification-count.td-notification-no-count.td-notification-after {
+      right: 8px; }
+    [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-after {
+      left: 8px; }
   /deep/ [dir='rtl'] .td-notification-count.td-notification-before {
     right: 0px;
     left: auto; }
+    html[dir=rtl] /deep/ [dir='rtl'] .td-notification-count.td-notification-before {
+      right: auto;
+      unicode-bidi: embed; }
+    body[dir=rtl] /deep/ [dir='rtl'] .td-notification-count.td-notification-before {
+      right: auto;
+      unicode-bidi: embed; }
+    [dir=rtl] /deep/ [dir='rtl'] .td-notification-count.td-notification-before {
+      right: auto;
+      unicode-bidi: embed; }
+    /deep/ [dir='rtl'] .td-notification-count.td-notification-before bdo[dir=rtl] {
+      direction: rtl;
+      unicode-bidi: bidi-override; }
+    /deep/ [dir='rtl'] .td-notification-count.td-notification-before bdo[dir=ltr] {
+      direction: ltr;
+      unicode-bidi: bidi-override; }
+    html[dir=rtl] /deep/ [dir='rtl'] .td-notification-count.td-notification-before {
+      left: 0px;
+      unicode-bidi: embed; }
+    body[dir=rtl] /deep/ [dir='rtl'] .td-notification-count.td-notification-before {
+      left: 0px;
+      unicode-bidi: embed; }
+    [dir=rtl] /deep/ [dir='rtl'] .td-notification-count.td-notification-before {
+      left: 0px;
+      unicode-bidi: embed; }
+    /deep/ [dir='rtl'] .td-notification-count.td-notification-before bdo[dir=rtl] {
+      direction: rtl;
+      unicode-bidi: bidi-override; }
+    /deep/ [dir='rtl'] .td-notification-count.td-notification-before bdo[dir=ltr] {
+      direction: ltr;
+      unicode-bidi: bidi-override; }
   /deep/ [dir='rtl'] .td-notification-count.td-notification-after {
     left: 0px;
     right: auto; }
+    html[dir=rtl] /deep/ [dir='rtl'] .td-notification-count.td-notification-after {
+      left: auto;
+      unicode-bidi: embed; }
+    body[dir=rtl] /deep/ [dir='rtl'] .td-notification-count.td-notification-after {
+      left: auto;
+      unicode-bidi: embed; }
+    [dir=rtl] /deep/ [dir='rtl'] .td-notification-count.td-notification-after {
+      left: auto;
+      unicode-bidi: embed; }
+    /deep/ [dir='rtl'] .td-notification-count.td-notification-after bdo[dir=rtl] {
+      direction: rtl;
+      unicode-bidi: bidi-override; }
+    /deep/ [dir='rtl'] .td-notification-count.td-notification-after bdo[dir=ltr] {
+      direction: ltr;
+      unicode-bidi: bidi-override; }
+    html[dir=rtl] /deep/ [dir='rtl'] .td-notification-count.td-notification-after {
+      right: 0px;
+      unicode-bidi: embed; }
+    body[dir=rtl] /deep/ [dir='rtl'] .td-notification-count.td-notification-after {
+      right: 0px;
+      unicode-bidi: embed; }
+    [dir=rtl] /deep/ [dir='rtl'] .td-notification-count.td-notification-after {
+      right: 0px;
+      unicode-bidi: embed; }
+    /deep/ [dir='rtl'] .td-notification-count.td-notification-after bdo[dir=rtl] {
+      direction: rtl;
+      unicode-bidi: bidi-override; }
+    /deep/ [dir='rtl'] .td-notification-count.td-notification-after bdo[dir=ltr] {
+      direction: ltr;
+      unicode-bidi: bidi-override; }
   /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-before {
     right: 8px;
     left: auto; }
+    html[dir=rtl] /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-before {
+      right: auto;
+      unicode-bidi: embed; }
+    body[dir=rtl] /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-before {
+      right: auto;
+      unicode-bidi: embed; }
+    [dir=rtl] /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-before {
+      right: auto;
+      unicode-bidi: embed; }
+    /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-before bdo[dir=rtl] {
+      direction: rtl;
+      unicode-bidi: bidi-override; }
+    /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-before bdo[dir=ltr] {
+      direction: ltr;
+      unicode-bidi: bidi-override; }
+    html[dir=rtl] /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-before {
+      left: 8px;
+      unicode-bidi: embed; }
+    body[dir=rtl] /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-before {
+      left: 8px;
+      unicode-bidi: embed; }
+    [dir=rtl] /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-before {
+      left: 8px;
+      unicode-bidi: embed; }
+    /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-before bdo[dir=rtl] {
+      direction: rtl;
+      unicode-bidi: bidi-override; }
+    /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-before bdo[dir=ltr] {
+      direction: ltr;
+      unicode-bidi: bidi-override; }
   /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-after {
     left: 8px;
     right: auto; }
+    html[dir=rtl] /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-after {
+      left: auto;
+      unicode-bidi: embed; }
+    body[dir=rtl] /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-after {
+      left: auto;
+      unicode-bidi: embed; }
+    [dir=rtl] /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-after {
+      left: auto;
+      unicode-bidi: embed; }
+    /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-after bdo[dir=rtl] {
+      direction: rtl;
+      unicode-bidi: bidi-override; }
+    /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-after bdo[dir=ltr] {
+      direction: ltr;
+      unicode-bidi: bidi-override; }
+    html[dir=rtl] /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-after {
+      right: 8px;
+      unicode-bidi: embed; }
+    body[dir=rtl] /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-after {
+      right: 8px;
+      unicode-bidi: embed; }
+    [dir=rtl] /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-after {
+      right: 8px;
+      unicode-bidi: embed; }
+    /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-after bdo[dir=rtl] {
+      direction: rtl;
+      unicode-bidi: bidi-override; }
+    /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-after bdo[dir=ltr] {
+      direction: ltr;
+      unicode-bidi: bidi-override; }
 
 .td-notification-content, .td-notification-content /deep/ > * {
   line-height: 40px; }

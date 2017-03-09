@@ -7,8 +7,10 @@
   overflow: hidden; }
   :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-opened, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-opening, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-closed, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-closing {
     box-shadow: none; }
-  :host .td-menu-button {
+  [dir='ltr'] :host .td-menu-button {
     margin-left: 0px; }
+  [dir='rtl'] :host .td-menu-button {
+    margin-right: 0px; }
   :host .list {
     text-align: start; }
 
