@@ -6073,6 +6073,7 @@ exports.TdSearchInputComponent = (function () {
     TdSearchInputComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._input._ngControl.valueChanges
+            .skip(1) // skip first change when value is set to undefined
             .debounceTime(this.debounce)
             .subscribe(function (value) {
             _this._searchTermChanged(value);
