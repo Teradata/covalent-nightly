@@ -4964,6 +4964,7 @@ exports.TdLoadingService = (function () {
     function TdLoadingService(_loadingFactory) {
         this._loadingFactory = _loadingFactory;
         this._context = {};
+        this._timeouts = {};
         this.create({
             name: 'td-loading-main',
         });
@@ -5034,13 +5035,28 @@ exports.TdLoadingService = (function () {
      * e.g. loadingService.register()
      */
     TdLoadingService.prototype.register = function (name, registers) {
+        var _this = this;
         if (name === void 0) { name = 'td-loading-main'; }
         if (registers === void 0) { registers = 1; }
+        // try registering into the service if the loading component has been instanciated or if it exists.
         if (this._context[name]) {
             registers = registers < 1 ? 1 : registers;
             this._context[name].times += registers;
             this._context[name].subject.next(this._context[name].times);
             return true;
+        }
+        else {
+            // if it doesnt exist, set a timeout so its registered after change detection happens
+            // this in case "register" occured on the `ngOnInit` lifehook cycle.
+            if (!this._timeouts[name]) {
+                this._timeouts[name] = setTimeout(function () {
+                    _this.register(name, registers);
+                });
+            }
+            else {
+                // if it timeout occured and still doesnt exist, it means the tiemout wasnt needed so we clear it.
+                this._clearTimeout(name);
+            }
         }
         return false;
     };
@@ -5060,6 +5076,8 @@ exports.TdLoadingService = (function () {
     TdLoadingService.prototype.resolve = function (name, resolves) {
         if (name === void 0) { name = 'td-loading-main'; }
         if (resolves === void 0) { resolves = 1; }
+        // clear timeout if the loading component is "resolved" before its "registered"
+        this._clearTimeout(name);
         if (this._context[name]) {
             resolves = resolves < 1 ? 1 : resolves;
             if (this._context[name].times > 0) {
@@ -5090,6 +5108,14 @@ exports.TdLoadingService = (function () {
             }
         }
         return false;
+    };
+    /**
+     * Clears timeout linked to the name.
+     * @param name Name of the loading component to be cleared
+     */
+    TdLoadingService.prototype._clearTimeout = function (name) {
+        clearTimeout(this._timeouts[name]);
+        delete this._timeouts[name];
     };
     return TdLoadingService;
 }());

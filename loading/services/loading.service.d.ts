@@ -27,6 +27,7 @@ export declare class TdLoadingDirectiveConfig extends TdLoadingConfig implements
 export declare class TdLoadingService {
     private _loadingFactory;
     private _context;
+    private _timeouts;
     constructor(_loadingFactory: TdLoadingFactory);
     /**
      * params:
@@ -93,4 +94,9 @@ export declare class TdLoadingService {
      * Usage only available if its mode is 'determinate' and if loading is showing.
      */
     setValue(name: string, value: number): boolean;
+    /**
+     * Clears timeout linked to the name.
+     * @param name Name of the loading component to be cleared
+     */
+    private _clearTimeout(name);
 }
