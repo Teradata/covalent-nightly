@@ -36,7 +36,7 @@ var TdFileService = (function () {
      * }
      *
      * Uses underlying [XMLHttpRequest] to upload a file to a url.
-     * Will be depricated when angular2 fixes [Http] to allow [FormData] as body.
+     * Will be depricated when angular fixes [Http] to allow [FormData] as body.
      */
     TdFileService.prototype.upload = function (options) {
         var _this = this;
