@@ -16,7 +16,7 @@
   height: 72px; }
 
 .td-step-header md-icon.td-edit-icon {
-  margin-inline-end: 8px; }
+  margin: 0 8px; }
 
 md-icon.mat-warn {
   font-size: 24px;

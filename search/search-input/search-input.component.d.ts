@@ -1,6 +1,8 @@
 import { OnInit, EventEmitter } from '@angular/core';
+import { Dir } from '@angular/material';
 import 'rxjs/add/operator/debounceTime';
 export declare class TdSearchInputComponent implements OnInit {
+    private _dir;
     private _input;
     value: string;
     /**
@@ -38,6 +40,8 @@ export declare class TdSearchInputComponent implements OnInit {
      * Event emitted after the blur event has been called in underlying input.
      */
     onBlur: EventEmitter<void>;
+    readonly isRTL: boolean;
+    constructor(_dir: Dir);
     ngOnInit(): void;
     /**
      * Method to focus to underlying input.

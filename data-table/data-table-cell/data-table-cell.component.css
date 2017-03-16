@@ -22,14 +22,72 @@
   :host bdo[dir=ltr] {
     direction: ltr;
     unicode-bidi: bidi-override; }
-  [dir='ltr'] :host:first-child {
-    padding-left: 24px; }
-  [dir='rtl'] :host:first-child {
+  :host:first-child {
+    padding-left: 24px;
+    padding-right: initial; }
+    html[dir=rtl] :host:first-child {
+      padding-left: initial;
+      unicode-bidi: embed; }
+    body[dir=rtl] :host:first-child {
+      padding-left: initial;
+      unicode-bidi: embed; }
+    [dir=rtl] :host:first-child {
+      padding-left: initial;
+      unicode-bidi: embed; }
+    :host:first-child bdo[dir=rtl] {
+      direction: rtl;
+      unicode-bidi: bidi-override; }
+    :host:first-child bdo[dir=ltr] {
+      direction: ltr;
+      unicode-bidi: bidi-override; }
+    html[dir=rtl] :host:first-child {
+      padding-right: 24px;
+      unicode-bidi: embed; }
+    body[dir=rtl] :host:first-child {
+      padding-right: 24px;
+      unicode-bidi: embed; }
+    [dir=rtl] :host:first-child {
+      padding-right: 24px;
+      unicode-bidi: embed; }
+    :host:first-child bdo[dir=rtl] {
+      direction: rtl;
+      unicode-bidi: bidi-override; }
+    :host:first-child bdo[dir=ltr] {
+      direction: ltr;
+      unicode-bidi: bidi-override; }
+  :host:last-child {
+    padding-left: initial;
     padding-right: 24px; }
-  [dir='ltr'] :host:last-child {
-    padding-right: 24px; }
-  [dir='rtl'] :host:last-child {
-    padding-left: 24px; }
+    html[dir=rtl] :host:last-child {
+      padding-left: 24px;
+      unicode-bidi: embed; }
+    body[dir=rtl] :host:last-child {
+      padding-left: 24px;
+      unicode-bidi: embed; }
+    [dir=rtl] :host:last-child {
+      padding-left: 24px;
+      unicode-bidi: embed; }
+    :host:last-child bdo[dir=rtl] {
+      direction: rtl;
+      unicode-bidi: bidi-override; }
+    :host:last-child bdo[dir=ltr] {
+      direction: ltr;
+      unicode-bidi: bidi-override; }
+    html[dir=rtl] :host:last-child {
+      padding-right: initial;
+      unicode-bidi: embed; }
+    body[dir=rtl] :host:last-child {
+      padding-right: initial;
+      unicode-bidi: embed; }
+    [dir=rtl] :host:last-child {
+      padding-right: initial;
+      unicode-bidi: embed; }
+    :host:last-child bdo[dir=rtl] {
+      direction: rtl;
+      unicode-bidi: bidi-override; }
+    :host:last-child bdo[dir=ltr] {
+      direction: ltr;
+      unicode-bidi: bidi-override; }
   :host > * {
     vertical-align: middle; }
   :host.mat-clickable {

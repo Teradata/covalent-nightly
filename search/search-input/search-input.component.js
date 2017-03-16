@@ -7,11 +7,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component, ViewChild, Input, Output, EventEmitter, trigger, state, style, transition, animate } from '@angular/core';
-import { MdInputDirective } from '@angular/material';
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+import { Component, ViewChild, Input, Output, EventEmitter, trigger, state, style, transition, animate, Optional } from '@angular/core';
+import { MdInputDirective, Dir } from '@angular/material';
 import 'rxjs/add/operator/debounceTime';
 var TdSearchInputComponent = (function () {
-    function TdSearchInputComponent() {
+    function TdSearchInputComponent(_dir) {
+        this._dir = _dir;
         /**
          * showUnderline?: boolean
          * Sets if the input underline should be visible. Defaults to 'false'.
@@ -43,6 +47,16 @@ var TdSearchInputComponent = (function () {
          */
         this.onBlur = new EventEmitter();
     }
+    Object.defineProperty(TdSearchInputComponent.prototype, "isRTL", {
+        get: function () {
+            if (this._dir) {
+                return this._dir.dir === 'rtl';
+            }
+            return false;
+        },
+        enumerable: true,
+        configurable: true
+    });
     TdSearchInputComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._input._ngControl.valueChanges
@@ -112,23 +126,29 @@ __decorate([
 TdSearchInputComponent = __decorate([
     Component({
         selector: 'td-search-input',
-        template: "<div class=\"td-search-input\" layout=\"row\" layout-align=\"end center\"> <md-input-container [class.mat-hide-underline]=\"!showUnderline\" floatPlaceholder=\"never\" flex> <input mdInput #searchElement type=\"search\" [(ngModel)]=\"value\" [placeholder]=\"placeholder\" (blur)=\"handleBlur()\" (search)=\"stopPropagation($event)\" (keyup.enter)=\"handleSearch($event)\"/> </md-input-container> <button md-icon-button type=\"button\" [@searchState]=\"searchElement.value ? true : false\" (click)=\"clearSearch()\" flex=\"none\"> <md-icon>cancel</md-icon> </button> </div>",
-        styles: [".td-search-input { height: 64px; overflow: hidden; } .td-search-input /deep/ md-input-container.mat-hide-underline .mat-input-underline { display: none; } "],
+        template: "<div class=\"td-search-input\" layout=\"row\" layout-align=\"end center\"> <md-input-container [class.mat-hide-underline]=\"!showUnderline\" floatPlaceholder=\"never\" flex> <input mdInput #searchElement type=\"search\" [(ngModel)]=\"value\" [placeholder]=\"placeholder\" (blur)=\"handleBlur()\" (search)=\"stopPropagation($event)\" (keyup.enter)=\"handleSearch($event)\"/> </md-input-container> <button md-icon-button type=\"button\" [@searchState]=\"(searchElement.value ?  'show' : (isRTL ? 'hide-left' : 'hide-right'))\" (click)=\"clearSearch()\" flex=\"none\"> <md-icon>cancel</md-icon> </button> </div>",
+        styles: [".td-search-input { height: 64px; overflow-x: hidden; } .td-search-input /deep/ md-input-container.mat-hide-underline .mat-input-underline { display: none; } "],
         animations: [
             trigger('searchState', [
-                state('false', style({
+                state('hide-left', style({
+                    transform: 'translateX(-150%)',
+                    display: 'none',
+                })),
+                state('hide-right', style({
                     transform: 'translateX(150%)',
                     display: 'none',
                 })),
-                state('true', style({
+                state('show', style({
                     transform: 'translateX(0%)',
                     display: 'block',
                 })),
-                transition('0 => 1', animate('200ms ease-in')),
-                transition('1 => 0', animate('200ms ease-out')),
+                transition('* => show', animate('200ms ease-in')),
+                transition('show => *', animate('200ms ease-out')),
             ]),
         ],
-    })
+    }),
+    __param(0, Optional()),
+    __metadata("design:paramtypes", [Dir])
 ], TdSearchInputComponent);
 export { TdSearchInputComponent };
 //# sourceMappingURL=search-input.component.js.map

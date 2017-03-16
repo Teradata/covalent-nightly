@@ -703,21 +703,10 @@ td-expansion-panel {
     padding: 0; }
   td-expansion-panel md-icon.td-expand-icon {
     color: rgba(0, 0, 0, 0.54); }
-  td-expansion-panel .td-expansion-primary,
-  td-expansion-panel .td-expansion-secondary {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; }
-    [dir='ltr'] td-expansion-panel .td-expansion-primary, [dir='ltr']
-    td-expansion-panel .td-expansion-secondary {
-      margin-right: 5px; }
-    [dir='rtl'] td-expansion-panel .td-expansion-primary, [dir='rtl']
-    td-expansion-panel .td-expansion-secondary {
-      margin-left: 5px; }
-    td-expansion-panel .td-expansion-primary, td-expansion-panel .td-expansion-primary *,
-    td-expansion-panel .td-expansion-secondary,
-    td-expansion-panel .td-expansion-secondary * {
-      vertical-align: middle; }
+  td-expansion-panel .td-expansion-primary, td-expansion-panel .td-expansion-primary *,
+  td-expansion-panel .td-expansion-secondary,
+  td-expansion-panel .td-expansion-secondary * {
+    vertical-align: middle; }
   td-expansion-panel .td-expansion-secondary {
     color: rgba(0, 0, 0, 0.54); }
 

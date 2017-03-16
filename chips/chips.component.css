@@ -1,3 +1,7 @@
+/**
+ * Mixin that creates a new stacking context.
+ * see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
+ */
 :host {
   display: block;
   padding: 0px 5px 0px 5px; }
@@ -6,24 +10,64 @@
     cursor: default;
     border-radius: 16px;
     line-height: 32px;
+    margin: 8px 8px 0 0;
     padding: 0 12px;
     box-sizing: border-box;
     max-width: 100%;
     position: relative; }
-    [dir='ltr'] :host /deep/ .td-chip {
-      margin: 8px 8px 0 0; }
-    [dir='rtl'] :host /deep/ .td-chip {
-      margin: 8px 0 0 8px; }
+    html[dir=rtl] :host /deep/ .td-chip {
+      margin: 8px 0 0 8px;
+      unicode-bidi: embed; }
+    body[dir=rtl] :host /deep/ .td-chip {
+      margin: 8px 0 0 8px;
+      unicode-bidi: embed; }
+    [dir=rtl] :host /deep/ .td-chip {
+      margin: 8px 0 0 8px;
+      unicode-bidi: embed; }
+    :host /deep/ .td-chip bdo[dir=rtl] {
+      direction: rtl;
+      unicode-bidi: bidi-override; }
+    :host /deep/ .td-chip bdo[dir=ltr] {
+      direction: ltr;
+      unicode-bidi: bidi-override; }
     :host /deep/ .td-chip md-icon {
       position: relative;
       top: 5px;
+      left: 5px;
+      right: auto;
       height: 18px;
       width: 18px;
       font-size: 19px; }
-      [dir='ltr'] :host /deep/ .td-chip md-icon {
-        left: 5px; }
-      [dir='rtl'] :host /deep/ .td-chip md-icon {
-        right: 5px; }
+      html[dir=rtl] :host /deep/ .td-chip md-icon {
+        left: auto;
+        unicode-bidi: embed; }
+      body[dir=rtl] :host /deep/ .td-chip md-icon {
+        left: auto;
+        unicode-bidi: embed; }
+      [dir=rtl] :host /deep/ .td-chip md-icon {
+        left: auto;
+        unicode-bidi: embed; }
+      :host /deep/ .td-chip md-icon bdo[dir=rtl] {
+        direction: rtl;
+        unicode-bidi: bidi-override; }
+      :host /deep/ .td-chip md-icon bdo[dir=ltr] {
+        direction: ltr;
+        unicode-bidi: bidi-override; }
+      html[dir=rtl] :host /deep/ .td-chip md-icon {
+        right: 5px;
+        unicode-bidi: embed; }
+      body[dir=rtl] :host /deep/ .td-chip md-icon {
+        right: 5px;
+        unicode-bidi: embed; }
+      [dir=rtl] :host /deep/ .td-chip md-icon {
+        right: 5px;
+        unicode-bidi: embed; }
+      :host /deep/ .td-chip md-icon bdo[dir=rtl] {
+        direction: rtl;
+        unicode-bidi: bidi-override; }
+      :host /deep/ .td-chip md-icon bdo[dir=ltr] {
+        direction: ltr;
+        unicode-bidi: bidi-override; }
       :host /deep/ .td-chip md-icon:hover {
         cursor: pointer; }
 

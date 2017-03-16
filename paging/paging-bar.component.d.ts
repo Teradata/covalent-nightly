@@ -1,4 +1,5 @@
 import { EventEmitter, OnInit } from '@angular/core';
+import { Dir } from '@angular/material';
 export interface IPageChangeEvent {
     page: number;
     maxPage: number;
@@ -8,6 +9,7 @@ export interface IPageChangeEvent {
     toRow: number;
 }
 export declare class TdPagingBarComponent implements OnInit {
+    private _dir;
     private _pageSizes;
     private _pageSize;
     private _total;
@@ -71,6 +73,8 @@ export declare class TdPagingBarComponent implements OnInit {
      * Emits an [IPageChangeEvent] implemented object.
      */
     onChange: EventEmitter<IPageChangeEvent>;
+    readonly isRTL: boolean;
+    constructor(_dir: Dir);
     ngOnInit(): void;
     /**
      * navigateToPage?: function

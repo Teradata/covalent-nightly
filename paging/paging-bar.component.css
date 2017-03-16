@@ -20,10 +20,3 @@ md-select /deep/ .mat-select-value {
 
 md-select /deep/ .mat-select-underline {
   display: none; }
-
-.td-paging-size {
-  margin-right: -5px; }
-  [dir='ltr'] .td-paging-size {
-    margin-right: -5px; }
-  [dir='rtl'] .td-paging-size {
-    margin-left: -5px; }

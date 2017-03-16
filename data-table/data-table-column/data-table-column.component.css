@@ -10,14 +10,72 @@
   position: relative;
   vertical-align: middle;
   text-align: left; }
-  [dir='ltr'] :host:first-child {
-    padding-left: 24px; }
-  [dir='rtl'] :host:first-child {
+  :host:first-child {
+    padding-left: 24px;
+    padding-right: initial; }
+    html[dir=rtl] :host:first-child {
+      padding-left: initial;
+      unicode-bidi: embed; }
+    body[dir=rtl] :host:first-child {
+      padding-left: initial;
+      unicode-bidi: embed; }
+    [dir=rtl] :host:first-child {
+      padding-left: initial;
+      unicode-bidi: embed; }
+    :host:first-child bdo[dir=rtl] {
+      direction: rtl;
+      unicode-bidi: bidi-override; }
+    :host:first-child bdo[dir=ltr] {
+      direction: ltr;
+      unicode-bidi: bidi-override; }
+    html[dir=rtl] :host:first-child {
+      padding-right: 24px;
+      unicode-bidi: embed; }
+    body[dir=rtl] :host:first-child {
+      padding-right: 24px;
+      unicode-bidi: embed; }
+    [dir=rtl] :host:first-child {
+      padding-right: 24px;
+      unicode-bidi: embed; }
+    :host:first-child bdo[dir=rtl] {
+      direction: rtl;
+      unicode-bidi: bidi-override; }
+    :host:first-child bdo[dir=ltr] {
+      direction: ltr;
+      unicode-bidi: bidi-override; }
+  :host:last-child {
+    padding-left: initial;
     padding-right: 24px; }
-  [dir='ltr'] :host:last-child {
-    padding-right: 24px; }
-  [dir='rtl'] :host:last-child {
-    padding-left: 24px; }
+    html[dir=rtl] :host:last-child {
+      padding-left: 24px;
+      unicode-bidi: embed; }
+    body[dir=rtl] :host:last-child {
+      padding-left: 24px;
+      unicode-bidi: embed; }
+    [dir=rtl] :host:last-child {
+      padding-left: 24px;
+      unicode-bidi: embed; }
+    :host:last-child bdo[dir=rtl] {
+      direction: rtl;
+      unicode-bidi: bidi-override; }
+    :host:last-child bdo[dir=ltr] {
+      direction: ltr;
+      unicode-bidi: bidi-override; }
+    html[dir=rtl] :host:last-child {
+      padding-right: initial;
+      unicode-bidi: embed; }
+    body[dir=rtl] :host:last-child {
+      padding-right: initial;
+      unicode-bidi: embed; }
+    [dir=rtl] :host:last-child {
+      padding-right: initial;
+      unicode-bidi: embed; }
+    :host:last-child bdo[dir=rtl] {
+      direction: rtl;
+      unicode-bidi: bidi-override; }
+    :host:last-child bdo[dir=ltr] {
+      direction: ltr;
+      unicode-bidi: bidi-override; }
   :host md-icon {
     height: 16px;
     width: 16px;
@@ -73,11 +131,69 @@
     :host.mat-numeric bdo[dir=ltr] {
       direction: ltr;
       unicode-bidi: bidi-override; }
-    [dir='ltr'] :host.mat-numeric md-icon.td-data-table-sort-icon {
-      margin-left: -22px; }
-    [dir='rtl'] :host.mat-numeric md-icon.td-data-table-sort-icon {
-      margin-right: -22px; }
-  [dir='ltr'] :host:not(.mat-numeric) md-icon.td-data-table-sort-icon {
-    margin-left: 6px; }
-  [dir='rtl'] :host:not(.mat-numeric) md-icon.td-data-table-sort-icon {
-    margin-right: 6px; }
+    :host.mat-numeric md-icon.td-data-table-sort-icon {
+      margin-left: -22px;
+      margin-right: initial; }
+      html[dir=rtl] :host.mat-numeric md-icon.td-data-table-sort-icon {
+        margin-left: initial;
+        unicode-bidi: embed; }
+      body[dir=rtl] :host.mat-numeric md-icon.td-data-table-sort-icon {
+        margin-left: initial;
+        unicode-bidi: embed; }
+      [dir=rtl] :host.mat-numeric md-icon.td-data-table-sort-icon {
+        margin-left: initial;
+        unicode-bidi: embed; }
+      :host.mat-numeric md-icon.td-data-table-sort-icon bdo[dir=rtl] {
+        direction: rtl;
+        unicode-bidi: bidi-override; }
+      :host.mat-numeric md-icon.td-data-table-sort-icon bdo[dir=ltr] {
+        direction: ltr;
+        unicode-bidi: bidi-override; }
+      html[dir=rtl] :host.mat-numeric md-icon.td-data-table-sort-icon {
+        margin-right: -22px;
+        unicode-bidi: embed; }
+      body[dir=rtl] :host.mat-numeric md-icon.td-data-table-sort-icon {
+        margin-right: -22px;
+        unicode-bidi: embed; }
+      [dir=rtl] :host.mat-numeric md-icon.td-data-table-sort-icon {
+        margin-right: -22px;
+        unicode-bidi: embed; }
+      :host.mat-numeric md-icon.td-data-table-sort-icon bdo[dir=rtl] {
+        direction: rtl;
+        unicode-bidi: bidi-override; }
+      :host.mat-numeric md-icon.td-data-table-sort-icon bdo[dir=ltr] {
+        direction: ltr;
+        unicode-bidi: bidi-override; }
+  :host:not(.mat-numeric) md-icon.td-data-table-sort-icon {
+    margin-left: 6px;
+    margin-right: initial; }
+    html[dir=rtl] :host:not(.mat-numeric) md-icon.td-data-table-sort-icon {
+      margin-left: initial;
+      unicode-bidi: embed; }
+    body[dir=rtl] :host:not(.mat-numeric) md-icon.td-data-table-sort-icon {
+      margin-left: initial;
+      unicode-bidi: embed; }
+    [dir=rtl] :host:not(.mat-numeric) md-icon.td-data-table-sort-icon {
+      margin-left: initial;
+      unicode-bidi: embed; }
+    :host:not(.mat-numeric) md-icon.td-data-table-sort-icon bdo[dir=rtl] {
+      direction: rtl;
+      unicode-bidi: bidi-override; }
+    :host:not(.mat-numeric) md-icon.td-data-table-sort-icon bdo[dir=ltr] {
+      direction: ltr;
+      unicode-bidi: bidi-override; }
+    html[dir=rtl] :host:not(.mat-numeric) md-icon.td-data-table-sort-icon {
+      margin-right: 6px;
+      unicode-bidi: embed; }
+    body[dir=rtl] :host:not(.mat-numeric) md-icon.td-data-table-sort-icon {
+      margin-right: 6px;
+      unicode-bidi: embed; }
+    [dir=rtl] :host:not(.mat-numeric) md-icon.td-data-table-sort-icon {
+      margin-right: 6px;
+      unicode-bidi: embed; }
+    :host:not(.mat-numeric) md-icon.td-data-table-sort-icon bdo[dir=rtl] {
+      direction: rtl;
+      unicode-bidi: bidi-override; }
+    :host:not(.mat-numeric) md-icon.td-data-table-sort-icon bdo[dir=ltr] {
+      direction: ltr;
+      unicode-bidi: bidi-override; }

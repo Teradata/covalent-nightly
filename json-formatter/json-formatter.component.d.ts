@@ -1,6 +1,8 @@
 import { ChangeDetectorRef } from '@angular/core';
+import { Dir } from '@angular/material';
 export declare class TdJsonFormatterComponent {
     private _changeDetectorRef;
+    private _dir;
     /**
      * Max length for property names. Any names bigger than this get trunctated.
      */
@@ -35,7 +37,8 @@ export declare class TdJsonFormatterComponent {
      */
     data: any;
     readonly children: string[];
-    constructor(_changeDetectorRef: ChangeDetectorRef);
+    readonly isRTL: boolean;
+    constructor(_changeDetectorRef: ChangeDetectorRef, _dir: Dir);
     /**
      * Refreshes json-formatter and rerenders [data]
      */

@@ -3,9 +3,10 @@
 
 .td-search-box {
   height: 64px; }
-  .td-search-box td-search-input /deep/ .mat-input-placeholder.mat-focused {
-    visibility: hidden; }
-  [dir='ltr'] .td-search-box td-search-input {
+  .td-search-box td-search-input {
     margin-left: 12px; }
-  [dir='rtl'] .td-search-box td-search-input {
-    margin-right: 12px; }
+    /deep/ [dir='rtl'] .td-search-box td-search-input {
+      margin-right: 12px;
+      margin-left: 0px !important; }
+    .td-search-box td-search-input /deep/ .mat-input-placeholder.mat-focused {
+      visibility: hidden; }
