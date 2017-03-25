@@ -111,8 +111,13 @@ var TdLoadingFactory = (function () {
                 loading = false;
                 var subs_2 = loadingRef.componentRef.instance.startOutAnimation().subscribe(function () {
                     subs_2.unsubscribe();
-                    viewContainerRef.createEmbeddedView(templateRef);
+                    var cdr = viewContainerRef.createEmbeddedView(templateRef);
                     viewContainerRef.detach(viewContainerRef.indexOf(loadingRef.componentRef.hostView));
+                    /**
+                     * Need to call "markForCheck" on attached template, so its detected by parent component when attached
+                     * with "OnPush" change detection
+                     */
+                    cdr.markForCheck();
                 });
             }
         });
