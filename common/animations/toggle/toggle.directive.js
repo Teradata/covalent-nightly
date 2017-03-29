@@ -7,18 +7,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Directive, ElementRef, Input, HostBinding, Renderer } from '@angular/core';
+import { Directive, ElementRef, Input, HostBinding, Renderer2, ChangeDetectorRef } from '@angular/core';
+import { ɵAnimation as Animation, AnimationDriver, ɵAnimationStyleNormalizer as AnimationStyleNormalizer, ɵDomAnimationEngine as DomAnimationEngine } from '@angular/animations/browser';
+import { animate } from '@angular/animations';
 var TdToggleDirective = (function () {
-    function TdToggleDirective(_renderer, _element) {
+    function TdToggleDirective(_renderer, _element, _changeDetectorRef, animationDriver, animationStyleNormalizer) {
         this._renderer = _renderer;
         this._element = _element;
+        this._changeDetectorRef = _changeDetectorRef;
         /**
          * duration?: number
          * Sets duration of toggle animation in miliseconds.
          * Defaults to 150 ms.
          */
         this.duration = 150;
-        this._defaultDisplay = this._element.nativeElement.style.display;
+        this._engine = new DomAnimationEngine(animationDriver, animationStyleNormalizer);
     }
     Object.defineProperty(TdToggleDirective.prototype, "state", {
         /**
@@ -27,7 +30,10 @@ var TdToggleDirective = (function () {
          */
         set: function (state) {
             this._state = state;
-            clearTimeout(this._timeoutNumber);
+            if (this._animationPlayer) {
+                this._animationPlayer.destroy();
+                this._animationPlayer = undefined;
+            }
             if (state) {
                 this.hide();
             }
@@ -58,111 +64,40 @@ var TdToggleDirective = (function () {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(TdToggleDirective.prototype, "hiddenBinding", {
-        /**
-         * Binds 'hidden' attribute.
-         */
-        get: function () {
-            return this._hiddenState ? true : undefined;
-        },
-        enumerable: true,
-        configurable: true
-    });
     /**
      * Hides element: sets "display:[default]" so animation is shown,
      * starts animation and adds "display:'none'" style at the end.
      */
     TdToggleDirective.prototype.hide = function () {
         var _this = this;
-        this._renderer.setElementStyle(this._element.nativeElement, 'display', this._defaultDisplay);
-        var animation = this._renderer
-            .animate(this._element.nativeElement, undefined, [{
-                styles: {
-                    styles: [
-                        { 'height': this._element.nativeElement.scrollHeight + 'px' },
-                        { 'overflow': 'hidden' },
-                    ],
-                },
-                offset: 0,
-            }, {
-                styles: {
-                    styles: [
-                        { 'height': 0 },
-                        { 'overflow': 'hidden' },
-                    ],
-                },
-                offset: 1,
-            },
-        ], this.duration, 0, 'ease-in');
-        animation.play();
-        /**
-         * Using timeout instead of onComplete since there is a bug if you start another animation
-         * before the previous one ends. The onComplete event is not executed.
-         * e.g. hide event started before show event is completed.
-         */
-        this._timeoutNumber = window.setTimeout(function () {
-            _this._renderer.setElementStyle(_this._element.nativeElement, 'display', 'none');
-            _this._hiddenState = _this._state;
-            animation.destroy();
-        }, this.duration);
+        this._defaultDisplay = this._element.nativeElement.style.display;
+        this._defaultOverflow = this._element.nativeElement.style.overflow;
+        this._animationPlayer = this._engine.animateTimeline(this._element.nativeElement, new Animation([animate(this.duration + 'ms ease-out')]).buildTimelines([{ height: this._element.nativeElement.scrollHeight + 'px' }], [{ height: 0 }]));
+        this._renderer.setStyle(this._element.nativeElement, 'overflow', 'hidden');
+        this._changeDetectorRef.markForCheck();
+        this._animationPlayer.play();
+        this._animationPlayer.onDone(function () {
+            _this._animationPlayer.destroy();
+            _this._renderer.setStyle(_this._element.nativeElement, 'overflow', _this._defaultOverflow);
+            _this._renderer.setStyle(_this._element.nativeElement, 'display', 'none');
+            _this._changeDetectorRef.markForCheck();
+        });
     };
     /**
      * Shows element: sets "display:[default]" so animation is shown,
-     * starts animation and adds "display:[default]" style again at the end.
+     * starts animation and adds "overflow:[default]" style again at the end.
      */
     TdToggleDirective.prototype.show = function () {
         var _this = this;
-        this._hiddenState = this._state;
-        this._renderer.setElementStyle(this._element.nativeElement, 'display', this._defaultDisplay);
-        var startingAnimation = this._renderer
-            .animate(this._element.nativeElement, undefined, [{
-                styles: {
-                    styles: [
-                        { 'overflow': 'hidden' },
-                    ],
-                },
-                offset: 0,
-            }, {
-                styles: {
-                    styles: [
-                        { 'overflow': 'hidden' },
-                    ],
-                },
-                offset: 1,
-            },
-        ], 0, 0, 'ease-in');
-        startingAnimation.play();
-        startingAnimation.onDone(function () {
-            startingAnimation.destroy();
-            var animation = _this._renderer
-                .animate(_this._element.nativeElement, undefined, [{
-                    styles: {
-                        styles: [
-                            { 'height': 0 },
-                            { 'overflow': 'hidden' },
-                        ],
-                    },
-                    offset: 0,
-                }, {
-                    styles: {
-                        styles: [
-                            { 'height': _this._element.nativeElement.scrollHeight + 'px' },
-                            { 'overflow': 'hidden' },
-                        ],
-                    },
-                    offset: 1,
-                },
-            ], _this.duration, 0, 'ease-in');
-            animation.play();
-            /**
-             * Using timeout instead of onComplete since there is a bug if you start another animation
-             * before the previous one ends. The onComplete event is not executed.
-             * e.g. hide event started before show event is completed.
-             */
-            _this._timeoutNumber = window.setTimeout(function () {
-                _this._renderer.setElementStyle(_this._element.nativeElement, 'display', _this._defaultDisplay);
-                animation.destroy();
-            }, _this.duration);
+        this._renderer.setStyle(this._element.nativeElement, 'display', this._defaultDisplay);
+        this._changeDetectorRef.markForCheck();
+        this._animationPlayer = this._engine.animateTimeline(this._element.nativeElement, new Animation([animate(this.duration + 'ms ease-in')]).buildTimelines([{ height: 0 }], [{ height: this._element.nativeElement.scrollHeight + 'px' }]));
+        this._renderer.setStyle(this._element.nativeElement, 'overflow', 'hidden');
+        this._animationPlayer.play();
+        this._animationPlayer.onDone(function () {
+            _this._animationPlayer.destroy();
+            _this._renderer.setStyle(_this._element.nativeElement, 'overflow', _this._defaultOverflow);
+            _this._changeDetectorRef.markForCheck();
         });
     };
     return TdToggleDirective;
@@ -186,16 +121,15 @@ __decorate([
     __metadata("design:type", Boolean),
     __metadata("design:paramtypes", [])
 ], TdToggleDirective.prototype, "ariaHiddenBinding", null);
-__decorate([
-    HostBinding('hidden'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [])
-], TdToggleDirective.prototype, "hiddenBinding", null);
 TdToggleDirective = __decorate([
     Directive({
         selector: '[tdToggle]',
     }),
-    __metadata("design:paramtypes", [Renderer, ElementRef])
+    __metadata("design:paramtypes", [Renderer2,
+        ElementRef,
+        ChangeDetectorRef,
+        AnimationDriver,
+        AnimationStyleNormalizer])
 ], TdToggleDirective);
 export { TdToggleDirective };
 //# sourceMappingURL=toggle.directive.js.map

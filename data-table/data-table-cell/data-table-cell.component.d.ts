@@ -1,4 +1,4 @@
-import { Renderer, ElementRef } from '@angular/core';
+import { Renderer2, ElementRef } from '@angular/core';
 export declare class TdDataTableCellComponent {
     private _elementRef;
     private _renderer;
@@ -9,5 +9,5 @@ export declare class TdDataTableCellComponent {
      */
     numeric: boolean;
     readonly bindNumeric: boolean;
-    constructor(_elementRef: ElementRef, _renderer: Renderer);
+    constructor(_elementRef: ElementRef, _renderer: Renderer2);
 }

@@ -1,8 +1,13 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -25,7 +30,7 @@ var TdExpansionPanelHeaderDirective = (function (_super) {
 }(TemplatePortalDirective));
 TdExpansionPanelHeaderDirective = __decorate([
     Directive({
-        selector: '[td-expansion-panel-header]template',
+        selector: '[td-expansion-panel-header]ng-template',
     }),
     __metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
 ], TdExpansionPanelHeaderDirective);
@@ -39,7 +44,7 @@ var TdExpansionPanelLabelDirective = (function (_super) {
 }(TemplatePortalDirective));
 TdExpansionPanelLabelDirective = __decorate([
     Directive({
-        selector: '[td-expansion-panel-label]template',
+        selector: '[td-expansion-panel-label]ng-template',
     }),
     __metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
 ], TdExpansionPanelLabelDirective);
@@ -53,7 +58,7 @@ var TdExpansionPanelSublabelDirective = (function (_super) {
 }(TemplatePortalDirective));
 TdExpansionPanelSublabelDirective = __decorate([
     Directive({
-        selector: '[td-expansion-panel-sublabel]template',
+        selector: '[td-expansion-panel-sublabel]ng-template',
     }),
     __metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
 ], TdExpansionPanelSublabelDirective);
@@ -222,7 +227,7 @@ TdExpansionPanelComponent = __decorate([
     Component({
         selector: 'td-expansion-panel',
         styles: [":host /deep/ md-nav-list [md-list-item]:active, :host /deep/ md-nav-list [md-list-item]:focus { outline: none; } :host /deep/ md-nav-list [md-list-item].mat-list-item.mat-interaction-disabled .mat-list-item-content { background: none !important; cursor: auto; } :host /deep/ md-nav-list [md-list-item].mat-tall .mat-list-item-content { height: auto; padding-left: 0; padding-right: 0; } :host { display: block; } :host .panel { transition: 1s all ease; } :host md-nav-list:first-of-type, :host md-list:first-of-type { padding-top: 0; } md-nav-list { padding: 0; } .td-expansion-primary, .td-expansion-secondary { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 5px; } /deep/ [dir='rtl'] .td-expansion-primary, /deep/ [dir='rtl'] .td-expansion-secondary { margin-left: 5px; margin-right: inherit; } "],
-        template: "<div class=\"panel\"  [class.td-expanded]=\"expand\"> <md-nav-list> <a [tabIndex]=\"disabled? -1 : 0\" (keydown.enter)=\"clickEvent()\" (click)=\"clickEvent()\" [class.mat-interaction-disabled]=\"disabled\" [class.mat-tall]=\"expansionPanelHeader\" md-list-item> <template [cdkPortalHost]=\"expansionPanelHeader\"></template> <div [class.mat-disabled]=\"disabled\" *ngIf=\"!expansionPanelHeader\" layout=\"row\"  layout-align=\"start center\"  flex> <div class=\"md-subhead td-expansion-primary\" flex-gt-xs=\"33\"> <template [cdkPortalHost]=\"expansionPanelLabel\"></template> <template [ngIf]=\"!expansionPanelLabel\">{{label}}</template> </div> <div class=\"md-body-1 td-expansion-secondary\"> <template [cdkPortalHost]=\"expansionPanelSublabel\"></template> <template [ngIf]=\"!expansionPanelSublabel\">{{sublabel}}</template> </div> <span flex></span> <md-icon class=\"td-expand-icon\" *ngIf=\"!expand && !disabled\">keyboard_arrow_down</md-icon> <md-icon class=\"td-expand-icon\" *ngIf=\"expand\">keyboard_arrow_up</md-icon> </div> </a> </md-nav-list> <div> <div class=\"td-expansion-content\" [@tdCollapse]=\"!expand\" [style.overflow]=\"hideContentOverflow ? 'hidden' : null\" (@tdCollapse.start)=\"hideContentOverflow = !hideContentOverflow\" (@tdCollapse.done)=\"hideContentOverflow = !hideContentOverflow\"> <ng-content></ng-content> </div> <div class=\"td-expansion-summary\" [@tdCollapse]=\"expand\" [style.overflow]=\"hideSummaryOverflow ? 'hidden' : null\" (@tdCollapse.start)=\"hideSummaryOverflow = !hideSummaryOverflow\" (@tdCollapse.done)=\"hideSummaryOverflow = !hideSummaryOverflow\"> <ng-content select=\"td-expansion-summary\"></ng-content> </div> </div> </div>",
+        template: "<div class=\"panel\"  [class.td-expanded]=\"expand\"> <md-nav-list> <a [tabIndex]=\"disabled? -1 : 0\" (keydown.enter)=\"clickEvent()\" (click)=\"clickEvent()\" [class.mat-interaction-disabled]=\"disabled\" [class.mat-tall]=\"expansionPanelHeader\" md-list-item> <ng-template [cdkPortalHost]=\"expansionPanelHeader\"></ng-template> <div [class.mat-disabled]=\"disabled\" *ngIf=\"!expansionPanelHeader\" layout=\"row\"  layout-align=\"start center\"  flex> <div class=\"md-subhead td-expansion-primary\" flex-gt-xs=\"33\"> <ng-template [cdkPortalHost]=\"expansionPanelLabel\"></ng-template> <ng-template [ngIf]=\"!expansionPanelLabel\">{{label}}</ng-template> </div> <div class=\"md-body-1 td-expansion-secondary\"> <ng-template [cdkPortalHost]=\"expansionPanelSublabel\"></ng-template> <ng-template [ngIf]=\"!expansionPanelSublabel\">{{sublabel}}</ng-template> </div> <span flex></span> <md-icon class=\"td-expand-icon\" *ngIf=\"!expand && !disabled\">keyboard_arrow_down</md-icon> <md-icon class=\"td-expand-icon\" *ngIf=\"expand\">keyboard_arrow_up</md-icon> </div> </a> </md-nav-list> <div> <div class=\"td-expansion-content\" [@tdCollapse]=\"!expand\"> <ng-content></ng-content> </div> <div class=\"td-expansion-summary\" [@tdCollapse]=\"expand\"> <ng-content select=\"td-expansion-summary\"></ng-content> </div> </div> </div>",
         animations: [
             TdCollapseAnimation(),
         ],

@@ -1,4 +1,4 @@
-import { EventEmitter, Renderer, TemplateRef, ViewContainerRef, ChangeDetectorRef } from '@angular/core';
+import { EventEmitter, Renderer2, TemplateRef, ViewContainerRef, ChangeDetectorRef } from '@angular/core';
 import { TemplatePortalDirective } from '@angular/material';
 import { ControlValueAccessor } from '@angular/forms';
 export declare const FILE_INPUT_CONTROL_VALUE_ACCESSOR: any;
@@ -45,7 +45,7 @@ export declare class TdFileInputComponent implements ControlValueAccessor {
      * Emits a [File | FileList] object.
      */
     onSelect: EventEmitter<File | FileList>;
-    constructor(_renderer: Renderer, _changeDetectorRef: ChangeDetectorRef);
+    constructor(_renderer: Renderer2, _changeDetectorRef: ChangeDetectorRef);
     /**
      * Method executed when a file is selected.
      */

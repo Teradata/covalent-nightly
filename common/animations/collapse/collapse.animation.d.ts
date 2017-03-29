@@ -1,12 +1,12 @@
-import { AnimationEntryMetadata } from '@angular/core';
+import { AnimationTriggerMetadata } from '@angular/animations';
 /**
  * Function TdCollapseAnimation
  *
  * params:
- * * duration: Duration of animation in miliseconds. Defaults to 150 ms.
+ * * duration: Duration of animation in miliseconds. Defaults to 120 ms.
  *
- * Returns an [AnimationEntryMetadata] object with states for a collapse/expand animation.
+ * Returns an [AnimationTriggerMetadata] object with states for a collapse/expand animation.
  *
  * usage: [@tdCollapse]="true|false"
  */
-export declare function TdCollapseAnimation(duration?: number): AnimationEntryMetadata;
+export declare function TdCollapseAnimation(duration?: number): AnimationTriggerMetadata;

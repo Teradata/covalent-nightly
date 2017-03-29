@@ -14,8 +14,8 @@ import { TdAutoTrimDirective } from './forms/auto-trim/auto-trim.directive';
 export { TdAutoTrimDirective };
 import { TdMinValidator } from './forms/validators/min/min.validator';
 import { TdMaxValidator } from './forms/validators/max/max.validator';
-import { TdNumberRequiredValidator } from './forms/validators/number-required/number-required.validator';
-export { TdMinValidator, TdMaxValidator, TdNumberRequiredValidator };
+export { TdMinValidator, TdMaxValidator };
+export { CovalentValidators } from './forms/validators/validators';
 /**
  * PIPES
  */

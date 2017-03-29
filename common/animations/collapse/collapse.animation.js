@@ -1,27 +1,33 @@
-import { trigger, state, style, transition, animate } from '@angular/core';
+import { trigger, state, style, transition, animate, AUTO_STYLE } from '@angular/animations';
 /**
  * Function TdCollapseAnimation
  *
  * params:
- * * duration: Duration of animation in miliseconds. Defaults to 150 ms.
+ * * duration: Duration of animation in miliseconds. Defaults to 120 ms.
  *
- * Returns an [AnimationEntryMetadata] object with states for a collapse/expand animation.
+ * Returns an [AnimationTriggerMetadata] object with states for a collapse/expand animation.
  *
  * usage: [@tdCollapse]="true|false"
  */
 export function TdCollapseAnimation(duration) {
-    if (duration === void 0) { duration = 150; }
+    if (duration === void 0) { duration = 120; }
     return trigger('tdCollapse', [
-        state('true', style({
+        state('1', style({
             height: '0',
             display: 'none',
         })),
-        state('false', style({
-            height: '*',
-            display: '*',
+        state('0', style({
+            height: AUTO_STYLE,
+            display: AUTO_STYLE,
         })),
-        transition('0 => 1', animate(duration + 'ms ease-in')),
-        transition('1 => 0', animate(duration + 'ms ease-out')),
+        transition('0 => 1', [
+            style({ overflow: 'hidden' }),
+            animate(duration + 'ms ease-in', style({ height: '0' })),
+        ]),
+        transition('1 => 0', [
+            style({ overflow: 'hidden' }),
+            animate(duration + 'ms ease-out', style({ height: AUTO_STYLE })),
+        ]),
     ]);
 }
 //# sourceMappingURL=collapse.animation.js.map

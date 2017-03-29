@@ -1,8 +1,13 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -12,7 +17,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component, Directive, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewChild, ElementRef, Renderer, TemplateRef, ViewContainerRef, ChangeDetectorRef, forwardRef } from '@angular/core';
+import { Component, Directive, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewChild, ElementRef, Renderer2, TemplateRef, ViewContainerRef, ChangeDetectorRef, forwardRef } from '@angular/core';
 import { TemplatePortalDirective } from '@angular/material';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 var noop = function () {
@@ -32,7 +37,7 @@ var TdFileInputLabelDirective = (function (_super) {
 }(TemplatePortalDirective));
 TdFileInputLabelDirective = __decorate([
     Directive({
-        selector: '[td-file-input-label]template',
+        selector: '[td-file-input-label]ng-template',
     }),
     __metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
 ], TdFileInputLabelDirective);
@@ -119,7 +124,7 @@ var TdFileInputComponent = (function () {
      */
     TdFileInputComponent.prototype.clear = function () {
         this.writeValue(undefined);
-        this._renderer.setElementProperty(this.inputElement, 'value', '');
+        this._renderer.setProperty(this.inputElement, 'value', '');
     };
     /**
      * Implemented as part of ControlValueAccessor.
@@ -170,7 +175,7 @@ TdFileInputComponent = __decorate([
         styles: [":host { /** * Class that is added ondragenter by the [TdFileDrop] directive. */ } :host .td-file-input { padding-left: 8px; padding-right: 8px; } :host input.td-file-input-hidden { display: none; } :host .drop-zone { border-radius: 3px; } :host .drop-zone * { pointer-events: none; } "],
         template: "<div> <button md-raised-button class=\"td-file-input\" type=\"button\" [color]=\"color\"  [multiple]=\"multiple\"  [disabled]=\"disabled\" (keyup.enter)=\"fileInput.click()\" (click)=\"fileInput.click()\" (fileDrop)=\"handleSelect($event)\" tdFileDrop> <ng-content></ng-content> </button> <input #fileInput  class=\"td-file-input-hidden\"  type=\"file\" [attr.accept]=\"accept\"                 (fileSelect)=\"handleSelect($event)\" [multiple]=\"multiple\"  [disabled]=\"disabled\" tdFileSelect> </div>",
     }),
-    __metadata("design:paramtypes", [Renderer, ChangeDetectorRef])
+    __metadata("design:paramtypes", [Renderer2, ChangeDetectorRef])
 ], TdFileInputComponent);
 export { TdFileInputComponent };
 //# sourceMappingURL=file-input.component.js.map

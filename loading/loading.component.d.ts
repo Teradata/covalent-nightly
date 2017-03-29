@@ -1,4 +1,5 @@
-import { AnimationTransitionEvent, ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectorRef } from '@angular/core';
+import { AnimationEvent } from '@angular/animations';
 import { TemplatePortal } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 export declare enum LoadingType {
@@ -64,7 +65,7 @@ export declare class TdLoadingComponent {
     isLinear(): boolean;
     isFullScreen(): boolean;
     isOverlay(): boolean;
-    animationComplete(event: AnimationTransitionEvent): void;
+    animationComplete(event: AnimationEvent): void;
     inAnimationCompleted(): void;
     outAnimationCompleted(): void;
     /**

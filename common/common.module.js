@@ -31,13 +31,12 @@ export { TdAutoTrimDirective };
 // Validators
 import { TdMinValidator } from './forms/validators/min/min.validator';
 import { TdMaxValidator } from './forms/validators/max/max.validator';
-import { TdNumberRequiredValidator } from './forms/validators/number-required/number-required.validator';
 var TD_VALIDATORS = [
     TdMinValidator,
     TdMaxValidator,
-    TdNumberRequiredValidator,
 ];
-export { TdMinValidator, TdMaxValidator, TdNumberRequiredValidator };
+export { TdMinValidator, TdMaxValidator };
+export { CovalentValidators } from './forms/validators/validators';
 /**
  * PIPES
  */

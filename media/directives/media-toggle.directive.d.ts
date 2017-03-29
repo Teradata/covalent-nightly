@@ -1,5 +1,5 @@
 import { ElementRef, OnInit, OnDestroy } from '@angular/core';
-import { Renderer } from '@angular/core';
+import { Renderer2 } from '@angular/core';
 import { TdMediaService } from '../services/media.service';
 export declare class TdMediaToggleDirective implements OnInit, OnDestroy {
     private _renderer;
@@ -32,7 +32,7 @@ export declare class TdMediaToggleDirective implements OnInit, OnDestroy {
      * CSS Styles to be toggled when media query matches.
      */
     styles: any;
-    constructor(_renderer: Renderer, _elementRef: ElementRef, _mediaService: TdMediaService);
+    constructor(_renderer: Renderer2, _elementRef: ElementRef, _mediaService: TdMediaService);
     ngOnInit(): void;
     ngOnDestroy(): void;
     private _mediaChange(matches);

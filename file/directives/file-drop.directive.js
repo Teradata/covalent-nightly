@@ -8,7 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Directive, Input, Output, EventEmitter } from '@angular/core';
-import { HostListener, HostBinding, ElementRef, Renderer } from '@angular/core';
+import { HostListener, HostBinding, ElementRef, Renderer2 } from '@angular/core';
 var TdFileDropDirective = (function () {
     function TdFileDropDirective(_renderer, _element) {
         this._renderer = _renderer;
@@ -79,7 +79,7 @@ var TdFileDropDirective = (function () {
                 this.onFileDrop.emit(value);
             }
         }
-        this._renderer.setElementClass(this._element.nativeElement, 'drop-zone', false);
+        this._renderer.removeClass(this._element.nativeElement, 'drop-zone');
         this._stopEvent(event);
     };
     /**
@@ -105,7 +105,7 @@ var TdFileDropDirective = (function () {
      */
     TdFileDropDirective.prototype.onDragEnter = function (event) {
         if (!this._disabled) {
-            this._renderer.setElementClass(this._element.nativeElement, 'drop-zone', true);
+            this._renderer.addClass(this._element.nativeElement, 'drop-zone');
         }
         this._stopEvent(event);
     };
@@ -114,7 +114,7 @@ var TdFileDropDirective = (function () {
      * Stops event propagation and default action from browser for 'dragleave' event.
      */
     TdFileDropDirective.prototype.onDragLeave = function (event) {
-        this._renderer.setElementClass(this._element.nativeElement, 'drop-zone', false);
+        this._renderer.removeClass(this._element.nativeElement, 'drop-zone');
         this._stopEvent(event);
     };
     /**
@@ -188,7 +188,7 @@ TdFileDropDirective = __decorate([
     Directive({
         selector: '[tdFileDrop]',
     }),
-    __metadata("design:paramtypes", [Renderer, ElementRef])
+    __metadata("design:paramtypes", [Renderer2, ElementRef])
 ], TdFileDropDirective);
 export { TdFileDropDirective };
 //# sourceMappingURL=file-drop.directive.js.map

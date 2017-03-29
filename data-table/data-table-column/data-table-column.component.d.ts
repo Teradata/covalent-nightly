@@ -1,4 +1,4 @@
-import { EventEmitter, Renderer, ElementRef } from '@angular/core';
+import { EventEmitter, Renderer2, ElementRef } from '@angular/core';
 import { TdDataTableSortingOrder } from '../data-table.component';
 export interface ITdDataTableSortChangeEvent {
     order: TdDataTableSortingOrder;
@@ -47,7 +47,7 @@ export declare class TdDataTableColumnComponent {
     readonly bingSortable: boolean;
     readonly bindActive: boolean;
     readonly bindNumeric: boolean;
-    constructor(_elementRef: ElementRef, _renderer: Renderer);
+    constructor(_elementRef: ElementRef, _renderer: Renderer2);
     handleSortBy(): void;
     isAscending(): boolean;
     isDescending(): boolean;

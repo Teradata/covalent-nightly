@@ -1,8 +1,13 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -30,7 +35,7 @@ var TdStepLabelDirective = (function (_super) {
 }(TemplatePortalDirective));
 TdStepLabelDirective = __decorate([
     Directive({
-        selector: '[td-step-label]template',
+        selector: '[td-step-label]ng-template',
     }),
     __metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
 ], TdStepLabelDirective);
@@ -44,7 +49,7 @@ var TdStepActionsDirective = (function (_super) {
 }(TemplatePortalDirective));
 TdStepActionsDirective = __decorate([
     Directive({
-        selector: '[td-step-actions]template',
+        selector: '[td-step-actions]ng-template',
     }),
     __metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
 ], TdStepActionsDirective);
@@ -58,7 +63,7 @@ var TdStepSummaryDirective = (function (_super) {
 }(TemplatePortalDirective));
 TdStepSummaryDirective = __decorate([
     Directive({
-        selector: '[td-step-summary]template',
+        selector: '[td-step-summary]ng-template',
     }),
     __metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
 ], TdStepSummaryDirective);
@@ -262,7 +267,7 @@ __decorate([
 TdStepComponent = __decorate([
     Component({
         selector: 'td-step',
-        template: "<template> <ng-content></ng-content> </template>",
+        template: "<ng-template> <ng-content></ng-content> </ng-template>",
     }),
     __metadata("design:paramtypes", [ViewContainerRef])
 ], TdStepComponent);

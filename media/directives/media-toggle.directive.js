@@ -8,7 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Directive, ElementRef, Input } from '@angular/core';
-import { Renderer } from '@angular/core';
+import { Renderer2 } from '@angular/core';
 import { TdMediaService } from '../services/media.service';
 var TdMediaToggleDirective = (function () {
     function TdMediaToggleDirective(_renderer, _elementRef, _mediaService) {
@@ -88,18 +88,23 @@ var TdMediaToggleDirective = (function () {
     };
     TdMediaToggleDirective.prototype._changeAttributes = function () {
         for (var attr in this._attributes) {
-            this._renderer.setElementAttribute(this._elementRef.nativeElement, attr, this._matches ? this._attributes[attr] : undefined);
+            this._renderer.setAttribute(this._elementRef.nativeElement, attr, this._matches ? this._attributes[attr] : undefined);
         }
     };
     TdMediaToggleDirective.prototype._changeClasses = function () {
         var _this = this;
         this._classes.forEach(function (className) {
-            _this._renderer.setElementClass(_this._elementRef.nativeElement, className, _this._matches);
+            if (_this._matches) {
+                _this._renderer.addClass(_this._elementRef.nativeElement, className);
+            }
+            else {
+                _this._renderer.removeClass(_this._elementRef.nativeElement, className);
+            }
         });
     };
     TdMediaToggleDirective.prototype._changeStyles = function () {
         for (var style in this._styles) {
-            this._renderer.setElementStyle(this._elementRef.nativeElement, style, this._matches ? this._styles[style] : undefined);
+            this._renderer.setStyle(this._elementRef.nativeElement, style, this._matches ? this._styles[style] : undefined);
         }
     };
     return TdMediaToggleDirective;
@@ -128,7 +133,7 @@ TdMediaToggleDirective = __decorate([
     Directive({
         selector: '[tdMediaToggle]',
     }),
-    __metadata("design:paramtypes", [Renderer, ElementRef, TdMediaService])
+    __metadata("design:paramtypes", [Renderer2, ElementRef, TdMediaService])
 ], TdMediaToggleDirective);
 export { TdMediaToggleDirective };
 //# sourceMappingURL=media-toggle.directive.js.map

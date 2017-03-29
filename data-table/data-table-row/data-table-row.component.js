@@ -7,12 +7,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component, Renderer, ElementRef } from '@angular/core';
+import { Component, Renderer2, ElementRef } from '@angular/core';
 var TdDataTableRowComponent = (function () {
     function TdDataTableRowComponent(_elementRef, _renderer) {
         this._elementRef = _elementRef;
         this._renderer = _renderer;
-        this._renderer.setElementClass(this._elementRef.nativeElement, 'td-data-table-row', true);
+        this._renderer.addClass(this._elementRef.nativeElement, 'td-data-table-row');
     }
     return TdDataTableRowComponent;
 }());
@@ -23,7 +23,7 @@ TdDataTableRowComponent = __decorate([
         styles: [":host { border-bottom-style: solid; border-bottom-width: 1px; } tbody > :host { height: 48px; } thead > :host { height: 56px; } "],
         template: "<ng-content></ng-content>",
     }),
-    __metadata("design:paramtypes", [ElementRef, Renderer])
+    __metadata("design:paramtypes", [ElementRef, Renderer2])
 ], TdDataTableRowComponent);
 export { TdDataTableRowComponent };
 //# sourceMappingURL=data-table-row.component.js.map

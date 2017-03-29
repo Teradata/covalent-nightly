@@ -150,7 +150,10 @@ __decorate([
     __metadata("design:type", String)
 ], TdNavigationDrawerComponent.prototype, "navigationRoute", void 0);
 __decorate([
-    Input('backgroundUrl'),
+    Input('backgroundUrl')
+    // TODO angular complains with warnings if this is type [SafeResourceUrl].. so we will make it <any> until its fixed.
+    // https://github.com/webpack/webpack/issues/2977
+    ,
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [Object])
 ], TdNavigationDrawerComponent.prototype, "backgroundUrl", null);

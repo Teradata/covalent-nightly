@@ -8,35 +8,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Directive, Input, forwardRef } from '@angular/core';
-import { NG_VALIDATORS, Validators } from '@angular/forms';
-import { TdNumberRequiredValidator } from '../number-required/number-required.validator';
+import { NG_VALIDATORS } from '@angular/forms';
+import { CovalentValidators } from '../validators';
 export var MAX_VALIDATOR = {
     provide: NG_VALIDATORS,
     useExisting: forwardRef(function () { return TdMaxValidator; }),
     multi: true,
 };
-var TdMaxValidator = TdMaxValidator_1 = (function () {
+var TdMaxValidator = (function () {
     function TdMaxValidator() {
     }
     Object.defineProperty(TdMaxValidator.prototype, "max", {
         set: function (max) {
-            this._validator = TdMaxValidator_1.validate(max);
+            this._validator = CovalentValidators.max(max);
         },
         enumerable: true,
         configurable: true
     });
-    TdMaxValidator.validate = function (maxValue) {
-        return function (c) {
-            if (!!Validators.required(c) || !!TdNumberRequiredValidator.validate(c) || (!maxValue && maxValue !== 0)) {
-                return undefined;
-            }
-            var v = c.value;
-            return v > maxValue ?
-                { max: { maxValue: maxValue, actualValue: v } } :
-                undefined;
-        };
-    };
-    ;
     TdMaxValidator.prototype.validate = function (c) {
         return this._validator(c);
     };
@@ -48,12 +36,11 @@ __decorate([
     __metadata("design:type", Number),
     __metadata("design:paramtypes", [Number])
 ], TdMaxValidator.prototype, "max", null);
-TdMaxValidator = TdMaxValidator_1 = __decorate([
+TdMaxValidator = __decorate([
     Directive({
         selector: '[max][formControlName],[max][formControl],[max][ngModel]',
         providers: [MAX_VALIDATOR],
     })
 ], TdMaxValidator);
 export { TdMaxValidator };
-var TdMaxValidator_1;
 //# sourceMappingURL=max.validator.js.map

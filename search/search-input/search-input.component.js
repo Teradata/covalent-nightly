@@ -10,7 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-import { Component, ViewChild, Input, Output, EventEmitter, trigger, state, style, transition, animate, Optional } from '@angular/core';
+import { Component, ViewChild, Input, Output, EventEmitter, Optional } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import { MdInputDirective, Dir } from '@angular/material';
 import 'rxjs/add/operator/debounceTime';
 var TdSearchInputComponent = (function () {

@@ -1,5 +1,5 @@
 import { EventEmitter } from '@angular/core';
-import { ElementRef, Renderer } from '@angular/core';
+import { ElementRef, Renderer2 } from '@angular/core';
 export declare class TdFileDropDirective {
     private _renderer;
     private _element;
@@ -30,7 +30,7 @@ export declare class TdFileDropDirective {
      * Binds native 'disabled' attribute if [disabled] property is 'true'.
      */
     readonly disabledBinding: string;
-    constructor(_renderer: Renderer, _element: ElementRef);
+    constructor(_renderer: Renderer2, _element: ElementRef);
     /**
      * Listens to 'drop' host event to get validated transfer items.
      * Emits the 'onFileDrop' event with a [FileList] or [File] depending if 'multiple' attr exists in host.
