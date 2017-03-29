@@ -1,4 +1,4 @@
-import { EventEmitter, Renderer2, TemplateRef, ViewContainerRef, ChangeDetectorRef } from '@angular/core';
+import { EventEmitter, ElementRef, Renderer2, TemplateRef, ViewContainerRef, ChangeDetectorRef } from '@angular/core';
 import { TemplatePortalDirective } from '@angular/material';
 import { ControlValueAccessor } from '@angular/forms';
 export declare const FILE_INPUT_CONTROL_VALUE_ACCESSOR: any;
@@ -16,7 +16,7 @@ export declare class TdFileInputComponent implements ControlValueAccessor {
     private _multiple;
     private _disabled;
     /** The native `<input type="file"> element */
-    private _inputElement;
+    _inputElement: ElementRef;
     readonly inputElement: HTMLInputElement;
     /**
      * color?: string

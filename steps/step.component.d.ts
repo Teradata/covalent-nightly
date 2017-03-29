@@ -22,7 +22,7 @@ export declare class TdStepComponent implements OnInit {
     private _disabled;
     private _contentPortal;
     readonly stepContent: TemplatePortal;
-    private _content;
+    _content: TemplateRef<any>;
     stepLabel: TdStepLabelDirective;
     stepActions: TdStepActionsDirective;
     stepSummary: TdStepSummaryDirective;

@@ -1,7 +1,8 @@
 import { EventEmitter } from '@angular/core';
+import { TdSearchInputComponent } from '../search-input/search-input.component';
 export declare class TdSearchBoxComponent {
     private _searchVisible;
-    private _searchInput;
+    _searchInput: TdSearchInputComponent;
     value: any;
     readonly searchVisible: boolean;
     /**
