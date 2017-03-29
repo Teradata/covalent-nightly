@@ -1,6 +1,7 @@
-import { EventEmitter, ChangeDetectorRef, TemplateRef, AfterContentInit } from '@angular/core';
+import { EventEmitter, ChangeDetectorRef, TemplateRef, AfterContentInit, QueryList } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { ITdDataTableSortChangeEvent } from './data-table-column/data-table-column.component';
+import { TdDataTableTemplateDirective } from './directives/data-table-template.directive';
 export declare const TD_DATA_TABLE_CONTROL_VALUE_ACCESSOR: any;
 export declare enum TdDataTableSortingOrder {
     Ascending,
@@ -42,7 +43,7 @@ export declare class TdDataTableComponent implements ControlValueAccessor, After
     private _sortOrder;
     /** template fetching support */
     private _templateMap;
-    private _templates;
+    _templates: QueryList<TdDataTableTemplateDirective>;
     /**
      * Implemented as part of ControlValueAccessor.
      */

@@ -1,4 +1,4 @@
-import { OnInit, OnDestroy } from '@angular/core';
+import { OnInit, OnDestroy, QueryList } from '@angular/core';
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser';
 import { MdSidenavToggleResult } from '@angular/material';
 import { TdLayoutComponent } from '../layout.component';
@@ -11,7 +11,7 @@ export declare class TdNavigationDrawerComponent implements OnInit, OnDestroy {
     private _menuToggled;
     private _backgroundImage;
     readonly menuToggled: boolean;
-    private _drawerMenu;
+    _drawerMenu: QueryList<TdNavigationDrawerMenuDirective>;
     /**
      * Checks if there is a [TdNavigationDrawerMenuDirective] as content.
      */
