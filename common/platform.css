@@ -10976,6 +10976,9 @@ body {
   md-whiteframe {
     border: 1px solid #fff; } }
 
+body [tabindex]:focus {
+  outline: none; }
+
 body .radius-none {
   border-radius: 0; }
 
