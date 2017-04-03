@@ -94,8 +94,6 @@ var CovalentCoreModule = CovalentCoreModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentCoreModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentCoreModule');
         return {
             ngModule: CovalentCoreModule_1,
             providers: [],

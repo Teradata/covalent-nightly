@@ -21,8 +21,6 @@ var CovalentMenuModule = CovalentMenuModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentMenuModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentMenuModule');
         return {
             ngModule: CovalentMenuModule_1,
             providers: [],

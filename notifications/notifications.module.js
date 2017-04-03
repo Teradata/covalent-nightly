@@ -20,8 +20,6 @@ var CovalentNotificationsModule = CovalentNotificationsModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentNotificationsModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentNotificationsModule');
         return {
             ngModule: CovalentNotificationsModule_1,
             providers: [],

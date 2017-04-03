@@ -29,8 +29,6 @@ var CovalentLoadingModule = CovalentLoadingModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentLoadingModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentLoadingModule');
         return {
             ngModule: CovalentLoadingModule_1,
             providers: [],
@@ -54,8 +52,8 @@ CovalentLoadingModule = CovalentLoadingModule_1 = __decorate([
             TD_LOADING,
         ],
         providers: [
-            TdLoadingService,
             TdLoadingFactory,
+            TdLoadingService,
         ],
         entryComponents: [
             TD_LOADING_ENTRY_COMPONENTS,

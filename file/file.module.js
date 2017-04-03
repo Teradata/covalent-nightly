@@ -35,8 +35,6 @@ var CovalentFileModule = CovalentFileModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentFileModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentFileModule');
         return {
             ngModule: CovalentFileModule_1,
             providers: [],

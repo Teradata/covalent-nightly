@@ -19,8 +19,6 @@ var CovalentChipsModule = CovalentChipsModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentChipsModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentChipsModule');
         return {
             ngModule: CovalentChipsModule_1,
             providers: [],

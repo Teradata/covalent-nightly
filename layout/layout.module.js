@@ -35,8 +35,6 @@ var CovalentLayoutModule = CovalentLayoutModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentLayoutModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentLayoutModule');
         return {
             ngModule: CovalentLayoutModule_1,
             providers: [],

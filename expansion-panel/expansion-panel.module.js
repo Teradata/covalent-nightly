@@ -25,8 +25,6 @@ var CovalentExpansionPanelModule = CovalentExpansionPanelModule_1 = (function ()
      * Please use without calling forRoot()
      */
     CovalentExpansionPanelModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentExpansionPanelModule');
         return {
             ngModule: CovalentExpansionPanelModule_1,
             providers: [],

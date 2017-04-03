@@ -37,8 +37,6 @@ var CovalentDialogsModule = CovalentDialogsModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentDialogsModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentDialogsModule');
         return {
             ngModule: CovalentDialogsModule_1,
             providers: [],

@@ -37,8 +37,6 @@ var CovalentDataTableModule = CovalentDataTableModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentDataTableModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentDataTableModule');
         return {
             ngModule: CovalentDataTableModule_1,
             providers: [],

@@ -33,8 +33,6 @@ var CovalentStepsModule = CovalentStepsModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentStepsModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentStepsModule');
         return {
             ngModule: CovalentStepsModule_1,
             providers: [],

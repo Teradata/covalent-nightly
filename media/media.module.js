@@ -21,8 +21,6 @@ var CovalentMediaModule = CovalentMediaModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentMediaModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentMediaModule');
         return {
             ngModule: CovalentMediaModule_1,
             providers: [],

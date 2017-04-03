@@ -19,8 +19,6 @@ var CovalentPagingModule = CovalentPagingModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentPagingModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentPagingModule');
         return {
             ngModule: CovalentPagingModule_1,
             providers: [],

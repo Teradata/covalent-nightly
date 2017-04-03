@@ -21,8 +21,6 @@ var CovalentSearchModule = CovalentSearchModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentSearchModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentSearchModule');
         return {
             ngModule: CovalentSearchModule_1,
             providers: [],

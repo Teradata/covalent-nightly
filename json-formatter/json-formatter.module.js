@@ -18,8 +18,6 @@ var CovalentJsonFormatterModule = CovalentJsonFormatterModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentJsonFormatterModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentJsonFormatterModule');
         return {
             ngModule: CovalentJsonFormatterModule_1,
             providers: [],

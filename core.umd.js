@@ -817,8 +817,6 @@ exports.CovalentCommonModule = CovalentCommonModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentCommonModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentCommonModule');
         return {
             ngModule: CovalentCommonModule_1,
             providers: [],
@@ -1236,8 +1234,6 @@ exports.CovalentChipsModule = CovalentChipsModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentChipsModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentChipsModule');
         return {
             ngModule: CovalentChipsModule_1,
             providers: [],
@@ -2113,8 +2109,6 @@ exports.CovalentDataTableModule = CovalentDataTableModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentDataTableModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentDataTableModule');
         return {
             ngModule: CovalentDataTableModule_1,
             providers: [],
@@ -2456,8 +2450,6 @@ exports.CovalentDialogsModule = CovalentDialogsModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentDialogsModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentDialogsModule');
         return {
             ngModule: CovalentDialogsModule_1,
             providers: [],
@@ -2740,8 +2732,6 @@ exports.CovalentExpansionPanelModule = CovalentExpansionPanelModule_1 = (functio
      * Please use without calling forRoot()
      */
     CovalentExpansionPanelModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentExpansionPanelModule');
         return {
             ngModule: CovalentExpansionPanelModule_1,
             providers: [],
@@ -3472,8 +3462,6 @@ exports.CovalentFileModule = CovalentFileModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentFileModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentFileModule');
         return {
             ngModule: CovalentFileModule_1,
             providers: [],
@@ -3771,8 +3759,6 @@ exports.CovalentJsonFormatterModule = CovalentJsonFormatterModule_1 = (function 
      * Please use without calling forRoot()
      */
     CovalentJsonFormatterModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentJsonFormatterModule');
         return {
             ngModule: CovalentJsonFormatterModule_1,
             providers: [],
@@ -4439,8 +4425,6 @@ exports.CovalentLayoutModule = CovalentLayoutModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentLayoutModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentLayoutModule');
         return {
             ngModule: CovalentLayoutModule_1,
             providers: [],
@@ -5215,8 +5199,6 @@ exports.CovalentLoadingModule = CovalentLoadingModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentLoadingModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentLoadingModule');
         return {
             ngModule: CovalentLoadingModule_1,
             providers: [],
@@ -5240,8 +5222,8 @@ exports.CovalentLoadingModule = CovalentLoadingModule_1 = __decorate$47([
             TD_LOADING,
         ],
         providers: [
-            exports.TdLoadingService,
             TdLoadingFactory,
+            exports.TdLoadingService,
         ],
         entryComponents: [
             TD_LOADING_ENTRY_COMPONENTS,
@@ -5505,8 +5487,6 @@ exports.CovalentMediaModule = CovalentMediaModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentMediaModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentMediaModule');
         return {
             ngModule: CovalentMediaModule_1,
             providers: [],
@@ -5569,8 +5549,6 @@ exports.CovalentMenuModule = CovalentMenuModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentMenuModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentMenuModule');
         return {
             ngModule: CovalentMenuModule_1,
             providers: [],
@@ -5786,8 +5764,6 @@ exports.CovalentNotificationsModule = CovalentNotificationsModule_1 = (function 
      * Please use without calling forRoot()
      */
     CovalentNotificationsModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentNotificationsModule');
         return {
             ngModule: CovalentNotificationsModule_1,
             providers: [],
@@ -6085,8 +6061,6 @@ exports.CovalentPagingModule = CovalentPagingModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentPagingModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentPagingModule');
         return {
             ngModule: CovalentPagingModule_1,
             providers: [],
@@ -6427,8 +6401,6 @@ exports.CovalentSearchModule = CovalentSearchModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentSearchModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentSearchModule');
         return {
             ngModule: CovalentSearchModule_1,
             providers: [],
@@ -7012,8 +6984,6 @@ exports.CovalentStepsModule = CovalentStepsModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentStepsModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentStepsModule');
         return {
             ngModule: CovalentStepsModule_1,
             providers: [],
@@ -7101,8 +7071,6 @@ exports.CovalentCoreModule = CovalentCoreModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentCoreModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentCoreModule');
         return {
             ngModule: CovalentCoreModule_1,
             providers: [],

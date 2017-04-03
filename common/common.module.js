@@ -63,8 +63,6 @@ var CovalentCommonModule = CovalentCommonModule_1 = (function () {
      * Please use without calling forRoot()
      */
     CovalentCommonModule.forRoot = function () {
-        /* tslint:disable-next-line */
-        console.warn('forRoot() has been deprecated in CovalentCommonModule');
         return {
             ngModule: CovalentCommonModule_1,
             providers: [],
