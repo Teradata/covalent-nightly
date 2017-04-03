@@ -573,6 +573,11 @@ md-input-container.ng-invalid:not(.ng-pristine) label {
 
 md-input-container.ng-invalid:not(.ng-pristine) .mat-input-underline {
   border-top-color: #f44336; }
+  md-input-container.ng-invalid:not(.ng-pristine) .mat-input-underline .mat-input-ripple {
+    background-color: #f44336; }
+
+.mat-input-placeholder-wrapper {
+  font-size: 16px; }
 
 /**
  * Mixin that creates a new stacking context.

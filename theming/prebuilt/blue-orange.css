@@ -710,25 +710,19 @@ td-expansion-panel {
   td-expansion-panel .td-expansion-secondary {
     color: rgba(0, 0, 0, 0.54); }
 
-.td-chip {
+td-chips .mat-basic-chip {
   background: #e0e0e0;
   color: rgba(0, 0, 0, 0.87); }
-  .td-chip md-icon {
+  td-chips .mat-basic-chip:focus:not(.td-chip-disabled) {
+    background: #1976d2; }
+    td-chips .mat-basic-chip:focus:not(.td-chip-disabled), td-chips .mat-basic-chip:focus:not(.td-chip-disabled) md-icon {
+      color: white; }
+      td-chips .mat-basic-chip:focus:not(.td-chip-disabled) md-icon:hover, td-chips .mat-basic-chip:focus:not(.td-chip-disabled) md-icon md-icon:hover {
+        color: rgba(0, 0, 0, 0.54); }
+  td-chips .mat-basic-chip md-icon {
     color: rgba(0, 0, 0, 0.38); }
-    .td-chip md-icon:hover {
+    td-chips .mat-basic-chip md-icon:hover {
       color: rgba(0, 0, 0, 0.54); }
-
-td-chips .mat-input-underline {
-  border-top: 1px solid rgba(0, 0, 0, 0.38); }
-  td-chips .mat-input-underline.mat-disabled {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.26) 0%, rgba(0, 0, 0, 0.26) 33%, transparent 0%); }
-  td-chips .mat-input-underline .mat-input-ripple {
-    background-color: #1976d2;
-    transition: transform 400ms cubic-bezier(0.25, 0.8, 0.25, 1), opacity 400ms cubic-bezier(0.25, 0.8, 0.25, 1); }
-    td-chips .mat-input-underline .mat-input-ripple.mat-accent {
-      background-color: #ef6c00; }
-    td-chips .mat-input-underline .mat-input-ripple.mat-warn {
-      background-color: #e53935; }
 
 td-file-upload .td-file-upload-cancel md-icon {
   background-color: #fafafa; }

@@ -5,7 +5,11 @@
 :host {
   display: block;
   padding: 0px 5px 0px 5px; }
-  :host /deep/ .td-chip {
+  :host /deep/ .mat-input-wrapper {
+    margin-bottom: 2px; }
+  :host /deep/ .mat-input-container {
+    margin-top: 8px; }
+  :host /deep/ .mat-basic-chip {
     display: inline-block;
     cursor: default;
     border-radius: 16px;
@@ -15,22 +19,22 @@
     box-sizing: border-box;
     max-width: 100%;
     position: relative; }
-    html[dir=rtl] :host /deep/ .td-chip {
+    html[dir=rtl] :host /deep/ .mat-basic-chip {
       margin: 8px 0 0 8px;
       unicode-bidi: embed; }
-    body[dir=rtl] :host /deep/ .td-chip {
+    body[dir=rtl] :host /deep/ .mat-basic-chip {
       margin: 8px 0 0 8px;
       unicode-bidi: embed; }
-    [dir=rtl] :host /deep/ .td-chip {
+    [dir=rtl] :host /deep/ .mat-basic-chip {
       margin: 8px 0 0 8px;
       unicode-bidi: embed; }
-    :host /deep/ .td-chip bdo[dir=rtl] {
+    :host /deep/ .mat-basic-chip bdo[dir=rtl] {
       direction: rtl;
       unicode-bidi: bidi-override; }
-    :host /deep/ .td-chip bdo[dir=ltr] {
+    :host /deep/ .mat-basic-chip bdo[dir=ltr] {
       direction: ltr;
       unicode-bidi: bidi-override; }
-    :host /deep/ .td-chip md-icon {
+    :host /deep/ .mat-basic-chip md-icon {
       position: relative;
       top: 5px;
       left: 5px;
@@ -38,44 +42,43 @@
       height: 18px;
       width: 18px;
       font-size: 19px; }
-      html[dir=rtl] :host /deep/ .td-chip md-icon {
+      html[dir=rtl] :host /deep/ .mat-basic-chip md-icon {
         left: auto;
         unicode-bidi: embed; }
-      body[dir=rtl] :host /deep/ .td-chip md-icon {
+      body[dir=rtl] :host /deep/ .mat-basic-chip md-icon {
         left: auto;
         unicode-bidi: embed; }
-      [dir=rtl] :host /deep/ .td-chip md-icon {
+      [dir=rtl] :host /deep/ .mat-basic-chip md-icon {
         left: auto;
         unicode-bidi: embed; }
-      :host /deep/ .td-chip md-icon bdo[dir=rtl] {
+      :host /deep/ .mat-basic-chip md-icon bdo[dir=rtl] {
         direction: rtl;
         unicode-bidi: bidi-override; }
-      :host /deep/ .td-chip md-icon bdo[dir=ltr] {
+      :host /deep/ .mat-basic-chip md-icon bdo[dir=ltr] {
         direction: ltr;
         unicode-bidi: bidi-override; }
-      html[dir=rtl] :host /deep/ .td-chip md-icon {
+      html[dir=rtl] :host /deep/ .mat-basic-chip md-icon {
         right: 5px;
         unicode-bidi: embed; }
-      body[dir=rtl] :host /deep/ .td-chip md-icon {
+      body[dir=rtl] :host /deep/ .mat-basic-chip md-icon {
         right: 5px;
         unicode-bidi: embed; }
-      [dir=rtl] :host /deep/ .td-chip md-icon {
+      [dir=rtl] :host /deep/ .mat-basic-chip md-icon {
         right: 5px;
         unicode-bidi: embed; }
-      :host /deep/ .td-chip md-icon bdo[dir=rtl] {
+      :host /deep/ .mat-basic-chip md-icon bdo[dir=rtl] {
         direction: rtl;
         unicode-bidi: bidi-override; }
-      :host /deep/ .td-chip md-icon bdo[dir=ltr] {
+      :host /deep/ .mat-basic-chip md-icon bdo[dir=ltr] {
         direction: ltr;
         unicode-bidi: bidi-override; }
-      :host /deep/ .td-chip md-icon:hover {
+      :host /deep/ .mat-basic-chip md-icon:hover {
         cursor: pointer; }
 
 .mat-input-underline {
   position: relative;
   height: 1px;
-  width: 100%;
-  margin-top: 4px; }
+  width: 100%; }
   .mat-input-underline.mat-disabled {
     border-top: 0;
     background-position: 0;
