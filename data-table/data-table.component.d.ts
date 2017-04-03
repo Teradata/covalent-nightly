@@ -57,7 +57,7 @@ export declare class TdDataTableComponent implements ControlValueAccessor, After
      * data?: {[key: string]: any}[]
      * Sets the data to be rendered as rows.
      */
-    data: Object[];
+    data: any[];
     /**
      * columns?: ITdDataTableColumn[]
      * Sets additional column configuration. [ITdDataTableColumn.name] has to exist in [data] as key.
@@ -70,29 +70,34 @@ export declare class TdDataTableComponent implements ControlValueAccessor, After
      * Defaults to 'false'
      */
     selectable: string | boolean;
+    readonly isSelectable: boolean;
     /**
      * multiple?: boolean
      * Enables multiple row selection. [selectable] needs to be enabled.
      * Defaults to 'false'
      */
     multiple: string | boolean;
+    readonly isMultiple: boolean;
     /**
      * sortable?: boolean
      * Enables sorting events, sort icons and active column states.
      * Defaults to 'false'
      */
     sortable: string | boolean;
+    readonly isSortable: boolean;
     /**
      * sortBy?: string
      * Sets the active sort column. [sortable] needs to be enabled.
      */
     sortBy: string;
+    readonly sortByColumn: ITdDataTableColumn;
     /**
      * sortOrder?: ['ASC' | 'DESC'] or TdDataTableSortingOrder
      * Sets the sort order of the [sortBy] column. [sortable] needs to be enabled.
      * Defaults to 'ASC' or TdDataTableSortingOrder.Ascending
      */
     sortOrder: 'ASC' | 'DESC';
+    readonly sortOrderEnum: TdDataTableSortingOrder;
     readonly hasData: boolean;
     /**
      * sortChange?: function

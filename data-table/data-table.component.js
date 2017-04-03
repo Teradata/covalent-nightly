@@ -80,6 +80,9 @@ var TdDataTableComponent = (function () {
     });
     ;
     Object.defineProperty(TdDataTableComponent.prototype, "data", {
+        get: function () {
+            return this._data;
+        },
         /**
          * data?: {[key: string]: any}[]
          * Sets the data to be rendered as rows.
@@ -129,8 +132,15 @@ var TdDataTableComponent = (function () {
          * Enables row selection events, hover and selected row states.
          * Defaults to 'false'
          */
-        set: function (_selectable) {
-            this._selectable = _selectable !== '' ? (_selectable === 'true' || _selectable === true) : true;
+        set: function (selectable) {
+            this._selectable = selectable !== '' ? (selectable === 'true' || selectable === true) : true;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TdDataTableComponent.prototype, "isSelectable", {
+        get: function () {
+            return this._selectable;
         },
         enumerable: true,
         configurable: true
@@ -147,6 +157,13 @@ var TdDataTableComponent = (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(TdDataTableComponent.prototype, "isMultiple", {
+        get: function () {
+            return this._multiple;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(TdDataTableComponent.prototype, "sortable", {
         /**
          * sortable?: boolean
@@ -155,6 +172,13 @@ var TdDataTableComponent = (function () {
          */
         set: function (sortable) {
             this._sortable = sortable !== '' ? (sortable === 'true' || sortable === true) : true;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TdDataTableComponent.prototype, "isSortable", {
+        get: function () {
+            return this._sortable;
         },
         enumerable: true,
         configurable: true
@@ -177,6 +201,13 @@ var TdDataTableComponent = (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(TdDataTableComponent.prototype, "sortByColumn", {
+        get: function () {
+            return this._sortBy;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(TdDataTableComponent.prototype, "sortOrder", {
         /**
          * sortOrder?: ['ASC' | 'DESC'] or TdDataTableSortingOrder
@@ -190,6 +221,13 @@ var TdDataTableComponent = (function () {
             }
             this._sortOrder = sortOrder === 'ASC' ?
                 TdDataTableSortingOrder.Ascending : TdDataTableSortingOrder.Descending;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TdDataTableComponent.prototype, "sortOrderEnum", {
+        get: function () {
+            return this._sortOrder;
         },
         enumerable: true,
         configurable: true
@@ -405,7 +443,7 @@ TdDataTableComponent = __decorate([
         providers: [TD_DATA_TABLE_CONTROL_VALUE_ACCESSOR],
         selector: 'td-data-table',
         styles: [".mat-table-container { display: block; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; } table.td-data-table.mat-selectable tbody > tr.td-data-table-row { transition: background-color 0.2s; } table.td-data-table.mat-selectable .td-data-table-column:first-child, table.td-data-table.mat-selectable th.td-data-table-column:first-child, table.td-data-table.mat-selectable td.td-data-table-cell:first-child { width: 20px; padding: 0 24px; } table.td-data-table.mat-selectable .td-data-table-column:nth-child(2), table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2), table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) { padding-left: 0px; } [dir='rtl'] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2), [dir='rtl'] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2), [dir='rtl'] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) { padding-right: 0px; padding-left: 28px; } table.td-data-table td.mat-checkbox-cell, table.td-data-table th.mat-checkbox-column { width: 18px; font-size: 0 !important; } table.td-data-table td.mat-checkbox-cell md-pseudo-checkbox, table.td-data-table th.mat-checkbox-column md-pseudo-checkbox { width: 18px; height: 18px; } /deep/ table.td-data-table td.mat-checkbox-cell md-pseudo-checkbox.mat-pseudo-checkbox-checked::after, /deep/ table.td-data-table th.mat-checkbox-column md-pseudo-checkbox.mat-pseudo-checkbox-checked::after { top: 3px !important; left: 1px !important; width: 11px !important; height: 4px !important; } table.td-data-table td.mat-checkbox-cell md-checkbox /deep/ .mat-checkbox-inner-container, table.td-data-table th.mat-checkbox-column md-checkbox /deep/ .mat-checkbox-inner-container { width: 18px; height: 18px; margin: 0; } "],
-        template: "<div class=\"mat-table-container\" title> <table td-data-table [class.mat-selectable]=\"_selectable\"> <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"_selectable\"> <md-checkbox #checkBoxAll *ngIf=\"_multiple\" [disabled]=\"!hasData\" [checked]=\"areAllSelected() && hasData\" (click)=\"selectAll(!checkBoxAll.checked)\"> </md-checkbox> </th> <th td-data-table-column *ngFor=\"let column of columns\" [name]=\"column.name\" [numeric]=\"column.numeric\" [active]=\"(column.sortable || _sortable) && column === _sortBy\" [sortable]=\"column.sortable ||  _sortable\" [sortOrder]=\"_sortOrder\" (sortChange)=\"handleSort(column)\"> <span [mdTooltip]=\"column.tooltip\">{{column.label}}</span> </th> <tr td-data-table-row [class.mat-selected]=\"_selectable && isRowSelected(row)\" *ngFor=\"let row of _data\" (click)=\"_selectable && select(row, !isRowSelected(row), $event)\"> <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"_selectable\"> <md-pseudo-checkbox [state]=\"isRowSelected(row) ? 'checked' : 'unchecked'\"> </md-pseudo-checkbox> </td> <td td-data-table-cell [numeric]=\"column.numeric\" *ngFor=\"let column of columns\"> <span class=\"md-body-1\" *ngIf=\"!getTemplateRef(column.name)\">{{column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row)}}</span> <ng-template *ngIf=\"getTemplateRef(column.name)\" [ngTemplateOutlet]=\"getTemplateRef(column.name)\" [ngOutletContext]=\"{ value: getCellValue(column, row), row: row, column: column.name }\"> </ng-template> </td> </tr> </table> </div> ",
+        template: "<div class=\"mat-table-container\" title> <table td-data-table [class.mat-selectable]=\"isSelectable\"> <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"isSelectable\"> <md-checkbox #checkBoxAll *ngIf=\"isMultiple\" [disabled]=\"!hasData\" [checked]=\"areAllSelected() && hasData\" (click)=\"selectAll(!checkBoxAll.checked)\"> </md-checkbox> </th> <th td-data-table-column *ngFor=\"let column of columns\" [name]=\"column.name\" [numeric]=\"column.numeric\" [active]=\"(column.sortable || isSortable) && column === sortByColumn\" [sortable]=\"column.sortable ||  isSortable\" [sortOrder]=\"sortOrderEnum\" (sortChange)=\"handleSort(column)\"> <span [mdTooltip]=\"column.tooltip\">{{column.label}}</span> </th> <tr td-data-table-row [class.mat-selected]=\"isSelectable && isRowSelected(row)\" *ngFor=\"let row of data\" (click)=\"isSelectable && select(row, !isRowSelected(row), $event)\"> <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"isSelectable\"> <md-pseudo-checkbox [state]=\"isRowSelected(row) ? 'checked' : 'unchecked'\"> </md-pseudo-checkbox> </td> <td td-data-table-cell [numeric]=\"column.numeric\" *ngFor=\"let column of columns\"> <span class=\"md-body-1\" *ngIf=\"!getTemplateRef(column.name)\">{{column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row)}}</span> <ng-template *ngIf=\"getTemplateRef(column.name)\" [ngTemplateOutlet]=\"getTemplateRef(column.name)\" [ngOutletContext]=\"{ value: getCellValue(column, row), row: row, column: column.name }\"> </ng-template> </td> </tr> </table> </div> ",
         changeDetection: ChangeDetectionStrategy.OnPush,
     }),
     __metadata("design:paramtypes", [ChangeDetectorRef])
