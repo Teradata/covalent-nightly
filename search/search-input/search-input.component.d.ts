@@ -1,6 +1,7 @@
 import { OnInit, EventEmitter } from '@angular/core';
 import { MdInputDirective, Dir } from '@angular/material';
 import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/skip';
 export declare class TdSearchInputComponent implements OnInit {
     private _dir;
     _input: MdInputDirective;

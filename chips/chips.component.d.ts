@@ -4,6 +4,7 @@ import { ControlValueAccessor, FormControl } from '@angular/forms';
 import { MdChip, MdInputDirective } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
+import 'rxjs/add/observable/timer';
 export declare const TD_CHIPS_CONTROL_VALUE_ACCESSOR: any;
 export declare class TdChipsComponent implements ControlValueAccessor, DoCheck, OnInit {
     /**

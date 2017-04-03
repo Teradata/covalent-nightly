@@ -13,6 +13,7 @@ import { NG_VALUE_ACCESSOR, FormControl } from '@angular/forms';
 import { MdChip, MdInputDirective, ESCAPE, LEFT_ARROW, RIGHT_ARROW, DELETE, BACKSPACE } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
+import 'rxjs/add/observable/timer';
 var noop = function () {
     // empty method
 };

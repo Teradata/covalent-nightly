@@ -14,6 +14,7 @@ import { Component, ViewChild, Input, Output, EventEmitter, Optional } from '@an
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { MdInputDirective, Dir } from '@angular/material';
 import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/skip';
 var TdSearchInputComponent = (function () {
     function TdSearchInputComponent(_dir) {
         this._dir = _dir;
