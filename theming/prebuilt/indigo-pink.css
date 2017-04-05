@@ -635,6 +635,24 @@ input.mat-input-element:-webkit-autofill + .mat-input-placeholder .mat-placehold
 .mat-tooltip {
   background: rgba(97, 97, 97, 0.9); }
 
+md-input-container.ng-invalid:not(.ng-pristine) label {
+  color: #e53935; }
+
+md-input-container.ng-invalid:not(.ng-pristine) .mat-input-underline {
+  border-top-color: #e53935; }
+  md-input-container.ng-invalid:not(.ng-pristine) .mat-input-underline .mat-input-ripple {
+    background-color: #e53935; }
+
+md-list-item md-icon,
+.mat-list-item-content md-icon {
+  color: rgba(0, 0, 0, 0.54); }
+  md-list-item md-icon[md-list-avatar],
+  .mat-list-item-content md-icon[md-list-avatar] {
+    background-color: rgba(0, 0, 0, 0.04); }
+
+.mat-list-text p {
+  color: rgba(0, 0, 0, 0.38); }
+
 .mat-sidenav-container {
   background-color: #e0e0e0; }
 
@@ -732,7 +750,7 @@ td-file-input {
     * Class that is added ondragenter by the [TdFileDrop] directive.
     */ }
   td-file-input .drop-zone {
-    transition: background 400ms cubic-bezier(0.25, 0.8, 0.25, 1), md-elevation-transition-property-value();
+    transition: background 400ms cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12); }
 
 .td-json-formatter-wrapper .td-key.td-key-node:focus, .td-json-formatter-wrapper .td-key.td-key-node:hover {

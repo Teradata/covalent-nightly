@@ -547,34 +547,22 @@ md-divider[mat-inset] {
     direction: ltr;
     unicode-bidi: bidi-override; }
 
-md-list-item md-icon,
-.mat-list-item-content md-icon {
-  color: rgba(0, 0, 0, 0.54); }
-  md-list-item md-icon[md-list-avatar],
-  .mat-list-item-content md-icon[md-list-avatar] {
-    background-color: whitesmoke;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-align-content: center;
-    -ms-flex-line-pack: center;
-    align-content: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    display: flex; }
+md-list-item md-icon[md-list-avatar],
+.mat-list-item-content md-icon[md-list-avatar] {
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  display: flex; }
 
 .mat-icon.md-icon-logo {
   height: auto;
   width: 100px; }
-
-md-input-container.ng-invalid:not(.ng-pristine) label {
-  color: #f44336; }
-
-md-input-container.ng-invalid:not(.ng-pristine) .mat-input-underline {
-  border-top-color: #f44336; }
-  md-input-container.ng-invalid:not(.ng-pristine) .mat-input-underline .mat-input-ripple {
-    background-color: #f44336; }
 
 .mat-input-placeholder-wrapper {
   font-size: 16px; }
@@ -10611,9 +10599,6 @@ md-sidenav {
 
 [flex="none"] {
   flex: none; }
-
-.mat-list-text p {
-  color: #9e9e9e; }
 
 md-list md-list-item [md-list-avatar],
 md-list a[md-list-item] [md-list-avatar],

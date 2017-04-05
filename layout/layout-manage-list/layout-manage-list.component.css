@@ -31,3 +31,6 @@
 
 :host /deep/ md-nav-list a[md-list-item] .mat-list-item-content {
   font-size: 14px; }
+
+:host /deep/ .mat-toolbar {
+  font-weight: 400; }
