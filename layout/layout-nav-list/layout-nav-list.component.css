@@ -20,7 +20,7 @@
   /* Ensure the left sidenav is a flex column & 100% height */ }
   :host /deep/ md-sidenav-container.td-layout-nav-list > .mat-sidenav-content {
     flex-grow: 1; }
-  :host /deep/ md-sidenav-container.td-layout-nav-list > md-sidenav > cdk-focus-trap, :host /deep/ md-sidenav-container.td-layout-nav-list > md-sidenav > cdk-focus-trap > div {
+  :host /deep/ md-sidenav-container.td-layout-nav-list > md-sidenav {
     box-sizing: border-box;
     display: -webkit-box;
     display: -webkit-flex;

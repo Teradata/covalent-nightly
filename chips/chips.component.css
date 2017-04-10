@@ -7,8 +7,6 @@
   padding: 0px 5px 0px 5px; }
   :host /deep/ .mat-input-wrapper {
     margin-bottom: 2px; }
-  :host /deep/ .mat-input-container {
-    margin-top: 8px; }
   :host /deep/ .mat-basic-chip {
     display: inline-block;
     cursor: default;

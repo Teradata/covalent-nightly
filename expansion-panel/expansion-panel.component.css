@@ -1,33 +1,26 @@
-:host /deep/ md-nav-list [md-list-item]:active, :host /deep/ md-nav-list [md-list-item]:focus {
-  outline: none; }
-
-:host /deep/ md-nav-list [md-list-item].mat-list-item.mat-interaction-disabled .mat-list-item-content {
-  background: none !important;
-  cursor: auto; }
-
-:host /deep/ md-nav-list [md-list-item].mat-tall .mat-list-item-content {
-  height: auto;
-  padding-left: 0;
-  padding-right: 0; }
-
 :host {
   display: block; }
-  :host .panel {
-    transition: 1s all ease; }
-  :host md-nav-list:first-of-type,
-  :host md-list:first-of-type {
-    padding-top: 0; }
+  :host .td-expansion-panel {
+    transition: 400ms all ease; }
+    :host .td-expansion-panel .td-expansion-panel-header {
+      position: relative;
+      outline: none; }
+      :host .td-expansion-panel .td-expansion-panel-header:focus, :host .td-expansion-panel .td-expansion-panel-header:hover {
+        cursor: pointer; }
+      :host .td-expansion-panel .td-expansion-panel-header.mat-disabled {
+        background: none;
+        cursor: auto; }
+      :host .td-expansion-panel .td-expansion-panel-header .td-expansion-panel-header-content {
+        height: 48px;
+        padding: 0 16px; }
 
-md-nav-list {
-  padding: 0; }
-
-.td-expansion-primary,
-.td-expansion-secondary {
+.td-expansion-label,
+.td-expansion-sublabel {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   margin-right: 5px; }
-  /deep/ [dir='rtl'] .td-expansion-primary, /deep/ [dir='rtl']
-  .td-expansion-secondary {
+  /deep/ [dir='rtl'] .td-expansion-label, /deep/ [dir='rtl']
+  .td-expansion-sublabel {
     margin-left: 5px;
     margin-right: inherit; }

@@ -14,6 +14,9 @@ export * from './notifications/notifications.module';
 export * from './paging/paging.module';
 export * from './search/search.module';
 export * from './steps/steps.module';
+/**
+ * @deprecated in 1.0.0-beta.3-1
+ */
 export declare class CovalentCoreModule {
     /**
      * @deprecated in 1.0.0-beta.3
