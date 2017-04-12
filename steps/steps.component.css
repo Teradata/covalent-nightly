@@ -12,14 +12,23 @@
   height: 1px;
   position: relative;
   top: 36px;
-  margin-inline-start: -6px;
-  margin-inline-end: -3px;
   min-width: 15px; }
+  /deep/ :not([dir='rtl']) .td-horizontal-line {
+    left: -6px;
+    right: -3px; }
+  /deep/ [dir='rtl'] .td-horizontal-line {
+    left: -3px;
+    right: -6px; }
 
 .td-vertical-line {
   position: absolute;
-  margin-inline-start: 20px;
   bottom: -16px;
   top: -16px;
   border-left-width: 1px;
   border-left-style: solid; }
+  /deep/ :not([dir='rtl']) .td-vertical-line {
+    left: 20px;
+    right: auto; }
+  /deep/ [dir='rtl'] .td-vertical-line {
+    left: auto;
+    right: 20px; }
