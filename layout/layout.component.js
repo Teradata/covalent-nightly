@@ -40,7 +40,7 @@ TdLayoutComponent = __decorate([
     Component({
         selector: 'td-layout',
         styles: [":host { display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } :host /deep/ > md-sidenav-container > md-sidenav { display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; flex-direction: column; } "],
-        template: "<md-sidenav-container fullscreen> <md-sidenav> <ng-content select=\"td-navigation-drawer\"></ng-content> <ng-content select=\"[menu-items], [td-sidenav-content]\"></ng-content> </md-sidenav> <ng-content></ng-content> </md-sidenav-container> ",
+        template: "<md-sidenav-container fullscreen> <md-sidenav> <ng-content select=\"td-navigation-drawer\"></ng-content> <ng-content select=\"[td-sidenav-content]\"></ng-content> </md-sidenav> <ng-content></ng-content> </md-sidenav-container> ",
     })
 ], TdLayoutComponent);
 export { TdLayoutComponent };
