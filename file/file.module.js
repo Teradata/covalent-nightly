@@ -26,23 +26,12 @@ export { TdFileInputComponent, TdFileInputLabelDirective } from './file-input/fi
 export { TdFileSelectDirective } from './directives/file-select.directive';
 export { TdFileDropDirective } from './directives/file-drop.directive';
 export { TdFileService } from './services/file.service';
-var CovalentFileModule = CovalentFileModule_1 = (function () {
+var CovalentFileModule = (function () {
     function CovalentFileModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentFileModule.forRoot = function () {
-        return {
-            ngModule: CovalentFileModule_1,
-            providers: [],
-        };
-    };
     return CovalentFileModule;
 }());
-CovalentFileModule = CovalentFileModule_1 = __decorate([
+CovalentFileModule = __decorate([
     NgModule({
         imports: [
             HttpModule,
@@ -65,5 +54,4 @@ CovalentFileModule = CovalentFileModule_1 = __decorate([
     })
 ], CovalentFileModule);
 export { CovalentFileModule };
-var CovalentFileModule_1;
 //# sourceMappingURL=file.module.js.map

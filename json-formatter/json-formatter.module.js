@@ -9,23 +9,12 @@ import { CommonModule } from '@angular/common';
 import { MdTooltipModule, MdIconModule } from '@angular/material';
 import { TdJsonFormatterComponent } from './json-formatter.component';
 export { TdJsonFormatterComponent } from './json-formatter.component';
-var CovalentJsonFormatterModule = CovalentJsonFormatterModule_1 = (function () {
+var CovalentJsonFormatterModule = (function () {
     function CovalentJsonFormatterModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentJsonFormatterModule.forRoot = function () {
-        return {
-            ngModule: CovalentJsonFormatterModule_1,
-            providers: [],
-        };
-    };
     return CovalentJsonFormatterModule;
 }());
-CovalentJsonFormatterModule = CovalentJsonFormatterModule_1 = __decorate([
+CovalentJsonFormatterModule = __decorate([
     NgModule({
         imports: [
             CommonModule,
@@ -41,5 +30,4 @@ CovalentJsonFormatterModule = CovalentJsonFormatterModule_1 = __decorate([
     })
 ], CovalentJsonFormatterModule);
 export { CovalentJsonFormatterModule };
-var CovalentJsonFormatterModule_1;
 //# sourceMappingURL=json-formatter.module.js.map

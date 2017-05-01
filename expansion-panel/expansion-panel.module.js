@@ -16,23 +16,12 @@ var TD_EXPANSION_PANEL = [
     TdExpansionPanelSummaryComponent,
 ];
 export { TdExpansionPanelComponent } from './expansion-panel.component';
-var CovalentExpansionPanelModule = CovalentExpansionPanelModule_1 = (function () {
+var CovalentExpansionPanelModule = (function () {
     function CovalentExpansionPanelModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentExpansionPanelModule.forRoot = function () {
-        return {
-            ngModule: CovalentExpansionPanelModule_1,
-            providers: [],
-        };
-    };
     return CovalentExpansionPanelModule;
 }());
-CovalentExpansionPanelModule = CovalentExpansionPanelModule_1 = __decorate([
+CovalentExpansionPanelModule = __decorate([
     NgModule({
         imports: [
             CommonModule,
@@ -49,5 +38,4 @@ CovalentExpansionPanelModule = CovalentExpansionPanelModule_1 = __decorate([
     })
 ], CovalentExpansionPanelModule);
 export { CovalentExpansionPanelModule };
-var CovalentExpansionPanelModule_1;
 //# sourceMappingURL=expansion-panel.module.js.map

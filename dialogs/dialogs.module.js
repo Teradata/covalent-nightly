@@ -28,23 +28,12 @@ var TD_DIALOGS_ENTRY_COMPONENTS = [
     TdPromptDialogComponent,
 ];
 export { TdDialogService, TdDialogComponent, TdDialogTitleDirective, TdAlertDialogComponent, TdConfirmDialogComponent, TdPromptDialogComponent };
-var CovalentDialogsModule = CovalentDialogsModule_1 = (function () {
+var CovalentDialogsModule = (function () {
     function CovalentDialogsModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentDialogsModule.forRoot = function () {
-        return {
-            ngModule: CovalentDialogsModule_1,
-            providers: [],
-        };
-    };
     return CovalentDialogsModule;
 }());
-CovalentDialogsModule = CovalentDialogsModule_1 = __decorate([
+CovalentDialogsModule = __decorate([
     NgModule({
         imports: [
             FormsModule,
@@ -68,5 +57,4 @@ CovalentDialogsModule = CovalentDialogsModule_1 = __decorate([
     })
 ], CovalentDialogsModule);
 export { CovalentDialogsModule };
-var CovalentDialogsModule_1;
 //# sourceMappingURL=dialogs.module.js.map

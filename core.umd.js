@@ -808,23 +808,12 @@ var TD_PIPES = [
     exports.TdDigitsPipe,
     exports.TdTruncatePipe,
 ];
-exports.CovalentCommonModule = CovalentCommonModule_1 = (function () {
+exports.CovalentCommonModule = (function () {
     function CovalentCommonModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentCommonModule.forRoot = function () {
-        return {
-            ngModule: CovalentCommonModule_1,
-            providers: [],
-        };
-    };
     return CovalentCommonModule;
 }());
-exports.CovalentCommonModule = CovalentCommonModule_1 = __decorate$1([
+exports.CovalentCommonModule = __decorate$1([
     _angular_core.NgModule({
         imports: [
             _angular_forms.FormsModule,
@@ -849,7 +838,6 @@ exports.CovalentCommonModule = CovalentCommonModule_1 = __decorate$1([
         ],
     })
 ], exports.CovalentCommonModule);
-var CovalentCommonModule_1;
 
 var __decorate$14 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1225,23 +1213,12 @@ var __decorate$13 = (window && window.__decorate) || function (decorators, targe
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-exports.CovalentChipsModule = CovalentChipsModule_1 = (function () {
+exports.CovalentChipsModule = (function () {
     function CovalentChipsModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentChipsModule.forRoot = function () {
-        return {
-            ngModule: CovalentChipsModule_1,
-            providers: [],
-        };
-    };
     return CovalentChipsModule;
 }());
-exports.CovalentChipsModule = CovalentChipsModule_1 = __decorate$13([
+exports.CovalentChipsModule = __decorate$13([
     _angular_core.NgModule({
         imports: [
             _angular_forms.ReactiveFormsModule,
@@ -1259,7 +1236,6 @@ exports.CovalentChipsModule = CovalentChipsModule_1 = __decorate$13([
         ],
     })
 ], exports.CovalentChipsModule);
-var CovalentChipsModule_1;
 
 var __extends = (window && window.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -2100,23 +2076,12 @@ var TD_DATA_TABLE = [
     exports.TdDataTableRowComponent,
     exports.TdDataTableTableComponent,
 ];
-exports.CovalentDataTableModule = CovalentDataTableModule_1 = (function () {
+exports.CovalentDataTableModule = (function () {
     function CovalentDataTableModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentDataTableModule.forRoot = function () {
-        return {
-            ngModule: CovalentDataTableModule_1,
-            providers: [],
-        };
-    };
     return CovalentDataTableModule;
 }());
-exports.CovalentDataTableModule = CovalentDataTableModule_1 = __decorate$15([
+exports.CovalentDataTableModule = __decorate$15([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
@@ -2136,7 +2101,6 @@ exports.CovalentDataTableModule = CovalentDataTableModule_1 = __decorate$15([
         ],
     })
 ], exports.CovalentDataTableModule);
-var CovalentDataTableModule_1;
 
 var __decorate$24 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2441,23 +2405,12 @@ var TD_DIALOGS_ENTRY_COMPONENTS = [
     exports.TdConfirmDialogComponent,
     exports.TdPromptDialogComponent,
 ];
-exports.CovalentDialogsModule = CovalentDialogsModule_1 = (function () {
+exports.CovalentDialogsModule = (function () {
     function CovalentDialogsModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentDialogsModule.forRoot = function () {
-        return {
-            ngModule: CovalentDialogsModule_1,
-            providers: [],
-        };
-    };
     return CovalentDialogsModule;
 }());
-exports.CovalentDialogsModule = CovalentDialogsModule_1 = __decorate$23([
+exports.CovalentDialogsModule = __decorate$23([
     _angular_core.NgModule({
         imports: [
             _angular_forms.FormsModule,
@@ -2480,7 +2433,6 @@ exports.CovalentDialogsModule = CovalentDialogsModule_1 = __decorate$23([
         ],
     })
 ], exports.CovalentDialogsModule);
-var CovalentDialogsModule_1;
 
 var __extends$1 = (window && window.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -2723,23 +2675,12 @@ var TD_EXPANSION_PANEL = [
     TdExpansionPanelSublabelDirective,
     TdExpansionPanelSummaryComponent,
 ];
-exports.CovalentExpansionPanelModule = CovalentExpansionPanelModule_1 = (function () {
+exports.CovalentExpansionPanelModule = (function () {
     function CovalentExpansionPanelModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentExpansionPanelModule.forRoot = function () {
-        return {
-            ngModule: CovalentExpansionPanelModule_1,
-            providers: [],
-        };
-    };
     return CovalentExpansionPanelModule;
 }());
-exports.CovalentExpansionPanelModule = CovalentExpansionPanelModule_1 = __decorate$29([
+exports.CovalentExpansionPanelModule = __decorate$29([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
@@ -2755,7 +2696,6 @@ exports.CovalentExpansionPanelModule = CovalentExpansionPanelModule_1 = __decora
         ],
     })
 ], exports.CovalentExpansionPanelModule);
-var CovalentExpansionPanelModule_1;
 
 var __decorate$32 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3453,23 +3393,12 @@ var TD_FILE = [
     exports.TdFileInputComponent,
     exports.TdFileInputLabelDirective,
 ];
-exports.CovalentFileModule = CovalentFileModule_1 = (function () {
+exports.CovalentFileModule = (function () {
     function CovalentFileModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentFileModule.forRoot = function () {
-        return {
-            ngModule: CovalentFileModule_1,
-            providers: [],
-        };
-    };
     return CovalentFileModule;
 }());
-exports.CovalentFileModule = CovalentFileModule_1 = __decorate$31([
+exports.CovalentFileModule = __decorate$31([
     _angular_core.NgModule({
         imports: [
             _angular_http.HttpModule,
@@ -3491,7 +3420,6 @@ exports.CovalentFileModule = CovalentFileModule_1 = __decorate$31([
         ],
     })
 ], exports.CovalentFileModule);
-var CovalentFileModule_1;
 
 var __decorate$38 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3750,23 +3678,12 @@ var __decorate$37 = (window && window.__decorate) || function (decorators, targe
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-exports.CovalentJsonFormatterModule = CovalentJsonFormatterModule_1 = (function () {
+exports.CovalentJsonFormatterModule = (function () {
     function CovalentJsonFormatterModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentJsonFormatterModule.forRoot = function () {
-        return {
-            ngModule: CovalentJsonFormatterModule_1,
-            providers: [],
-        };
-    };
     return CovalentJsonFormatterModule;
 }());
-exports.CovalentJsonFormatterModule = CovalentJsonFormatterModule_1 = __decorate$37([
+exports.CovalentJsonFormatterModule = __decorate$37([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
@@ -3781,7 +3698,6 @@ exports.CovalentJsonFormatterModule = CovalentJsonFormatterModule_1 = __decorate
         ],
     })
 ], exports.CovalentJsonFormatterModule);
-var CovalentJsonFormatterModule_1;
 
 var __decorate$40 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4416,23 +4332,12 @@ var TD_LAYOUTS = [
     exports.TdNavigationDrawerComponent,
     exports.TdNavigationDrawerMenuDirective,
 ];
-exports.CovalentLayoutModule = CovalentLayoutModule_1 = (function () {
+exports.CovalentLayoutModule = (function () {
     function CovalentLayoutModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentLayoutModule.forRoot = function () {
-        return {
-            ngModule: CovalentLayoutModule_1,
-            providers: [],
-        };
-    };
     return CovalentLayoutModule;
 }());
-exports.CovalentLayoutModule = CovalentLayoutModule_1 = __decorate$39([
+exports.CovalentLayoutModule = __decorate$39([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
@@ -4452,7 +4357,6 @@ exports.CovalentLayoutModule = CovalentLayoutModule_1 = __decorate$39([
         ],
     })
 ], exports.CovalentLayoutModule);
-var CovalentLayoutModule_1;
 
 var __decorate$49 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5190,23 +5094,12 @@ var TD_LOADING = [
 var TD_LOADING_ENTRY_COMPONENTS = [
     TdLoadingComponent,
 ];
-exports.CovalentLoadingModule = CovalentLoadingModule_1 = (function () {
+exports.CovalentLoadingModule = (function () {
     function CovalentLoadingModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentLoadingModule.forRoot = function () {
-        return {
-            ngModule: CovalentLoadingModule_1,
-            providers: [],
-        };
-    };
     return CovalentLoadingModule;
 }());
-exports.CovalentLoadingModule = CovalentLoadingModule_1 = __decorate$47([
+exports.CovalentLoadingModule = __decorate$47([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
@@ -5230,7 +5123,6 @@ exports.CovalentLoadingModule = CovalentLoadingModule_1 = __decorate$47([
         ],
     })
 ], exports.CovalentLoadingModule);
-var CovalentLoadingModule_1;
 
 var __decorate$53 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5478,23 +5370,12 @@ var __decorate$52 = (window && window.__decorate) || function (decorators, targe
 var TD_MEDIA = [
     exports.TdMediaToggleDirective,
 ];
-exports.CovalentMediaModule = CovalentMediaModule_1 = (function () {
+exports.CovalentMediaModule = (function () {
     function CovalentMediaModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentMediaModule.forRoot = function () {
-        return {
-            ngModule: CovalentMediaModule_1,
-            providers: [],
-        };
-    };
     return CovalentMediaModule;
 }());
-exports.CovalentMediaModule = CovalentMediaModule_1 = __decorate$52([
+exports.CovalentMediaModule = __decorate$52([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
@@ -5510,7 +5391,6 @@ exports.CovalentMediaModule = CovalentMediaModule_1 = __decorate$52([
         ],
     })
 ], exports.CovalentMediaModule);
-var CovalentMediaModule_1;
 
 var __decorate$56 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5540,23 +5420,12 @@ var __decorate$55 = (window && window.__decorate) || function (decorators, targe
 var TD_MENU = [
     exports.TdMenuComponent,
 ];
-exports.CovalentMenuModule = CovalentMenuModule_1 = (function () {
+exports.CovalentMenuModule = (function () {
     function CovalentMenuModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentMenuModule.forRoot = function () {
-        return {
-            ngModule: CovalentMenuModule_1,
-            providers: [],
-        };
-    };
     return CovalentMenuModule;
 }());
-exports.CovalentMenuModule = CovalentMenuModule_1 = __decorate$55([
+exports.CovalentMenuModule = __decorate$55([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
@@ -5571,7 +5440,6 @@ exports.CovalentMenuModule = CovalentMenuModule_1 = __decorate$55([
         ],
     })
 ], exports.CovalentMenuModule);
-var CovalentMenuModule_1;
 
 var __decorate$58 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5755,23 +5623,12 @@ var __decorate$57 = (window && window.__decorate) || function (decorators, targe
 var TD_NOTIFICATIONS = [
     exports.TdNotificationCountComponent,
 ];
-exports.CovalentNotificationsModule = CovalentNotificationsModule_1 = (function () {
+exports.CovalentNotificationsModule = (function () {
     function CovalentNotificationsModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentNotificationsModule.forRoot = function () {
-        return {
-            ngModule: CovalentNotificationsModule_1,
-            providers: [],
-        };
-    };
     return CovalentNotificationsModule;
 }());
-exports.CovalentNotificationsModule = CovalentNotificationsModule_1 = __decorate$57([
+exports.CovalentNotificationsModule = __decorate$57([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
@@ -5784,7 +5641,6 @@ exports.CovalentNotificationsModule = CovalentNotificationsModule_1 = __decorate
         ],
     })
 ], exports.CovalentNotificationsModule);
-var CovalentNotificationsModule_1;
 
 var __decorate$60 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -6052,23 +5908,12 @@ var __decorate$59 = (window && window.__decorate) || function (decorators, targe
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-exports.CovalentPagingModule = CovalentPagingModule_1 = (function () {
+exports.CovalentPagingModule = (function () {
     function CovalentPagingModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentPagingModule.forRoot = function () {
-        return {
-            ngModule: CovalentPagingModule_1,
-            providers: [],
-        };
-    };
     return CovalentPagingModule;
 }());
-exports.CovalentPagingModule = CovalentPagingModule_1 = __decorate$59([
+exports.CovalentPagingModule = __decorate$59([
     _angular_core.NgModule({
         imports: [
             _angular_forms.FormsModule,
@@ -6085,7 +5930,6 @@ exports.CovalentPagingModule = CovalentPagingModule_1 = __decorate$59([
         ],
     })
 ], exports.CovalentPagingModule);
-var CovalentPagingModule_1;
 
 var __decorate$62 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -6392,23 +6236,12 @@ var __decorate$61 = (window && window.__decorate) || function (decorators, targe
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-exports.CovalentSearchModule = CovalentSearchModule_1 = (function () {
+exports.CovalentSearchModule = (function () {
     function CovalentSearchModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentSearchModule.forRoot = function () {
-        return {
-            ngModule: CovalentSearchModule_1,
-            providers: [],
-        };
-    };
     return CovalentSearchModule;
 }());
-exports.CovalentSearchModule = CovalentSearchModule_1 = __decorate$61([
+exports.CovalentSearchModule = __decorate$61([
     _angular_core.NgModule({
         imports: [
             _angular_forms.FormsModule,
@@ -6427,7 +6260,6 @@ exports.CovalentSearchModule = CovalentSearchModule_1 = __decorate$61([
         ],
     })
 ], exports.CovalentSearchModule);
-var CovalentSearchModule_1;
 
 var __extends$4 = (window && window.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -6975,23 +6807,12 @@ var TD_STEPS = [
     TdStepActionsDirective,
     TdStepSummaryDirective,
 ];
-exports.CovalentStepsModule = CovalentStepsModule_1 = (function () {
+exports.CovalentStepsModule = (function () {
     function CovalentStepsModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentStepsModule.forRoot = function () {
-        return {
-            ngModule: CovalentStepsModule_1,
-            providers: [],
-        };
-    };
     return CovalentStepsModule;
 }());
-exports.CovalentStepsModule = CovalentStepsModule_1 = __decorate$64([
+exports.CovalentStepsModule = __decorate$64([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
@@ -7008,7 +6829,6 @@ exports.CovalentStepsModule = CovalentStepsModule_1 = __decorate$64([
         ],
     })
 ], exports.CovalentStepsModule);
-var CovalentStepsModule_1;
 
 var __decorate = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7064,23 +6884,12 @@ var __decorate = (window && window.__decorate) || function (decorators, target, 
 /**
  * @deprecated in 1.0.0-beta.3-1
  */
-exports.CovalentCoreModule = CovalentCoreModule_1 = (function () {
+exports.CovalentCoreModule = (function () {
     function CovalentCoreModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentCoreModule.forRoot = function () {
-        return {
-            ngModule: CovalentCoreModule_1,
-            providers: [],
-        };
-    };
     return CovalentCoreModule;
 }());
-exports.CovalentCoreModule = CovalentCoreModule_1 = __decorate([
+exports.CovalentCoreModule = __decorate([
     _angular_core.NgModule({
         imports: [
             _angular_http.HttpModule,
@@ -7130,7 +6939,6 @@ exports.CovalentCoreModule = CovalentCoreModule_1 = __decorate([
         ],
     })
 ], exports.CovalentCoreModule);
-var CovalentCoreModule_1;
 
 exports.TdCollapseAnimation = TdCollapseAnimation;
 exports.TdFadeInOutAnimation = TdFadeInOutAnimation;

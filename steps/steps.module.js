@@ -24,23 +24,12 @@ var TD_STEPS = [
 ];
 export { TdStepComponent, StepState } from './step.component';
 export { TdStepsComponent, StepMode } from './steps.component';
-var CovalentStepsModule = CovalentStepsModule_1 = (function () {
+var CovalentStepsModule = (function () {
     function CovalentStepsModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentStepsModule.forRoot = function () {
-        return {
-            ngModule: CovalentStepsModule_1,
-            providers: [],
-        };
-    };
     return CovalentStepsModule;
 }());
-CovalentStepsModule = CovalentStepsModule_1 = __decorate([
+CovalentStepsModule = __decorate([
     NgModule({
         imports: [
             CommonModule,
@@ -58,5 +47,4 @@ CovalentStepsModule = CovalentStepsModule_1 = __decorate([
     })
 ], CovalentStepsModule);
 export { CovalentStepsModule };
-var CovalentStepsModule_1;
 //# sourceMappingURL=steps.module.js.map

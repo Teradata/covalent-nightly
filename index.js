@@ -88,23 +88,12 @@ export * from './steps/steps.module';
 /**
  * @deprecated in 1.0.0-beta.3-1
  */
-var CovalentCoreModule = CovalentCoreModule_1 = (function () {
+var CovalentCoreModule = (function () {
     function CovalentCoreModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentCoreModule.forRoot = function () {
-        return {
-            ngModule: CovalentCoreModule_1,
-            providers: [],
-        };
-    };
     return CovalentCoreModule;
 }());
-CovalentCoreModule = CovalentCoreModule_1 = __decorate([
+CovalentCoreModule = __decorate([
     NgModule({
         imports: [
             HttpModule,
@@ -155,5 +144,4 @@ CovalentCoreModule = CovalentCoreModule_1 = __decorate([
     })
 ], CovalentCoreModule);
 export { CovalentCoreModule };
-var CovalentCoreModule_1;
 //# sourceMappingURL=index.js.map

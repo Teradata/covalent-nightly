@@ -10,23 +10,12 @@ import { FormsModule } from '@angular/forms';
 import { MdIconModule, MdSelectModule, MdButtonModule } from '@angular/material';
 import { TdPagingBarComponent } from './paging-bar.component';
 export { TdPagingBarComponent } from './paging-bar.component';
-var CovalentPagingModule = CovalentPagingModule_1 = (function () {
+var CovalentPagingModule = (function () {
     function CovalentPagingModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentPagingModule.forRoot = function () {
-        return {
-            ngModule: CovalentPagingModule_1,
-            providers: [],
-        };
-    };
     return CovalentPagingModule;
 }());
-CovalentPagingModule = CovalentPagingModule_1 = __decorate([
+CovalentPagingModule = __decorate([
     NgModule({
         imports: [
             FormsModule,
@@ -44,5 +33,4 @@ CovalentPagingModule = CovalentPagingModule_1 = __decorate([
     })
 ], CovalentPagingModule);
 export { CovalentPagingModule };
-var CovalentPagingModule_1;
 //# sourceMappingURL=paging.module.js.map

@@ -11,23 +11,12 @@ var TD_NOTIFICATIONS = [
     TdNotificationCountComponent,
 ];
 export { TdNotificationCountComponent, TdNotificationCountPositionX, TdNotificationCountPositionY } from './notification-count.component';
-var CovalentNotificationsModule = CovalentNotificationsModule_1 = (function () {
+var CovalentNotificationsModule = (function () {
     function CovalentNotificationsModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentNotificationsModule.forRoot = function () {
-        return {
-            ngModule: CovalentNotificationsModule_1,
-            providers: [],
-        };
-    };
     return CovalentNotificationsModule;
 }());
-CovalentNotificationsModule = CovalentNotificationsModule_1 = __decorate([
+CovalentNotificationsModule = __decorate([
     NgModule({
         imports: [
             CommonModule,
@@ -41,5 +30,4 @@ CovalentNotificationsModule = CovalentNotificationsModule_1 = __decorate([
     })
 ], CovalentNotificationsModule);
 export { CovalentNotificationsModule };
-var CovalentNotificationsModule_1;
 //# sourceMappingURL=notifications.module.js.map

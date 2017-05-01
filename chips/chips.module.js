@@ -10,23 +10,12 @@ import { CommonModule } from '@angular/common';
 import { MdInputModule, MdIconModule, MdAutocompleteModule, MdChipsModule } from '@angular/material';
 import { TdChipsComponent } from './chips.component';
 export { TdChipsComponent } from './chips.component';
-var CovalentChipsModule = CovalentChipsModule_1 = (function () {
+var CovalentChipsModule = (function () {
     function CovalentChipsModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentChipsModule.forRoot = function () {
-        return {
-            ngModule: CovalentChipsModule_1,
-            providers: [],
-        };
-    };
     return CovalentChipsModule;
 }());
-CovalentChipsModule = CovalentChipsModule_1 = __decorate([
+CovalentChipsModule = __decorate([
     NgModule({
         imports: [
             ReactiveFormsModule,
@@ -45,5 +34,4 @@ CovalentChipsModule = CovalentChipsModule_1 = __decorate([
     })
 ], CovalentChipsModule);
 export { CovalentChipsModule };
-var CovalentChipsModule_1;
 //# sourceMappingURL=chips.module.js.map

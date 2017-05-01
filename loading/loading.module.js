@@ -20,23 +20,12 @@ var TD_LOADING_ENTRY_COMPONENTS = [
 ];
 export { LoadingType, LoadingMode, LoadingStrategy } from './loading.component';
 export { TdLoadingService } from './services/loading.service';
-var CovalentLoadingModule = CovalentLoadingModule_1 = (function () {
+var CovalentLoadingModule = (function () {
     function CovalentLoadingModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentLoadingModule.forRoot = function () {
-        return {
-            ngModule: CovalentLoadingModule_1,
-            providers: [],
-        };
-    };
     return CovalentLoadingModule;
 }());
-CovalentLoadingModule = CovalentLoadingModule_1 = __decorate([
+CovalentLoadingModule = __decorate([
     NgModule({
         imports: [
             CommonModule,
@@ -61,5 +50,4 @@ CovalentLoadingModule = CovalentLoadingModule_1 = __decorate([
     })
 ], CovalentLoadingModule);
 export { CovalentLoadingModule };
-var CovalentLoadingModule_1;
 //# sourceMappingURL=loading.module.js.map

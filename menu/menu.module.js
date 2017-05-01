@@ -12,23 +12,12 @@ var TD_MENU = [
     TdMenuComponent,
 ];
 export { TdMenuComponent } from './menu.component';
-var CovalentMenuModule = CovalentMenuModule_1 = (function () {
+var CovalentMenuModule = (function () {
     function CovalentMenuModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentMenuModule.forRoot = function () {
-        return {
-            ngModule: CovalentMenuModule_1,
-            providers: [],
-        };
-    };
     return CovalentMenuModule;
 }());
-CovalentMenuModule = CovalentMenuModule_1 = __decorate([
+CovalentMenuModule = __decorate([
     NgModule({
         imports: [
             CommonModule,
@@ -44,5 +33,4 @@ CovalentMenuModule = CovalentMenuModule_1 = __decorate([
     })
 ], CovalentMenuModule);
 export { CovalentMenuModule };
-var CovalentMenuModule_1;
 //# sourceMappingURL=menu.module.js.map

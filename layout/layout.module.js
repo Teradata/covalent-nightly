@@ -26,23 +26,12 @@ var TD_LAYOUTS = [
     TdNavigationDrawerMenuDirective,
 ];
 export { TdLayoutComponent, TdLayoutNavComponent, TdLayoutNavListComponent, TdLayoutCardOverComponent, TdLayoutManageListComponent, TdLayoutFooterComponent, TdNavigationDrawerComponent, TdNavigationDrawerMenuDirective };
-var CovalentLayoutModule = CovalentLayoutModule_1 = (function () {
+var CovalentLayoutModule = (function () {
     function CovalentLayoutModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentLayoutModule.forRoot = function () {
-        return {
-            ngModule: CovalentLayoutModule_1,
-            providers: [],
-        };
-    };
     return CovalentLayoutModule;
 }());
-CovalentLayoutModule = CovalentLayoutModule_1 = __decorate([
+CovalentLayoutModule = __decorate([
     NgModule({
         imports: [
             CommonModule,
@@ -63,5 +52,4 @@ CovalentLayoutModule = CovalentLayoutModule_1 = __decorate([
     })
 ], CovalentLayoutModule);
 export { CovalentLayoutModule };
-var CovalentLayoutModule_1;
 //# sourceMappingURL=layout.module.js.map

@@ -1,4 +1,3 @@
-import { ModuleWithProviders } from '@angular/core';
 export { TdDataTableComponent, TdDataTableSortingOrder, ITdDataTableColumn, ITdDataTableSelectEvent, ITdDataTableSelectAllEvent } from './data-table.component';
 export { TdDataTableService } from './services/data-table.service';
 export { TdDataTableColumnComponent, ITdDataTableSortChangeEvent } from './data-table-column/data-table-column.component';
@@ -6,10 +5,4 @@ export { TdDataTableCellComponent } from './data-table-cell/data-table-cell.comp
 export { TdDataTableRowComponent } from './data-table-row/data-table-row.component';
 export { TdDataTableTableComponent } from './data-table-table/data-table-table.component';
 export declare class CovalentDataTableModule {
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    static forRoot(): ModuleWithProviders;
 }

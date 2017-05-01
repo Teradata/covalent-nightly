@@ -28,23 +28,12 @@ export { TdDataTableColumnComponent } from './data-table-column/data-table-colum
 export { TdDataTableCellComponent } from './data-table-cell/data-table-cell.component';
 export { TdDataTableRowComponent } from './data-table-row/data-table-row.component';
 export { TdDataTableTableComponent } from './data-table-table/data-table-table.component';
-var CovalentDataTableModule = CovalentDataTableModule_1 = (function () {
+var CovalentDataTableModule = (function () {
     function CovalentDataTableModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentDataTableModule.forRoot = function () {
-        return {
-            ngModule: CovalentDataTableModule_1,
-            providers: [],
-        };
-    };
     return CovalentDataTableModule;
 }());
-CovalentDataTableModule = CovalentDataTableModule_1 = __decorate([
+CovalentDataTableModule = __decorate([
     NgModule({
         imports: [
             CommonModule,
@@ -65,5 +54,4 @@ CovalentDataTableModule = CovalentDataTableModule_1 = __decorate([
     })
 ], CovalentDataTableModule);
 export { CovalentDataTableModule };
-var CovalentDataTableModule_1;
 //# sourceMappingURL=data-table.module.js.map

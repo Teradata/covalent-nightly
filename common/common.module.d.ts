@@ -1,4 +1,3 @@
-import { ModuleWithProviders } from '@angular/core';
 /**
  * ANIMATIONS
  */
@@ -26,10 +25,4 @@ import { TdDigitsPipe } from './pipes/digits/digits.pipe';
 import { TdTruncatePipe } from './pipes/truncate/truncate.pipe';
 export { TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTruncatePipe };
 export declare class CovalentCommonModule {
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    static forRoot(): ModuleWithProviders;
 }

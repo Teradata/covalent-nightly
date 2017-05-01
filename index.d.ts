@@ -1,4 +1,3 @@
-import { ModuleWithProviders } from '@angular/core';
 export * from './common/common.module';
 export * from './chips/chips.module';
 export * from './data-table/data-table.module';
@@ -18,10 +17,4 @@ export * from './steps/steps.module';
  * @deprecated in 1.0.0-beta.3-1
  */
 export declare class CovalentCoreModule {
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    static forRoot(): ModuleWithProviders;
 }

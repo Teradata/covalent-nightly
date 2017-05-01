@@ -12,23 +12,12 @@ import { TdSearchInputComponent } from './search-input/search-input.component';
 import { TdSearchBoxComponent } from './search-box/search-box.component';
 export { TdSearchBoxComponent } from './search-box/search-box.component';
 export { TdSearchInputComponent } from './search-input/search-input.component';
-var CovalentSearchModule = CovalentSearchModule_1 = (function () {
+var CovalentSearchModule = (function () {
     function CovalentSearchModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentSearchModule.forRoot = function () {
-        return {
-            ngModule: CovalentSearchModule_1,
-            providers: [],
-        };
-    };
     return CovalentSearchModule;
 }());
-CovalentSearchModule = CovalentSearchModule_1 = __decorate([
+CovalentSearchModule = __decorate([
     NgModule({
         imports: [
             FormsModule,
@@ -48,5 +37,4 @@ CovalentSearchModule = CovalentSearchModule_1 = __decorate([
     })
 ], CovalentSearchModule);
 export { CovalentSearchModule };
-var CovalentSearchModule_1;
 //# sourceMappingURL=search.module.js.map

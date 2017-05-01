@@ -54,23 +54,12 @@ var TD_PIPES = [
     TdTruncatePipe,
 ];
 export { TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTruncatePipe };
-var CovalentCommonModule = CovalentCommonModule_1 = (function () {
+var CovalentCommonModule = (function () {
     function CovalentCommonModule() {
     }
-    /**
-     * @deprecated in 1.0.0-beta.3
-     *
-     * Please use without calling forRoot()
-     */
-    CovalentCommonModule.forRoot = function () {
-        return {
-            ngModule: CovalentCommonModule_1,
-            providers: [],
-        };
-    };
     return CovalentCommonModule;
 }());
-CovalentCommonModule = CovalentCommonModule_1 = __decorate([
+CovalentCommonModule = __decorate([
     NgModule({
         imports: [
             FormsModule,
@@ -96,5 +85,4 @@ CovalentCommonModule = CovalentCommonModule_1 = __decorate([
     })
 ], CovalentCommonModule);
 export { CovalentCommonModule };
-var CovalentCommonModule_1;
 //# sourceMappingURL=common.module.js.map
