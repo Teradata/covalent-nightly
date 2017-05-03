@@ -28,7 +28,6 @@ var TdMaxValidator = (function () {
     TdMaxValidator.prototype.validate = function (c) {
         return this._validator(c);
     };
-    ;
     return TdMaxValidator;
 }());
 __decorate([

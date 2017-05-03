@@ -123,7 +123,6 @@ var TdChipsComponent = (function () {
         enumerable: true,
         configurable: true
     });
-    ;
     TdChipsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.inputControl.valueChanges

@@ -391,7 +391,6 @@ var CovalentValidators = (function () {
         };
         return func;
     };
-    
     CovalentValidators.max = function (maxValue) {
         var func = function (c) {
             if (!!_angular_forms.Validators.required(c) || (!maxValue && maxValue !== 0)) {
@@ -404,7 +403,6 @@ var CovalentValidators = (function () {
         };
         return func;
     };
-    
     CovalentValidators.numberRequired = function (c) {
         return (Number.isNaN(c.value)) ?
             { required: true } :
@@ -440,7 +438,6 @@ exports.TdMinValidator = (function () {
     TdMinValidator.prototype.validate = function (c) {
         return this._validator(c);
     };
-    
     return TdMinValidator;
 }());
 __decorate$5([
@@ -482,7 +479,6 @@ exports.TdMaxValidator = (function () {
     TdMaxValidator.prototype.validate = function (c) {
         return this._validator(c);
     };
-    
     return TdMaxValidator;
 }());
 __decorate$6([
@@ -957,7 +953,6 @@ exports.TdChipsComponent = (function () {
         enumerable: true,
         configurable: true
     });
-    
     TdChipsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.inputControl.valueChanges
@@ -1294,9 +1289,6 @@ var TD_DATA_TABLE_CONTROL_VALUE_ACCESSOR = {
     TdDataTableSortingOrder[TdDataTableSortingOrder["Ascending"] = 'ASC'] = "Ascending";
     TdDataTableSortingOrder[TdDataTableSortingOrder["Descending"] = 'DESC'] = "Descending";
 })(exports.TdDataTableSortingOrder || (exports.TdDataTableSortingOrder = {}));
-
-
-
 exports.TdDataTableComponent = (function () {
     function TdDataTableComponent(_changeDetectorRef) {
         this._changeDetectorRef = _changeDetectorRef;
@@ -1349,7 +1341,6 @@ exports.TdDataTableComponent = (function () {
         enumerable: true,
         configurable: true
     });
-    
     Object.defineProperty(TdDataTableComponent.prototype, "data", {
         get: function () {
             return this._data;
@@ -2532,8 +2523,6 @@ exports.TdExpansionPanelComponent = (function () {
         enumerable: true,
         configurable: true
     });
-    
-    
     Object.defineProperty(TdExpansionPanelComponent.prototype, "disabled", {
         get: function () {
             return this._disabled;
@@ -2552,15 +2541,12 @@ exports.TdExpansionPanelComponent = (function () {
         enumerable: true,
         configurable: true
     });
-    
-    
     /**
      * Method executed when [TdExpansionPanelComponent] is clicked.
      */
     TdExpansionPanelComponent.prototype.clickEvent = function () {
         this._setExpand(!this._expand);
     };
-    
     /**
      * Toggle expand state of [TdExpansionPanelComponent]
      * retuns 'true' if successful, else 'false'.
@@ -2602,15 +2588,12 @@ exports.TdExpansionPanelComponent = (function () {
         }
         return false;
     };
-    
     TdExpansionPanelComponent.prototype._onExpanded = function () {
         this.expanded.emit(undefined);
     };
-    
     TdExpansionPanelComponent.prototype._onCollapsed = function () {
         this.collapsed.emit(undefined);
     };
-    
     return TdExpansionPanelComponent;
 }());
 __decorate$30([
@@ -3050,7 +3033,6 @@ exports.TdFileInputComponent = (function () {
         enumerable: true,
         configurable: true
     });
-    
     Object.defineProperty(TdFileInputComponent.prototype, "inputElement", {
         get: function () {
             return this._inputElement.nativeElement;
@@ -6363,8 +6345,6 @@ exports.TdStepComponent = (function () {
         enumerable: true,
         configurable: true
     });
-    
-    
     Object.defineProperty(TdStepComponent.prototype, "disabled", {
         get: function () {
             return this._disabled;
@@ -6383,8 +6363,6 @@ exports.TdStepComponent = (function () {
         enumerable: true,
         configurable: true
     });
-    
-    
     Object.defineProperty(TdStepComponent.prototype, "state", {
         get: function () {
             return this._state;
@@ -6410,7 +6388,6 @@ exports.TdStepComponent = (function () {
         enumerable: true,
         configurable: true
     });
-    
     TdStepComponent.prototype.ngOnInit = function () {
         this._contentPortal = new _angular_material.TemplatePortal(this._content, this._viewContainerRef);
     };
@@ -6441,7 +6418,6 @@ exports.TdStepComponent = (function () {
     TdStepComponent.prototype.isComplete = function () {
         return this._state === exports.StepState.Complete;
     };
-    
     /**
      * Method to change active state internally and emit the [onActivated] event if 'true' or [onDeactivated]
      * event if 'false'. (Blocked if [disabled] is 'true')
@@ -6463,15 +6439,12 @@ exports.TdStepComponent = (function () {
         }
         return false;
     };
-    
     TdStepComponent.prototype._onActivated = function () {
         this.onActivated.emit(undefined);
     };
-    
     TdStepComponent.prototype._onDeactivated = function () {
         this.onDeactivated.emit(undefined);
     };
-    
     return TdStepComponent;
 }());
 __decorate$66([
@@ -6711,14 +6684,12 @@ var TdStepHeaderComponent = (function () {
     TdStepHeaderComponent.prototype.isComplete = function () {
         return this.state === exports.StepState.Complete;
     };
-    
     /**
      * Returns 'true' if [state] equals to [StepState.Required | 'required'], else 'false'.
      */
     TdStepHeaderComponent.prototype.isRequired = function () {
         return this.state === exports.StepState.Required;
     };
-    
     return TdStepHeaderComponent;
 }());
 __decorate$67([
@@ -6769,7 +6740,6 @@ var TdStepBodyComponent = (function () {
     TdStepBodyComponent.prototype.isComplete = function () {
         return this.state === exports.StepState.Complete;
     };
-    
     return TdStepBodyComponent;
 }());
 __decorate$68([

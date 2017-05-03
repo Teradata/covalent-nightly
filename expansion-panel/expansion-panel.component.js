@@ -104,8 +104,6 @@ var TdExpansionPanelComponent = (function () {
         enumerable: true,
         configurable: true
     });
-    ;
-    ;
     Object.defineProperty(TdExpansionPanelComponent.prototype, "disabled", {
         get: function () {
             return this._disabled;
@@ -124,15 +122,12 @@ var TdExpansionPanelComponent = (function () {
         enumerable: true,
         configurable: true
     });
-    ;
-    ;
     /**
      * Method executed when [TdExpansionPanelComponent] is clicked.
      */
     TdExpansionPanelComponent.prototype.clickEvent = function () {
         this._setExpand(!this._expand);
     };
-    ;
     /**
      * Toggle expand state of [TdExpansionPanelComponent]
      * retuns 'true' if successful, else 'false'.
@@ -174,15 +169,12 @@ var TdExpansionPanelComponent = (function () {
         }
         return false;
     };
-    ;
     TdExpansionPanelComponent.prototype._onExpanded = function () {
         this.expanded.emit(undefined);
     };
-    ;
     TdExpansionPanelComponent.prototype._onCollapsed = function () {
         this.collapsed.emit(undefined);
     };
-    ;
     return TdExpansionPanelComponent;
 }());
 __decorate([

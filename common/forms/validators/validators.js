@@ -14,7 +14,6 @@ var CovalentValidators = (function () {
         };
         return func;
     };
-    ;
     CovalentValidators.max = function (maxValue) {
         var func = function (c) {
             if (!!Validators.required(c) || (!maxValue && maxValue !== 0)) {
@@ -27,7 +26,6 @@ var CovalentValidators = (function () {
         };
         return func;
     };
-    ;
     CovalentValidators.numberRequired = function (c) {
         return (Number.isNaN(c.value)) ?
             { required: true } :

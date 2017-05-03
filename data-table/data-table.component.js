@@ -23,9 +23,6 @@ export var TdDataTableSortingOrder;
     TdDataTableSortingOrder[TdDataTableSortingOrder["Ascending"] = 'ASC'] = "Ascending";
     TdDataTableSortingOrder[TdDataTableSortingOrder["Descending"] = 'DESC'] = "Descending";
 })(TdDataTableSortingOrder || (TdDataTableSortingOrder = {}));
-;
-;
-;
 var TdDataTableComponent = (function () {
     function TdDataTableComponent(_changeDetectorRef) {
         this._changeDetectorRef = _changeDetectorRef;
@@ -78,7 +75,6 @@ var TdDataTableComponent = (function () {
         enumerable: true,
         configurable: true
     });
-    ;
     Object.defineProperty(TdDataTableComponent.prototype, "data", {
         get: function () {
             return this._data;

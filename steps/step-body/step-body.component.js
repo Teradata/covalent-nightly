@@ -25,7 +25,6 @@ var TdStepBodyComponent = (function () {
     TdStepBodyComponent.prototype.isComplete = function () {
         return this.state === StepState.Complete;
     };
-    ;
     return TdStepBodyComponent;
 }());
 __decorate([

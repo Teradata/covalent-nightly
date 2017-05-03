@@ -28,7 +28,6 @@ var TdMinValidator = (function () {
     TdMinValidator.prototype.validate = function (c) {
         return this._validator(c);
     };
-    ;
     return TdMinValidator;
 }());
 __decorate([

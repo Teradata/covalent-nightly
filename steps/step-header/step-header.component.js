@@ -24,14 +24,12 @@ var TdStepHeaderComponent = (function () {
     TdStepHeaderComponent.prototype.isComplete = function () {
         return this.state === StepState.Complete;
     };
-    ;
     /**
      * Returns 'true' if [state] equals to [StepState.Required | 'required'], else 'false'.
      */
     TdStepHeaderComponent.prototype.isRequired = function () {
         return this.state === StepState.Required;
     };
-    ;
     return TdStepHeaderComponent;
 }());
 __decorate([

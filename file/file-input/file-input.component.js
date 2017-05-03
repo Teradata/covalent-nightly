@@ -73,7 +73,6 @@ var TdFileInputComponent = (function () {
         enumerable: true,
         configurable: true
     });
-    ;
     Object.defineProperty(TdFileInputComponent.prototype, "inputElement", {
         get: function () {
             return this._inputElement.nativeElement;

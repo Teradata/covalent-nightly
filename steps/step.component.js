@@ -106,8 +106,6 @@ var TdStepComponent = (function () {
         enumerable: true,
         configurable: true
     });
-    ;
-    ;
     Object.defineProperty(TdStepComponent.prototype, "disabled", {
         get: function () {
             return this._disabled;
@@ -126,8 +124,6 @@ var TdStepComponent = (function () {
         enumerable: true,
         configurable: true
     });
-    ;
-    ;
     Object.defineProperty(TdStepComponent.prototype, "state", {
         get: function () {
             return this._state;
@@ -153,7 +149,6 @@ var TdStepComponent = (function () {
         enumerable: true,
         configurable: true
     });
-    ;
     TdStepComponent.prototype.ngOnInit = function () {
         this._contentPortal = new TemplatePortal(this._content, this._viewContainerRef);
     };
@@ -184,7 +179,6 @@ var TdStepComponent = (function () {
     TdStepComponent.prototype.isComplete = function () {
         return this._state === StepState.Complete;
     };
-    ;
     /**
      * Method to change active state internally and emit the [onActivated] event if 'true' or [onDeactivated]
      * event if 'false'. (Blocked if [disabled] is 'true')
@@ -206,15 +200,12 @@ var TdStepComponent = (function () {
         }
         return false;
     };
-    ;
     TdStepComponent.prototype._onActivated = function () {
         this.onActivated.emit(undefined);
     };
-    ;
     TdStepComponent.prototype._onDeactivated = function () {
         this.onDeactivated.emit(undefined);
     };
-    ;
     return TdStepComponent;
 }());
 __decorate([
