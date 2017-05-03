@@ -19,7 +19,7 @@ var TdBytesPipe = (function () {
             /* If not a valid number, return 'Invalid Number' */
             return 'Invalid Number';
         }
-        var k = 1000;
+        var k = 1024;
         var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
         var i = Math.floor(Math.log(bytes) / Math.log(k));
         // if less than 1
