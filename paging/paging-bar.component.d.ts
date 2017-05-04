@@ -17,6 +17,11 @@ export declare class TdPagingBarComponent implements OnInit {
     private _fromRow;
     private _toRow;
     private _initialized;
+    private _pageLinks;
+    private _pageLinkCount;
+    private _id;
+    private _hitEnd;
+    private _hitStart;
     /**
      * pageSizeAll?: boolean
      * Shows or hides the 'all' menu item in the page size menu. Defaults to 'false'
@@ -38,6 +43,11 @@ export declare class TdPagingBarComponent implements OnInit {
      */
     initialPage: number;
     /**
+     * pageLinkCount?: number
+     * Amount of page jump to links for the paging bar. Defaults to '0'
+     */
+    pageLinkCount: number;
+    /**
      * pageSizes?: number[]
      * Array that populates page size menu. Defaults to [50, 100, 200, 500, 1000]
      */
@@ -53,6 +63,11 @@ export declare class TdPagingBarComponent implements OnInit {
      */
     total: number;
     /**
+     * pageLinks: number[]
+     * Returns the pageLinks in an array
+     */
+    readonly pageLinks: number[];
+    /**
      * range: string
      * Returns the range of the rows.
      */
@@ -67,6 +82,11 @@ export declare class TdPagingBarComponent implements OnInit {
      * Returns the max page for the current pageSize and total.
      */
     readonly maxPage: number;
+    /**
+     * id: string
+     * Returns the guid id for this paginator
+     */
+    readonly id: string;
     /**
      * change?: function
      * Method to be executed when page size changes or any button is clicked in the paging bar.
@@ -104,5 +124,16 @@ export declare class TdPagingBarComponent implements OnInit {
     isMinPage(): boolean;
     isMaxPage(): boolean;
     private _calculateRows();
+    /**
+     * _calculatePageLinks?: function
+     * Calculates the page links that should be shown to the user based on the current state of the paginator
+     */
+    private _calculatePageLinks();
     private _handleOnChange();
+    /**
+     * guid?: function
+     * Returns RFC4122 random ("version 4") GUIDs
+     */
+    private guid();
+    private s4();
 }
