@@ -8,7 +8,7 @@ export declare class TdDataTableService {
      *
      * Searches [data] parameter for [searchTerm] matches and returns a new array with them.
      */
-    filterData(data: any[], searchTerm: string, ignoreCase?: boolean): any[];
+    filterData(data: any[], searchTerm: string, ignoreCase?: boolean, excludedColumns?: string[]): any[];
     /**
      * params:
      * - data: any[]

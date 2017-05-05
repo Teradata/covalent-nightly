@@ -17,15 +17,17 @@ var TdDataTableService = (function () {
      *
      * Searches [data] parameter for [searchTerm] matches and returns a new array with them.
      */
-    TdDataTableService.prototype.filterData = function (data, searchTerm, ignoreCase) {
+    TdDataTableService.prototype.filterData = function (data, searchTerm, ignoreCase, excludedColumns) {
         if (ignoreCase === void 0) { ignoreCase = false; }
         var filter = searchTerm ? (ignoreCase ? searchTerm.toLowerCase() : searchTerm) : '';
         if (filter) {
             data = data.filter(function (item) {
                 var res = Object.keys(item).find(function (key) {
-                    var preItemValue = ('' + item[key]);
-                    var itemValue = ignoreCase ? preItemValue.toLowerCase() : preItemValue;
-                    return itemValue.indexOf(filter) > -1;
+                    if (!excludedColumns || excludedColumns.indexOf(key) === -1) {
+                        var preItemValue = ('' + item[key]);
+                        var itemValue = ignoreCase ? preItemValue.toLowerCase() : preItemValue;
+                        return itemValue.indexOf(filter) > -1;
+                    }
                 });
                 return !(typeof res === 'undefined');
             });
