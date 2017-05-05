@@ -57,6 +57,11 @@ var TdChipsComponent = (function () {
          */
         this.items = [];
         /**
+         * chipAddition?: boolean
+         * Disables the ability to add chips. If it doesn't exist chip addition defaults to true.
+         */
+        this.chipAddition = true;
+        /**
          * add?: function
          * Method to be executed when string is added as chip through the autocomplete.
          * Sends chip value as event.
@@ -202,7 +207,9 @@ var TdChipsComponent = (function () {
      * Programmatically focus the input. Since its the component entry point
      */
     TdChipsComponent.prototype.focus = function () {
-        this._inputChild.focus();
+        if (this.chipAddition) {
+            this._inputChild.focus();
+        }
     };
     /**
      * Passes relevant input key presses.
@@ -241,7 +248,7 @@ var TdChipsComponent = (function () {
                      * Checks if deleting last single chip, to focus input afterwards
                      * Else check if its not the last chip of the list to focus the next one.
                      */
-                    if (index === (this._totalChips - 1) && index === 0) {
+                    if (index === (this._totalChips - 1) && index === 0 && this.chipAddition) {
                         this.focus();
                     }
                     else if (index < (this._totalChips - 1)) {
@@ -252,20 +259,22 @@ var TdChipsComponent = (function () {
                 break;
             case LEFT_ARROW:
                 /** Check to see if left arrow was pressed while focusing the first chip to focus input next */
-                if (index === 0) {
+                if (index === 0 && this.chipAddition) {
                     this.focus();
                     event.stopPropagation();
                 }
                 break;
             case RIGHT_ARROW:
                 /** Check to see if right arrow was pressed while focusing the last chip to focus input next */
-                if (index === (this._totalChips - 1)) {
+                if (index === (this._totalChips - 1) && this.chipAddition) {
                     this.focus();
                     event.stopPropagation();
                 }
                 break;
             case ESCAPE:
-                this.focus();
+                if (this.chipAddition) {
+                    this.focus();
+                }
                 break;
             default:
         }
@@ -347,6 +356,10 @@ __decorate([
     __metadata("design:paramtypes", [Boolean])
 ], TdChipsComponent.prototype, "readOnly", null);
 __decorate([
+    Input('chipAddition'),
+    __metadata("design:type", Boolean)
+], TdChipsComponent.prototype, "chipAddition", void 0);
+__decorate([
     Input('placeholder'),
     __metadata("design:type", String)
 ], TdChipsComponent.prototype, "placeholder", void 0);
@@ -368,7 +381,7 @@ TdChipsComponent = __decorate([
         providers: [TD_CHIPS_CONTROL_VALUE_ACCESSOR],
         selector: 'td-chips',
         styles: ["/** * Mixin that creates a new stacking context. * see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context */ :host { display: block; padding: 0px 5px 0px 5px; } :host /deep/ .mat-input-wrapper { margin-bottom: 2px; } :host /deep/ .mat-basic-chip { display: inline-block; cursor: default; border-radius: 16px; line-height: 32px; margin: 8px 8px 0 0; padding: 0 12px; box-sizing: border-box; max-width: 100%; position: relative; } html[dir=rtl] :host /deep/ .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } :host /deep/ .mat-basic-chip bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip md-icon { position: relative; top: 5px; left: 5px; right: auto; height: 18px; width: 18px; font-size: 19px; } html[dir=rtl] :host /deep/ .mat-basic-chip md-icon { left: auto; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip md-icon { left: auto; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip md-icon { left: auto; unicode-bidi: embed; } :host /deep/ .mat-basic-chip md-icon bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip md-icon bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host /deep/ .mat-basic-chip md-icon { right: 5px; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip md-icon { right: 5px; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip md-icon { right: 5px; unicode-bidi: embed; } :host /deep/ .mat-basic-chip md-icon bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip md-icon bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip md-icon:hover { cursor: pointer; } .mat-input-underline { position: relative; height: 1px; width: 100%; } .mat-input-underline.mat-disabled { border-top: 0; background-position: 0; background-size: 4px 1px; background-repeat: repeat-x; } .mat-input-underline .mat-input-ripple { position: absolute; height: 2px; z-index: 1; top: -1px; width: 100%; transform-origin: top; opacity: 0; transform: scaleY(0); } .mat-input-underline .mat-input-ripple.mat-warn { opacity: 1; transform: scaleY(1); } .mat-input-underline .mat-input-ripple.mat-focused { opacity: 1; transform: scaleY(1); } :host /deep/ md-input-container input::-webkit-calendar-picker-indicator { display: none; } :host /deep/ md-input-container .mat-input-underline { display: none; } "],
-        template: "<div flex> <md-chip-list [tabIndex]=\"-1\" (focus)=\"focus()\"> <ng-template let-chip let-index=\"index\" ngFor [ngForOf]=\"value\"> <md-basic-chip [class.td-chip-disabled]=\"readOnly\" (keydown)=\"_chipKeydown($event, index)\"> <span>{{chip}}</span> <md-icon *ngIf=\"!readOnly\" (click)=\"removeChip(chip)\"> cancel </md-icon> </md-basic-chip> </ng-template> <md-input-container floatPlaceholder=\"never\" [style.width.px]=\"readOnly ? 0 : null\" [color]=\"matches ? 'primary' : 'warn'\"> <input mdInput flex=\"100\"  #input [mdAutocomplete]=\"autocomplete\" [formControl]=\"inputControl\" [placeholder]=\"readOnly? '' : placeholder\" (keydown)=\"_inputKeydown($event)\" (keyup.enter)=\"addChip(input.value)\" (focus)=\"handleFocus()\" (blur)=\"handleBlur()\"> </md-input-container> <md-autocomplete #autocomplete=\"mdAutocomplete\"> <ng-template let-item ngFor [ngForOf]=\"filteredItems | async\"> <md-option (click)=\"addChip(input.value)\" [value]=\"item\">{{item}}</md-option> </ng-template> </md-autocomplete> </md-chip-list> <div class=\"mat-input-underline\" [class.mat-disabled]=\"readOnly\"> <span class=\"mat-input-ripple\" [class.mat-focused]=\"focused\" [class.mat-warn]=\"!matches\"></span> </div> </div> ",
+        template: "<div flex> <md-chip-list [tabIndex]=\"-1\" (focus)=\"focus()\"> <ng-template let-chip let-index=\"index\" ngFor [ngForOf]=\"value\"> <md-basic-chip [class.td-chip-disabled]=\"readOnly\" (keydown)=\"_chipKeydown($event, index)\"> <span>{{chip}}</span> <md-icon *ngIf=\"!readOnly\" (click)=\"removeChip(chip)\"> cancel </md-icon> </md-basic-chip> </ng-template> <div *ngIf=\"chipAddition\"> <md-input-container floatPlaceholder=\"never\" [style.width.px]=\"readOnly ? 0 : null\" [color]=\"matches ? 'primary' : 'warn'\"> <input mdInput flex=\"100\"  #input [mdAutocomplete]=\"autocomplete\" [formControl]=\"inputControl\" [placeholder]=\"readOnly? '' : placeholder\" (keydown)=\"_inputKeydown($event)\" (keyup.enter)=\"addChip(input.value)\" (focus)=\"handleFocus()\" (blur)=\"handleBlur()\"> </md-input-container> </div> <md-autocomplete #autocomplete=\"mdAutocomplete\"> <ng-template let-item ngFor [ngForOf]=\"filteredItems | async\"> <md-option (click)=\"addChip(item)\" [value]=\"item\">{{item}}</md-option> </ng-template> </md-autocomplete> </md-chip-list> <div *ngIf=\"chipAddition\" class=\"mat-input-underline\" [class.mat-disabled]=\"readOnly\"> <span class=\"mat-input-ripple\" [class.mat-focused]=\"focused\" [class.mat-warn]=\"!matches\"></span> </div> </div> ",
     })
 ], TdChipsComponent);
 export { TdChipsComponent };

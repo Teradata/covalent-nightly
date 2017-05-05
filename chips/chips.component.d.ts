@@ -53,6 +53,11 @@ export declare class TdChipsComponent implements ControlValueAccessor, DoCheck, 
      */
     readOnly: boolean;
     /**
+     * chipAddition?: boolean
+     * Disables the ability to add chips. If it doesn't exist chip addition defaults to true.
+     */
+    chipAddition: boolean;
+    /**
      * placeholder?: string
      * Placeholder for the autocomplete input.
      */
