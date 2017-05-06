@@ -14,6 +14,7 @@ import { MdChip, MdInputDirective, ESCAPE, LEFT_ARROW, RIGHT_ARROW, DELETE, BACK
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/observable/timer';
+import 'rxjs/add/operator/debounceTime';
 var noop = function () {
     // empty method
 };
@@ -31,6 +32,7 @@ var TdChipsComponent = (function () {
         this._length = 0;
         this._requireMatch = false;
         this._readOnly = false;
+        this._chipAddition = true;
         /**
          * Boolean value that specifies if the input is valid against the provieded list.
          */
@@ -56,11 +58,6 @@ var TdChipsComponent = (function () {
          * Enables Autocompletion with the provided list of strings.
          */
         this.items = [];
-        /**
-         * chipAddition?: boolean
-         * Disables the ability to add chips. If it doesn't exist chip addition defaults to true.
-         */
-        this.chipAddition = true;
         /**
          * add?: function
          * Method to be executed when string is added as chip through the autocomplete.
@@ -101,12 +98,23 @@ var TdChipsComponent = (function () {
          */
         set: function (readOnly) {
             this._readOnly = readOnly;
-            if (readOnly) {
-                this.inputControl.disable();
-            }
-            else {
-                this.inputControl.enable();
-            }
+            this._toggleInput();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TdChipsComponent.prototype, "chipAddition", {
+        get: function () {
+            return this._chipAddition && !this.readOnly;
+        },
+        /**
+         * chipAddition?: boolean
+         * Disables the ability to add chips. If it doesn't exist chip addition defaults to true.
+         * When setting readOnly as true, this will be overriden.
+         */
+        set: function (chipAddition) {
+            this._chipAddition = chipAddition;
+            this._toggleInput();
         },
         enumerable: true,
         configurable: true
@@ -327,9 +335,21 @@ var TdChipsComponent = (function () {
     TdChipsComponent.prototype._focusFirstChip = function () {
         this._focusChip(0);
     };
-    /** MEthod to focus last chip */
+    /** Method to focus last chip */
     TdChipsComponent.prototype._focusLastChip = function () {
         this._focusChip(this._totalChips - 1);
+    };
+    /**
+     * Method to toggle the disable state of input
+     * Checks if not in readOnly state and if chipAddition is set to 'true'
+     */
+    TdChipsComponent.prototype._toggleInput = function () {
+        if (this.chipAddition) {
+            this.inputControl.enable();
+        }
+        else {
+            this.inputControl.disable();
+        }
     };
     return TdChipsComponent;
 }());
@@ -357,8 +377,9 @@ __decorate([
 ], TdChipsComponent.prototype, "readOnly", null);
 __decorate([
     Input('chipAddition'),
-    __metadata("design:type", Boolean)
-], TdChipsComponent.prototype, "chipAddition", void 0);
+    __metadata("design:type", Boolean),
+    __metadata("design:paramtypes", [Boolean])
+], TdChipsComponent.prototype, "chipAddition", null);
 __decorate([
     Input('placeholder'),
     __metadata("design:type", String)
@@ -381,7 +402,7 @@ TdChipsComponent = __decorate([
         providers: [TD_CHIPS_CONTROL_VALUE_ACCESSOR],
         selector: 'td-chips',
         styles: ["/** * Mixin that creates a new stacking context. * see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context */ :host { display: block; padding: 0px 5px 0px 5px; } :host /deep/ .mat-input-wrapper { margin-bottom: 2px; } :host /deep/ .mat-basic-chip { display: inline-block; cursor: default; border-radius: 16px; line-height: 32px; margin: 8px 8px 0 0; padding: 0 12px; box-sizing: border-box; max-width: 100%; position: relative; } html[dir=rtl] :host /deep/ .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } :host /deep/ .mat-basic-chip bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip md-icon { position: relative; top: 5px; left: 5px; right: auto; height: 18px; width: 18px; font-size: 19px; } html[dir=rtl] :host /deep/ .mat-basic-chip md-icon { left: auto; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip md-icon { left: auto; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip md-icon { left: auto; unicode-bidi: embed; } :host /deep/ .mat-basic-chip md-icon bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip md-icon bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host /deep/ .mat-basic-chip md-icon { right: 5px; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip md-icon { right: 5px; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip md-icon { right: 5px; unicode-bidi: embed; } :host /deep/ .mat-basic-chip md-icon bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip md-icon bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip md-icon:hover { cursor: pointer; } .mat-input-underline { position: relative; height: 1px; width: 100%; } .mat-input-underline.mat-disabled { border-top: 0; background-position: 0; background-size: 4px 1px; background-repeat: repeat-x; } .mat-input-underline .mat-input-ripple { position: absolute; height: 2px; z-index: 1; top: -1px; width: 100%; transform-origin: top; opacity: 0; transform: scaleY(0); } .mat-input-underline .mat-input-ripple.mat-warn { opacity: 1; transform: scaleY(1); } .mat-input-underline .mat-input-ripple.mat-focused { opacity: 1; transform: scaleY(1); } :host /deep/ md-input-container input::-webkit-calendar-picker-indicator { display: none; } :host /deep/ md-input-container .mat-input-underline { display: none; } "],
-        template: "<div flex> <md-chip-list [tabIndex]=\"-1\" (focus)=\"focus()\"> <ng-template let-chip let-index=\"index\" ngFor [ngForOf]=\"value\"> <md-basic-chip [class.td-chip-disabled]=\"readOnly\" (keydown)=\"_chipKeydown($event, index)\"> <span>{{chip}}</span> <md-icon *ngIf=\"!readOnly\" (click)=\"removeChip(chip)\"> cancel </md-icon> </md-basic-chip> </ng-template> <div *ngIf=\"chipAddition\"> <md-input-container floatPlaceholder=\"never\" [style.width.px]=\"readOnly ? 0 : null\" [color]=\"matches ? 'primary' : 'warn'\"> <input mdInput flex=\"100\"  #input [mdAutocomplete]=\"autocomplete\" [formControl]=\"inputControl\" [placeholder]=\"readOnly? '' : placeholder\" (keydown)=\"_inputKeydown($event)\" (keyup.enter)=\"addChip(input.value)\" (focus)=\"handleFocus()\" (blur)=\"handleBlur()\"> </md-input-container> </div> <md-autocomplete #autocomplete=\"mdAutocomplete\"> <ng-template let-item ngFor [ngForOf]=\"filteredItems | async\"> <md-option (click)=\"addChip(item)\" [value]=\"item\">{{item}}</md-option> </ng-template> </md-autocomplete> </md-chip-list> <div *ngIf=\"chipAddition\" class=\"mat-input-underline\" [class.mat-disabled]=\"readOnly\"> <span class=\"mat-input-ripple\" [class.mat-focused]=\"focused\" [class.mat-warn]=\"!matches\"></span> </div> </div> ",
+        template: "<div flex> <md-chip-list [tabIndex]=\"-1\" (focus)=\"focus()\"> <ng-template let-chip let-index=\"index\" ngFor [ngForOf]=\"value\"> <md-basic-chip [class.td-chip-disabled]=\"readOnly\" (keydown)=\"_chipKeydown($event, index)\"> <span>{{chip}}</span> <md-icon *ngIf=\"!readOnly\" (click)=\"removeChip(chip)\"> cancel </md-icon> </md-basic-chip> </ng-template> <md-input-container floatPlaceholder=\"never\" [style.width.px]=\"chipAddition ? null : 0\" [color]=\"matches ? 'primary' : 'warn'\"> <input mdInput flex=\"100\"  #input [mdAutocomplete]=\"autocomplete\" [formControl]=\"inputControl\" [placeholder]=\"chipAddition? placeholder : ''\" (keydown)=\"_inputKeydown($event)\" (keyup.enter)=\"addChip(input.value)\" (focus)=\"handleFocus()\" (blur)=\"handleBlur()\"> </md-input-container> <md-autocomplete #autocomplete=\"mdAutocomplete\"> <ng-template let-item ngFor [ngForOf]=\"filteredItems | async\"> <md-option (click)=\"addChip(item)\" [value]=\"item\">{{item}}</md-option> </ng-template> </md-autocomplete> </md-chip-list> <div *ngIf=\"chipAddition\" class=\"mat-input-underline\" [class.mat-disabled]=\"readOnly\"> <span class=\"mat-input-ripple\" [class.mat-focused]=\"focused\" [class.mat-warn]=\"!matches\"></span> </div> </div> ",
     })
 ], TdChipsComponent);
 export { TdChipsComponent };

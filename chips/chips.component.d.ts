@@ -5,6 +5,7 @@ import { MdChip, MdInputDirective } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/observable/timer';
+import 'rxjs/add/operator/debounceTime';
 export declare const TD_CHIPS_CONTROL_VALUE_ACCESSOR: any;
 export declare class TdChipsComponent implements ControlValueAccessor, DoCheck, OnInit {
     /**
@@ -14,6 +15,7 @@ export declare class TdChipsComponent implements ControlValueAccessor, DoCheck, 
     private _length;
     private _requireMatch;
     private _readOnly;
+    private _chipAddition;
     _inputChild: MdInputDirective;
     _chipsChildren: QueryList<MdChip>;
     /**
@@ -55,6 +57,7 @@ export declare class TdChipsComponent implements ControlValueAccessor, DoCheck, 
     /**
      * chipAddition?: boolean
      * Disables the ability to add chips. If it doesn't exist chip addition defaults to true.
+     * When setting readOnly as true, this will be overriden.
      */
     chipAddition: boolean;
     /**
@@ -131,6 +134,11 @@ export declare class TdChipsComponent implements ControlValueAccessor, DoCheck, 
     private _focusChip(index);
     /** Method to focus first chip */
     private _focusFirstChip();
-    /** MEthod to focus last chip */
+    /** Method to focus last chip */
     private _focusLastChip();
+    /**
+     * Method to toggle the disable state of input
+     * Checks if not in readOnly state and if chipAddition is set to 'true'
+     */
+    private _toggleInput();
 }
