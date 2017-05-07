@@ -41,6 +41,11 @@ var TdFileUploadComponent = (function () {
          * Emits a [File | FileList] object.
          */
         this.onUpload = new EventEmitter();
+        /**
+         * cancel?: function
+         * Event emitted when cancel button is clicked.
+         */
+        this.onCancel = new EventEmitter();
     }
     Object.defineProperty(TdFileUploadComponent.prototype, "multiple", {
         get: function () {
@@ -95,6 +100,7 @@ var TdFileUploadComponent = (function () {
      */
     TdFileUploadComponent.prototype.cancel = function () {
         this.files = undefined;
+        this.onCancel.emit(undefined);
         this._changeDetectorRef.markForCheck();
     };
     return TdFileUploadComponent;
@@ -137,6 +143,10 @@ __decorate([
     Output('upload'),
     __metadata("design:type", EventEmitter)
 ], TdFileUploadComponent.prototype, "onUpload", void 0);
+__decorate([
+    Output('cancel'),
+    __metadata("design:type", EventEmitter)
+], TdFileUploadComponent.prototype, "onCancel", void 0);
 TdFileUploadComponent = __decorate([
     Component({
         changeDetection: ChangeDetectionStrategy.OnPush,

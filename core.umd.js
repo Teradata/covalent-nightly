@@ -3228,6 +3228,11 @@ exports.TdFileUploadComponent = (function () {
          * Emits a [File | FileList] object.
          */
         this.onUpload = new _angular_core.EventEmitter();
+        /**
+         * cancel?: function
+         * Event emitted when cancel button is clicked.
+         */
+        this.onCancel = new _angular_core.EventEmitter();
     }
     Object.defineProperty(TdFileUploadComponent.prototype, "multiple", {
         get: function () {
@@ -3282,6 +3287,7 @@ exports.TdFileUploadComponent = (function () {
      */
     TdFileUploadComponent.prototype.cancel = function () {
         this.files = undefined;
+        this.onCancel.emit(undefined);
         this._changeDetectorRef.markForCheck();
     };
     return TdFileUploadComponent;
@@ -3324,6 +3330,10 @@ __decorate$33([
     _angular_core.Output('upload'),
     __metadata$22("design:type", _angular_core.EventEmitter)
 ], exports.TdFileUploadComponent.prototype, "onUpload", void 0);
+__decorate$33([
+    _angular_core.Output('cancel'),
+    __metadata$22("design:type", _angular_core.EventEmitter)
+], exports.TdFileUploadComponent.prototype, "onCancel", void 0);
 exports.TdFileUploadComponent = __decorate$33([
     _angular_core.Component({
         changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,

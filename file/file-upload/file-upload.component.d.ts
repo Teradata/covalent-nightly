@@ -49,6 +49,11 @@ export declare class TdFileUploadComponent {
      * Emits a [File | FileList] object.
      */
     onUpload: EventEmitter<File | FileList>;
+    /**
+     * cancel?: function
+     * Event emitted when cancel button is clicked.
+     */
+    onCancel: EventEmitter<void>;
     constructor(_changeDetectorRef: ChangeDetectorRef);
     /**
      * Method executed when upload button is clicked.
