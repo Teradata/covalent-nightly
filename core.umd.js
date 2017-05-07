@@ -1586,7 +1586,7 @@ exports.TdDataTableComponent = (function () {
      */
     TdDataTableComponent.prototype.areAllSelected = function () {
         var _this = this;
-        var match = this._data.find(function (d) { return !_this.isRowSelected(d); });
+        var match = this._data ? this._data.find(function (d) { return !_this.isRowSelected(d); }) : true;
         return typeof match === 'undefined';
     };
     /**
