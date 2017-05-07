@@ -4606,7 +4606,6 @@ var TdLoadingComponent = (function () {
 }());
 TdLoadingComponent = __decorate$48([
     _angular_core.Component({
-        changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
         selector: 'td-loading',
         styles: [".td-loading-wrapper { position: relative; display: block; } .td-loading-wrapper.td-fullscreen { position: inherit; } .td-loading-wrapper.td-overlay .td-loading { position: absolute; margin: 0; top: 0; left: 0; right: 0; bottom: 0; z-index: 1000; } .td-loading-wrapper.td-overlay .td-loading md-progress-bar { position: absolute; top: 0; left: 0; right: 0; } "],
         template: "<div class=\"td-loading-wrapper\" [style.min-height]=\"getHeight()\" [class.td-overlay]=\"isOverlay() || isFullScreen()\" [class.td-fullscreen]=\"isFullScreen()\"> <div [@tdFadeInOut]=\"animation\" (@tdFadeInOut.done)=\"animationComplete($event)\" [style.min-height]=\"getHeight()\" class=\"td-loading\" layout=\"row\" layout-align=\"center center\" flex> <md-progress-spinner *ngIf=\"isCircular()\"  [mode]=\"mode\" [value]=\"value\"  [color]=\"color\"  [style.height]=\"getCircleDiameter()\" [style.width]=\"getCircleDiameter()\"> </md-progress-spinner> <md-progress-bar *ngIf=\"isLinear()\"  [mode]=\"mode\" [value]=\"value\" [color]=\"color\"> </md-progress-bar> </div> <ng-template [cdkPortalHost]=\"content\"></ng-template> </div>",
@@ -4728,9 +4727,10 @@ var TdLoadingFactory = (function () {
                     var cdr = viewContainerRef.createEmbeddedView(templateRef);
                     viewContainerRef.detach(viewContainerRef.indexOf(loadingRef.componentRef.hostView));
                     /**
-                     * Need to call "markForCheck" on attached template, so its detected by parent component when attached
+                     * Need to call "markForCheck" and "detectChanges" on attached template, so its detected by parent component when attached
                      * with "OnPush" change detection
                      */
+                    cdr.detectChanges();
                     cdr.markForCheck();
                 });
             }
