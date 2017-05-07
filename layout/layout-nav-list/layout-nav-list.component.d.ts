@@ -1,7 +1,9 @@
+import { Router } from '@angular/router';
 import { MdSidenav, MdSidenavToggleResult } from '@angular/material';
 import { TdLayoutComponent } from '../layout.component';
 export declare class TdLayoutNavListComponent {
     private _layout;
+    private _router;
     _sideNav: MdSidenav;
     /**
      * toolbarTitle?: string
@@ -60,8 +62,7 @@ export declare class TdLayoutNavListComponent {
     /**
      * navigationRoute?: string
      *
-     * option to set the combined logo, icon, toolbar title route
-     * defaults to '/'
+     * option to set the combined route for the icon, logo, and toolbarTitle.
      */
     navigationRoute: string;
     /**
@@ -73,7 +74,12 @@ export declare class TdLayoutNavListComponent {
      * Should only close it for `push` and `over` modes
      */
     readonly disableClose: boolean;
-    constructor(_layout: TdLayoutComponent);
+    /**
+     * Checks if router was injected.
+     */
+    readonly routerEnabled: boolean;
+    constructor(_layout: TdLayoutComponent, _router: Router);
+    handleNavigationClick(): void;
     /**
      * Proxy toggle method to access sidenav from outside (from td-layout template).
      */

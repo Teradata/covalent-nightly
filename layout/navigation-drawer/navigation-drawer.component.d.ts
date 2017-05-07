@@ -1,4 +1,5 @@
 import { OnInit, OnDestroy, QueryList } from '@angular/core';
+import { Router } from '@angular/router';
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser';
 import { MdSidenavToggleResult } from '@angular/material';
 import { TdLayoutComponent } from '../layout.component';
@@ -6,6 +7,7 @@ export declare class TdNavigationDrawerMenuDirective {
 }
 export declare class TdNavigationDrawerComponent implements OnInit, OnDestroy {
     private _layout;
+    private _router;
     private _sanitize;
     private _closeSubscription;
     private _menuToggled;
@@ -48,8 +50,7 @@ export declare class TdNavigationDrawerComponent implements OnInit, OnDestroy {
     /**
      * navigationRoute?: string
      *
-     * option to set the combined logo, icon, toolbar title route
-     * defaults to '/'
+     * option to set the combined route for the icon, logo, and sidenavTitle.
      */
     navigationRoute: string;
     /**
@@ -74,10 +75,15 @@ export declare class TdNavigationDrawerComponent implements OnInit, OnDestroy {
      * if [email] and [name] are not set, then the toggle menu is not rendered.
      */
     email: string;
-    constructor(_layout: TdLayoutComponent, _sanitize: DomSanitizer);
+    /**
+     * Checks if router was injected.
+     */
+    readonly routerEnabled: boolean;
+    constructor(_layout: TdLayoutComponent, _router: Router, _sanitize: DomSanitizer);
     ngOnInit(): void;
     ngOnDestroy(): void;
     toggleMenu(): void;
+    handleNavigationClick(): void;
     /**
      * Proxy toggle method to access sidenav from outside (from td-layout template).
      */

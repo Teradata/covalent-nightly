@@ -11,11 +11,13 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 import { Component, Input, ViewChild, forwardRef, Optional, Inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { MdSidenav } from '@angular/material';
 import { TdLayoutComponent } from '../layout.component';
 var TdLayoutNavListComponent = (function () {
-    function TdLayoutNavListComponent(_layout) {
+    function TdLayoutNavListComponent(_layout, _router) {
         this._layout = _layout;
+        this._router = _router;
         /**
          * color?: string
          *
@@ -52,13 +54,6 @@ var TdLayoutNavListComponent = (function () {
          * https://github.com/angular/material2/tree/master/src/lib/sidenav
          */
         this.sidenavWidth = '350px';
-        /**
-         * navigationRoute?: string
-         *
-         * option to set the combined logo, icon, toolbar title route
-         * defaults to '/'
-         */
-        this.navigationRoute = '/';
     }
     Object.defineProperty(TdLayoutNavListComponent.prototype, "isMainSidenavAvailable", {
         /**
@@ -81,6 +76,21 @@ var TdLayoutNavListComponent = (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(TdLayoutNavListComponent.prototype, "routerEnabled", {
+        /**
+         * Checks if router was injected.
+         */
+        get: function () {
+            return !!this._router && !!this.navigationRoute;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    TdLayoutNavListComponent.prototype.handleNavigationClick = function () {
+        if (this.routerEnabled) {
+            this._router.navigateByUrl(this.navigationRoute);
+        }
+    };
     /**
      * Proxy toggle method to access sidenav from outside (from td-layout template).
      */
@@ -147,10 +157,12 @@ TdLayoutNavListComponent = __decorate([
     Component({
         selector: 'td-layout-nav-list',
         styles: [".td-menu-button { margin-left: 0px; } /deep/ [dir='rtl'] .td-menu-button { margin-right: 0px; margin-left: 6px; } :host { display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-opened, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-opening, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-closed, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-closing { box-shadow: none; } :host .list { text-align: start; } :host /deep/ md-sidenav-container.td-layout-nav-list { /* Ensure the left sidenav is a flex column & 100% height */ } :host /deep/ md-sidenav-container.td-layout-nav-list > .mat-sidenav-content { flex-grow: 1; } :host /deep/ md-sidenav-container.td-layout-nav-list > md-sidenav { box-sizing: border-box; display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; flex-direction: column; } "],
-        template: "<div layout=\"column\" layout-fill> <div flex layout=\"column\" class=\"content md-content\"> <md-sidenav-container fullscreen class=\"td-layout-nav-list\" layout=\"row\" flex> <md-sidenav #sidenav align=\"start\" [mode]=\"mode\" [opened]=\"opened\" [disableClose]=\"disableClose\" [style.max-width]=\"sidenavWidth\" layout=\"column\"  layout-fill class=\"md-whiteframe-z1\"> <md-toolbar [color]=\"color\" class=\"md-whiteframe-z1\"> <button md-icon-button class=\"td-menu-button\" *ngIf=\"isMainSidenavAvailable\" (click)=\"openMainSidenav()\"> <md-icon class=\"md-24\">menu</md-icon> </button> <md-icon *ngIf=\"icon\" [routerLink]=\"navigationRoute\" class=\"cursor-pointer\">{{icon}}</md-icon> <md-icon *ngIf=\"logo && !icon\" class=\"md-icon-logo cursor-pointer\" [svgIcon]=\"logo\" [routerLink]=\"navigationRoute\"></md-icon> <span *ngIf=\"toolbarTitle\" class=\"cursor-pointer\" [routerLink]=\"navigationRoute\">{{toolbarTitle}}</span> <ng-content select=\"[td-sidenav-toolbar-content]\"></ng-content> </md-toolbar> <div flex class=\"list md-content\"> <ng-content select=\"[td-sidenav-content]\"></ng-content> </div> </md-sidenav> <div layout=\"column\" layout-fill class=\"md-content\"> <md-toolbar [color]=\"color\" class=\"md-whiteframe-z1\"> <button md-icon-button class=\"td-menu-button\" *ngIf=\"!sidenav.opened\" (click)=\"open()\"> <md-icon class=\"md-24\">arrow_back</md-icon> </button> <ng-content select=\"[td-toolbar-content]\"></ng-content> </md-toolbar> <div class=\"md-content\" flex> <ng-content></ng-content> </div> <ng-content select=\"td-layout-footer-inner\"></ng-content> </div> </md-sidenav-container> </div> <ng-content select=\"td-layout-footer\"></ng-content> </div>",
+        template: "<div layout=\"column\" layout-fill> <div flex layout=\"column\" class=\"content md-content\"> <md-sidenav-container fullscreen class=\"td-layout-nav-list\" layout=\"row\" flex> <md-sidenav #sidenav align=\"start\" [mode]=\"mode\" [opened]=\"opened\" [disableClose]=\"disableClose\" [style.max-width]=\"sidenavWidth\" layout=\"column\"  layout-fill class=\"md-whiteframe-z1\"> <md-toolbar [color]=\"color\" class=\"md-whiteframe-z1\"> <button md-icon-button class=\"td-menu-button\" *ngIf=\"isMainSidenavAvailable\" (click)=\"openMainSidenav()\"> <md-icon class=\"md-24\">menu</md-icon> </button> <span *ngIf=\"icon || logo || toolbarTitle\" [class.cursor-pointer]=\"routerEnabled\" (click)=\"handleNavigationClick()\" layout=\"row\" layout-align=\"start center\"> <md-icon *ngIf=\"icon\">{{icon}}</md-icon> <md-icon *ngIf=\"logo && !icon\" class=\"md-icon-logo\" [svgIcon]=\"logo\"></md-icon> <span *ngIf=\"toolbarTitle\">{{toolbarTitle}}</span> </span> <ng-content select=\"[td-sidenav-toolbar-content]\"></ng-content> </md-toolbar> <div flex class=\"list md-content\"> <ng-content select=\"[td-sidenav-content]\"></ng-content> </div> </md-sidenav> <div layout=\"column\" layout-fill class=\"md-content\"> <md-toolbar [color]=\"color\" class=\"md-whiteframe-z1\"> <button md-icon-button class=\"td-menu-button\" *ngIf=\"!sidenav.opened\" (click)=\"open()\"> <md-icon class=\"md-24\">arrow_back</md-icon> </button> <ng-content select=\"[td-toolbar-content]\"></ng-content> </md-toolbar> <div class=\"md-content\" flex> <ng-content></ng-content> </div> <ng-content select=\"td-layout-footer-inner\"></ng-content> </div> </md-sidenav-container> </div> <ng-content select=\"td-layout-footer\"></ng-content> </div>",
     }),
     __param(0, Optional()), __param(0, Inject(forwardRef(function () { return TdLayoutComponent; }))),
-    __metadata("design:paramtypes", [TdLayoutComponent])
+    __param(1, Optional()),
+    __metadata("design:paramtypes", [TdLayoutComponent,
+        Router])
 ], TdLayoutNavListComponent);
 export { TdLayoutNavListComponent };
 //# sourceMappingURL=layout-nav-list.component.js.map
