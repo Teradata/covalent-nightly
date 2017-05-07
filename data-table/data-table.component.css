@@ -34,8 +34,6 @@ table.td-data-table th.mat-checkbox-column {
     height: 18px; }
     /deep/ table.td-data-table td.mat-checkbox-cell md-pseudo-checkbox.mat-pseudo-checkbox-checked::after, /deep/
     table.td-data-table th.mat-checkbox-column md-pseudo-checkbox.mat-pseudo-checkbox-checked::after {
-      top: 3px !important;
-      left: 1px !important;
       width: 11px !important;
       height: 4px !important; }
   table.td-data-table td.mat-checkbox-cell md-checkbox /deep/ .mat-checkbox-inner-container,
