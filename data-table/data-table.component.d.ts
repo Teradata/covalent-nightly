@@ -39,8 +39,6 @@ export declare class TdDataTableComponent implements ControlValueAccessor, After
     private _columns;
     private _selectable;
     private _multiple;
-    private _allSelected;
-    private _indeterminate;
     /** sorting */
     private _sortable;
     private _sortBy;
@@ -48,15 +46,6 @@ export declare class TdDataTableComponent implements ControlValueAccessor, After
     /** template fetching support */
     private _templateMap;
     _templates: QueryList<TdDataTableTemplateDirective>;
-    /**
-     * Returns true if all values are selected.
-     */
-    readonly allSelected: boolean;
-    /**
-     * Returns true if all values are not deselected
-     * and atleast one is.
-     */
-    readonly indeterminate: boolean;
     /**
      * Implemented as part of ControlValueAccessor.
      */
@@ -149,6 +138,10 @@ export declare class TdDataTableComponent implements ControlValueAccessor, After
      */
     refresh(): void;
     /**
+     * Checks if all visible rows are selected.
+     */
+    areAllSelected(): boolean;
+    /**
      * Selects or clears all rows depending on 'checked' value.
      */
     selectAll(checked: boolean): void;
@@ -173,16 +166,4 @@ export declare class TdDataTableComponent implements ControlValueAccessor, After
     onChange: (_: any) => any;
     onTouched: () => any;
     private _getNestedValue(name, value);
-    /**
-     * Calculate all the state of all checkboxes
-     */
-    private _calculateCheckboxState();
-    /**
-     * Checks if all visible rows are selected.
-     */
-    private _calculateAllSelected();
-    /**
-     * Checks if all visible rows are selected.
-     */
-    private _calculateIndeterminate();
 }
