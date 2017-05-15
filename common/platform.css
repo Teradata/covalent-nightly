@@ -609,6 +609,9 @@ md-sidenav {
       direction: ltr;
       unicode-bidi: bidi-override; }
 
+.tc-inherit {
+  color: inherit !important; }
+
 .tc-red-50 {
   color: #ffebee !important; }
 
@@ -11564,3 +11567,6 @@ body .text-truncate {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; }
+
+body .text-nodecoration {
+  text-decoration: none; }
