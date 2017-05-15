@@ -1,4 +1,5 @@
 import { ViewContainerRef, TemplateRef } from '@angular/core';
+import { TdLoadingContext } from '../directives/loading.directive';
 import { LoadingMode, LoadingStrategy, LoadingType } from '../loading.component';
 import { TdLoadingFactory, ILoadingRef } from './loading.factory';
 export interface ITdLoadingConfig {
@@ -40,7 +41,7 @@ export declare class TdLoadingService {
      *
      * NOTE: @internal usage only.
      */
-    createComponent(config: ITdLoadingDirectiveConfig, viewContainerRef: ViewContainerRef, templateRef: TemplateRef<Object>): ILoadingRef;
+    createComponent(config: ITdLoadingDirectiveConfig, viewContainerRef: ViewContainerRef, templateRef: TemplateRef<Object>, context: TdLoadingContext): ILoadingRef;
     /**
      * params:
      * - config: ITdLoadingConfig
@@ -76,14 +77,26 @@ export declare class TdLoadingService {
      * - resolves?: number
      * returns: true if successful
      *
-     * Registers a request for the loading mask referenced by the name parameter.
+     * Resolves a request for the loading mask referenced by the name parameter.
      * Can optionally pass resolves argument to set a number of resolve calls.
      *
      * If no paramemeters are used, then default main mask will be used.
      *
-     * e.g. loadingService.register()
+     * e.g. loadingService.resolve()
      */
     resolve(name?: string, resolves?: number): boolean;
+    /**
+     * params:
+     * - name: string
+     * returns: true if successful
+     *
+     * Resolves all request for the loading mask referenced by the name parameter.
+     *
+     * If no paramemeters are used, then default main mask will be used.
+     *
+     * e.g. loadingService.resolveAll()
+     */
+    resolveAll(name?: string): boolean;
     /**
      * params:
      * - name: string

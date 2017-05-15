@@ -4754,13 +4754,14 @@ var TdLoadingFactory = (function () {
      *
      * Saves a reference in context to be called when registering/resolving the loading element.
      */
-    TdLoadingFactory.prototype.createReplaceComponent = function (options, viewContainerRef, templateRef) {
+    TdLoadingFactory.prototype.createReplaceComponent = function (options, viewContainerRef, templateRef, context) {
         var nativeElement = templateRef.elementRef.nativeElement;
         options.height = nativeElement.nextElementSibling ?
             nativeElement.nextElementSibling.scrollHeight : undefined;
         options.style = LoadingStyle.None;
         var loadingRef = this._createComponent(options);
         var loading = false;
+        viewContainerRef.createEmbeddedView(templateRef, context);
         loadingRef.observable
             .subscribe(function (registered) {
             if (registered > 0 && !loading) {
@@ -4776,7 +4777,8 @@ var TdLoadingFactory = (function () {
                 loading = false;
                 var subs_2 = loadingRef.componentRef.instance.startOutAnimation().subscribe(function () {
                     subs_2.unsubscribe();
-                    var cdr = viewContainerRef.createEmbeddedView(templateRef);
+                    // passing context so when the template is re-attached, we can keep the reference of the variables
+                    var cdr = viewContainerRef.createEmbeddedView(templateRef, context);
                     viewContainerRef.detach(viewContainerRef.indexOf(loadingRef.componentRef.hostView));
                     /**
                      * Need to call "markForCheck" and "detectChanges" on attached template, so its detected by parent component when attached
@@ -4907,7 +4909,7 @@ exports.TdLoadingService = (function () {
      *
      * NOTE: @internal usage only.
      */
-    TdLoadingService.prototype.createComponent = function (config, viewContainerRef, templateRef) {
+    TdLoadingService.prototype.createComponent = function (config, viewContainerRef, templateRef, context) {
         var directiveConfig = new TdLoadingDirectiveConfig(config);
         if (this._context[directiveConfig.name]) {
             throw Error("Name duplication: [TdLoading] directive has a name conflict with " + directiveConfig.name + ".");
@@ -4916,7 +4918,7 @@ exports.TdLoadingService = (function () {
             this._context[directiveConfig.name] = this._loadingFactory.createOverlayComponent(directiveConfig, viewContainerRef, templateRef);
         }
         else {
-            this._context[directiveConfig.name] = this._loadingFactory.createReplaceComponent(directiveConfig, viewContainerRef, templateRef);
+            this._context[directiveConfig.name] = this._loadingFactory.createReplaceComponent(directiveConfig, viewContainerRef, templateRef, context);
         }
         return this._context[directiveConfig.name];
     };
@@ -4993,12 +4995,12 @@ exports.TdLoadingService = (function () {
      * - resolves?: number
      * returns: true if successful
      *
-     * Registers a request for the loading mask referenced by the name parameter.
+     * Resolves a request for the loading mask referenced by the name parameter.
      * Can optionally pass resolves argument to set a number of resolve calls.
      *
      * If no paramemeters are used, then default main mask will be used.
      *
-     * e.g. loadingService.register()
+     * e.g. loadingService.resolve()
      */
     TdLoadingService.prototype.resolve = function (name, resolves) {
         if (name === void 0) { name = 'td-loading-main'; }
@@ -5012,6 +5014,28 @@ exports.TdLoadingService = (function () {
                 times -= resolves;
                 this._context[name].times = times < 0 ? 0 : times;
             }
+            this._context[name].subject.next(this._context[name].times);
+            return true;
+        }
+        return false;
+    };
+    /**
+     * params:
+     * - name: string
+     * returns: true if successful
+     *
+     * Resolves all request for the loading mask referenced by the name parameter.
+     *
+     * If no paramemeters are used, then default main mask will be used.
+     *
+     * e.g. loadingService.resolveAll()
+     */
+    TdLoadingService.prototype.resolveAll = function (name) {
+        if (name === void 0) { name = 'td-loading-main'; }
+        // clear timeout if the loading component is "resolved" before its "registered"
+        this._clearTimeout(name);
+        if (this._context[name]) {
+            this._context[name].times = 0;
             this._context[name].subject.next(this._context[name].times);
             return true;
         }
@@ -5060,11 +5084,24 @@ var __decorate$50 = (window && window.__decorate) || function (decorators, targe
 var __metadata$35 = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+/**
+ * Context class for variable reference
+ */
+var TdLoadingContext = (function () {
+    function TdLoadingContext() {
+        this.$implicit = undefined;
+        this.tdLoading = undefined;
+    }
+    return TdLoadingContext;
+}());
+// Constant for generation of the id for the next component
+var TD_LOADING_NEXT_ID = 0;
 var TdLoadingDirective = (function () {
     function TdLoadingDirective(_viewContainerRef, _templateRef, _loadingService) {
         this._viewContainerRef = _viewContainerRef;
         this._templateRef = _templateRef;
         this._loadingService = _loadingService;
+        this._context = new TdLoadingContext();
         /**
          * tdLoadingColor?: "primary" | "accent" | "warn"
          * Sets the theme color of the loading component. Defaults to "primary"
@@ -5073,11 +5110,37 @@ var TdLoadingDirective = (function () {
     }
     Object.defineProperty(TdLoadingDirective.prototype, "name", {
         /**
-         * tdLoading?: string
+         * tdLoading: string
          * Name reference of the loading mask, used to register/resolve requests to the mask.
          */
         set: function (name) {
-            this._name = name;
+            if (!this._name) {
+                if (name) {
+                    this._name = name;
+                }
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TdLoadingDirective.prototype, "until", {
+        /**
+         * tdLoadingUntil?: any
+         * If its null, undefined or false it will be used to register requests to the mask.
+         * Else if its any value that can be resolved as true, it will resolve the mask.
+         * [name] is optional when using [until], but can still be used to register/resolve it manually.
+         */
+        set: function (until) {
+            if (!this._name) {
+                this._name = 'td-loading-until-' + TD_LOADING_NEXT_ID++;
+            }
+            this._context.$implicit = this._context.tdLoading = until;
+            if (!until) {
+                this._loadingService.register(this._name);
+            }
+            else {
+                this._loadingService.resolveAll(this._name);
+            }
         },
         enumerable: true,
         configurable: true
@@ -5163,14 +5226,13 @@ var TdLoadingDirective = (function () {
         // Check if `TdLoadingComponent` has been created before trying to add one again.
         // There is a weird edge case when using `[routerLinkActive]` that calls the `ngOnInit` twice in a row
         if (!this._loadingRef) {
-            this._viewContainerRef.createEmbeddedView(this._templateRef);
             this._loadingRef = this._loadingService.createComponent({
                 name: this._name,
                 type: this._type,
                 mode: this._mode,
                 color: this.color,
                 strategy: this._strategy,
-            }, this._viewContainerRef, this._templateRef);
+            }, this._viewContainerRef, this._templateRef, this._context);
         }
     };
     return TdLoadingDirective;
@@ -5180,6 +5242,11 @@ __decorate$50([
     __metadata$35("design:type", String),
     __metadata$35("design:paramtypes", [String])
 ], TdLoadingDirective.prototype, "name", null);
+__decorate$50([
+    _angular_core.Input('tdLoadingUntil'),
+    __metadata$35("design:type", Object),
+    __metadata$35("design:paramtypes", [Object])
+], TdLoadingDirective.prototype, "until", null);
 __decorate$50([
     _angular_core.Input('tdLoadingType'),
     __metadata$35("design:type", Number),

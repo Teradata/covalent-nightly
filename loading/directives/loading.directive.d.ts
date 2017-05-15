@@ -2,20 +2,35 @@ import { OnInit, OnDestroy } from '@angular/core';
 import { ViewContainerRef, TemplateRef } from '@angular/core';
 import { LoadingType, LoadingMode, LoadingStrategy } from '../loading.component';
 import { TdLoadingService } from '../services/loading.service';
+/**
+ * Context class for variable reference
+ */
+export declare class TdLoadingContext {
+    $implicit: any;
+    tdLoading: any;
+}
 export declare class TdLoadingDirective implements OnInit, OnDestroy {
     private _viewContainerRef;
     private _templateRef;
     private _loadingService;
+    private _context;
     private _type;
     private _mode;
     private _strategy;
     private _name;
     private _loadingRef;
     /**
-     * tdLoading?: string
+     * tdLoading: string
      * Name reference of the loading mask, used to register/resolve requests to the mask.
      */
     name: string;
+    /**
+     * tdLoadingUntil?: any
+     * If its null, undefined or false it will be used to register requests to the mask.
+     * Else if its any value that can be resolved as true, it will resolve the mask.
+     * [name] is optional when using [until], but can still be used to register/resolve it manually.
+     */
+    until: any;
     /**
      * tdLoadingType?: LoadingType or ['linear' | 'circular']
      * Sets the type of loading mask depending on value.

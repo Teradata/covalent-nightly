@@ -3,6 +3,7 @@ import { Injector, ComponentRef, ViewContainerRef, TemplateRef } from '@angular/
 import { Overlay } from '@angular/material';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
+import { TdLoadingContext } from '../directives/loading.directive';
 import { LoadingStyle } from '../loading.component';
 import { ITdLoadingConfig } from './loading.service';
 export interface IInternalLoadingOptions extends ITdLoadingConfig {
@@ -44,7 +45,7 @@ export declare class TdLoadingFactory {
      *
      * Saves a reference in context to be called when registering/resolving the loading element.
      */
-    createReplaceComponent(options: ITdLoadingConfig, viewContainerRef: ViewContainerRef, templateRef: TemplateRef<Object>): ILoadingRef;
+    createReplaceComponent(options: ITdLoadingConfig, viewContainerRef: ViewContainerRef, templateRef: TemplateRef<Object>, context: TdLoadingContext): ILoadingRef;
     /**
      * Creates a fullscreen overlay for the loading usage.
      */

@@ -89,13 +89,14 @@ var TdLoadingFactory = (function () {
      *
      * Saves a reference in context to be called when registering/resolving the loading element.
      */
-    TdLoadingFactory.prototype.createReplaceComponent = function (options, viewContainerRef, templateRef) {
+    TdLoadingFactory.prototype.createReplaceComponent = function (options, viewContainerRef, templateRef, context) {
         var nativeElement = templateRef.elementRef.nativeElement;
         options.height = nativeElement.nextElementSibling ?
             nativeElement.nextElementSibling.scrollHeight : undefined;
         options.style = LoadingStyle.None;
         var loadingRef = this._createComponent(options);
         var loading = false;
+        viewContainerRef.createEmbeddedView(templateRef, context);
         loadingRef.observable
             .subscribe(function (registered) {
             if (registered > 0 && !loading) {
@@ -111,7 +112,8 @@ var TdLoadingFactory = (function () {
                 loading = false;
                 var subs_2 = loadingRef.componentRef.instance.startOutAnimation().subscribe(function () {
                     subs_2.unsubscribe();
-                    var cdr = viewContainerRef.createEmbeddedView(templateRef);
+                    // passing context so when the template is re-attached, we can keep the reference of the variables
+                    var cdr = viewContainerRef.createEmbeddedView(templateRef, context);
                     viewContainerRef.detach(viewContainerRef.indexOf(loadingRef.componentRef.hostView));
                     /**
                      * Need to call "markForCheck" and "detectChanges" on attached template, so its detected by parent component when attached

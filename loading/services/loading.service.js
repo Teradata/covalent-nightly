@@ -63,7 +63,7 @@ var TdLoadingService = (function () {
      *
      * NOTE: @internal usage only.
      */
-    TdLoadingService.prototype.createComponent = function (config, viewContainerRef, templateRef) {
+    TdLoadingService.prototype.createComponent = function (config, viewContainerRef, templateRef, context) {
         var directiveConfig = new TdLoadingDirectiveConfig(config);
         if (this._context[directiveConfig.name]) {
             throw Error("Name duplication: [TdLoading] directive has a name conflict with " + directiveConfig.name + ".");
@@ -72,7 +72,7 @@ var TdLoadingService = (function () {
             this._context[directiveConfig.name] = this._loadingFactory.createOverlayComponent(directiveConfig, viewContainerRef, templateRef);
         }
         else {
-            this._context[directiveConfig.name] = this._loadingFactory.createReplaceComponent(directiveConfig, viewContainerRef, templateRef);
+            this._context[directiveConfig.name] = this._loadingFactory.createReplaceComponent(directiveConfig, viewContainerRef, templateRef, context);
         }
         return this._context[directiveConfig.name];
     };
@@ -149,12 +149,12 @@ var TdLoadingService = (function () {
      * - resolves?: number
      * returns: true if successful
      *
-     * Registers a request for the loading mask referenced by the name parameter.
+     * Resolves a request for the loading mask referenced by the name parameter.
      * Can optionally pass resolves argument to set a number of resolve calls.
      *
      * If no paramemeters are used, then default main mask will be used.
      *
-     * e.g. loadingService.register()
+     * e.g. loadingService.resolve()
      */
     TdLoadingService.prototype.resolve = function (name, resolves) {
         if (name === void 0) { name = 'td-loading-main'; }
@@ -168,6 +168,28 @@ var TdLoadingService = (function () {
                 times -= resolves;
                 this._context[name].times = times < 0 ? 0 : times;
             }
+            this._context[name].subject.next(this._context[name].times);
+            return true;
+        }
+        return false;
+    };
+    /**
+     * params:
+     * - name: string
+     * returns: true if successful
+     *
+     * Resolves all request for the loading mask referenced by the name parameter.
+     *
+     * If no paramemeters are used, then default main mask will be used.
+     *
+     * e.g. loadingService.resolveAll()
+     */
+    TdLoadingService.prototype.resolveAll = function (name) {
+        if (name === void 0) { name = 'td-loading-main'; }
+        // clear timeout if the loading component is "resolved" before its "registered"
+        this._clearTimeout(name);
+        if (this._context[name]) {
+            this._context[name].times = 0;
             this._context[name].subject.next(this._context[name].times);
             return true;
         }
