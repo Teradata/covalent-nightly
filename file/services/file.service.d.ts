@@ -2,10 +2,11 @@ import { Observable } from 'rxjs/Observable';
 export interface IUploadOptions {
     url: string;
     method: 'post' | 'put';
-    file: File;
+    file?: File;
     headers?: {
         [key: string]: string;
     };
+    formData?: FormData;
 }
 export declare class TdFileService {
     private _progressSubject;
@@ -21,8 +22,9 @@ export declare class TdFileService {
      * - options: IUploadOptions {
      *     url: string,
      *     method: 'post' | 'put',
-     *     file: File,
-     *     headers?: {[key: string]: string}
+     *     file?: File,
+     *     headers?: {[key: string]: string},
+     *     formData?: FormData
      * }
      *
      * Uses underlying [XMLHttpRequest] to upload a file to a url.

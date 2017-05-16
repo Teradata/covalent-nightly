@@ -31,8 +31,9 @@ var TdFileService = (function () {
      * - options: IUploadOptions {
      *     url: string,
      *     method: 'post' | 'put',
-     *     file: File,
-     *     headers?: {[key: string]: string}
+     *     file?: File,
+     *     headers?: {[key: string]: string},
+     *     formData?: FormData
      * }
      *
      * Uses underlying [XMLHttpRequest] to upload a file to a url.
@@ -43,7 +44,15 @@ var TdFileService = (function () {
         return new Observable(function (subscriber) {
             var xhr = new XMLHttpRequest();
             var formData = new FormData();
-            formData.append('file', options.file);
+            if (options.file !== undefined) {
+                formData.append('file', options.file);
+            }
+            else if (options.formData !== undefined) {
+                formData = options.formData;
+            }
+            else {
+                return subscriber.error('For [IUploadOptions] you have to set either the [file] or the [formData] property.');
+            }
             xhr.onprogress = function (event) {
                 var progress = 0;
                 if (event.total > 0) {
