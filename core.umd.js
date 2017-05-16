@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/animations/browser'), require('@angular/animations'), require('@angular/router'), require('@angular/material'), require('rxjs/Observable'), require('rxjs/Subject'), require('rxjs/add/observable/timer'), require('rxjs/add/operator/debounceTime'), require('@angular/http'), require('@angular/platform-browser'), require('rxjs/add/operator/skip')) :
-    typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/animations/browser', '@angular/animations', '@angular/router', '@angular/material', 'rxjs/Observable', 'rxjs/Subject', 'rxjs/add/observable/timer', 'rxjs/add/operator/debounceTime', '@angular/http', '@angular/platform-browser', 'rxjs/add/operator/skip'], factory) :
-    (factory((global.td = global.td || {}, global.td.core = global.td.core || {}),global.ng.core,global.ng.common,global.ng.forms,global.ng.animations.browser,global.ng.animations,global.ng.router,global.ng.material,global.Rx,global.Rx,global.Rx.Observable,global.Rx.Observable.prototype,global.ng.http,global.ng.platformBrowser,global.Rx.Observable.prototype));
-}(this, (function (exports,_angular_core,_angular_common,_angular_forms,_angular_animations_browser,_angular_animations,_angular_router,_angular_material,rxjs_Observable,rxjs_Subject,rxjs_add_observable_timer,rxjs_add_operator_debounceTime,_angular_http,_angular_platformBrowser,rxjs_add_operator_skip) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/animations/browser'), require('@angular/animations'), require('@angular/router'), require('@angular/material'), require('rxjs/Observable'), require('rxjs/Subject'), require('rxjs/add/observable/timer'), require('rxjs/add/operator/debounceTime'), require('@angular/platform-browser'), require('@angular/http'), require('rxjs/add/operator/skip')) :
+    typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/animations/browser', '@angular/animations', '@angular/router', '@angular/material', 'rxjs/Observable', 'rxjs/Subject', 'rxjs/add/observable/timer', 'rxjs/add/operator/debounceTime', '@angular/platform-browser', '@angular/http', 'rxjs/add/operator/skip'], factory) :
+    (factory((global.td = global.td || {}, global.td.core = global.td.core || {}),global.ng.core,global.ng.common,global.ng.forms,global.ng.animations.browser,global.ng.animations,global.ng.router,global.ng.material,global.Rx,global.Rx,global.Rx.Observable,global.Rx.Observable.prototype,global.ng.platformBrowser,global.ng.http,global.Rx.Observable.prototype));
+}(this, (function (exports,_angular_core,_angular_common,_angular_forms,_angular_animations_browser,_angular_animations,_angular_router,_angular_material,rxjs_Observable,rxjs_Subject,rxjs_add_observable_timer,rxjs_add_operator_debounceTime,_angular_platformBrowser,_angular_http,rxjs_add_operator_skip) { 'use strict';
 
 var __decorate$1 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1280,6 +1280,36 @@ exports.CovalentChipsModule = __decorate$12([
     })
 ], exports.CovalentChipsModule);
 
+var __decorate$16 = (window && window.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata$9 = (window && window.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+exports.TdDataTableRowComponent = (function () {
+    function TdDataTableRowComponent(_elementRef, _renderer) {
+        this._elementRef = _elementRef;
+        this._renderer = _renderer;
+        this._renderer.addClass(this._elementRef.nativeElement, 'td-data-table-row');
+    }
+    TdDataTableRowComponent.prototype.focus = function () {
+        this._elementRef.nativeElement.focus();
+    };
+    return TdDataTableRowComponent;
+}());
+exports.TdDataTableRowComponent = __decorate$16([
+    _angular_core.Component({
+        /* tslint:disable-next-line */
+        selector: 'tr[td-data-table-row]',
+        styles: [":host { border-bottom-style: solid; border-bottom-width: 1px; } tbody > :host { height: 48px; } thead > :host { height: 56px; } "],
+        template: "<ng-content></ng-content>",
+    }),
+    __metadata$9("design:paramtypes", [_angular_core.ElementRef, _angular_core.Renderer2])
+], exports.TdDataTableRowComponent);
+
 var __extends = (window && window.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1290,13 +1320,13 @@ var __extends = (window && window.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __decorate$16 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$17 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata$9 = (window && window.__metadata) || function (k, v) {
+var __metadata$10 = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var TdDataTableTemplateDirective = (function (_super) {
@@ -1306,13 +1336,13 @@ var TdDataTableTemplateDirective = (function (_super) {
     }
     return TdDataTableTemplateDirective;
 }(_angular_material.TemplatePortalDirective));
-__decorate$16([
+__decorate$17([
     _angular_core.Input(),
-    __metadata$9("design:type", String)
+    __metadata$10("design:type", String)
 ], TdDataTableTemplateDirective.prototype, "tdDataTableTemplate", void 0);
-TdDataTableTemplateDirective = __decorate$16([
+TdDataTableTemplateDirective = __decorate$17([
     _angular_core.Directive({ selector: '[tdDataTableTemplate]ng-template' }),
-    __metadata$9("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
+    __metadata$10("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
 ], TdDataTableTemplateDirective);
 
 var __decorate$15 = (window && window.__decorate) || function (decorators, target, key, desc) {
@@ -1323,6 +1353,9 @@ var __decorate$15 = (window && window.__decorate) || function (decorators, targe
 };
 var __metadata$8 = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param$2 = (window && window.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
 };
 var noop$1 = function () {
     // empty method
@@ -1337,8 +1370,14 @@ var TD_DATA_TABLE_CONTROL_VALUE_ACCESSOR = {
     TdDataTableSortingOrder[TdDataTableSortingOrder["Ascending"] = 'ASC'] = "Ascending";
     TdDataTableSortingOrder[TdDataTableSortingOrder["Descending"] = 'DESC'] = "Descending";
 })(exports.TdDataTableSortingOrder || (exports.TdDataTableSortingOrder = {}));
+var TdDataTableArrowKeyDirection;
+(function (TdDataTableArrowKeyDirection) {
+    TdDataTableArrowKeyDirection[TdDataTableArrowKeyDirection["Ascending"] = 'ASC'] = "Ascending";
+    TdDataTableArrowKeyDirection[TdDataTableArrowKeyDirection["Descending"] = 'DESC'] = "Descending";
+})(TdDataTableArrowKeyDirection || (TdDataTableArrowKeyDirection = {}));
 exports.TdDataTableComponent = (function () {
-    function TdDataTableComponent(_changeDetectorRef) {
+    function TdDataTableComponent(_document, _changeDetectorRef) {
+        this._document = _document;
         this._changeDetectorRef = _changeDetectorRef;
         /**
          * Implemented as part of ControlValueAccessor.
@@ -1347,12 +1386,16 @@ exports.TdDataTableComponent = (function () {
         /** Callback registered via registerOnChange (ControlValueAccessor) */
         this._onChangeCallback = noop$1;
         this._selectable = false;
+        this._clickable = false;
         this._multiple = true;
         this._allSelected = false;
         this._indeterminate = false;
         /** sorting */
         this._sortable = false;
         this._sortOrder = exports.TdDataTableSortingOrder.Ascending;
+        /** shift select */
+        this._lastSelectedIndex = -1;
+        this._selectedBeforeLastIndex = -1;
         /** template fetching support */
         this._templateMap = new Map();
         /**
@@ -1367,6 +1410,12 @@ exports.TdDataTableComponent = (function () {
          * Emits an [ITdDataTableSelectEvent] implemented object.
          */
         this.onRowSelect = new _angular_core.EventEmitter();
+        /**
+         * rowClick?: function
+         * Event emitted when a row is clicked.
+         * Emits an [ITdDataTableRowClickEvent] implemented object.
+         */
+        this.onRowClick = new _angular_core.EventEmitter();
         /**
          * selectAll?: function
          * Event emitted when all rows are selected/deselected by the all checkbox. [selectable] needs to be enabled.
@@ -1474,6 +1523,25 @@ exports.TdDataTableComponent = (function () {
     Object.defineProperty(TdDataTableComponent.prototype, "isSelectable", {
         get: function () {
             return this._selectable;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TdDataTableComponent.prototype, "clickable", {
+        /**
+         * clickable?: boolean
+         * Enables row click events, hover.
+         * Defaults to 'false'
+         */
+        set: function (clickable) {
+            this._clickable = clickable !== '' ? (clickable === 'true' || clickable === true) : true;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TdDataTableComponent.prototype, "isClickable", {
+        get: function () {
+            return this._clickable;
         },
         enumerable: true,
         configurable: true
@@ -1641,33 +1709,67 @@ exports.TdDataTableComponent = (function () {
         return this._value ? this._value.indexOf(row) > -1 : false;
     };
     /**
-     * Selects or clears a row depending on 'checked' value
+     * Selects or clears a row depending on 'checked' value if the row 'isSelectable'
+     * handles cntrl clicks and shift clicks for multi-select
      */
-    TdDataTableComponent.prototype.select = function (row, checked, event) {
-        var _this = this;
-        event.preventDefault();
-        // clears all the fields for the dataset
-        if (!this._multiple) {
-            this.clearModel();
-        }
-        if (checked) {
-            this._value.push(row);
-        }
-        else {
-            // if selection is done by a [uniqueId] it uses it to compare, else it compares by reference.
-            if (this.uniqueId) {
-                row = this._value.filter(function (val) {
-                    return val[_this.uniqueId] === row[_this.uniqueId];
-                })[0];
+    TdDataTableComponent.prototype.select = function (row, event, currentSelected) {
+        if (this.isSelectable) {
+            this.blockEvent(event);
+            this._doSelection(row);
+            // Check to see if Shift key is selected and need to select everything in between
+            var mouseEvent = event;
+            if (this.isMultiple && mouseEvent && mouseEvent.shiftKey && this._lastSelectedIndex > -1) {
+                var firstIndex = currentSelected;
+                var lastIndex = this._lastSelectedIndex;
+                if (currentSelected > this._lastSelectedIndex) {
+                    firstIndex = this._lastSelectedIndex;
+                    lastIndex = currentSelected;
+                }
+                for (var i = firstIndex + 1; i < lastIndex; i++) {
+                    this._doSelection(this._data[i]);
+                }
             }
-            var index = this._value.indexOf(row);
-            if (index > -1) {
-                this._value.splice(index, 1);
+            // set the last selected attribute unless the last selected unchecked a row
+            if (this.isRowSelected(this._data[currentSelected])) {
+                this._selectedBeforeLastIndex = this._lastSelectedIndex;
+                this._lastSelectedIndex = currentSelected;
+            }
+            else {
+                this._lastSelectedIndex = this._selectedBeforeLastIndex;
+            }
+            // everything is unselected so start over
+            if (!this._indeterminate && !this._allSelected) {
+                this._lastSelectedIndex = -1;
             }
         }
-        this._calculateCheckboxState();
-        this.onRowSelect.emit({ row: row, selected: checked });
-        this.onChange(this._value);
+    };
+    /**
+     * Overrides the onselectstart method of the document so other text on the page
+     * doesn't get selected when doing shift selections.
+     */
+    TdDataTableComponent.prototype.disableTextSelection = function () {
+        if (this._document) {
+            this._document.onselectstart = function () {
+                return false;
+            };
+        }
+    };
+    /**
+     * Resets the original onselectstart method.
+     */
+    TdDataTableComponent.prototype.enableTextSelection = function () {
+        if (this._document) {
+            this._document.onselectstart = undefined;
+        }
+    };
+    /**
+     * emits the onRowClickEvent when a row is clicked
+     * if clickable is true and selectable is false then select the row
+     */
+    TdDataTableComponent.prototype.handleRowClick = function (row, event, currentSelected) {
+        if (this.isClickable) {
+            this.onRowClick.emit({ row: row });
+        }
     };
     /**
      * Method handle for sort click event in column headers.
@@ -1682,6 +1784,79 @@ exports.TdDataTableComponent = (function () {
             this._sortOrder = exports.TdDataTableSortingOrder.Ascending;
         }
         this.onSortChange.next({ name: this._sortBy.name, order: this._sortOrder });
+    };
+    /**
+     * Handle all keyup events when focusing a data table row
+     */
+    TdDataTableComponent.prototype._rowKeyup = function (event, row, index) {
+        var length;
+        var rows;
+        switch (event.keyCode) {
+            case _angular_material.ENTER:
+            case _angular_material.SPACE:
+                /** if user presses enter or space, the row should be selected */
+                this.select(row, event, index);
+                break;
+            case _angular_material.UP_ARROW:
+                rows = this._rows.toArray();
+                length = rows.length;
+                // check to see if changing direction and need to toggle the current row
+                if (this._lastArrowKeyDirection === TdDataTableArrowKeyDirection.Descending) {
+                    index++;
+                }
+                /**
+                 * if users presses the up arrow, we focus the prev row
+                 * unless its the first row, then we move to the last row
+                 */
+                if (index === 0) {
+                    if (!event.shiftKey) {
+                        rows[length - 1].focus();
+                    }
+                }
+                else {
+                    rows[index - 1].focus();
+                }
+                this.blockEvent(event);
+                if (this.isMultiple && event.shiftKey) {
+                    this._doSelection(this._data[index - 1]);
+                    // if the checkboxes are all unselected then start over otherwise handle changing direction
+                    this._lastArrowKeyDirection = (!this._allSelected && !this._indeterminate) ? undefined : TdDataTableArrowKeyDirection.Ascending;
+                }
+                break;
+            case _angular_material.DOWN_ARROW:
+                rows = this._rows.toArray();
+                length = rows.length;
+                // check to see if changing direction and need to toggle the current row
+                if (this._lastArrowKeyDirection === TdDataTableArrowKeyDirection.Ascending) {
+                    index--;
+                }
+                /**
+                 * if users presses the down arrow, we focus the next row
+                 * unless its the last row, then we move to the first row
+                 */
+                if (index === (length - 1)) {
+                    if (!event.shiftKey) {
+                        rows[0].focus();
+                    }
+                }
+                else {
+                    rows[index + 1].focus();
+                }
+                this.blockEvent(event);
+                if (this.isMultiple && event.shiftKey) {
+                    this._doSelection(this._data[index + 1]);
+                    // if the checkboxes are all unselected then start over otherwise handle changing direction
+                    this._lastArrowKeyDirection = (!this._allSelected && !this._indeterminate) ? undefined : TdDataTableArrowKeyDirection.Descending;
+                }
+                break;
+            default:
+        }
+    };
+    /**
+     * Method to prevent the default events
+     */
+    TdDataTableComponent.prototype.blockEvent = function (event) {
+        event.preventDefault();
     };
     /**
      * Implemented as part of ControlValueAccessor.
@@ -1706,6 +1881,34 @@ exports.TdDataTableComponent = (function () {
         else {
             return value[name];
         }
+    };
+    /**
+     * Does the actual Row Selection
+     */
+    TdDataTableComponent.prototype._doSelection = function (row) {
+        var _this = this;
+        var wasSelected = this.isRowSelected(row);
+        if (!this._multiple) {
+            this.clearModel();
+        }
+        if (!wasSelected) {
+            this._value.push(row);
+        }
+        else {
+            // if selection is done by a [uniqueId] it uses it to compare, else it compares by reference.
+            if (this.uniqueId) {
+                row = this._value.filter(function (val) {
+                    return val[_this.uniqueId] === row[_this.uniqueId];
+                })[0];
+            }
+            var index = this._value.indexOf(row);
+            if (index > -1) {
+                this._value.splice(index, 1);
+            }
+        }
+        this._calculateCheckboxState();
+        this.onRowSelect.emit({ row: row, selected: this.isRowSelected(row) });
+        this.onChange(this._value);
     };
     /**
      * Calculate all the state of all checkboxes
@@ -1744,6 +1947,10 @@ __decorate$15([
     __metadata$8("design:type", _angular_core.QueryList)
 ], exports.TdDataTableComponent.prototype, "_templates", void 0);
 __decorate$15([
+    _angular_core.ViewChildren(exports.TdDataTableRowComponent),
+    __metadata$8("design:type", _angular_core.QueryList)
+], exports.TdDataTableComponent.prototype, "_rows", void 0);
+__decorate$15([
     _angular_core.Input(),
     __metadata$8("design:type", Object),
     __metadata$8("design:paramtypes", [Object])
@@ -1767,6 +1974,11 @@ __decorate$15([
     __metadata$8("design:type", Object),
     __metadata$8("design:paramtypes", [Object])
 ], exports.TdDataTableComponent.prototype, "selectable", null);
+__decorate$15([
+    _angular_core.Input('clickable'),
+    __metadata$8("design:type", Object),
+    __metadata$8("design:paramtypes", [Object])
+], exports.TdDataTableComponent.prototype, "clickable", null);
 __decorate$15([
     _angular_core.Input('multiple'),
     __metadata$8("design:type", Object),
@@ -1796,6 +2008,10 @@ __decorate$15([
     __metadata$8("design:type", _angular_core.EventEmitter)
 ], exports.TdDataTableComponent.prototype, "onRowSelect", void 0);
 __decorate$15([
+    _angular_core.Output('rowClick'),
+    __metadata$8("design:type", _angular_core.EventEmitter)
+], exports.TdDataTableComponent.prototype, "onRowClick", void 0);
+__decorate$15([
     _angular_core.Output('selectAll'),
     __metadata$8("design:type", _angular_core.EventEmitter)
 ], exports.TdDataTableComponent.prototype, "onSelectAll", void 0);
@@ -1804,19 +2020,20 @@ exports.TdDataTableComponent = __decorate$15([
         providers: [TD_DATA_TABLE_CONTROL_VALUE_ACCESSOR],
         selector: 'td-data-table',
         styles: [".mat-table-container { display: block; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; } table.td-data-table.mat-selectable tbody > tr.td-data-table-row { transition: background-color 0.2s; } table.td-data-table.mat-selectable .td-data-table-column:first-child, table.td-data-table.mat-selectable th.td-data-table-column:first-child, table.td-data-table.mat-selectable td.td-data-table-cell:first-child { width: 20px; padding: 0 24px; } table.td-data-table.mat-selectable .td-data-table-column:nth-child(2), table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2), table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) { padding-left: 0px; } [dir='rtl'] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2), [dir='rtl'] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2), [dir='rtl'] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) { padding-right: 0px; padding-left: 28px; } table.td-data-table td.mat-checkbox-cell, table.td-data-table th.mat-checkbox-column { width: 18px; font-size: 0 !important; } table.td-data-table td.mat-checkbox-cell md-pseudo-checkbox, table.td-data-table th.mat-checkbox-column md-pseudo-checkbox { width: 18px; height: 18px; } /deep/ table.td-data-table td.mat-checkbox-cell md-pseudo-checkbox.mat-pseudo-checkbox-checked::after, /deep/ table.td-data-table th.mat-checkbox-column md-pseudo-checkbox.mat-pseudo-checkbox-checked::after { width: 11px !important; height: 4px !important; } table.td-data-table td.mat-checkbox-cell md-checkbox /deep/ .mat-checkbox-inner-container, table.td-data-table th.mat-checkbox-column md-checkbox /deep/ .mat-checkbox-inner-container { width: 18px; height: 18px; margin: 0; } "],
-        template: "<div class=\"mat-table-container\" title> <table td-data-table [class.mat-selectable]=\"isSelectable\"> <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"isSelectable\"> <md-checkbox #checkBoxAll *ngIf=\"isMultiple\" [disabled]=\"!hasData\" [indeterminate]=\"indeterminate && !allSelected && hasData\" [checked]=\"allSelected && hasData\" (click)=\"selectAll(!checkBoxAll.checked)\"> </md-checkbox> </th> <th td-data-table-column *ngFor=\"let column of columns\" [name]=\"column.name\" [numeric]=\"column.numeric\" [active]=\"(column.sortable || isSortable) && column === sortByColumn\" [sortable]=\"column.sortable ||  isSortable\" [sortOrder]=\"sortOrderEnum\" [hidden]=\"column.hidden\" (sortChange)=\"handleSort(column)\"> <span [mdTooltip]=\"column.tooltip\">{{column.label}}</span> </th> <tr td-data-table-row [class.mat-selected]=\"isSelectable && isRowSelected(row)\" *ngFor=\"let row of data\" (click)=\"isSelectable && select(row, !isRowSelected(row), $event)\"> <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"isSelectable\"> <md-pseudo-checkbox [state]=\"isRowSelected(row) ? 'checked' : 'unchecked'\"> </md-pseudo-checkbox> </td> <td td-data-table-cell [numeric]=\"column.numeric\" [hidden]=\"column.hidden\" *ngFor=\"let column of columns\"> <span class=\"md-body-1\" *ngIf=\"!getTemplateRef(column.name)\">{{column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row)}}</span> <ng-template *ngIf=\"getTemplateRef(column.name)\" [ngTemplateOutlet]=\"getTemplateRef(column.name)\" [ngOutletContext]=\"{ value: getCellValue(column, row), row: row, column: column.name }\"> </ng-template> </td> </tr> </table> </div> ",
+        template: "<div class=\"mat-table-container\" title> <table td-data-table [class.mat-selectable]=\"isSelectable\" [class.mat-clickable]=\"isClickable\"> <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"isSelectable\"> <md-checkbox #checkBoxAll *ngIf=\"isMultiple\" [disabled]=\"!hasData\" [indeterminate]=\"indeterminate && !allSelected && hasData\" [checked]=\"allSelected && hasData\" (click)=\"selectAll(!checkBoxAll.checked)\" (keyup.enter)=\"selectAll(!checkBoxAll.checked)\" (keyup.space)=\"selectAll(!checkBoxAll.checked)\" (keydown.space)=\"blockEvent($event)\"> </md-checkbox> </th> <th td-data-table-column *ngFor=\"let column of columns\" [name]=\"column.name\" [numeric]=\"column.numeric\" [active]=\"(column.sortable || isSortable) && column === sortByColumn\" [sortable]=\"column.sortable ||  isSortable\" [sortOrder]=\"sortOrderEnum\" [hidden]=\"column.hidden\" (sortChange)=\"handleSort(column)\"> <span [mdTooltip]=\"column.tooltip\">{{column.label}}</span> </th> <tr td-data-table-row [tabIndex]=\"isSelectable ? 0 : -1\" [class.mat-selected]=\"(isClickable || isSelectable) && isRowSelected(row)\" *ngFor=\"let row of data; let rowIndex = index\" (click)=\"handleRowClick(row, $event, rowIndex)\" (keyup)=\"isSelectable && _rowKeyup($event, row, rowIndex)\" (keydown.space)=\"blockEvent($event)\" (keydown.shift.space)=\"blockEvent($event)\" (keydown.shift)=\"disableTextSelection()\" (keyup.shift)=\"enableTextSelection()\"> <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"isSelectable\"> <md-pseudo-checkbox [state]=\"isRowSelected(row) ? 'checked' : 'unchecked'\" (mousedown)=\"disableTextSelection()\" (mouseup)=\"enableTextSelection()\" (click)=\"select(row, $event, rowIndex)\"> </md-pseudo-checkbox> </td> <td td-data-table-cell [numeric]=\"column.numeric\" [hidden]=\"column.hidden\" *ngFor=\"let column of columns\"> <span class=\"md-body-1\" *ngIf=\"!getTemplateRef(column.name)\">{{column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row)}}</span> <ng-template *ngIf=\"getTemplateRef(column.name)\" [ngTemplateOutlet]=\"getTemplateRef(column.name)\" [ngOutletContext]=\"{ value: getCellValue(column, row), row: row, column: column.name }\"> </ng-template> </td> </tr> </table> </div> ",
         changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
     }),
-    __metadata$8("design:paramtypes", [_angular_core.ChangeDetectorRef])
+    __param$2(0, _angular_core.Optional()), __param$2(0, _angular_core.Inject(_angular_platformBrowser.DOCUMENT)),
+    __metadata$8("design:paramtypes", [Object, _angular_core.ChangeDetectorRef])
 ], exports.TdDataTableComponent);
 
-var __decorate$17 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$18 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata$10 = (window && window.__metadata) || function (k, v) {
+var __metadata$11 = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 exports.TdDataTableColumnComponent = (function () {
@@ -1911,68 +2128,68 @@ exports.TdDataTableColumnComponent = (function () {
     };
     return TdDataTableColumnComponent;
 }());
-__decorate$17([
+__decorate$18([
     _angular_core.Input('name'),
-    __metadata$10("design:type", String)
+    __metadata$11("design:type", String)
 ], exports.TdDataTableColumnComponent.prototype, "name", void 0);
-__decorate$17([
+__decorate$18([
     _angular_core.Input('sortable'),
-    __metadata$10("design:type", Boolean)
+    __metadata$11("design:type", Boolean)
 ], exports.TdDataTableColumnComponent.prototype, "sortable", void 0);
-__decorate$17([
+__decorate$18([
     _angular_core.Input('active'),
-    __metadata$10("design:type", Boolean)
+    __metadata$11("design:type", Boolean)
 ], exports.TdDataTableColumnComponent.prototype, "active", void 0);
-__decorate$17([
+__decorate$18([
     _angular_core.Input('numeric'),
-    __metadata$10("design:type", Boolean)
+    __metadata$11("design:type", Boolean)
 ], exports.TdDataTableColumnComponent.prototype, "numeric", void 0);
-__decorate$17([
+__decorate$18([
     _angular_core.Input('sortOrder'),
-    __metadata$10("design:type", String),
-    __metadata$10("design:paramtypes", [String])
+    __metadata$11("design:type", String),
+    __metadata$11("design:paramtypes", [String])
 ], exports.TdDataTableColumnComponent.prototype, "sortOrder", null);
-__decorate$17([
+__decorate$18([
     _angular_core.Output('sortChange'),
-    __metadata$10("design:type", _angular_core.EventEmitter)
+    __metadata$11("design:type", _angular_core.EventEmitter)
 ], exports.TdDataTableColumnComponent.prototype, "onSortChange", void 0);
-__decorate$17([
+__decorate$18([
     _angular_core.HostBinding('class.mat-clickable'),
-    __metadata$10("design:type", Boolean),
-    __metadata$10("design:paramtypes", [])
+    __metadata$11("design:type", Boolean),
+    __metadata$11("design:paramtypes", [])
 ], exports.TdDataTableColumnComponent.prototype, "bindClickable", null);
-__decorate$17([
+__decorate$18([
     _angular_core.HostBinding('class.mat-sortable'),
-    __metadata$10("design:type", Boolean),
-    __metadata$10("design:paramtypes", [])
+    __metadata$11("design:type", Boolean),
+    __metadata$11("design:paramtypes", [])
 ], exports.TdDataTableColumnComponent.prototype, "bingSortable", null);
-__decorate$17([
+__decorate$18([
     _angular_core.HostBinding('class.mat-active'),
-    __metadata$10("design:type", Boolean),
-    __metadata$10("design:paramtypes", [])
+    __metadata$11("design:type", Boolean),
+    __metadata$11("design:paramtypes", [])
 ], exports.TdDataTableColumnComponent.prototype, "bindActive", null);
-__decorate$17([
+__decorate$18([
     _angular_core.HostBinding('class.mat-numeric'),
-    __metadata$10("design:type", Boolean),
-    __metadata$10("design:paramtypes", [])
+    __metadata$11("design:type", Boolean),
+    __metadata$11("design:paramtypes", [])
 ], exports.TdDataTableColumnComponent.prototype, "bindNumeric", null);
-exports.TdDataTableColumnComponent = __decorate$17([
+exports.TdDataTableColumnComponent = __decorate$18([
     _angular_core.Component({
         /* tslint:disable-next-line */
         selector: 'th[td-data-table-column]',
         styles: ["/** * Mixin that creates a new stacking context. * see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context */ :host { font-size: 12px; font-weight: bold; white-space: nowrap; padding: 0 28px 0 28px; position: relative; vertical-align: middle; text-align: left; } :host:first-child { padding-left: 24px; padding-right: initial; } html[dir=rtl] :host:first-child { padding-left: initial; unicode-bidi: embed; } body[dir=rtl] :host:first-child { padding-left: initial; unicode-bidi: embed; } [dir=rtl] :host:first-child { padding-left: initial; unicode-bidi: embed; } :host:first-child bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:first-child bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host:first-child { padding-right: 24px; unicode-bidi: embed; } body[dir=rtl] :host:first-child { padding-right: 24px; unicode-bidi: embed; } [dir=rtl] :host:first-child { padding-right: 24px; unicode-bidi: embed; } :host:first-child bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:first-child bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host:last-child { padding-left: initial; padding-right: 24px; } html[dir=rtl] :host:last-child { padding-left: 24px; unicode-bidi: embed; } body[dir=rtl] :host:last-child { padding-left: 24px; unicode-bidi: embed; } [dir=rtl] :host:last-child { padding-left: 24px; unicode-bidi: embed; } :host:last-child bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:last-child bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host:last-child { padding-right: initial; unicode-bidi: embed; } body[dir=rtl] :host:last-child { padding-right: initial; unicode-bidi: embed; } [dir=rtl] :host:last-child { padding-right: initial; unicode-bidi: embed; } :host:last-child bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:last-child bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host md-icon { height: 16px; width: 16px; font-size: 16px !important; line-height: 16px !important; } :host md-icon.td-data-table-sort-icon { opacity: 0; transition: transform 0.25s, opacity 0.25s; } :host md-icon.td-data-table-sort-icon.mat-asc { transform: rotate(0deg); } :host md-icon.td-data-table-sort-icon.mat-desc { transform: rotate(180deg); } :host:hover.mat-sortable md-icon.td-data-table-sort-icon, :host.mat-active.mat-sortable md-icon.td-data-table-sort-icon { opacity: 1; } html[dir=rtl] :host { text-align: right; unicode-bidi: embed; } body[dir=rtl] :host { text-align: right; unicode-bidi: embed; } [dir=rtl] :host { text-align: right; unicode-bidi: embed; } :host bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host > * { vertical-align: middle; } :host.mat-clickable { cursor: pointer; } :host.mat-clickable:focus { outline: none; } :host md-icon.td-data-table-sort-icon { position: absolute; } :host.mat-numeric { text-align: right; } html[dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } body[dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } [dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } :host.mat-numeric bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host.mat-numeric bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host.mat-numeric md-icon.td-data-table-sort-icon { margin-left: -22px; margin-right: initial; } html[dir=rtl] :host.mat-numeric md-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } body[dir=rtl] :host.mat-numeric md-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } [dir=rtl] :host.mat-numeric md-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } :host.mat-numeric md-icon.td-data-table-sort-icon bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host.mat-numeric md-icon.td-data-table-sort-icon bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host.mat-numeric md-icon.td-data-table-sort-icon { margin-right: -22px; unicode-bidi: embed; } body[dir=rtl] :host.mat-numeric md-icon.td-data-table-sort-icon { margin-right: -22px; unicode-bidi: embed; } [dir=rtl] :host.mat-numeric md-icon.td-data-table-sort-icon { margin-right: -22px; unicode-bidi: embed; } :host.mat-numeric md-icon.td-data-table-sort-icon bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host.mat-numeric md-icon.td-data-table-sort-icon bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host:not(.mat-numeric) md-icon.td-data-table-sort-icon { margin-left: 6px; margin-right: initial; } html[dir=rtl] :host:not(.mat-numeric) md-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } body[dir=rtl] :host:not(.mat-numeric) md-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } [dir=rtl] :host:not(.mat-numeric) md-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } :host:not(.mat-numeric) md-icon.td-data-table-sort-icon bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:not(.mat-numeric) md-icon.td-data-table-sort-icon bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host:not(.mat-numeric) md-icon.td-data-table-sort-icon { margin-right: 6px; unicode-bidi: embed; } body[dir=rtl] :host:not(.mat-numeric) md-icon.td-data-table-sort-icon { margin-right: 6px; unicode-bidi: embed; } [dir=rtl] :host:not(.mat-numeric) md-icon.td-data-table-sort-icon { margin-right: 6px; unicode-bidi: embed; } :host:not(.mat-numeric) md-icon.td-data-table-sort-icon bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:not(.mat-numeric) md-icon.td-data-table-sort-icon bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } "],
         template: "<md-icon  class=\"td-data-table-sort-icon\"  *ngIf=\"sortable && numeric\" [class.mat-asc]=\"(!(active) || isAscending())\" [class.mat-desc]=\"(active && isDescending())\" (click)=\"sortable && handleSortBy()\"> arrow_upward </md-icon> <span class=\"md-caption\" (click)=\"sortable && handleSortBy()\"> <ng-content></ng-content> </span> <md-icon  class=\"td-data-table-sort-icon\"  *ngIf=\"sortable && !numeric\" [class.mat-asc]=\"(!(active) || isAscending())\" [class.mat-desc]=\"(active && isDescending())\" (click)=\"sortable && handleSortBy()\"> arrow_upward </md-icon>",
     }),
-    __metadata$10("design:paramtypes", [_angular_core.ElementRef, _angular_core.Renderer2])
+    __metadata$11("design:paramtypes", [_angular_core.ElementRef, _angular_core.Renderer2])
 ], exports.TdDataTableColumnComponent);
 
-var __decorate$18 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$19 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata$11 = (window && window.__metadata) || function (k, v) {
+var __metadata$12 = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 exports.TdDataTableCellComponent = (function () {
@@ -1996,51 +2213,24 @@ exports.TdDataTableCellComponent = (function () {
     });
     return TdDataTableCellComponent;
 }());
-__decorate$18([
+__decorate$19([
     _angular_core.Input('numeric'),
-    __metadata$11("design:type", Boolean)
+    __metadata$12("design:type", Boolean)
 ], exports.TdDataTableCellComponent.prototype, "numeric", void 0);
-__decorate$18([
+__decorate$19([
     _angular_core.HostBinding('class.mat-numeric'),
-    __metadata$11("design:type", Boolean),
-    __metadata$11("design:paramtypes", [])
+    __metadata$12("design:type", Boolean),
+    __metadata$12("design:paramtypes", [])
 ], exports.TdDataTableCellComponent.prototype, "bindNumeric", null);
-exports.TdDataTableCellComponent = __decorate$18([
+exports.TdDataTableCellComponent = __decorate$19([
     _angular_core.Component({
         /* tslint:disable-next-line */
         selector: 'td[td-data-table-cell]',
         styles: ["/** * Mixin that creates a new stacking context. * see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context */ :host { font-size: 13px; vertical-align: middle; text-align: left; padding: 0 28px 0 28px; } html[dir=rtl] :host { text-align: right; unicode-bidi: embed; } body[dir=rtl] :host { text-align: right; unicode-bidi: embed; } [dir=rtl] :host { text-align: right; unicode-bidi: embed; } :host bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host:first-child { padding-left: 24px; padding-right: initial; } html[dir=rtl] :host:first-child { padding-left: initial; unicode-bidi: embed; } body[dir=rtl] :host:first-child { padding-left: initial; unicode-bidi: embed; } [dir=rtl] :host:first-child { padding-left: initial; unicode-bidi: embed; } :host:first-child bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:first-child bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host:first-child { padding-right: 24px; unicode-bidi: embed; } body[dir=rtl] :host:first-child { padding-right: 24px; unicode-bidi: embed; } [dir=rtl] :host:first-child { padding-right: 24px; unicode-bidi: embed; } :host:first-child bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:first-child bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host:last-child { padding-left: initial; padding-right: 24px; } html[dir=rtl] :host:last-child { padding-left: 24px; unicode-bidi: embed; } body[dir=rtl] :host:last-child { padding-left: 24px; unicode-bidi: embed; } [dir=rtl] :host:last-child { padding-left: 24px; unicode-bidi: embed; } :host:last-child bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:last-child bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host:last-child { padding-right: initial; unicode-bidi: embed; } body[dir=rtl] :host:last-child { padding-right: initial; unicode-bidi: embed; } [dir=rtl] :host:last-child { padding-right: initial; unicode-bidi: embed; } :host:last-child bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:last-child bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host > * { vertical-align: middle; } :host.mat-clickable { cursor: pointer; } :host.mat-clickable:focus { outline: none; } :host.mat-numeric { text-align: right; } html[dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } body[dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } [dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } :host.mat-numeric bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host.mat-numeric bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } "],
         template: "<ng-content></ng-content>",
     }),
-    __metadata$11("design:paramtypes", [_angular_core.ElementRef, _angular_core.Renderer2])
-], exports.TdDataTableCellComponent);
-
-var __decorate$19 = (window && window.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata$12 = (window && window.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-exports.TdDataTableRowComponent = (function () {
-    function TdDataTableRowComponent(_elementRef, _renderer) {
-        this._elementRef = _elementRef;
-        this._renderer = _renderer;
-        this._renderer.addClass(this._elementRef.nativeElement, 'td-data-table-row');
-    }
-    return TdDataTableRowComponent;
-}());
-exports.TdDataTableRowComponent = __decorate$19([
-    _angular_core.Component({
-        /* tslint:disable-next-line */
-        selector: 'tr[td-data-table-row]',
-        styles: [":host { border-bottom-style: solid; border-bottom-width: 1px; } tbody > :host { height: 48px; } thead > :host { height: 56px; } "],
-        template: "<ng-content></ng-content>",
-    }),
     __metadata$12("design:paramtypes", [_angular_core.ElementRef, _angular_core.Renderer2])
-], exports.TdDataTableRowComponent);
+], exports.TdDataTableCellComponent);
 
 var __decorate$20 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2791,7 +2981,7 @@ var __decorate$31 = (window && window.__decorate) || function (decorators, targe
 var __metadata$20 = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param$2 = (window && window.__param) || function (paramIndex, decorator) {
+var __param$3 = (window && window.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 exports.TdFileSelectDirective = (function () {
@@ -2869,7 +3059,7 @@ exports.TdFileSelectDirective = __decorate$31([
     _angular_core.Directive({
         selector: '[tdFileSelect]',
     }),
-    __param$2(0, _angular_core.Optional()), __param$2(0, _angular_core.Host()),
+    __param$3(0, _angular_core.Optional()), __param$3(0, _angular_core.Host()),
     __metadata$20("design:paramtypes", [_angular_forms.NgModel])
 ], exports.TdFileSelectDirective);
 
@@ -3524,7 +3714,7 @@ var __decorate$37 = (window && window.__decorate) || function (decorators, targe
 var __metadata$25 = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param$3 = (window && window.__param) || function (paramIndex, decorator) {
+var __param$4 = (window && window.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 exports.TdJsonFormatterComponent = TdJsonFormatterComponent_1 = (function () {
@@ -3760,7 +3950,7 @@ exports.TdJsonFormatterComponent = TdJsonFormatterComponent_1 = __decorate$37([
             TdCollapseAnimation(),
         ],
     }),
-    __param$3(1, _angular_core.Optional()),
+    __param$4(1, _angular_core.Optional()),
     __metadata$25("design:paramtypes", [_angular_core.ChangeDetectorRef,
         _angular_material.Dir])
 ], exports.TdJsonFormatterComponent);
@@ -3846,7 +4036,7 @@ var __decorate$40 = (window && window.__decorate) || function (decorators, targe
 var __metadata$27 = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param$4 = (window && window.__param) || function (paramIndex, decorator) {
+var __param$5 = (window && window.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 exports.TdLayoutNavComponent = (function () {
@@ -3920,8 +4110,8 @@ exports.TdLayoutNavComponent = __decorate$40([
         styles: [".td-menu-button { margin-left: 0px; } /deep/ [dir='rtl'] .td-menu-button { margin-right: 0px; margin-left: 6px; } :host { display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } "],
         template: "<div layout=\"column\" layout-fill> <md-toolbar [color]=\"color\"> <button md-icon-button class=\"td-menu-button\" *ngIf=\"isMainSidenavAvailable\" (click)=\"openMainSidenav()\"> <md-icon class=\"md-24\">menu</md-icon> </button> <span *ngIf=\"icon || logo || toolbarTitle\" [class.cursor-pointer]=\"routerEnabled\" (click)=\"handleNavigationClick()\" layout=\"row\" layout-align=\"start center\"> <md-icon *ngIf=\"icon\">{{icon}}</md-icon> <md-icon *ngIf=\"logo && !icon\" class=\"md-icon-logo\" [svgIcon]=\"logo\"></md-icon> <span *ngIf=\"toolbarTitle\">{{toolbarTitle}}</span> </span> <ng-content select=\"[td-toolbar-content]\"></ng-content> </md-toolbar> <div flex layout=\"column\" class=\"content md-content\"> <ng-content></ng-content> </div> <ng-content select=\"td-layout-footer\"></ng-content> </div> ",
     }),
-    __param$4(0, _angular_core.Optional()), __param$4(0, _angular_core.Inject(_angular_core.forwardRef(function () { return exports.TdLayoutComponent; }))),
-    __param$4(1, _angular_core.Optional()),
+    __param$5(0, _angular_core.Optional()), __param$5(0, _angular_core.Inject(_angular_core.forwardRef(function () { return exports.TdLayoutComponent; }))),
+    __param$5(1, _angular_core.Optional()),
     __metadata$27("design:paramtypes", [exports.TdLayoutComponent,
         _angular_router.Router])
 ], exports.TdLayoutNavComponent);
@@ -3935,7 +4125,7 @@ var __decorate$41 = (window && window.__decorate) || function (decorators, targe
 var __metadata$28 = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param$5 = (window && window.__param) || function (paramIndex, decorator) {
+var __param$6 = (window && window.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 exports.TdLayoutNavListComponent = (function () {
@@ -4083,8 +4273,8 @@ exports.TdLayoutNavListComponent = __decorate$41([
         styles: [".td-menu-button { margin-left: 0px; } /deep/ [dir='rtl'] .td-menu-button { margin-right: 0px; margin-left: 6px; } :host { display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-opened, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-opening, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-closed, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-closing { box-shadow: none; } :host .list { text-align: start; } :host /deep/ md-sidenav-container.td-layout-nav-list { /* Ensure the left sidenav is a flex column & 100% height */ } :host /deep/ md-sidenav-container.td-layout-nav-list > .mat-sidenav-content { flex-grow: 1; } :host /deep/ md-sidenav-container.td-layout-nav-list > md-sidenav { box-sizing: border-box; display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; flex-direction: column; } "],
         template: "<div layout=\"column\" layout-fill> <div flex layout=\"column\" class=\"content md-content\"> <md-sidenav-container fullscreen class=\"td-layout-nav-list\" layout=\"row\" flex> <md-sidenav #sidenav align=\"start\" [mode]=\"mode\" [opened]=\"opened\" [disableClose]=\"disableClose\" [style.max-width]=\"sidenavWidth\" layout=\"column\"  layout-fill class=\"md-whiteframe-z1\"> <md-toolbar [color]=\"color\" class=\"md-whiteframe-z1\"> <button md-icon-button class=\"td-menu-button\" *ngIf=\"isMainSidenavAvailable\" (click)=\"openMainSidenav()\"> <md-icon class=\"md-24\">menu</md-icon> </button> <span *ngIf=\"icon || logo || toolbarTitle\" [class.cursor-pointer]=\"routerEnabled\" (click)=\"handleNavigationClick()\" layout=\"row\" layout-align=\"start center\"> <md-icon *ngIf=\"icon\">{{icon}}</md-icon> <md-icon *ngIf=\"logo && !icon\" class=\"md-icon-logo\" [svgIcon]=\"logo\"></md-icon> <span *ngIf=\"toolbarTitle\">{{toolbarTitle}}</span> </span> <ng-content select=\"[td-sidenav-toolbar-content]\"></ng-content> </md-toolbar> <div flex class=\"list md-content\"> <ng-content select=\"[td-sidenav-content]\"></ng-content> </div> </md-sidenav> <div layout=\"column\" layout-fill class=\"md-content\"> <md-toolbar [color]=\"color\" class=\"md-whiteframe-z1\"> <button md-icon-button class=\"td-menu-button\" *ngIf=\"!sidenav.opened\" (click)=\"open()\"> <md-icon class=\"md-24\">arrow_back</md-icon> </button> <ng-content select=\"[td-toolbar-content]\"></ng-content> </md-toolbar> <div class=\"md-content\" flex> <ng-content></ng-content> </div> <ng-content select=\"td-layout-footer-inner\"></ng-content> </div> </md-sidenav-container> </div> <ng-content select=\"td-layout-footer\"></ng-content> </div>",
     }),
-    __param$5(0, _angular_core.Optional()), __param$5(0, _angular_core.Inject(_angular_core.forwardRef(function () { return exports.TdLayoutComponent; }))),
-    __param$5(1, _angular_core.Optional()),
+    __param$6(0, _angular_core.Optional()), __param$6(0, _angular_core.Inject(_angular_core.forwardRef(function () { return exports.TdLayoutComponent; }))),
+    __param$6(1, _angular_core.Optional()),
     __metadata$28("design:paramtypes", [exports.TdLayoutComponent,
         _angular_router.Router])
 ], exports.TdLayoutNavListComponent);
@@ -4267,7 +4457,7 @@ var __decorate$45 = (window && window.__decorate) || function (decorators, targe
 var __metadata$31 = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param$6 = (window && window.__param) || function (paramIndex, decorator) {
+var __param$7 = (window && window.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 exports.TdNavigationDrawerMenuDirective = (function () {
@@ -4437,8 +4627,8 @@ exports.TdNavigationDrawerComponent = __decorate$45([
         template: "<md-toolbar [color]=\"color\" [style.background-image]=\"backgroundImage\" [class.td-toolbar-background]=\"!!isBackgroundAvailable\"> <div layout=\"column\" flex> <span *ngIf=\"icon || logo || sidenavTitle\" [class.cursor-pointer]=\"routerEnabled\" (click)=\"handleNavigationClick()\" layout=\"row\" layout-align=\"start end\"> <md-icon *ngIf=\"icon\">{{icon}}</md-icon> <md-icon *ngIf=\"logo && !icon\" class=\"md-icon-logo\" [svgIcon]=\"logo\"></md-icon> <span *ngIf=\"sidenavTitle\" class=\"md-subhead\">{{sidenavTitle}}</span> </span> <div class=\"md-body-2\" *ngIf=\"email && name\">{{name}}</div> <div class=\"md-body-1\" layout=\"row\" href *ngIf=\"email || name\" (click)=\"toggleMenu()\"> <span flex>{{email || name}}</span> <button md-icon-button class=\"md-icon-button-mini\" *ngIf=\"isMenuAvailable\"> <md-icon *ngIf=\"!menuToggled\">arrow_drop_down</md-icon> <md-icon *ngIf=\"menuToggled\">arrow_drop_up</md-icon> </button> </div> </div> </md-toolbar> <div [@tdCollapse]=\"menuToggled\"> <ng-content></ng-content> </div> <div [@tdCollapse]=\"!menuToggled\"> <ng-content select=\"[td-navigation-drawer-menu]\"></ng-content> </div>",
         animations: [TdCollapseAnimation()],
     }),
-    __param$6(0, _angular_core.Inject(_angular_core.forwardRef(function () { return exports.TdLayoutComponent; }))),
-    __param$6(1, _angular_core.Optional()),
+    __param$7(0, _angular_core.Inject(_angular_core.forwardRef(function () { return exports.TdLayoutComponent; }))),
+    __param$7(1, _angular_core.Optional()),
     __metadata$31("design:paramtypes", [exports.TdLayoutComponent,
         _angular_router.Router,
         _angular_platformBrowser.DomSanitizer])
@@ -6064,7 +6254,7 @@ var __decorate$61 = (window && window.__decorate) || function (decorators, targe
 var __metadata$40 = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param$7 = (window && window.__param) || function (paramIndex, decorator) {
+var __param$8 = (window && window.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 exports.TdPagingBarComponent = (function () {
@@ -6420,7 +6610,7 @@ exports.TdPagingBarComponent = __decorate$61([
         template: "<div layout=\"row\" layout-align=\"end center\" class=\"md-caption td-paging-bar\"> <ng-content select=\"[td-paging-bar-label]\"></ng-content> <md-select [(ngModel)]=\"pageSize\"> <ng-template let-size ngFor [ngForOf]=\"pageSizes\"> <md-option [value]=\"size\"> {{size}} </md-option> </ng-template> <md-option *ngIf=\"pageSizeAll\" [value]=\"total\">{{pageSizeAllText}}</md-option> </md-select> <div> <ng-content></ng-content> </div> <div class=\"td-paging-bar-navigation\"> <button [id]=\"'td-paging-bar-' + id + '-first-page'\" md-icon-button type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMinPage()\" (click)=\"firstPage()\"> <md-icon>{{ isRTL ? 'skip_next' : 'skip_previous' }}</md-icon> </button> <button md-icon-button type=\"button\" [disabled]=\"isMinPage()\" (click)=\"prevPage()\"> <md-icon>{{ isRTL ? 'navigate_next' : 'navigate_before' }}</md-icon> </button> <ng-template *ngIf=\"pageLinkCount > 0\" let-link let-index=\"index\" ngFor [ngForOf]=\"pageLinks\"> <button [id]=\"'td-paging-bar-' + id + '-page-link-' + index\" md-icon-button type=\"button\" [color]=\"page === link ? 'accent' : ''\" (click)=\"navigateToPage(link)\">{{link}}</button> </ng-template> <button md-icon-button type=\"button\" [disabled]=\"isMaxPage()\" (click)=\"nextPage()\"> <md-icon>{{ isRTL ? 'navigate_before' : 'navigate_next' }}</md-icon> </button> <button [id]=\"'td-paging-bar-' + id + '-last-page'\" md-icon-button type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMaxPage()\" (click)=\"lastPage()\"> <md-icon>{{ isRTL ? 'skip_previous' : 'skip_next' }}</md-icon> </button> </div> </div>",
         styles: [":host { display: block; } .td-paging-bar { height: 48px; } .td-paging-bar > * { margin: 0 10px; } [md-icon-button] { font-size: 12px; font-weight: normal; } md-select /deep/ .mat-select-trigger { min-width: 44px; font-size: 12px; } md-select /deep/ .mat-select-value { top: auto; position: static; } md-select /deep/ .mat-select-underline { display: none; } "],
     }),
-    __param$7(0, _angular_core.Optional()),
+    __param$8(0, _angular_core.Optional()),
     __metadata$40("design:paramtypes", [_angular_material.Dir])
 ], exports.TdPagingBarComponent);
 
@@ -6462,7 +6652,7 @@ var __decorate$63 = (window && window.__decorate) || function (decorators, targe
 var __metadata$41 = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param$8 = (window && window.__param) || function (paramIndex, decorator) {
+var __param$9 = (window && window.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 exports.TdSearchInputComponent = (function () {
@@ -6599,7 +6789,7 @@ exports.TdSearchInputComponent = __decorate$63([
             ]),
         ],
     }),
-    __param$8(0, _angular_core.Optional()),
+    __param$9(0, _angular_core.Optional()),
     __metadata$41("design:paramtypes", [_angular_material.Dir])
 ], exports.TdSearchInputComponent);
 

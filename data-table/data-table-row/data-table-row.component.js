@@ -14,6 +14,9 @@ var TdDataTableRowComponent = (function () {
         this._renderer = _renderer;
         this._renderer.addClass(this._elementRef.nativeElement, 'td-data-table-row');
     }
+    TdDataTableRowComponent.prototype.focus = function () {
+        this._elementRef.nativeElement.focus();
+    };
     return TdDataTableRowComponent;
 }());
 TdDataTableRowComponent = __decorate([

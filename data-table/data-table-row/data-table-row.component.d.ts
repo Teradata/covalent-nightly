@@ -3,4 +3,5 @@ export declare class TdDataTableRowComponent {
     private _elementRef;
     private _renderer;
     constructor(_elementRef: ElementRef, _renderer: Renderer2);
+    focus(): void;
 }

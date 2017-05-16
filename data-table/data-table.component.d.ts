@@ -1,5 +1,6 @@
 import { EventEmitter, ChangeDetectorRef, TemplateRef, AfterContentInit, QueryList } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
+import { TdDataTableRowComponent } from './data-table-row/data-table-row.component';
 import { ITdDataTableSortChangeEvent } from './data-table-column/data-table-column.component';
 import { TdDataTableTemplateDirective } from './directives/data-table-template.directive';
 export declare const TD_DATA_TABLE_CONTROL_VALUE_ACCESSOR: any;
@@ -26,7 +27,15 @@ export interface ITdDataTableSelectAllEvent {
     rows: any[];
     selected: boolean;
 }
+export interface ITdDataTableRowClickEvent {
+    row: any;
+}
+export declare enum TdDataTableArrowKeyDirection {
+    Ascending,
+    Descending,
+}
 export declare class TdDataTableComponent implements ControlValueAccessor, AfterContentInit {
+    private _document;
     private _changeDetectorRef;
     /**
      * Implemented as part of ControlValueAccessor.
@@ -38,6 +47,7 @@ export declare class TdDataTableComponent implements ControlValueAccessor, After
     private _data;
     private _columns;
     private _selectable;
+    private _clickable;
     private _multiple;
     private _allSelected;
     private _indeterminate;
@@ -45,9 +55,14 @@ export declare class TdDataTableComponent implements ControlValueAccessor, After
     private _sortable;
     private _sortBy;
     private _sortOrder;
+    /** shift select */
+    private _lastSelectedIndex;
+    private _selectedBeforeLastIndex;
+    private _lastArrowKeyDirection;
     /** template fetching support */
     private _templateMap;
     _templates: QueryList<TdDataTableTemplateDirective>;
+    _rows: QueryList<TdDataTableRowComponent>;
     /**
      * Returns true if all values are selected.
      */
@@ -84,6 +99,13 @@ export declare class TdDataTableComponent implements ControlValueAccessor, After
      */
     selectable: string | boolean;
     readonly isSelectable: boolean;
+    /**
+     * clickable?: boolean
+     * Enables row click events, hover.
+     * Defaults to 'false'
+     */
+    clickable: string | boolean;
+    readonly isClickable: boolean;
     /**
      * multiple?: boolean
      * Enables multiple row selection. [selectable] needs to be enabled.
@@ -125,12 +147,18 @@ export declare class TdDataTableComponent implements ControlValueAccessor, After
      */
     onRowSelect: EventEmitter<ITdDataTableSelectEvent>;
     /**
+     * rowClick?: function
+     * Event emitted when a row is clicked.
+     * Emits an [ITdDataTableRowClickEvent] implemented object.
+     */
+    onRowClick: EventEmitter<ITdDataTableRowClickEvent>;
+    /**
      * selectAll?: function
      * Event emitted when all rows are selected/deselected by the all checkbox. [selectable] needs to be enabled.
      * Emits an [ITdDataTableSelectAllEvent] implemented object.
      */
     onSelectAll: EventEmitter<ITdDataTableSelectAllEvent>;
-    constructor(_changeDetectorRef: ChangeDetectorRef);
+    constructor(_document: any, _changeDetectorRef: ChangeDetectorRef);
     /**
      * Loads templates and sets them in a map for faster access.
      */
@@ -157,13 +185,36 @@ export declare class TdDataTableComponent implements ControlValueAccessor, After
      */
     isRowSelected(row: any): boolean;
     /**
-     * Selects or clears a row depending on 'checked' value
+     * Selects or clears a row depending on 'checked' value if the row 'isSelectable'
+     * handles cntrl clicks and shift clicks for multi-select
      */
-    select(row: any, checked: boolean, event: Event): void;
+    select(row: any, event: Event, currentSelected: number): void;
+    /**
+     * Overrides the onselectstart method of the document so other text on the page
+     * doesn't get selected when doing shift selections.
+     */
+    disableTextSelection(): void;
+    /**
+     * Resets the original onselectstart method.
+     */
+    enableTextSelection(): void;
+    /**
+     * emits the onRowClickEvent when a row is clicked
+     * if clickable is true and selectable is false then select the row
+     */
+    handleRowClick(row: any, event: Event, currentSelected: number): void;
     /**
      * Method handle for sort click event in column headers.
      */
     handleSort(column: ITdDataTableColumn): void;
+    /**
+     * Handle all keyup events when focusing a data table row
+     */
+    _rowKeyup(event: KeyboardEvent, row: any, index: number): void;
+    /**
+     * Method to prevent the default events
+     */
+    blockEvent(event: Event): void;
     /**
      * Implemented as part of ControlValueAccessor.
      */
@@ -173,6 +224,10 @@ export declare class TdDataTableComponent implements ControlValueAccessor, After
     onChange: (_: any) => any;
     onTouched: () => any;
     private _getNestedValue(name, value);
+    /**
+     * Does the actual Row Selection
+     */
+    private _doSelection(row);
     /**
      * Calculate all the state of all checkboxes
      */

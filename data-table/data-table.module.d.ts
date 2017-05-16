@@ -1,4 +1,4 @@
-export { TdDataTableComponent, TdDataTableSortingOrder, ITdDataTableColumn, ITdDataTableSelectEvent, ITdDataTableSelectAllEvent } from './data-table.component';
+export { TdDataTableComponent, TdDataTableSortingOrder, ITdDataTableRowClickEvent, ITdDataTableColumn, ITdDataTableSelectEvent, ITdDataTableSelectAllEvent } from './data-table.component';
 export { TdDataTableService } from './services/data-table.service';
 export { TdDataTableColumnComponent, ITdDataTableSortChangeEvent } from './data-table-column/data-table-column.component';
 export { TdDataTableCellComponent } from './data-table-cell/data-table-cell.component';

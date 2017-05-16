@@ -7,8 +7,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component, Input, Output, EventEmitter, forwardRef, ChangeDetectionStrategy, ChangeDetectorRef, ContentChildren, QueryList } from '@angular/core';
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+import { Component, Input, Output, EventEmitter, forwardRef, ChangeDetectionStrategy, ChangeDetectorRef, ContentChildren, QueryList, Inject, Optional, ViewChildren } from '@angular/core';
+import { DOCUMENT } from '@angular/platform-browser';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ENTER, SPACE, UP_ARROW, DOWN_ARROW } from '@angular/material';
+import { TdDataTableRowComponent } from './data-table-row/data-table-row.component';
 import { TdDataTableTemplateDirective } from './directives/data-table-template.directive';
 var noop = function () {
     // empty method
@@ -23,8 +29,14 @@ export var TdDataTableSortingOrder;
     TdDataTableSortingOrder[TdDataTableSortingOrder["Ascending"] = 'ASC'] = "Ascending";
     TdDataTableSortingOrder[TdDataTableSortingOrder["Descending"] = 'DESC'] = "Descending";
 })(TdDataTableSortingOrder || (TdDataTableSortingOrder = {}));
+export var TdDataTableArrowKeyDirection;
+(function (TdDataTableArrowKeyDirection) {
+    TdDataTableArrowKeyDirection[TdDataTableArrowKeyDirection["Ascending"] = 'ASC'] = "Ascending";
+    TdDataTableArrowKeyDirection[TdDataTableArrowKeyDirection["Descending"] = 'DESC'] = "Descending";
+})(TdDataTableArrowKeyDirection || (TdDataTableArrowKeyDirection = {}));
 var TdDataTableComponent = (function () {
-    function TdDataTableComponent(_changeDetectorRef) {
+    function TdDataTableComponent(_document, _changeDetectorRef) {
+        this._document = _document;
         this._changeDetectorRef = _changeDetectorRef;
         /**
          * Implemented as part of ControlValueAccessor.
@@ -33,12 +45,16 @@ var TdDataTableComponent = (function () {
         /** Callback registered via registerOnChange (ControlValueAccessor) */
         this._onChangeCallback = noop;
         this._selectable = false;
+        this._clickable = false;
         this._multiple = true;
         this._allSelected = false;
         this._indeterminate = false;
         /** sorting */
         this._sortable = false;
         this._sortOrder = TdDataTableSortingOrder.Ascending;
+        /** shift select */
+        this._lastSelectedIndex = -1;
+        this._selectedBeforeLastIndex = -1;
         /** template fetching support */
         this._templateMap = new Map();
         /**
@@ -53,6 +69,12 @@ var TdDataTableComponent = (function () {
          * Emits an [ITdDataTableSelectEvent] implemented object.
          */
         this.onRowSelect = new EventEmitter();
+        /**
+         * rowClick?: function
+         * Event emitted when a row is clicked.
+         * Emits an [ITdDataTableRowClickEvent] implemented object.
+         */
+        this.onRowClick = new EventEmitter();
         /**
          * selectAll?: function
          * Event emitted when all rows are selected/deselected by the all checkbox. [selectable] needs to be enabled.
@@ -160,6 +182,25 @@ var TdDataTableComponent = (function () {
     Object.defineProperty(TdDataTableComponent.prototype, "isSelectable", {
         get: function () {
             return this._selectable;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TdDataTableComponent.prototype, "clickable", {
+        /**
+         * clickable?: boolean
+         * Enables row click events, hover.
+         * Defaults to 'false'
+         */
+        set: function (clickable) {
+            this._clickable = clickable !== '' ? (clickable === 'true' || clickable === true) : true;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TdDataTableComponent.prototype, "isClickable", {
+        get: function () {
+            return this._clickable;
         },
         enumerable: true,
         configurable: true
@@ -327,33 +368,67 @@ var TdDataTableComponent = (function () {
         return this._value ? this._value.indexOf(row) > -1 : false;
     };
     /**
-     * Selects or clears a row depending on 'checked' value
+     * Selects or clears a row depending on 'checked' value if the row 'isSelectable'
+     * handles cntrl clicks and shift clicks for multi-select
      */
-    TdDataTableComponent.prototype.select = function (row, checked, event) {
-        var _this = this;
-        event.preventDefault();
-        // clears all the fields for the dataset
-        if (!this._multiple) {
-            this.clearModel();
-        }
-        if (checked) {
-            this._value.push(row);
-        }
-        else {
-            // if selection is done by a [uniqueId] it uses it to compare, else it compares by reference.
-            if (this.uniqueId) {
-                row = this._value.filter(function (val) {
-                    return val[_this.uniqueId] === row[_this.uniqueId];
-                })[0];
+    TdDataTableComponent.prototype.select = function (row, event, currentSelected) {
+        if (this.isSelectable) {
+            this.blockEvent(event);
+            this._doSelection(row);
+            // Check to see if Shift key is selected and need to select everything in between
+            var mouseEvent = event;
+            if (this.isMultiple && mouseEvent && mouseEvent.shiftKey && this._lastSelectedIndex > -1) {
+                var firstIndex = currentSelected;
+                var lastIndex = this._lastSelectedIndex;
+                if (currentSelected > this._lastSelectedIndex) {
+                    firstIndex = this._lastSelectedIndex;
+                    lastIndex = currentSelected;
+                }
+                for (var i = firstIndex + 1; i < lastIndex; i++) {
+                    this._doSelection(this._data[i]);
+                }
             }
-            var index = this._value.indexOf(row);
-            if (index > -1) {
-                this._value.splice(index, 1);
+            // set the last selected attribute unless the last selected unchecked a row
+            if (this.isRowSelected(this._data[currentSelected])) {
+                this._selectedBeforeLastIndex = this._lastSelectedIndex;
+                this._lastSelectedIndex = currentSelected;
+            }
+            else {
+                this._lastSelectedIndex = this._selectedBeforeLastIndex;
+            }
+            // everything is unselected so start over
+            if (!this._indeterminate && !this._allSelected) {
+                this._lastSelectedIndex = -1;
             }
         }
-        this._calculateCheckboxState();
-        this.onRowSelect.emit({ row: row, selected: checked });
-        this.onChange(this._value);
+    };
+    /**
+     * Overrides the onselectstart method of the document so other text on the page
+     * doesn't get selected when doing shift selections.
+     */
+    TdDataTableComponent.prototype.disableTextSelection = function () {
+        if (this._document) {
+            this._document.onselectstart = function () {
+                return false;
+            };
+        }
+    };
+    /**
+     * Resets the original onselectstart method.
+     */
+    TdDataTableComponent.prototype.enableTextSelection = function () {
+        if (this._document) {
+            this._document.onselectstart = undefined;
+        }
+    };
+    /**
+     * emits the onRowClickEvent when a row is clicked
+     * if clickable is true and selectable is false then select the row
+     */
+    TdDataTableComponent.prototype.handleRowClick = function (row, event, currentSelected) {
+        if (this.isClickable) {
+            this.onRowClick.emit({ row: row });
+        }
     };
     /**
      * Method handle for sort click event in column headers.
@@ -368,6 +443,79 @@ var TdDataTableComponent = (function () {
             this._sortOrder = TdDataTableSortingOrder.Ascending;
         }
         this.onSortChange.next({ name: this._sortBy.name, order: this._sortOrder });
+    };
+    /**
+     * Handle all keyup events when focusing a data table row
+     */
+    TdDataTableComponent.prototype._rowKeyup = function (event, row, index) {
+        var length;
+        var rows;
+        switch (event.keyCode) {
+            case ENTER:
+            case SPACE:
+                /** if user presses enter or space, the row should be selected */
+                this.select(row, event, index);
+                break;
+            case UP_ARROW:
+                rows = this._rows.toArray();
+                length = rows.length;
+                // check to see if changing direction and need to toggle the current row
+                if (this._lastArrowKeyDirection === TdDataTableArrowKeyDirection.Descending) {
+                    index++;
+                }
+                /**
+                 * if users presses the up arrow, we focus the prev row
+                 * unless its the first row, then we move to the last row
+                 */
+                if (index === 0) {
+                    if (!event.shiftKey) {
+                        rows[length - 1].focus();
+                    }
+                }
+                else {
+                    rows[index - 1].focus();
+                }
+                this.blockEvent(event);
+                if (this.isMultiple && event.shiftKey) {
+                    this._doSelection(this._data[index - 1]);
+                    // if the checkboxes are all unselected then start over otherwise handle changing direction
+                    this._lastArrowKeyDirection = (!this._allSelected && !this._indeterminate) ? undefined : TdDataTableArrowKeyDirection.Ascending;
+                }
+                break;
+            case DOWN_ARROW:
+                rows = this._rows.toArray();
+                length = rows.length;
+                // check to see if changing direction and need to toggle the current row
+                if (this._lastArrowKeyDirection === TdDataTableArrowKeyDirection.Ascending) {
+                    index--;
+                }
+                /**
+                 * if users presses the down arrow, we focus the next row
+                 * unless its the last row, then we move to the first row
+                 */
+                if (index === (length - 1)) {
+                    if (!event.shiftKey) {
+                        rows[0].focus();
+                    }
+                }
+                else {
+                    rows[index + 1].focus();
+                }
+                this.blockEvent(event);
+                if (this.isMultiple && event.shiftKey) {
+                    this._doSelection(this._data[index + 1]);
+                    // if the checkboxes are all unselected then start over otherwise handle changing direction
+                    this._lastArrowKeyDirection = (!this._allSelected && !this._indeterminate) ? undefined : TdDataTableArrowKeyDirection.Descending;
+                }
+                break;
+            default:
+        }
+    };
+    /**
+     * Method to prevent the default events
+     */
+    TdDataTableComponent.prototype.blockEvent = function (event) {
+        event.preventDefault();
     };
     /**
      * Implemented as part of ControlValueAccessor.
@@ -392,6 +540,34 @@ var TdDataTableComponent = (function () {
         else {
             return value[name];
         }
+    };
+    /**
+     * Does the actual Row Selection
+     */
+    TdDataTableComponent.prototype._doSelection = function (row) {
+        var _this = this;
+        var wasSelected = this.isRowSelected(row);
+        if (!this._multiple) {
+            this.clearModel();
+        }
+        if (!wasSelected) {
+            this._value.push(row);
+        }
+        else {
+            // if selection is done by a [uniqueId] it uses it to compare, else it compares by reference.
+            if (this.uniqueId) {
+                row = this._value.filter(function (val) {
+                    return val[_this.uniqueId] === row[_this.uniqueId];
+                })[0];
+            }
+            var index = this._value.indexOf(row);
+            if (index > -1) {
+                this._value.splice(index, 1);
+            }
+        }
+        this._calculateCheckboxState();
+        this.onRowSelect.emit({ row: row, selected: this.isRowSelected(row) });
+        this.onChange(this._value);
     };
     /**
      * Calculate all the state of all checkboxes
@@ -430,6 +606,10 @@ __decorate([
     __metadata("design:type", QueryList)
 ], TdDataTableComponent.prototype, "_templates", void 0);
 __decorate([
+    ViewChildren(TdDataTableRowComponent),
+    __metadata("design:type", QueryList)
+], TdDataTableComponent.prototype, "_rows", void 0);
+__decorate([
     Input(),
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [Object])
@@ -453,6 +633,11 @@ __decorate([
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [Object])
 ], TdDataTableComponent.prototype, "selectable", null);
+__decorate([
+    Input('clickable'),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], TdDataTableComponent.prototype, "clickable", null);
 __decorate([
     Input('multiple'),
     __metadata("design:type", Object),
@@ -482,6 +667,10 @@ __decorate([
     __metadata("design:type", EventEmitter)
 ], TdDataTableComponent.prototype, "onRowSelect", void 0);
 __decorate([
+    Output('rowClick'),
+    __metadata("design:type", EventEmitter)
+], TdDataTableComponent.prototype, "onRowClick", void 0);
+__decorate([
     Output('selectAll'),
     __metadata("design:type", EventEmitter)
 ], TdDataTableComponent.prototype, "onSelectAll", void 0);
@@ -490,10 +679,11 @@ TdDataTableComponent = __decorate([
         providers: [TD_DATA_TABLE_CONTROL_VALUE_ACCESSOR],
         selector: 'td-data-table',
         styles: [".mat-table-container { display: block; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; } table.td-data-table.mat-selectable tbody > tr.td-data-table-row { transition: background-color 0.2s; } table.td-data-table.mat-selectable .td-data-table-column:first-child, table.td-data-table.mat-selectable th.td-data-table-column:first-child, table.td-data-table.mat-selectable td.td-data-table-cell:first-child { width: 20px; padding: 0 24px; } table.td-data-table.mat-selectable .td-data-table-column:nth-child(2), table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2), table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) { padding-left: 0px; } [dir='rtl'] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2), [dir='rtl'] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2), [dir='rtl'] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) { padding-right: 0px; padding-left: 28px; } table.td-data-table td.mat-checkbox-cell, table.td-data-table th.mat-checkbox-column { width: 18px; font-size: 0 !important; } table.td-data-table td.mat-checkbox-cell md-pseudo-checkbox, table.td-data-table th.mat-checkbox-column md-pseudo-checkbox { width: 18px; height: 18px; } /deep/ table.td-data-table td.mat-checkbox-cell md-pseudo-checkbox.mat-pseudo-checkbox-checked::after, /deep/ table.td-data-table th.mat-checkbox-column md-pseudo-checkbox.mat-pseudo-checkbox-checked::after { width: 11px !important; height: 4px !important; } table.td-data-table td.mat-checkbox-cell md-checkbox /deep/ .mat-checkbox-inner-container, table.td-data-table th.mat-checkbox-column md-checkbox /deep/ .mat-checkbox-inner-container { width: 18px; height: 18px; margin: 0; } "],
-        template: "<div class=\"mat-table-container\" title> <table td-data-table [class.mat-selectable]=\"isSelectable\"> <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"isSelectable\"> <md-checkbox #checkBoxAll *ngIf=\"isMultiple\" [disabled]=\"!hasData\" [indeterminate]=\"indeterminate && !allSelected && hasData\" [checked]=\"allSelected && hasData\" (click)=\"selectAll(!checkBoxAll.checked)\"> </md-checkbox> </th> <th td-data-table-column *ngFor=\"let column of columns\" [name]=\"column.name\" [numeric]=\"column.numeric\" [active]=\"(column.sortable || isSortable) && column === sortByColumn\" [sortable]=\"column.sortable ||  isSortable\" [sortOrder]=\"sortOrderEnum\" [hidden]=\"column.hidden\" (sortChange)=\"handleSort(column)\"> <span [mdTooltip]=\"column.tooltip\">{{column.label}}</span> </th> <tr td-data-table-row [class.mat-selected]=\"isSelectable && isRowSelected(row)\" *ngFor=\"let row of data\" (click)=\"isSelectable && select(row, !isRowSelected(row), $event)\"> <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"isSelectable\"> <md-pseudo-checkbox [state]=\"isRowSelected(row) ? 'checked' : 'unchecked'\"> </md-pseudo-checkbox> </td> <td td-data-table-cell [numeric]=\"column.numeric\" [hidden]=\"column.hidden\" *ngFor=\"let column of columns\"> <span class=\"md-body-1\" *ngIf=\"!getTemplateRef(column.name)\">{{column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row)}}</span> <ng-template *ngIf=\"getTemplateRef(column.name)\" [ngTemplateOutlet]=\"getTemplateRef(column.name)\" [ngOutletContext]=\"{ value: getCellValue(column, row), row: row, column: column.name }\"> </ng-template> </td> </tr> </table> </div> ",
+        template: "<div class=\"mat-table-container\" title> <table td-data-table [class.mat-selectable]=\"isSelectable\" [class.mat-clickable]=\"isClickable\"> <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"isSelectable\"> <md-checkbox #checkBoxAll *ngIf=\"isMultiple\" [disabled]=\"!hasData\" [indeterminate]=\"indeterminate && !allSelected && hasData\" [checked]=\"allSelected && hasData\" (click)=\"selectAll(!checkBoxAll.checked)\" (keyup.enter)=\"selectAll(!checkBoxAll.checked)\" (keyup.space)=\"selectAll(!checkBoxAll.checked)\" (keydown.space)=\"blockEvent($event)\"> </md-checkbox> </th> <th td-data-table-column *ngFor=\"let column of columns\" [name]=\"column.name\" [numeric]=\"column.numeric\" [active]=\"(column.sortable || isSortable) && column === sortByColumn\" [sortable]=\"column.sortable ||  isSortable\" [sortOrder]=\"sortOrderEnum\" [hidden]=\"column.hidden\" (sortChange)=\"handleSort(column)\"> <span [mdTooltip]=\"column.tooltip\">{{column.label}}</span> </th> <tr td-data-table-row [tabIndex]=\"isSelectable ? 0 : -1\" [class.mat-selected]=\"(isClickable || isSelectable) && isRowSelected(row)\" *ngFor=\"let row of data; let rowIndex = index\" (click)=\"handleRowClick(row, $event, rowIndex)\" (keyup)=\"isSelectable && _rowKeyup($event, row, rowIndex)\" (keydown.space)=\"blockEvent($event)\" (keydown.shift.space)=\"blockEvent($event)\" (keydown.shift)=\"disableTextSelection()\" (keyup.shift)=\"enableTextSelection()\"> <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"isSelectable\"> <md-pseudo-checkbox [state]=\"isRowSelected(row) ? 'checked' : 'unchecked'\" (mousedown)=\"disableTextSelection()\" (mouseup)=\"enableTextSelection()\" (click)=\"select(row, $event, rowIndex)\"> </md-pseudo-checkbox> </td> <td td-data-table-cell [numeric]=\"column.numeric\" [hidden]=\"column.hidden\" *ngFor=\"let column of columns\"> <span class=\"md-body-1\" *ngIf=\"!getTemplateRef(column.name)\">{{column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row)}}</span> <ng-template *ngIf=\"getTemplateRef(column.name)\" [ngTemplateOutlet]=\"getTemplateRef(column.name)\" [ngOutletContext]=\"{ value: getCellValue(column, row), row: row, column: column.name }\"> </ng-template> </td> </tr> </table> </div> ",
         changeDetection: ChangeDetectionStrategy.OnPush,
     }),
-    __metadata("design:paramtypes", [ChangeDetectorRef])
+    __param(0, Optional()), __param(0, Inject(DOCUMENT)),
+    __metadata("design:paramtypes", [Object, ChangeDetectorRef])
 ], TdDataTableComponent);
 export { TdDataTableComponent };
 //# sourceMappingURL=data-table.component.js.map

@@ -964,10 +964,16 @@ table[td-data-table] .td-data-table-column {
   table[td-data-table] .td-data-table-column.mat-active md-icon {
     color: black; }
 
-table[td-data-table].mat-selectable tbody > tr.td-data-table-row:not([disabled]):hover {
+table[td-data-table].mat-selectable tbody > tr.td-data-table-row:not([disabled]):not(.mat-selected):focus {
   background-color: rgba(0, 0, 0, 0.04); }
 
 table[td-data-table].mat-selectable tbody > tr.td-data-table-row.mat-selected {
+  background-color: rgba(239, 108, 0, 0.12); }
+
+table[td-data-table].mat-clickable tbody > tr.td-data-table-row:not([disabled]):hover {
+  background-color: rgba(0, 0, 0, 0.04); }
+
+table[td-data-table].mat-clickable tbody > tr.td-data-table-row:not([disabled]):active {
   background-color: rgba(239, 108, 0, 0.12); }
 
 .mat-selected-title {
