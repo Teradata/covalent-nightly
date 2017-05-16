@@ -985,3 +985,15 @@ table[td-data-table].mat-selectable tbody > tr.td-data-table-row.mat-selected {
   .td-notification-count.mat-accent {
     background-color: #ff5722;
     color: white; }
+
+.td-message.mat-primary {
+  color: #455a64;
+  background-color: rgba(69, 90, 100, 0.15); }
+
+.td-message.mat-accent {
+  color: #ff5722;
+  background-color: rgba(255, 87, 34, 0.15); }
+
+.td-message.mat-warn {
+  color: #e53935;
+  background-color: rgba(229, 57, 53, 0.15); }

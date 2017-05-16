@@ -9,6 +9,7 @@ export * from './layout/layout.module';
 export * from './loading/loading.module';
 export * from './media/media.module';
 export * from './menu/menu.module';
+export * from './message/message.module';
 export * from './notifications/notifications.module';
 export * from './paging/paging.module';
 export * from './search/search.module';
