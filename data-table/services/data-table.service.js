@@ -4,7 +4,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-import { Injectable } from '@angular/core';
+import { Injectable, SkipSelf, Optional } from '@angular/core';
 import { TdDataTableSortingOrder } from '../data-table.component';
 var TdDataTableService = (function () {
     function TdDataTableService() {
@@ -86,4 +86,13 @@ TdDataTableService = __decorate([
     Injectable()
 ], TdDataTableService);
 export { TdDataTableService };
+export function DATA_TABLE_PROVIDER_FACTORY(parent) {
+    return parent || new TdDataTableService();
+}
+export var DATA_TABLE_PROVIDER = {
+    // If there is already a service available, use that. Otherwise, provide a new one.
+    provide: TdDataTableService,
+    deps: [[new Optional(), new SkipSelf(), TdDataTableService]],
+    useFactory: DATA_TABLE_PROVIDER_FACTORY,
+};
 //# sourceMappingURL=data-table.service.js.map

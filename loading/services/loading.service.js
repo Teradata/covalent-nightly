@@ -17,7 +17,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Injectable } from '@angular/core';
+import { Injectable, SkipSelf, Optional } from '@angular/core';
 import { LoadingMode, LoadingStrategy, LoadingType } from '../loading.component';
 import { TdLoadingFactory } from './loading.factory';
 var TdLoadingConfig = (function () {
@@ -229,4 +229,13 @@ TdLoadingService = __decorate([
     __metadata("design:paramtypes", [TdLoadingFactory])
 ], TdLoadingService);
 export { TdLoadingService };
+export function LOADING_PROVIDER_FACTORY(parent, loadingFactory) {
+    return parent || new TdLoadingService(loadingFactory);
+}
+export var LOADING_PROVIDER = {
+    // If there is already a service available, use that. Otherwise, provide a new one.
+    provide: TdLoadingService,
+    deps: [[new Optional(), new SkipSelf(), TdLoadingService], TdLoadingFactory],
+    useFactory: LOADING_PROVIDER_FACTORY,
+};
 //# sourceMappingURL=loading.service.js.map

@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable, NgZone, SkipSelf, Optional } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 var TdMediaService = (function () {
     function TdMediaService(_ngZone) {
@@ -102,4 +102,13 @@ TdMediaService = __decorate([
     __metadata("design:paramtypes", [NgZone])
 ], TdMediaService);
 export { TdMediaService };
+export function MEDIA_PROVIDER_FACTORY(parent, ngZone) {
+    return parent || new TdMediaService(ngZone);
+}
+export var MEDIA_PROVIDER = {
+    // If there is already a service available, use that. Otherwise, provide a new one.
+    provide: TdMediaService,
+    deps: [[new Optional(), new SkipSelf(), TdMediaService], NgZone],
+    useFactory: MEDIA_PROVIDER_FACTORY,
+};
 //# sourceMappingURL=media.service.js.map

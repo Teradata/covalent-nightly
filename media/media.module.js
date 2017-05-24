@@ -6,7 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TdMediaService } from './services/media.service';
+import { TdMediaService, MEDIA_PROVIDER } from './services/media.service';
 import { TdMediaToggleDirective } from './directives/media-toggle.directive';
 var TD_MEDIA = [
     TdMediaToggleDirective,
@@ -29,7 +29,7 @@ CovalentMediaModule = __decorate([
             TD_MEDIA,
         ],
         providers: [
-            TdMediaService,
+            MEDIA_PROVIDER,
         ],
     })
 ], CovalentMediaModule);

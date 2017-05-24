@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Injectable, ComponentFactoryResolver } from '@angular/core';
+import { Injectable, ComponentFactoryResolver, SkipSelf, Optional } from '@angular/core';
 import { Injector } from '@angular/core';
 import { TemplatePortal, Overlay, OverlayState, ComponentPortal } from '@angular/material';
 import { Subject } from 'rxjs/Subject';
@@ -184,4 +184,13 @@ TdLoadingFactory = __decorate([
         Injector])
 ], TdLoadingFactory);
 export { TdLoadingFactory };
+export function LOADING_FACTORY_PROVIDER_FACTORY(parent, componentFactoryResolver, overlay, injector) {
+    return parent || new TdLoadingFactory(componentFactoryResolver, overlay, injector);
+}
+export var LOADING_FACTORY_PROVIDER = {
+    // If there is already a service available, use that. Otherwise, provide a new one.
+    provide: TdLoadingFactory,
+    deps: [[new Optional(), new SkipSelf(), TdLoadingFactory], ComponentFactoryResolver, Overlay, Injector],
+    useFactory: LOADING_FACTORY_PROVIDER_FACTORY,
+};
 //# sourceMappingURL=loading.factory.js.map

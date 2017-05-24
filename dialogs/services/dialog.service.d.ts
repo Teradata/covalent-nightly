@@ -1,4 +1,4 @@
-import { ViewContainerRef } from '@angular/core';
+import { ViewContainerRef, Provider } from '@angular/core';
 import { MdDialog, MdDialogRef, MdDialogConfig, ComponentType } from '@angular/material';
 import { TdAlertDialogComponent } from '../alert-dialog/alert-dialog.component';
 import { TdConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
@@ -79,3 +79,5 @@ export declare class TdDialogService {
     openPrompt(config: IPromptConfig): MdDialogRef<TdPromptDialogComponent>;
     private _createConfig(config);
 }
+export declare function DIALOG_PROVIDER_FACTORY(parent: TdDialogService, dialog: MdDialog): TdDialogService;
+export declare const DIALOG_PROVIDER: Provider;

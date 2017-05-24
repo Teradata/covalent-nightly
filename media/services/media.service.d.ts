@@ -1,4 +1,4 @@
-import { NgZone } from '@angular/core';
+import { NgZone, Provider } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 export declare class TdMediaService {
     private _ngZone;
@@ -23,3 +23,5 @@ export declare class TdMediaService {
     private _onResize();
     private _matchMediaTrigger(query);
 }
+export declare function MEDIA_PROVIDER_FACTORY(parent: TdMediaService, ngZone: NgZone): TdMediaService;
+export declare const MEDIA_PROVIDER: Provider;

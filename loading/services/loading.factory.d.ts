@@ -1,4 +1,4 @@
-import { ComponentFactoryResolver } from '@angular/core';
+import { ComponentFactoryResolver, Provider } from '@angular/core';
 import { Injector, ComponentRef, ViewContainerRef, TemplateRef } from '@angular/core';
 import { Overlay } from '@angular/material';
 import { Subject } from 'rxjs/Subject';
@@ -63,3 +63,5 @@ export declare class TdLoadingFactory {
      */
     private _mapOptions(options, instance);
 }
+export declare function LOADING_FACTORY_PROVIDER_FACTORY(parent: TdLoadingFactory, componentFactoryResolver: ComponentFactoryResolver, overlay: Overlay, injector: Injector): TdLoadingFactory;
+export declare const LOADING_FACTORY_PROVIDER: Provider;

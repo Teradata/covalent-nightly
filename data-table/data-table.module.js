@@ -12,8 +12,8 @@ import { TdDataTableColumnComponent } from './data-table-column/data-table-colum
 import { TdDataTableCellComponent } from './data-table-cell/data-table-cell.component';
 import { TdDataTableRowComponent } from './data-table-row/data-table-row.component';
 import { TdDataTableTableComponent } from './data-table-table/data-table-table.component';
-import { TdDataTableService } from './services/data-table.service';
 import { TdDataTableTemplateDirective } from './directives/data-table-template.directive';
+import { DATA_TABLE_PROVIDER } from './services/data-table.service';
 var TD_DATA_TABLE = [
     TdDataTableComponent,
     TdDataTableTemplateDirective,
@@ -49,7 +49,7 @@ CovalentDataTableModule = __decorate([
             TD_DATA_TABLE,
         ],
         providers: [
-            TdDataTableService,
+            DATA_TABLE_PROVIDER,
         ],
     })
 ], CovalentDataTableModule);

@@ -1,3 +1,4 @@
+import { Provider } from '@angular/core';
 import { ViewContainerRef, TemplateRef } from '@angular/core';
 import { TdLoadingContext } from '../directives/loading.directive';
 import { LoadingMode, LoadingStrategy, LoadingType } from '../loading.component';
@@ -113,3 +114,5 @@ export declare class TdLoadingService {
      */
     private _clearTimeout(name);
 }
+export declare function LOADING_PROVIDER_FACTORY(parent: TdLoadingService, loadingFactory: TdLoadingFactory): TdLoadingService;
+export declare const LOADING_PROVIDER: Provider;

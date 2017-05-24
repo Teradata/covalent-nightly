@@ -2349,6 +2349,15 @@ exports.TdDataTableService = (function () {
 exports.TdDataTableService = __decorate$21([
     _angular_core.Injectable()
 ], exports.TdDataTableService);
+function DATA_TABLE_PROVIDER_FACTORY(parent) {
+    return parent || new exports.TdDataTableService();
+}
+var DATA_TABLE_PROVIDER = {
+    // If there is already a service available, use that. Otherwise, provide a new one.
+    provide: exports.TdDataTableService,
+    deps: [[new _angular_core.Optional(), new _angular_core.SkipSelf(), exports.TdDataTableService]],
+    useFactory: DATA_TABLE_PROVIDER_FACTORY,
+};
 
 var __decorate$14 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2385,7 +2394,7 @@ exports.CovalentDataTableModule = __decorate$14([
             TD_DATA_TABLE,
         ],
         providers: [
-            exports.TdDataTableService,
+            DATA_TABLE_PROVIDER,
         ],
     })
 ], exports.CovalentDataTableModule);
@@ -2672,6 +2681,15 @@ exports.TdDialogService = __decorate$27([
     _angular_core.Injectable(),
     __metadata$18("design:paramtypes", [_angular_material.MdDialog])
 ], exports.TdDialogService);
+function DIALOG_PROVIDER_FACTORY(parent, dialog) {
+    return parent || new exports.TdDialogService(dialog);
+}
+var DIALOG_PROVIDER = {
+    // If there is already service available, use that. Otherwise, provide a new one.
+    provide: exports.TdDialogService,
+    deps: [[new _angular_core.Optional(), new _angular_core.SkipSelf(), exports.TdDialogService], _angular_material.MdDialog],
+    useFactory: DIALOG_PROVIDER_FACTORY,
+};
 
 var __decorate$22 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2714,7 +2732,7 @@ exports.CovalentDialogsModule = __decorate$22([
             TD_DIALOGS,
         ],
         providers: [
-            exports.TdDialogService,
+            DIALOG_PROVIDER,
         ],
         entryComponents: [
             TD_DIALOGS_ENTRY_COMPONENTS,
@@ -5052,6 +5070,15 @@ TdLoadingFactory = __decorate$49([
         _angular_material.Overlay,
         _angular_core.Injector])
 ], TdLoadingFactory);
+function LOADING_FACTORY_PROVIDER_FACTORY(parent, componentFactoryResolver, overlay, injector) {
+    return parent || new TdLoadingFactory(componentFactoryResolver, overlay, injector);
+}
+var LOADING_FACTORY_PROVIDER = {
+    // If there is already a service available, use that. Otherwise, provide a new one.
+    provide: TdLoadingFactory,
+    deps: [[new _angular_core.Optional(), new _angular_core.SkipSelf(), TdLoadingFactory], _angular_core.ComponentFactoryResolver, _angular_material.Overlay, _angular_core.Injector],
+    useFactory: LOADING_FACTORY_PROVIDER_FACTORY,
+};
 
 var __extends$3 = (window && window.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -5278,6 +5305,15 @@ exports.TdLoadingService = __decorate$47([
     _angular_core.Injectable(),
     __metadata$32("design:paramtypes", [TdLoadingFactory])
 ], exports.TdLoadingService);
+function LOADING_PROVIDER_FACTORY(parent, loadingFactory) {
+    return parent || new exports.TdLoadingService(loadingFactory);
+}
+var LOADING_PROVIDER = {
+    // If there is already a service available, use that. Otherwise, provide a new one.
+    provide: exports.TdLoadingService,
+    deps: [[new _angular_core.Optional(), new _angular_core.SkipSelf(), exports.TdLoadingService], TdLoadingFactory],
+    useFactory: LOADING_PROVIDER_FACTORY,
+};
 
 var __decorate$50 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5513,8 +5549,8 @@ exports.CovalentLoadingModule = __decorate$46([
             TD_LOADING,
         ],
         providers: [
-            TdLoadingFactory,
-            exports.TdLoadingService,
+            LOADING_FACTORY_PROVIDER,
+            LOADING_PROVIDER,
         ],
         entryComponents: [
             TD_LOADING_ENTRY_COMPONENTS,
@@ -5623,6 +5659,15 @@ exports.TdMediaService = __decorate$52([
     _angular_core.Injectable(),
     __metadata$36("design:paramtypes", [_angular_core.NgZone])
 ], exports.TdMediaService);
+function MEDIA_PROVIDER_FACTORY(parent, ngZone) {
+    return parent || new exports.TdMediaService(ngZone);
+}
+var MEDIA_PROVIDER = {
+    // If there is already a service available, use that. Otherwise, provide a new one.
+    provide: exports.TdMediaService,
+    deps: [[new _angular_core.Optional(), new _angular_core.SkipSelf(), exports.TdMediaService], _angular_core.NgZone],
+    useFactory: MEDIA_PROVIDER_FACTORY,
+};
 
 var __decorate$53 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5785,7 +5830,7 @@ exports.CovalentMediaModule = __decorate$51([
             TD_MEDIA,
         ],
         providers: [
-            exports.TdMediaService,
+            MEDIA_PROVIDER,
         ],
     })
 ], exports.CovalentMediaModule);

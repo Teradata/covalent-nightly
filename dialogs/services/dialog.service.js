@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Injectable } from '@angular/core';
+import { Injectable, SkipSelf, Optional } from '@angular/core';
 import { MdDialog, MdDialogConfig } from '@angular/material';
 import { TdAlertDialogComponent } from '../alert-dialog/alert-dialog.component';
 import { TdConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
@@ -125,4 +125,13 @@ TdDialogService = __decorate([
     __metadata("design:paramtypes", [MdDialog])
 ], TdDialogService);
 export { TdDialogService };
+export function DIALOG_PROVIDER_FACTORY(parent, dialog) {
+    return parent || new TdDialogService(dialog);
+}
+export var DIALOG_PROVIDER = {
+    // If there is already service available, use that. Otherwise, provide a new one.
+    provide: TdDialogService,
+    deps: [[new Optional(), new SkipSelf(), TdDialogService], MdDialog],
+    useFactory: DIALOG_PROVIDER_FACTORY,
+};
 //# sourceMappingURL=dialog.service.js.map
