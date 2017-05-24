@@ -202,7 +202,7 @@ export declare class TdDataTableComponent implements ControlValueAccessor, After
      * emits the onRowClickEvent when a row is clicked
      * if clickable is true and selectable is false then select the row
      */
-    handleRowClick(row: any, event: Event, currentSelected: number): void;
+    handleRowClick(row: any, event: Event): void;
     /**
      * Method handle for sort click event in column headers.
      */
