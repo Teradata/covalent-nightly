@@ -57,7 +57,7 @@ var TdLayoutManageListComponent = (function () {
      * Proxy toggle method to access sidenav from outside (from td-layout template).
      */
     TdLayoutManageListComponent.prototype.toggle = function () {
-        return this._sideNav.toggle();
+        return this._sideNav.toggle(!this._sideNav.opened);
     };
     /**
      * Proxy open method to access sidenav from outside (from td-layout template).

@@ -4026,12 +4026,53 @@ var __metadata$26 = (window && window.__metadata) || function (k, v) {
 };
 exports.TdLayoutComponent = (function () {
     function TdLayoutComponent() {
+        /**
+         * mode?: 'side', 'push' or 'over'
+         *
+         * The mode or styling of the sidenav.
+         * Defaults to "over".
+         * See "MdSidenav" documentation for more info.
+         *
+         * https://github.com/angular/material2/tree/master/src/lib/sidenav
+         */
+        this.mode = 'over';
+        /**
+         * opened?: boolean
+         *
+         * Whether or not the sidenav is opened. Use this binding to open/close the sidenav.
+         * Defaults to "false".
+         *
+         * See "MdSidenav" documentation for more info.
+         *
+         * https://github.com/angular/material2/tree/master/src/lib/sidenav
+         */
+        this.opened = false;
+        /**
+         * sidenavWidth?: string
+         *
+         * Sets the "width" of the sidenav in either "px" or "%" ("%" is not well supported yet as stated in the layout docs)
+         * Defaults to "320px".
+         *
+         * https://github.com/angular/material2/tree/master/src/lib/sidenav
+         */
+        this.sidenavWidth = '320px';
     }
+    Object.defineProperty(TdLayoutComponent.prototype, "disableClose", {
+        /**
+         * Checks if `ESC` should close the sidenav
+         * Should only close it for `push` and `over` modes
+         */
+        get: function () {
+            return this.mode === 'side';
+        },
+        enumerable: true,
+        configurable: true
+    });
     /**
      * Proxy toggle method to access sidenav from outside (from td-layout template).
      */
     TdLayoutComponent.prototype.toggle = function () {
-        return this.sidenav.toggle();
+        return this.sidenav.toggle(!this.sidenav.opened);
     };
     /**
      * Proxy open method to access sidenav from outside (from td-layout template).
@@ -4051,11 +4092,23 @@ __decorate$39([
     _angular_core.ViewChild(_angular_material.MdSidenav),
     __metadata$26("design:type", _angular_material.MdSidenav)
 ], exports.TdLayoutComponent.prototype, "sidenav", void 0);
+__decorate$39([
+    _angular_core.Input('mode'),
+    __metadata$26("design:type", String)
+], exports.TdLayoutComponent.prototype, "mode", void 0);
+__decorate$39([
+    _angular_core.Input('opened'),
+    __metadata$26("design:type", Boolean)
+], exports.TdLayoutComponent.prototype, "opened", void 0);
+__decorate$39([
+    _angular_core.Input('sidenavWidth'),
+    __metadata$26("design:type", String)
+], exports.TdLayoutComponent.prototype, "sidenavWidth", void 0);
 exports.TdLayoutComponent = __decorate$39([
     _angular_core.Component({
         selector: 'td-layout',
         styles: [":host { display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } :host /deep/ > md-sidenav-container > md-sidenav { display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; flex-direction: column; } "],
-        template: "<md-sidenav-container fullscreen> <md-sidenav> <ng-content select=\"td-navigation-drawer\"></ng-content> <ng-content select=\"[td-sidenav-content]\"></ng-content> </md-sidenav> <ng-content></ng-content> </md-sidenav-container> ",
+        template: "<md-sidenav-container fullscreen> <md-sidenav #sidenav class=\"td-layout-sidenav\" [mode]=\"mode\" [opened]=\"opened\" [style.max-width]=\"sidenavWidth\" [disableClose]=\"disableClose\"> <ng-content select=\"td-navigation-drawer\"></ng-content> <ng-content select=\"[td-sidenav-content]\"></ng-content> </md-sidenav> <ng-content></ng-content> </md-sidenav-container> ",
     })
 ], exports.TdLayoutComponent);
 
@@ -4112,7 +4165,7 @@ exports.TdLayoutNavComponent = (function () {
      * If main sidenav is available, it will open the sidenav of the parent [TdLayoutComponent].
      */
     TdLayoutNavComponent.prototype.openMainSidenav = function () {
-        this._layout.open();
+        this._layout.toggle();
     };
     return TdLayoutNavComponent;
 }());
@@ -4241,7 +4294,7 @@ exports.TdLayoutNavListComponent = (function () {
      * Proxy toggle method to access sidenav from outside (from td-layout template).
      */
     TdLayoutNavListComponent.prototype.toggle = function () {
-        return this._sideNav.toggle();
+        return this._sideNav.toggle(!this._sideNav.opened);
     };
     /**
      * Proxy open method to access sidenav from outside (from td-layout template).
@@ -4259,7 +4312,7 @@ exports.TdLayoutNavListComponent = (function () {
      * If main sidenav is available, it will open the sidenav of the parent [TdLayoutComponent].
      */
     TdLayoutNavListComponent.prototype.openMainSidenav = function () {
-        this._layout.open();
+        this._layout.toggle();
     };
     return TdLayoutNavListComponent;
 }());
@@ -4420,7 +4473,7 @@ exports.TdLayoutManageListComponent = (function () {
      * Proxy toggle method to access sidenav from outside (from td-layout template).
      */
     TdLayoutManageListComponent.prototype.toggle = function () {
-        return this._sideNav.toggle();
+        return this._sideNav.toggle(!this._sideNav.opened);
     };
     /**
      * Proxy open method to access sidenav from outside (from td-layout template).

@@ -95,7 +95,7 @@ var TdLayoutNavListComponent = (function () {
      * Proxy toggle method to access sidenav from outside (from td-layout template).
      */
     TdLayoutNavListComponent.prototype.toggle = function () {
-        return this._sideNav.toggle();
+        return this._sideNav.toggle(!this._sideNav.opened);
     };
     /**
      * Proxy open method to access sidenav from outside (from td-layout template).
@@ -113,7 +113,7 @@ var TdLayoutNavListComponent = (function () {
      * If main sidenav is available, it will open the sidenav of the parent [TdLayoutComponent].
      */
     TdLayoutNavListComponent.prototype.openMainSidenav = function () {
-        this._layout.open();
+        this._layout.toggle();
     };
     return TdLayoutNavListComponent;
 }());

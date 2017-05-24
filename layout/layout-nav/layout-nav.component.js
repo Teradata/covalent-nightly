@@ -54,7 +54,7 @@ var TdLayoutNavComponent = (function () {
      * If main sidenav is available, it will open the sidenav of the parent [TdLayoutComponent].
      */
     TdLayoutNavComponent.prototype.openMainSidenav = function () {
-        this._layout.open();
+        this._layout.toggle();
     };
     return TdLayoutNavComponent;
 }());
