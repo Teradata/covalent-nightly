@@ -891,6 +891,7 @@ exports.TdChipsComponent = TdChipsComponent_1 = (function () {
         this._elementRef = _elementRef;
         this._changeDetectorRef = _changeDetectorRef;
         this._document = _document;
+        this._isMousedown = false;
         /**
          * Implemented as part of ControlValueAccessor.
          */
@@ -1042,8 +1043,22 @@ exports.TdChipsComponent = TdChipsComponent_1 = (function () {
      * Listens to host focus event to act on it
      */
     TdChipsComponent.prototype.focusListener = function (event) {
-        this.focus();
+        // should only focus if its not via mousedown to prevent clashing with autocomplete
+        if (!this._isMousedown) {
+            this.focus();
+        }
         event.preventDefault();
+    };
+    /**
+     * Listens to host mousedown event to act on it
+     */
+    TdChipsComponent.prototype.mousedownListener = function (event) {
+        var _this = this;
+        // sets a flag to know if there was a mousedown and then it returns it back to false
+        this._isMousedown = true;
+        rxjs_Observable.Observable.timer().toPromise().then(function () {
+            _this._isMousedown = false;
+        });
     };
     /**
      * If clicking on :host or `td-chips-wrapper`, then we stop the click propagation so the autocomplete
@@ -1053,6 +1068,7 @@ exports.TdChipsComponent = TdChipsComponent_1 = (function () {
         var clickTarget = event.target;
         if (clickTarget === this._elementRef.nativeElement ||
             clickTarget.className.indexOf('td-chips-wrapper') > -1) {
+            this.focus();
             event.preventDefault();
             event.stopPropagation();
         }
@@ -1524,6 +1540,12 @@ __decorate$13([
     __metadata$7("design:paramtypes", [FocusEvent]),
     __metadata$7("design:returntype", void 0)
 ], exports.TdChipsComponent.prototype, "focusListener", null);
+__decorate$13([
+    _angular_core.HostListener('mousedown', ['$event']),
+    __metadata$7("design:type", Function),
+    __metadata$7("design:paramtypes", [FocusEvent]),
+    __metadata$7("design:returntype", void 0)
+], exports.TdChipsComponent.prototype, "mousedownListener", null);
 __decorate$13([
     _angular_core.HostListener('click', ['$event']),
     __metadata$7("design:type", Function),

@@ -16,6 +16,7 @@ export declare class TdChipsComponent implements ControlValueAccessor, DoCheck, 
     private _changeDetectorRef;
     private _document;
     private _outsideClickSubs;
+    private _isMousedown;
     /**
      * Implemented as part of ControlValueAccessor.
      */
@@ -109,6 +110,10 @@ export declare class TdChipsComponent implements ControlValueAccessor, DoCheck, 
      * Listens to host focus event to act on it
      */
     focusListener(event: FocusEvent): void;
+    /**
+     * Listens to host mousedown event to act on it
+     */
+    mousedownListener(event: FocusEvent): void;
     /**
      * If clicking on :host or `td-chips-wrapper`, then we stop the click propagation so the autocomplete
      * doesnt close automatically.
