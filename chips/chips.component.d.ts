@@ -1,4 +1,4 @@
-import { DoCheck, QueryList, OnInit, ElementRef, TemplateRef, ViewContainerRef, ChangeDetectorRef, AfterViewInit, OnDestroy } from '@angular/core';
+import { DoCheck, QueryList, OnInit, ElementRef, TemplateRef, ViewContainerRef, ChangeDetectorRef, AfterViewInit, OnDestroy, Renderer2 } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { ControlValueAccessor, FormControl } from '@angular/forms';
 import { MdChip, MdInputDirective, TemplatePortalDirective, MdOption, MdAutocompleteTrigger } from '@angular/material';
@@ -13,6 +13,7 @@ export declare class TdAutocompleteOptionDirective extends TemplatePortalDirecti
 }
 export declare class TdChipsComponent implements ControlValueAccessor, DoCheck, OnInit, AfterViewInit, OnDestroy {
     private _elementRef;
+    private _renderer;
     private _changeDetectorRef;
     private _document;
     private _outsideClickSubs;
@@ -25,6 +26,7 @@ export declare class TdChipsComponent implements ControlValueAccessor, DoCheck, 
     private _length;
     private _requireMatch;
     private _readOnly;
+    private _color;
     private _chipAddition;
     private _focused;
     private _tabIndex;
@@ -80,6 +82,12 @@ export declare class TdChipsComponent implements ControlValueAccessor, DoCheck, 
      */
     debounce: number;
     /**
+     * color?: 'primary' | 'accent' | 'warn'
+     * Sets the color for the input and focus/selected state of the chips.
+     * Defaults to 'primary'
+     */
+    color: 'primary' | 'accent' | 'warn';
+    /**
      * add?: function
      * Method to be executed when a chip is added.
      * Sends chip value as event.
@@ -105,7 +113,7 @@ export declare class TdChipsComponent implements ControlValueAccessor, DoCheck, 
      * Hostbinding to set the a11y of the TdChipsComponent depending on its state
      */
     readonly tabIndex: number;
-    constructor(_elementRef: ElementRef, _changeDetectorRef: ChangeDetectorRef, _document: any);
+    constructor(_elementRef: ElementRef, _renderer: Renderer2, _changeDetectorRef: ChangeDetectorRef, _document: any);
     /**
      * Listens to host focus event to act on it
      */

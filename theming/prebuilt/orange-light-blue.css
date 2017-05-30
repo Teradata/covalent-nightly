@@ -901,16 +901,33 @@ td-expansion-panel {
 td-chips .mat-basic-chip {
   background: #e0e0e0;
   color: rgba(0, 0, 0, 0.87); }
-  td-chips .mat-basic-chip:focus:not(.td-chip-disabled) {
+  td-chips .mat-basic-chip:focus:not(.td-chip-disabled) md-icon:hover {
+    color: rgba(0, 0, 0, 0.54); }
+  td-chips .mat-basic-chip:focus:not(.td-chip-disabled).mat-primary {
     background: #ef6c00; }
-    td-chips .mat-basic-chip:focus:not(.td-chip-disabled), td-chips .mat-basic-chip:focus:not(.td-chip-disabled) md-icon {
+    td-chips .mat-basic-chip:focus:not(.td-chip-disabled).mat-primary, td-chips .mat-basic-chip:focus:not(.td-chip-disabled).mat-primary md-icon {
       color: white; }
-      td-chips .mat-basic-chip:focus:not(.td-chip-disabled) md-icon:hover, td-chips .mat-basic-chip:focus:not(.td-chip-disabled) md-icon md-icon:hover {
-        color: rgba(0, 0, 0, 0.54); }
+  td-chips .mat-basic-chip:focus:not(.td-chip-disabled).mat-accent {
+    background: #039be5; }
+    td-chips .mat-basic-chip:focus:not(.td-chip-disabled).mat-accent, td-chips .mat-basic-chip:focus:not(.td-chip-disabled).mat-accent md-icon {
+      color: white; }
+  td-chips .mat-basic-chip:focus:not(.td-chip-disabled).mat-warn {
+    background: #e53935; }
+    td-chips .mat-basic-chip:focus:not(.td-chip-disabled).mat-warn, td-chips .mat-basic-chip:focus:not(.td-chip-disabled).mat-warn md-icon {
+      color: white; }
   td-chips .mat-basic-chip md-icon.td-chip-removal {
     color: rgba(0, 0, 0, 0.38); }
     td-chips .mat-basic-chip md-icon.td-chip-removal:hover {
       color: rgba(0, 0, 0, 0.54); }
+
+td-chips.mat-primary .mat-input-underline .mat-input-ripple {
+  background-color: #ef6c00; }
+
+td-chips.mat-accent .mat-input-underline .mat-input-ripple {
+  background-color: #039be5; }
+
+td-chips.mat-warn .mat-input-underline .mat-input-ripple {
+  background-color: #e53935; }
 
 td-file-upload .td-file-upload-cancel md-icon {
   background-color: #fafafa; }
