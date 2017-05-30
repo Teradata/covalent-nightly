@@ -11,9 +11,6 @@ export { TdFadeInOutAnimation } from './animations/fade/fadeInOut.animation';
  */
 import { TdAutoTrimDirective } from './forms/auto-trim/auto-trim.directive';
 export { TdAutoTrimDirective };
-import { TdMinValidator } from './forms/validators/min/min.validator';
-import { TdMaxValidator } from './forms/validators/max/max.validator';
-export { TdMinValidator, TdMaxValidator };
 export { CovalentValidators } from './forms/validators/validators';
 /**
  * PIPES

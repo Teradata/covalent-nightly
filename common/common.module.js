@@ -29,13 +29,7 @@ var TD_FORMS = [
 ];
 export { TdAutoTrimDirective };
 // Validators
-import { TdMinValidator } from './forms/validators/min/min.validator';
-import { TdMaxValidator } from './forms/validators/max/max.validator';
-var TD_VALIDATORS = [
-    TdMinValidator,
-    TdMaxValidator,
-];
-export { TdMinValidator, TdMaxValidator };
+var TD_VALIDATORS = [];
 export { CovalentValidators } from './forms/validators/validators';
 /**
  * PIPES
