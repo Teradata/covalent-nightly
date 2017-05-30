@@ -7869,8 +7869,8 @@ __decorate$67([
 TdStepBodyComponent = __decorate$67([
     _angular_core.Component({
         selector: 'td-step-body',
-        styles: [""],
-        template: "<div layout=\"row\" flex> <ng-content></ng-content> <div flex> <div class=\"td-step-content-wrapper\" [@tdCollapse]=\"!active\"> <div #contentRef [class.td-step-content]=\"contentRef.children.length || contentRef.textContent.trim()\"> <ng-content select=\"[td-step-body-content]\"></ng-content> </div> <div #actionsRef layout=\"row\" [class.td-step-actions]=\"actionsRef.children.length || actionsRef.textContent.trim()\"> <ng-content select=\"[td-step-body-actions]\"></ng-content> </div> </div> <div #summaryRef [@tdCollapse]=\"active || !isComplete()\" [class.td-step-summary]=\"summaryRef.children.length || summaryRef.textContent.trim()\"> <ng-content select=\"[td-step-body-summary]\"></ng-content> </div> </div> </div>",
+        styles: [".td-step-body { overflow-x: hidden; } .td-step-body .td-step-content { overflow-x: auto; } "],
+        template: "<div layout=\"row\" flex> <ng-content></ng-content> <div class=\"td-step-body\" flex> <div class=\"td-step-content-wrapper\" [@tdCollapse]=\"!active\"> <div #contentRef cdkScrollable [class.td-step-content]=\"contentRef.children.length || contentRef.textContent.trim()\"> <ng-content select=\"[td-step-body-content]\"></ng-content> </div> <div #actionsRef layout=\"row\" [class.td-step-actions]=\"actionsRef.children.length || actionsRef.textContent.trim()\"> <ng-content select=\"[td-step-body-actions]\"></ng-content> </div> </div> <div #summaryRef [@tdCollapse]=\"active || !isComplete()\" [class.td-step-summary]=\"summaryRef.children.length || summaryRef.textContent.trim()\"> <ng-content select=\"[td-step-body-summary]\"></ng-content> </div> </div> </div>",
         animations: [
             TdCollapseAnimation(),
         ],
@@ -7905,6 +7905,7 @@ exports.CovalentStepsModule = __decorate$63([
             _angular_material.MdIconModule,
             _angular_material.MdRippleModule,
             _angular_material.PortalModule,
+            _angular_material.ScrollDispatchModule,
             exports.CovalentCommonModule,
         ],
         declarations: [

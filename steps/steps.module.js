@@ -6,7 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MdIconModule, MdRippleModule, PortalModule } from '@angular/material';
+import { MdIconModule, MdRippleModule, PortalModule, ScrollDispatchModule } from '@angular/material';
 import { CovalentCommonModule } from '../common/common.module';
 // Steps
 import { TdStepsComponent } from './steps.component';
@@ -36,6 +36,7 @@ CovalentStepsModule = __decorate([
             MdIconModule,
             MdRippleModule,
             PortalModule,
+            ScrollDispatchModule,
             CovalentCommonModule,
         ],
         declarations: [
