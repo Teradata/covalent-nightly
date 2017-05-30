@@ -907,9 +907,9 @@ td-chips .mat-basic-chip {
       color: white; }
       td-chips .mat-basic-chip:focus:not(.td-chip-disabled) md-icon:hover, td-chips .mat-basic-chip:focus:not(.td-chip-disabled) md-icon md-icon:hover {
         color: rgba(0, 0, 0, 0.54); }
-  td-chips .mat-basic-chip md-icon {
+  td-chips .mat-basic-chip md-icon.td-chip-removal {
     color: rgba(0, 0, 0, 0.38); }
-    td-chips .mat-basic-chip md-icon:hover {
+    td-chips .mat-basic-chip md-icon.td-chip-removal:hover {
       color: rgba(0, 0, 0, 0.54); }
 
 td-file-upload .td-file-upload-cancel md-icon {

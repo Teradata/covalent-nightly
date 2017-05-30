@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/animations/browser'), require('@angular/animations'), require('@angular/router'), require('@angular/material'), require('rxjs/Observable'), require('rxjs/Subject'), require('rxjs/add/observable/timer'), require('rxjs/add/operator/debounceTime'), require('@angular/platform-browser'), require('@angular/http'), require('rxjs/add/operator/skip')) :
-    typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/animations/browser', '@angular/animations', '@angular/router', '@angular/material', 'rxjs/Observable', 'rxjs/Subject', 'rxjs/add/observable/timer', 'rxjs/add/operator/debounceTime', '@angular/platform-browser', '@angular/http', 'rxjs/add/operator/skip'], factory) :
-    (factory((global.td = global.td || {}, global.td.core = global.td.core || {}),global.ng.core,global.ng.common,global.ng.forms,global.ng.animations.browser,global.ng.animations,global.ng.router,global.ng.material,global.Rx,global.Rx,global.Rx.Observable,global.Rx.Observable.prototype,global.ng.platformBrowser,global.ng.http,global.Rx.Observable.prototype));
-}(this, (function (exports,_angular_core,_angular_common,_angular_forms,_angular_animations_browser,_angular_animations,_angular_router,_angular_material,rxjs_Observable,rxjs_Subject,rxjs_add_observable_timer,rxjs_add_operator_debounceTime,_angular_platformBrowser,_angular_http,rxjs_add_operator_skip) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/animations/browser'), require('@angular/animations'), require('@angular/router'), require('@angular/material'), require('@angular/platform-browser'), require('rxjs/Observable'), require('rxjs/add/observable/timer'), require('rxjs/add/operator/toPromise'), require('rxjs/add/operator/debounceTime'), require('@angular/http'), require('rxjs/Subject'), require('rxjs/add/operator/skip')) :
+    typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/animations/browser', '@angular/animations', '@angular/router', '@angular/material', '@angular/platform-browser', 'rxjs/Observable', 'rxjs/add/observable/timer', 'rxjs/add/operator/toPromise', 'rxjs/add/operator/debounceTime', '@angular/http', 'rxjs/Subject', 'rxjs/add/operator/skip'], factory) :
+    (factory((global.td = global.td || {}, global.td.core = global.td.core || {}),global.ng.core,global.ng.common,global.ng.forms,global.ng.animations.browser,global.ng.animations,global.ng.router,global.ng.material,global.ng.platformBrowser,global.Rx,global.Rx.Observable,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.ng.http,global.Rx,global.Rx.Observable.prototype));
+}(this, (function (exports,_angular_core,_angular_common,_angular_forms,_angular_animations_browser,_angular_animations,_angular_router,_angular_material,_angular_platformBrowser,rxjs_Observable,rxjs_add_observable_timer,rxjs_add_operator_toPromise,rxjs_add_operator_debounceTime,_angular_http,rxjs_Subject,rxjs_add_operator_skip) { 'use strict';
 
 var __decorate$1 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -835,6 +835,16 @@ exports.CovalentCommonModule = __decorate([
     })
 ], exports.CovalentCommonModule);
 
+var __extends = (window && window.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate$13 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -844,16 +854,43 @@ var __decorate$13 = (window && window.__decorate) || function (decorators, targe
 var __metadata$7 = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param$2 = (window && window.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 var noop = function () {
     // empty method
 };
-var TD_CHIPS_CONTROL_VALUE_ACCESSOR = {
-    provide: _angular_forms.NG_VALUE_ACCESSOR,
-    useExisting: _angular_core.forwardRef(function () { return exports.TdChipsComponent; }),
-    multi: true,
-};
-exports.TdChipsComponent = (function () {
-    function TdChipsComponent() {
+exports.TdBasicChipDirective = (function (_super) {
+    __extends(TdBasicChipDirective, _super);
+    function TdBasicChipDirective(templateRef, viewContainerRef) {
+        return _super.call(this, templateRef, viewContainerRef) || this;
+    }
+    return TdBasicChipDirective;
+}(_angular_material.TemplatePortalDirective));
+exports.TdBasicChipDirective = __decorate$13([
+    _angular_core.Directive({
+        selector: '[td-basic-chip]ng-template',
+    }),
+    __metadata$7("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
+], exports.TdBasicChipDirective);
+exports.TdAutocompleteOptionDirective = (function (_super) {
+    __extends(TdAutocompleteOptionDirective, _super);
+    function TdAutocompleteOptionDirective(templateRef, viewContainerRef) {
+        return _super.call(this, templateRef, viewContainerRef) || this;
+    }
+    return TdAutocompleteOptionDirective;
+}(_angular_material.TemplatePortalDirective));
+exports.TdAutocompleteOptionDirective = __decorate$13([
+    _angular_core.Directive({
+        selector: '[td-autocomplete-option]ng-template',
+    }),
+    __metadata$7("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
+], exports.TdAutocompleteOptionDirective);
+exports.TdChipsComponent = TdChipsComponent_1 = (function () {
+    function TdChipsComponent(_elementRef, _changeDetectorRef, _document) {
+        this._elementRef = _elementRef;
+        this._changeDetectorRef = _changeDetectorRef;
+        this._document = _document;
         /**
          * Implemented as part of ControlValueAccessor.
          */
@@ -862,54 +899,72 @@ exports.TdChipsComponent = (function () {
         this._requireMatch = false;
         this._readOnly = false;
         this._chipAddition = true;
-        /**
-         * Boolean value that specifies if the input is valid against the provieded list.
-         */
-        this.matches = true;
-        /**
-         * Flag that is true when autocomplete is focused.
-         */
-        this.focused = false;
+        this._focused = false;
+        this._tabIndex = 0;
+        this._internalClick = false;
         /**
          * FormControl for the mdInput element.
          */
         this.inputControl = new _angular_forms.FormControl();
         /**
-         * Subject to control what items to render in the autocomplete
+         * debounce?: number
+         * Debounce timeout between keypresses. Defaults to 200.
          */
-        this.subject = new rxjs_Subject.Subject();
-        /**
-         * Observable of items to render in the autocomplete
-         */
-        this.filteredItems = this.subject.asObservable();
-        /**
-         * items?: string[]
-         * Enables Autocompletion with the provided list of strings.
-         */
-        this.items = [];
+        this.debounce = 200;
         /**
          * add?: function
-         * Method to be executed when string is added as chip through the autocomplete.
+         * Method to be executed when a chip is added.
          * Sends chip value as event.
          */
-        this.add = new _angular_core.EventEmitter();
+        this.onAdd = new _angular_core.EventEmitter();
         /**
          * remove?: function
-         * Method to be executed when string is removed as chip with the "remove" button.
+         * Method to be executed when a chip is removed.
          * Sends chip value as event.
          */
-        this.remove = new _angular_core.EventEmitter();
+        this.onRemove = new _angular_core.EventEmitter();
+        /**
+         * inputChange?: function
+         * Method to be executed when the value in the autocomplete input changes.
+         * Sends string value as event.
+         */
+        this.onInputChange = new _angular_core.EventEmitter();
         this.onChange = function (_) { return noop; };
         this.onTouched = function () { return noop; };
     }
+    Object.defineProperty(TdChipsComponent.prototype, "focused", {
+        /**
+         * Flag that is true when autocomplete is focused.
+         */
+        get: function () {
+            return this._focused;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TdChipsComponent.prototype, "items", {
+        get: function () {
+            return this._items;
+        },
+        /**
+         * items?: any[]
+         * Renders the `md-autocomplete` with the provided list to display as options.
+         */
+        set: function (items) {
+            this._items = items;
+            this._setFirstOptionActive();
+            this._changeDetectorRef.markForCheck();
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(TdChipsComponent.prototype, "requireMatch", {
         get: function () {
             return this._requireMatch;
         },
         /**
          * requireMatch?: boolean
-         * Validates input against the provided list before adding it to the model.
-         * If it doesnt exist, it cancels the event.
+         * Blocks custom inputs and only allows selections from the autocomplete list.
          */
         set: function (requireMatch) {
             this._requireMatch = requireMatch !== '' ? (requireMatch === 'true' || requireMatch === true) : true;
@@ -938,8 +993,8 @@ exports.TdChipsComponent = (function () {
         },
         /**
          * chipAddition?: boolean
-         * Disables the ability to add chips. If it doesn't exist chip addition defaults to true.
-         * When setting readOnly as true, this will be overriden.
+         * Disables the ability to add chips. When setting readOnly as true, this will be overriden.
+         * Defaults to true.
          */
         set: function (chipAddition) {
             this._chipAddition = chipAddition;
@@ -968,26 +1023,71 @@ exports.TdChipsComponent = (function () {
             if (v !== this._value) {
                 this._value = v;
                 this._length = this._value ? this._value.length : 0;
-                if (this._value) {
-                    this._filter(this.inputControl.value);
-                }
             }
         },
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(TdChipsComponent.prototype, "tabIndex", {
+        /**
+         * Hostbinding to set the a11y of the TdChipsComponent depending on its state
+         */
+        get: function () {
+            return this.readOnly ? -1 : this._tabIndex;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * Listens to host focus event to act on it
+     */
+    TdChipsComponent.prototype.focusListener = function (event) {
+        this.focus();
+        event.preventDefault();
+    };
+    /**
+     * If clicking on :host or `td-chips-wrapper`, then we stop the click propagation so the autocomplete
+     * doesnt close automatically.
+     */
+    TdChipsComponent.prototype.clickListener = function (event) {
+        var clickTarget = event.target;
+        if (clickTarget === this._elementRef.nativeElement ||
+            clickTarget.className.indexOf('td-chips-wrapper') > -1) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    };
+    /**
+     * Listens to host keydown event to act on it depending on the keypress
+     */
+    TdChipsComponent.prototype.keydownListener = function (event) {
+        var _this = this;
+        switch (event.keyCode) {
+            case _angular_material.TAB:
+                // if tabing out, then unfocus the component
+                rxjs_Observable.Observable.timer().toPromise().then(function () {
+                    _this.removeFocusedState();
+                });
+                break;
+            case _angular_material.ESCAPE:
+            case _angular_material.HOME:
+                this.focus();
+                break;
+            default:
+        }
+    };
     TdChipsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.inputControl.valueChanges
-            .debounceTime(100)
+            .debounceTime(this.debounce)
             .subscribe(function (value) {
-            _this.matches = true;
-            _this._filter(value);
+            _this.onInputChange.emit(value ? value : '');
         });
-        // filter the autocomplete options after everything is rendered
-        rxjs_Observable.Observable.timer().subscribe(function () {
-            _this._filter(_this.inputControl.value);
-        });
+        this._changeDetectorRef.markForCheck();
+    };
+    TdChipsComponent.prototype.ngAfterViewInit = function () {
+        this._watchOutsideClick();
+        this._changeDetectorRef.markForCheck();
     };
     TdChipsComponent.prototype.ngDoCheck = function () {
         // Throw onChange event only if array changes size.
@@ -996,67 +1096,136 @@ exports.TdChipsComponent = (function () {
             this.onChange(this._value);
         }
     };
-    /**
-     * Returns a list of filtered items.
-     */
-    TdChipsComponent.prototype.filter = function (val) {
-        return this.items.filter(function (item) {
-            return val ? item.indexOf(val) > -1 : true;
-        });
+    TdChipsComponent.prototype.ngOnDestroy = function () {
+        if (this._outsideClickSubs) {
+            this._outsideClickSubs.unsubscribe();
+            this._outsideClickSubs = undefined;
+        }
     };
     /**
      * Method that is executed when trying to create a new chip from the autocomplete.
+     * It check if [requireMatch] is enabled, and tries to add the first active option
+     * else if just adds the value thats on the input
      * returns 'true' if successful, 'false' if it fails.
      */
-    TdChipsComponent.prototype.addChip = function (value) {
-        if (value.trim() === '' || this._value.indexOf(value) > -1) {
-            this.matches = false;
-            return false;
-        }
-        if (this.items && this.requireMatch) {
-            if (this.items.indexOf(value) < 0) {
-                this.matches = false;
+    TdChipsComponent.prototype._handleAddChip = function () {
+        var value;
+        if (this.requireMatch) {
+            var selectedOptions = this._options.toArray().filter(function (option) {
+                return option.active;
+            });
+            if (selectedOptions.length > 0) {
+                value = selectedOptions[0].value;
+                selectedOptions[0].setInactiveStyles();
+            }
+            if (!value) {
                 return false;
             }
         }
-        this._value.push(value);
-        this.add.emit(value);
-        this.onChange(this._value);
+        else {
+            // if there is a selection, then use that
+            // else use the input value as chip
+            if (this._autocompleteTrigger.activeOption) {
+                value = this._autocompleteTrigger.activeOption.value;
+                this._autocompleteTrigger.activeOption.setInactiveStyles();
+            }
+            else {
+                value = this._inputChild.value;
+                if (value.trim() === '') {
+                    return false;
+                }
+            }
+        }
+        return this.addChip(value);
+    };
+    /**
+     * Method thats exectuted when trying to add a value as chip
+     * returns 'true' if successful, 'false' if it fails.
+     */
+    TdChipsComponent.prototype.addChip = function (value) {
+        var _this = this;
         this.inputControl.setValue('');
-        this.matches = true;
+        // check if value is already part of the model
+        if (this._value.indexOf(value) > -1) {
+            return false;
+        }
+        this._value.push(value);
+        this.onAdd.emit(value);
+        this.onChange(this._value);
+        this._changeDetectorRef.markForCheck();
+        /**
+         * add a 200 ms delay when reopening the autocomplete to give it time
+         * to rerender the next list and at the correct spot
+         */
+        this._closeAutocomplete();
+        rxjs_Observable.Observable.timer(200).toPromise().then(function () {
+            _this.setFocusedState();
+            _this._setFirstOptionActive();
+            _this._openAutocomplete();
+        });
         return true;
     };
     /**
      * Method that is executed when trying to remove a chip.
      * returns 'true' if successful, 'false' if it fails.
      */
-    TdChipsComponent.prototype.removeChip = function (value) {
-        var index = this._value.indexOf(value);
-        if (index < 0) {
+    TdChipsComponent.prototype.removeChip = function (index) {
+        var removedValues = this._value.splice(index, 1);
+        if (removedValues.length === 0) {
             return false;
         }
-        this._value.splice(index, 1);
-        this.remove.emit(value);
+        /**
+         * Checks if deleting last single chip, to focus input afterwards
+         * Else check if its not the last chip of the list to focus the next one.
+         */
+        if (index === (this._totalChips - 1) && index === 0) {
+            this._inputChild.focus();
+        }
+        else if (index < (this._totalChips - 1)) {
+            this._focusChip(index + 1);
+        }
+        else if (index > 0) {
+            this._focusChip(index - 1);
+        }
+        this.onRemove.emit(removedValues[0]);
         this.onChange(this._value);
         this.inputControl.setValue('');
+        this._changeDetectorRef.markForCheck();
         return true;
     };
-    TdChipsComponent.prototype.handleFocus = function () {
-        this.focused = true;
-        return true;
-    };
-    TdChipsComponent.prototype.handleBlur = function () {
-        this.focused = false;
-        this.matches = true;
-        this.onTouched();
+    TdChipsComponent.prototype._handleFocus = function () {
+        this.setFocusedState();
+        this._setFirstOptionActive();
         return true;
     };
     /**
-     * Programmatically focus the input. Since its the component entry point
+     * Sets focus state of the component
+     */
+    TdChipsComponent.prototype.setFocusedState = function () {
+        if (!this.readOnly) {
+            this._focused = true;
+            this._tabIndex = -1;
+            this._changeDetectorRef.markForCheck();
+        }
+    };
+    /**
+     * Removes focus state of the component
+     */
+    TdChipsComponent.prototype.removeFocusedState = function () {
+        this._focused = false;
+        this._tabIndex = 0;
+        this._changeDetectorRef.markForCheck();
+    };
+    /**
+     * Programmatically focus the input or first chip. Since its the component entry point
+     * depending if a user can add or remove chips
      */
     TdChipsComponent.prototype.focus = function () {
         if (this.canAddChip) {
             this._inputChild.focus();
+        }
+        else if (!this.readOnly) {
+            this._focusFirstChip();
         }
     };
     /**
@@ -1064,9 +1233,23 @@ exports.TdChipsComponent = (function () {
      */
     TdChipsComponent.prototype._inputKeydown = function (event) {
         switch (event.keyCode) {
+            case _angular_material.UP_ARROW:
+                /**
+                 * Since the first item is highlighted on [requireMatch], we need to inactivate it
+                 * when pressing the up key
+                 */
+                if (this.requireMatch) {
+                    var length_1 = this._options.length;
+                    if (length_1 > 0 && this._options.toArray()[0].active) {
+                        this._options.toArray()[0].setInactiveStyles();
+                        event.preventDefault();
+                    }
+                }
+                break;
             case _angular_material.LEFT_ARROW:
             case _angular_material.DELETE:
             case _angular_material.BACKSPACE:
+                this._closeAutocomplete();
                 /** Check to see if input is empty when pressing left arrow to move to the last chip */
                 if (!this._inputChild.value) {
                     this._focusLastChip();
@@ -1074,6 +1257,7 @@ exports.TdChipsComponent = (function () {
                 }
                 break;
             case _angular_material.RIGHT_ARROW:
+                this._closeAutocomplete();
                 /** Check to see if input is empty when pressing right arrow to move to the first chip */
                 if (!this._inputChild.value) {
                     this._focusFirstChip();
@@ -1092,17 +1276,7 @@ exports.TdChipsComponent = (function () {
             case _angular_material.BACKSPACE:
                 /** Check to see if not in [readOnly] state to delete a chip */
                 if (!this.readOnly) {
-                    /**
-                     * Checks if deleting last single chip, to focus input afterwards
-                     * Else check if its not the last chip of the list to focus the next one.
-                     */
-                    if (index === (this._totalChips - 1) && index === 0) {
-                        this.focus();
-                    }
-                    else if (index < (this._totalChips - 1)) {
-                        this._focusChip(index + 1);
-                    }
-                    this.removeChip(this.value[index]);
+                    this.removeChip(index);
                 }
                 break;
             case _angular_material.LEFT_ARROW:
@@ -1110,25 +1284,62 @@ exports.TdChipsComponent = (function () {
                  * Check to see if left arrow was pressed while focusing the first chip to focus input next
                  * Also check if input should be focused
                  */
-                if (index === 0 && this.canAddChip) {
-                    this.focus();
-                    event.stopPropagation();
+                if (index === 0) {
+                    if (this.canAddChip) {
+                        this._inputChild.focus();
+                    }
+                    else {
+                        this._focusLastChip();
+                    }
                 }
+                else if (index > 0) {
+                    this._focusChip(index - 1);
+                }
+                event.stopPropagation();
                 break;
             case _angular_material.RIGHT_ARROW:
                 /**
                  * Check to see if right arrow was pressed while focusing the last chip to focus input next
                  * Also check if input should be focused
                  */
-                if (index === (this._totalChips - 1) && this.canAddChip) {
-                    this.focus();
-                    event.stopPropagation();
+                if (index === (this._totalChips - 1)) {
+                    if (this.canAddChip) {
+                        this._inputChild.focus();
+                    }
+                    else {
+                        this._focusFirstChip();
+                    }
                 }
-                break;
-            case _angular_material.ESCAPE:
-                this.focus();
+                else if (index < (this._totalChips - 1)) {
+                    this._focusChip(index + 1);
+                }
+                event.stopPropagation();
                 break;
             default:
+        }
+    };
+    /**
+     * Method to remove from display the value added from the autocomplete since it goes directly as chip.
+     */
+    TdChipsComponent.prototype._removeInputDisplay = function () {
+        return '';
+    };
+    /**
+     * Method to open the autocomplete manually if its not already opened
+     */
+    TdChipsComponent.prototype._openAutocomplete = function () {
+        if (!this._autocompleteTrigger.panelOpen) {
+            this._autocompleteTrigger.openPanel();
+            this._changeDetectorRef.markForCheck();
+        }
+    };
+    /**
+     * Method to close the autocomplete manually if its not already closed
+     */
+    TdChipsComponent.prototype._closeAutocomplete = function () {
+        if (this._autocompleteTrigger.panelOpen) {
+            this._autocompleteTrigger.closePanel();
+            this._changeDetectorRef.markForCheck();
         }
     };
     /**
@@ -1142,18 +1353,6 @@ exports.TdChipsComponent = (function () {
     };
     TdChipsComponent.prototype.registerOnTouched = function (fn) {
         this.onTouched = fn;
-    };
-    /**
-     *
-     * Method to filter the options for the autocomplete
-     */
-    TdChipsComponent.prototype._filter = function (value) {
-        var _this = this;
-        var items = this.filter(value);
-        items = items.filter(function (filteredItem) {
-            return _this._value && filteredItem ? _this._value.indexOf(filteredItem) < 0 : true;
-        });
-        this.subject.next(items);
     };
     Object.defineProperty(TdChipsComponent.prototype, "_totalChips", {
         /**
@@ -1194,6 +1393,54 @@ exports.TdChipsComponent = (function () {
         else {
             this.inputControl.disable();
         }
+        this._changeDetectorRef.markForCheck();
+    };
+    /**
+     * Sets first option as active to let the user know which one will be added when pressing enter
+     * Only if [requireMatch] has been set
+     */
+    TdChipsComponent.prototype._setFirstOptionActive = function () {
+        var _this = this;
+        if (this.requireMatch) {
+            // need to use a timer here to wait until the autocomplete has been opened (end of queue)
+            rxjs_Observable.Observable.timer().toPromise().then(function () {
+                if (_this.focused && _this._options && _this._options.length > 0) {
+                    // clean up of previously active options
+                    _this._options.toArray().forEach(function (option) {
+                        option.setInactiveStyles();
+                    });
+                    // set the first one as active
+                    _this._options.toArray()[0].setActiveStyles();
+                    _this._changeDetectorRef.markForCheck();
+                }
+            });
+        }
+    };
+    /**
+     * Watches clicks outside of the component to remove the focus
+     * The autocomplete panel is considered inside the component so we
+     * need to use a flag to find out when its clicked.
+     */
+    TdChipsComponent.prototype._watchOutsideClick = function () {
+        var _this = this;
+        if (this._document) {
+            this._outsideClickSubs = rxjs_Observable.Observable.fromEvent(this._document, 'click').filter(function (event) {
+                var clickTarget = event.target;
+                setTimeout(function () {
+                    _this._internalClick = false;
+                });
+                return _this.focused &&
+                    (clickTarget !== _this._elementRef.nativeElement) &&
+                    !_this._elementRef.nativeElement.contains(clickTarget) && !_this._internalClick;
+            }).subscribe(function () {
+                if (_this.focused) {
+                    _this.removeFocusedState();
+                    _this.onTouched();
+                    _this._changeDetectorRef.markForCheck();
+                }
+            });
+        }
+        return undefined;
     };
     return TdChipsComponent;
 }());
@@ -1202,13 +1449,30 @@ __decorate$13([
     __metadata$7("design:type", _angular_material.MdInputDirective)
 ], exports.TdChipsComponent.prototype, "_inputChild", void 0);
 __decorate$13([
+    _angular_core.ViewChild(_angular_material.MdAutocompleteTrigger),
+    __metadata$7("design:type", _angular_material.MdAutocompleteTrigger)
+], exports.TdChipsComponent.prototype, "_autocompleteTrigger", void 0);
+__decorate$13([
     _angular_core.ViewChildren(_angular_material.MdChip),
     __metadata$7("design:type", _angular_core.QueryList)
 ], exports.TdChipsComponent.prototype, "_chipsChildren", void 0);
 __decorate$13([
+    _angular_core.ContentChild(exports.TdBasicChipDirective),
+    __metadata$7("design:type", exports.TdBasicChipDirective)
+], exports.TdChipsComponent.prototype, "_basicChipTemplate", void 0);
+__decorate$13([
+    _angular_core.ContentChild(exports.TdAutocompleteOptionDirective),
+    __metadata$7("design:type", exports.TdAutocompleteOptionDirective)
+], exports.TdChipsComponent.prototype, "_autocompleteOptionTemplate", void 0);
+__decorate$13([
+    _angular_core.ViewChildren(_angular_material.MdOption),
+    __metadata$7("design:type", _angular_core.QueryList)
+], exports.TdChipsComponent.prototype, "_options", void 0);
+__decorate$13([
     _angular_core.Input('items'),
-    __metadata$7("design:type", Array)
-], exports.TdChipsComponent.prototype, "items", void 0);
+    __metadata$7("design:type", Array),
+    __metadata$7("design:paramtypes", [Array])
+], exports.TdChipsComponent.prototype, "items", null);
 __decorate$13([
     _angular_core.Input('requireMatch'),
     __metadata$7("design:type", Object),
@@ -1229,26 +1493,66 @@ __decorate$13([
     __metadata$7("design:type", String)
 ], exports.TdChipsComponent.prototype, "placeholder", void 0);
 __decorate$13([
+    _angular_core.Input('debounce'),
+    __metadata$7("design:type", Number)
+], exports.TdChipsComponent.prototype, "debounce", void 0);
+__decorate$13([
     _angular_core.Output('add'),
     __metadata$7("design:type", _angular_core.EventEmitter)
-], exports.TdChipsComponent.prototype, "add", void 0);
+], exports.TdChipsComponent.prototype, "onAdd", void 0);
 __decorate$13([
     _angular_core.Output('remove'),
     __metadata$7("design:type", _angular_core.EventEmitter)
-], exports.TdChipsComponent.prototype, "remove", void 0);
+], exports.TdChipsComponent.prototype, "onRemove", void 0);
+__decorate$13([
+    _angular_core.Output('inputChange'),
+    __metadata$7("design:type", _angular_core.EventEmitter)
+], exports.TdChipsComponent.prototype, "onInputChange", void 0);
 __decorate$13([
     _angular_core.Input(),
     __metadata$7("design:type", Object),
     __metadata$7("design:paramtypes", [Object])
 ], exports.TdChipsComponent.prototype, "value", null);
-exports.TdChipsComponent = __decorate$13([
+__decorate$13([
+    _angular_core.HostBinding('attr.tabindex'),
+    __metadata$7("design:type", Number),
+    __metadata$7("design:paramtypes", [])
+], exports.TdChipsComponent.prototype, "tabIndex", null);
+__decorate$13([
+    _angular_core.HostListener('focus', ['$event']),
+    __metadata$7("design:type", Function),
+    __metadata$7("design:paramtypes", [FocusEvent]),
+    __metadata$7("design:returntype", void 0)
+], exports.TdChipsComponent.prototype, "focusListener", null);
+__decorate$13([
+    _angular_core.HostListener('click', ['$event']),
+    __metadata$7("design:type", Function),
+    __metadata$7("design:paramtypes", [Event]),
+    __metadata$7("design:returntype", void 0)
+], exports.TdChipsComponent.prototype, "clickListener", null);
+__decorate$13([
+    _angular_core.HostListener('keydown', ['$event']),
+    __metadata$7("design:type", Function),
+    __metadata$7("design:paramtypes", [KeyboardEvent]),
+    __metadata$7("design:returntype", void 0)
+], exports.TdChipsComponent.prototype, "keydownListener", null);
+exports.TdChipsComponent = TdChipsComponent_1 = __decorate$13([
     _angular_core.Component({
-        providers: [TD_CHIPS_CONTROL_VALUE_ACCESSOR],
+        providers: [{
+                provide: _angular_forms.NG_VALUE_ACCESSOR,
+                useExisting: _angular_core.forwardRef(function () { return TdChipsComponent_1; }),
+                multi: true,
+            }],
         selector: 'td-chips',
-        styles: ["/** * Mixin that creates a new stacking context. * see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context */ :host { display: block; padding: 0px 5px 0px 5px; } :host /deep/ .mat-input-wrapper { margin-bottom: 2px; } :host /deep/ .mat-basic-chip { display: inline-block; cursor: default; border-radius: 16px; line-height: 32px; margin: 8px 8px 0 0; padding: 0 12px; box-sizing: border-box; max-width: 100%; position: relative; } html[dir=rtl] :host /deep/ .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } :host /deep/ .mat-basic-chip bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip md-icon { position: relative; top: 5px; left: 5px; right: auto; height: 18px; width: 18px; font-size: 19px; } html[dir=rtl] :host /deep/ .mat-basic-chip md-icon { left: auto; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip md-icon { left: auto; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip md-icon { left: auto; unicode-bidi: embed; } :host /deep/ .mat-basic-chip md-icon bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip md-icon bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host /deep/ .mat-basic-chip md-icon { right: 5px; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip md-icon { right: 5px; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip md-icon { right: 5px; unicode-bidi: embed; } :host /deep/ .mat-basic-chip md-icon bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip md-icon bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip md-icon:hover { cursor: pointer; } .mat-input-underline { position: relative; height: 1px; width: 100%; } .mat-input-underline.mat-disabled { border-top: 0; background-position: 0; background-size: 4px 1px; background-repeat: repeat-x; } .mat-input-underline .mat-input-ripple { position: absolute; height: 2px; z-index: 1; top: -1px; width: 100%; transform-origin: top; opacity: 0; transform: scaleY(0); } .mat-input-underline .mat-input-ripple.mat-warn { opacity: 1; transform: scaleY(1); } .mat-input-underline .mat-input-ripple.mat-focused { opacity: 1; transform: scaleY(1); } :host /deep/ md-input-container input::-webkit-calendar-picker-indicator { display: none; } :host /deep/ md-input-container .mat-input-underline { display: none; } "],
-        template: "<div flex> <md-chip-list [tabIndex]=\"-1\" (focus)=\"focus()\"> <ng-template let-chip let-index=\"index\" ngFor [ngForOf]=\"value\"> <md-basic-chip [class.td-chip-disabled]=\"readOnly\" (keydown)=\"_chipKeydown($event, index)\"> <span>{{chip}}</span> <md-icon *ngIf=\"!readOnly\" (click)=\"removeChip(chip)\"> cancel </md-icon> </md-basic-chip> </ng-template> <md-input-container floatPlaceholder=\"never\" [style.width.px]=\"canAddChip ? null : 0\" [color]=\"matches ? 'primary' : 'warn'\"> <input mdInput flex=\"100\"  #input [mdAutocomplete]=\"autocomplete\" [formControl]=\"inputControl\" [placeholder]=\"canAddChip? placeholder : ''\" (keydown)=\"_inputKeydown($event)\" (keyup.enter)=\"addChip(input.value)\" (focus)=\"handleFocus()\" (blur)=\"handleBlur()\"> </md-input-container> <md-autocomplete #autocomplete=\"mdAutocomplete\"> <ng-template let-item ngFor [ngForOf]=\"filteredItems | async\"> <md-option (click)=\"addChip(item)\" [value]=\"item\">{{item}}</md-option> </ng-template> </md-autocomplete> </md-chip-list> <div *ngIf=\"chipAddition\" class=\"mat-input-underline\" [class.mat-disabled]=\"readOnly\"> <span class=\"mat-input-ripple\" [class.mat-focused]=\"focused\" [class.mat-warn]=\"!matches\"></span> </div> </div> ",
-    })
+        styles: ["/** * Mixin that creates a new stacking context. * see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context */ :host { display: block; padding: 0px 5px 0px 5px; } :host .td-chips-wrapper { display: flex; flex-direction: row; flex-wrap: wrap; align-items: flex-start; } :host /deep/ { /* TODO see if we can make styles more abstract to future proof for contact chips */ } :host /deep/ .mat-input-wrapper { margin-bottom: 2px; } :host /deep/ .mat-basic-chip { display: inline-block; cursor: default; border-radius: 16px; margin: 8px 8px 0 0; box-sizing: border-box; max-width: 100%; position: relative; } html[dir=rtl] :host /deep/ .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } :host /deep/ .mat-basic-chip bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip .td-basic-chip { min-height: 30px; font-size: 14px; padding: 0 0 0 12px; } html[dir=rtl] :host /deep/ .mat-basic-chip .td-basic-chip { padding: 0 12px 0 0; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip .td-basic-chip { padding: 0 12px 0 0; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip .td-basic-chip { padding: 0 12px 0 0; unicode-bidi: embed; } :host /deep/ .mat-basic-chip .td-basic-chip bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip .td-basic-chip bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip.td-chip-disabled { padding: 0 12px 0 0; } html[dir=rtl] :host /deep/ .mat-basic-chip.td-chip-disabled { padding: 0 0 0 12px; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip.td-chip-disabled { padding: 0 0 0 12px; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip.td-chip-disabled { padding: 0 0 0 12px; unicode-bidi: embed; } :host /deep/ .mat-basic-chip.td-chip-disabled bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip.td-chip-disabled bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip md-icon.td-chip-removal { margin: 0 4px; font-size: 21px; } :host /deep/ .mat-basic-chip md-icon.td-chip-removal:hover { cursor: pointer; } :host .mat-input-underline { position: relative; height: 1px; width: 100%; margin-top: 4px; border-top-width: 1px; border-top-style: solid; } :host .mat-input-underline.mat-disabled { border-top: 0; background-position: 0; background-size: 4px 1px; background-repeat: repeat-x; } :host .mat-input-underline .mat-input-ripple { position: absolute; height: 2px; z-index: 1; top: -1px; width: 100%; transform-origin: 50%; transform: scaleX(0.5); visibility: hidden; transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); } :host .mat-input-underline .mat-input-ripple.mat-focused { visibility: visible; transform: scaleX(1); transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); } :host /deep/ md-input-container .mat-input-underline { display: none; } "],
+        template: "<div class=\"td-chips-wrapper\"> <ng-template let-chip let-first=\"first\" let-index=\"index\" ngFor [ngForOf]=\"value\"> <md-basic-chip [class.td-chip-disabled]=\"readOnly\" (keydown)=\"_chipKeydown($event, index)\" (focus)=\"setFocusedState()\"> <div layout=\"row\" layout-align=\"start center\" flex> <div class=\"td-basic-chip\" layout=\"row\" layout-align=\"start center\"> <span *ngIf=\"!_basicChipTemplate?.templateRef\">{{chip}}</span> <ng-template *ngIf=\"_basicChipTemplate?.templateRef\" [ngTemplateOutlet]=\"_basicChipTemplate?.templateRef\" [ngOutletContext]=\"{ chip: chip }\"> </ng-template> </div> <md-icon *ngIf=\"!readOnly\" class=\"td-chip-removal\" (click)=\"_internalClick = removeChip(index)\"> cancel </md-icon> </div> </md-basic-chip> </ng-template> <md-input-container floatPlaceholder=\"never\" [style.width.px]=\"canAddChip ? null : 0\" [color]=\"'primary'\"> <input mdInput flex=\"100\" #input [tabIndex]=\"-1\" [mdAutocomplete]=\"autocomplete\" [formControl]=\"inputControl\" [placeholder]=\"canAddChip? placeholder : ''\" (keydown)=\"_inputKeydown($event)\" (keyup.enter)=\"_handleAddChip()\" (focus)=\"_handleFocus()\"> </md-input-container> <md-autocomplete #autocomplete=\"mdAutocomplete\" [displayWith]=\"_removeInputDisplay\"> <ng-template let-item let-first=\"first\" ngFor [ngForOf]=\"items\"> <md-option (click)=\"_internalClick = addChip(item)\" [value]=\"item\"> <span *ngIf=\"!_autocompleteOptionTemplate?.templateRef\">{{item}}</span> <ng-template *ngIf=\"_autocompleteOptionTemplate?.templateRef\" [ngTemplateOutlet]=\"_autocompleteOptionTemplate?.templateRef\" [ngOutletContext]=\"{ option: item }\"> </ng-template> </md-option> </ng-template> </md-autocomplete> </div> <div *ngIf=\"chipAddition\" class=\"mat-input-underline\" [class.mat-disabled]=\"readOnly\"> <span class=\"mat-input-ripple\" [class.mat-focused]=\"focused\"></span> </div> <ng-content></ng-content>",
+        changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
+    }),
+    __param$2(2, _angular_core.Optional()), __param$2(2, _angular_core.Inject(_angular_platformBrowser.DOCUMENT)),
+    __metadata$7("design:paramtypes", [_angular_core.ElementRef,
+        _angular_core.ChangeDetectorRef, Object])
 ], exports.TdChipsComponent);
+var TdChipsComponent_1;
 
 var __decorate$12 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1273,9 +1577,13 @@ exports.CovalentChipsModule = __decorate$12([
         ],
         declarations: [
             exports.TdChipsComponent,
+            exports.TdBasicChipDirective,
+            exports.TdAutocompleteOptionDirective,
         ],
         exports: [
             exports.TdChipsComponent,
+            exports.TdBasicChipDirective,
+            exports.TdAutocompleteOptionDirective,
         ],
     })
 ], exports.CovalentChipsModule);
@@ -1310,7 +1618,7 @@ exports.TdDataTableRowComponent = __decorate$16([
     __metadata$9("design:paramtypes", [_angular_core.ElementRef, _angular_core.Renderer2])
 ], exports.TdDataTableRowComponent);
 
-var __extends = (window && window.__extends) || (function () {
+var __extends$1 = (window && window.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
         function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
@@ -1330,7 +1638,7 @@ var __metadata$10 = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var TdDataTableTemplateDirective = (function (_super) {
-    __extends(TdDataTableTemplateDirective, _super);
+    __extends$1(TdDataTableTemplateDirective, _super);
     function TdDataTableTemplateDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
@@ -1354,7 +1662,7 @@ var __decorate$15 = (window && window.__decorate) || function (decorators, targe
 var __metadata$8 = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param$2 = (window && window.__param) || function (paramIndex, decorator) {
+var __param$3 = (window && window.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 var noop$1 = function () {
@@ -2028,7 +2336,7 @@ exports.TdDataTableComponent = __decorate$15([
         template: "<div class=\"mat-table-container\" title> <table td-data-table [class.mat-selectable]=\"isSelectable\" [class.mat-clickable]=\"isClickable\"> <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"isSelectable\"> <md-checkbox #checkBoxAll *ngIf=\"isMultiple\" [disabled]=\"!hasData\" [indeterminate]=\"indeterminate && !allSelected && hasData\" [checked]=\"allSelected && hasData\" (click)=\"selectAll(!checkBoxAll.checked)\" (keyup.enter)=\"selectAll(!checkBoxAll.checked)\" (keyup.space)=\"selectAll(!checkBoxAll.checked)\" (keydown.space)=\"blockEvent($event)\"> </md-checkbox> </th> <th td-data-table-column *ngFor=\"let column of columns\" [name]=\"column.name\" [numeric]=\"column.numeric\" [active]=\"(column.sortable || isSortable) && column === sortByColumn\" [sortable]=\"column.sortable ||  isSortable\" [sortOrder]=\"sortOrderEnum\" [hidden]=\"column.hidden\" (sortChange)=\"handleSort(column)\"> <span [mdTooltip]=\"column.tooltip\">{{column.label}}</span> </th> <tr td-data-table-row [tabIndex]=\"isSelectable ? 0 : -1\" [class.mat-selected]=\"(isClickable || isSelectable) && isRowSelected(row)\" *ngFor=\"let row of data; let rowIndex = index\" (click)=\"handleRowClick(row, $event)\" (keyup)=\"isSelectable && _rowKeyup($event, row, rowIndex)\" (keydown.space)=\"blockEvent($event)\" (keydown.shift.space)=\"blockEvent($event)\" (keydown.shift)=\"disableTextSelection()\" (keyup.shift)=\"enableTextSelection()\"> <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"isSelectable\"> <md-pseudo-checkbox [state]=\"isRowSelected(row) ? 'checked' : 'unchecked'\" (mousedown)=\"disableTextSelection()\" (mouseup)=\"enableTextSelection()\" stopRowClick (click)=\"select(row, $event, rowIndex)\"> </md-pseudo-checkbox> </td> <td td-data-table-cell [numeric]=\"column.numeric\" [hidden]=\"column.hidden\" *ngFor=\"let column of columns\"> <span class=\"md-body-1\" *ngIf=\"!getTemplateRef(column.name)\">{{column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row)}}</span> <ng-template *ngIf=\"getTemplateRef(column.name)\" [ngTemplateOutlet]=\"getTemplateRef(column.name)\" [ngOutletContext]=\"{ value: getCellValue(column, row), row: row, column: column.name }\"> </ng-template> </td> </tr> </table> </div> ",
         changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
     }),
-    __param$2(0, _angular_core.Optional()), __param$2(0, _angular_core.Inject(_angular_platformBrowser.DOCUMENT)),
+    __param$3(0, _angular_core.Optional()), __param$3(0, _angular_core.Inject(_angular_platformBrowser.DOCUMENT)),
     __metadata$8("design:paramtypes", [Object, _angular_core.ChangeDetectorRef])
 ], exports.TdDataTableComponent);
 
@@ -2740,7 +3048,7 @@ exports.CovalentDialogsModule = __decorate$22([
     })
 ], exports.CovalentDialogsModule);
 
-var __extends$1 = (window && window.__extends) || (function () {
+var __extends$2 = (window && window.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
         function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
@@ -2760,7 +3068,7 @@ var __metadata$19 = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var TdExpansionPanelHeaderDirective = (function (_super) {
-    __extends$1(TdExpansionPanelHeaderDirective, _super);
+    __extends$2(TdExpansionPanelHeaderDirective, _super);
     function TdExpansionPanelHeaderDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
@@ -2773,7 +3081,7 @@ TdExpansionPanelHeaderDirective = __decorate$29([
     __metadata$19("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
 ], TdExpansionPanelHeaderDirective);
 var TdExpansionPanelLabelDirective = (function (_super) {
-    __extends$1(TdExpansionPanelLabelDirective, _super);
+    __extends$2(TdExpansionPanelLabelDirective, _super);
     function TdExpansionPanelLabelDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
@@ -2786,7 +3094,7 @@ TdExpansionPanelLabelDirective = __decorate$29([
     __metadata$19("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
 ], TdExpansionPanelLabelDirective);
 var TdExpansionPanelSublabelDirective = (function (_super) {
-    __extends$1(TdExpansionPanelSublabelDirective, _super);
+    __extends$2(TdExpansionPanelSublabelDirective, _super);
     function TdExpansionPanelSublabelDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
@@ -3004,7 +3312,7 @@ var __decorate$31 = (window && window.__decorate) || function (decorators, targe
 var __metadata$20 = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param$3 = (window && window.__param) || function (paramIndex, decorator) {
+var __param$4 = (window && window.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 exports.TdFileSelectDirective = (function () {
@@ -3082,7 +3390,7 @@ exports.TdFileSelectDirective = __decorate$31([
     _angular_core.Directive({
         selector: '[tdFileSelect]',
     }),
-    __param$3(0, _angular_core.Optional()), __param$3(0, _angular_core.Host()),
+    __param$4(0, _angular_core.Optional()), __param$4(0, _angular_core.Host()),
     __metadata$20("design:paramtypes", [_angular_forms.NgModel])
 ], exports.TdFileSelectDirective);
 
@@ -3277,7 +3585,7 @@ exports.TdFileDropDirective = __decorate$32([
     __metadata$21("design:paramtypes", [_angular_core.Renderer2, _angular_core.ElementRef])
 ], exports.TdFileDropDirective);
 
-var __extends$2 = (window && window.__extends) || (function () {
+var __extends$3 = (window && window.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
         function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
@@ -3305,7 +3613,7 @@ var FILE_INPUT_CONTROL_VALUE_ACCESSOR = {
     multi: true,
 };
 exports.TdFileInputLabelDirective = (function (_super) {
-    __extends$2(TdFileInputLabelDirective, _super);
+    __extends$3(TdFileInputLabelDirective, _super);
     function TdFileInputLabelDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
@@ -3746,7 +4054,7 @@ var __decorate$37 = (window && window.__decorate) || function (decorators, targe
 var __metadata$25 = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param$4 = (window && window.__param) || function (paramIndex, decorator) {
+var __param$5 = (window && window.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 exports.TdJsonFormatterComponent = TdJsonFormatterComponent_1 = (function () {
@@ -3982,7 +4290,7 @@ exports.TdJsonFormatterComponent = TdJsonFormatterComponent_1 = __decorate$37([
             TdCollapseAnimation(),
         ],
     }),
-    __param$4(1, _angular_core.Optional()),
+    __param$5(1, _angular_core.Optional()),
     __metadata$25("design:paramtypes", [_angular_core.ChangeDetectorRef,
         _angular_material.Dir])
 ], exports.TdJsonFormatterComponent);
@@ -4121,7 +4429,7 @@ var __decorate$40 = (window && window.__decorate) || function (decorators, targe
 var __metadata$27 = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param$5 = (window && window.__param) || function (paramIndex, decorator) {
+var __param$6 = (window && window.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 exports.TdLayoutNavComponent = (function () {
@@ -4195,8 +4503,8 @@ exports.TdLayoutNavComponent = __decorate$40([
         styles: [".td-menu-button { margin-left: 0px; } /deep/ [dir='rtl'] .td-menu-button { margin-right: 0px; margin-left: 6px; } :host { display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } "],
         template: "<div layout=\"column\" layout-fill> <md-toolbar [color]=\"color\"> <button md-icon-button class=\"td-menu-button\" *ngIf=\"isMainSidenavAvailable\" (click)=\"openMainSidenav()\"> <md-icon class=\"md-24\">menu</md-icon> </button> <span *ngIf=\"icon || logo || toolbarTitle\" [class.cursor-pointer]=\"routerEnabled\" (click)=\"handleNavigationClick()\" layout=\"row\" layout-align=\"start center\"> <md-icon *ngIf=\"icon\">{{icon}}</md-icon> <md-icon *ngIf=\"logo && !icon\" class=\"md-icon-logo\" [svgIcon]=\"logo\"></md-icon> <span *ngIf=\"toolbarTitle\">{{toolbarTitle}}</span> </span> <ng-content select=\"[td-toolbar-content]\"></ng-content> </md-toolbar> <div flex layout=\"column\" class=\"content md-content\" cdkScrollable> <ng-content></ng-content> </div> <ng-content select=\"td-layout-footer\"></ng-content> </div> ",
     }),
-    __param$5(0, _angular_core.Optional()), __param$5(0, _angular_core.Inject(_angular_core.forwardRef(function () { return exports.TdLayoutComponent; }))),
-    __param$5(1, _angular_core.Optional()),
+    __param$6(0, _angular_core.Optional()), __param$6(0, _angular_core.Inject(_angular_core.forwardRef(function () { return exports.TdLayoutComponent; }))),
+    __param$6(1, _angular_core.Optional()),
     __metadata$27("design:paramtypes", [exports.TdLayoutComponent,
         _angular_router.Router])
 ], exports.TdLayoutNavComponent);
@@ -4210,7 +4518,7 @@ var __decorate$41 = (window && window.__decorate) || function (decorators, targe
 var __metadata$28 = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param$6 = (window && window.__param) || function (paramIndex, decorator) {
+var __param$7 = (window && window.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 exports.TdLayoutNavListComponent = (function () {
@@ -4358,8 +4666,8 @@ exports.TdLayoutNavListComponent = __decorate$41([
         styles: [".td-menu-button { margin-left: 0px; } /deep/ [dir='rtl'] .td-menu-button { margin-right: 0px; margin-left: 6px; } :host { display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-opened, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-opening, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-closed, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-closing { box-shadow: none; } :host .list { text-align: start; } :host /deep/ md-sidenav-container.td-layout-nav-list { /* Ensure the left sidenav is a flex column & 100% height */ } :host /deep/ md-sidenav-container.td-layout-nav-list > .mat-sidenav-content { flex-grow: 1; } :host /deep/ md-sidenav-container.td-layout-nav-list > md-sidenav { box-sizing: border-box; display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; flex-direction: column; } "],
         template: "<div layout=\"column\" layout-fill> <div flex layout=\"column\" class=\"content md-content\"> <md-sidenav-container fullscreen class=\"td-layout-nav-list\" layout=\"row\" flex> <md-sidenav #sidenav align=\"start\" [mode]=\"mode\" [opened]=\"opened\" [disableClose]=\"disableClose\" [style.max-width]=\"sidenavWidth\" layout=\"column\"  layout-fill class=\"md-whiteframe-z1\"> <md-toolbar [color]=\"color\" class=\"md-whiteframe-z1\"> <button md-icon-button class=\"td-menu-button\" *ngIf=\"isMainSidenavAvailable\" (click)=\"openMainSidenav()\"> <md-icon class=\"md-24\">menu</md-icon> </button> <span *ngIf=\"icon || logo || toolbarTitle\" [class.cursor-pointer]=\"routerEnabled\" (click)=\"handleNavigationClick()\" layout=\"row\" layout-align=\"start center\"> <md-icon *ngIf=\"icon\">{{icon}}</md-icon> <md-icon *ngIf=\"logo && !icon\" class=\"md-icon-logo\" [svgIcon]=\"logo\"></md-icon> <span *ngIf=\"toolbarTitle\">{{toolbarTitle}}</span> </span> <ng-content select=\"[td-sidenav-toolbar-content]\"></ng-content> </md-toolbar> <div flex class=\"list md-content\" cdkScrollable> <ng-content select=\"[td-sidenav-content]\"></ng-content> </div> </md-sidenav> <div layout=\"column\" layout-fill class=\"md-content\"> <md-toolbar [color]=\"color\" class=\"md-whiteframe-z1\"> <button md-icon-button class=\"td-menu-button\" *ngIf=\"!sidenav.opened\" (click)=\"open()\"> <md-icon class=\"md-24\">arrow_back</md-icon> </button> <ng-content select=\"[td-toolbar-content]\"></ng-content> </md-toolbar> <div class=\"md-content\" flex cdkScrollable> <ng-content></ng-content> </div> <ng-content select=\"td-layout-footer-inner\"></ng-content> </div> </md-sidenav-container> </div> <ng-content select=\"td-layout-footer\"></ng-content> </div>",
     }),
-    __param$6(0, _angular_core.Optional()), __param$6(0, _angular_core.Inject(_angular_core.forwardRef(function () { return exports.TdLayoutComponent; }))),
-    __param$6(1, _angular_core.Optional()),
+    __param$7(0, _angular_core.Optional()), __param$7(0, _angular_core.Inject(_angular_core.forwardRef(function () { return exports.TdLayoutComponent; }))),
+    __param$7(1, _angular_core.Optional()),
     __metadata$28("design:paramtypes", [exports.TdLayoutComponent,
         _angular_router.Router])
 ], exports.TdLayoutNavListComponent);
@@ -4542,7 +4850,7 @@ var __decorate$45 = (window && window.__decorate) || function (decorators, targe
 var __metadata$31 = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param$7 = (window && window.__param) || function (paramIndex, decorator) {
+var __param$8 = (window && window.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 exports.TdNavigationDrawerMenuDirective = (function () {
@@ -4712,8 +5020,8 @@ exports.TdNavigationDrawerComponent = __decorate$45([
         template: "<md-toolbar [color]=\"color\" [style.background-image]=\"backgroundImage\" [class.td-toolbar-background]=\"!!isBackgroundAvailable\"> <div layout=\"column\" flex> <span *ngIf=\"icon || logo || sidenavTitle\" [class.cursor-pointer]=\"routerEnabled\" (click)=\"handleNavigationClick()\" layout=\"row\" layout-align=\"start end\"> <md-icon *ngIf=\"icon\">{{icon}}</md-icon> <md-icon *ngIf=\"logo && !icon\" class=\"md-icon-logo\" [svgIcon]=\"logo\"></md-icon> <span *ngIf=\"sidenavTitle\" class=\"md-subhead\">{{sidenavTitle}}</span> </span> <div class=\"md-body-2\" *ngIf=\"email && name\">{{name}}</div> <div class=\"md-body-1\" layout=\"row\" href *ngIf=\"email || name\" (click)=\"toggleMenu()\"> <span flex>{{email || name}}</span> <button md-icon-button class=\"md-icon-button-mini\" *ngIf=\"isMenuAvailable\"> <md-icon *ngIf=\"!menuToggled\">arrow_drop_down</md-icon> <md-icon *ngIf=\"menuToggled\">arrow_drop_up</md-icon> </button> </div> </div> </md-toolbar> <div [@tdCollapse]=\"menuToggled\"> <ng-content></ng-content> </div> <div [@tdCollapse]=\"!menuToggled\"> <ng-content select=\"[td-navigation-drawer-menu]\"></ng-content> </div>",
         animations: [TdCollapseAnimation()],
     }),
-    __param$7(0, _angular_core.Inject(_angular_core.forwardRef(function () { return exports.TdLayoutComponent; }))),
-    __param$7(1, _angular_core.Optional()),
+    __param$8(0, _angular_core.Inject(_angular_core.forwardRef(function () { return exports.TdLayoutComponent; }))),
+    __param$8(1, _angular_core.Optional()),
     __metadata$31("design:paramtypes", [exports.TdLayoutComponent,
         _angular_router.Router,
         _angular_platformBrowser.DomSanitizer])
@@ -5134,7 +5442,7 @@ var LOADING_FACTORY_PROVIDER = {
     useFactory: LOADING_FACTORY_PROVIDER_FACTORY,
 };
 
-var __extends$3 = (window && window.__extends) || (function () {
+var __extends$4 = (window && window.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
         function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
@@ -5166,7 +5474,7 @@ var TdLoadingConfig = (function () {
     return TdLoadingConfig;
 }());
 var TdLoadingDirectiveConfig = (function (_super) {
-    __extends$3(TdLoadingDirectiveConfig, _super);
+    __extends$4(TdLoadingDirectiveConfig, _super);
     function TdLoadingDirectiveConfig(config) {
         var _this = _super.call(this, config) || this;
         _this.strategy = config.strategy ? config.strategy : exports.LoadingStrategy.Replace;
@@ -6367,7 +6675,7 @@ var __decorate$61 = (window && window.__decorate) || function (decorators, targe
 var __metadata$40 = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param$8 = (window && window.__param) || function (paramIndex, decorator) {
+var __param$9 = (window && window.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 exports.TdPagingBarComponent = (function () {
@@ -6723,7 +7031,7 @@ exports.TdPagingBarComponent = __decorate$61([
         template: "<div layout=\"row\" layout-align=\"end center\" class=\"md-caption td-paging-bar\"> <ng-content select=\"[td-paging-bar-label]\"></ng-content> <md-select [(ngModel)]=\"pageSize\"> <ng-template let-size ngFor [ngForOf]=\"pageSizes\"> <md-option [value]=\"size\"> {{size}} </md-option> </ng-template> <md-option *ngIf=\"pageSizeAll\" [value]=\"total\">{{pageSizeAllText}}</md-option> </md-select> <div> <ng-content></ng-content> </div> <div class=\"td-paging-bar-navigation\"> <button [id]=\"'td-paging-bar-' + id + '-first-page'\" md-icon-button type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMinPage()\" (click)=\"firstPage()\"> <md-icon>{{ isRTL ? 'skip_next' : 'skip_previous' }}</md-icon> </button> <button md-icon-button type=\"button\" [disabled]=\"isMinPage()\" (click)=\"prevPage()\"> <md-icon>{{ isRTL ? 'navigate_next' : 'navigate_before' }}</md-icon> </button> <ng-template *ngIf=\"pageLinkCount > 0\" let-link let-index=\"index\" ngFor [ngForOf]=\"pageLinks\"> <button [id]=\"'td-paging-bar-' + id + '-page-link-' + index\" md-icon-button type=\"button\" [color]=\"page === link ? 'accent' : ''\" (click)=\"navigateToPage(link)\">{{link}}</button> </ng-template> <button md-icon-button type=\"button\" [disabled]=\"isMaxPage()\" (click)=\"nextPage()\"> <md-icon>{{ isRTL ? 'navigate_before' : 'navigate_next' }}</md-icon> </button> <button [id]=\"'td-paging-bar-' + id + '-last-page'\" md-icon-button type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMaxPage()\" (click)=\"lastPage()\"> <md-icon>{{ isRTL ? 'skip_previous' : 'skip_next' }}</md-icon> </button> </div> </div>",
         styles: [":host { display: block; } .td-paging-bar { height: 48px; } .td-paging-bar > * { margin: 0 10px; } [md-icon-button] { font-size: 12px; font-weight: normal; } md-select /deep/ .mat-select-trigger { min-width: 44px; font-size: 12px; } md-select /deep/ .mat-select-value { top: auto; position: static; } md-select /deep/ .mat-select-underline { display: none; } "],
     }),
-    __param$8(0, _angular_core.Optional()),
+    __param$9(0, _angular_core.Optional()),
     __metadata$40("design:paramtypes", [_angular_material.Dir])
 ], exports.TdPagingBarComponent);
 
@@ -6765,7 +7073,7 @@ var __decorate$63 = (window && window.__decorate) || function (decorators, targe
 var __metadata$41 = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param$9 = (window && window.__param) || function (paramIndex, decorator) {
+var __param$10 = (window && window.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 exports.TdSearchInputComponent = (function () {
@@ -6902,7 +7210,7 @@ exports.TdSearchInputComponent = __decorate$63([
             ]),
         ],
     }),
-    __param$9(0, _angular_core.Optional()),
+    __param$10(0, _angular_core.Optional()),
     __metadata$41("design:paramtypes", [_angular_material.Dir])
 ], exports.TdSearchInputComponent);
 
@@ -7086,7 +7394,7 @@ exports.CovalentSearchModule = __decorate$62([
     })
 ], exports.CovalentSearchModule);
 
-var __extends$4 = (window && window.__extends) || (function () {
+var __extends$5 = (window && window.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
         function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
@@ -7112,7 +7420,7 @@ var __metadata$44 = (window && window.__metadata) || function (k, v) {
     StepState[StepState["Complete"] = 'complete'] = "Complete";
 })(exports.StepState || (exports.StepState = {}));
 var TdStepLabelDirective = (function (_super) {
-    __extends$4(TdStepLabelDirective, _super);
+    __extends$5(TdStepLabelDirective, _super);
     function TdStepLabelDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
@@ -7125,7 +7433,7 @@ TdStepLabelDirective = __decorate$67([
     __metadata$44("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
 ], TdStepLabelDirective);
 var TdStepActionsDirective = (function (_super) {
-    __extends$4(TdStepActionsDirective, _super);
+    __extends$5(TdStepActionsDirective, _super);
     function TdStepActionsDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
@@ -7138,7 +7446,7 @@ TdStepActionsDirective = __decorate$67([
     __metadata$44("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
 ], TdStepActionsDirective);
 var TdStepSummaryDirective = (function (_super) {
-    __extends$4(TdStepSummaryDirective, _super);
+    __extends$5(TdStepSummaryDirective, _super);
     function TdStepSummaryDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }

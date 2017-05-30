@@ -5,101 +5,105 @@
 :host {
   display: block;
   padding: 0px 5px 0px 5px; }
-  :host /deep/ .mat-input-wrapper {
-    margin-bottom: 2px; }
-  :host /deep/ .mat-basic-chip {
-    display: inline-block;
-    cursor: default;
-    border-radius: 16px;
-    line-height: 32px;
-    margin: 8px 8px 0 0;
-    padding: 0 12px;
-    box-sizing: border-box;
-    max-width: 100%;
-    position: relative; }
-    html[dir=rtl] :host /deep/ .mat-basic-chip {
-      margin: 8px 0 0 8px;
-      unicode-bidi: embed; }
-    body[dir=rtl] :host /deep/ .mat-basic-chip {
-      margin: 8px 0 0 8px;
-      unicode-bidi: embed; }
-    [dir=rtl] :host /deep/ .mat-basic-chip {
-      margin: 8px 0 0 8px;
-      unicode-bidi: embed; }
-    :host /deep/ .mat-basic-chip bdo[dir=rtl] {
-      direction: rtl;
-      unicode-bidi: bidi-override; }
-    :host /deep/ .mat-basic-chip bdo[dir=ltr] {
-      direction: ltr;
-      unicode-bidi: bidi-override; }
-    :host /deep/ .mat-basic-chip md-icon {
-      position: relative;
-      top: 5px;
-      left: 5px;
-      right: auto;
-      height: 18px;
-      width: 18px;
-      font-size: 19px; }
-      html[dir=rtl] :host /deep/ .mat-basic-chip md-icon {
-        left: auto;
+  :host .td-chips-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start; }
+  :host /deep/ {
+    /* TODO see if we can make styles more abstract to future proof for contact chips */ }
+    :host /deep/ .mat-input-wrapper {
+      margin-bottom: 2px; }
+    :host /deep/ .mat-basic-chip {
+      display: inline-block;
+      cursor: default;
+      border-radius: 16px;
+      margin: 8px 8px 0 0;
+      box-sizing: border-box;
+      max-width: 100%;
+      position: relative; }
+      html[dir=rtl] :host /deep/ .mat-basic-chip {
+        margin: 8px 0 0 8px;
         unicode-bidi: embed; }
-      body[dir=rtl] :host /deep/ .mat-basic-chip md-icon {
-        left: auto;
+      body[dir=rtl] :host /deep/ .mat-basic-chip {
+        margin: 8px 0 0 8px;
         unicode-bidi: embed; }
-      [dir=rtl] :host /deep/ .mat-basic-chip md-icon {
-        left: auto;
+      [dir=rtl] :host /deep/ .mat-basic-chip {
+        margin: 8px 0 0 8px;
         unicode-bidi: embed; }
-      :host /deep/ .mat-basic-chip md-icon bdo[dir=rtl] {
+      :host /deep/ .mat-basic-chip bdo[dir=rtl] {
         direction: rtl;
         unicode-bidi: bidi-override; }
-      :host /deep/ .mat-basic-chip md-icon bdo[dir=ltr] {
+      :host /deep/ .mat-basic-chip bdo[dir=ltr] {
         direction: ltr;
         unicode-bidi: bidi-override; }
-      html[dir=rtl] :host /deep/ .mat-basic-chip md-icon {
-        right: 5px;
-        unicode-bidi: embed; }
-      body[dir=rtl] :host /deep/ .mat-basic-chip md-icon {
-        right: 5px;
-        unicode-bidi: embed; }
-      [dir=rtl] :host /deep/ .mat-basic-chip md-icon {
-        right: 5px;
-        unicode-bidi: embed; }
-      :host /deep/ .mat-basic-chip md-icon bdo[dir=rtl] {
-        direction: rtl;
-        unicode-bidi: bidi-override; }
-      :host /deep/ .mat-basic-chip md-icon bdo[dir=ltr] {
-        direction: ltr;
-        unicode-bidi: bidi-override; }
-      :host /deep/ .mat-basic-chip md-icon:hover {
-        cursor: pointer; }
-
-.mat-input-underline {
-  position: relative;
-  height: 1px;
-  width: 100%; }
-  .mat-input-underline.mat-disabled {
-    border-top: 0;
-    background-position: 0;
-    background-size: 4px 1px;
-    background-repeat: repeat-x; }
-  .mat-input-underline .mat-input-ripple {
-    position: absolute;
-    height: 2px;
-    z-index: 1;
-    top: -1px;
+      :host /deep/ .mat-basic-chip .td-basic-chip {
+        min-height: 30px;
+        font-size: 14px;
+        padding: 0 0 0 12px; }
+        html[dir=rtl] :host /deep/ .mat-basic-chip .td-basic-chip {
+          padding: 0 12px 0 0;
+          unicode-bidi: embed; }
+        body[dir=rtl] :host /deep/ .mat-basic-chip .td-basic-chip {
+          padding: 0 12px 0 0;
+          unicode-bidi: embed; }
+        [dir=rtl] :host /deep/ .mat-basic-chip .td-basic-chip {
+          padding: 0 12px 0 0;
+          unicode-bidi: embed; }
+        :host /deep/ .mat-basic-chip .td-basic-chip bdo[dir=rtl] {
+          direction: rtl;
+          unicode-bidi: bidi-override; }
+        :host /deep/ .mat-basic-chip .td-basic-chip bdo[dir=ltr] {
+          direction: ltr;
+          unicode-bidi: bidi-override; }
+      :host /deep/ .mat-basic-chip.td-chip-disabled {
+        padding: 0 12px 0 0; }
+        html[dir=rtl] :host /deep/ .mat-basic-chip.td-chip-disabled {
+          padding: 0 0 0 12px;
+          unicode-bidi: embed; }
+        body[dir=rtl] :host /deep/ .mat-basic-chip.td-chip-disabled {
+          padding: 0 0 0 12px;
+          unicode-bidi: embed; }
+        [dir=rtl] :host /deep/ .mat-basic-chip.td-chip-disabled {
+          padding: 0 0 0 12px;
+          unicode-bidi: embed; }
+        :host /deep/ .mat-basic-chip.td-chip-disabled bdo[dir=rtl] {
+          direction: rtl;
+          unicode-bidi: bidi-override; }
+        :host /deep/ .mat-basic-chip.td-chip-disabled bdo[dir=ltr] {
+          direction: ltr;
+          unicode-bidi: bidi-override; }
+      :host /deep/ .mat-basic-chip md-icon.td-chip-removal {
+        margin: 0 4px;
+        font-size: 21px; }
+        :host /deep/ .mat-basic-chip md-icon.td-chip-removal:hover {
+          cursor: pointer; }
+  :host .mat-input-underline {
+    position: relative;
+    height: 1px;
     width: 100%;
-    transform-origin: top;
-    opacity: 0;
-    transform: scaleY(0); }
-    .mat-input-underline .mat-input-ripple.mat-warn {
-      opacity: 1;
-      transform: scaleY(1); }
-    .mat-input-underline .mat-input-ripple.mat-focused {
-      opacity: 1;
-      transform: scaleY(1); }
-
-:host /deep/ md-input-container input::-webkit-calendar-picker-indicator {
-  display: none; }
+    margin-top: 4px;
+    border-top-width: 1px;
+    border-top-style: solid; }
+    :host .mat-input-underline.mat-disabled {
+      border-top: 0;
+      background-position: 0;
+      background-size: 4px 1px;
+      background-repeat: repeat-x; }
+    :host .mat-input-underline .mat-input-ripple {
+      position: absolute;
+      height: 2px;
+      z-index: 1;
+      top: -1px;
+      width: 100%;
+      transform-origin: 50%;
+      transform: scaleX(0.5);
+      visibility: hidden;
+      transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); }
+      :host .mat-input-underline .mat-input-ripple.mat-focused {
+        visibility: visible;
+        transform: scaleX(1);
+        transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); }
 
 :host /deep/ md-input-container .mat-input-underline {
   display: none; }
