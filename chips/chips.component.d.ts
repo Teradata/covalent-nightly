@@ -24,6 +24,7 @@ export declare class TdChipsComponent implements ControlValueAccessor, DoCheck, 
     private _value;
     private _items;
     private _length;
+    private _stacked;
     private _requireMatch;
     private _readOnly;
     private _color;
@@ -31,6 +32,7 @@ export declare class TdChipsComponent implements ControlValueAccessor, DoCheck, 
     private _focused;
     private _tabIndex;
     _internalClick: boolean;
+    _nativeInput: ElementRef;
     _inputChild: MdInputDirective;
     _autocompleteTrigger: MdAutocompleteTrigger;
     _chipsChildren: QueryList<MdChip>;
@@ -50,6 +52,12 @@ export declare class TdChipsComponent implements ControlValueAccessor, DoCheck, 
      * Renders the `md-autocomplete` with the provided list to display as options.
      */
     items: any[];
+    /**
+     * stacked?: boolean
+     * Set stacked or horizontal chips depending on value.
+     * Defaults to false.
+     */
+    stacked: any;
     /**
      * requireMatch?: boolean
      * Blocks custom inputs and only allows selections from the autocomplete list.
@@ -197,7 +205,7 @@ export declare class TdChipsComponent implements ControlValueAccessor, DoCheck, 
     /**
      * Get total of chips
      */
-    private readonly _totalChips;
+    readonly _totalChips: number;
     /**
      * Method to focus a desired chip by index
      */
