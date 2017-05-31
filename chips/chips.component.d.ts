@@ -29,6 +29,7 @@ export declare class TdChipsComponent implements ControlValueAccessor, DoCheck, 
     private _readOnly;
     private _color;
     private _chipAddition;
+    private _chipRemoval;
     private _focused;
     private _tabIndex;
     _internalClick: boolean;
@@ -79,6 +80,12 @@ export declare class TdChipsComponent implements ControlValueAccessor, DoCheck, 
      * States if a chip can be added and if the input is available
      */
     readonly canAddChip: boolean;
+    /**
+     * chipRemoval?: boolean
+     * Disables the ability to remove chips. If it doesn't exist chip remmoval defaults to true.
+     * When setting readOnly as true, this will be overriden to false.
+     */
+    chipRemoval: boolean;
     /**
      * placeholder?: string
      * Placeholder for the autocomplete input.
