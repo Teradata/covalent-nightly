@@ -61,21 +61,21 @@
         :host /deep/ .mat-basic-chip .td-basic-chip bdo[dir=ltr] {
           direction: ltr;
           unicode-bidi: bidi-override; }
-      :host /deep/ .mat-basic-chip.td-chip-disabled {
+      :host /deep/ .mat-basic-chip.td-chip-after-pad {
         padding: 0 12px 0 0; }
-        html[dir=rtl] :host /deep/ .mat-basic-chip.td-chip-disabled {
+        html[dir=rtl] :host /deep/ .mat-basic-chip.td-chip-after-pad {
           padding: 0 0 0 12px;
           unicode-bidi: embed; }
-        body[dir=rtl] :host /deep/ .mat-basic-chip.td-chip-disabled {
+        body[dir=rtl] :host /deep/ .mat-basic-chip.td-chip-after-pad {
           padding: 0 0 0 12px;
           unicode-bidi: embed; }
-        [dir=rtl] :host /deep/ .mat-basic-chip.td-chip-disabled {
+        [dir=rtl] :host /deep/ .mat-basic-chip.td-chip-after-pad {
           padding: 0 0 0 12px;
           unicode-bidi: embed; }
-        :host /deep/ .mat-basic-chip.td-chip-disabled bdo[dir=rtl] {
+        :host /deep/ .mat-basic-chip.td-chip-after-pad bdo[dir=rtl] {
           direction: rtl;
           unicode-bidi: bidi-override; }
-        :host /deep/ .mat-basic-chip.td-chip-disabled bdo[dir=ltr] {
+        :host /deep/ .mat-basic-chip.td-chip-after-pad bdo[dir=ltr] {
           direction: ltr;
           unicode-bidi: bidi-override; }
       :host /deep/ .mat-basic-chip md-icon.td-chip-removal {

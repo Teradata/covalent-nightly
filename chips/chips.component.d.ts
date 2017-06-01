@@ -87,6 +87,11 @@ export declare class TdChipsComponent implements ControlValueAccessor, DoCheck, 
      */
     chipRemoval: boolean;
     /**
+     * Checks if not in readOnly state and if chipRemoval is set to 'true'
+     * States if a chip can be removed
+     */
+    readonly canRemoveChip: boolean;
+    /**
      * placeholder?: string
      * Placeholder for the autocomplete input.
      */
