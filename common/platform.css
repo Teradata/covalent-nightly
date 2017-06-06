@@ -376,33 +376,73 @@ button[md-icon-button].md-icon-button-mini {
   line-height: 24px;
   width: 24px; }
 
-body .mat-card {
+html .mat-card {
   padding: 0;
   margin: 8px; }
-  body .mat-card md-card-header {
+  html .mat-card md-card-header {
     height: auto; }
-  body .mat-card [md-card-avatar] {
+  html .mat-card [md-card-avatar] {
     font-size: 40px;
     line-height: 40px;
     height: 40px;
     width: 40px;
     margin: 16px 0 0 15px;
     border-radius: 50%; }
-  body .mat-card [md-card-image] {
-    width: 100%;
+  html .mat-card .mat-card-image {
+    width: 100%; }
+  html .mat-card .mat-card-image,
+  html .mat-card .mat-card-lg-image,
+  html .mat-card .mat-card-md-image,
+  html .mat-card .mat-card-sm-image,
+  html .mat-card .mat-card-title-group {
     margin: 0; }
-  body .mat-card md-card-title {
+  html .mat-card md-card-title {
     padding-top: 16px;
     padding-left: 16px;
     padding-right: 16px; }
-  body .mat-card md-card-subtitle {
+  html .mat-card md-card-subtitle {
     padding-left: 16px;
     padding-right: 16px; }
-  body .mat-card md-card-content {
+  html .mat-card md-card-content {
     padding: 16px; }
-  body .mat-card .mat-card-actions:last-child, body .mat-card .mat-card .mat-card-actions:last-child {
+  html .mat-card .mat-card-actions, html .mat-card .mat-card .mat-card-actions {
     padding: 8px;
     margin: 0; }
+  html .mat-card .mat-card-actions:last-child {
+    margin-bottom: 0px;
+    padding-bottom: 8px; }
+
+html:not([dir='rtl']) .mat-card-title-group .mat-card-image:last-child,
+html:not([dir='rtl']) .mat-card-title-group .mat-card-lg-image:last-child,
+html:not([dir='rtl']) .mat-card-title-group .mat-card-md-image:last-child,
+html:not([dir='rtl']) .mat-card-title-group .mat-card-sm-image:last-child {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px; }
+
+html:not([dir='rtl']) .mat-card .mat-card-image:first-child {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px; }
+
+html:not([dir='rtl']) .mat-card .mat-card-lg-image:first-child,
+html:not([dir='rtl']) .mat-card .mat-card-md-image:first-child,
+html:not([dir='rtl']) .mat-card .mat-card-sm-image:first-child {
+  border-top-left-radius: 2px; }
+
+html[dir='rtl'] .mat-card-title-group .mat-card-image:last-child,
+html[dir='rtl'] .mat-card-title-group .mat-card-lg-image:last-child,
+html[dir='rtl'] .mat-card-title-group .mat-card-md-image:last-child,
+html[dir='rtl'] .mat-card-title-group .mat-card-sm-image:last-child {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px; }
+
+html[dir='rtl'] .mat-card .mat-card-image:first-child {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px; }
+
+html[dir='rtl'] .mat-card .mat-card-lg-image:first-child,
+html[dir='rtl'] .mat-card .mat-card-md-image:first-child,
+html[dir='rtl'] .mat-card .mat-card-sm-image:first-child {
+  border-top-right-radius: 2px; }
 
 .md-card-colored[href]:hover, .md-card-colored[ng-reflect-href]:hover {
   cursor: pointer;
