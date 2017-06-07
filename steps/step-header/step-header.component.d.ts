@@ -5,6 +5,11 @@ export declare class TdStepHeaderComponent {
      */
     number: number;
     /**
+     * disableRipple?: string
+     * Whether the ripple effect on header is disabled.
+     */
+    disableRipple: boolean;
+    /**
      * active?: boolean
      * Sets for active/inactive states on header.
      */

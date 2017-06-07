@@ -846,7 +846,7 @@ td-steps .td-horizontal-line {
 td-steps .td-vertical-line {
   border-left-color: rgba(0, 0, 0, 0.12); }
 
-td-steps .td-step-header:focus, td-steps .td-step-header:hover {
+td-steps .td-step-header:focus:not(.mat-disabled), td-steps .td-step-header:hover:not(.mat-disabled) {
   background: rgba(0, 0, 0, 0.04); }
 
 td-steps .td-step-header .td-step-label-wrapper .md-caption {
@@ -886,7 +886,7 @@ td-steps .td-edit-icon {
 .td-expansion-panel {
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   background-color: white; }
-  .td-expansion-panel .td-expansion-panel-header:focus, .td-expansion-panel .td-expansion-panel-header:hover {
+  .td-expansion-panel .td-expansion-panel-header:focus:not(.mat-disabled), .td-expansion-panel .td-expansion-panel-header:hover:not(.mat-disabled) {
     background: rgba(0, 0, 0, 0.04); }
   .td-expansion-panel .td-expansion-panel-header .td-expansion-panel-header-content md-icon.td-expand-icon {
     color: rgba(0, 0, 0, 0.54); }

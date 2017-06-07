@@ -15,6 +15,7 @@ export declare class TdExpansionPanelSummaryComponent {
 export declare class TdExpansionPanelComponent {
     private _renderer;
     private _elementRef;
+    private _disableRipple;
     private _expand;
     private _disabled;
     expansionPanelHeader: TdExpansionPanelHeaderDirective;
@@ -31,6 +32,11 @@ export declare class TdExpansionPanelComponent {
      * Sets sublabel of [TdExpansionPanelComponent] header.
      */
     sublabel: string;
+    /**
+     * disableRipple?: string
+     * Whether the ripple effect for this component is disabled.
+     */
+    disableRipple: boolean;
     /**
      * expand?: boolean
      * Toggles [TdExpansionPanelComponent] between expand/collapse.

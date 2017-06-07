@@ -71,6 +71,7 @@ export { TdStepSummaryDirective };
 var TdStepComponent = (function () {
     function TdStepComponent(_viewContainerRef) {
         this._viewContainerRef = _viewContainerRef;
+        this._disableRipple = false;
         this._active = false;
         this._state = StepState.None;
         this._disabled = false;
@@ -92,6 +93,20 @@ var TdStepComponent = (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(TdStepComponent.prototype, "disableRipple", {
+        get: function () {
+            return this._disableRipple;
+        },
+        /**
+         * disableRipple?: string
+         * Whether the ripple effect for this component is disabled.
+         */
+        set: function (disableRipple) {
+            this._disableRipple = disableRipple !== '' ? (disableRipple === 'true' || disableRipple === true) : true;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(TdStepComponent.prototype, "active", {
         get: function () {
             return this._active;
@@ -101,7 +116,7 @@ var TdStepComponent = (function () {
          * Toggles [TdStepComponent] between active/deactive.
          */
         set: function (active) {
-            this._setActive(active);
+            this._setActive(active === 'true' || active === true);
         },
         enumerable: true,
         configurable: true
@@ -232,6 +247,11 @@ __decorate([
     Input('sublabel'),
     __metadata("design:type", String)
 ], TdStepComponent.prototype, "sublabel", void 0);
+__decorate([
+    Input('disableRipple'),
+    __metadata("design:type", Boolean),
+    __metadata("design:paramtypes", [Boolean])
+], TdStepComponent.prototype, "disableRipple", null);
 __decorate([
     Input('active'),
     __metadata("design:type", Boolean),

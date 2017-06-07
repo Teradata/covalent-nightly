@@ -17,6 +17,7 @@ export declare class TdStepSummaryDirective extends TemplatePortalDirective {
 }
 export declare class TdStepComponent implements OnInit {
     private _viewContainerRef;
+    private _disableRipple;
     private _active;
     private _state;
     private _disabled;
@@ -37,6 +38,11 @@ export declare class TdStepComponent implements OnInit {
      * Sets sublabel of [TdStepComponent] header.
      */
     sublabel: string;
+    /**
+     * disableRipple?: string
+     * Whether the ripple effect for this component is disabled.
+     */
+    disableRipple: boolean;
     /**
      * active?: boolean
      * Toggles [TdStepComponent] between active/deactive.

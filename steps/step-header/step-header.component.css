@@ -1,11 +1,8 @@
 .td-step-header {
   position: relative;
   outline: none; }
-  .td-step-header:focus, .td-step-header:hover {
+  .td-step-header:hover:not(.mat-disabled) {
     cursor: pointer; }
-  .td-step-header.mat-disabled {
-    background: none;
-    cursor: auto; }
   .td-step-header .td-step-header-content {
     height: 72px; }
   .td-step-header md-icon.td-edit-icon {

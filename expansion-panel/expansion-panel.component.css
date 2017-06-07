@@ -3,11 +3,8 @@
   :host .td-expansion-panel-header {
     position: relative;
     outline: none; }
-    :host .td-expansion-panel-header:focus, :host .td-expansion-panel-header:hover {
+    :host .td-expansion-panel-header:focus:not(.mat-disabled), :host .td-expansion-panel-header:hover:not(.mat-disabled) {
       cursor: pointer; }
-    :host .td-expansion-panel-header.mat-disabled {
-      background: none;
-      cursor: auto; }
     :host .td-expansion-panel-header .td-expansion-panel-header-content {
       height: 48px;
       padding: 0 16px; }
