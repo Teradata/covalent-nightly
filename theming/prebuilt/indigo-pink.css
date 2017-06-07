@@ -876,26 +876,29 @@ td-steps .td-triangle {
 td-steps .td-edit-icon {
   color: rgba(0, 0, 0, 0.54); }
 
-td-expansion-panel {
+.td-expansion-panel-group .td-expansion-panel {
+  transition: 120ms ease-in; }
+  .td-expansion-panel-group .td-expansion-panel:not(:last-of-type).td-expanded {
+    margin-bottom: 16px; }
+  .td-expansion-panel-group .td-expansion-panel:not(:first-of-type).td-expanded {
+    margin-top: 16px; }
+
+.td-expansion-panel {
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   background-color: white; }
-  td-expansion-panel:not(:last-of-type) .td-expanded {
-    margin-bottom: 16px; }
-  td-expansion-panel:not(:first-of-type) .td-expanded {
-    margin-top: 16px; }
-  td-expansion-panel .td-expansion-panel-header:focus, td-expansion-panel .td-expansion-panel-header:hover {
+  .td-expansion-panel .td-expansion-panel-header:focus, .td-expansion-panel .td-expansion-panel-header:hover {
     background: rgba(0, 0, 0, 0.04); }
-  td-expansion-panel .td-expansion-panel-header .td-expansion-panel-header-content md-icon.td-expand-icon {
+  .td-expansion-panel .td-expansion-panel-header .td-expansion-panel-header-content md-icon.td-expand-icon {
     color: rgba(0, 0, 0, 0.54); }
-  td-expansion-panel .td-expansion-panel-header .td-expansion-panel-header-content.mat-disabled, td-expansion-panel .td-expansion-panel-header .td-expansion-panel-header-content.mat-disabled * {
+  .td-expansion-panel .td-expansion-panel-header .td-expansion-panel-header-content.mat-disabled, .td-expansion-panel .td-expansion-panel-header .td-expansion-panel-header-content.mat-disabled * {
     color: rgba(0, 0, 0, 0.38); }
-  td-expansion-panel md-icon.td-expand-icon {
+  .td-expansion-panel md-icon.td-expand-icon {
     color: rgba(0, 0, 0, 0.54); }
-  td-expansion-panel .td-expansion-label, td-expansion-panel .td-expansion-label *,
-  td-expansion-panel .td-expansion-sublabel,
-  td-expansion-panel .td-expansion-sublabel * {
+  .td-expansion-panel .td-expansion-label, .td-expansion-panel .td-expansion-label *,
+  .td-expansion-panel .td-expansion-sublabel,
+  .td-expansion-panel .td-expansion-sublabel * {
     vertical-align: middle; }
-  td-expansion-panel .td-expansion-sublabel {
+  .td-expansion-panel .td-expansion-sublabel {
     color: rgba(0, 0, 0, 0.54); }
 
 td-chips .mat-basic-chip {

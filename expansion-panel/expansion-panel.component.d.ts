@@ -1,4 +1,4 @@
-import { TemplateRef, ViewContainerRef } from '@angular/core';
+import { TemplateRef, ViewContainerRef, ElementRef, Renderer2 } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { TemplatePortalDirective } from '@angular/material';
 export declare class TdExpansionPanelHeaderDirective extends TemplatePortalDirective {
@@ -13,6 +13,8 @@ export declare class TdExpansionPanelSublabelDirective extends TemplatePortalDir
 export declare class TdExpansionPanelSummaryComponent {
 }
 export declare class TdExpansionPanelComponent {
+    private _renderer;
+    private _elementRef;
     private _expand;
     private _disabled;
     expansionPanelHeader: TdExpansionPanelHeaderDirective;
@@ -49,6 +51,7 @@ export declare class TdExpansionPanelComponent {
      * Event emitted when [TdExpansionPanelComponent] is collapsed.
      */
     collapsed: EventEmitter<void>;
+    constructor(_renderer: Renderer2, _elementRef: ElementRef);
     /**
      * Method executed when [TdExpansionPanelComponent] is clicked.
      */

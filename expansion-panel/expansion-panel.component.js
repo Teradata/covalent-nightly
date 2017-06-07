@@ -17,7 +17,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component, Directive, Input, Output, TemplateRef, ViewContainerRef, ContentChild } from '@angular/core';
+import { Component, Directive, Input, Output, TemplateRef, ViewContainerRef, ContentChild, ElementRef, Renderer2 } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { TemplatePortalDirective } from '@angular/material';
 import { TdCollapseAnimation } from '../common/common.module';
@@ -76,7 +76,9 @@ TdExpansionPanelSummaryComponent = __decorate([
 ], TdExpansionPanelSummaryComponent);
 export { TdExpansionPanelSummaryComponent };
 var TdExpansionPanelComponent = (function () {
-    function TdExpansionPanelComponent() {
+    function TdExpansionPanelComponent(_renderer, _elementRef) {
+        this._renderer = _renderer;
+        this._elementRef = _elementRef;
         this._expand = false;
         this._disabled = false;
         /**
@@ -89,6 +91,7 @@ var TdExpansionPanelComponent = (function () {
          * Event emitted when [TdExpansionPanelComponent] is collapsed.
          */
         this.collapsed = new EventEmitter();
+        this._renderer.addClass(this._elementRef.nativeElement, 'td-expansion-panel');
     }
     Object.defineProperty(TdExpansionPanelComponent.prototype, "expand", {
         get: function () {
@@ -160,9 +163,11 @@ var TdExpansionPanelComponent = (function () {
         if (this._expand !== newExpand) {
             this._expand = newExpand;
             if (newExpand) {
+                this._renderer.addClass(this._elementRef.nativeElement, 'td-expanded');
                 this._onExpanded();
             }
             else {
+                this._renderer.removeClass(this._elementRef.nativeElement, 'td-expanded');
                 this._onCollapsed();
             }
             return true;
@@ -218,12 +223,14 @@ __decorate([
 TdExpansionPanelComponent = __decorate([
     Component({
         selector: 'td-expansion-panel',
-        styles: [":host { display: block; } :host .td-expansion-panel { transition: 400ms all ease; } :host .td-expansion-panel .td-expansion-panel-header { position: relative; outline: none; } :host .td-expansion-panel .td-expansion-panel-header:focus, :host .td-expansion-panel .td-expansion-panel-header:hover { cursor: pointer; } :host .td-expansion-panel .td-expansion-panel-header.mat-disabled { background: none; cursor: auto; } :host .td-expansion-panel .td-expansion-panel-header .td-expansion-panel-header-content { height: 48px; padding: 0 16px; } .td-expansion-label, .td-expansion-sublabel { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 5px; } /deep/ [dir='rtl'] .td-expansion-label, /deep/ [dir='rtl'] .td-expansion-sublabel { margin-left: 5px; margin-right: inherit; } "],
-        template: "<div class=\"td-expansion-panel\" [class.td-expanded]=\"expand\"> <div class=\"td-expansion-panel-header\" [class.mat-disabled]=\"disabled\" md-ripple [mdRippleDisabled]=\"disabled\" [tabIndex]=\"disabled? -1 : 0\" (keydown.enter)=\"clickEvent()\" (click)=\"clickEvent()\"> <ng-template [cdkPortalHost]=\"expansionPanelHeader\"></ng-template> <div class=\"td-expansion-panel-header-content\" [class.mat-disabled]=\"disabled\" *ngIf=\"!expansionPanelHeader\" layout=\"row\"  layout-align=\"start center\"  flex> <div *ngIf=\"label || expansionPanelLabel\" class=\"md-subhead td-expansion-label\" [attr.flex-gt-xs]=\"(sublabel || expansionPanelSublabel) ? 40 : null\"> <ng-template [cdkPortalHost]=\"expansionPanelLabel\"></ng-template> <ng-template [ngIf]=\"!expansionPanelLabel\">{{label}}</ng-template> </div> <div *ngIf=\"sublabel || expansionPanelSublabel\" class=\"md-body-1 td-expansion-sublabel\"> <ng-template [cdkPortalHost]=\"expansionPanelSublabel\"></ng-template> <ng-template [ngIf]=\"!expansionPanelSublabel\">{{sublabel}}</ng-template> </div> <span flex></span> <md-icon class=\"td-expand-icon\" *ngIf=\"!expand && !disabled\">keyboard_arrow_down</md-icon> <md-icon class=\"td-expand-icon\" *ngIf=\"expand\">keyboard_arrow_up</md-icon> </div> </div> <div class=\"td-expansion-content\" [@tdCollapse]=\"!expand\"> <ng-content></ng-content> </div> <div class=\"td-expansion-summary\" [@tdCollapse]=\"expand\"> <ng-content select=\"td-expansion-summary\"></ng-content> </div> </div>",
+        styles: [":host { display: block; } :host .td-expansion-panel-header { position: relative; outline: none; } :host .td-expansion-panel-header:focus, :host .td-expansion-panel-header:hover { cursor: pointer; } :host .td-expansion-panel-header.mat-disabled { background: none; cursor: auto; } :host .td-expansion-panel-header .td-expansion-panel-header-content { height: 48px; padding: 0 16px; } .td-expansion-label, .td-expansion-sublabel { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 5px; } /deep/ [dir='rtl'] .td-expansion-label, /deep/ [dir='rtl'] .td-expansion-sublabel { margin-left: 5px; margin-right: inherit; } "],
+        template: "<div class=\"td-expansion-panel-header\" [class.mat-disabled]=\"disabled\" md-ripple [mdRippleDisabled]=\"disabled\" [tabIndex]=\"disabled? -1 : 0\" (keydown.enter)=\"clickEvent()\" (click)=\"clickEvent()\"> <ng-template [cdkPortalHost]=\"expansionPanelHeader\"></ng-template> <div class=\"td-expansion-panel-header-content\" [class.mat-disabled]=\"disabled\" *ngIf=\"!expansionPanelHeader\" layout=\"row\"  layout-align=\"start center\"  flex> <div *ngIf=\"label || expansionPanelLabel\" class=\"md-subhead td-expansion-label\" [attr.flex-gt-xs]=\"(sublabel || expansionPanelSublabel) ? 40 : null\"> <ng-template [cdkPortalHost]=\"expansionPanelLabel\"></ng-template> <ng-template [ngIf]=\"!expansionPanelLabel\">{{label}}</ng-template> </div> <div *ngIf=\"sublabel || expansionPanelSublabel\" class=\"md-body-1 td-expansion-sublabel\"> <ng-template [cdkPortalHost]=\"expansionPanelSublabel\"></ng-template> <ng-template [ngIf]=\"!expansionPanelSublabel\">{{sublabel}}</ng-template> </div> <span flex></span> <md-icon class=\"td-expand-icon\" *ngIf=\"!expand && !disabled\">keyboard_arrow_down</md-icon> <md-icon class=\"td-expand-icon\" *ngIf=\"expand\">keyboard_arrow_up</md-icon> </div> </div> <div class=\"td-expansion-content\" [@tdCollapse]=\"!expand\"> <ng-content></ng-content> </div> <div class=\"td-expansion-summary\" [@tdCollapse]=\"expand\"> <ng-content select=\"td-expansion-summary\"></ng-content> </div> ",
         animations: [
             TdCollapseAnimation(),
         ],
-    })
+    }),
+    __metadata("design:paramtypes", [Renderer2,
+        ElementRef])
 ], TdExpansionPanelComponent);
 export { TdExpansionPanelComponent };
 //# sourceMappingURL=expansion-panel.component.js.map

@@ -8,7 +8,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MdRippleModule, MdIconModule, PortalModule } from '@angular/material';
 import { TdExpansionPanelComponent, TdExpansionPanelHeaderDirective, TdExpansionPanelLabelDirective, TdExpansionPanelSublabelDirective, TdExpansionPanelSummaryComponent } from './expansion-panel.component';
+import { TdExpansionPanelGroupComponent } from './expansion-panel-group.component';
 var TD_EXPANSION_PANEL = [
+    TdExpansionPanelGroupComponent,
     TdExpansionPanelComponent,
     TdExpansionPanelHeaderDirective,
     TdExpansionPanelLabelDirective,
@@ -16,6 +18,7 @@ var TD_EXPANSION_PANEL = [
     TdExpansionPanelSummaryComponent,
 ];
 export { TdExpansionPanelComponent } from './expansion-panel.component';
+export { TdExpansionPanelGroupComponent } from './expansion-panel-group.component';
 var CovalentExpansionPanelModule = (function () {
     function CovalentExpansionPanelModule() {
     }
