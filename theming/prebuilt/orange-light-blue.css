@@ -852,7 +852,7 @@ td-steps .td-step-header:focus:not(.mat-disabled), td-steps .td-step-header:hove
 td-steps .td-step-header .td-step-label-wrapper .md-caption {
   color: rgba(0, 0, 0, 0.54); }
 
-td-steps .td-step-header .td-step-label-wrapper.mat-disabled, td-steps .td-step-header .td-step-label-wrapper.mat-disabled * {
+td-steps .td-step-header .td-step-label-wrapper.mat-inactive, td-steps .td-step-header .td-step-label-wrapper.mat-inactive * {
   color: rgba(0, 0, 0, 0.38); }
 
 td-steps .td-step-header .td-step-label-wrapper.mat-warn, td-steps .td-step-header .td-step-label-wrapper.mat-warn * {
