@@ -1,3 +1,3 @@
-export { TdChipsComponent, TdBasicChipDirective, TdAutocompleteOptionDirective } from './chips.component';
+export { TdChipsComponent, TdChipDirective, TdAutocompleteOptionDirective } from './chips.component';
 export declare class CovalentChipsModule {
 }

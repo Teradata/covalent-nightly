@@ -5,7 +5,7 @@ import { MdChip, MdInputDirective, TemplatePortalDirective, MdOption, MdAutocomp
 import 'rxjs/add/observable/timer';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/debounceTime';
-export declare class TdBasicChipDirective extends TemplatePortalDirective {
+export declare class TdChipDirective extends TemplatePortalDirective {
     constructor(templateRef: TemplateRef<any>, viewContainerRef: ViewContainerRef);
 }
 export declare class TdAutocompleteOptionDirective extends TemplatePortalDirective {
@@ -37,7 +37,7 @@ export declare class TdChipsComponent implements ControlValueAccessor, DoCheck, 
     _inputChild: MdInputDirective;
     _autocompleteTrigger: MdAutocompleteTrigger;
     _chipsChildren: QueryList<MdChip>;
-    _basicChipTemplate: TdBasicChipDirective;
+    _chipTemplate: TdChipDirective;
     _autocompleteOptionTemplate: TdAutocompleteOptionDirective;
     _options: QueryList<MdOption>;
     /**

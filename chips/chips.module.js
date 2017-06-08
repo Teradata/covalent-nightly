@@ -8,8 +8,8 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MdInputModule, MdIconModule, MdAutocompleteModule, MdChipsModule } from '@angular/material';
-import { TdChipsComponent, TdBasicChipDirective, TdAutocompleteOptionDirective } from './chips.component';
-export { TdChipsComponent, TdBasicChipDirective, TdAutocompleteOptionDirective } from './chips.component';
+import { TdChipsComponent, TdChipDirective, TdAutocompleteOptionDirective } from './chips.component';
+export { TdChipsComponent, TdChipDirective, TdAutocompleteOptionDirective } from './chips.component';
 var CovalentChipsModule = (function () {
     function CovalentChipsModule() {
     }
@@ -27,12 +27,12 @@ CovalentChipsModule = __decorate([
         ],
         declarations: [
             TdChipsComponent,
-            TdBasicChipDirective,
+            TdChipDirective,
             TdAutocompleteOptionDirective,
         ],
         exports: [
             TdChipsComponent,
-            TdBasicChipDirective,
+            TdChipDirective,
             TdAutocompleteOptionDirective,
         ],
     })

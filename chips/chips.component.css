@@ -42,25 +42,50 @@
       :host /deep/ .mat-basic-chip bdo[dir=ltr] {
         direction: ltr;
         unicode-bidi: bidi-override; }
-      :host /deep/ .mat-basic-chip .td-basic-chip {
-        min-height: 30px;
+      :host /deep/ .mat-basic-chip .td-chip {
+        min-height: 32px;
         font-size: 14px;
         padding: 0 0 0 12px; }
-        html[dir=rtl] :host /deep/ .mat-basic-chip .td-basic-chip {
+        html[dir=rtl] :host /deep/ .mat-basic-chip .td-chip {
           padding: 0 12px 0 0;
           unicode-bidi: embed; }
-        body[dir=rtl] :host /deep/ .mat-basic-chip .td-basic-chip {
+        body[dir=rtl] :host /deep/ .mat-basic-chip .td-chip {
           padding: 0 12px 0 0;
           unicode-bidi: embed; }
-        [dir=rtl] :host /deep/ .mat-basic-chip .td-basic-chip {
+        [dir=rtl] :host /deep/ .mat-basic-chip .td-chip {
           padding: 0 12px 0 0;
           unicode-bidi: embed; }
-        :host /deep/ .mat-basic-chip .td-basic-chip bdo[dir=rtl] {
+        :host /deep/ .mat-basic-chip .td-chip bdo[dir=rtl] {
           direction: rtl;
           unicode-bidi: bidi-override; }
-        :host /deep/ .mat-basic-chip .td-basic-chip bdo[dir=ltr] {
+        :host /deep/ .mat-basic-chip .td-chip bdo[dir=ltr] {
           direction: ltr;
           unicode-bidi: bidi-override; }
+        :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] {
+          display: flex;
+          order: -20;
+          justify-content: center;
+          align-items: center;
+          height: 32px;
+          width: 32px;
+          flex-shrink: 0;
+          margin: 0 8px 0 -12px;
+          border-radius: 50%; }
+          html[dir=rtl] :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] {
+            margin: 0 -12px 0 8px;
+            unicode-bidi: embed; }
+          body[dir=rtl] :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] {
+            margin: 0 -12px 0 8px;
+            unicode-bidi: embed; }
+          [dir=rtl] :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] {
+            margin: 0 -12px 0 8px;
+            unicode-bidi: embed; }
+          :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=rtl] {
+            direction: rtl;
+            unicode-bidi: bidi-override; }
+          :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=ltr] {
+            direction: ltr;
+            unicode-bidi: bidi-override; }
       :host /deep/ .mat-basic-chip.td-chip-after-pad {
         padding: 0 12px 0 0; }
         html[dir=rtl] :host /deep/ .mat-basic-chip.td-chip-after-pad {
