@@ -14,7 +14,7 @@ export declare class TdPromptDialogComponent implements AfterViewInit {
      * Method executed when input is focused
      * Selects all text
      */
-    handleInputFocus(event: FocusEvent): void;
+    handleInputFocus(): void;
     cancel(): void;
     accept(): void;
 }

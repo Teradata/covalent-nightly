@@ -26,7 +26,7 @@ var TdPromptDialogComponent = (function () {
      * Method executed when input is focused
      * Selects all text
      */
-    TdPromptDialogComponent.prototype.handleInputFocus = function (event) {
+    TdPromptDialogComponent.prototype.handleInputFocus = function () {
         this._input.nativeElement.select();
     };
     TdPromptDialogComponent.prototype.cancel = function () {
