@@ -1004,6 +1004,7 @@ exports.TdChipsComponent = TdChipsComponent_1 = (function () {
             if (v !== this._value) {
                 this._value = v;
                 this._length = this._value ? this._value.length : 0;
+                this._changeDetectorRef.markForCheck();
             }
         },
         enumerable: true,
