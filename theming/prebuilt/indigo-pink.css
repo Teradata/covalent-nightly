@@ -831,6 +831,18 @@ td-layout md-toolbar {
   background: whitesmoke;
   color: rgba(0, 0, 0, 0.87);
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12); }
+  .td-layout-footer.mat-primary {
+    background: #3f51b5; }
+    .td-layout-footer.mat-primary, .td-layout-footer.mat-primary md-icon {
+      color: rgba(255, 255, 255, 0.87); }
+  .td-layout-footer.mat-accent {
+    background: #ff4081; }
+    .td-layout-footer.mat-accent, .td-layout-footer.mat-accent md-icon {
+      color: white; }
+  .td-layout-footer.mat-warn {
+    background: #e53935; }
+    .td-layout-footer.mat-warn, .td-layout-footer.mat-warn md-icon {
+      color: white; }
 
 td-steps .td-steps-header {
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12); }
