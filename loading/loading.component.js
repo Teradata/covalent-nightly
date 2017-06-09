@@ -127,7 +127,6 @@ var TdLoadingComponent = (function () {
         this._animationIn.next(undefined);
     };
     TdLoadingComponent.prototype.outAnimationCompleted = function () {
-        var _this = this;
         /* little hack to reset the loader value and animation before removing it from DOM
          * else, the loader will appear with prev value when its registered again
          * and will do an animation going prev value to 0.
@@ -135,25 +134,18 @@ var TdLoadingComponent = (function () {
         this.value = 0;
         // Check for changes for `OnPush` change detection
         this._changeDetectorRef.markForCheck();
-        setTimeout(function () {
-            _this._animationOut.next(undefined);
-        });
+        this._animationOut.next(undefined);
     };
     /**
      * Starts in animation and returns an observable for completition event.
      */
     TdLoadingComponent.prototype.startInAnimation = function () {
-        var _this = this;
-        setTimeout(function () {
-            _this.animation = true;
-            // Check for changes for `OnPush` change detection
-            _this._changeDetectorRef.markForCheck();
-        });
         /* need to switch back to the selected mode, so we have saved it in another variable
         *  and then recover it. (issue with protractor)
         */
         this._mode = this._defaultMode;
         // Check for changes for `OnPush` change detection
+        this.animation = true;
         this._changeDetectorRef.markForCheck();
         return this._animationIn.asObservable();
     };

@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/animations/browser'), require('@angular/animations'), require('@angular/router'), require('@angular/material'), require('@angular/platform-browser'), require('rxjs/Observable'), require('rxjs/add/observable/timer'), require('rxjs/add/operator/toPromise'), require('rxjs/add/operator/debounceTime'), require('@angular/http'), require('rxjs/Subject'), require('rxjs/add/operator/skip')) :
-    typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/animations/browser', '@angular/animations', '@angular/router', '@angular/material', '@angular/platform-browser', 'rxjs/Observable', 'rxjs/add/observable/timer', 'rxjs/add/operator/toPromise', 'rxjs/add/operator/debounceTime', '@angular/http', 'rxjs/Subject', 'rxjs/add/operator/skip'], factory) :
-    (factory((global.td = global.td || {}, global.td.core = global.td.core || {}),global.ng.core,global.ng.common,global.ng.forms,global.ng.animations.browser,global.ng.animations,global.ng.router,global.ng.material,global.ng.platformBrowser,global.Rx,global.Rx.Observable,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.ng.http,global.Rx,global.Rx.Observable.prototype));
-}(this, (function (exports,_angular_core,_angular_common,_angular_forms,_angular_animations_browser,_angular_animations,_angular_router,_angular_material,_angular_platformBrowser,rxjs_Observable,rxjs_add_observable_timer,rxjs_add_operator_toPromise,rxjs_add_operator_debounceTime,_angular_http,rxjs_Subject,rxjs_add_operator_skip) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/animations'), require('@angular/router'), require('@angular/material'), require('@angular/platform-browser'), require('rxjs/Observable'), require('rxjs/add/observable/timer'), require('rxjs/add/operator/toPromise'), require('rxjs/add/operator/debounceTime'), require('@angular/http'), require('rxjs/Subject'), require('rxjs/add/operator/skip')) :
+    typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/animations', '@angular/router', '@angular/material', '@angular/platform-browser', 'rxjs/Observable', 'rxjs/add/observable/timer', 'rxjs/add/operator/toPromise', 'rxjs/add/operator/debounceTime', '@angular/http', 'rxjs/Subject', 'rxjs/add/operator/skip'], factory) :
+    (factory((global.td = global.td || {}, global.td.core = global.td.core || {}),global.ng.core,global.ng.common,global.ng.forms,global.ng.animations,global.ng.router,global.ng.material,global.ng.platformBrowser,global.Rx,global.Rx.Observable,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.ng.http,global.Rx,global.Rx.Observable.prototype));
+}(this, (function (exports,_angular_core,_angular_common,_angular_forms,_angular_animations,_angular_router,_angular_material,_angular_platformBrowser,rxjs_Observable,rxjs_add_observable_timer,rxjs_add_operator_toPromise,rxjs_add_operator_debounceTime,_angular_http,rxjs_Subject,rxjs_add_operator_skip) { 'use strict';
 
 var __decorate$1 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -14,17 +14,19 @@ var __metadata = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 exports.TdToggleDirective = (function () {
-    function TdToggleDirective(_renderer, _element, _changeDetectorRef, animationDriver, animationStyleNormalizer) {
+    function TdToggleDirective(_renderer, _element, _changeDetectorRef, _animationBuilder) {
         this._renderer = _renderer;
         this._element = _element;
         this._changeDetectorRef = _changeDetectorRef;
+        this._animationBuilder = _animationBuilder;
         /**
          * duration?: number
          * Sets duration of toggle animation in miliseconds.
          * Defaults to 150 ms.
          */
         this.duration = 150;
-        this._engine = new _angular_animations_browser.ɵDomAnimationEngine(animationDriver, animationStyleNormalizer);
+        this._defaultDisplay = this._element.nativeElement.style.display;
+        this._defaultOverflow = this._element.nativeElement.style.overflow;
     }
     Object.defineProperty(TdToggleDirective.prototype, "state", {
         /**
@@ -33,14 +35,18 @@ exports.TdToggleDirective = (function () {
          */
         set: function (state$$1) {
             this._state = state$$1;
-            if (this._animationPlayer) {
-                this._animationPlayer.destroy();
-                this._animationPlayer = undefined;
-            }
             if (state$$1) {
+                if (this._animationShowPlayer) {
+                    this._animationShowPlayer.destroy();
+                    this._animationShowPlayer = undefined;
+                }
                 this.hide();
             }
             else {
+                if (this._animationHidePlayer) {
+                    this._animationHidePlayer.destroy();
+                    this._animationHidePlayer = undefined;
+                }
                 this.show();
             }
         },
@@ -73,18 +79,19 @@ exports.TdToggleDirective = (function () {
      */
     TdToggleDirective.prototype.hide = function () {
         var _this = this;
-        this._defaultDisplay = this._element.nativeElement.style.display;
-        this._defaultOverflow = this._element.nativeElement.style.overflow;
-        this._animationPlayer = this._engine.animateTimeline(this._element.nativeElement, new _angular_animations_browser.ɵAnimation([_angular_animations.animate(this.duration + 'ms ease-out')]).buildTimelines([{ height: this._element.nativeElement.scrollHeight + 'px' }], [{ height: 0 }]));
+        this._animationHidePlayer = this._animationBuilder.build(_angular_animations.animation([
+            _angular_animations.style({
+                height: _angular_animations.AUTO_STYLE,
+                display: _angular_animations.AUTO_STYLE,
+            }),
+            _angular_animations.animate(this.duration + 'ms ease-in', _angular_animations.style({ height: '0' })),
+        ])).create(this._element.nativeElement);
         this._renderer.setStyle(this._element.nativeElement, 'overflow', 'hidden');
         this._changeDetectorRef.markForCheck();
-        this._animationPlayer.play();
-        this._animationPlayer.onDone(function () {
-            _this._animationPlayer.destroy();
-            _this._renderer.setStyle(_this._element.nativeElement, 'overflow', _this._defaultOverflow);
-            _this._renderer.setStyle(_this._element.nativeElement, 'display', 'none');
-            _this._changeDetectorRef.markForCheck();
+        this._animationHidePlayer.onDone(function () {
+            _this._onHideDone();
         });
+        this._animationHidePlayer.play();
     };
     /**
      * Shows element: sets "display:[default]" so animation is shown,
@@ -94,14 +101,35 @@ exports.TdToggleDirective = (function () {
         var _this = this;
         this._renderer.setStyle(this._element.nativeElement, 'display', this._defaultDisplay);
         this._changeDetectorRef.markForCheck();
-        this._animationPlayer = this._engine.animateTimeline(this._element.nativeElement, new _angular_animations_browser.ɵAnimation([_angular_animations.animate(this.duration + 'ms ease-in')]).buildTimelines([{ height: 0 }], [{ height: this._element.nativeElement.scrollHeight + 'px' }]));
+        this._animationShowPlayer = this._animationBuilder.build(_angular_animations.animation([
+            _angular_animations.style({
+                height: '0',
+                display: 'none',
+            }),
+            _angular_animations.animate(this.duration + 'ms ease-out', _angular_animations.style({ height: _angular_animations.AUTO_STYLE })),
+        ])).create(this._element.nativeElement);
         this._renderer.setStyle(this._element.nativeElement, 'overflow', 'hidden');
-        this._animationPlayer.play();
-        this._animationPlayer.onDone(function () {
-            _this._animationPlayer.destroy();
-            _this._renderer.setStyle(_this._element.nativeElement, 'overflow', _this._defaultOverflow);
-            _this._changeDetectorRef.markForCheck();
+        this._animationShowPlayer.onDone(function () {
+            _this._onShowDone();
         });
+        this._animationShowPlayer.play();
+    };
+    TdToggleDirective.prototype._onHideDone = function () {
+        if (this._animationHidePlayer) {
+            this._animationHidePlayer.destroy();
+            this._animationHidePlayer = undefined;
+            this._renderer.setStyle(this._element.nativeElement, 'overflow', this._defaultOverflow);
+            this._renderer.setStyle(this._element.nativeElement, 'display', 'none');
+            this._changeDetectorRef.markForCheck();
+        }
+    };
+    TdToggleDirective.prototype._onShowDone = function () {
+        if (this._animationShowPlayer) {
+            this._animationShowPlayer.destroy();
+            this._animationShowPlayer = undefined;
+            this._renderer.setStyle(this._element.nativeElement, 'overflow', this._defaultOverflow);
+            this._changeDetectorRef.markForCheck();
+        }
     };
     return TdToggleDirective;
 }());
@@ -131,8 +159,7 @@ exports.TdToggleDirective = __decorate$1([
     __metadata("design:paramtypes", [_angular_core.Renderer2,
         _angular_core.ElementRef,
         _angular_core.ChangeDetectorRef,
-        _angular_animations_browser.AnimationDriver,
-        _angular_animations_browser.ɵAnimationStyleNormalizer])
+        _angular_animations.AnimationBuilder])
 ], exports.TdToggleDirective);
 
 var __decorate$2 = (window && window.__decorate) || function (decorators, target, key, desc) {
@@ -145,10 +172,11 @@ var __metadata$1 = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 exports.TdFadeDirective = (function () {
-    function TdFadeDirective(_renderer, _element, _changeDetectorRef, animationDriver, animationStyleNormalizer) {
+    function TdFadeDirective(_renderer, _element, _changeDetectorRef, _animationBuilder) {
         this._renderer = _renderer;
         this._element = _element;
         this._changeDetectorRef = _changeDetectorRef;
+        this._animationBuilder = _animationBuilder;
         /**
          * duration?: number
          * Sets duration of fade animation in miliseconds.
@@ -159,13 +187,13 @@ exports.TdFadeDirective = (function () {
          * fadeIn?: function
          * Method to be executed when fadeIn animation ends.
          */
-        this.fadeIn = new _angular_core.EventEmitter();
+        this.onFadeIn = new _angular_core.EventEmitter();
         /**
          * fadeOut?: function
          * Method to be executed when fadeOut animation ends.
          */
-        this.fadeOut = new _angular_core.EventEmitter();
-        this._engine = new _angular_animations_browser.ɵDomAnimationEngine(animationDriver, animationStyleNormalizer);
+        this.onFadeOut = new _angular_core.EventEmitter();
+        this._defaultDisplay = this._element.nativeElement.style.display;
     }
     Object.defineProperty(TdFadeDirective.prototype, "state", {
         /**
@@ -174,14 +202,18 @@ exports.TdFadeDirective = (function () {
          */
         set: function (state$$1) {
             this._state = state$$1;
-            if (this._animationPlayer) {
-                this._animationPlayer.destroy();
-                this._animationPlayer = undefined;
-            }
             if (state$$1) {
+                if (this._animationFadeOutPlayer) {
+                    this._animationFadeOutPlayer.destroy();
+                    this._animationFadeOutPlayer = undefined;
+                }
                 this.hide();
             }
             else {
+                if (this._animationFadeInPlayer) {
+                    this._animationFadeInPlayer.destroy();
+                    this._animationFadeInPlayer = undefined;
+                }
                 this.show();
             }
         },
@@ -213,16 +245,17 @@ exports.TdFadeDirective = (function () {
      */
     TdFadeDirective.prototype.hide = function () {
         var _this = this;
-        this._defaultDisplay = this._element.nativeElement.style.display;
-        this._defaultOpacity = !this._element.nativeElement.style.opacity ? 1 : this._element.nativeElement.style.opacity;
-        this._animationPlayer = this._engine.animateTimeline(this._element.nativeElement, new _angular_animations_browser.ɵAnimation([_angular_animations.animate(this.duration + 'ms ease-out')]).buildTimelines([{ opacity: this._defaultOpacity }], [{ opacity: 0 }]));
-        this._changeDetectorRef.markForCheck();
-        this._animationPlayer.play();
-        this._animationPlayer.onDone(function () {
-            _this._animationPlayer.destroy();
-            _this._renderer.setStyle(_this._element.nativeElement, 'display', 'none');
-            _this._changeDetectorRef.markForCheck();
+        this._animationFadeInPlayer = this._animationBuilder.build(_angular_animations.animation([
+            _angular_animations.style({
+                opacity: _angular_animations.AUTO_STYLE,
+                display: _angular_animations.AUTO_STYLE,
+            }),
+            _angular_animations.animate(this.duration + 'ms ease-out', _angular_animations.style({ opacity: '0' })),
+        ])).create(this._element.nativeElement);
+        this._animationFadeInPlayer.onDone(function () {
+            _this._onFadeInDone();
         });
+        this._animationFadeInPlayer.play();
     };
     /**
      * Shows element: sets "display:[default]" so animation is shown.
@@ -231,12 +264,34 @@ exports.TdFadeDirective = (function () {
         var _this = this;
         this._renderer.setStyle(this._element.nativeElement, 'display', this._defaultDisplay);
         this._changeDetectorRef.markForCheck();
-        this._animationPlayer = this._engine.animateTimeline(this._element.nativeElement, new _angular_animations_browser.ɵAnimation([_angular_animations.animate(this.duration + 'ms ease-in')]).buildTimelines([{ opacity: 0 }], [{ opacity: this._defaultOpacity }]));
-        this._animationPlayer.play();
-        this._animationPlayer.onDone(function () {
-            _this._animationPlayer.destroy();
-            _this._changeDetectorRef.markForCheck();
+        this._animationFadeOutPlayer = this._animationBuilder.build(_angular_animations.animation([
+            _angular_animations.style({
+                opacity: '0',
+                display: 'none',
+            }),
+            _angular_animations.animate(this.duration + 'ms ease-in', _angular_animations.style({ opacity: _angular_animations.AUTO_STYLE })),
+        ])).create(this._element.nativeElement);
+        this._animationFadeOutPlayer.onDone(function () {
+            _this._onFadeOutDone();
         });
+        this._animationFadeOutPlayer.play();
+    };
+    TdFadeDirective.prototype._onFadeInDone = function () {
+        if (this._animationFadeInPlayer) {
+            this._animationFadeInPlayer.destroy();
+            this._animationFadeInPlayer = undefined;
+            this._renderer.setStyle(this._element.nativeElement, 'display', 'none');
+            this._changeDetectorRef.markForCheck();
+            this.onFadeIn.emit();
+        }
+    };
+    TdFadeDirective.prototype._onFadeOutDone = function () {
+        if (this._animationFadeOutPlayer) {
+            this._animationFadeOutPlayer.destroy();
+            this._animationFadeOutPlayer = undefined;
+            this._changeDetectorRef.markForCheck();
+            this.onFadeOut.emit();
+        }
     };
     return TdFadeDirective;
 }());
@@ -252,11 +307,11 @@ __decorate$2([
 __decorate$2([
     _angular_core.Output('fadeIn'),
     __metadata$1("design:type", _angular_core.EventEmitter)
-], exports.TdFadeDirective.prototype, "fadeIn", void 0);
+], exports.TdFadeDirective.prototype, "onFadeIn", void 0);
 __decorate$2([
     _angular_core.Output('fadeOut'),
     __metadata$1("design:type", _angular_core.EventEmitter)
-], exports.TdFadeDirective.prototype, "fadeOut", void 0);
+], exports.TdFadeDirective.prototype, "onFadeOut", void 0);
 __decorate$2([
     _angular_core.HostBinding('attr.aria-expanded'),
     __metadata$1("design:type", Boolean),
@@ -274,8 +329,7 @@ exports.TdFadeDirective = __decorate$2([
     __metadata$1("design:paramtypes", [_angular_core.Renderer2,
         _angular_core.ElementRef,
         _angular_core.ChangeDetectorRef,
-        _angular_animations_browser.AnimationDriver,
-        _angular_animations_browser.ɵAnimationStyleNormalizer])
+        _angular_animations.AnimationBuilder])
 ], exports.TdFadeDirective);
 
 /**
@@ -5338,7 +5392,6 @@ var TdLoadingComponent = (function () {
         this._animationIn.next(undefined);
     };
     TdLoadingComponent.prototype.outAnimationCompleted = function () {
-        var _this = this;
         /* little hack to reset the loader value and animation before removing it from DOM
          * else, the loader will appear with prev value when its registered again
          * and will do an animation going prev value to 0.
@@ -5346,25 +5399,18 @@ var TdLoadingComponent = (function () {
         this.value = 0;
         // Check for changes for `OnPush` change detection
         this._changeDetectorRef.markForCheck();
-        setTimeout(function () {
-            _this._animationOut.next(undefined);
-        });
+        this._animationOut.next(undefined);
     };
     /**
      * Starts in animation and returns an observable for completition event.
      */
     TdLoadingComponent.prototype.startInAnimation = function () {
-        var _this = this;
-        setTimeout(function () {
-            _this.animation = true;
-            // Check for changes for `OnPush` change detection
-            _this._changeDetectorRef.markForCheck();
-        });
         /* need to switch back to the selected mode, so we have saved it in another variable
         *  and then recover it. (issue with protractor)
         */
         this._mode = this._defaultMode;
         // Check for changes for `OnPush` change detection
+        this.animation = true;
         this._changeDetectorRef.markForCheck();
         return this._animationIn.asObservable();
     };
@@ -6076,6 +6122,7 @@ exports.TdMediaService = (function () {
     function TdMediaService(_ngZone) {
         var _this = this;
         this._ngZone = _ngZone;
+        this._resizing = false;
         this._queryMap = new Map();
         this._querySources = {};
         this._queryObservables = {};
@@ -6091,26 +6138,32 @@ exports.TdMediaService = (function () {
         this._queryMap.set('landscape', 'landscape');
         this._queryMap.set('portrait', 'portrait');
         this._queryMap.set('print', 'print');
-        var running = false;
-        window.onresize = function () {
-            // way to prevent the resize event from triggering the match media if there is already one event running already.
-            if (!running) {
-                running = true;
-                if (window.requestAnimationFrame) {
-                    window.requestAnimationFrame(function () {
-                        _this._onResize();
-                        running = false;
-                    });
-                }
-                else {
+        this._resizing = false;
+        // we make sure that the resize checking happend outside of angular since it happens often
+        this._globalSubscription = this._ngZone.runOutsideAngular(function () {
+            return rxjs_Observable.Observable.fromEvent(window, 'resize').subscribe(function () {
+                // way to prevent the resize event from triggering the match media if there is already one event running already.
+                if (!_this._resizing) {
+                    _this._resizing = true;
                     setTimeout(function () {
                         _this._onResize();
-                        running = false;
-                    }, 66);
+                        _this._resizing = false;
+                    }, 100);
                 }
-            }
-        };
+            });
+        });
     }
+    /**
+     * Deregisters a query so its stops being notified or used.
+     */
+    TdMediaService.prototype.deregisterQuery = function (query) {
+        if (this._queryMap.get(query.toLowerCase())) {
+            query = this._queryMap.get(query.toLowerCase());
+        }
+        this._querySources[query].unsubscribe();
+        delete this._querySources[query];
+        delete this._queryObservables[query];
+    };
     /**
      * Used to evaluate whether a given media query is true or false given the current device's screen / window size.
      */
@@ -6119,7 +6172,7 @@ exports.TdMediaService = (function () {
             query = this._queryMap.get(query.toLowerCase());
         }
         return this._ngZone.run(function () {
-            return window.matchMedia(query).matches;
+            return matchMedia(query).matches;
         });
     };
     /**
@@ -6156,7 +6209,7 @@ exports.TdMediaService = (function () {
         }
     };
     TdMediaService.prototype._matchMediaTrigger = function (query) {
-        this._querySources[query].next(window.matchMedia(query).matches);
+        this._querySources[query].next(matchMedia(query).matches);
     };
     return TdMediaService;
 }());
@@ -6261,7 +6314,12 @@ exports.TdMediaToggleDirective = (function () {
     };
     TdMediaToggleDirective.prototype._changeAttributes = function () {
         for (var attr in this._attributes) {
-            this._renderer.setAttribute(this._elementRef.nativeElement, attr, this._matches ? this._attributes[attr] : undefined);
+            if (this._matches) {
+                this._renderer.setAttribute(this._elementRef.nativeElement, attr, this._attributes[attr]);
+            }
+            else {
+                this._renderer.removeAttribute(this._elementRef.nativeElement, attr);
+            }
         }
     };
     TdMediaToggleDirective.prototype._changeClasses = function () {
@@ -6277,7 +6335,12 @@ exports.TdMediaToggleDirective = (function () {
     };
     TdMediaToggleDirective.prototype._changeStyles = function () {
         for (var style$$1 in this._styles) {
-            this._renderer.setStyle(this._elementRef.nativeElement, style$$1, this._matches ? this._styles[style$$1] : undefined);
+            if (this._matches) {
+                this._renderer.setStyle(this._elementRef.nativeElement, style$$1, this._styles[style$$1]);
+            }
+            else {
+                this._renderer.removeStyle(this._elementRef.nativeElement, style$$1);
+            }
         }
     };
     return TdMediaToggleDirective;
@@ -7491,13 +7554,11 @@ exports.TdSearchBoxComponent = __decorate$63([
             _angular_animations.trigger('inputState', [
                 _angular_animations.state('0', _angular_animations.style({
                     width: '0%',
-                    'margin-left': '0px',
-                    'margin-right': '0px',
+                    margin: '0px',
                 })),
                 _angular_animations.state('1', _angular_animations.style({
                     width: '100%',
-                    'margin-left': '*',
-                    'margin-right': '*',
+                    margin: _angular_animations.AUTO_STYLE,
                 })),
                 _angular_animations.transition('0 => 1', _angular_animations.animate('200ms ease-in')),
                 _angular_animations.transition('1 => 0', _angular_animations.animate('200ms ease-out')),

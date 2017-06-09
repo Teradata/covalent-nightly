@@ -8,7 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component, ViewChild, Input, Output, EventEmitter } from '@angular/core';
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import { trigger, state, style, transition, animate, AUTO_STYLE } from '@angular/animations';
 import { TdSearchInputComponent } from '../search-input/search-input.component';
 var TdSearchBoxComponent = (function () {
     function TdSearchBoxComponent() {
@@ -135,13 +135,11 @@ TdSearchBoxComponent = __decorate([
             trigger('inputState', [
                 state('0', style({
                     width: '0%',
-                    'margin-left': '0px',
-                    'margin-right': '0px',
+                    margin: '0px',
                 })),
                 state('1', style({
                     width: '100%',
-                    'margin-left': '*',
-                    'margin-right': '*',
+                    margin: AUTO_STYLE,
                 })),
                 transition('0 => 1', animate('200ms ease-in')),
                 transition('1 => 0', animate('200ms ease-out')),

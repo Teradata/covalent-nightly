@@ -7,14 +7,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Directive, ElementRef, Input, Output, EventEmitter, HostBinding, Renderer2, ChangeDetectorRef, } from '@angular/core';
-import { ɵAnimation as Animation, AnimationDriver, ɵAnimationStyleNormalizer as AnimationStyleNormalizer, ɵDomAnimationEngine as DomAnimationEngine } from '@angular/animations/browser';
-import { animate } from '@angular/animations';
+import { Directive, ElementRef, Input, Output, EventEmitter, HostBinding, Renderer2, ChangeDetectorRef } from '@angular/core';
+import { animate, AnimationBuilder, AUTO_STYLE, style, animation } from '@angular/animations';
 var TdFadeDirective = (function () {
-    function TdFadeDirective(_renderer, _element, _changeDetectorRef, animationDriver, animationStyleNormalizer) {
+    function TdFadeDirective(_renderer, _element, _changeDetectorRef, _animationBuilder) {
         this._renderer = _renderer;
         this._element = _element;
         this._changeDetectorRef = _changeDetectorRef;
+        this._animationBuilder = _animationBuilder;
         /**
          * duration?: number
          * Sets duration of fade animation in miliseconds.
@@ -25,13 +25,13 @@ var TdFadeDirective = (function () {
          * fadeIn?: function
          * Method to be executed when fadeIn animation ends.
          */
-        this.fadeIn = new EventEmitter();
+        this.onFadeIn = new EventEmitter();
         /**
          * fadeOut?: function
          * Method to be executed when fadeOut animation ends.
          */
-        this.fadeOut = new EventEmitter();
-        this._engine = new DomAnimationEngine(animationDriver, animationStyleNormalizer);
+        this.onFadeOut = new EventEmitter();
+        this._defaultDisplay = this._element.nativeElement.style.display;
     }
     Object.defineProperty(TdFadeDirective.prototype, "state", {
         /**
@@ -40,14 +40,18 @@ var TdFadeDirective = (function () {
          */
         set: function (state) {
             this._state = state;
-            if (this._animationPlayer) {
-                this._animationPlayer.destroy();
-                this._animationPlayer = undefined;
-            }
             if (state) {
+                if (this._animationFadeOutPlayer) {
+                    this._animationFadeOutPlayer.destroy();
+                    this._animationFadeOutPlayer = undefined;
+                }
                 this.hide();
             }
             else {
+                if (this._animationFadeInPlayer) {
+                    this._animationFadeInPlayer.destroy();
+                    this._animationFadeInPlayer = undefined;
+                }
                 this.show();
             }
         },
@@ -79,16 +83,17 @@ var TdFadeDirective = (function () {
      */
     TdFadeDirective.prototype.hide = function () {
         var _this = this;
-        this._defaultDisplay = this._element.nativeElement.style.display;
-        this._defaultOpacity = !this._element.nativeElement.style.opacity ? 1 : this._element.nativeElement.style.opacity;
-        this._animationPlayer = this._engine.animateTimeline(this._element.nativeElement, new Animation([animate(this.duration + 'ms ease-out')]).buildTimelines([{ opacity: this._defaultOpacity }], [{ opacity: 0 }]));
-        this._changeDetectorRef.markForCheck();
-        this._animationPlayer.play();
-        this._animationPlayer.onDone(function () {
-            _this._animationPlayer.destroy();
-            _this._renderer.setStyle(_this._element.nativeElement, 'display', 'none');
-            _this._changeDetectorRef.markForCheck();
+        this._animationFadeInPlayer = this._animationBuilder.build(animation([
+            style({
+                opacity: AUTO_STYLE,
+                display: AUTO_STYLE,
+            }),
+            animate(this.duration + 'ms ease-out', style({ opacity: '0' })),
+        ])).create(this._element.nativeElement);
+        this._animationFadeInPlayer.onDone(function () {
+            _this._onFadeInDone();
         });
+        this._animationFadeInPlayer.play();
     };
     /**
      * Shows element: sets "display:[default]" so animation is shown.
@@ -97,12 +102,34 @@ var TdFadeDirective = (function () {
         var _this = this;
         this._renderer.setStyle(this._element.nativeElement, 'display', this._defaultDisplay);
         this._changeDetectorRef.markForCheck();
-        this._animationPlayer = this._engine.animateTimeline(this._element.nativeElement, new Animation([animate(this.duration + 'ms ease-in')]).buildTimelines([{ opacity: 0 }], [{ opacity: this._defaultOpacity }]));
-        this._animationPlayer.play();
-        this._animationPlayer.onDone(function () {
-            _this._animationPlayer.destroy();
-            _this._changeDetectorRef.markForCheck();
+        this._animationFadeOutPlayer = this._animationBuilder.build(animation([
+            style({
+                opacity: '0',
+                display: 'none',
+            }),
+            animate(this.duration + 'ms ease-in', style({ opacity: AUTO_STYLE })),
+        ])).create(this._element.nativeElement);
+        this._animationFadeOutPlayer.onDone(function () {
+            _this._onFadeOutDone();
         });
+        this._animationFadeOutPlayer.play();
+    };
+    TdFadeDirective.prototype._onFadeInDone = function () {
+        if (this._animationFadeInPlayer) {
+            this._animationFadeInPlayer.destroy();
+            this._animationFadeInPlayer = undefined;
+            this._renderer.setStyle(this._element.nativeElement, 'display', 'none');
+            this._changeDetectorRef.markForCheck();
+            this.onFadeIn.emit();
+        }
+    };
+    TdFadeDirective.prototype._onFadeOutDone = function () {
+        if (this._animationFadeOutPlayer) {
+            this._animationFadeOutPlayer.destroy();
+            this._animationFadeOutPlayer = undefined;
+            this._changeDetectorRef.markForCheck();
+            this.onFadeOut.emit();
+        }
     };
     return TdFadeDirective;
 }());
@@ -118,11 +145,11 @@ __decorate([
 __decorate([
     Output('fadeIn'),
     __metadata("design:type", EventEmitter)
-], TdFadeDirective.prototype, "fadeIn", void 0);
+], TdFadeDirective.prototype, "onFadeIn", void 0);
 __decorate([
     Output('fadeOut'),
     __metadata("design:type", EventEmitter)
-], TdFadeDirective.prototype, "fadeOut", void 0);
+], TdFadeDirective.prototype, "onFadeOut", void 0);
 __decorate([
     HostBinding('attr.aria-expanded'),
     __metadata("design:type", Boolean),
@@ -140,8 +167,7 @@ TdFadeDirective = __decorate([
     __metadata("design:paramtypes", [Renderer2,
         ElementRef,
         ChangeDetectorRef,
-        AnimationDriver,
-        AnimationStyleNormalizer])
+        AnimationBuilder])
 ], TdFadeDirective);
 export { TdFadeDirective };
 //# sourceMappingURL=fade.directive.js.map

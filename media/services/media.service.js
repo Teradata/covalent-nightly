@@ -9,10 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Injectable, NgZone, SkipSelf, Optional } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
 var TdMediaService = (function () {
     function TdMediaService(_ngZone) {
         var _this = this;
         this._ngZone = _ngZone;
+        this._resizing = false;
         this._queryMap = new Map();
         this._querySources = {};
         this._queryObservables = {};
@@ -28,26 +30,32 @@ var TdMediaService = (function () {
         this._queryMap.set('landscape', 'landscape');
         this._queryMap.set('portrait', 'portrait');
         this._queryMap.set('print', 'print');
-        var running = false;
-        window.onresize = function () {
-            // way to prevent the resize event from triggering the match media if there is already one event running already.
-            if (!running) {
-                running = true;
-                if (window.requestAnimationFrame) {
-                    window.requestAnimationFrame(function () {
-                        _this._onResize();
-                        running = false;
-                    });
-                }
-                else {
+        this._resizing = false;
+        // we make sure that the resize checking happend outside of angular since it happens often
+        this._globalSubscription = this._ngZone.runOutsideAngular(function () {
+            return Observable.fromEvent(window, 'resize').subscribe(function () {
+                // way to prevent the resize event from triggering the match media if there is already one event running already.
+                if (!_this._resizing) {
+                    _this._resizing = true;
                     setTimeout(function () {
                         _this._onResize();
-                        running = false;
-                    }, 66);
+                        _this._resizing = false;
+                    }, 100);
                 }
-            }
-        };
+            });
+        });
     }
+    /**
+     * Deregisters a query so its stops being notified or used.
+     */
+    TdMediaService.prototype.deregisterQuery = function (query) {
+        if (this._queryMap.get(query.toLowerCase())) {
+            query = this._queryMap.get(query.toLowerCase());
+        }
+        this._querySources[query].unsubscribe();
+        delete this._querySources[query];
+        delete this._queryObservables[query];
+    };
     /**
      * Used to evaluate whether a given media query is true or false given the current device's screen / window size.
      */
@@ -56,7 +64,7 @@ var TdMediaService = (function () {
             query = this._queryMap.get(query.toLowerCase());
         }
         return this._ngZone.run(function () {
-            return window.matchMedia(query).matches;
+            return matchMedia(query).matches;
         });
     };
     /**
@@ -93,7 +101,7 @@ var TdMediaService = (function () {
         }
     };
     TdMediaService.prototype._matchMediaTrigger = function (query) {
-        this._querySources[query].next(window.matchMedia(query).matches);
+        this._querySources[query].next(matchMedia(query).matches);
     };
     return TdMediaService;
 }());

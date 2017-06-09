@@ -88,7 +88,12 @@ var TdMediaToggleDirective = (function () {
     };
     TdMediaToggleDirective.prototype._changeAttributes = function () {
         for (var attr in this._attributes) {
-            this._renderer.setAttribute(this._elementRef.nativeElement, attr, this._matches ? this._attributes[attr] : undefined);
+            if (this._matches) {
+                this._renderer.setAttribute(this._elementRef.nativeElement, attr, this._attributes[attr]);
+            }
+            else {
+                this._renderer.removeAttribute(this._elementRef.nativeElement, attr);
+            }
         }
     };
     TdMediaToggleDirective.prototype._changeClasses = function () {
@@ -104,7 +109,12 @@ var TdMediaToggleDirective = (function () {
     };
     TdMediaToggleDirective.prototype._changeStyles = function () {
         for (var style in this._styles) {
-            this._renderer.setStyle(this._elementRef.nativeElement, style, this._matches ? this._styles[style] : undefined);
+            if (this._matches) {
+                this._renderer.setStyle(this._elementRef.nativeElement, style, this._styles[style]);
+            }
+            else {
+                this._renderer.removeStyle(this._elementRef.nativeElement, style);
+            }
         }
     };
     return TdMediaToggleDirective;

@@ -8,20 +8,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Directive, ElementRef, Input, HostBinding, Renderer2, ChangeDetectorRef } from '@angular/core';
-import { ɵAnimation as Animation, AnimationDriver, ɵAnimationStyleNormalizer as AnimationStyleNormalizer, ɵDomAnimationEngine as DomAnimationEngine } from '@angular/animations/browser';
-import { animate } from '@angular/animations';
+import { animate, AnimationBuilder, AUTO_STYLE, style, animation } from '@angular/animations';
 var TdToggleDirective = (function () {
-    function TdToggleDirective(_renderer, _element, _changeDetectorRef, animationDriver, animationStyleNormalizer) {
+    function TdToggleDirective(_renderer, _element, _changeDetectorRef, _animationBuilder) {
         this._renderer = _renderer;
         this._element = _element;
         this._changeDetectorRef = _changeDetectorRef;
+        this._animationBuilder = _animationBuilder;
         /**
          * duration?: number
          * Sets duration of toggle animation in miliseconds.
          * Defaults to 150 ms.
          */
         this.duration = 150;
-        this._engine = new DomAnimationEngine(animationDriver, animationStyleNormalizer);
+        this._defaultDisplay = this._element.nativeElement.style.display;
+        this._defaultOverflow = this._element.nativeElement.style.overflow;
     }
     Object.defineProperty(TdToggleDirective.prototype, "state", {
         /**
@@ -30,14 +31,18 @@ var TdToggleDirective = (function () {
          */
         set: function (state) {
             this._state = state;
-            if (this._animationPlayer) {
-                this._animationPlayer.destroy();
-                this._animationPlayer = undefined;
-            }
             if (state) {
+                if (this._animationShowPlayer) {
+                    this._animationShowPlayer.destroy();
+                    this._animationShowPlayer = undefined;
+                }
                 this.hide();
             }
             else {
+                if (this._animationHidePlayer) {
+                    this._animationHidePlayer.destroy();
+                    this._animationHidePlayer = undefined;
+                }
                 this.show();
             }
         },
@@ -70,18 +75,19 @@ var TdToggleDirective = (function () {
      */
     TdToggleDirective.prototype.hide = function () {
         var _this = this;
-        this._defaultDisplay = this._element.nativeElement.style.display;
-        this._defaultOverflow = this._element.nativeElement.style.overflow;
-        this._animationPlayer = this._engine.animateTimeline(this._element.nativeElement, new Animation([animate(this.duration + 'ms ease-out')]).buildTimelines([{ height: this._element.nativeElement.scrollHeight + 'px' }], [{ height: 0 }]));
+        this._animationHidePlayer = this._animationBuilder.build(animation([
+            style({
+                height: AUTO_STYLE,
+                display: AUTO_STYLE,
+            }),
+            animate(this.duration + 'ms ease-in', style({ height: '0' })),
+        ])).create(this._element.nativeElement);
         this._renderer.setStyle(this._element.nativeElement, 'overflow', 'hidden');
         this._changeDetectorRef.markForCheck();
-        this._animationPlayer.play();
-        this._animationPlayer.onDone(function () {
-            _this._animationPlayer.destroy();
-            _this._renderer.setStyle(_this._element.nativeElement, 'overflow', _this._defaultOverflow);
-            _this._renderer.setStyle(_this._element.nativeElement, 'display', 'none');
-            _this._changeDetectorRef.markForCheck();
+        this._animationHidePlayer.onDone(function () {
+            _this._onHideDone();
         });
+        this._animationHidePlayer.play();
     };
     /**
      * Shows element: sets "display:[default]" so animation is shown,
@@ -91,14 +97,35 @@ var TdToggleDirective = (function () {
         var _this = this;
         this._renderer.setStyle(this._element.nativeElement, 'display', this._defaultDisplay);
         this._changeDetectorRef.markForCheck();
-        this._animationPlayer = this._engine.animateTimeline(this._element.nativeElement, new Animation([animate(this.duration + 'ms ease-in')]).buildTimelines([{ height: 0 }], [{ height: this._element.nativeElement.scrollHeight + 'px' }]));
+        this._animationShowPlayer = this._animationBuilder.build(animation([
+            style({
+                height: '0',
+                display: 'none',
+            }),
+            animate(this.duration + 'ms ease-out', style({ height: AUTO_STYLE })),
+        ])).create(this._element.nativeElement);
         this._renderer.setStyle(this._element.nativeElement, 'overflow', 'hidden');
-        this._animationPlayer.play();
-        this._animationPlayer.onDone(function () {
-            _this._animationPlayer.destroy();
-            _this._renderer.setStyle(_this._element.nativeElement, 'overflow', _this._defaultOverflow);
-            _this._changeDetectorRef.markForCheck();
+        this._animationShowPlayer.onDone(function () {
+            _this._onShowDone();
         });
+        this._animationShowPlayer.play();
+    };
+    TdToggleDirective.prototype._onHideDone = function () {
+        if (this._animationHidePlayer) {
+            this._animationHidePlayer.destroy();
+            this._animationHidePlayer = undefined;
+            this._renderer.setStyle(this._element.nativeElement, 'overflow', this._defaultOverflow);
+            this._renderer.setStyle(this._element.nativeElement, 'display', 'none');
+            this._changeDetectorRef.markForCheck();
+        }
+    };
+    TdToggleDirective.prototype._onShowDone = function () {
+        if (this._animationShowPlayer) {
+            this._animationShowPlayer.destroy();
+            this._animationShowPlayer = undefined;
+            this._renderer.setStyle(this._element.nativeElement, 'overflow', this._defaultOverflow);
+            this._changeDetectorRef.markForCheck();
+        }
     };
     return TdToggleDirective;
 }());
@@ -128,8 +155,7 @@ TdToggleDirective = __decorate([
     __metadata("design:paramtypes", [Renderer2,
         ElementRef,
         ChangeDetectorRef,
-        AnimationDriver,
-        AnimationStyleNormalizer])
+        AnimationBuilder])
 ], TdToggleDirective);
 export { TdToggleDirective };
 //# sourceMappingURL=toggle.directive.js.map

@@ -1,14 +1,14 @@
 import { ElementRef, EventEmitter, Renderer2, ChangeDetectorRef } from '@angular/core';
-import { AnimationDriver, ɵAnimationStyleNormalizer as AnimationStyleNormalizer } from '@angular/animations/browser';
+import { AnimationBuilder } from '@angular/animations';
 export declare class TdFadeDirective {
     private _renderer;
     private _element;
     private _changeDetectorRef;
+    private _animationBuilder;
     private _state;
-    private _defaultOpacity;
     private _defaultDisplay;
-    private _engine;
-    private _animationPlayer;
+    private _animationFadeInPlayer;
+    private _animationFadeOutPlayer;
     /**
      * duration?: number
      * Sets duration of fade animation in miliseconds.
@@ -24,12 +24,12 @@ export declare class TdFadeDirective {
      * fadeIn?: function
      * Method to be executed when fadeIn animation ends.
      */
-    fadeIn: EventEmitter<void>;
+    onFadeIn: EventEmitter<void>;
     /**
      * fadeOut?: function
      * Method to be executed when fadeOut animation ends.
      */
-    fadeOut: EventEmitter<void>;
+    onFadeOut: EventEmitter<void>;
     /**
      * Binds native 'aria-expanded' attribute.
      */
@@ -38,7 +38,7 @@ export declare class TdFadeDirective {
      * Binds native 'aria-hidden' attribute.
      */
     readonly ariaHiddenBinding: boolean;
-    constructor(_renderer: Renderer2, _element: ElementRef, _changeDetectorRef: ChangeDetectorRef, animationDriver: AnimationDriver, animationStyleNormalizer: AnimationStyleNormalizer);
+    constructor(_renderer: Renderer2, _element: ElementRef, _changeDetectorRef: ChangeDetectorRef, _animationBuilder: AnimationBuilder);
     /**
      * Hides element: starts animation and adds "display:'none'" style at the end.
      */
@@ -47,4 +47,6 @@ export declare class TdFadeDirective {
      * Shows element: sets "display:[default]" so animation is shown.
      */
     show(): void;
+    private _onFadeInDone();
+    private _onFadeOutDone();
 }

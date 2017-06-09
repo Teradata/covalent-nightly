@@ -1,14 +1,15 @@
 import { ElementRef, Renderer2, ChangeDetectorRef } from '@angular/core';
-import { AnimationDriver, ɵAnimationStyleNormalizer as AnimationStyleNormalizer } from '@angular/animations/browser';
+import { AnimationBuilder } from '@angular/animations';
 export declare class TdToggleDirective {
     private _renderer;
     private _element;
     private _changeDetectorRef;
+    private _animationBuilder;
     private _state;
     private _defaultOverflow;
     private _defaultDisplay;
-    private _engine;
-    private _animationPlayer;
+    private _animationShowPlayer;
+    private _animationHidePlayer;
     /**
      * duration?: number
      * Sets duration of toggle animation in miliseconds.
@@ -28,7 +29,7 @@ export declare class TdToggleDirective {
      * Binds native 'aria-hidden' attribute.
      */
     readonly ariaHiddenBinding: boolean;
-    constructor(_renderer: Renderer2, _element: ElementRef, _changeDetectorRef: ChangeDetectorRef, animationDriver: AnimationDriver, animationStyleNormalizer: AnimationStyleNormalizer);
+    constructor(_renderer: Renderer2, _element: ElementRef, _changeDetectorRef: ChangeDetectorRef, _animationBuilder: AnimationBuilder);
     /**
      * Hides element: sets "display:[default]" so animation is shown,
      * starts animation and adds "display:'none'" style at the end.
@@ -39,4 +40,6 @@ export declare class TdToggleDirective {
      * starts animation and adds "overflow:[default]" style again at the end.
      */
     show(): void;
+    private _onHideDone();
+    private _onShowDone();
 }
