@@ -6479,6 +6479,8 @@ exports.TdMessageComponent = (function () {
         this._changeDetectorRef = _changeDetectorRef;
         this._elementRef = _elementRef;
         this._opened = true;
+        this._hidden = false;
+        this._animating = false;
         this._initialized = false;
         /**
          * icon?: string
@@ -6489,9 +6491,32 @@ exports.TdMessageComponent = (function () {
         this.icon = 'info_outline';
         this._renderer.addClass(this._elementRef.nativeElement, 'td-message');
     }
-    Object.defineProperty(TdMessageComponent.prototype, "hidden", {
+    Object.defineProperty(TdMessageComponent.prototype, "fadeAnimation", {
+        /**
+         * Binding host to tdFadeInOut animation
+         */
         get: function () {
-            return !this._opened ? 'none' : undefined;
+            return this._opened;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TdMessageComponent.prototype, "collapsedAnimation", {
+        /**
+         * Binding host to tdCollapse animation
+         */
+        get: function () {
+            return !this._opened;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TdMessageComponent.prototype, "hidden", {
+        /**
+         * Binding host to display style when hidden
+         */
+        get: function () {
+            return this._hidden ? 'none' : undefined;
         },
         enumerable: true,
         configurable: true
@@ -6550,36 +6575,48 @@ exports.TdMessageComponent = (function () {
         configurable: true
     });
     /**
-     * Initializes the component and attaches the content if [opened] was true.
+     * Detach element when close animation is finished to set animating state to false
+     * hidden state to true and detach element from DOM
+     */
+    TdMessageComponent.prototype.animationDoneListener = function () {
+        if (!this._opened) {
+            this._hidden = true;
+            this._detach();
+        }
+        this._animating = false;
+        this._changeDetectorRef.markForCheck();
+    };
+    /**
+     * Initializes the component and attaches the content.
      */
     TdMessageComponent.prototype.ngAfterViewInit = function () {
         var _this = this;
         Promise.resolve(undefined).then(function () {
             if (_this._opened) {
-                _this._childElement.viewContainer.createEmbeddedView(_this._template);
-                _this._changeDetectorRef.markForCheck();
+                _this._attach();
             }
             _this._initialized = true;
         });
     };
     /**
-     * Renders the message on screen.
+     * Renders the message on screen
+     * Validates if there is an animation currently and if its already opened
      */
     TdMessageComponent.prototype.open = function () {
-        if (!this._opened) {
+        if (!this._opened && !this._animating) {
             this._opened = true;
-            this._childElement.viewContainer.createEmbeddedView(this._template);
-            this._changeDetectorRef.markForCheck();
+            this._attach();
+            this._startAnimationState();
         }
     };
     /**
      * Removes the message content from screen.
+     * Validates if there is an animation currently and if its already closed
      */
     TdMessageComponent.prototype.close = function () {
-        if (this._opened) {
+        if (this._opened && !this._animating) {
             this._opened = false;
-            this._childElement.viewContainer.clear();
-            this._changeDetectorRef.markForCheck();
+            this._startAnimationState();
         }
     };
     /**
@@ -6593,6 +6630,28 @@ exports.TdMessageComponent = (function () {
             this.open();
         }
     };
+    /**
+     * Method to set the state before starting an animation
+     */
+    TdMessageComponent.prototype._startAnimationState = function () {
+        this._animating = true;
+        this._hidden = false;
+        this._changeDetectorRef.markForCheck();
+    };
+    /**
+     * Method to attach template to DOM
+     */
+    TdMessageComponent.prototype._attach = function () {
+        this._childElement.viewContainer.createEmbeddedView(this._template);
+        this._changeDetectorRef.markForCheck();
+    };
+    /**
+     * Method to detach template from DOM
+     */
+    TdMessageComponent.prototype._detach = function () {
+        this._childElement.viewContainer.clear();
+        this._changeDetectorRef.markForCheck();
+    };
     return TdMessageComponent;
 }());
 __decorate$56([
@@ -6603,6 +6662,16 @@ __decorate$56([
     _angular_core.ViewChild(_angular_core.TemplateRef),
     __metadata$38("design:type", _angular_core.TemplateRef)
 ], exports.TdMessageComponent.prototype, "_template", void 0);
+__decorate$56([
+    _angular_core.HostBinding('@tdFadeInOut'),
+    __metadata$38("design:type", Boolean),
+    __metadata$38("design:paramtypes", [])
+], exports.TdMessageComponent.prototype, "fadeAnimation", null);
+__decorate$56([
+    _angular_core.HostBinding('@tdCollapse'),
+    __metadata$38("design:type", Boolean),
+    __metadata$38("design:paramtypes", [])
+], exports.TdMessageComponent.prototype, "collapsedAnimation", null);
 __decorate$56([
     _angular_core.HostBinding('style.display'),
     __metadata$38("design:type", String),
@@ -6630,11 +6699,21 @@ __decorate$56([
     __metadata$38("design:type", Boolean),
     __metadata$38("design:paramtypes", [Boolean])
 ], exports.TdMessageComponent.prototype, "opened", null);
+__decorate$56([
+    _angular_core.HostListener('@tdCollapse.done'),
+    __metadata$38("design:type", Function),
+    __metadata$38("design:paramtypes", []),
+    __metadata$38("design:returntype", void 0)
+], exports.TdMessageComponent.prototype, "animationDoneListener", null);
 exports.TdMessageComponent = __decorate$56([
     _angular_core.Component({
         selector: 'td-message',
         template: "<div tdMessageContainer></div> <ng-template> <div class=\"pad-left pad-right td-message-wrapper\" layout=\"row\" layout-align=\"center center\"> <md-icon class=\"push-right\">{{icon}}</md-icon> <div> <div *ngIf=\"label\" class=\"td-message-label md-body-2\">{{label}}</div> <div *ngIf=\"sublabel\" class=\"td-message-sublabel md-body-1\">{{sublabel}}</div> </div> <span flex></span> <ng-content select=\"[td-message-actions]\"></ng-content> </div> </ng-template>",
         styles: [":host { display: block; } :host .td-message-wrapper { min-height: 52px; } "],
+        animations: [
+            TdCollapseAnimation(100),
+            TdFadeInOutAnimation(100),
+        ],
     }),
     __metadata$38("design:paramtypes", [_angular_core.Renderer2,
         _angular_core.ChangeDetectorRef,

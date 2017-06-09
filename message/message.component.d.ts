@@ -9,9 +9,22 @@ export declare class TdMessageComponent implements AfterViewInit {
     private _elementRef;
     private _color;
     private _opened;
+    private _hidden;
+    private _animating;
     private _initialized;
     _childElement: TdMessageContainerDirective;
     _template: TemplateRef<any>;
+    /**
+     * Binding host to tdFadeInOut animation
+     */
+    readonly fadeAnimation: boolean;
+    /**
+     * Binding host to tdCollapse animation
+     */
+    readonly collapsedAnimation: boolean;
+    /**
+     * Binding host to display style when hidden
+     */
     readonly hidden: string;
     /**
      * label: string
@@ -48,19 +61,38 @@ export declare class TdMessageComponent implements AfterViewInit {
     opened: boolean;
     constructor(_renderer: Renderer2, _changeDetectorRef: ChangeDetectorRef, _elementRef: ElementRef);
     /**
-     * Initializes the component and attaches the content if [opened] was true.
+     * Detach element when close animation is finished to set animating state to false
+     * hidden state to true and detach element from DOM
+     */
+    animationDoneListener(): void;
+    /**
+     * Initializes the component and attaches the content.
      */
     ngAfterViewInit(): void;
     /**
-     * Renders the message on screen.
+     * Renders the message on screen
+     * Validates if there is an animation currently and if its already opened
      */
     open(): void;
     /**
      * Removes the message content from screen.
+     * Validates if there is an animation currently and if its already closed
      */
     close(): void;
     /**
      * Toggles between open and close depending on state.
      */
     toggle(): void;
+    /**
+     * Method to set the state before starting an animation
+     */
+    private _startAnimationState();
+    /**
+     * Method to attach template to DOM
+     */
+    private _attach();
+    /**
+     * Method to detach template from DOM
+     */
+    private _detach();
 }
