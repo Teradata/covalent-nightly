@@ -5480,6 +5480,7 @@ var TdLoadingFactory = (function () {
                 loadingRef.componentRef = overlayRef.attach(new _angular_material.ComponentPortal(TdLoadingComponent));
                 _this._mapOptions(options, loadingRef.componentRef.instance);
                 loadingRef.componentRef.instance.startInAnimation();
+                loadingRef.componentRef.changeDetectorRef.detectChanges();
             }
             else if (registered <= 0 && loading) {
                 loading = false;
