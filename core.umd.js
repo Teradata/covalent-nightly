@@ -2170,8 +2170,9 @@ exports.TdDataTableComponent = (function () {
         if (this.isClickable) {
             // ignoring linting rules here because attribute it actually null or not there
             // can't check for undefined
+            var srcElement = event.srcElement || event.currentTarget;
             /* tslint:disable-next-line */
-            if (event.srcElement.getAttribute('stopRowClick') === null) {
+            if (srcElement.getAttribute('stopRowClick') === null) {
                 this.onRowClick.emit({ row: row });
             }
         }
