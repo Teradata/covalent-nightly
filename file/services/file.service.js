@@ -53,9 +53,9 @@ var TdFileService = (function () {
             else {
                 return subscriber.error('For [IUploadOptions] you have to set either the [file] or the [formData] property.');
             }
-            xhr.onprogress = function (event) {
+            xhr.upload.onprogress = function (event) {
                 var progress = 0;
-                if (event.total > 0) {
+                if (event.lengthComputable) {
                     progress = Math.round(event.loaded / event.total * 100);
                 }
                 _this._progressSubject.next(progress);
