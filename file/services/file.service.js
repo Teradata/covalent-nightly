@@ -62,8 +62,8 @@ var TdFileService = (function () {
             };
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4) {
-                    if (xhr.status === 200 || xhr.status === 201) {
-                        subscriber.next(JSON.parse(xhr.response));
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        subscriber.next(xhr.response);
                         subscriber.complete();
                     }
                     else {
