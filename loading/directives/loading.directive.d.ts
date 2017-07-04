@@ -54,7 +54,7 @@ export declare class TdLoadingDirective implements OnInit, OnDestroy {
      * Sets the theme color of the loading component. Defaults to "primary"
      */
     color: 'primary' | 'accent' | 'warn';
-    constructor(_viewContainerRef: ViewContainerRef, _templateRef: TemplateRef<TdLoadingContext>, _loadingService: TdLoadingService);
+    constructor(_viewContainerRef: ViewContainerRef, _templateRef: TemplateRef<Object>, _loadingService: TdLoadingService);
     /**
      * Registers component in the DOM, so it will be available when calling resolve/register.
      */
