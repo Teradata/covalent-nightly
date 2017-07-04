@@ -77,11 +77,6 @@ export declare class TdDataTableComponent implements ControlValueAccessor, After
      */
     value: any;
     /**
-     * uniqueId?: string
-     * Allows selection by [uniqueId] property.
-     */
-    uniqueId: string;
-    /**
      * data?: {[key: string]: any}[]
      * Sets the data to be rendered as rows.
      */
@@ -159,6 +154,12 @@ export declare class TdDataTableComponent implements ControlValueAccessor, After
      */
     onSelectAll: EventEmitter<ITdDataTableSelectAllEvent>;
     constructor(_document: any, _changeDetectorRef: ChangeDetectorRef);
+    /**
+     * compareWith?: function(row, model): boolean
+     * Allows custom comparison between row and model to see if row is selected or not
+     * Default comparation is by object reference
+     */
+    compareWith: (row: any, model: any) => boolean;
     /**
      * Loads templates and sets them in a map for faster access.
      */

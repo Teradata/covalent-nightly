@@ -1822,6 +1822,14 @@ exports.TdDataTableComponent = (function () {
          * Emits an [ITdDataTableSelectAllEvent] implemented object.
          */
         this.onSelectAll = new _angular_core.EventEmitter();
+        /**
+         * compareWith?: function(row, model): boolean
+         * Allows custom comparison between row and model to see if row is selected or not
+         * Default comparation is by object reference
+         */
+        this.compareWith = function (row, model) {
+            return row === model;
+        };
         this.onChange = function (_) { return noop$1; };
         this.onTouched = function () { return noop$1; };
     }
@@ -2100,13 +2108,10 @@ exports.TdDataTableComponent = (function () {
      */
     TdDataTableComponent.prototype.isRowSelected = function (row) {
         var _this = this;
-        // if selection is done by a [uniqueId] it uses it to compare, else it compares by reference.
-        if (this.uniqueId) {
-            return this._value ? this._value.filter(function (val) {
-                return val[_this.uniqueId] === row[_this.uniqueId];
-            }).length > 0 : false;
-        }
-        return this._value ? this._value.indexOf(row) > -1 : false;
+        // compare items by [compareWith] function
+        return this._value ? this._value.filter(function (val) {
+            return _this.compareWith(row, val);
+        }).length > 0 : false;
     };
     /**
      * Selects or clears a row depending on 'checked' value if the row 'isSelectable'
@@ -2301,12 +2306,10 @@ exports.TdDataTableComponent = (function () {
             this._value.push(row);
         }
         else {
-            // if selection is done by a [uniqueId] it uses it to compare, else it compares by reference.
-            if (this.uniqueId) {
-                row = this._value.filter(function (val) {
-                    return val[_this.uniqueId] === row[_this.uniqueId];
-                })[0];
-            }
+            // compare items by [compareWith] function
+            row = this._value.filter(function (val) {
+                return _this.compareWith(row, val);
+            })[0];
             var index = this._value.indexOf(row);
             if (index > -1) {
                 this._value.splice(index, 1);
@@ -2361,10 +2364,6 @@ __decorate$13([
     __metadata$6("design:type", Object),
     __metadata$6("design:paramtypes", [Object])
 ], exports.TdDataTableComponent.prototype, "value", null);
-__decorate$13([
-    _angular_core.Input('uniqueId'),
-    __metadata$6("design:type", String)
-], exports.TdDataTableComponent.prototype, "uniqueId", void 0);
 __decorate$13([
     _angular_core.Input('data'),
     __metadata$6("design:type", Array),
@@ -2421,6 +2420,10 @@ __decorate$13([
     _angular_core.Output('selectAll'),
     __metadata$6("design:type", _angular_core.EventEmitter)
 ], exports.TdDataTableComponent.prototype, "onSelectAll", void 0);
+__decorate$13([
+    _angular_core.Input('compareWith'),
+    __metadata$6("design:type", Function)
+], exports.TdDataTableComponent.prototype, "compareWith", void 0);
 exports.TdDataTableComponent = __decorate$13([
     _angular_core.Component({
         providers: [TD_DATA_TABLE_CONTROL_VALUE_ACCESSOR],
