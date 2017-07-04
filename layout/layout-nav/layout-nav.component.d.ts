@@ -1,7 +1,5 @@
 import { Router } from '@angular/router';
-import { TdLayoutComponent } from '../layout.component';
 export declare class TdLayoutNavComponent {
-    private _layout;
     private _router;
     /**
      * toolbarTitle?: string
@@ -36,17 +34,9 @@ export declare class TdLayoutNavComponent {
      */
     navigationRoute: string;
     /**
-     * Checks if there is a [TdLayoutComponent] as parent.
-     */
-    readonly isMainSidenavAvailable: boolean;
-    /**
      * Checks if router was injected.
      */
     readonly routerEnabled: boolean;
-    constructor(_layout: TdLayoutComponent, _router: Router);
+    constructor(_router: Router);
     handleNavigationClick(): void;
-    /**
-     * If main sidenav is available, it will open the sidenav of the parent [TdLayoutComponent].
-     */
-    openMainSidenav(): void;
 }

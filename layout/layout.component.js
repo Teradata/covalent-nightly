@@ -1,3 +1,13 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7,8 +17,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component, Input, ViewChild } from '@angular/core';
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+import { Component, Directive, Input, ViewChild, Inject, forwardRef, Renderer2, ElementRef } from '@angular/core';
 import { MdSidenav } from '@angular/material';
+import { LayoutToggle } from './layout-toggle.class';
+var TdLayoutToggleDirective = (function (_super) {
+    __extends(TdLayoutToggleDirective, _super);
+    function TdLayoutToggleDirective(layout, renderer, elementRef) {
+        return _super.call(this, layout, renderer, elementRef) || this;
+    }
+    return TdLayoutToggleDirective;
+}(LayoutToggle));
+TdLayoutToggleDirective = __decorate([
+    Directive({
+        selector: '[tdLayoutToggle]',
+    }),
+    __param(0, Inject(forwardRef(function () { return TdLayoutComponent; }))),
+    __metadata("design:paramtypes", [TdLayoutComponent,
+        Renderer2,
+        ElementRef])
+], TdLayoutToggleDirective);
+export { TdLayoutToggleDirective };
 var TdLayoutComponent = (function () {
     function TdLayoutComponent() {
         /**

@@ -10,12 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-import { Component, Input, forwardRef, Optional, Inject } from '@angular/core';
+import { Component, Input, Optional } from '@angular/core';
 import { Router } from '@angular/router';
-import { TdLayoutComponent } from '../layout.component';
 var TdLayoutNavComponent = (function () {
-    function TdLayoutNavComponent(_layout, _router) {
-        this._layout = _layout;
+    function TdLayoutNavComponent(_router) {
         this._router = _router;
         /**
          * color?: string
@@ -25,16 +23,6 @@ var TdLayoutNavComponent = (function () {
          */
         this.color = 'primary';
     }
-    Object.defineProperty(TdLayoutNavComponent.prototype, "isMainSidenavAvailable", {
-        /**
-         * Checks if there is a [TdLayoutComponent] as parent.
-         */
-        get: function () {
-            return !!this._layout;
-        },
-        enumerable: true,
-        configurable: true
-    });
     Object.defineProperty(TdLayoutNavComponent.prototype, "routerEnabled", {
         /**
          * Checks if router was injected.
@@ -49,12 +37,6 @@ var TdLayoutNavComponent = (function () {
         if (this.routerEnabled) {
             this._router.navigateByUrl(this.navigationRoute);
         }
-    };
-    /**
-     * If main sidenav is available, it will open the sidenav of the parent [TdLayoutComponent].
-     */
-    TdLayoutNavComponent.prototype.openMainSidenav = function () {
-        this._layout.toggle();
     };
     return TdLayoutNavComponent;
 }());
@@ -82,12 +64,10 @@ TdLayoutNavComponent = __decorate([
     Component({
         selector: 'td-layout-nav',
         styles: [".td-menu-button { margin-left: 0px; } /deep/ [dir='rtl'] .td-menu-button { margin-right: 0px; margin-left: 6px; } :host { display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } "],
-        template: "<div layout=\"column\" layout-fill> <md-toolbar [color]=\"color\"> <button md-icon-button class=\"td-menu-button\" *ngIf=\"isMainSidenavAvailable\" (click)=\"openMainSidenav()\"> <md-icon class=\"md-24\">menu</md-icon> </button> <span *ngIf=\"icon || logo || toolbarTitle\" [class.cursor-pointer]=\"routerEnabled\" (click)=\"handleNavigationClick()\" layout=\"row\" layout-align=\"start center\"> <md-icon *ngIf=\"icon\">{{icon}}</md-icon> <md-icon *ngIf=\"logo && !icon\" class=\"md-icon-logo\" [svgIcon]=\"logo\"></md-icon> <span *ngIf=\"toolbarTitle\">{{toolbarTitle}}</span> </span> <ng-content select=\"[td-toolbar-content]\"></ng-content> </md-toolbar> <div flex layout=\"column\" class=\"content md-content\" cdkScrollable> <ng-content></ng-content> </div> <ng-content select=\"td-layout-footer\"></ng-content> </div> ",
+        template: "<div layout=\"column\" layout-fill> <md-toolbar [color]=\"color\"> <ng-content select=\"[td-menu-button]\"></ng-content> <span *ngIf=\"icon || logo || toolbarTitle\" [class.cursor-pointer]=\"routerEnabled\" (click)=\"handleNavigationClick()\" layout=\"row\" layout-align=\"start center\"> <md-icon *ngIf=\"icon\">{{icon}}</md-icon> <md-icon *ngIf=\"logo && !icon\" class=\"md-icon-logo\" [svgIcon]=\"logo\"></md-icon> <span *ngIf=\"toolbarTitle\">{{toolbarTitle}}</span> </span> <ng-content select=\"[td-toolbar-content]\"></ng-content> </md-toolbar> <div flex layout=\"column\" class=\"content md-content\" cdkScrollable> <ng-content></ng-content> </div> <ng-content select=\"td-layout-footer\"></ng-content> </div> ",
     }),
-    __param(0, Optional()), __param(0, Inject(forwardRef(function () { return TdLayoutComponent; }))),
-    __param(1, Optional()),
-    __metadata("design:paramtypes", [TdLayoutComponent,
-        Router])
+    __param(0, Optional()),
+    __metadata("design:paramtypes", [Router])
 ], TdLayoutNavComponent);
 export { TdLayoutNavComponent };
 //# sourceMappingURL=layout-nav.component.js.map

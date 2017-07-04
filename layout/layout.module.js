@@ -7,24 +7,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MdSidenavModule, MdToolbarModule, MdButtonModule, MdIconModule, MdCardModule, MdListModule, ScrollDispatchModule } from '@angular/material';
-import { TdLayoutComponent } from './layout.component';
+import { TdLayoutComponent, TdLayoutToggleDirective } from './layout.component';
 import { TdLayoutNavComponent } from './layout-nav/layout-nav.component';
-import { TdLayoutNavListComponent } from './layout-nav-list/layout-nav-list.component';
+import { TdLayoutNavListComponent, TdLayoutNavListToggleDirective } from './layout-nav-list/layout-nav-list.component';
 import { TdLayoutCardOverComponent } from './layout-card-over/layout-card-over.component';
-import { TdLayoutManageListComponent } from './layout-manage-list/layout-manage-list.component';
+import { TdLayoutManageListComponent, TdLayoutManageListToggleDirective } from './layout-manage-list/layout-manage-list.component';
 import { TdLayoutFooterComponent } from './layout-footer/layout-footer.component';
 import { TdNavigationDrawerComponent, TdNavigationDrawerMenuDirective } from './navigation-drawer/navigation-drawer.component';
 var TD_LAYOUTS = [
     TdLayoutComponent,
+    TdLayoutToggleDirective,
     TdLayoutNavComponent,
     TdLayoutNavListComponent,
+    TdLayoutNavListToggleDirective,
     TdLayoutCardOverComponent,
     TdLayoutManageListComponent,
+    TdLayoutManageListToggleDirective,
     TdLayoutFooterComponent,
     TdNavigationDrawerComponent,
     TdNavigationDrawerMenuDirective,
 ];
-export { TdLayoutComponent, TdLayoutNavComponent, TdLayoutNavListComponent, TdLayoutCardOverComponent, TdLayoutManageListComponent, TdLayoutFooterComponent, TdNavigationDrawerComponent, TdNavigationDrawerMenuDirective };
+export { TdLayoutComponent, TdLayoutToggleDirective, TdLayoutNavComponent, TdLayoutNavListComponent, TdLayoutNavListToggleDirective, TdLayoutCardOverComponent, TdLayoutManageListComponent, TdLayoutManageListToggleDirective, TdLayoutFooterComponent, TdNavigationDrawerComponent, TdNavigationDrawerMenuDirective };
 var CovalentLayoutModule = (function () {
     function CovalentLayoutModule() {
     }

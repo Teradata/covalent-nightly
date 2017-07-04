@@ -1,8 +1,11 @@
+import { Renderer2, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { MdSidenav, MdSidenavToggleResult } from '@angular/material';
-import { TdLayoutComponent } from '../layout.component';
-export declare class TdLayoutNavListComponent {
-    private _layout;
+import { LayoutToggle, ILayoutTogglable } from '../layout-toggle.class';
+export declare class TdLayoutNavListToggleDirective extends LayoutToggle {
+    constructor(layout: TdLayoutNavListComponent, renderer: Renderer2, elementRef: ElementRef);
+}
+export declare class TdLayoutNavListComponent implements ILayoutTogglable {
     private _router;
     _sideNav: MdSidenav;
     /**
@@ -66,10 +69,6 @@ export declare class TdLayoutNavListComponent {
      */
     navigationRoute: string;
     /**
-     * Checks if there is a [TdLayoutComponent] as parent.
-     */
-    readonly isMainSidenavAvailable: boolean;
-    /**
      * Checks if `ESC` should close the sidenav
      * Should only close it for `push` and `over` modes
      */
@@ -78,7 +77,7 @@ export declare class TdLayoutNavListComponent {
      * Checks if router was injected.
      */
     readonly routerEnabled: boolean;
-    constructor(_layout: TdLayoutComponent, _router: Router);
+    constructor(_router: Router);
     handleNavigationClick(): void;
     /**
      * Proxy toggle method to access sidenav from outside (from td-layout template).
@@ -92,8 +91,4 @@ export declare class TdLayoutNavListComponent {
      * Proxy close method to access sidenav from outside (from td-layout template).
      */
     close(): Promise<MdSidenavToggleResult>;
-    /**
-     * If main sidenav is available, it will open the sidenav of the parent [TdLayoutComponent].
-     */
-    openMainSidenav(): void;
 }

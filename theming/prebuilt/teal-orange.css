@@ -815,6 +815,12 @@ md-list-item md-icon,
 .mat-sidenav-container {
   background-color: #e0e0e0; }
 
+[md-icon-button].td-layout-menu-button {
+  margin-left: 0px; }
+  /deep/ [dir='rtl'] [md-icon-button].td-layout-menu-button {
+    margin-right: 0px;
+    margin-left: 6px; }
+
 td-layout-nav md-toolbar,
 td-layout-nav-list md-toolbar,
 td-layout-manage-list md-toolbar,
