@@ -2108,22 +2108,31 @@ exports.TdDataTableComponent = (function () {
      */
     TdDataTableComponent.prototype.selectAll = function (checked) {
         var _this = this;
+        var toggledRows = [];
         if (checked) {
             this._data.forEach(function (row) {
                 // skiping already selected rows
                 if (!_this.isRowSelected(row)) {
                     _this._value.push(row);
+                    // checking which ones are being toggled
+                    toggledRows.push(row);
                 }
             });
             this._allSelected = true;
             this._indeterminate = true;
         }
         else {
+            this._data.forEach(function (row) {
+                // checking which ones are being toggled
+                if (_this.isRowSelected(row)) {
+                    toggledRows.push(row);
+                }
+            });
             this.clearModel();
             this._allSelected = false;
             this._indeterminate = false;
         }
-        this.onSelectAll.emit({ rows: this._value, selected: checked });
+        this.onSelectAll.emit({ rows: toggledRows, selected: checked });
     };
     /**
      * Checks if row is selected
