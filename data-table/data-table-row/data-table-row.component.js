@@ -7,18 +7,40 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component, Renderer2, ElementRef } from '@angular/core';
+import { Component, Input, Renderer2, ElementRef } from '@angular/core';
 var TdDataTableRowComponent = (function () {
     function TdDataTableRowComponent(_elementRef, _renderer) {
         this._elementRef = _elementRef;
         this._renderer = _renderer;
+        this._selected = false;
         this._renderer.addClass(this._elementRef.nativeElement, 'td-data-table-row');
     }
+    Object.defineProperty(TdDataTableRowComponent.prototype, "selected", {
+        get: function () {
+            return this._selected;
+        },
+        set: function (selected) {
+            if (selected) {
+                this._renderer.addClass(this._elementRef.nativeElement, 'td-selected');
+            }
+            else {
+                this._renderer.removeClass(this._elementRef.nativeElement, 'td-selected');
+            }
+            this._selected = selected;
+        },
+        enumerable: true,
+        configurable: true
+    });
     TdDataTableRowComponent.prototype.focus = function () {
         this._elementRef.nativeElement.focus();
     };
     return TdDataTableRowComponent;
 }());
+__decorate([
+    Input('selected'),
+    __metadata("design:type", Boolean),
+    __metadata("design:paramtypes", [Boolean])
+], TdDataTableRowComponent.prototype, "selected", null);
 TdDataTableRowComponent = __decorate([
     Component({
         /* tslint:disable-next-line */
