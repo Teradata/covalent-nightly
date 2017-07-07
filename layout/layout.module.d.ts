@@ -1,10 +1,13 @@
-import { TdLayoutComponent, TdLayoutToggleDirective } from './layout.component';
+import { TdLayoutComponent } from './layout.component';
+import { TdLayoutToggleDirective, TdLayoutCloseDirective, TdLayoutOpenDirective } from './layout.directives';
 import { TdLayoutNavComponent } from './layout-nav/layout-nav.component';
-import { TdLayoutNavListComponent, TdLayoutNavListToggleDirective } from './layout-nav-list/layout-nav-list.component';
+import { TdLayoutNavListComponent } from './layout-nav-list/layout-nav-list.component';
+import { TdLayoutNavListToggleDirective, TdLayoutNavListCloseDirective, TdLayoutNavListOpenDirective } from './layout-nav-list/layout-nav-list.directives';
 import { TdLayoutCardOverComponent } from './layout-card-over/layout-card-over.component';
-import { TdLayoutManageListComponent, TdLayoutManageListToggleDirective } from './layout-manage-list/layout-manage-list.component';
+import { TdLayoutManageListComponent } from './layout-manage-list/layout-manage-list.component';
+import { TdLayoutManageListToggleDirective, TdLayoutManageListCloseDirective, TdLayoutManageListOpenDirective } from './layout-manage-list/layout-manage-list.directives';
 import { TdLayoutFooterComponent } from './layout-footer/layout-footer.component';
 import { TdNavigationDrawerComponent, TdNavigationDrawerMenuDirective } from './navigation-drawer/navigation-drawer.component';
-export { TdLayoutComponent, TdLayoutToggleDirective, TdLayoutNavComponent, TdLayoutNavListComponent, TdLayoutNavListToggleDirective, TdLayoutCardOverComponent, TdLayoutManageListComponent, TdLayoutManageListToggleDirective, TdLayoutFooterComponent, TdNavigationDrawerComponent, TdNavigationDrawerMenuDirective };
+export { TdLayoutComponent, TdLayoutToggleDirective, TdLayoutCloseDirective, TdLayoutOpenDirective, TdLayoutNavComponent, TdLayoutNavListComponent, TdLayoutNavListToggleDirective, TdLayoutNavListCloseDirective, TdLayoutNavListOpenDirective, TdLayoutCardOverComponent, TdLayoutManageListComponent, TdLayoutManageListToggleDirective, TdLayoutManageListCloseDirective, TdLayoutManageListOpenDirective, TdLayoutFooterComponent, TdNavigationDrawerComponent, TdNavigationDrawerMenuDirective };
 export declare class CovalentLayoutModule {
 }

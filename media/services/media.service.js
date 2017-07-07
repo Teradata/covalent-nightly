@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Injectable, NgZone, SkipSelf, Optional } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/fromEvent';
 var TdMediaService = (function () {
     function TdMediaService(_ngZone) {
         var _this = this;

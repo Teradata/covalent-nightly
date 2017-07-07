@@ -7,6 +7,10 @@ export { TdToggleDirective, TdFadeDirective };
 export { TdCollapseAnimation } from './animations/collapse/collapse.animation';
 export { TdFadeInOutAnimation } from './animations/fade/fadeInOut.animation';
 /**
+ * BEHAVIORS
+ */
+export { ICanDisable, mixinDisabled } from './behaviors/disabled.mixin';
+/**
  * FORMS
  */
 import { TdAutoTrimDirective } from './forms/auto-trim/auto-trim.directive';

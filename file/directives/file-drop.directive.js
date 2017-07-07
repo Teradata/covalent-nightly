@@ -1,3 +1,13 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,18 +19,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Directive, Input, Output, EventEmitter } from '@angular/core';
 import { HostListener, HostBinding, ElementRef, Renderer2 } from '@angular/core';
-var TdFileDropDirective = (function () {
+import { mixinDisabled } from '../../common/common.module';
+var TdFileDropBase = (function () {
+    function TdFileDropBase() {
+    }
+    return TdFileDropBase;
+}());
+export { TdFileDropBase };
+/* tslint:disable-next-line */
+export var _TdFileDropMixinBase = mixinDisabled(TdFileDropBase);
+var TdFileDropDirective = (function (_super) {
+    __extends(TdFileDropDirective, _super);
     function TdFileDropDirective(_renderer, _element) {
-        this._renderer = _renderer;
-        this._element = _element;
-        this._multiple = false;
-        this._disabled = false;
+        var _this = _super.call(this) || this;
+        _this._renderer = _renderer;
+        _this._element = _element;
+        _this._multiple = false;
         /**
          * fileDrop?: function
          * Event emitted when a file or files are dropped in host element after being validated.
          * Emits a [FileList | File] object.
          */
-        this.onFileDrop = new EventEmitter();
+        _this.onFileDrop = new EventEmitter();
+        return _this;
     }
     Object.defineProperty(TdFileDropDirective.prototype, "multiple", {
         /**
@@ -30,17 +51,6 @@ var TdFileDropDirective = (function () {
          */
         set: function (multiple) {
             this._multiple = multiple !== '' ? (multiple === 'true' || multiple === true) : true;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(TdFileDropDirective.prototype, "disabled", {
-        /**
-         * disabled?: boolean
-         * Disabled drop events for host element.
-         */
-        set: function (disabled) {
-            this._disabled = disabled;
         },
         enumerable: true,
         configurable: true
@@ -60,7 +70,7 @@ var TdFileDropDirective = (function () {
          * Binds native 'disabled' attribute if [disabled] property is 'true'.
          */
         get: function () {
-            return this._disabled ? '' : undefined;
+            return this.disabled ? '' : undefined;
         },
         enumerable: true,
         configurable: true
@@ -71,7 +81,7 @@ var TdFileDropDirective = (function () {
      * Stops event propagation and default action from browser for 'drop' event.
      */
     TdFileDropDirective.prototype.onDrop = function (event) {
-        if (!this._disabled) {
+        if (!this.disabled) {
             var transfer = event.dataTransfer;
             var files = transfer.files;
             if (files.length) {
@@ -90,7 +100,7 @@ var TdFileDropDirective = (function () {
     TdFileDropDirective.prototype.onDragOver = function (event) {
         var transfer = event.dataTransfer;
         transfer.dropEffect = this._typeCheck(transfer.types);
-        if (this._disabled || (!this._multiple &&
+        if (this.disabled || (!this._multiple &&
             ((transfer.items && transfer.items.length > 1) || transfer.mozItemCount > 1))) {
             transfer.dropEffect = 'none';
         }
@@ -104,7 +114,7 @@ var TdFileDropDirective = (function () {
      * Stops event propagation and default action from browser for 'dragenter' event.
      */
     TdFileDropDirective.prototype.onDragEnter = function (event) {
-        if (!this._disabled) {
+        if (!this.disabled) {
             this._renderer.addClass(this._element.nativeElement, 'drop-zone');
         }
         this._stopEvent(event);
@@ -135,17 +145,12 @@ var TdFileDropDirective = (function () {
         event.stopPropagation();
     };
     return TdFileDropDirective;
-}());
+}(_TdFileDropMixinBase));
 __decorate([
     Input('multiple'),
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [Object])
 ], TdFileDropDirective.prototype, "multiple", null);
-__decorate([
-    Input('disabled'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], TdFileDropDirective.prototype, "disabled", null);
 __decorate([
     Output('fileDrop'),
     __metadata("design:type", EventEmitter)
@@ -187,6 +192,7 @@ __decorate([
 TdFileDropDirective = __decorate([
     Directive({
         selector: '[tdFileDrop]',
+        inputs: ['disabled'],
     }),
     __metadata("design:paramtypes", [Renderer2, ElementRef])
 ], TdFileDropDirective);

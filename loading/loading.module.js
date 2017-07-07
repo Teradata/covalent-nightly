@@ -6,7 +6,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MdProgressBarModule, MdProgressSpinnerModule, OverlayModule, PortalModule } from '@angular/material';
+import { PortalModule } from '@angular/cdk';
+import { MdProgressBarModule, MdProgressSpinnerModule, OverlayModule } from '@angular/material';
 import { LOADING_PROVIDER } from './services/loading.service';
 import { LOADING_FACTORY_PROVIDER } from './services/loading.factory';
 import { TdLoadingDirective } from './directives/loading.directive';

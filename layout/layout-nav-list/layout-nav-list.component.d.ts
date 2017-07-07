@@ -1,13 +1,9 @@
-import { Renderer2, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { MdSidenav, MdSidenavToggleResult } from '@angular/material';
-import { LayoutToggle, ILayoutTogglable } from '../layout-toggle.class';
-export declare class TdLayoutNavListToggleDirective extends LayoutToggle {
-    constructor(layout: TdLayoutNavListComponent, renderer: Renderer2, elementRef: ElementRef);
-}
+import { ILayoutTogglable } from '../layout-toggle.class';
 export declare class TdLayoutNavListComponent implements ILayoutTogglable {
     private _router;
-    _sideNav: MdSidenav;
+    sidenav: MdSidenav;
     /**
      * toolbarTitle?: string
      *

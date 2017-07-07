@@ -1,6 +1,7 @@
 import { TemplateRef, ViewContainerRef, ElementRef, Renderer2 } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import { TemplatePortalDirective } from '@angular/material';
+import { TemplatePortalDirective } from '@angular/cdk';
+import { ICanDisable } from '../common/common.module';
 export declare class TdExpansionPanelHeaderDirective extends TemplatePortalDirective {
     constructor(templateRef: TemplateRef<any>, viewContainerRef: ViewContainerRef);
 }
@@ -12,12 +13,14 @@ export declare class TdExpansionPanelSublabelDirective extends TemplatePortalDir
 }
 export declare class TdExpansionPanelSummaryComponent {
 }
-export declare class TdExpansionPanelComponent {
+export declare class TdExpansionPanelBase {
+}
+export declare const _TdExpansionPanelMixinBase: (new (...args: any[]) => ICanDisable) & typeof TdExpansionPanelBase;
+export declare class TdExpansionPanelComponent extends _TdExpansionPanelMixinBase implements ICanDisable {
     private _renderer;
     private _elementRef;
     private _disableRipple;
     private _expand;
-    private _disabled;
     expansionPanelHeader: TdExpansionPanelHeaderDirective;
     expansionPanelLabel: TdExpansionPanelLabelDirective;
     expansionPanelSublabel: TdExpansionPanelSublabelDirective;
@@ -42,11 +45,6 @@ export declare class TdExpansionPanelComponent {
      * Toggles [TdExpansionPanelComponent] between expand/collapse.
      */
     expand: boolean;
-    /**
-     * disabled?: boolean
-     * Disables icon and header, blocks click event and sets [TdStepComponent] to deactive if 'true'.
-     */
-    disabled: boolean;
     /**
      * expanded?: function
      * Event emitted when [TdExpansionPanelComponent] is expanded.
@@ -77,6 +75,8 @@ export declare class TdExpansionPanelComponent {
      * retuns 'true' if successful, else 'false'.
      */
     close(): boolean;
+    /** Method executed when the disabled value changes */
+    onDisabledChange(v: boolean): void;
     /**
      * Method to change expand state internally and emit the [onExpanded] event if 'true' or [onCollapsed]
      * event if 'false'. (Blocked if [disabled] is 'true')

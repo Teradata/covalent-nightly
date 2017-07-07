@@ -9,7 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Injectable, ComponentFactoryResolver, SkipSelf, Optional } from '@angular/core';
 import { Injector } from '@angular/core';
-import { TemplatePortal, Overlay, OverlayState, ComponentPortal } from '@angular/material';
+import { TemplatePortal, ComponentPortal } from '@angular/cdk';
+import { Overlay, OverlayState } from '@angular/material';
 import { Subject } from 'rxjs/Subject';
 import { TdLoadingComponent, LoadingStyle } from '../loading.component';
 /**

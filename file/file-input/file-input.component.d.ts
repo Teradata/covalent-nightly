@@ -1,11 +1,15 @@
 import { EventEmitter, ElementRef, Renderer2, TemplateRef, ViewContainerRef, ChangeDetectorRef } from '@angular/core';
-import { TemplatePortalDirective } from '@angular/material';
+import { TemplatePortalDirective } from '@angular/cdk';
 import { ControlValueAccessor } from '@angular/forms';
+import { ICanDisable } from '../../common/common.module';
 export declare const FILE_INPUT_CONTROL_VALUE_ACCESSOR: any;
 export declare class TdFileInputLabelDirective extends TemplatePortalDirective {
     constructor(templateRef: TemplateRef<any>, viewContainerRef: ViewContainerRef);
 }
-export declare class TdFileInputComponent implements ControlValueAccessor {
+export declare class TdFileInputBase {
+}
+export declare const _TdFileInputMixinBase: (new (...args: any[]) => ICanDisable) & typeof TdFileInputBase;
+export declare class TdFileInputComponent extends _TdFileInputMixinBase implements ControlValueAccessor, ICanDisable {
     private _renderer;
     private _changeDetectorRef;
     /**
@@ -14,7 +18,6 @@ export declare class TdFileInputComponent implements ControlValueAccessor {
     private _value;
     value: FileList | File;
     private _multiple;
-    private _disabled;
     /** The native `<input type="file"> element */
     _inputElement: ElementRef;
     readonly inputElement: HTMLInputElement;
@@ -35,11 +38,6 @@ export declare class TdFileInputComponent implements ControlValueAccessor {
      */
     accept: string;
     /**
-     * disabled?: boolean
-     * Disables [TdFileInputComponent] and clears selected/dropped files.
-     */
-    disabled: boolean;
-    /**
      * select?: function
      * Event emitted a file is selected
      * Emits a [File | FileList] object.
@@ -54,6 +52,8 @@ export declare class TdFileInputComponent implements ControlValueAccessor {
      * Used to clear the selected files from the [TdFileInputComponent].
      */
     clear(): void;
+    /** Method executed when the disabled value changes */
+    onDisabledChange(v: boolean): void;
     /**
      * Implemented as part of ControlValueAccessor.
      */

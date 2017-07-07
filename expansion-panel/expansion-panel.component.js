@@ -19,8 +19,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component, Directive, Input, Output, TemplateRef, ViewContainerRef, ContentChild, ElementRef, Renderer2 } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import { TemplatePortalDirective } from '@angular/material';
-import { TdCollapseAnimation } from '../common/common.module';
+import { TemplatePortalDirective } from '@angular/cdk';
+import { TdCollapseAnimation, mixinDisabled } from '../common/common.module';
 var TdExpansionPanelHeaderDirective = (function (_super) {
     __extends(TdExpansionPanelHeaderDirective, _super);
     function TdExpansionPanelHeaderDirective(templateRef, viewContainerRef) {
@@ -75,24 +75,34 @@ TdExpansionPanelSummaryComponent = __decorate([
     })
 ], TdExpansionPanelSummaryComponent);
 export { TdExpansionPanelSummaryComponent };
-var TdExpansionPanelComponent = (function () {
+var TdExpansionPanelBase = (function () {
+    function TdExpansionPanelBase() {
+    }
+    return TdExpansionPanelBase;
+}());
+export { TdExpansionPanelBase };
+/* tslint:disable-next-line */
+export var _TdExpansionPanelMixinBase = mixinDisabled(TdExpansionPanelBase);
+var TdExpansionPanelComponent = (function (_super) {
+    __extends(TdExpansionPanelComponent, _super);
     function TdExpansionPanelComponent(_renderer, _elementRef) {
-        this._renderer = _renderer;
-        this._elementRef = _elementRef;
-        this._disableRipple = false;
-        this._expand = false;
-        this._disabled = false;
+        var _this = _super.call(this) || this;
+        _this._renderer = _renderer;
+        _this._elementRef = _elementRef;
+        _this._disableRipple = false;
+        _this._expand = false;
         /**
          * expanded?: function
          * Event emitted when [TdExpansionPanelComponent] is expanded.
          */
-        this.expanded = new EventEmitter();
+        _this.expanded = new EventEmitter();
         /**
          * collapsed?: function
          * Event emitted when [TdExpansionPanelComponent] is collapsed.
          */
-        this.collapsed = new EventEmitter();
-        this._renderer.addClass(this._elementRef.nativeElement, 'td-expansion-panel');
+        _this.collapsed = new EventEmitter();
+        _this._renderer.addClass(_this._elementRef.nativeElement, 'td-expansion-panel');
+        return _this;
     }
     Object.defineProperty(TdExpansionPanelComponent.prototype, "disableRipple", {
         get: function () {
@@ -118,24 +128,6 @@ var TdExpansionPanelComponent = (function () {
          */
         set: function (expand) {
             this._setExpand(expand === 'true' || expand === true);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(TdExpansionPanelComponent.prototype, "disabled", {
-        get: function () {
-            return this._disabled;
-        },
-        /**
-         * disabled?: boolean
-         * Disables icon and header, blocks click event and sets [TdStepComponent] to deactive if 'true'.
-         */
-        set: function (disabled) {
-            if (disabled && this._expand) {
-                this._expand = false;
-                this._onCollapsed();
-            }
-            this._disabled = disabled;
         },
         enumerable: true,
         configurable: true
@@ -167,12 +159,19 @@ var TdExpansionPanelComponent = (function () {
     TdExpansionPanelComponent.prototype.close = function () {
         return this._setExpand(false);
     };
+    /** Method executed when the disabled value changes */
+    TdExpansionPanelComponent.prototype.onDisabledChange = function (v) {
+        if (v && this._expand) {
+            this._expand = false;
+            this._onCollapsed();
+        }
+    };
     /**
      * Method to change expand state internally and emit the [onExpanded] event if 'true' or [onCollapsed]
      * event if 'false'. (Blocked if [disabled] is 'true')
      */
     TdExpansionPanelComponent.prototype._setExpand = function (newExpand) {
-        if (this._disabled) {
+        if (this.disabled) {
             return false;
         }
         if (this._expand !== newExpand) {
@@ -196,7 +195,7 @@ var TdExpansionPanelComponent = (function () {
         this.collapsed.emit(undefined);
     };
     return TdExpansionPanelComponent;
-}());
+}(_TdExpansionPanelMixinBase));
 __decorate([
     ContentChild(TdExpansionPanelHeaderDirective),
     __metadata("design:type", TdExpansionPanelHeaderDirective)
@@ -228,11 +227,6 @@ __decorate([
     __metadata("design:paramtypes", [Boolean])
 ], TdExpansionPanelComponent.prototype, "expand", null);
 __decorate([
-    Input('disabled'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], TdExpansionPanelComponent.prototype, "disabled", null);
-__decorate([
     Output(),
     __metadata("design:type", EventEmitter)
 ], TdExpansionPanelComponent.prototype, "expanded", void 0);
@@ -245,6 +239,7 @@ TdExpansionPanelComponent = __decorate([
         selector: 'td-expansion-panel',
         styles: [":host { display: block; } :host .td-expansion-panel-header { position: relative; outline: none; } :host .td-expansion-panel-header:focus:not(.mat-disabled), :host .td-expansion-panel-header:hover:not(.mat-disabled) { cursor: pointer; } :host .td-expansion-panel-header .td-expansion-panel-header-content { height: 48px; padding: 0 16px; } .td-expansion-label, .td-expansion-sublabel { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 5px; } /deep/ [dir='rtl'] .td-expansion-label, /deep/ [dir='rtl'] .td-expansion-sublabel { margin-left: 5px; margin-right: inherit; } "],
         template: "<div class=\"td-expansion-panel-header\" [class.mat-disabled]=\"disabled\" md-ripple [mdRippleDisabled]=\"disabled || disableRipple\" [tabIndex]=\"disabled? -1 : 0\" (keydown.enter)=\"clickEvent()\" (click)=\"clickEvent()\"> <ng-template [cdkPortalHost]=\"expansionPanelHeader\"></ng-template> <div class=\"td-expansion-panel-header-content\" [class.mat-disabled]=\"disabled\" *ngIf=\"!expansionPanelHeader\" layout=\"row\"  layout-align=\"start center\"  flex> <div *ngIf=\"label || expansionPanelLabel\" class=\"md-subhead td-expansion-label\" [attr.flex-gt-xs]=\"(sublabel || expansionPanelSublabel) ? 40 : null\"> <ng-template [cdkPortalHost]=\"expansionPanelLabel\"></ng-template> <ng-template [ngIf]=\"!expansionPanelLabel\">{{label}}</ng-template> </div> <div *ngIf=\"sublabel || expansionPanelSublabel\" class=\"md-body-1 td-expansion-sublabel\"> <ng-template [cdkPortalHost]=\"expansionPanelSublabel\"></ng-template> <ng-template [ngIf]=\"!expansionPanelSublabel\">{{sublabel}}</ng-template> </div> <span flex></span> <md-icon class=\"td-expand-icon\" *ngIf=\"!expand && !disabled\">keyboard_arrow_down</md-icon> <md-icon class=\"td-expand-icon\" *ngIf=\"expand\">keyboard_arrow_up</md-icon> </div> </div> <div class=\"td-expansion-content\" [@tdCollapse]=\"!expand\"> <ng-content></ng-content> </div> <div class=\"td-expansion-summary\" [@tdCollapse]=\"expand\"> <ng-content select=\"td-expansion-summary\"></ng-content> </div> ",
+        inputs: ['disabled'],
         animations: [
             TdCollapseAnimation(),
         ],

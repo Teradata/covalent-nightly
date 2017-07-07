@@ -1,11 +1,7 @@
-import { Renderer2, ElementRef } from '@angular/core';
 import { MdSidenav, MdSidenavToggleResult } from '@angular/material';
-import { LayoutToggle, ILayoutTogglable } from '../layout-toggle.class';
-export declare class TdLayoutManageListToggleDirective extends LayoutToggle {
-    constructor(layout: TdLayoutManageListComponent, renderer: Renderer2, elementRef: ElementRef);
-}
+import { ILayoutTogglable } from '../layout-toggle.class';
 export declare class TdLayoutManageListComponent implements ILayoutTogglable {
-    _sideNav: MdSidenav;
+    sidenav: MdSidenav;
     /**
      * mode?: 'side', 'push' or 'over'
      *

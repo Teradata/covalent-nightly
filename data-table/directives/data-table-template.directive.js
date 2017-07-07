@@ -18,7 +18,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
-import { TemplatePortalDirective } from '@angular/material';
+import { TemplatePortalDirective } from '@angular/cdk';
 var TdDataTableTemplateDirective = (function (_super) {
     __extends(TdDataTableTemplateDirective, _super);
     function TdDataTableTemplateDirective(templateRef, viewContainerRef) {

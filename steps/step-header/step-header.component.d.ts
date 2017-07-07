@@ -1,5 +1,9 @@
+import { ICanDisable } from '../../common/common.module';
 import { StepState } from '../step.component';
-export declare class TdStepHeaderComponent {
+export declare class TdStepHeaderBase {
+}
+export declare const _TdStepHeaderMixinBase: (new (...args: any[]) => ICanDisable) & typeof TdStepHeaderBase;
+export declare class TdStepHeaderComponent extends _TdStepHeaderMixinBase implements ICanDisable {
     /**
      * Number assigned to [TdStepHeaderComponent].
      */
@@ -14,11 +18,6 @@ export declare class TdStepHeaderComponent {
      * Sets for active/inactive states on header.
      */
     active: boolean;
-    /**
-     * disabled?: boolean
-     * Sets styles for disabled state on icon and header.
-     */
-    disabled: boolean;
     /**
      * state?: StepState or ['none' | 'required' | 'complete']
      * Sets styles for state of header.

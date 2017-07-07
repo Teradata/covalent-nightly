@@ -1,9 +1,12 @@
 import { EventEmitter, ChangeDetectorRef } from '@angular/core';
+import { ICanDisable } from '../../common/common.module';
 import { TdFileInputLabelDirective } from '../file-input/file-input.component';
-export declare class TdFileUploadComponent {
+export declare class TdFileUploadBase {
+}
+export declare const _TdFileUploadMixinBase: (new (...args: any[]) => ICanDisable) & typeof TdFileUploadBase;
+export declare class TdFileUploadComponent extends _TdFileUploadMixinBase implements ICanDisable {
     private _changeDetectorRef;
     private _multiple;
-    private _disabled;
     files: FileList | File;
     inputLabel: TdFileInputLabelDirective;
     /**
@@ -32,11 +35,6 @@ export declare class TdFileUploadComponent {
      * Same as 'accept' attribute in <input/> element.
      */
     accept: string;
-    /**
-     * disabled?: boolean
-     * Disables [TdFileUploadComponent] and clears selected/dropped files.
-     */
-    disabled: boolean;
     /**
      * select?: function
      * Event emitted when a file is selecte.
@@ -68,4 +66,6 @@ export declare class TdFileUploadComponent {
      * Clears files.
      */
     cancel(): void;
+    /** Method executed when the disabled value changes */
+    onDisabledChange(v: boolean): void;
 }

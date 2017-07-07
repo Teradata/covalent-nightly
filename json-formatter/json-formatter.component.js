@@ -11,7 +11,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 import { Component, Input, ChangeDetectionStrategy, ChangeDetectorRef, Optional } from '@angular/core';
-import { Dir } from '@angular/material';
+import { Dir } from '@angular/cdk';
 import { TdCollapseAnimation } from '../common/common.module';
 var TdJsonFormatterComponent = TdJsonFormatterComponent_1 = (function () {
     function TdJsonFormatterComponent(_changeDetectorRef, _dir) {

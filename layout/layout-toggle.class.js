@@ -7,49 +7,72 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Input, HostBinding, HostListener } from '@angular/core';
+import { Input, HostListener } from '@angular/core';
+import { merge } from 'rxjs/observable/merge';
 var LayoutToggle = (function () {
     function LayoutToggle(_layout, _renderer, _elementRef) {
         this._layout = _layout;
         this._renderer = _renderer;
         this._elementRef = _elementRef;
-        /**
-         * hideWhenOpened?: boolean
-         * When this is set to false, the host will not be hidden when
-         * the layout is set to [opened]="true".
-         */
-        this.hideWhenOpened = true;
+        this._initialized = false;
+        this._disabled = false;
+        this._hideWhenOpened = false;
         this._renderer.addClass(this._elementRef.nativeElement, 'td-layout-menu-button');
     }
-    Object.defineProperty(LayoutToggle.prototype, "hiddenBinding", {
-        /**
-         * Hides element if layout is opened and [hideWhenOpened] is set to true
-         */
-        get: function () {
-            return this._layout.opened && this.hideWhenOpened ? 'none' : undefined;
+    Object.defineProperty(LayoutToggle.prototype, "disabled", {
+        set: function (disabled) {
+            this._disabled = disabled;
         },
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(LayoutToggle.prototype, "hideWhenOpened", {
+        /**
+         * hideWhenOpened?: boolean
+         * When this is set to true, the host will be hidden when
+         * the sidenav is opened.
+         */
+        set: function (hideWhenOpened) {
+            this._hideWhenOpened = hideWhenOpened;
+            if (this._initialized) {
+                this._toggleVisibility();
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    LayoutToggle.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        this._initialized = true;
+        merge(this._layout.sidenav.onOpenStart, this._layout.sidenav.onCloseStart).subscribe(function () {
+            _this._toggleVisibility();
+        });
+    };
     /**
      * Listens to host click event to trigger the layout toggle
      */
     LayoutToggle.prototype.clickListener = function (event) {
         event.preventDefault();
-        this._layout.toggle();
+        if (!this._disabled) {
+            this.onClick();
+        }
+    };
+    LayoutToggle.prototype._toggleVisibility = function () {
+        if (this._layout.sidenav._opened && this._hideWhenOpened) {
+            this._renderer.setStyle(this._elementRef.nativeElement, 'display', 'none');
+        }
+        else {
+            this._renderer.setStyle(this._elementRef.nativeElement, 'display', '');
+        }
     };
     return LayoutToggle;
 }());
 export { LayoutToggle };
 __decorate([
     Input('hideWhenOpened'),
-    __metadata("design:type", Boolean)
-], LayoutToggle.prototype, "hideWhenOpened", void 0);
-__decorate([
-    HostBinding('style.display'),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [])
-], LayoutToggle.prototype, "hiddenBinding", null);
+    __metadata("design:type", Boolean),
+    __metadata("design:paramtypes", [Boolean])
+], LayoutToggle.prototype, "hideWhenOpened", null);
 __decorate([
     HostListener('click', ['$event']),
     __metadata("design:type", Function),

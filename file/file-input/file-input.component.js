@@ -18,8 +18,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component, Directive, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewChild, ElementRef, Renderer2, TemplateRef, ViewContainerRef, ChangeDetectorRef, forwardRef } from '@angular/core';
-import { TemplatePortalDirective } from '@angular/material';
+import { TemplatePortalDirective } from '@angular/cdk';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { mixinDisabled } from '../../common/common.module';
 var noop = function () {
     // empty method
 };
@@ -42,24 +43,34 @@ TdFileInputLabelDirective = __decorate([
     __metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
 ], TdFileInputLabelDirective);
 export { TdFileInputLabelDirective };
-var TdFileInputComponent = (function () {
+var TdFileInputBase = (function () {
+    function TdFileInputBase() {
+    }
+    return TdFileInputBase;
+}());
+export { TdFileInputBase };
+/* tslint:disable-next-line */
+export var _TdFileInputMixinBase = mixinDisabled(TdFileInputBase);
+var TdFileInputComponent = (function (_super) {
+    __extends(TdFileInputComponent, _super);
     function TdFileInputComponent(_renderer, _changeDetectorRef) {
-        this._renderer = _renderer;
-        this._changeDetectorRef = _changeDetectorRef;
+        var _this = _super.call(this) || this;
+        _this._renderer = _renderer;
+        _this._changeDetectorRef = _changeDetectorRef;
         /**
          * Implemented as part of ControlValueAccessor.
          */
-        this._value = undefined;
-        this._multiple = false;
-        this._disabled = false;
+        _this._value = undefined;
+        _this._multiple = false;
         /**
          * select?: function
          * Event emitted a file is selected
          * Emits a [File | FileList] object.
          */
-        this.onSelect = new EventEmitter();
-        this.onChange = function (_) { return noop; };
-        this.onTouched = function () { return noop; };
+        _this.onSelect = new EventEmitter();
+        _this.onChange = function (_) { return noop; };
+        _this.onTouched = function () { return noop; };
+        return _this;
     }
     Object.defineProperty(TdFileInputComponent.prototype, "value", {
         // get/set accessor (needed for ControlValueAccessor)
@@ -94,23 +105,6 @@ var TdFileInputComponent = (function () {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(TdFileInputComponent.prototype, "disabled", {
-        get: function () {
-            return this._disabled;
-        },
-        /**
-         * disabled?: boolean
-         * Disables [TdFileInputComponent] and clears selected/dropped files.
-         */
-        set: function (disabled) {
-            if (disabled) {
-                this.clear();
-            }
-            this._disabled = disabled;
-        },
-        enumerable: true,
-        configurable: true
-    });
     /**
      * Method executed when a file is selected.
      */
@@ -124,6 +118,12 @@ var TdFileInputComponent = (function () {
     TdFileInputComponent.prototype.clear = function () {
         this.writeValue(undefined);
         this._renderer.setProperty(this.inputElement, 'value', '');
+    };
+    /** Method executed when the disabled value changes */
+    TdFileInputComponent.prototype.onDisabledChange = function (v) {
+        if (v) {
+            this.clear();
+        }
     };
     /**
      * Implemented as part of ControlValueAccessor.
@@ -139,7 +139,7 @@ var TdFileInputComponent = (function () {
         this.onTouched = fn;
     };
     return TdFileInputComponent;
-}());
+}(_TdFileInputMixinBase));
 __decorate([
     ViewChild('fileInput'),
     __metadata("design:type", ElementRef)
@@ -158,11 +158,6 @@ __decorate([
     __metadata("design:type", String)
 ], TdFileInputComponent.prototype, "accept", void 0);
 __decorate([
-    Input('disabled'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], TdFileInputComponent.prototype, "disabled", null);
-__decorate([
     Output('select'),
     __metadata("design:type", EventEmitter)
 ], TdFileInputComponent.prototype, "onSelect", void 0);
@@ -171,6 +166,7 @@ TdFileInputComponent = __decorate([
         changeDetection: ChangeDetectionStrategy.OnPush,
         providers: [FILE_INPUT_CONTROL_VALUE_ACCESSOR],
         selector: 'td-file-input',
+        inputs: ['disabled'],
         styles: [":host { /** * Class that is added ondragenter by the [TdFileDrop] directive. */ } :host .td-file-input { padding-left: 8px; padding-right: 8px; } :host input.td-file-input-hidden { display: none; } :host .drop-zone { border-radius: 3px; } :host .drop-zone * { pointer-events: none; } "],
         template: "<div> <button md-raised-button class=\"td-file-input\" type=\"button\" [color]=\"color\"  [multiple]=\"multiple\"  [disabled]=\"disabled\" (keyup.enter)=\"fileInput.click()\" (click)=\"fileInput.click()\" (fileDrop)=\"handleSelect($event)\" tdFileDrop> <ng-content></ng-content> </button> <input #fileInput  class=\"td-file-input-hidden\"  type=\"file\" [attr.accept]=\"accept\"                 (fileSelect)=\"handleSelect($event)\" [multiple]=\"multiple\"  [disabled]=\"disabled\" tdFileSelect> </div>",
     }),

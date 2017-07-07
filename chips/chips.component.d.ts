@@ -1,17 +1,24 @@
 import { DoCheck, QueryList, OnInit, ElementRef, TemplateRef, ViewContainerRef, ChangeDetectorRef, AfterViewInit, OnDestroy, Renderer2 } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { ControlValueAccessor, FormControl } from '@angular/forms';
-import { MdChip, MdInputDirective, TemplatePortalDirective, MdOption, MdAutocompleteTrigger } from '@angular/material';
+import { TemplatePortalDirective } from '@angular/cdk';
+import { MdChip, MdInputDirective, MdOption, MdAutocompleteTrigger } from '@angular/material';
 import 'rxjs/add/observable/timer';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/observable/fromEvent';
+import 'rxjs/add/operator/filter';
+import { ICanDisable } from '../common/common.module';
 export declare class TdChipDirective extends TemplatePortalDirective {
     constructor(templateRef: TemplateRef<any>, viewContainerRef: ViewContainerRef);
 }
 export declare class TdAutocompleteOptionDirective extends TemplatePortalDirective {
     constructor(templateRef: TemplateRef<any>, viewContainerRef: ViewContainerRef);
 }
-export declare class TdChipsComponent implements ControlValueAccessor, DoCheck, OnInit, AfterViewInit, OnDestroy {
+export declare class TdChipsBase {
+}
+export declare const _TdChipsMixinBase: (new (...args: any[]) => ICanDisable) & typeof TdChipsBase;
+export declare class TdChipsComponent extends _TdChipsMixinBase implements ControlValueAccessor, DoCheck, OnInit, AfterViewInit, OnDestroy, ICanDisable {
     private _elementRef;
     private _renderer;
     private _changeDetectorRef;
@@ -26,7 +33,6 @@ export declare class TdChipsComponent implements ControlValueAccessor, DoCheck, 
     private _length;
     private _stacked;
     private _requireMatch;
-    private _readOnly;
     private _color;
     private _chipAddition;
     private _chipRemoval;
@@ -65,29 +71,30 @@ export declare class TdChipsComponent implements ControlValueAccessor, DoCheck, 
      */
     requireMatch: any;
     /**
+     * @deprecated 1.0.0@beta.6
      * readOnly?: boolean
      * Disables the chips input and chip removal icon.
      */
     readOnly: boolean;
     /**
      * chipAddition?: boolean
-     * Disables the ability to add chips. When setting readOnly as true, this will be overriden.
+     * Disables the ability to add chips. When setting disabled as true, this will be overriden.
      * Defaults to true.
      */
     chipAddition: boolean;
     /**
-     * Checks if not in readOnly state and if chipAddition is set to 'true'
+     * Checks if not in disabled state and if chipAddition is set to 'true'
      * States if a chip can be added and if the input is available
      */
     readonly canAddChip: boolean;
     /**
      * chipRemoval?: boolean
      * Disables the ability to remove chips. If it doesn't exist chip remmoval defaults to true.
-     * When setting readOnly as true, this will be overriden to false.
+     * When setting disabled as true, this will be overriden to false.
      */
     chipRemoval: boolean;
     /**
-     * Checks if not in readOnly state and if chipRemoval is set to 'true'
+     * Checks if not in disabled state and if chipRemoval is set to 'true'
      * States if a chip can be removed
      */
     readonly canRemoveChip: boolean;
@@ -155,6 +162,8 @@ export declare class TdChipsComponent implements ControlValueAccessor, DoCheck, 
     ngAfterViewInit(): void;
     ngDoCheck(): void;
     ngOnDestroy(): void;
+    /** Method executed when the disabled value changes */
+    onDisabledChange(v: boolean): void;
     /**
      * Method that is executed when trying to create a new chip from the autocomplete.
      * It check if [requireMatch] is enabled, and tries to add the first active option
@@ -228,7 +237,7 @@ export declare class TdChipsComponent implements ControlValueAccessor, DoCheck, 
     private _focusLastChip();
     /**
      * Method to toggle the disable state of input
-     * Checks if not in readOnly state and if chipAddition is set to 'true'
+     * Checks if not in disabled state and if chipAddition is set to 'true'
      */
     private _toggleInput();
     /**

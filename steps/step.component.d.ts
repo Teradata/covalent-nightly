@@ -1,6 +1,7 @@
 import { TemplateRef, ViewContainerRef, OnInit } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import { TemplatePortalDirective, TemplatePortal } from '@angular/material';
+import { TemplatePortalDirective, TemplatePortal } from '@angular/cdk';
+import { ICanDisable } from '../common/common.module';
 export declare enum StepState {
     None,
     Required,
@@ -15,12 +16,14 @@ export declare class TdStepActionsDirective extends TemplatePortalDirective {
 export declare class TdStepSummaryDirective extends TemplatePortalDirective {
     constructor(templateRef: TemplateRef<any>, viewContainerRef: ViewContainerRef);
 }
-export declare class TdStepComponent implements OnInit {
+export declare class TdStepBase {
+}
+export declare const _TdStepMixinBase: (new (...args: any[]) => ICanDisable) & typeof TdStepBase;
+export declare class TdStepComponent extends _TdStepMixinBase implements OnInit, ICanDisable {
     private _viewContainerRef;
     private _disableRipple;
     private _active;
     private _state;
-    private _disabled;
     private _contentPortal;
     readonly stepContent: TemplatePortal;
     _content: TemplateRef<any>;
@@ -48,11 +51,6 @@ export declare class TdStepComponent implements OnInit {
      * Toggles [TdStepComponent] between active/deactive.
      */
     active: boolean;
-    /**
-     * disabled?: boolean
-     * Disables icon and header, blocks click event and sets [TdStepComponent] to deactive if 'true'.
-     */
-    disabled: boolean;
     /**
      * state?: StepState or ['none' | 'required' | 'complete']
      * Sets state of [TdStepComponent] depending on value.
@@ -90,6 +88,8 @@ export declare class TdStepComponent implements OnInit {
      * Returns 'true' if [state] equals to [StepState.Complete | 'complete'], else 'false'.
      */
     isComplete(): boolean;
+    /** Method executed when the disabled value changes */
+    onDisabledChange(v: boolean): void;
     /**
      * Method to change active state internally and emit the [onActivated] event if 'true' or [onDeactivated]
      * event if 'false'. (Blocked if [disabled] is 'true')

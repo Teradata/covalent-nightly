@@ -1,21 +1,19 @@
 import { EventEmitter } from '@angular/core';
 import { ElementRef, Renderer2 } from '@angular/core';
-export declare class TdFileDropDirective {
+import { ICanDisable } from '../../common/common.module';
+export declare class TdFileDropBase {
+}
+export declare const _TdFileDropMixinBase: (new (...args: any[]) => ICanDisable) & typeof TdFileDropBase;
+export declare class TdFileDropDirective extends _TdFileDropMixinBase implements ICanDisable {
     private _renderer;
     private _element;
     private _multiple;
-    private _disabled;
     /**
      * multiple?: boolean
      * Sets whether multiple files can be dropped at once in host element, or just a single file.
      * Can also be 'multiple' native attribute.
      */
     multiple: string | boolean;
-    /**
-     * disabled?: boolean
-     * Disabled drop events for host element.
-     */
-    disabled: boolean;
     /**
      * fileDrop?: function
      * Event emitted when a file or files are dropped in host element after being validated.

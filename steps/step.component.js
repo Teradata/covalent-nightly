@@ -19,7 +19,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component, Directive, Input, Output, TemplateRef, ViewChild, ViewContainerRef, ContentChild } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import { TemplatePortalDirective, TemplatePortal } from '@angular/material';
+import { TemplatePortalDirective, TemplatePortal } from '@angular/cdk';
+import { mixinDisabled } from '../common/common.module';
 export var StepState;
 (function (StepState) {
     StepState[StepState["None"] = 'none'] = "None";
@@ -68,23 +69,33 @@ TdStepSummaryDirective = __decorate([
     __metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
 ], TdStepSummaryDirective);
 export { TdStepSummaryDirective };
-var TdStepComponent = (function () {
+var TdStepBase = (function () {
+    function TdStepBase() {
+    }
+    return TdStepBase;
+}());
+export { TdStepBase };
+/* tslint:disable-next-line */
+export var _TdStepMixinBase = mixinDisabled(TdStepBase);
+var TdStepComponent = (function (_super) {
+    __extends(TdStepComponent, _super);
     function TdStepComponent(_viewContainerRef) {
-        this._viewContainerRef = _viewContainerRef;
-        this._disableRipple = false;
-        this._active = false;
-        this._state = StepState.None;
-        this._disabled = false;
+        var _this = _super.call(this) || this;
+        _this._viewContainerRef = _viewContainerRef;
+        _this._disableRipple = false;
+        _this._active = false;
+        _this._state = StepState.None;
         /**
          * activated?: function
          * Event emitted when [TdStepComponent] is activated.
          */
-        this.onActivated = new EventEmitter();
+        _this.onActivated = new EventEmitter();
         /**
          * deactivated?: function
          * Event emitted when [TdStepComponent] is deactivated.
          */
-        this.onDeactivated = new EventEmitter();
+        _this.onDeactivated = new EventEmitter();
+        return _this;
     }
     Object.defineProperty(TdStepComponent.prototype, "stepContent", {
         get: function () {
@@ -117,24 +128,6 @@ var TdStepComponent = (function () {
          */
         set: function (active) {
             this._setActive(active === 'true' || active === true);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(TdStepComponent.prototype, "disabled", {
-        get: function () {
-            return this._disabled;
-        },
-        /**
-         * disabled?: boolean
-         * Disables icon and header, blocks click event and sets [TdStepComponent] to deactive if 'true'.
-         */
-        set: function (disabled) {
-            if (disabled && this._active) {
-                this._active = false;
-                this._onDeactivated();
-            }
-            this._disabled = disabled;
         },
         enumerable: true,
         configurable: true
@@ -194,13 +187,20 @@ var TdStepComponent = (function () {
     TdStepComponent.prototype.isComplete = function () {
         return this._state === StepState.Complete;
     };
+    /** Method executed when the disabled value changes */
+    TdStepComponent.prototype.onDisabledChange = function (v) {
+        if (v && this._active) {
+            this._active = false;
+            this._onDeactivated();
+        }
+    };
     /**
      * Method to change active state internally and emit the [onActivated] event if 'true' or [onDeactivated]
      * event if 'false'. (Blocked if [disabled] is 'true')
      * returns true if successfully changed state
      */
     TdStepComponent.prototype._setActive = function (newActive) {
-        if (this._disabled) {
+        if (this.disabled) {
             return false;
         }
         if (this._active !== newActive) {
@@ -222,7 +222,7 @@ var TdStepComponent = (function () {
         this.onDeactivated.emit(undefined);
     };
     return TdStepComponent;
-}());
+}(_TdStepMixinBase));
 __decorate([
     ViewChild(TemplateRef),
     __metadata("design:type", TemplateRef)
@@ -258,11 +258,6 @@ __decorate([
     __metadata("design:paramtypes", [Boolean])
 ], TdStepComponent.prototype, "active", null);
 __decorate([
-    Input('disabled'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], TdStepComponent.prototype, "disabled", null);
-__decorate([
     Input('state'),
     __metadata("design:type", Number),
     __metadata("design:paramtypes", [Number])
@@ -278,6 +273,7 @@ __decorate([
 TdStepComponent = __decorate([
     Component({
         selector: 'td-step',
+        inputs: ['disabled'],
         template: "<ng-template> <ng-content></ng-content> </ng-template>",
     }),
     __metadata("design:paramtypes", [ViewContainerRef])

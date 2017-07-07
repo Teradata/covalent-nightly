@@ -13,7 +13,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 import { Component, Input, Output, EventEmitter, forwardRef, ChangeDetectionStrategy, ChangeDetectorRef, ContentChildren, QueryList, Inject, Optional, ViewChildren } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { ENTER, SPACE, UP_ARROW, DOWN_ARROW } from '@angular/material';
+import { ENTER, SPACE, UP_ARROW, DOWN_ARROW } from '@angular/cdk';
 import { TdDataTableRowComponent } from './data-table-row/data-table-row.component';
 import { TdDataTableTemplateDirective } from './directives/data-table-template.directive';
 var noop = function () {

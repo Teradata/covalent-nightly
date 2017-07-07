@@ -11,7 +11,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 import { Component, Input, Output, EventEmitter, Optional } from '@angular/core';
-import { Dir } from '@angular/material';
+import { Dir } from '@angular/cdk';
 var TdPagingBarComponent = (function () {
     function TdPagingBarComponent(_dir) {
         this._dir = _dir;

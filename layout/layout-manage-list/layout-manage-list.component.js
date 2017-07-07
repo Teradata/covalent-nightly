@@ -1,13 +1,3 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -17,29 +7,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-import { Component, Directive, Input, ViewChild, Inject, forwardRef, Renderer2, ElementRef } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { MdSidenav } from '@angular/material';
-import { LayoutToggle } from '../layout-toggle.class';
-var TdLayoutManageListToggleDirective = (function (_super) {
-    __extends(TdLayoutManageListToggleDirective, _super);
-    function TdLayoutManageListToggleDirective(layout, renderer, elementRef) {
-        return _super.call(this, layout, renderer, elementRef) || this;
-    }
-    return TdLayoutManageListToggleDirective;
-}(LayoutToggle));
-TdLayoutManageListToggleDirective = __decorate([
-    Directive({
-        selector: '[tdLayoutManageListToggle]',
-    }),
-    __param(0, Inject(forwardRef(function () { return TdLayoutManageListComponent; }))),
-    __metadata("design:paramtypes", [TdLayoutManageListComponent,
-        Renderer2,
-        ElementRef])
-], TdLayoutManageListToggleDirective);
-export { TdLayoutManageListToggleDirective };
 var TdLayoutManageListComponent = (function () {
     function TdLayoutManageListComponent() {
         /**
@@ -88,26 +57,26 @@ var TdLayoutManageListComponent = (function () {
      * Proxy toggle method to access sidenav from outside (from td-layout template).
      */
     TdLayoutManageListComponent.prototype.toggle = function () {
-        return this._sideNav.toggle(!this._sideNav.opened);
+        return this.sidenav.toggle(!this.sidenav.opened);
     };
     /**
      * Proxy open method to access sidenav from outside (from td-layout template).
      */
     TdLayoutManageListComponent.prototype.open = function () {
-        return this._sideNav.open();
+        return this.sidenav.open();
     };
     /**
      * Proxy close method to access sidenav from outside (from td-layout template).
      */
     TdLayoutManageListComponent.prototype.close = function () {
-        return this._sideNav.close();
+        return this.sidenav.close();
     };
     return TdLayoutManageListComponent;
 }());
 __decorate([
     ViewChild(MdSidenav),
     __metadata("design:type", MdSidenav)
-], TdLayoutManageListComponent.prototype, "_sideNav", void 0);
+], TdLayoutManageListComponent.prototype, "sidenav", void 0);
 __decorate([
     Input('mode'),
     __metadata("design:type", String)
