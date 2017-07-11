@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/animations'), require('@angular/router'), require('@angular/material'), require('@angular/platform-browser'), require('@angular/cdk'), require('rxjs/Observable'), require('rxjs/add/observable/timer'), require('rxjs/add/operator/toPromise'), require('rxjs/add/operator/debounceTime'), require('rxjs/add/observable/fromEvent'), require('rxjs/add/operator/filter'), require('@angular/http'), require('rxjs/Subject'), require('rxjs/observable/merge'), require('rxjs/add/operator/skip')) :
-    typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/animations', '@angular/router', '@angular/material', '@angular/platform-browser', '@angular/cdk', 'rxjs/Observable', 'rxjs/add/observable/timer', 'rxjs/add/operator/toPromise', 'rxjs/add/operator/debounceTime', 'rxjs/add/observable/fromEvent', 'rxjs/add/operator/filter', '@angular/http', 'rxjs/Subject', 'rxjs/observable/merge', 'rxjs/add/operator/skip'], factory) :
-    (factory((global.td = global.td || {}, global.td.core = global.td.core || {}),global.ng.core,global.ng.common,global.ng.forms,global.ng.animations,global.ng.router,global.ng.material,global.ng.platformBrowser,global.ng.cdk,global.Rx,global.Rx.Observable,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.ng.http,global.Rx,global.Rx.Observable,global.Rx.Observable.prototype));
-}(this, (function (exports,_angular_core,_angular_common,_angular_forms,_angular_animations,_angular_router,_angular_material,_angular_platformBrowser,_angular_cdk,rxjs_Observable,rxjs_add_observable_timer,rxjs_add_operator_toPromise,rxjs_add_operator_debounceTime,rxjs_add_observable_fromEvent,rxjs_add_operator_filter,_angular_http,rxjs_Subject,rxjs_observable_merge,rxjs_add_operator_skip) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/animations'), require('@angular/cdk'), require('@angular/router'), require('@angular/material'), require('@angular/platform-browser'), require('rxjs/Observable'), require('rxjs/add/observable/timer'), require('rxjs/add/operator/toPromise'), require('rxjs/add/operator/debounceTime'), require('rxjs/add/observable/fromEvent'), require('rxjs/add/operator/filter'), require('@angular/http'), require('rxjs/Subject'), require('rxjs/observable/merge'), require('rxjs/add/operator/skip')) :
+    typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/animations', '@angular/cdk', '@angular/router', '@angular/material', '@angular/platform-browser', 'rxjs/Observable', 'rxjs/add/observable/timer', 'rxjs/add/operator/toPromise', 'rxjs/add/operator/debounceTime', 'rxjs/add/observable/fromEvent', 'rxjs/add/operator/filter', '@angular/http', 'rxjs/Subject', 'rxjs/observable/merge', 'rxjs/add/operator/skip'], factory) :
+    (factory((global.td = global.td || {}, global.td.core = global.td.core || {}),global.ng.core,global.ng.common,global.ng.forms,global.ng.animations,global.ng.cdk,global.ng.router,global.ng.material,global.ng.platformBrowser,global.Rx,global.Rx.Observable,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.ng.http,global.Rx,global.Rx.Observable,global.Rx.Observable.prototype));
+}(this, (function (exports,_angular_core,_angular_common,_angular_forms,_angular_animations,_angular_cdk,_angular_router,_angular_material,_angular_platformBrowser,rxjs_Observable,rxjs_add_observable_timer,rxjs_add_operator_toPromise,rxjs_add_operator_debounceTime,rxjs_add_observable_fromEvent,rxjs_add_operator_filter,_angular_http,rxjs_Subject,rxjs_observable_merge,rxjs_add_operator_skip) { 'use strict';
 
 var __decorate$1 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -418,7 +418,7 @@ function mixinDisabled(base) {
                 return this._disabled;
             },
             set: function (value) {
-                var newValue = value !== '' ? (value === 'true' || value === true) : true;
+                var newValue = _angular_cdk.coerceBooleanProperty(value);
                 if (this._disabled !== newValue) {
                     this._disabled = newValue;
                     this.onDisabledChange(this._disabled);
@@ -996,7 +996,7 @@ exports.TdChipsComponent = TdChipsComponent_1 = (function (_super) {
          * Defaults to false.
          */
         set: function (stacked) {
-            this._stacked = stacked !== '' ? (stacked === 'true' || stacked === true) : true;
+            this._stacked = _angular_cdk.coerceBooleanProperty(stacked);
         },
         enumerable: true,
         configurable: true
@@ -1010,7 +1010,7 @@ exports.TdChipsComponent = TdChipsComponent_1 = (function (_super) {
          * Blocks custom inputs and only allows selections from the autocomplete list.
          */
         set: function (requireMatch) {
-            this._requireMatch = requireMatch !== '' ? (requireMatch === 'true' || requireMatch === true) : true;
+            this._requireMatch = _angular_cdk.coerceBooleanProperty(requireMatch);
         },
         enumerable: true,
         configurable: true
@@ -1599,13 +1599,13 @@ __decorate$11([
 ], exports.TdChipsComponent.prototype, "items", null);
 __decorate$11([
     _angular_core.Input('stacked'),
-    __metadata$5("design:type", Object),
-    __metadata$5("design:paramtypes", [Object])
+    __metadata$5("design:type", Boolean),
+    __metadata$5("design:paramtypes", [Boolean])
 ], exports.TdChipsComponent.prototype, "stacked", null);
 __decorate$11([
     _angular_core.Input('requireMatch'),
-    __metadata$5("design:type", Object),
-    __metadata$5("design:paramtypes", [Object])
+    __metadata$5("design:type", Boolean),
+    __metadata$5("design:paramtypes", [Boolean])
 ], exports.TdChipsComponent.prototype, "requireMatch", null);
 __decorate$11([
     _angular_core.Input('readOnly'),
@@ -1994,77 +1994,61 @@ exports.TdDataTableComponent = (function () {
         configurable: true
     });
     Object.defineProperty(TdDataTableComponent.prototype, "selectable", {
+        get: function () {
+            return this._selectable;
+        },
         /**
          * selectable?: boolean
          * Enables row selection events, hover and selected row states.
          * Defaults to 'false'
          */
         set: function (selectable) {
-            this._selectable = selectable !== '' ? (selectable === 'true' || selectable === true) : true;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(TdDataTableComponent.prototype, "isSelectable", {
-        get: function () {
-            return this._selectable;
+            this._selectable = _angular_cdk.coerceBooleanProperty(selectable);
         },
         enumerable: true,
         configurable: true
     });
     Object.defineProperty(TdDataTableComponent.prototype, "clickable", {
+        get: function () {
+            return this._clickable;
+        },
         /**
          * clickable?: boolean
          * Enables row click events, hover.
          * Defaults to 'false'
          */
         set: function (clickable) {
-            this._clickable = clickable !== '' ? (clickable === 'true' || clickable === true) : true;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(TdDataTableComponent.prototype, "isClickable", {
-        get: function () {
-            return this._clickable;
+            this._clickable = _angular_cdk.coerceBooleanProperty(clickable);
         },
         enumerable: true,
         configurable: true
     });
     Object.defineProperty(TdDataTableComponent.prototype, "multiple", {
+        get: function () {
+            return this._multiple;
+        },
         /**
          * multiple?: boolean
          * Enables multiple row selection. [selectable] needs to be enabled.
          * Defaults to 'false'
          */
         set: function (multiple) {
-            this._multiple = multiple !== '' ? (multiple === 'true' || multiple === true) : true;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(TdDataTableComponent.prototype, "isMultiple", {
-        get: function () {
-            return this._multiple;
+            this._multiple = _angular_cdk.coerceBooleanProperty(multiple);
         },
         enumerable: true,
         configurable: true
     });
     Object.defineProperty(TdDataTableComponent.prototype, "sortable", {
+        get: function () {
+            return this._sortable;
+        },
         /**
          * sortable?: boolean
          * Enables sorting events, sort icons and active column states.
          * Defaults to 'false'
          */
         set: function (sortable) {
-            this._sortable = sortable !== '' ? (sortable === 'true' || sortable === true) : true;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(TdDataTableComponent.prototype, "isSortable", {
-        get: function () {
-            return this._sortable;
+            this._sortable = _angular_cdk.coerceBooleanProperty(sortable);
         },
         enumerable: true,
         configurable: true
@@ -2200,16 +2184,16 @@ exports.TdDataTableComponent = (function () {
         }).length > 0 : false;
     };
     /**
-     * Selects or clears a row depending on 'checked' value if the row 'isSelectable'
+     * Selects or clears a row depending on 'checked' value if the row is 'selected'
      * handles cntrl clicks and shift clicks for multi-select
      */
     TdDataTableComponent.prototype.select = function (row, event, currentSelected) {
-        if (this.isSelectable) {
+        if (this.selectable) {
             this.blockEvent(event);
             this._doSelection(row);
             // Check to see if Shift key is selected and need to select everything in between
             var mouseEvent = event;
-            if (this.isMultiple && mouseEvent && mouseEvent.shiftKey && this._lastSelectedIndex > -1) {
+            if (this.multiple && mouseEvent && mouseEvent.shiftKey && this._lastSelectedIndex > -1) {
                 var firstIndex = currentSelected;
                 var lastIndex = this._lastSelectedIndex;
                 if (currentSelected > this._lastSelectedIndex) {
@@ -2258,7 +2242,7 @@ exports.TdDataTableComponent = (function () {
      * if clickable is true and selectable is false then select the row
      */
     TdDataTableComponent.prototype.handleRowClick = function (row, event) {
-        if (this.isClickable) {
+        if (this.clickable) {
             // ignoring linting rules here because attribute it actually null or not there
             // can't check for undefined
             var srcElement = event.srcElement || event.currentTarget;
@@ -2314,7 +2298,7 @@ exports.TdDataTableComponent = (function () {
                     rows[index - 1].focus();
                 }
                 this.blockEvent(event);
-                if (this.isMultiple && event.shiftKey) {
+                if (this.multiple && event.shiftKey) {
                     this._doSelection(this._data[index - 1]);
                     // if the checkboxes are all unselected then start over otherwise handle changing direction
                     this._lastArrowKeyDirection = (!this._allSelected && !this._indeterminate) ? undefined : TdDataTableArrowKeyDirection.Ascending;
@@ -2340,7 +2324,7 @@ exports.TdDataTableComponent = (function () {
                     rows[index + 1].focus();
                 }
                 this.blockEvent(event);
-                if (this.isMultiple && event.shiftKey) {
+                if (this.multiple && event.shiftKey) {
                     this._doSelection(this._data[index + 1]);
                     // if the checkboxes are all unselected then start over otherwise handle changing direction
                     this._lastArrowKeyDirection = (!this._allSelected && !this._indeterminate) ? undefined : TdDataTableArrowKeyDirection.Descending;
@@ -2462,23 +2446,23 @@ __decorate$13([
 ], exports.TdDataTableComponent.prototype, "columns", null);
 __decorate$13([
     _angular_core.Input('selectable'),
-    __metadata$6("design:type", Object),
-    __metadata$6("design:paramtypes", [Object])
+    __metadata$6("design:type", Boolean),
+    __metadata$6("design:paramtypes", [Boolean])
 ], exports.TdDataTableComponent.prototype, "selectable", null);
 __decorate$13([
     _angular_core.Input('clickable'),
-    __metadata$6("design:type", Object),
-    __metadata$6("design:paramtypes", [Object])
+    __metadata$6("design:type", Boolean),
+    __metadata$6("design:paramtypes", [Boolean])
 ], exports.TdDataTableComponent.prototype, "clickable", null);
 __decorate$13([
     _angular_core.Input('multiple'),
-    __metadata$6("design:type", Object),
-    __metadata$6("design:paramtypes", [Object])
+    __metadata$6("design:type", Boolean),
+    __metadata$6("design:paramtypes", [Boolean])
 ], exports.TdDataTableComponent.prototype, "multiple", null);
 __decorate$13([
     _angular_core.Input('sortable'),
-    __metadata$6("design:type", Object),
-    __metadata$6("design:paramtypes", [Object])
+    __metadata$6("design:type", Boolean),
+    __metadata$6("design:paramtypes", [Boolean])
 ], exports.TdDataTableComponent.prototype, "sortable", null);
 __decorate$13([
     _angular_core.Input('sortBy'),
@@ -2515,7 +2499,7 @@ exports.TdDataTableComponent = __decorate$13([
         providers: [TD_DATA_TABLE_CONTROL_VALUE_ACCESSOR],
         selector: 'td-data-table',
         styles: [".mat-table-container { display: block; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; } table.td-data-table.mat-selectable tbody > tr.td-data-table-row { transition: background-color 0.2s; } table.td-data-table.mat-selectable .td-data-table-column:first-child, table.td-data-table.mat-selectable th.td-data-table-column:first-child, table.td-data-table.mat-selectable td.td-data-table-cell:first-child { width: 20px; padding: 0 24px; } table.td-data-table.mat-selectable .td-data-table-column:nth-child(2), table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2), table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) { padding-left: 0px; } [dir='rtl'] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2), [dir='rtl'] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2), [dir='rtl'] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) { padding-right: 0px; padding-left: 28px; } table.td-data-table td.mat-checkbox-cell, table.td-data-table th.mat-checkbox-column { width: 18px; font-size: 0 !important; } table.td-data-table td.mat-checkbox-cell md-pseudo-checkbox, table.td-data-table th.mat-checkbox-column md-pseudo-checkbox { width: 18px; height: 18px; } /deep/ table.td-data-table td.mat-checkbox-cell md-pseudo-checkbox.mat-pseudo-checkbox-checked::after, /deep/ table.td-data-table th.mat-checkbox-column md-pseudo-checkbox.mat-pseudo-checkbox-checked::after { width: 11px !important; height: 4px !important; } table.td-data-table td.mat-checkbox-cell md-checkbox /deep/ .mat-checkbox-inner-container, table.td-data-table th.mat-checkbox-column md-checkbox /deep/ .mat-checkbox-inner-container { width: 18px; height: 18px; margin: 0; } "],
-        template: "<div class=\"mat-table-container\" title> <table td-data-table [class.mat-selectable]=\"isSelectable\" [class.mat-clickable]=\"isClickable\"> <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"isSelectable\"> <md-checkbox #checkBoxAll *ngIf=\"isMultiple\" [disabled]=\"!hasData\" [indeterminate]=\"indeterminate && !allSelected && hasData\" [checked]=\"allSelected && hasData\" (click)=\"selectAll(!checkBoxAll.checked)\" (keyup.enter)=\"selectAll(!checkBoxAll.checked)\" (keyup.space)=\"selectAll(!checkBoxAll.checked)\" (keydown.space)=\"blockEvent($event)\"> </md-checkbox> </th> <th td-data-table-column *ngFor=\"let column of columns\" [name]=\"column.name\" [numeric]=\"column.numeric\" [active]=\"(column.sortable || isSortable) && column === sortByColumn\" [sortable]=\"column.sortable ||  isSortable\" [sortOrder]=\"sortOrderEnum\" [hidden]=\"column.hidden\" (sortChange)=\"handleSort(column)\"> <span [mdTooltip]=\"column.tooltip\">{{column.label}}</span> </th> <tr td-data-table-row #dtRow [tabIndex]=\"isSelectable ? 0 : -1\" [selected]=\"(isClickable || isSelectable) && isRowSelected(row)\" *ngFor=\"let row of data; let rowIndex = index\" (click)=\"handleRowClick(row, $event)\" (keyup)=\"isSelectable && _rowKeyup($event, row, rowIndex)\" (keydown.space)=\"blockEvent($event)\" (keydown.shift.space)=\"blockEvent($event)\" (keydown.shift)=\"disableTextSelection()\" (keyup.shift)=\"enableTextSelection()\"> <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"isSelectable\"> <md-pseudo-checkbox [state]=\"dtRow.selected ? 'checked' : 'unchecked'\" (mousedown)=\"disableTextSelection()\" (mouseup)=\"enableTextSelection()\" stopRowClick (click)=\"select(row, $event, rowIndex)\"> </md-pseudo-checkbox> </td> <td td-data-table-cell [numeric]=\"column.numeric\" [hidden]=\"column.hidden\" *ngFor=\"let column of columns\"> <span class=\"md-body-1\" *ngIf=\"!getTemplateRef(column.name)\">{{column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row)}}</span> <ng-template *ngIf=\"getTemplateRef(column.name)\" [ngTemplateOutlet]=\"getTemplateRef(column.name)\" [ngOutletContext]=\"{ value: getCellValue(column, row), row: row, column: column.name }\"> </ng-template> </td> </tr> </table> </div> ",
+        template: "<div class=\"mat-table-container\" title> <table td-data-table [class.mat-selectable]=\"selectable\" [class.mat-clickable]=\"clickable\"> <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"selectable\"> <md-checkbox #checkBoxAll *ngIf=\"multiple\" [disabled]=\"!hasData\" [indeterminate]=\"indeterminate && !allSelected && hasData\" [checked]=\"allSelected && hasData\" (click)=\"selectAll(!checkBoxAll.checked)\" (keyup.enter)=\"selectAll(!checkBoxAll.checked)\" (keyup.space)=\"selectAll(!checkBoxAll.checked)\" (keydown.space)=\"blockEvent($event)\"> </md-checkbox> </th> <th td-data-table-column *ngFor=\"let column of columns\" [name]=\"column.name\" [numeric]=\"column.numeric\" [active]=\"(column.sortable || sortable) && column === sortByColumn\" [sortable]=\"column.sortable ||  sortable\" [sortOrder]=\"sortOrderEnum\" [hidden]=\"column.hidden\" (sortChange)=\"handleSort(column)\"> <span [mdTooltip]=\"column.tooltip\">{{column.label}}</span> </th> <tr td-data-table-row #dtRow [tabIndex]=\"selectable ? 0 : -1\" [selected]=\"(clickable || selectable) && isRowSelected(row)\" *ngFor=\"let row of data; let rowIndex = index\" (click)=\"handleRowClick(row, $event)\" (keyup)=\"selectable && _rowKeyup($event, row, rowIndex)\" (keydown.space)=\"blockEvent($event)\" (keydown.shift.space)=\"blockEvent($event)\" (keydown.shift)=\"disableTextSelection()\" (keyup.shift)=\"enableTextSelection()\"> <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"selectable\"> <md-pseudo-checkbox [state]=\"dtRow.selected ? 'checked' : 'unchecked'\" (mousedown)=\"disableTextSelection()\" (mouseup)=\"enableTextSelection()\" stopRowClick (click)=\"select(row, $event, rowIndex)\"> </md-pseudo-checkbox> </td> <td td-data-table-cell [numeric]=\"column.numeric\" [hidden]=\"column.hidden\" *ngFor=\"let column of columns\"> <span class=\"md-body-1\" *ngIf=\"!getTemplateRef(column.name)\">{{column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row)}}</span> <ng-template *ngIf=\"getTemplateRef(column.name)\" [ngTemplateOutlet]=\"getTemplateRef(column.name)\" [ngOutletContext]=\"{ value: getCellValue(column, row), row: row, column: column.name }\"> </ng-template> </td> </tr> </table> </div> ",
         changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
     }),
     __param$3(0, _angular_core.Optional()), __param$3(0, _angular_core.Inject(_angular_platformBrowser.DOCUMENT)),
@@ -3354,7 +3338,7 @@ exports.TdExpansionPanelComponent = (function (_super) {
          * Whether the ripple effect for this component is disabled.
          */
         set: function (disableRipple) {
-            this._disableRipple = disableRipple !== '' ? (disableRipple === 'true' || disableRipple === true) : true;
+            this._disableRipple = _angular_cdk.coerceBooleanProperty(disableRipple);
         },
         enumerable: true,
         configurable: true
@@ -3368,7 +3352,7 @@ exports.TdExpansionPanelComponent = (function (_super) {
          * Toggles [TdExpansionPanelComponent] between expand/collapse.
          */
         set: function (expand) {
-            this._setExpand(expand === 'true' || expand === true);
+            this._setExpand(_angular_cdk.coerceBooleanProperty(expand));
         },
         enumerable: true,
         configurable: true
@@ -3583,7 +3567,7 @@ exports.TdFileSelectDirective = (function () {
          * Can also be 'multiple' native attribute.
          */
         set: function (multiple) {
-            this._multiple = multiple !== '' ? (multiple === 'true' || multiple === true) : true;
+            this._multiple = _angular_cdk.coerceBooleanProperty(multiple);
         },
         enumerable: true,
         configurable: true
@@ -3617,8 +3601,8 @@ exports.TdFileSelectDirective = (function () {
 }());
 __decorate$30([
     _angular_core.Input('multiple'),
-    __metadata$19("design:type", Object),
-    __metadata$19("design:paramtypes", [Object])
+    __metadata$19("design:type", Boolean),
+    __metadata$19("design:paramtypes", [Boolean])
 ], exports.TdFileSelectDirective.prototype, "multiple", null);
 __decorate$30([
     _angular_core.Output('fileSelect'),
@@ -3691,7 +3675,7 @@ exports.TdFileDropDirective = (function (_super) {
          * Can also be 'multiple' native attribute.
          */
         set: function (multiple) {
-            this._multiple = multiple !== '' ? (multiple === 'true' || multiple === true) : true;
+            this._multiple = _angular_cdk.coerceBooleanProperty(multiple);
         },
         enumerable: true,
         configurable: true
@@ -3789,8 +3773,8 @@ exports.TdFileDropDirective = (function (_super) {
 }(_TdFileDropMixinBase));
 __decorate$31([
     _angular_core.Input('multiple'),
-    __metadata$20("design:type", Object),
-    __metadata$20("design:paramtypes", [Object])
+    __metadata$20("design:type", Boolean),
+    __metadata$20("design:paramtypes", [Boolean])
 ], exports.TdFileDropDirective.prototype, "multiple", null);
 __decorate$31([
     _angular_core.Output('fileDrop'),
@@ -3934,7 +3918,7 @@ exports.TdFileInputComponent = (function (_super) {
          * Sets if multiple files can be dropped/selected at once in [TdFileInputComponent].
          */
         set: function (multiple) {
-            this._multiple = multiple !== '' ? (multiple === 'true' || multiple === true) : true;
+            this._multiple = _angular_cdk.coerceBooleanProperty(multiple);
         },
         enumerable: true,
         configurable: true
@@ -3984,8 +3968,8 @@ __decorate$33([
 ], exports.TdFileInputComponent.prototype, "color", void 0);
 __decorate$33([
     _angular_core.Input('multiple'),
-    __metadata$22("design:type", Object),
-    __metadata$22("design:paramtypes", [Object])
+    __metadata$22("design:type", Boolean),
+    __metadata$22("design:paramtypes", [Boolean])
 ], exports.TdFileInputComponent.prototype, "multiple", null);
 __decorate$33([
     _angular_core.Input('accept'),
@@ -4082,7 +4066,7 @@ exports.TdFileUploadComponent = (function (_super) {
          * Sets if multiple files can be dropped/selected at once in [TdFileUploadComponent].
          */
         set: function (multiple) {
-            this._multiple = multiple !== '' ? (multiple === 'true' || multiple === true) : true;
+            this._multiple = _angular_cdk.coerceBooleanProperty(multiple);
         },
         enumerable: true,
         configurable: true
@@ -4138,8 +4122,8 @@ __decorate$32([
 ], exports.TdFileUploadComponent.prototype, "cancelColor", void 0);
 __decorate$32([
     _angular_core.Input('multiple'),
-    __metadata$21("design:type", Object),
-    __metadata$21("design:paramtypes", [Object])
+    __metadata$21("design:type", Boolean),
+    __metadata$21("design:paramtypes", [Boolean])
 ], exports.TdFileUploadComponent.prototype, "multiple", null);
 __decorate$32([
     _angular_core.Input('accept'),
@@ -8269,7 +8253,7 @@ exports.TdStepComponent = (function (_super) {
          * Whether the ripple effect for this component is disabled.
          */
         set: function (disableRipple) {
-            this._disableRipple = disableRipple !== '' ? (disableRipple === 'true' || disableRipple === true) : true;
+            this._disableRipple = _angular_cdk.coerceBooleanProperty(disableRipple);
         },
         enumerable: true,
         configurable: true
@@ -8283,7 +8267,7 @@ exports.TdStepComponent = (function (_super) {
          * Toggles [TdStepComponent] between active/deactive.
          */
         set: function (active) {
-            this._setActive(active === 'true' || active === true);
+            this._setActive(_angular_cdk.coerceBooleanProperty(active));
         },
         enumerable: true,
         configurable: true

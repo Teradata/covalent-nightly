@@ -92,29 +92,25 @@ export declare class TdDataTableComponent implements ControlValueAccessor, After
      * Enables row selection events, hover and selected row states.
      * Defaults to 'false'
      */
-    selectable: string | boolean;
-    readonly isSelectable: boolean;
+    selectable: boolean;
     /**
      * clickable?: boolean
      * Enables row click events, hover.
      * Defaults to 'false'
      */
-    clickable: string | boolean;
-    readonly isClickable: boolean;
+    clickable: boolean;
     /**
      * multiple?: boolean
      * Enables multiple row selection. [selectable] needs to be enabled.
      * Defaults to 'false'
      */
-    multiple: string | boolean;
-    readonly isMultiple: boolean;
+    multiple: boolean;
     /**
      * sortable?: boolean
      * Enables sorting events, sort icons and active column states.
      * Defaults to 'false'
      */
-    sortable: string | boolean;
-    readonly isSortable: boolean;
+    sortable: boolean;
     /**
      * sortBy?: string
      * Sets the active sort column. [sortable] needs to be enabled.
@@ -186,7 +182,7 @@ export declare class TdDataTableComponent implements ControlValueAccessor, After
      */
     isRowSelected(row: any): boolean;
     /**
-     * Selects or clears a row depending on 'checked' value if the row 'isSelectable'
+     * Selects or clears a row depending on 'checked' value if the row is 'selected'
      * handles cntrl clicks and shift clicks for multi-select
      */
     select(row: any, event: Event, currentSelected: number): void;

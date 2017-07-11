@@ -19,7 +19,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component, Directive, Input, Output, TemplateRef, ViewChild, ViewContainerRef, ContentChild } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import { TemplatePortalDirective, TemplatePortal } from '@angular/cdk';
+import { coerceBooleanProperty, TemplatePortalDirective, TemplatePortal } from '@angular/cdk';
 import { mixinDisabled } from '../common/common.module';
 export var StepState;
 (function (StepState) {
@@ -113,7 +113,7 @@ var TdStepComponent = (function (_super) {
          * Whether the ripple effect for this component is disabled.
          */
         set: function (disableRipple) {
-            this._disableRipple = disableRipple !== '' ? (disableRipple === 'true' || disableRipple === true) : true;
+            this._disableRipple = coerceBooleanProperty(disableRipple);
         },
         enumerable: true,
         configurable: true
@@ -127,7 +127,7 @@ var TdStepComponent = (function (_super) {
          * Toggles [TdStepComponent] between active/deactive.
          */
         set: function (active) {
-            this._setActive(active === 'true' || active === true);
+            this._setActive(coerceBooleanProperty(active));
         },
         enumerable: true,
         configurable: true

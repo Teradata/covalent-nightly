@@ -18,6 +18,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ContentChild, ChangeDetectorRef } from '@angular/core';
+import { coerceBooleanProperty } from '@angular/cdk';
 import { mixinDisabled } from '../../common/common.module';
 import { TdFileInputLabelDirective } from '../file-input/file-input.component';
 var TdFileUploadBase = (function () {
@@ -77,7 +78,7 @@ var TdFileUploadComponent = (function (_super) {
          * Sets if multiple files can be dropped/selected at once in [TdFileUploadComponent].
          */
         set: function (multiple) {
-            this._multiple = multiple !== '' ? (multiple === 'true' || multiple === true) : true;
+            this._multiple = coerceBooleanProperty(multiple);
         },
         enumerable: true,
         configurable: true
@@ -133,8 +134,8 @@ __decorate([
 ], TdFileUploadComponent.prototype, "cancelColor", void 0);
 __decorate([
     Input('multiple'),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
+    __metadata("design:type", Boolean),
+    __metadata("design:paramtypes", [Boolean])
 ], TdFileUploadComponent.prototype, "multiple", null);
 __decorate([
     Input('accept'),

@@ -24,7 +24,7 @@ import { Component, Input, Output, forwardRef, ViewChild, ViewChildren, QueryLis
 import { DOCUMENT } from '@angular/platform-browser';
 import { EventEmitter } from '@angular/core';
 import { NG_VALUE_ACCESSOR, FormControl } from '@angular/forms';
-import { TemplatePortalDirective, UP_ARROW, DOWN_ARROW, ESCAPE, LEFT_ARROW, RIGHT_ARROW, DELETE, BACKSPACE, TAB } from '@angular/cdk';
+import { coerceBooleanProperty, TemplatePortalDirective, UP_ARROW, DOWN_ARROW, ESCAPE, LEFT_ARROW, RIGHT_ARROW, DELETE, BACKSPACE, TAB } from '@angular/cdk';
 import { MdChip, MdInputDirective, MdOption, MdAutocompleteTrigger } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/timer';
@@ -162,7 +162,7 @@ var TdChipsComponent = TdChipsComponent_1 = (function (_super) {
          * Defaults to false.
          */
         set: function (stacked) {
-            this._stacked = stacked !== '' ? (stacked === 'true' || stacked === true) : true;
+            this._stacked = coerceBooleanProperty(stacked);
         },
         enumerable: true,
         configurable: true
@@ -176,7 +176,7 @@ var TdChipsComponent = TdChipsComponent_1 = (function (_super) {
          * Blocks custom inputs and only allows selections from the autocomplete list.
          */
         set: function (requireMatch) {
-            this._requireMatch = requireMatch !== '' ? (requireMatch === 'true' || requireMatch === true) : true;
+            this._requireMatch = coerceBooleanProperty(requireMatch);
         },
         enumerable: true,
         configurable: true
@@ -765,13 +765,13 @@ __decorate([
 ], TdChipsComponent.prototype, "items", null);
 __decorate([
     Input('stacked'),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
+    __metadata("design:type", Boolean),
+    __metadata("design:paramtypes", [Boolean])
 ], TdChipsComponent.prototype, "stacked", null);
 __decorate([
     Input('requireMatch'),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
+    __metadata("design:type", Boolean),
+    __metadata("design:paramtypes", [Boolean])
 ], TdChipsComponent.prototype, "requireMatch", null);
 __decorate([
     Input('readOnly'),

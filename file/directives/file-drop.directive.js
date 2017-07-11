@@ -19,6 +19,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Directive, Input, Output, EventEmitter } from '@angular/core';
 import { HostListener, HostBinding, ElementRef, Renderer2 } from '@angular/core';
+import { coerceBooleanProperty } from '@angular/cdk';
 import { mixinDisabled } from '../../common/common.module';
 var TdFileDropBase = (function () {
     function TdFileDropBase() {
@@ -50,7 +51,7 @@ var TdFileDropDirective = (function (_super) {
          * Can also be 'multiple' native attribute.
          */
         set: function (multiple) {
-            this._multiple = multiple !== '' ? (multiple === 'true' || multiple === true) : true;
+            this._multiple = coerceBooleanProperty(multiple);
         },
         enumerable: true,
         configurable: true
@@ -148,8 +149,8 @@ var TdFileDropDirective = (function (_super) {
 }(_TdFileDropMixinBase));
 __decorate([
     Input('multiple'),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
+    __metadata("design:type", Boolean),
+    __metadata("design:paramtypes", [Boolean])
 ], TdFileDropDirective.prototype, "multiple", null);
 __decorate([
     Output('fileDrop'),

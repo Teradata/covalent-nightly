@@ -12,6 +12,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 import { Directive, Input, Output, EventEmitter } from '@angular/core';
 import { HostListener, HostBinding, Host, Optional } from '@angular/core';
+import { coerceBooleanProperty } from '@angular/cdk';
 import { NgModel } from '@angular/forms';
 var TdFileSelectDirective = (function () {
     function TdFileSelectDirective(model) {
@@ -32,7 +33,7 @@ var TdFileSelectDirective = (function () {
          * Can also be 'multiple' native attribute.
          */
         set: function (multiple) {
-            this._multiple = multiple !== '' ? (multiple === 'true' || multiple === true) : true;
+            this._multiple = coerceBooleanProperty(multiple);
         },
         enumerable: true,
         configurable: true
@@ -66,8 +67,8 @@ var TdFileSelectDirective = (function () {
 }());
 __decorate([
     Input('multiple'),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
+    __metadata("design:type", Boolean),
+    __metadata("design:paramtypes", [Boolean])
 ], TdFileSelectDirective.prototype, "multiple", null);
 __decorate([
     Output('fileSelect'),

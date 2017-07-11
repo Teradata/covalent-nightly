@@ -64,12 +64,12 @@ export declare class TdChipsComponent extends _TdChipsMixinBase implements Contr
      * Set stacked or horizontal chips depending on value.
      * Defaults to false.
      */
-    stacked: any;
+    stacked: boolean;
     /**
      * requireMatch?: boolean
      * Blocks custom inputs and only allows selections from the autocomplete list.
      */
-    requireMatch: any;
+    requireMatch: boolean;
     /**
      * @deprecated 1.0.0@beta.6
      * readOnly?: boolean

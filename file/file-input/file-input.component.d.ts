@@ -30,7 +30,7 @@ export declare class TdFileInputComponent extends _TdFileInputMixinBase implemen
      * multiple?: boolean
      * Sets if multiple files can be dropped/selected at once in [TdFileInputComponent].
      */
-    multiple: string | boolean;
+    multiple: boolean;
     /**
      * accept?: string
      * Sets files accepted when opening the file browser dialog.

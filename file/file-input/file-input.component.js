@@ -18,7 +18,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component, Directive, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewChild, ElementRef, Renderer2, TemplateRef, ViewContainerRef, ChangeDetectorRef, forwardRef } from '@angular/core';
-import { TemplatePortalDirective } from '@angular/cdk';
+import { coerceBooleanProperty, TemplatePortalDirective } from '@angular/cdk';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { mixinDisabled } from '../../common/common.module';
 var noop = function () {
@@ -100,7 +100,7 @@ var TdFileInputComponent = (function (_super) {
          * Sets if multiple files can be dropped/selected at once in [TdFileInputComponent].
          */
         set: function (multiple) {
-            this._multiple = multiple !== '' ? (multiple === 'true' || multiple === true) : true;
+            this._multiple = coerceBooleanProperty(multiple);
         },
         enumerable: true,
         configurable: true
@@ -150,8 +150,8 @@ __decorate([
 ], TdFileInputComponent.prototype, "color", void 0);
 __decorate([
     Input('multiple'),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
+    __metadata("design:type", Boolean),
+    __metadata("design:paramtypes", [Boolean])
 ], TdFileInputComponent.prototype, "multiple", null);
 __decorate([
     Input('accept'),

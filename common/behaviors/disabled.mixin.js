@@ -8,6 +8,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+import { coerceBooleanProperty } from '@angular/cdk';
 /** Mixin to augment a component or directive with a `disabled` property. */
 export function mixinDisabled(base) {
     return (function (_super) {
@@ -26,7 +27,7 @@ export function mixinDisabled(base) {
                 return this._disabled;
             },
             set: function (value) {
-                var newValue = value !== '' ? (value === 'true' || value === true) : true;
+                var newValue = coerceBooleanProperty(value);
                 if (this._disabled !== newValue) {
                     this._disabled = newValue;
                     this.onDisabledChange(this._disabled);

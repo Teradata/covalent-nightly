@@ -28,7 +28,7 @@ export declare class TdFileUploadComponent extends _TdFileUploadMixinBase implem
      * multiple?: boolean
      * Sets if multiple files can be dropped/selected at once in [TdFileUploadComponent].
      */
-    multiple: string | boolean;
+    multiple: boolean;
     /**
      * accept?: string
      * Sets files accepted when opening the file browser dialog.

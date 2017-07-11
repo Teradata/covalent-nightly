@@ -19,7 +19,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component, Directive, Input, Output, TemplateRef, ViewContainerRef, ContentChild, ElementRef, Renderer2 } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import { TemplatePortalDirective } from '@angular/cdk';
+import { coerceBooleanProperty, TemplatePortalDirective } from '@angular/cdk';
 import { TdCollapseAnimation, mixinDisabled } from '../common/common.module';
 var TdExpansionPanelHeaderDirective = (function (_super) {
     __extends(TdExpansionPanelHeaderDirective, _super);
@@ -113,7 +113,7 @@ var TdExpansionPanelComponent = (function (_super) {
          * Whether the ripple effect for this component is disabled.
          */
         set: function (disableRipple) {
-            this._disableRipple = disableRipple !== '' ? (disableRipple === 'true' || disableRipple === true) : true;
+            this._disableRipple = coerceBooleanProperty(disableRipple);
         },
         enumerable: true,
         configurable: true
@@ -127,7 +127,7 @@ var TdExpansionPanelComponent = (function (_super) {
          * Toggles [TdExpansionPanelComponent] between expand/collapse.
          */
         set: function (expand) {
-            this._setExpand(expand === 'true' || expand === true);
+            this._setExpand(coerceBooleanProperty(expand));
         },
         enumerable: true,
         configurable: true
