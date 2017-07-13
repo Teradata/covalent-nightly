@@ -25,13 +25,11 @@ import { DOCUMENT } from '@angular/platform-browser';
 import { EventEmitter } from '@angular/core';
 import { NG_VALUE_ACCESSOR, FormControl } from '@angular/forms';
 import { coerceBooleanProperty, TemplatePortalDirective, UP_ARROW, DOWN_ARROW, ESCAPE, LEFT_ARROW, RIGHT_ARROW, DELETE, BACKSPACE, TAB } from '@angular/cdk';
+import { RxChain, debounceTime, filter } from '@angular/cdk';
 import { MdChip, MdInputDirective, MdOption, MdAutocompleteTrigger } from '@angular/material';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/timer';
-import 'rxjs/add/operator/toPromise';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/observable/fromEvent';
-import 'rxjs/add/operator/filter';
+import { timer } from 'rxjs/observable/timer';
+import { toPromise } from 'rxjs/operator/toPromise';
+import { fromEvent } from 'rxjs/observable/fromEvent';
 import { mixinDisabled } from '../common/common.module';
 var noop = function () {
     // empty method
@@ -307,7 +305,7 @@ var TdChipsComponent = TdChipsComponent_1 = (function (_super) {
         var _this = this;
         // sets a flag to know if there was a mousedown and then it returns it back to false
         this._isMousedown = true;
-        Observable.timer().toPromise().then(function () {
+        toPromise.call(timer()).then(function () {
             _this._isMousedown = false;
         });
     };
@@ -332,7 +330,7 @@ var TdChipsComponent = TdChipsComponent_1 = (function (_super) {
         switch (event.keyCode) {
             case TAB:
                 // if tabing out, then unfocus the component
-                Observable.timer().toPromise().then(function () {
+                toPromise.call(timer()).then(function () {
                     _this.removeFocusedState();
                 });
                 break;
@@ -351,8 +349,7 @@ var TdChipsComponent = TdChipsComponent_1 = (function (_super) {
     };
     TdChipsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.inputControl.valueChanges
-            .debounceTime(this.debounce)
+        RxChain.from(this.inputControl.valueChanges).call(debounceTime, this.debounce)
             .subscribe(function (value) {
             _this.onInputChange.emit(value ? value : '');
         });
@@ -426,7 +423,7 @@ var TdChipsComponent = TdChipsComponent_1 = (function (_super) {
          * to rerender the next list and at the correct spot
          */
         this._closeAutocomplete();
-        Observable.timer(this.debounce).toPromise().then(function () {
+        toPromise.call(timer(this.debounce)).then(function () {
             _this.setFocusedState();
             _this._setFirstOptionActive();
             _this._openAutocomplete();
@@ -689,7 +686,7 @@ var TdChipsComponent = TdChipsComponent_1 = (function (_super) {
         var _this = this;
         if (this.requireMatch) {
             // need to use a timer here to wait until the autocomplete has been opened (end of queue)
-            Observable.timer().toPromise().then(function () {
+            toPromise.call(timer()).then(function () {
                 if (_this.focused && _this._options && _this._options.length > 0) {
                     // clean up of previously active options
                     _this._options.toArray().forEach(function (option) {
@@ -710,7 +707,7 @@ var TdChipsComponent = TdChipsComponent_1 = (function (_super) {
     TdChipsComponent.prototype._watchOutsideClick = function () {
         var _this = this;
         if (this._document) {
-            this._outsideClickSubs = Observable.fromEvent(this._document, 'click').filter(function (event) {
+            this._outsideClickSubs = RxChain.from(fromEvent(this._document, 'click')).call(filter, function (event) {
                 var clickTarget = event.target;
                 setTimeout(function () {
                     _this._internalClick = false;

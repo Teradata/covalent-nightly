@@ -3,11 +3,6 @@ import { EventEmitter } from '@angular/core';
 import { ControlValueAccessor, FormControl } from '@angular/forms';
 import { TemplatePortalDirective } from '@angular/cdk';
 import { MdChip, MdInputDirective, MdOption, MdAutocompleteTrigger } from '@angular/material';
-import 'rxjs/add/observable/timer';
-import 'rxjs/add/operator/toPromise';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/observable/fromEvent';
-import 'rxjs/add/operator/filter';
 import { ICanDisable } from '../common/common.module';
 export declare class TdChipDirective extends TemplatePortalDirective {
     constructor(templateRef: TemplateRef<any>, viewContainerRef: ViewContainerRef);

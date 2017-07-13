@@ -9,8 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Injectable, NgZone, SkipSelf, Optional } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/fromEvent';
+import { fromEvent } from 'rxjs/observable/fromEvent';
 var TdMediaService = (function () {
     function TdMediaService(_ngZone) {
         var _this = this;
@@ -34,7 +33,7 @@ var TdMediaService = (function () {
         this._resizing = false;
         // we make sure that the resize checking happend outside of angular since it happens often
         this._globalSubscription = this._ngZone.runOutsideAngular(function () {
-            return Observable.fromEvent(window, 'resize').subscribe(function () {
+            return fromEvent(window, 'resize').subscribe(function () {
                 // way to prevent the resize event from triggering the match media if there is already one event running already.
                 if (!_this._resizing) {
                     _this._resizing = true;

@@ -1,4 +1,4 @@
-import { Renderer2, ElementRef, AfterViewInit } from '@angular/core';
+import { Renderer2, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { MdSidenavToggleResult, MdSidenav } from '@angular/material';
 export interface ILayoutTogglable {
     sidenav: MdSidenav;
@@ -6,10 +6,11 @@ export interface ILayoutTogglable {
     open(): Promise<MdSidenavToggleResult>;
     close(): Promise<MdSidenavToggleResult>;
 }
-export declare abstract class LayoutToggle implements AfterViewInit {
+export declare abstract class LayoutToggle implements AfterViewInit, OnDestroy {
     protected _layout: ILayoutTogglable;
     private _renderer;
     private _elementRef;
+    private _toggleSubs;
     private _initialized;
     private _disabled;
     private _hideWhenOpened;
@@ -22,6 +23,7 @@ export declare abstract class LayoutToggle implements AfterViewInit {
     hideWhenOpened: boolean;
     constructor(_layout: ILayoutTogglable, _renderer: Renderer2, _elementRef: ElementRef);
     ngAfterViewInit(): void;
+    ngOnDestroy(): void;
     /**
      * Listens to host click event to trigger the layout toggle
      */

@@ -43,7 +43,6 @@ import { TdTimeDifferencePipe } from './pipes/time-difference/time-difference.pi
 import { TdBytesPipe } from './pipes/bytes/bytes.pipe';
 import { TdDigitsPipe } from './pipes/digits/digits.pipe';
 import { TdTruncatePipe } from './pipes/truncate/truncate.pipe';
-import { RouterPathService } from './services/router.path.service';
 var TD_PIPES = [
     TdTimeAgoPipe,
     TdTimeDifferencePipe,
@@ -52,6 +51,10 @@ var TD_PIPES = [
     TdTruncatePipe,
 ];
 export { TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTruncatePipe };
+/**
+ * Services
+ */
+import { RouterPathService } from './services/router-path.service';
 var CovalentCommonModule = (function () {
     function CovalentCommonModule() {
     }

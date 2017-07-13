@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/animations'), require('@angular/cdk'), require('@angular/router'), require('@angular/material'), require('@angular/platform-browser'), require('rxjs/Observable'), require('rxjs/add/observable/timer'), require('rxjs/add/operator/toPromise'), require('rxjs/add/operator/debounceTime'), require('rxjs/add/observable/fromEvent'), require('rxjs/add/operator/filter'), require('@angular/http'), require('rxjs/Subject'), require('rxjs/observable/merge'), require('rxjs/add/operator/skip')) :
-    typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/animations', '@angular/cdk', '@angular/router', '@angular/material', '@angular/platform-browser', 'rxjs/Observable', 'rxjs/add/observable/timer', 'rxjs/add/operator/toPromise', 'rxjs/add/operator/debounceTime', 'rxjs/add/observable/fromEvent', 'rxjs/add/operator/filter', '@angular/http', 'rxjs/Subject', 'rxjs/observable/merge', 'rxjs/add/operator/skip'], factory) :
-    (factory((global.td = global.td || {}, global.td.core = global.td.core || {}),global.ng.core,global.ng.common,global.ng.forms,global.ng.animations,global.ng.cdk,global.ng.router,global.ng.material,global.ng.platformBrowser,global.Rx,global.Rx.Observable,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.ng.http,global.Rx,global.Rx.Observable,global.Rx.Observable.prototype));
-}(this, (function (exports,_angular_core,_angular_common,_angular_forms,_angular_animations,_angular_cdk,_angular_router,_angular_material,_angular_platformBrowser,rxjs_Observable,rxjs_add_observable_timer,rxjs_add_operator_toPromise,rxjs_add_operator_debounceTime,rxjs_add_observable_fromEvent,rxjs_add_operator_filter,_angular_http,rxjs_Subject,rxjs_observable_merge,rxjs_add_operator_skip) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/animations'), require('@angular/cdk'), require('@angular/router'), require('rxjs/operator/filter'), require('rxjs/operator/pairwise'), require('@angular/material'), require('@angular/platform-browser'), require('rxjs/observable/timer'), require('rxjs/operator/toPromise'), require('rxjs/observable/fromEvent'), require('@angular/http'), require('rxjs/Observable'), require('rxjs/Subject'), require('rxjs/observable/merge'), require('rxjs/operator/debounceTime'), require('rxjs/operator/skip')) :
+    typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/animations', '@angular/cdk', '@angular/router', 'rxjs/operator/filter', 'rxjs/operator/pairwise', '@angular/material', '@angular/platform-browser', 'rxjs/observable/timer', 'rxjs/operator/toPromise', 'rxjs/observable/fromEvent', '@angular/http', 'rxjs/Observable', 'rxjs/Subject', 'rxjs/observable/merge', 'rxjs/operator/debounceTime', 'rxjs/operator/skip'], factory) :
+    (factory((global.td = global.td || {}, global.td.core = global.td.core || {}),global.ng.core,global.ng.common,global.ng.forms,global.ng.animations,global.ng.cdk,global.ng.router,global.rxjs_operator_filter,global.rxjs_operator_pairwise,global.ng.material,global.ng.platformBrowser,global.rxjs_observable_timer,global.rxjs_operator_toPromise,global.rxjs_observable_fromEvent,global.ng.http,global.Rx,global.Rx,global.Rx.Observable,global.rxjs_operator_debounceTime,global.rxjs_operator_skip));
+}(this, (function (exports,_angular_core,_angular_common,_angular_forms,_angular_animations,_angular_cdk,_angular_router,rxjs_operator_filter,rxjs_operator_pairwise,_angular_material,_angular_platformBrowser,rxjs_observable_timer,rxjs_operator_toPromise,rxjs_observable_fromEvent,_angular_http,rxjs_Observable,rxjs_Subject,rxjs_observable_merge,rxjs_operator_debounceTime,rxjs_operator_skip) { 'use strict';
 
 var __decorate$1 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -762,10 +762,7 @@ var __metadata$4 = (window && window.__metadata) || function (k, v) {
 var RouterPathService = RouterPathService_1 = (function () {
     function RouterPathService(_router) {
         this._router = _router;
-        this._router.events
-            .filter(function (e) { return e instanceof _angular_router.RoutesRecognized; })
-            .pairwise()
-            .subscribe(function (e) {
+        rxjs_operator_pairwise.pairwise.call(rxjs_operator_filter.filter.call(this._router.events, function (e) { return e instanceof _angular_router.RoutesRecognized; })).subscribe(function (e) {
             RouterPathService_1._previousRoute = e[0].urlAfterRedirects;
         });
     }
@@ -817,6 +814,9 @@ var TD_PIPES = [
     exports.TdDigitsPipe,
     exports.TdTruncatePipe,
 ];
+/**
+ * Services
+ */
 exports.CovalentCommonModule = (function () {
     function CovalentCommonModule() {
     }
@@ -1141,7 +1141,7 @@ exports.TdChipsComponent = TdChipsComponent_1 = (function (_super) {
         var _this = this;
         // sets a flag to know if there was a mousedown and then it returns it back to false
         this._isMousedown = true;
-        rxjs_Observable.Observable.timer().toPromise().then(function () {
+        rxjs_operator_toPromise.toPromise.call(rxjs_observable_timer.timer()).then(function () {
             _this._isMousedown = false;
         });
     };
@@ -1166,7 +1166,7 @@ exports.TdChipsComponent = TdChipsComponent_1 = (function (_super) {
         switch (event.keyCode) {
             case _angular_cdk.TAB:
                 // if tabing out, then unfocus the component
-                rxjs_Observable.Observable.timer().toPromise().then(function () {
+                rxjs_operator_toPromise.toPromise.call(rxjs_observable_timer.timer()).then(function () {
                     _this.removeFocusedState();
                 });
                 break;
@@ -1185,8 +1185,7 @@ exports.TdChipsComponent = TdChipsComponent_1 = (function (_super) {
     };
     TdChipsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.inputControl.valueChanges
-            .debounceTime(this.debounce)
+        _angular_cdk.RxChain.from(this.inputControl.valueChanges).call(_angular_cdk.debounceTime, this.debounce)
             .subscribe(function (value) {
             _this.onInputChange.emit(value ? value : '');
         });
@@ -1260,7 +1259,7 @@ exports.TdChipsComponent = TdChipsComponent_1 = (function (_super) {
          * to rerender the next list and at the correct spot
          */
         this._closeAutocomplete();
-        rxjs_Observable.Observable.timer(this.debounce).toPromise().then(function () {
+        rxjs_operator_toPromise.toPromise.call(rxjs_observable_timer.timer(this.debounce)).then(function () {
             _this.setFocusedState();
             _this._setFirstOptionActive();
             _this._openAutocomplete();
@@ -1523,7 +1522,7 @@ exports.TdChipsComponent = TdChipsComponent_1 = (function (_super) {
         var _this = this;
         if (this.requireMatch) {
             // need to use a timer here to wait until the autocomplete has been opened (end of queue)
-            rxjs_Observable.Observable.timer().toPromise().then(function () {
+            rxjs_operator_toPromise.toPromise.call(rxjs_observable_timer.timer()).then(function () {
                 if (_this.focused && _this._options && _this._options.length > 0) {
                     // clean up of previously active options
                     _this._options.toArray().forEach(function (option) {
@@ -1544,7 +1543,7 @@ exports.TdChipsComponent = TdChipsComponent_1 = (function (_super) {
     TdChipsComponent.prototype._watchOutsideClick = function () {
         var _this = this;
         if (this._document) {
-            this._outsideClickSubs = rxjs_Observable.Observable.fromEvent(this._document, 'click').filter(function (event) {
+            this._outsideClickSubs = _angular_cdk.RxChain.from(rxjs_observable_fromEvent.fromEvent(this._document, 'click')).call(_angular_cdk.filter, function (event) {
                 var clickTarget = event.target;
                 setTimeout(function () {
                     _this._internalClick = false;
@@ -2758,14 +2757,14 @@ exports.TdDataTableService = (function () {
      */
     TdDataTableService.prototype.filterData = function (data, searchTerm, ignoreCase, excludedColumns) {
         if (ignoreCase === void 0) { ignoreCase = false; }
-        var filter = searchTerm ? (ignoreCase ? searchTerm.toLowerCase() : searchTerm) : '';
-        if (filter) {
+        var filter$$1 = searchTerm ? (ignoreCase ? searchTerm.toLowerCase() : searchTerm) : '';
+        if (filter$$1) {
             data = data.filter(function (item) {
                 var res = Object.keys(item).find(function (key) {
                     if (!excludedColumns || excludedColumns.indexOf(key) === -1) {
                         var preItemValue = ('' + item[key]);
                         var itemValue = ignoreCase ? preItemValue.toLowerCase() : preItemValue;
-                        return itemValue.indexOf(filter) > -1;
+                        return itemValue.indexOf(filter$$1) > -1;
                     }
                 });
                 return !(typeof res === 'undefined');
@@ -4699,9 +4698,18 @@ var LayoutToggle = (function () {
     LayoutToggle.prototype.ngAfterViewInit = function () {
         var _this = this;
         this._initialized = true;
-        rxjs_observable_merge.merge(this._layout.sidenav.onOpenStart, this._layout.sidenav.onCloseStart).subscribe(function () {
+        this._toggleSubs = rxjs_observable_merge.merge(this._layout.sidenav.onOpenStart, this._layout.sidenav.onCloseStart).subscribe(function () {
             _this._toggleVisibility();
         });
+        // execute toggleVisibility since the onOpenStart and onCloseStart
+        // methods might not be executed always when the element is rendered
+        this._toggleVisibility();
+    };
+    LayoutToggle.prototype.ngOnDestroy = function () {
+        if (this._toggleSubs) {
+            this._toggleSubs.unsubscribe();
+            this._toggleSubs = undefined;
+        }
     };
     /**
      * Listens to host click event to trigger the layout toggle
@@ -6610,7 +6618,7 @@ exports.TdMediaService = (function () {
         this._resizing = false;
         // we make sure that the resize checking happend outside of angular since it happens often
         this._globalSubscription = this._ngZone.runOutsideAngular(function () {
-            return rxjs_Observable.Observable.fromEvent(window, 'resize').subscribe(function () {
+            return rxjs_observable_fromEvent.fromEvent(window, 'resize').subscribe(function () {
                 // way to prevent the resize event from triggering the match media if there is already one event running already.
                 if (!_this._resizing) {
                     _this._resizing = true;
@@ -7876,9 +7884,8 @@ exports.TdSearchInputComponent = (function () {
     });
     TdSearchInputComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this._input._ngControl.valueChanges
-            .skip(1) // skip first change when value is set to undefined
-            .debounceTime(this.debounce)
+        rxjs_operator_debounceTime.debounceTime.call(rxjs_operator_skip.skip.call(this._input._ngControl.valueChanges, 1), // skip first change when value is set to undefined
+        this.debounce)
             .subscribe(function (value) {
             _this._searchTermChanged(value);
         });

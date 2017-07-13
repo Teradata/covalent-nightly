@@ -14,8 +14,8 @@ import { Component, ViewChild, Input, Output, EventEmitter, Optional } from '@an
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Dir } from '@angular/cdk';
 import { MdInputDirective } from '@angular/material';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/skip';
+import { debounceTime } from 'rxjs/operator/debounceTime';
+import { skip } from 'rxjs/operator/skip';
 var TdSearchInputComponent = (function () {
     function TdSearchInputComponent(_dir) {
         this._dir = _dir;
@@ -62,9 +62,8 @@ var TdSearchInputComponent = (function () {
     });
     TdSearchInputComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this._input._ngControl.valueChanges
-            .skip(1) // skip first change when value is set to undefined
-            .debounceTime(this.debounce)
+        debounceTime.call(skip.call(this._input._ngControl.valueChanges, 1), // skip first change when value is set to undefined
+        this.debounce)
             .subscribe(function (value) {
             _this._searchTermChanged(value);
         });

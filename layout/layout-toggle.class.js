@@ -44,9 +44,18 @@ var LayoutToggle = (function () {
     LayoutToggle.prototype.ngAfterViewInit = function () {
         var _this = this;
         this._initialized = true;
-        merge(this._layout.sidenav.onOpenStart, this._layout.sidenav.onCloseStart).subscribe(function () {
+        this._toggleSubs = merge(this._layout.sidenav.onOpenStart, this._layout.sidenav.onCloseStart).subscribe(function () {
             _this._toggleVisibility();
         });
+        // execute toggleVisibility since the onOpenStart and onCloseStart
+        // methods might not be executed always when the element is rendered
+        this._toggleVisibility();
+    };
+    LayoutToggle.prototype.ngOnDestroy = function () {
+        if (this._toggleSubs) {
+            this._toggleSubs.unsubscribe();
+            this._toggleSubs = undefined;
+        }
     };
     /**
      * Listens to host click event to trigger the layout toggle

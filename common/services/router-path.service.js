@@ -9,13 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Injectable } from '@angular/core';
 import { Router, RoutesRecognized } from '@angular/router';
+import { filter } from 'rxjs/operator/filter';
+import { pairwise } from 'rxjs/operator/pairwise';
 var RouterPathService = RouterPathService_1 = (function () {
     function RouterPathService(_router) {
         this._router = _router;
-        this._router.events
-            .filter(function (e) { return e instanceof RoutesRecognized; })
-            .pairwise()
-            .subscribe(function (e) {
+        pairwise.call(filter.call(this._router.events, function (e) { return e instanceof RoutesRecognized; })).subscribe(function (e) {
             RouterPathService_1._previousRoute = e[0].urlAfterRedirects;
         });
     }
@@ -35,4 +34,4 @@ RouterPathService = RouterPathService_1 = __decorate([
 ], RouterPathService);
 export { RouterPathService };
 var RouterPathService_1;
-//# sourceMappingURL=router.path.service.js.map
+//# sourceMappingURL=router-path.service.js.map
