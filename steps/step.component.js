@@ -20,7 +20,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Component, Directive, Input, Output, TemplateRef, ViewChild, ViewContainerRef, ContentChild } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { coerceBooleanProperty, TemplatePortalDirective, TemplatePortal } from '@angular/cdk';
-import { mixinDisabled } from '../common/common.module';
+import { mixinDisabled, mixinDisableRipple } from '../common/common.module';
 export var StepState;
 (function (StepState) {
     StepState[StepState["None"] = 'none'] = "None";
@@ -76,13 +76,12 @@ var TdStepBase = (function () {
 }());
 export { TdStepBase };
 /* tslint:disable-next-line */
-export var _TdStepMixinBase = mixinDisabled(TdStepBase);
+export var _TdStepMixinBase = mixinDisableRipple(mixinDisabled(TdStepBase));
 var TdStepComponent = (function (_super) {
     __extends(TdStepComponent, _super);
     function TdStepComponent(_viewContainerRef) {
         var _this = _super.call(this) || this;
         _this._viewContainerRef = _viewContainerRef;
-        _this._disableRipple = false;
         _this._active = false;
         _this._state = StepState.None;
         /**
@@ -100,20 +99,6 @@ var TdStepComponent = (function (_super) {
     Object.defineProperty(TdStepComponent.prototype, "stepContent", {
         get: function () {
             return this._contentPortal;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(TdStepComponent.prototype, "disableRipple", {
-        get: function () {
-            return this._disableRipple;
-        },
-        /**
-         * disableRipple?: string
-         * Whether the ripple effect for this component is disabled.
-         */
-        set: function (disableRipple) {
-            this._disableRipple = coerceBooleanProperty(disableRipple);
         },
         enumerable: true,
         configurable: true
@@ -248,11 +233,6 @@ __decorate([
     __metadata("design:type", String)
 ], TdStepComponent.prototype, "sublabel", void 0);
 __decorate([
-    Input('disableRipple'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], TdStepComponent.prototype, "disableRipple", null);
-__decorate([
     Input('active'),
     __metadata("design:type", Boolean),
     __metadata("design:paramtypes", [Boolean])
@@ -273,7 +253,7 @@ __decorate([
 TdStepComponent = __decorate([
     Component({
         selector: 'td-step',
-        inputs: ['disabled'],
+        inputs: ['disabled', 'disableRipple'],
         template: "<ng-template> <ng-content></ng-content> </ng-template>",
     }),
     __metadata("design:paramtypes", [ViewContainerRef])

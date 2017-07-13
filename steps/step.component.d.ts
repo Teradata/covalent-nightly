@@ -1,7 +1,7 @@
 import { TemplateRef, ViewContainerRef, OnInit } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { TemplatePortalDirective, TemplatePortal } from '@angular/cdk';
-import { ICanDisable } from '../common/common.module';
+import { ICanDisable, ICanDisableRipple } from '../common/common.module';
 export declare enum StepState {
     None,
     Required,
@@ -18,10 +18,9 @@ export declare class TdStepSummaryDirective extends TemplatePortalDirective {
 }
 export declare class TdStepBase {
 }
-export declare const _TdStepMixinBase: (new (...args: any[]) => ICanDisable) & typeof TdStepBase;
-export declare class TdStepComponent extends _TdStepMixinBase implements OnInit, ICanDisable {
+export declare const _TdStepMixinBase: (new (...args: any[]) => ICanDisableRipple) & (new (...args: any[]) => ICanDisable) & typeof TdStepBase;
+export declare class TdStepComponent extends _TdStepMixinBase implements OnInit, ICanDisable, ICanDisableRipple {
     private _viewContainerRef;
-    private _disableRipple;
     private _active;
     private _state;
     private _contentPortal;
@@ -41,11 +40,6 @@ export declare class TdStepComponent extends _TdStepMixinBase implements OnInit,
      * Sets sublabel of [TdStepComponent] header.
      */
     sublabel: string;
-    /**
-     * disableRipple?: string
-     * Whether the ripple effect for this component is disabled.
-     */
-    disableRipple: boolean;
     /**
      * active?: boolean
      * Toggles [TdStepComponent] between active/deactive.

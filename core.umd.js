@@ -434,6 +434,50 @@ function mixinDisabled(base) {
     }(base));
 }
 
+var __extends$1 = (window && window.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+/** Mixin to augment a component or directive with a `disabled` property. */
+function mixinDisableRipple(base) {
+    return (function (_super) {
+        __extends$1(class_1, _super);
+        function class_1() {
+            var args = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                args[_i] = arguments[_i];
+            }
+            var _this = _super.apply(this, args) || this;
+            _this._disableRipple = false;
+            return _this;
+        }
+        Object.defineProperty(class_1.prototype, "disableRipple", {
+            get: function () {
+                return this._disableRipple;
+            },
+            set: function (value) {
+                var newValue = _angular_cdk.coerceBooleanProperty(value);
+                if (this._disableRipple !== newValue) {
+                    this._disableRipple = newValue;
+                    this.onDisableRippleChange(this._disableRipple);
+                }
+            },
+            enumerable: true,
+            configurable: true
+        });
+        class_1.prototype.onDisableRippleChange = function (v) {
+            /** NOT IMPLEMENTED, this needs to be overriden by subclasses if needed */
+        };
+        return class_1;
+    }(base));
+}
+
 var __decorate$3 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -848,7 +892,7 @@ exports.CovalentCommonModule = __decorate([
     })
 ], exports.CovalentCommonModule);
 
-var __extends$1 = (window && window.__extends) || (function () {
+var __extends$2 = (window && window.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
         function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
@@ -874,7 +918,7 @@ var noop = function () {
     // empty method
 };
 exports.TdChipDirective = (function (_super) {
-    __extends$1(TdChipDirective, _super);
+    __extends$2(TdChipDirective, _super);
     function TdChipDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
@@ -887,7 +931,7 @@ exports.TdChipDirective = __decorate$11([
     __metadata$5("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
 ], exports.TdChipDirective);
 exports.TdAutocompleteOptionDirective = (function (_super) {
-    __extends$1(TdAutocompleteOptionDirective, _super);
+    __extends$2(TdAutocompleteOptionDirective, _super);
     function TdAutocompleteOptionDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
@@ -907,7 +951,7 @@ var TdChipsBase = (function () {
 /* tslint:disable-next-line */
 var _TdChipsMixinBase = mixinDisabled(TdChipsBase);
 exports.TdChipsComponent = TdChipsComponent_1 = (function (_super) {
-    __extends$1(TdChipsComponent, _super);
+    __extends$2(TdChipsComponent, _super);
     function TdChipsComponent(_elementRef, _renderer, _changeDetectorRef, _document) {
         var _this = _super.call(this) || this;
         _this._elementRef = _elementRef;
@@ -1786,7 +1830,7 @@ exports.TdDataTableRowComponent = __decorate$14([
     __metadata$7("design:paramtypes", [_angular_core.ElementRef, _angular_core.Renderer2])
 ], exports.TdDataTableRowComponent);
 
-var __extends$2 = (window && window.__extends) || (function () {
+var __extends$3 = (window && window.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
         function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
@@ -1806,7 +1850,7 @@ var __metadata$8 = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var TdDataTableTemplateDirective = (function (_super) {
-    __extends$2(TdDataTableTemplateDirective, _super);
+    __extends$3(TdDataTableTemplateDirective, _super);
     function TdDataTableTemplateDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
@@ -3231,7 +3275,7 @@ exports.CovalentDialogsModule = __decorate$20([
     })
 ], exports.CovalentDialogsModule);
 
-var __extends$3 = (window && window.__extends) || (function () {
+var __extends$4 = (window && window.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
         function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
@@ -3251,7 +3295,7 @@ var __metadata$17 = (window && window.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var TdExpansionPanelHeaderDirective = (function (_super) {
-    __extends$3(TdExpansionPanelHeaderDirective, _super);
+    __extends$4(TdExpansionPanelHeaderDirective, _super);
     function TdExpansionPanelHeaderDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
@@ -3264,7 +3308,7 @@ TdExpansionPanelHeaderDirective = __decorate$27([
     __metadata$17("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
 ], TdExpansionPanelHeaderDirective);
 var TdExpansionPanelLabelDirective = (function (_super) {
-    __extends$3(TdExpansionPanelLabelDirective, _super);
+    __extends$4(TdExpansionPanelLabelDirective, _super);
     function TdExpansionPanelLabelDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
@@ -3277,7 +3321,7 @@ TdExpansionPanelLabelDirective = __decorate$27([
     __metadata$17("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
 ], TdExpansionPanelLabelDirective);
 var TdExpansionPanelSublabelDirective = (function (_super) {
-    __extends$3(TdExpansionPanelSublabelDirective, _super);
+    __extends$4(TdExpansionPanelSublabelDirective, _super);
     function TdExpansionPanelSublabelDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
@@ -3306,14 +3350,13 @@ var TdExpansionPanelBase = (function () {
     return TdExpansionPanelBase;
 }());
 /* tslint:disable-next-line */
-var _TdExpansionPanelMixinBase = mixinDisabled(TdExpansionPanelBase);
+var _TdExpansionPanelMixinBase = mixinDisableRipple(mixinDisabled(TdExpansionPanelBase));
 exports.TdExpansionPanelComponent = (function (_super) {
-    __extends$3(TdExpansionPanelComponent, _super);
+    __extends$4(TdExpansionPanelComponent, _super);
     function TdExpansionPanelComponent(_renderer, _elementRef) {
         var _this = _super.call(this) || this;
         _this._renderer = _renderer;
         _this._elementRef = _elementRef;
-        _this._disableRipple = false;
         _this._expand = false;
         /**
          * expanded?: function
@@ -3328,20 +3371,6 @@ exports.TdExpansionPanelComponent = (function (_super) {
         _this._renderer.addClass(_this._elementRef.nativeElement, 'td-expansion-panel');
         return _this;
     }
-    Object.defineProperty(TdExpansionPanelComponent.prototype, "disableRipple", {
-        get: function () {
-            return this._disableRipple;
-        },
-        /**
-         * disableRipple?: string
-         * Whether the ripple effect for this component is disabled.
-         */
-        set: function (disableRipple) {
-            this._disableRipple = _angular_cdk.coerceBooleanProperty(disableRipple);
-        },
-        enumerable: true,
-        configurable: true
-    });
     Object.defineProperty(TdExpansionPanelComponent.prototype, "expand", {
         get: function () {
             return this._expand;
@@ -3441,11 +3470,6 @@ __decorate$27([
     __metadata$17("design:type", String)
 ], exports.TdExpansionPanelComponent.prototype, "sublabel", void 0);
 __decorate$27([
-    _angular_core.Input('disableRipple'),
-    __metadata$17("design:type", Boolean),
-    __metadata$17("design:paramtypes", [Boolean])
-], exports.TdExpansionPanelComponent.prototype, "disableRipple", null);
-__decorate$27([
     _angular_core.Input('expand'),
     __metadata$17("design:type", Boolean),
     __metadata$17("design:paramtypes", [Boolean])
@@ -3463,7 +3487,7 @@ exports.TdExpansionPanelComponent = __decorate$27([
         selector: 'td-expansion-panel',
         styles: [":host { display: block; } :host .td-expansion-panel-header { position: relative; outline: none; } :host .td-expansion-panel-header:focus:not(.mat-disabled), :host .td-expansion-panel-header:hover:not(.mat-disabled) { cursor: pointer; } :host .td-expansion-panel-header .td-expansion-panel-header-content { height: 48px; padding: 0 16px; } .td-expansion-label, .td-expansion-sublabel { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 5px; } /deep/ [dir='rtl'] .td-expansion-label, /deep/ [dir='rtl'] .td-expansion-sublabel { margin-left: 5px; margin-right: inherit; } "],
         template: "<div class=\"td-expansion-panel-header\" [class.mat-disabled]=\"disabled\" md-ripple [mdRippleDisabled]=\"disabled || disableRipple\" [tabIndex]=\"disabled? -1 : 0\" (keydown.enter)=\"clickEvent()\" (click)=\"clickEvent()\"> <ng-template [cdkPortalHost]=\"expansionPanelHeader\"></ng-template> <div class=\"td-expansion-panel-header-content\" [class.mat-disabled]=\"disabled\" *ngIf=\"!expansionPanelHeader\" layout=\"row\"  layout-align=\"start center\"  flex> <div *ngIf=\"label || expansionPanelLabel\" class=\"md-subhead td-expansion-label\" [attr.flex-gt-xs]=\"(sublabel || expansionPanelSublabel) ? 40 : null\"> <ng-template [cdkPortalHost]=\"expansionPanelLabel\"></ng-template> <ng-template [ngIf]=\"!expansionPanelLabel\">{{label}}</ng-template> </div> <div *ngIf=\"sublabel || expansionPanelSublabel\" class=\"md-body-1 td-expansion-sublabel\"> <ng-template [cdkPortalHost]=\"expansionPanelSublabel\"></ng-template> <ng-template [ngIf]=\"!expansionPanelSublabel\">{{sublabel}}</ng-template> </div> <span flex></span> <md-icon class=\"td-expand-icon\" *ngIf=\"!expand && !disabled\">keyboard_arrow_down</md-icon> <md-icon class=\"td-expand-icon\" *ngIf=\"expand\">keyboard_arrow_up</md-icon> </div> </div> <div class=\"td-expansion-content\" [@tdCollapse]=\"!expand\"> <ng-content></ng-content> </div> <div class=\"td-expansion-summary\" [@tdCollapse]=\"expand\"> <ng-content select=\"td-expansion-summary\"></ng-content> </div> ",
-        inputs: ['disabled'],
+        inputs: ['disabled', 'disableRipple'],
         animations: [
             TdCollapseAnimation(),
         ],
@@ -3626,7 +3650,7 @@ exports.TdFileSelectDirective = __decorate$30([
     __metadata$19("design:paramtypes", [_angular_forms.NgModel])
 ], exports.TdFileSelectDirective);
 
-var __extends$4 = (window && window.__extends) || (function () {
+var __extends$5 = (window && window.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
         function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
@@ -3653,7 +3677,7 @@ var TdFileDropBase = (function () {
 /* tslint:disable-next-line */
 var _TdFileDropMixinBase = mixinDisabled(TdFileDropBase);
 exports.TdFileDropDirective = (function (_super) {
-    __extends$4(TdFileDropDirective, _super);
+    __extends$5(TdFileDropDirective, _super);
     function TdFileDropDirective(_renderer, _element) {
         var _this = _super.call(this) || this;
         _this._renderer = _renderer;
@@ -3821,7 +3845,7 @@ exports.TdFileDropDirective = __decorate$31([
     __metadata$20("design:paramtypes", [_angular_core.Renderer2, _angular_core.ElementRef])
 ], exports.TdFileDropDirective);
 
-var __extends$6 = (window && window.__extends) || (function () {
+var __extends$7 = (window && window.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
         function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
@@ -3849,7 +3873,7 @@ var FILE_INPUT_CONTROL_VALUE_ACCESSOR = {
     multi: true,
 };
 exports.TdFileInputLabelDirective = (function (_super) {
-    __extends$6(TdFileInputLabelDirective, _super);
+    __extends$7(TdFileInputLabelDirective, _super);
     function TdFileInputLabelDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
@@ -3869,7 +3893,7 @@ var TdFileInputBase = (function () {
 /* tslint:disable-next-line */
 var _TdFileInputMixinBase = mixinDisabled(TdFileInputBase);
 exports.TdFileInputComponent = (function (_super) {
-    __extends$6(TdFileInputComponent, _super);
+    __extends$7(TdFileInputComponent, _super);
     function TdFileInputComponent(_renderer, _changeDetectorRef) {
         var _this = _super.call(this) || this;
         _this._renderer = _renderer;
@@ -3990,7 +4014,7 @@ exports.TdFileInputComponent = __decorate$33([
     __metadata$22("design:paramtypes", [_angular_core.Renderer2, _angular_core.ChangeDetectorRef])
 ], exports.TdFileInputComponent);
 
-var __extends$5 = (window && window.__extends) || (function () {
+var __extends$6 = (window && window.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
         function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
@@ -4017,7 +4041,7 @@ var TdFileUploadBase = (function () {
 /* tslint:disable-next-line */
 var _TdFileUploadMixinBase = mixinDisabled(TdFileUploadBase);
 exports.TdFileUploadComponent = (function (_super) {
-    __extends$5(TdFileUploadComponent, _super);
+    __extends$6(TdFileUploadComponent, _super);
     function TdFileUploadComponent(_changeDetectorRef) {
         var _this = _super.call(this) || this;
         _this._changeDetectorRef = _changeDetectorRef;
@@ -4742,7 +4766,7 @@ __decorate$40([
     __metadata$27("design:returntype", void 0)
 ], LayoutToggle.prototype, "clickListener", null);
 
-var __extends$7 = (window && window.__extends) || (function () {
+var __extends$8 = (window && window.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
         function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
@@ -4765,7 +4789,7 @@ var __param$6 = (window && window.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 exports.TdLayoutToggleDirective = (function (_super) {
-    __extends$7(TdLayoutToggleDirective, _super);
+    __extends$8(TdLayoutToggleDirective, _super);
     function TdLayoutToggleDirective(layout, renderer, elementRef) {
         return _super.call(this, layout, renderer, elementRef) || this;
     }
@@ -4796,7 +4820,7 @@ exports.TdLayoutToggleDirective = __decorate$39([
         _angular_core.ElementRef])
 ], exports.TdLayoutToggleDirective);
 exports.TdLayoutCloseDirective = (function (_super) {
-    __extends$7(TdLayoutCloseDirective, _super);
+    __extends$8(TdLayoutCloseDirective, _super);
     function TdLayoutCloseDirective(layout, renderer, elementRef) {
         return _super.call(this, layout, renderer, elementRef) || this;
     }
@@ -4827,7 +4851,7 @@ exports.TdLayoutCloseDirective = __decorate$39([
         _angular_core.ElementRef])
 ], exports.TdLayoutCloseDirective);
 exports.TdLayoutOpenDirective = (function (_super) {
-    __extends$7(TdLayoutOpenDirective, _super);
+    __extends$8(TdLayoutOpenDirective, _super);
     function TdLayoutOpenDirective(layout, renderer, elementRef) {
         return _super.call(this, layout, renderer, elementRef) || this;
     }
@@ -5072,7 +5096,7 @@ exports.TdLayoutNavListComponent = __decorate$42([
     __metadata$29("design:paramtypes", [_angular_router.Router])
 ], exports.TdLayoutNavListComponent);
 
-var __extends$8 = (window && window.__extends) || (function () {
+var __extends$9 = (window && window.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
         function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
@@ -5095,7 +5119,7 @@ var __param$9 = (window && window.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 exports.TdLayoutNavListToggleDirective = (function (_super) {
-    __extends$8(TdLayoutNavListToggleDirective, _super);
+    __extends$9(TdLayoutNavListToggleDirective, _super);
     function TdLayoutNavListToggleDirective(layout, renderer, elementRef) {
         return _super.call(this, layout, renderer, elementRef) || this;
     }
@@ -5126,7 +5150,7 @@ exports.TdLayoutNavListToggleDirective = __decorate$43([
         _angular_core.ElementRef])
 ], exports.TdLayoutNavListToggleDirective);
 exports.TdLayoutNavListCloseDirective = (function (_super) {
-    __extends$8(TdLayoutNavListCloseDirective, _super);
+    __extends$9(TdLayoutNavListCloseDirective, _super);
     function TdLayoutNavListCloseDirective(layout, renderer, elementRef) {
         return _super.call(this, layout, renderer, elementRef) || this;
     }
@@ -5157,7 +5181,7 @@ exports.TdLayoutNavListCloseDirective = __decorate$43([
         _angular_core.ElementRef])
 ], exports.TdLayoutNavListCloseDirective);
 exports.TdLayoutNavListOpenDirective = (function (_super) {
-    __extends$8(TdLayoutNavListOpenDirective, _super);
+    __extends$9(TdLayoutNavListOpenDirective, _super);
     function TdLayoutNavListOpenDirective(layout, renderer, elementRef) {
         return _super.call(this, layout, renderer, elementRef) || this;
     }
@@ -5337,7 +5361,7 @@ exports.TdLayoutManageListComponent = __decorate$45([
     })
 ], exports.TdLayoutManageListComponent);
 
-var __extends$9 = (window && window.__extends) || (function () {
+var __extends$10 = (window && window.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
         function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
@@ -5360,7 +5384,7 @@ var __param$10 = (window && window.__param) || function (paramIndex, decorator) 
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 exports.TdLayoutManageListToggleDirective = (function (_super) {
-    __extends$9(TdLayoutManageListToggleDirective, _super);
+    __extends$10(TdLayoutManageListToggleDirective, _super);
     function TdLayoutManageListToggleDirective(layout, renderer, elementRef) {
         return _super.call(this, layout, renderer, elementRef) || this;
     }
@@ -5391,7 +5415,7 @@ exports.TdLayoutManageListToggleDirective = __decorate$46([
         _angular_core.ElementRef])
 ], exports.TdLayoutManageListToggleDirective);
 exports.TdLayoutManageListCloseDirective = (function (_super) {
-    __extends$9(TdLayoutManageListCloseDirective, _super);
+    __extends$10(TdLayoutManageListCloseDirective, _super);
     function TdLayoutManageListCloseDirective(layout, renderer, elementRef) {
         return _super.call(this, layout, renderer, elementRef) || this;
     }
@@ -5422,7 +5446,7 @@ exports.TdLayoutManageListCloseDirective = __decorate$46([
         _angular_core.ElementRef])
 ], exports.TdLayoutManageListCloseDirective);
 exports.TdLayoutManageListOpenDirective = (function (_super) {
-    __extends$9(TdLayoutManageListOpenDirective, _super);
+    __extends$10(TdLayoutManageListOpenDirective, _super);
     function TdLayoutManageListOpenDirective(layout, renderer, elementRef) {
         return _super.call(this, layout, renderer, elementRef) || this;
     }
@@ -6108,7 +6132,7 @@ var LOADING_FACTORY_PROVIDER = {
     useFactory: LOADING_FACTORY_PROVIDER_FACTORY,
 };
 
-var __extends$10 = (window && window.__extends) || (function () {
+var __extends$11 = (window && window.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
         function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
@@ -6140,7 +6164,7 @@ var TdLoadingConfig = (function () {
     return TdLoadingConfig;
 }());
 var TdLoadingDirectiveConfig = (function (_super) {
-    __extends$10(TdLoadingDirectiveConfig, _super);
+    __extends$11(TdLoadingDirectiveConfig, _super);
     function TdLoadingDirectiveConfig(config) {
         var _this = _super.call(this, config) || this;
         _this.strategy = config.strategy ? config.strategy : exports.LoadingStrategy.Replace;
@@ -8153,7 +8177,7 @@ exports.CovalentSearchModule = __decorate$65([
     })
 ], exports.CovalentSearchModule);
 
-var __extends$11 = (window && window.__extends) || (function () {
+var __extends$12 = (window && window.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
         function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
@@ -8179,7 +8203,7 @@ var __metadata$48 = (window && window.__metadata) || function (k, v) {
     StepState[StepState["Complete"] = 'complete'] = "Complete";
 })(exports.StepState || (exports.StepState = {}));
 var TdStepLabelDirective = (function (_super) {
-    __extends$11(TdStepLabelDirective, _super);
+    __extends$12(TdStepLabelDirective, _super);
     function TdStepLabelDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
@@ -8192,7 +8216,7 @@ TdStepLabelDirective = __decorate$70([
     __metadata$48("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
 ], TdStepLabelDirective);
 var TdStepActionsDirective = (function (_super) {
-    __extends$11(TdStepActionsDirective, _super);
+    __extends$12(TdStepActionsDirective, _super);
     function TdStepActionsDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
@@ -8205,7 +8229,7 @@ TdStepActionsDirective = __decorate$70([
     __metadata$48("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
 ], TdStepActionsDirective);
 var TdStepSummaryDirective = (function (_super) {
-    __extends$11(TdStepSummaryDirective, _super);
+    __extends$12(TdStepSummaryDirective, _super);
     function TdStepSummaryDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
@@ -8223,13 +8247,12 @@ var TdStepBase = (function () {
     return TdStepBase;
 }());
 /* tslint:disable-next-line */
-var _TdStepMixinBase = mixinDisabled(TdStepBase);
+var _TdStepMixinBase = mixinDisableRipple(mixinDisabled(TdStepBase));
 exports.TdStepComponent = (function (_super) {
-    __extends$11(TdStepComponent, _super);
+    __extends$12(TdStepComponent, _super);
     function TdStepComponent(_viewContainerRef) {
         var _this = _super.call(this) || this;
         _this._viewContainerRef = _viewContainerRef;
-        _this._disableRipple = false;
         _this._active = false;
         _this._state = exports.StepState.None;
         /**
@@ -8247,20 +8270,6 @@ exports.TdStepComponent = (function (_super) {
     Object.defineProperty(TdStepComponent.prototype, "stepContent", {
         get: function () {
             return this._contentPortal;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(TdStepComponent.prototype, "disableRipple", {
-        get: function () {
-            return this._disableRipple;
-        },
-        /**
-         * disableRipple?: string
-         * Whether the ripple effect for this component is disabled.
-         */
-        set: function (disableRipple) {
-            this._disableRipple = _angular_cdk.coerceBooleanProperty(disableRipple);
         },
         enumerable: true,
         configurable: true
@@ -8395,11 +8404,6 @@ __decorate$70([
     __metadata$48("design:type", String)
 ], exports.TdStepComponent.prototype, "sublabel", void 0);
 __decorate$70([
-    _angular_core.Input('disableRipple'),
-    __metadata$48("design:type", Boolean),
-    __metadata$48("design:paramtypes", [Boolean])
-], exports.TdStepComponent.prototype, "disableRipple", null);
-__decorate$70([
     _angular_core.Input('active'),
     __metadata$48("design:type", Boolean),
     __metadata$48("design:paramtypes", [Boolean])
@@ -8420,7 +8424,7 @@ __decorate$70([
 exports.TdStepComponent = __decorate$70([
     _angular_core.Component({
         selector: 'td-step',
-        inputs: ['disabled'],
+        inputs: ['disabled', 'disableRipple'],
         template: "<ng-template> <ng-content></ng-content> </ng-template>",
     }),
     __metadata$48("design:paramtypes", [_angular_core.ViewContainerRef])
@@ -8584,7 +8588,7 @@ exports.TdStepsComponent = __decorate$69([
     })
 ], exports.TdStepsComponent);
 
-var __extends$12 = (window && window.__extends) || (function () {
+var __extends$13 = (window && window.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
         function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
@@ -8609,9 +8613,9 @@ var TdStepHeaderBase = (function () {
     return TdStepHeaderBase;
 }());
 /* tslint:disable-next-line */
-var _TdStepHeaderMixinBase = mixinDisabled(TdStepHeaderBase);
+var _TdStepHeaderMixinBase = mixinDisableRipple(mixinDisabled(TdStepHeaderBase));
 var TdStepHeaderComponent = (function (_super) {
-    __extends$12(TdStepHeaderComponent, _super);
+    __extends$13(TdStepHeaderComponent, _super);
     function TdStepHeaderComponent() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         /**
@@ -8641,10 +8645,6 @@ __decorate$71([
     __metadata$49("design:type", Number)
 ], TdStepHeaderComponent.prototype, "number", void 0);
 __decorate$71([
-    _angular_core.Input('disableRipple'),
-    __metadata$49("design:type", Boolean)
-], TdStepHeaderComponent.prototype, "disableRipple", void 0);
-__decorate$71([
     _angular_core.Input('active'),
     __metadata$49("design:type", Boolean)
 ], TdStepHeaderComponent.prototype, "active", void 0);
@@ -8655,7 +8655,7 @@ __decorate$71([
 TdStepHeaderComponent = __decorate$71([
     _angular_core.Component({
         selector: 'td-step-header',
-        inputs: ['disabled'],
+        inputs: ['disabled', 'disableRipple'],
         styles: [".td-step-header { position: relative; outline: none; } .td-step-header:hover:not(.mat-disabled) { cursor: pointer; } .td-step-header .td-step-header-content { height: 72px; } .td-step-header md-icon.td-edit-icon { margin: 0 8px; } .td-step-header md-icon.mat-warn { font-size: 24px; height: 24px; width: 24px; } .td-step-header md-icon.mat-complete { position: relative; left: -2px; top: 2px; font-size: 28px; height: 24px; width: 24px; } .td-step-header .td-circle { height: 24px; width: 24px; line-height: 24px; border-radius: 99%; text-align: center; flex: none; } .td-step-header .td-circle md-icon { margin-top: 2px; font-weight: bold; } .td-step-header .td-triangle > md-icon { font-size: 25px; } .td-step-header .td-complete { font-size: 0; } /deep/ :not([dir='rtl']) .td-step-header .td-circle, /deep/ :not([dir='rtl']) .td-step-header .td-triangle, /deep/ :not([dir='rtl']) .td-step-header .td-complete { margin-left: 8px; margin-right: 0px; } /deep/ [dir='rtl'] .td-step-header .td-circle, /deep/ [dir='rtl'] .td-step-header .td-triangle, /deep/ [dir='rtl'] .td-step-header .td-complete { margin-left: 0px; margin-right: 8px; } .td-step-header .td-circle, .td-step-header .td-complete { font-size: 14px; } .td-step-header .td-step-label-wrapper { padding-left: 8px; padding-right: 8px; } .td-step-header .td-step-sublabel { line-height: 14px; font-weight: normal; } "],
         template: "<div class=\"td-step-header\" [class.mat-disabled]=\"disabled\" md-ripple [mdRippleDisabled]=\"disabled || disableRipple\" [tabIndex]=\"disabled ? -1 : 0\" flex> <div class=\"td-step-header-content\" layout=\"row\"  layout-align=\"start center\" flex> <div class=\"td-circle\" [class.mat-inactive]=\"(!active && !isComplete()) || disabled\" [class.mat-active]=\"active && !disabled\" *ngIf=\"!isRequired() && !isComplete()\"> <span *ngIf=\"(active || !isComplete())\">{{number || ''}}</span> </div> <div class=\"td-complete\" *ngIf=\"isComplete()\"> <md-icon class=\"mat-complete\">check_circle</md-icon> </div> <div class=\"td-triangle\" [class.bg-muted]=\"disabled\" *ngIf=\"isRequired()\"> <md-icon class=\"mat-warn\">warning</md-icon> </div> <div class=\"td-step-label-wrapper\" [class.mat-inactive]=\"(!active && !isComplete()) || disabled\" [class.mat-warn]=\"isRequired() && !disabled\"> <div class=\"md-body-2 td-step-label\"> <ng-content select=\"[td-step-header-label]\"></ng-content> </div> <div class=\"md-caption td-step-sublabel\"> <ng-content select=\"[td-step-header-sublabel]\"></ng-content> </div> </div> <span flex></span> <md-icon class=\"td-edit-icon\" *ngIf=\"isComplete() && !active && !disabled\">mode_edit</md-icon> </div> </div>",
     })
@@ -8749,6 +8749,7 @@ exports.CovalentStepsModule = __decorate$68([
 exports.TdCollapseAnimation = TdCollapseAnimation;
 exports.TdFadeInOutAnimation = TdFadeInOutAnimation;
 exports.mixinDisabled = mixinDisabled;
+exports.mixinDisableRipple = mixinDisableRipple;
 exports.CovalentValidators = CovalentValidators;
 
 Object.defineProperty(exports, '__esModule', { value: true });

@@ -1,7 +1,7 @@
 import { TemplateRef, ViewContainerRef, ElementRef, Renderer2 } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { TemplatePortalDirective } from '@angular/cdk';
-import { ICanDisable } from '../common/common.module';
+import { ICanDisable, ICanDisableRipple } from '../common/common.module';
 export declare class TdExpansionPanelHeaderDirective extends TemplatePortalDirective {
     constructor(templateRef: TemplateRef<any>, viewContainerRef: ViewContainerRef);
 }
@@ -15,11 +15,10 @@ export declare class TdExpansionPanelSummaryComponent {
 }
 export declare class TdExpansionPanelBase {
 }
-export declare const _TdExpansionPanelMixinBase: (new (...args: any[]) => ICanDisable) & typeof TdExpansionPanelBase;
-export declare class TdExpansionPanelComponent extends _TdExpansionPanelMixinBase implements ICanDisable {
+export declare const _TdExpansionPanelMixinBase: (new (...args: any[]) => ICanDisableRipple) & (new (...args: any[]) => ICanDisable) & typeof TdExpansionPanelBase;
+export declare class TdExpansionPanelComponent extends _TdExpansionPanelMixinBase implements ICanDisable, ICanDisableRipple {
     private _renderer;
     private _elementRef;
-    private _disableRipple;
     private _expand;
     expansionPanelHeader: TdExpansionPanelHeaderDirective;
     expansionPanelLabel: TdExpansionPanelLabelDirective;
@@ -35,11 +34,6 @@ export declare class TdExpansionPanelComponent extends _TdExpansionPanelMixinBas
      * Sets sublabel of [TdExpansionPanelComponent] header.
      */
     sublabel: string;
-    /**
-     * disableRipple?: string
-     * Whether the ripple effect for this component is disabled.
-     */
-    disableRipple: boolean;
     /**
      * expand?: boolean
      * Toggles [TdExpansionPanelComponent] between expand/collapse.

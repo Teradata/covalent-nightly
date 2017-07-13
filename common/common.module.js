@@ -23,6 +23,7 @@ export { TdFadeInOutAnimation } from './animations/fade/fadeInOut.animation';
  * BEHAVIORS
  */
 export { mixinDisabled } from './behaviors/disabled.mixin';
+export { mixinDisableRipple } from './behaviors/disable-ripple.mixin';
 /**
  * FORMS
  */
