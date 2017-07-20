@@ -3,7 +3,7 @@
 
 .td-paging-bar {
   height: 48px; }
-  .td-paging-bar > * {
+  .td-paging-bar /deep/ > * {
     margin: 0 10px; }
 
 [md-icon-button] {
