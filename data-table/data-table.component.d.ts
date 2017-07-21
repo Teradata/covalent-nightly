@@ -229,12 +229,4 @@ export declare class TdDataTableComponent implements ControlValueAccessor, After
      * Calculate all the state of all checkboxes
      */
     private _calculateCheckboxState();
-    /**
-     * Checks if all visible rows are selected.
-     */
-    private _calculateAllSelected();
-    /**
-     * Checks if all visible rows are selected.
-     */
-    private _calculateIndeterminate();
 }

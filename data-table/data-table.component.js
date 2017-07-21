@@ -348,8 +348,14 @@ var TdDataTableComponent = (function () {
                 if (_this.isRowSelected(row)) {
                     toggledRows.push(row);
                 }
+                row = _this._value.filter(function (val) {
+                    return _this.compareWith(row, val);
+                })[0];
+                var index = _this._value.indexOf(row);
+                if (index > -1) {
+                    _this._value.splice(index, 1);
+                }
             });
-            this.clearModel();
             this._allSelected = false;
             this._indeterminate = false;
         }
@@ -568,36 +574,24 @@ var TdDataTableComponent = (function () {
             }
         }
         this._calculateCheckboxState();
-        this.onRowSelect.emit({ row: row, selected: this.isRowSelected(row) });
+        this.onRowSelect.emit({ row: row, selected: !wasSelected });
         this.onChange(this._value);
     };
     /**
      * Calculate all the state of all checkboxes
      */
     TdDataTableComponent.prototype._calculateCheckboxState = function () {
-        this._calculateAllSelected();
-        this._calculateIndeterminate();
-    };
-    /**
-     * Checks if all visible rows are selected.
-     */
-    TdDataTableComponent.prototype._calculateAllSelected = function () {
         var _this = this;
-        var match = this._data ? this._data.find(function (d) { return !_this.isRowSelected(d); }) : true;
-        this._allSelected = typeof match === 'undefined';
-    };
-    /**
-     * Checks if all visible rows are selected.
-     */
-    TdDataTableComponent.prototype._calculateIndeterminate = function () {
-        this._indeterminate = false;
         if (this._data) {
+            this._allSelected = typeof this._data.find(function (d) { return !_this.isRowSelected(d); }) === 'undefined';
+            this._indeterminate = false;
             for (var _i = 0, _a = this._data; _i < _a.length; _i++) {
                 var row = _a[_i];
                 if (!this.isRowSelected(row)) {
                     continue;
                 }
                 this._indeterminate = true;
+                break;
             }
         }
     };
