@@ -10,13 +10,13 @@
   font-size: 12px;
   font-weight: normal; }
 
-md-select /deep/ .mat-select-trigger {
+/deep/ md-select .mat-select-trigger {
   min-width: 44px;
   font-size: 12px; }
 
-md-select /deep/ .mat-select-value {
+/deep/ md-select .mat-select-value {
   top: auto;
   position: static; }
 
-md-select /deep/ .mat-select-underline {
+/deep/ md-select .mat-select-underline {
   display: none; }

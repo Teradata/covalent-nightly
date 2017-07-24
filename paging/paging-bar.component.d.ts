@@ -10,7 +10,6 @@ export interface IPageChangeEvent {
 }
 export declare class TdPagingBarComponent implements OnInit {
     private _dir;
-    private _pageSizes;
     private _pageSize;
     private _total;
     private _page;
@@ -19,19 +18,8 @@ export declare class TdPagingBarComponent implements OnInit {
     private _initialized;
     private _pageLinks;
     private _pageLinkCount;
-    private _id;
     private _hitEnd;
     private _hitStart;
-    /**
-     * pageSizeAll?: boolean
-     * Shows or hides the 'all' menu item in the page size menu. Defaults to 'false'
-     */
-    pageSizeAll: boolean;
-    /**
-     * pageSizeAllText?: string
-     * Text for the 'all' menu item in the page size menu. Defaults to 'All'
-     */
-    pageSizeAllText: string;
     /**
      * firstLast?: boolean
      * Shows or hides the first and last page buttons of the paging bar. Defaults to 'false'
@@ -44,17 +32,12 @@ export declare class TdPagingBarComponent implements OnInit {
     initialPage: number;
     /**
      * pageLinkCount?: number
-     * Amount of page jump to links for the paging bar. Defaults to '0'
+     * Amount of page navigation links for the paging bar. Defaults to '0'
      */
     pageLinkCount: number;
     /**
-     * pageSizes?: number[]
-     * Array that populates page size menu. Defaults to [50, 100, 200, 500, 1000]
-     */
-    pageSizes: number[];
-    /**
      * pageSize?: number
-     * Selected page size for the pagination. Defaults to first element of the [pageSizes] array.
+     * Selected page size for the pagination. Defaults 50.
      */
     pageSize: number;
     /**
@@ -82,11 +65,6 @@ export declare class TdPagingBarComponent implements OnInit {
      * Returns the max page for the current pageSize and total.
      */
     readonly maxPage: number;
-    /**
-     * id: string
-     * Returns the guid id for this paginator
-     */
-    readonly id: string;
     /**
      * change?: function
      * Method to be executed when page size changes or any button is clicked in the paging bar.
@@ -130,10 +108,4 @@ export declare class TdPagingBarComponent implements OnInit {
      */
     private _calculatePageLinks();
     private _handleOnChange();
-    /**
-     * guid?: function
-     * Returns RFC4122 random ("version 4") GUIDs
-     */
-    private guid();
-    private s4();
 }

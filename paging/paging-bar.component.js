@@ -15,7 +15,6 @@ import { Dir, coerceNumberProperty } from '@angular/cdk';
 var TdPagingBarComponent = (function () {
     function TdPagingBarComponent(_dir) {
         this._dir = _dir;
-        this._pageSizes = [50, 100, 200, 500, 1000];
         this._pageSize = 50;
         this._total = 0;
         this._page = 1;
@@ -28,16 +27,6 @@ var TdPagingBarComponent = (function () {
         this._hitEnd = false;
         // special case when 2 pageLinks, detect when hit start of pages so can lead in correct direction
         this._hitStart = false;
-        /**
-         * pageSizeAll?: boolean
-         * Shows or hides the 'all' menu item in the page size menu. Defaults to 'false'
-         */
-        this.pageSizeAll = false;
-        /**
-         * pageSizeAllText?: string
-         * Text for the 'all' menu item in the page size menu. Defaults to 'All'
-         */
-        this.pageSizeAllText = 'All';
         /**
          * firstLast?: boolean
          * Shows or hides the first and last page buttons of the paging bar. Defaults to 'false'
@@ -54,7 +43,6 @@ var TdPagingBarComponent = (function () {
          * Emits an [IPageChangeEvent] implemented object.
          */
         this.onChange = new EventEmitter();
-        this._id = this.guid();
     }
     Object.defineProperty(TdPagingBarComponent.prototype, "pageLinkCount", {
         get: function () {
@@ -62,29 +50,11 @@ var TdPagingBarComponent = (function () {
         },
         /**
          * pageLinkCount?: number
-         * Amount of page jump to links for the paging bar. Defaults to '0'
+         * Amount of page navigation links for the paging bar. Defaults to '0'
          */
         set: function (pageLinkCount) {
-            this._pageLinkCount = pageLinkCount;
+            this._pageLinkCount = coerceNumberProperty(pageLinkCount);
             this._calculatePageLinks();
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(TdPagingBarComponent.prototype, "pageSizes", {
-        get: function () {
-            return this._pageSizes;
-        },
-        /**
-         * pageSizes?: number[]
-         * Array that populates page size menu. Defaults to [50, 100, 200, 500, 1000]
-         */
-        set: function (pageSizes) {
-            if (!(pageSizes instanceof Array)) {
-                throw new Error('[pageSizes] needs to be an number array.');
-            }
-            this._pageSizes = pageSizes;
-            this._pageSize = this._pageSizes[0];
         },
         enumerable: true,
         configurable: true
@@ -95,15 +65,13 @@ var TdPagingBarComponent = (function () {
         },
         /**
          * pageSize?: number
-         * Selected page size for the pagination. Defaults to first element of the [pageSizes] array.
+         * Selected page size for the pagination. Defaults 50.
          */
         set: function (pageSize) {
-            if ((this._pageSizes.indexOf(pageSize) > -1 || this.total === pageSize) && this._pageSize !== pageSize) {
-                this._pageSize = pageSize;
-                this._page = 1;
-                if (this._initialized) {
-                    this._handleOnChange();
-                }
+            this._pageSize = coerceNumberProperty(pageSize);
+            this._page = 1;
+            if (this._initialized) {
+                this._handleOnChange();
             }
         },
         enumerable: true,
@@ -118,7 +86,7 @@ var TdPagingBarComponent = (function () {
          * Total rows for the pagination.
          */
         set: function (total) {
-            this._total = total;
+            this._total = coerceNumberProperty(total);
             this._calculateRows();
             this._calculatePageLinks();
         },
@@ -165,17 +133,6 @@ var TdPagingBarComponent = (function () {
          */
         get: function () {
             return Math.ceil(this._total / this._pageSize);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(TdPagingBarComponent.prototype, "id", {
-        /**
-         * id: string
-         * Returns the guid id for this paginator
-         */
-        get: function () {
-            return this._id;
         },
         enumerable: true,
         configurable: true
@@ -307,26 +264,8 @@ var TdPagingBarComponent = (function () {
         };
         this.onChange.emit(event);
     };
-    /**
-     * guid?: function
-     * Returns RFC4122 random ("version 4") GUIDs
-     */
-    TdPagingBarComponent.prototype.guid = function () {
-        return this.s4() + this.s4() + '-' + this.s4() + '-' + this.s4() + '-' + this.s4() + '-' + this.s4() + this.s4() + this.s4();
-    };
-    TdPagingBarComponent.prototype.s4 = function () {
-        return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-    };
     return TdPagingBarComponent;
 }());
-__decorate([
-    Input('pageSizeAll'),
-    __metadata("design:type", Boolean)
-], TdPagingBarComponent.prototype, "pageSizeAll", void 0);
-__decorate([
-    Input('pageSizeAllText'),
-    __metadata("design:type", String)
-], TdPagingBarComponent.prototype, "pageSizeAllText", void 0);
 __decorate([
     Input('firstLast'),
     __metadata("design:type", Boolean)
@@ -340,11 +279,6 @@ __decorate([
     __metadata("design:type", Number),
     __metadata("design:paramtypes", [Number])
 ], TdPagingBarComponent.prototype, "pageLinkCount", null);
-__decorate([
-    Input('pageSizes'),
-    __metadata("design:type", Array),
-    __metadata("design:paramtypes", [Array])
-], TdPagingBarComponent.prototype, "pageSizes", null);
 __decorate([
     Input('pageSize'),
     __metadata("design:type", Number),
@@ -362,8 +296,8 @@ __decorate([
 TdPagingBarComponent = __decorate([
     Component({
         selector: 'td-paging-bar',
-        template: "<div layout=\"row\" layout-align=\"end center\" class=\"md-caption td-paging-bar\" (change)=\"$event.stopPropagation()\" > <ng-content select=\"[td-paging-bar-label]\"></ng-content> <md-select [(ngModel)]=\"pageSize\"> <ng-template let-size ngFor [ngForOf]=\"pageSizes\"> <md-option [value]=\"size\"> {{size}} </md-option> </ng-template> <md-option *ngIf=\"pageSizeAll\" [value]=\"total\">{{pageSizeAllText}}</md-option> </md-select> <ng-content></ng-content> <div class=\"td-paging-bar-navigation\"> <button [id]=\"'td-paging-bar-' + id + '-first-page'\" md-icon-button type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMinPage()\" (click)=\"firstPage()\"> <md-icon>{{ isRTL ? 'skip_next' : 'skip_previous' }}</md-icon> </button> <button md-icon-button type=\"button\" [disabled]=\"isMinPage()\" (click)=\"prevPage()\"> <md-icon>{{ isRTL ? 'navigate_next' : 'navigate_before' }}</md-icon> </button> <ng-template *ngIf=\"pageLinkCount > 0\" let-link let-index=\"index\" ngFor [ngForOf]=\"pageLinks\"> <button [id]=\"'td-paging-bar-' + id + '-page-link-' + index\" md-icon-button type=\"button\" [color]=\"page === link ? 'accent' : ''\" (click)=\"navigateToPage(link)\">{{link}}</button> </ng-template> <button md-icon-button type=\"button\" [disabled]=\"isMaxPage()\" (click)=\"nextPage()\"> <md-icon>{{ isRTL ? 'navigate_before' : 'navigate_next' }}</md-icon> </button> <button [id]=\"'td-paging-bar-' + id + '-last-page'\" md-icon-button type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMaxPage()\" (click)=\"lastPage()\"> <md-icon>{{ isRTL ? 'skip_previous' : 'skip_next' }}</md-icon> </button> </div> </div>",
-        styles: [":host { display: block; } .td-paging-bar { height: 48px; } .td-paging-bar /deep/ > * { margin: 0 10px; } [md-icon-button] { font-size: 12px; font-weight: normal; } md-select /deep/ .mat-select-trigger { min-width: 44px; font-size: 12px; } md-select /deep/ .mat-select-value { top: auto; position: static; } md-select /deep/ .mat-select-underline { display: none; } "],
+        template: "<div layout=\"row\" layout-align=\"end center\" class=\"md-caption td-paging-bar\" (change)=\"$event.stopPropagation()\" > <ng-content></ng-content> <div class=\"td-paging-bar-navigation\"> <button md-icon-button class=\"td-paging-bar-first-page\" type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMinPage()\" (click)=\"firstPage()\"> <md-icon>{{ isRTL ? 'skip_next' : 'skip_previous' }}</md-icon> </button> <button md-icon-button class=\"td-paging-bar-prev-page\" type=\"button\" [disabled]=\"isMinPage()\" (click)=\"prevPage()\"> <md-icon>{{ isRTL ? 'navigate_next' : 'navigate_before' }}</md-icon> </button> <ng-template *ngIf=\"pageLinkCount > 0\" let-link let-index=\"index\" ngFor [ngForOf]=\"pageLinks\"> <button class=\"td-paging-bar-link-page\" md-icon-button type=\"button\" [color]=\"page === link ? 'accent' : ''\" (click)=\"navigateToPage(link)\">{{link}}</button> </ng-template> <button md-icon-button class=\"td-paging-bar-next-page\" type=\"button\" [disabled]=\"isMaxPage()\" (click)=\"nextPage()\"> <md-icon>{{ isRTL ? 'navigate_before' : 'navigate_next' }}</md-icon> </button> <button md-icon-button class=\"td-paging-bar-last-page\" type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMaxPage()\" (click)=\"lastPage()\"> <md-icon>{{ isRTL ? 'skip_previous' : 'skip_next' }}</md-icon> </button> </div> </div>",
+        styles: [":host { display: block; } .td-paging-bar { height: 48px; } .td-paging-bar /deep/ > * { margin: 0 10px; } [md-icon-button] { font-size: 12px; font-weight: normal; } /deep/ md-select .mat-select-trigger { min-width: 44px; font-size: 12px; } /deep/ md-select .mat-select-value { top: auto; position: static; } /deep/ md-select .mat-select-underline { display: none; } "],
     }),
     __param(0, Optional()),
     __metadata("design:paramtypes", [Dir])
