@@ -707,7 +707,7 @@ var TdChipsComponent = TdChipsComponent_1 = (function (_super) {
     TdChipsComponent.prototype._watchOutsideClick = function () {
         var _this = this;
         if (this._document) {
-            this._outsideClickSubs = RxChain.from(fromEvent(this._document, 'click')).call(filter, function (event) {
+            this._outsideClickSubs = RxChain.from(fromEvent(this._document, 'mousedown')).call(filter, function (event) {
                 var clickTarget = event.target;
                 setTimeout(function () {
                     _this._internalClick = false;
@@ -717,6 +717,7 @@ var TdChipsComponent = TdChipsComponent_1 = (function (_super) {
                     !_this._elementRef.nativeElement.contains(clickTarget) && !_this._internalClick;
             }).subscribe(function () {
                 if (_this.focused) {
+                    _this._autocompleteTrigger.closePanel();
                     _this.removeFocusedState();
                     _this.onTouched();
                     _this._changeDetectorRef.markForCheck();

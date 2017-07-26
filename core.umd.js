@@ -1587,7 +1587,7 @@ exports.TdChipsComponent = TdChipsComponent_1 = (function (_super) {
     TdChipsComponent.prototype._watchOutsideClick = function () {
         var _this = this;
         if (this._document) {
-            this._outsideClickSubs = _angular_cdk.RxChain.from(rxjs_observable_fromEvent.fromEvent(this._document, 'click')).call(_angular_cdk.filter, function (event) {
+            this._outsideClickSubs = _angular_cdk.RxChain.from(rxjs_observable_fromEvent.fromEvent(this._document, 'mousedown')).call(_angular_cdk.filter, function (event) {
                 var clickTarget = event.target;
                 setTimeout(function () {
                     _this._internalClick = false;
@@ -1597,6 +1597,7 @@ exports.TdChipsComponent = TdChipsComponent_1 = (function (_super) {
                     !_this._elementRef.nativeElement.contains(clickTarget) && !_this._internalClick;
             }).subscribe(function () {
                 if (_this.focused) {
+                    _this._autocompleteTrigger.closePanel();
                     _this.removeFocusedState();
                     _this.onTouched();
                     _this._changeDetectorRef.markForCheck();
