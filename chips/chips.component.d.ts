@@ -128,6 +128,18 @@ export declare class TdChipsComponent extends _TdChipsMixinBase implements Contr
      */
     onInputChange: EventEmitter<string>;
     /**
+     * chipFocus?: function
+     * Method to be executed when a chip is focused.
+     * Sends chip value as event.
+     */
+    onChipFocus: EventEmitter<any>;
+    /**
+     * blur?: function
+     * Method to be executed when a chip is blurred.
+     * Sends chip value as event.
+     */
+    onChipBlur: EventEmitter<any>;
+    /**
      * Implemented as part of ControlValueAccessor.
      */
     value: any;
@@ -176,6 +188,14 @@ export declare class TdChipsComponent extends _TdChipsMixinBase implements Contr
      * returns 'true' if successful, 'false' if it fails.
      */
     removeChip(index: number): boolean;
+    /**
+     * Sets blur of chip and sends out event
+     */
+    _handleChipBlur(event: FocusEvent, value: any): void;
+    /**
+     * Sets focus of chip and sends out event
+     */
+    _handleChipFocus(event: FocusEvent, value: any): void;
     _handleFocus(): boolean;
     /**
      * Sets focus state of the component
