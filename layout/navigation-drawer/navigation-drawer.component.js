@@ -26,6 +26,17 @@ TdNavigationDrawerMenuDirective = __decorate([
     })
 ], TdNavigationDrawerMenuDirective);
 export { TdNavigationDrawerMenuDirective };
+var TdNavigationDrawerToolbarDirective = (function () {
+    function TdNavigationDrawerToolbarDirective() {
+    }
+    return TdNavigationDrawerToolbarDirective;
+}());
+TdNavigationDrawerToolbarDirective = __decorate([
+    Directive({
+        selector: '[td-navigation-drawer-toolbar]',
+    })
+], TdNavigationDrawerToolbarDirective);
+export { TdNavigationDrawerToolbarDirective };
 var TdNavigationDrawerComponent = (function () {
     function TdNavigationDrawerComponent(_layout, _router, _sanitize) {
         this._layout = _layout;
@@ -42,10 +53,20 @@ var TdNavigationDrawerComponent = (function () {
     });
     Object.defineProperty(TdNavigationDrawerComponent.prototype, "isMenuAvailable", {
         /**
-         * Checks if there is a [TdNavigationDrawerMenuDirective] as content.
+         * Checks if there is a [TdNavigationDrawerMenuDirective] has content.
          */
         get: function () {
-            return this._drawerMenu.length > 0;
+            return this._drawerMenu ? this._drawerMenu.length > 0 : false;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TdNavigationDrawerComponent.prototype, "isCustomToolbar", {
+        /**
+         * Checks if there is a [TdNavigationDrawerToolbarDirective] has content.
+         */
+        get: function () {
+            return this._toolbar ? this._toolbar.length > 0 : false;
         },
         enumerable: true,
         configurable: true
@@ -141,6 +162,10 @@ __decorate([
     __metadata("design:type", QueryList)
 ], TdNavigationDrawerComponent.prototype, "_drawerMenu", void 0);
 __decorate([
+    ContentChildren(TdNavigationDrawerToolbarDirective),
+    __metadata("design:type", QueryList)
+], TdNavigationDrawerComponent.prototype, "_toolbar", void 0);
+__decorate([
     Input('sidenavTitle'),
     __metadata("design:type", String)
 ], TdNavigationDrawerComponent.prototype, "sidenavTitle", void 0);
@@ -180,7 +205,7 @@ TdNavigationDrawerComponent = __decorate([
     Component({
         selector: 'td-navigation-drawer',
         styles: [":host { width: 100%; } :host md-toolbar { padding: 16px; } :host md-toolbar.td-toolbar-background { background-repeat: no-repeat; background-size: cover; } :host md-toolbar /deep/ > .mat-toolbar-layout > md-toolbar-row { height: auto !important; } :host > div { overflow: hidden; } "],
-        template: "<md-toolbar [color]=\"color\" [style.background-image]=\"backgroundImage\" [class.td-toolbar-background]=\"!!isBackgroundAvailable\"> <div layout=\"column\" flex> <span *ngIf=\"icon || logo || sidenavTitle\" [class.cursor-pointer]=\"routerEnabled\" (click)=\"handleNavigationClick()\" layout=\"row\" layout-align=\"start center\"> <md-icon *ngIf=\"icon\">{{icon}}</md-icon> <md-icon *ngIf=\"logo && !icon\" class=\"md-icon-logo\" [svgIcon]=\"logo\"></md-icon> <span *ngIf=\"sidenavTitle\" class=\"md-subhead\">{{sidenavTitle}}</span> </span> <div class=\"md-body-2\" *ngIf=\"email && name\">{{name}}</div> <div class=\"md-body-1\" layout=\"row\" href *ngIf=\"email || name\" (click)=\"toggleMenu()\"> <span flex>{{email || name}}</span> <button md-icon-button class=\"md-icon-button-mini\" *ngIf=\"isMenuAvailable\"> <md-icon *ngIf=\"!menuToggled\">arrow_drop_down</md-icon> <md-icon *ngIf=\"menuToggled\">arrow_drop_up</md-icon> </button> </div> </div> </md-toolbar> <div [@tdCollapse]=\"menuToggled\"> <ng-content></ng-content> </div> <div [@tdCollapse]=\"!menuToggled\"> <ng-content select=\"[td-navigation-drawer-menu]\"></ng-content> </div>",
+        template: "<md-toolbar [color]=\"color\" [style.background-image]=\"backgroundImage\" [class.td-toolbar-background]=\"!!isBackgroundAvailable\"> <div layout=\"column\" flex> <ng-content select=\"[td-navigation-drawer-toolbar]\"></ng-content> <ng-container *ngIf=\"!isCustomToolbar\"> <span *ngIf=\"icon || logo || sidenavTitle\" [class.cursor-pointer]=\"routerEnabled\" (click)=\"handleNavigationClick()\" layout=\"row\" layout-align=\"start center\"> <md-icon *ngIf=\"icon\">{{icon}}</md-icon> <md-icon *ngIf=\"logo && !icon\" class=\"md-icon-logo\" [svgIcon]=\"logo\"></md-icon> <span *ngIf=\"sidenavTitle\" class=\"md-subhead\">{{sidenavTitle}}</span> </span> <div class=\"md-body-2\" *ngIf=\"email && name\">{{name}}</div> <div class=\"md-body-1\" layout=\"row\" href *ngIf=\"email || name\" (click)=\"toggleMenu()\"> <span flex>{{email || name}}</span> <button md-icon-button class=\"md-icon-button-mini\" *ngIf=\"isMenuAvailable\"> <md-icon *ngIf=\"!menuToggled\">arrow_drop_down</md-icon> <md-icon *ngIf=\"menuToggled\">arrow_drop_up</md-icon> </button> </div> </ng-container> </div> </md-toolbar> <div [@tdCollapse]=\"menuToggled\"> <ng-content></ng-content> </div> <div [@tdCollapse]=\"!menuToggled\"> <ng-content select=\"[td-navigation-drawer-menu]\"></ng-content> </div> ",
         animations: [TdCollapseAnimation()],
     }),
     __param(0, Inject(forwardRef(function () { return TdLayoutComponent; }))),

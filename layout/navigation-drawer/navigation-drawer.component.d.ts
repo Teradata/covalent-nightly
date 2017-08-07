@@ -5,6 +5,8 @@ import { MdSidenavToggleResult } from '@angular/material';
 import { TdLayoutComponent } from '../layout.component';
 export declare class TdNavigationDrawerMenuDirective {
 }
+export declare class TdNavigationDrawerToolbarDirective {
+}
 export declare class TdNavigationDrawerComponent implements OnInit, OnDestroy {
     private _layout;
     private _router;
@@ -14,10 +16,15 @@ export declare class TdNavigationDrawerComponent implements OnInit, OnDestroy {
     private _backgroundImage;
     readonly menuToggled: boolean;
     _drawerMenu: QueryList<TdNavigationDrawerMenuDirective>;
+    _toolbar: QueryList<TdNavigationDrawerToolbarDirective>;
     /**
-     * Checks if there is a [TdNavigationDrawerMenuDirective] as content.
+     * Checks if there is a [TdNavigationDrawerMenuDirective] has content.
      */
     readonly isMenuAvailable: boolean;
+    /**
+     * Checks if there is a [TdNavigationDrawerToolbarDirective] has content.
+     */
+    readonly isCustomToolbar: boolean;
     /**
      * Checks if there is a background image for the toolbar.
      */
