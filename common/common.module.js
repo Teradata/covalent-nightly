@@ -56,6 +56,7 @@ export { TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTrunc
  * Services
  */
 import { RouterPathService } from './services/router-path.service';
+import { IconService } from './services/icon.service';
 var CovalentCommonModule = (function () {
     function CovalentCommonModule() {
     }
@@ -83,6 +84,7 @@ CovalentCommonModule = __decorate([
         ],
         providers: [
             RouterPathService,
+            IconService,
         ],
     })
 ], CovalentCommonModule);

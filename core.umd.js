@@ -826,6 +826,814 @@ RouterPathService = RouterPathService_1 = __decorate$9([
 ], RouterPathService);
 var RouterPathService_1;
 
+/*
+ * Copyright (C) 2016-2017 by Teradata Corporation. All rights reserved.
+ * TERADATA CORPORATION CONFIDENTIAL AND TRADE SECRET
+ */
+var __decorate$10 = (window && window.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var IconService = (function () {
+    function IconService() {
+        this._icons = [
+            'access_alarm',
+            'access_alarms',
+            'access_time',
+            'accessibility',
+            'account_balance',
+            'account_balance_wallet',
+            'account_box',
+            'account_circle',
+            'add',
+            'add_alarm',
+            'add_box',
+            'add_circle',
+            'add_circle_outline',
+            'add_shopping_cart',
+            'add_to_photos',
+            'adjust',
+            'alarm',
+            'alarm_add',
+            'alarm_off',
+            'alarm_on',
+            'album',
+            'android',
+            'announcement',
+            'apps',
+            'archive',
+            'arrow_back',
+            'arrow_drop_down',
+            'arrow_drop_down_circle',
+            'arrow_drop_up',
+            'arrow_forward',
+            'aspect_ratio',
+            'assessment',
+            'assignment',
+            'assignment_ind',
+            'assignment_late',
+            'assignment_return',
+            'assignment_returned',
+            'assignment_turned_in',
+            'assistant_photo',
+            'attach_file',
+            'attach_money',
+            'attachment',
+            'audiotrack',
+            'autorenew',
+            'av_timer',
+            'backspace',
+            'backup',
+            'battery_alert',
+            'battery_charging_full',
+            'battery_full',
+            'battery_std',
+            'battery_unknown',
+            'beenhere',
+            'block',
+            'bluetooth',
+            'bluetooth_audio',
+            'bluetooth_connected',
+            'bluetooth_disabled',
+            'bluetooth_searching',
+            'blur_circular',
+            'blur_linear',
+            'blur_off',
+            'blur_on',
+            'book',
+            'bookmark',
+            'bookmark_border',
+            'border_all',
+            'border_bottom',
+            'border_clear',
+            'border_color',
+            'border_horizontal',
+            'border_inner',
+            'border_left',
+            'border_outer',
+            'border_right',
+            'border_style',
+            'border_top',
+            'border_vertical',
+            'brightness_1',
+            'brightness_2',
+            'brightness_3',
+            'brightness_4',
+            'brightness_5',
+            'brightness_6',
+            'brightness_7',
+            'brightness_auto',
+            'brightness_high',
+            'brightness_low',
+            'brightness_medium',
+            'broken_image',
+            'brush',
+            'bug_report',
+            'build',
+            'business',
+            'cached',
+            'cake',
+            'call',
+            'call_end',
+            'call_made',
+            'call_merge',
+            'call_missed',
+            'call_received',
+            'call_split',
+            'camera',
+            'camera_alt',
+            'camera_front',
+            'camera_rear',
+            'camera_roll',
+            'cancel',
+            'cast',
+            'cast_connected',
+            'center_focus_strong',
+            'center_focus_weak',
+            'chat',
+            'check',
+            'check_box',
+            'check_box_outline_blank',
+            'check_circle',
+            'chevron_left',
+            'chevron_right',
+            'class',
+            'clear',
+            'clear_all',
+            'close',
+            'closed_caption',
+            'cloud',
+            'cloud_circle',
+            'cloud_done',
+            'cloud_download',
+            'cloud_off',
+            'cloud_queue',
+            'cloud_upload',
+            'collections',
+            'collections_bookmark',
+            'color_lens',
+            'colorize',
+            'comment',
+            'compare',
+            'computer',
+            'confirmation_number',
+            'contact_phone',
+            'contacts',
+            'content_copy',
+            'content_cut',
+            'content_paste',
+            'control_point',
+            'control_point_duplicate',
+            'create',
+            'credit_card',
+            'crop',
+            'crop_16_9',
+            'crop_3_2',
+            'crop_5_4',
+            'crop_7_5',
+            'crop_din',
+            'crop_free',
+            'crop_landscape',
+            'crop_original',
+            'crop_portrait',
+            'crop_square',
+            'dashboard',
+            'data_usage',
+            'dehaze',
+            'delete',
+            'description',
+            'desktop_mac',
+            'desktop_windows',
+            'details',
+            'developer_board',
+            'developer_mode',
+            'device_hub',
+            'devices',
+            'dialer_sip',
+            'dialpad',
+            'directions',
+            'directions_bike',
+            'directions_boat',
+            'directions_bus',
+            'directions_car',
+            'directions_railway',
+            'directions_run',
+            'directions_subway',
+            'directions_transit',
+            'directions_walk',
+            'disc_full',
+            'dns',
+            'do_not_disturb',
+            'do_not_disturb_alt',
+            'dock',
+            'domain',
+            'done',
+            'done_all',
+            'drafts',
+            'drive_eta',
+            'dvr',
+            'edit',
+            'eject',
+            'email',
+            'equalizer',
+            'error',
+            'error_outline',
+            'event',
+            'event_available',
+            'event_busy',
+            'event_note',
+            'event_seat',
+            'exit_to_app',
+            'expand_less',
+            'expand_more',
+            'explicit',
+            'explore',
+            'exposure',
+            'exposure_neg_1',
+            'exposure_neg_2',
+            'exposure_plus_1',
+            'exposure_plus_2',
+            'exposure_zero',
+            'extension',
+            'face',
+            'fast_forward',
+            'fast_rewind',
+            'favorite',
+            'favorite_border',
+            'feedback',
+            'file_download',
+            'file_upload',
+            'filter',
+            'filter_1',
+            'filter_2',
+            'filter_3',
+            'filter_4',
+            'filter_5',
+            'filter_6',
+            'filter_7',
+            'filter_8',
+            'filter_9',
+            'filter_9_plus',
+            'filter_b_and_w',
+            'filter_center_focus',
+            'filter_drama',
+            'filter_frames',
+            'filter_hdr',
+            'filter_list',
+            'filter_none',
+            'filter_tilt_shift',
+            'filter_vintage',
+            'find_in_page',
+            'find_replace',
+            'flag',
+            'flare',
+            'flash_auto',
+            'flash_off',
+            'flash_on',
+            'flight',
+            'flight_land',
+            'flight_takeoff',
+            'flip',
+            'flip_to_back',
+            'flip_to_front',
+            'folder',
+            'folder_open',
+            'folder_shared',
+            'folder_special',
+            'font_download',
+            'format_align_center',
+            'format_align_justify',
+            'format_align_left',
+            'format_align_right',
+            'format_bold',
+            'format_clear',
+            'format_color_fill',
+            'format_color_reset',
+            'format_color_text',
+            'format_indent_decrease',
+            'format_indent_increase',
+            'format_italic',
+            'format_line_spacing',
+            'format_list_bulleted',
+            'format_list_numbered',
+            'format_paint',
+            'format_quote',
+            'format_size',
+            'format_strikethrough',
+            'format_textdirection_l_to_r',
+            'format_textdirection_r_to_l',
+            'format_underlined',
+            'forum',
+            'forward',
+            'forward_10',
+            'forward_30',
+            'forward_5',
+            'fullscreen',
+            'fullscreen_exit',
+            'functions',
+            'gamepad',
+            'games',
+            'gesture',
+            'get_app',
+            'gif',
+            'gps_fixed',
+            'gps_not_fixed',
+            'gps_off',
+            'grade',
+            'gradient',
+            'grain',
+            'graphic_eq',
+            'grid_off',
+            'grid_on',
+            'group',
+            'group_add',
+            'group_work',
+            'hd',
+            'hdr_off',
+            'hdr_on',
+            'hdr_strong',
+            'hdr_weak',
+            'headset',
+            'headset_mic',
+            'healing',
+            'hearing',
+            'help',
+            'help_outline',
+            'high_quality',
+            'highlight_off',
+            'history',
+            'home',
+            'hotel',
+            'hourglass_empty',
+            'hourglass_full',
+            'http',
+            'https',
+            'image',
+            'image_aspect_ratio',
+            'import_export',
+            'inbox',
+            'indeterminate_check_box',
+            'info',
+            'info_outline',
+            'input',
+            'insert_chart',
+            'insert_comment',
+            'insert_drive_file',
+            'insert_emoticon',
+            'insert_invitation',
+            'insert_link',
+            'insert_photo',
+            'invert_colors',
+            'invert_colors_off',
+            'iso',
+            'keyboard',
+            'keyboard_arrow_down',
+            'keyboard_arrow_left',
+            'keyboard_arrow_right',
+            'keyboard_arrow_up',
+            'keyboard_backspace',
+            'keyboard_capslock',
+            'keyboard_hide',
+            'keyboard_return',
+            'keyboard_tab',
+            'keyboard_voice',
+            'label',
+            'label_outline',
+            'landscape',
+            'language',
+            'laptop',
+            'laptop_chromebook',
+            'laptop_mac',
+            'laptop_windows',
+            'launch',
+            'layers',
+            'layers_clear',
+            'leak_add',
+            'leak_remove',
+            'lens',
+            'library_add',
+            'library_books',
+            'library_music',
+            'link',
+            'list',
+            'live_help',
+            'live_tv',
+            'local_activity',
+            'local_airport',
+            'local_atm',
+            'local_bar',
+            'local_cafe',
+            'local_car_wash',
+            'local_convenience_store',
+            'local_dining',
+            'local_drink',
+            'local_florist',
+            'local_gas_station',
+            'local_grocery_store',
+            'local_hospital',
+            'local_hotel',
+            'local_laundry_service',
+            'local_library',
+            'local_mall',
+            'local_movies',
+            'local_offer',
+            'local_parking',
+            'local_pharmacy',
+            'local_phone',
+            'local_pizza',
+            'local_play',
+            'local_post_office',
+            'local_printshop',
+            'local_see',
+            'local_shipping',
+            'local_taxi',
+            'location_city',
+            'location_disabled',
+            'location_off',
+            'location_on',
+            'location_searching',
+            'lock',
+            'lock_open',
+            'lock_outline',
+            'looks',
+            'looks_3',
+            'looks_4',
+            'looks_5',
+            'looks_6',
+            'looks_one',
+            'looks_two',
+            'loop',
+            'loupe',
+            'loyalty',
+            'mail',
+            'map',
+            'markunread',
+            'markunread_mailbox',
+            'memory',
+            'menu',
+            'merge_type',
+            'message',
+            'mic',
+            'mic_none',
+            'mic_off',
+            'mms',
+            'mode_comment',
+            'mode_edit',
+            'money_off',
+            'monochrome_photos',
+            'mood',
+            'mood_bad',
+            'more',
+            'more_horiz',
+            'more_vert',
+            'mouse',
+            'movie',
+            'movie_creation',
+            'music_note',
+            'my_library_add',
+            'my_library_books',
+            'my_library_music',
+            'my_location',
+            'nature',
+            'nature_people',
+            'navigate_before',
+            'navigate_next',
+            'navigation',
+            'network_cell',
+            'network_locked',
+            'network_wifi',
+            'new_releases',
+            'nfc',
+            'no_sim',
+            'not_interested',
+            'note_add',
+            'notifications',
+            'notifications_active',
+            'notifications_none',
+            'notifications_off',
+            'notifications_paused',
+            'offline_pin',
+            'ondemand_video',
+            'open_in_browser',
+            'open_in_new',
+            'open_with',
+            'pages',
+            'pageview',
+            'palette',
+            'panorama',
+            'panorama_fish_eye',
+            'panorama_horizontal',
+            'panorama_vertical',
+            'panorama_wide_angle',
+            'party_mode',
+            'pause',
+            'pause_circle_filled',
+            'pause_circle_outline',
+            'payment',
+            'people',
+            'people_outline',
+            'perm_camera_mic',
+            'perm_contact_calendar',
+            'perm_data_setting',
+            'perm_device_information',
+            'perm_identity',
+            'perm_media',
+            'perm_phone_msg',
+            'perm_scan_wifi',
+            'person',
+            'person_add',
+            'person_outline',
+            'person_pin',
+            'personal_video',
+            'phone',
+            'phone_android',
+            'phone_bluetooth_speaker',
+            'phone_forwarded',
+            'phone_in_talk',
+            'phone_iphone',
+            'phone_locked',
+            'phone_missed',
+            'phone_paused',
+            'phonelink',
+            'phonelink_erase',
+            'phonelink_lock',
+            'phonelink_off',
+            'phonelink_ring',
+            'phonelink_setup',
+            'photo',
+            'photo_album',
+            'photo_camera',
+            'photo_library',
+            'photo_size_select_actual',
+            'photo_size_select_large',
+            'photo_size_select_small',
+            'picture_as_pdf',
+            'picture_in_picture',
+            'pin_drop',
+            'place',
+            'play_arrow',
+            'play_circle_filled',
+            'play_circle_outline',
+            'play_for_work',
+            'play_shopping_bag',
+            'playlist_add',
+            'plus_one',
+            'poll',
+            'polymer',
+            'portable_wifi_off',
+            'portrait',
+            'power',
+            'power_input',
+            'power_settings_new',
+            'present_to_all',
+            'print',
+            'public',
+            'publish',
+            'query_builder',
+            'question_answer',
+            'queue',
+            'queue_music',
+            'radio',
+            'radio_button_checked',
+            'radio_button_unchecked',
+            'rate_review',
+            'receipt',
+            'recent_actors',
+            'redeem',
+            'redo',
+            'refresh',
+            'remove',
+            'remove_circle',
+            'remove_circle_outline',
+            'remove_red_eye',
+            'reorder',
+            'repeat',
+            'repeat_one',
+            'replay',
+            'replay_10',
+            'replay_30',
+            'replay_5',
+            'reply',
+            'reply_all',
+            'report',
+            'report_problem',
+            'restaurant_menu',
+            'restore',
+            'ring_volume',
+            'room',
+            'rotate_90_degrees_ccw',
+            'rotate_left',
+            'rotate_right',
+            'router',
+            'satellite',
+            'save',
+            'scanner',
+            'schedule',
+            'school',
+            'screen_lock_landscape',
+            'screen_lock_portrait',
+            'screen_lock_rotation',
+            'screen_rotation',
+            'sd_card',
+            'sd_storage',
+            'search',
+            'security',
+            'select_all',
+            'send',
+            'settings',
+            'settings_applications',
+            'settings_backup_restore',
+            'settings_bluetooth',
+            'settings_brightness',
+            'settings_cell',
+            'settings_ethernet',
+            'settings_input_antenna',
+            'settings_input_component',
+            'settings_input_composite',
+            'settings_input_hdmi',
+            'settings_input_svideo',
+            'settings_overscan',
+            'settings_phone',
+            'settings_power',
+            'settings_remote',
+            'settings_system_daydream',
+            'settings_voice',
+            'share',
+            'shop',
+            'shop_two',
+            'shopping_basket',
+            'shopping_cart',
+            'shuffle',
+            'signal_cellular_4_bar',
+            'signal_cellular_connected_no_internet_4_bar',
+            'signal_cellular_no_sim',
+            'signal_cellular_null',
+            'signal_cellular_off',
+            'signal_wifi_4_bar',
+            'signal_wifi_4_bar_lock',
+            'signal_wifi_off',
+            'sim_card',
+            'sim_card_alert',
+            'skip_next',
+            'skip_previous',
+            'slideshow',
+            'smartphone',
+            'sms',
+            'sms_failed',
+            'snooze',
+            'sort',
+            'sort_by_alpha',
+            'space_bar',
+            'speaker',
+            'speaker_group',
+            'speaker_notes',
+            'speaker_phone',
+            'spellcheck',
+            'star',
+            'star_border',
+            'star_half',
+            'stars',
+            'stay_current_landscape',
+            'stay_current_portrait',
+            'stay_primary_landscape',
+            'stay_primary_portrait',
+            'stop',
+            'storage',
+            'store',
+            'store_mall_directory',
+            'straighten',
+            'strikethrough_s',
+            'style',
+            'subject',
+            'subtitles',
+            'supervisor_account',
+            'surround_sound',
+            'swap_calls',
+            'swap_horiz',
+            'swap_vert',
+            'swap_vertical_circle',
+            'switch_camera',
+            'switch_video',
+            'sync',
+            'sync_disabled',
+            'sync_problem',
+            'system_update',
+            'system_update_alt',
+            'tab',
+            'tab_unselected',
+            'tablet',
+            'tablet_android',
+            'tablet_mac',
+            'tag_faces',
+            'tap_and_play',
+            'terrain',
+            'text_format',
+            'textsms',
+            'texture',
+            'theaters',
+            'thumb_down',
+            'thumb_up',
+            'thumbs_up_down',
+            'time_to_leave',
+            'timelapse',
+            'timer',
+            'timer_10',
+            'timer_3',
+            'timer_off',
+            'toc',
+            'today',
+            'toll',
+            'tonality',
+            'toys',
+            'track_changes',
+            'traffic',
+            'transform',
+            'translate',
+            'trending_down',
+            'trending_flat',
+            'trending_up',
+            'tune',
+            'turned_in',
+            'turned_in_not',
+            'tv',
+            'undo',
+            'unfold_less',
+            'unfold_more',
+            'usb',
+            'verified_user',
+            'vertical_align_bottom',
+            'vertical_align_center',
+            'vertical_align_top',
+            'vibration',
+            'video_library',
+            'videocam',
+            'videocam_off',
+            'view_agenda',
+            'view_array',
+            'view_carousel',
+            'view_column',
+            'view_comfy',
+            'view_compact',
+            'view_day',
+            'view_headline',
+            'view_list',
+            'view_module',
+            'view_quilt',
+            'view_stream',
+            'view_week',
+            'vignette',
+            'visibility',
+            'visibility_off',
+            'voice_chat',
+            'voicemail',
+            'volume_down',
+            'volume_mute',
+            'volume_off',
+            'volume_up',
+            'vpn_key',
+            'vpn_lock',
+            'wallpaper',
+            'warning',
+            'watch',
+            'wb_auto',
+            'wb_cloudy',
+            'wb_incandescent',
+            'wb_iridescent',
+            'wb_sunny',
+            'wc',
+            'web',
+            'whatshot',
+            'widgets',
+            'wifi',
+            'wifi_lock',
+            'wifi_tethering',
+            'work',
+            'wrap_text',
+            'youtube_searched_for',
+            'zoom_in',
+            'zoom_out',
+        ];
+    }
+    Object.defineProperty(IconService.prototype, "icons", {
+        get: function () {
+            return this._icons;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    IconService.prototype.filter = function (query) {
+        return this.icons.filter(function (el) {
+            return el.toLowerCase().indexOf(query ? query.toLowerCase() : '') > -1;
+        });
+    };
+    return IconService;
+}());
+IconService = __decorate$10([
+    _angular_core.Injectable()
+], IconService);
+
 var __decorate = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -888,6 +1696,7 @@ exports.CovalentCommonModule = __decorate([
         ],
         providers: [
             RouterPathService,
+            IconService,
         ],
     })
 ], exports.CovalentCommonModule);
@@ -902,7 +1711,7 @@ var __extends$2 = (window && window.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __decorate$11 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$12 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -924,7 +1733,7 @@ exports.TdChipDirective = (function (_super) {
     }
     return TdChipDirective;
 }(_angular_cdk.TemplatePortalDirective));
-exports.TdChipDirective = __decorate$11([
+exports.TdChipDirective = __decorate$12([
     _angular_core.Directive({
         selector: '[td-chip]ng-template',
     }),
@@ -937,7 +1746,7 @@ exports.TdAutocompleteOptionDirective = (function (_super) {
     }
     return TdAutocompleteOptionDirective;
 }(_angular_cdk.TemplatePortalDirective));
-exports.TdAutocompleteOptionDirective = __decorate$11([
+exports.TdAutocompleteOptionDirective = __decorate$12([
     _angular_core.Directive({
         selector: '[td-autocomplete-option]ng-template',
     }),
@@ -1632,132 +2441,132 @@ exports.TdChipsComponent = TdChipsComponent_1 = (function (_super) {
     };
     return TdChipsComponent;
 }(_TdChipsMixinBase));
-__decorate$11([
+__decorate$12([
     _angular_core.ViewChild('input'),
     __metadata$5("design:type", _angular_core.ElementRef)
 ], exports.TdChipsComponent.prototype, "_nativeInput", void 0);
-__decorate$11([
+__decorate$12([
     _angular_core.ViewChild(_angular_material.MdInputDirective),
     __metadata$5("design:type", _angular_material.MdInputDirective)
 ], exports.TdChipsComponent.prototype, "_inputChild", void 0);
-__decorate$11([
+__decorate$12([
     _angular_core.ViewChild(_angular_material.MdAutocompleteTrigger),
     __metadata$5("design:type", _angular_material.MdAutocompleteTrigger)
 ], exports.TdChipsComponent.prototype, "_autocompleteTrigger", void 0);
-__decorate$11([
+__decorate$12([
     _angular_core.ViewChildren(_angular_material.MdChip),
     __metadata$5("design:type", _angular_core.QueryList)
 ], exports.TdChipsComponent.prototype, "_chipsChildren", void 0);
-__decorate$11([
+__decorate$12([
     _angular_core.ContentChild(exports.TdChipDirective),
     __metadata$5("design:type", exports.TdChipDirective)
 ], exports.TdChipsComponent.prototype, "_chipTemplate", void 0);
-__decorate$11([
+__decorate$12([
     _angular_core.ContentChild(exports.TdAutocompleteOptionDirective),
     __metadata$5("design:type", exports.TdAutocompleteOptionDirective)
 ], exports.TdChipsComponent.prototype, "_autocompleteOptionTemplate", void 0);
-__decorate$11([
+__decorate$12([
     _angular_core.ViewChildren(_angular_material.MdOption),
     __metadata$5("design:type", _angular_core.QueryList)
 ], exports.TdChipsComponent.prototype, "_options", void 0);
-__decorate$11([
+__decorate$12([
     _angular_core.Input('items'),
     __metadata$5("design:type", Array),
     __metadata$5("design:paramtypes", [Array])
 ], exports.TdChipsComponent.prototype, "items", null);
-__decorate$11([
+__decorate$12([
     _angular_core.Input('stacked'),
     __metadata$5("design:type", Boolean),
     __metadata$5("design:paramtypes", [Boolean])
 ], exports.TdChipsComponent.prototype, "stacked", null);
-__decorate$11([
+__decorate$12([
     _angular_core.Input('requireMatch'),
     __metadata$5("design:type", Boolean),
     __metadata$5("design:paramtypes", [Boolean])
 ], exports.TdChipsComponent.prototype, "requireMatch", null);
-__decorate$11([
+__decorate$12([
     _angular_core.Input('readOnly'),
     __metadata$5("design:type", Boolean),
     __metadata$5("design:paramtypes", [Boolean])
 ], exports.TdChipsComponent.prototype, "readOnly", null);
-__decorate$11([
+__decorate$12([
     _angular_core.Input('chipAddition'),
     __metadata$5("design:type", Boolean),
     __metadata$5("design:paramtypes", [Boolean])
 ], exports.TdChipsComponent.prototype, "chipAddition", null);
-__decorate$11([
+__decorate$12([
     _angular_core.Input('chipRemoval'),
     __metadata$5("design:type", Boolean),
     __metadata$5("design:paramtypes", [Boolean])
 ], exports.TdChipsComponent.prototype, "chipRemoval", null);
-__decorate$11([
+__decorate$12([
     _angular_core.Input('placeholder'),
     __metadata$5("design:type", String)
 ], exports.TdChipsComponent.prototype, "placeholder", void 0);
-__decorate$11([
+__decorate$12([
     _angular_core.Input('debounce'),
     __metadata$5("design:type", Number)
 ], exports.TdChipsComponent.prototype, "debounce", void 0);
-__decorate$11([
+__decorate$12([
     _angular_core.Input('color'),
     __metadata$5("design:type", String),
     __metadata$5("design:paramtypes", [String])
 ], exports.TdChipsComponent.prototype, "color", null);
-__decorate$11([
+__decorate$12([
     _angular_core.Output('add'),
     __metadata$5("design:type", _angular_core.EventEmitter)
 ], exports.TdChipsComponent.prototype, "onAdd", void 0);
-__decorate$11([
+__decorate$12([
     _angular_core.Output('remove'),
     __metadata$5("design:type", _angular_core.EventEmitter)
 ], exports.TdChipsComponent.prototype, "onRemove", void 0);
-__decorate$11([
+__decorate$12([
     _angular_core.Output('inputChange'),
     __metadata$5("design:type", _angular_core.EventEmitter)
 ], exports.TdChipsComponent.prototype, "onInputChange", void 0);
-__decorate$11([
+__decorate$12([
     _angular_core.Output('chipFocus'),
     __metadata$5("design:type", _angular_core.EventEmitter)
 ], exports.TdChipsComponent.prototype, "onChipFocus", void 0);
-__decorate$11([
+__decorate$12([
     _angular_core.Output('chipBlur'),
     __metadata$5("design:type", _angular_core.EventEmitter)
 ], exports.TdChipsComponent.prototype, "onChipBlur", void 0);
-__decorate$11([
+__decorate$12([
     _angular_core.Input(),
     __metadata$5("design:type", Object),
     __metadata$5("design:paramtypes", [Object])
 ], exports.TdChipsComponent.prototype, "value", null);
-__decorate$11([
+__decorate$12([
     _angular_core.HostBinding('attr.tabindex'),
     __metadata$5("design:type", Number),
     __metadata$5("design:paramtypes", [])
 ], exports.TdChipsComponent.prototype, "tabIndex", null);
-__decorate$11([
+__decorate$12([
     _angular_core.HostListener('focus', ['$event']),
     __metadata$5("design:type", Function),
     __metadata$5("design:paramtypes", [FocusEvent]),
     __metadata$5("design:returntype", void 0)
 ], exports.TdChipsComponent.prototype, "focusListener", null);
-__decorate$11([
+__decorate$12([
     _angular_core.HostListener('mousedown', ['$event']),
     __metadata$5("design:type", Function),
     __metadata$5("design:paramtypes", [FocusEvent]),
     __metadata$5("design:returntype", void 0)
 ], exports.TdChipsComponent.prototype, "mousedownListener", null);
-__decorate$11([
+__decorate$12([
     _angular_core.HostListener('click', ['$event']),
     __metadata$5("design:type", Function),
     __metadata$5("design:paramtypes", [Event]),
     __metadata$5("design:returntype", void 0)
 ], exports.TdChipsComponent.prototype, "clickListener", null);
-__decorate$11([
+__decorate$12([
     _angular_core.HostListener('keydown', ['$event']),
     __metadata$5("design:type", Function),
     __metadata$5("design:paramtypes", [KeyboardEvent]),
     __metadata$5("design:returntype", void 0)
 ], exports.TdChipsComponent.prototype, "keydownListener", null);
-exports.TdChipsComponent = TdChipsComponent_1 = __decorate$11([
+exports.TdChipsComponent = TdChipsComponent_1 = __decorate$12([
     _angular_core.Component({
         providers: [{
                 provide: _angular_forms.NG_VALUE_ACCESSOR,
@@ -1777,7 +2586,7 @@ exports.TdChipsComponent = TdChipsComponent_1 = __decorate$11([
 ], exports.TdChipsComponent);
 var TdChipsComponent_1;
 
-var __decorate$10 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$11 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -1788,7 +2597,7 @@ exports.CovalentChipsModule = (function () {
     }
     return CovalentChipsModule;
 }());
-exports.CovalentChipsModule = __decorate$10([
+exports.CovalentChipsModule = __decorate$11([
     _angular_core.NgModule({
         imports: [
             _angular_forms.ReactiveFormsModule,
@@ -1811,7 +2620,7 @@ exports.CovalentChipsModule = __decorate$10([
     })
 ], exports.CovalentChipsModule);
 
-var __decorate$14 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$15 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -1848,12 +2657,12 @@ exports.TdDataTableRowComponent = (function () {
     };
     return TdDataTableRowComponent;
 }());
-__decorate$14([
+__decorate$15([
     _angular_core.Input('selected'),
     __metadata$7("design:type", Boolean),
     __metadata$7("design:paramtypes", [Boolean])
 ], exports.TdDataTableRowComponent.prototype, "selected", null);
-exports.TdDataTableRowComponent = __decorate$14([
+exports.TdDataTableRowComponent = __decorate$15([
     _angular_core.Component({
         /* tslint:disable-next-line */
         selector: 'tr[td-data-table-row]',
@@ -1873,7 +2682,7 @@ var __extends$3 = (window && window.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __decorate$15 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$16 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -1889,16 +2698,16 @@ var TdDataTableTemplateDirective = (function (_super) {
     }
     return TdDataTableTemplateDirective;
 }(_angular_cdk.TemplatePortalDirective));
-__decorate$15([
+__decorate$16([
     _angular_core.Input(),
     __metadata$8("design:type", String)
 ], TdDataTableTemplateDirective.prototype, "tdDataTableTemplate", void 0);
-TdDataTableTemplateDirective = __decorate$15([
+TdDataTableTemplateDirective = __decorate$16([
     _angular_core.Directive({ selector: '[tdDataTableTemplate]ng-template' }),
     __metadata$8("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
 ], TdDataTableTemplateDirective);
 
-var __decorate$13 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$14 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -2491,80 +3300,80 @@ exports.TdDataTableComponent = (function () {
     };
     return TdDataTableComponent;
 }());
-__decorate$13([
+__decorate$14([
     _angular_core.ContentChildren(TdDataTableTemplateDirective),
     __metadata$6("design:type", _angular_core.QueryList)
 ], exports.TdDataTableComponent.prototype, "_templates", void 0);
-__decorate$13([
+__decorate$14([
     _angular_core.ViewChildren(exports.TdDataTableRowComponent),
     __metadata$6("design:type", _angular_core.QueryList)
 ], exports.TdDataTableComponent.prototype, "_rows", void 0);
-__decorate$13([
+__decorate$14([
     _angular_core.Input(),
     __metadata$6("design:type", Object),
     __metadata$6("design:paramtypes", [Object])
 ], exports.TdDataTableComponent.prototype, "value", null);
-__decorate$13([
+__decorate$14([
     _angular_core.Input('data'),
     __metadata$6("design:type", Array),
     __metadata$6("design:paramtypes", [Array])
 ], exports.TdDataTableComponent.prototype, "data", null);
-__decorate$13([
+__decorate$14([
     _angular_core.Input('columns'),
     __metadata$6("design:type", Array),
     __metadata$6("design:paramtypes", [Array])
 ], exports.TdDataTableComponent.prototype, "columns", null);
-__decorate$13([
+__decorate$14([
     _angular_core.Input('selectable'),
     __metadata$6("design:type", Boolean),
     __metadata$6("design:paramtypes", [Boolean])
 ], exports.TdDataTableComponent.prototype, "selectable", null);
-__decorate$13([
+__decorate$14([
     _angular_core.Input('clickable'),
     __metadata$6("design:type", Boolean),
     __metadata$6("design:paramtypes", [Boolean])
 ], exports.TdDataTableComponent.prototype, "clickable", null);
-__decorate$13([
+__decorate$14([
     _angular_core.Input('multiple'),
     __metadata$6("design:type", Boolean),
     __metadata$6("design:paramtypes", [Boolean])
 ], exports.TdDataTableComponent.prototype, "multiple", null);
-__decorate$13([
+__decorate$14([
     _angular_core.Input('sortable'),
     __metadata$6("design:type", Boolean),
     __metadata$6("design:paramtypes", [Boolean])
 ], exports.TdDataTableComponent.prototype, "sortable", null);
-__decorate$13([
+__decorate$14([
     _angular_core.Input('sortBy'),
     __metadata$6("design:type", String),
     __metadata$6("design:paramtypes", [String])
 ], exports.TdDataTableComponent.prototype, "sortBy", null);
-__decorate$13([
+__decorate$14([
     _angular_core.Input('sortOrder'),
     __metadata$6("design:type", String),
     __metadata$6("design:paramtypes", [String])
 ], exports.TdDataTableComponent.prototype, "sortOrder", null);
-__decorate$13([
+__decorate$14([
     _angular_core.Output('sortChange'),
     __metadata$6("design:type", _angular_core.EventEmitter)
 ], exports.TdDataTableComponent.prototype, "onSortChange", void 0);
-__decorate$13([
+__decorate$14([
     _angular_core.Output('rowSelect'),
     __metadata$6("design:type", _angular_core.EventEmitter)
 ], exports.TdDataTableComponent.prototype, "onRowSelect", void 0);
-__decorate$13([
+__decorate$14([
     _angular_core.Output('rowClick'),
     __metadata$6("design:type", _angular_core.EventEmitter)
 ], exports.TdDataTableComponent.prototype, "onRowClick", void 0);
-__decorate$13([
+__decorate$14([
     _angular_core.Output('selectAll'),
     __metadata$6("design:type", _angular_core.EventEmitter)
 ], exports.TdDataTableComponent.prototype, "onSelectAll", void 0);
-__decorate$13([
+__decorate$14([
     _angular_core.Input('compareWith'),
     __metadata$6("design:type", Function)
 ], exports.TdDataTableComponent.prototype, "compareWith", void 0);
-exports.TdDataTableComponent = __decorate$13([
+exports.TdDataTableComponent = __decorate$14([
     _angular_core.Component({
         providers: [TD_DATA_TABLE_CONTROL_VALUE_ACCESSOR],
         selector: 'td-data-table',
@@ -2576,7 +3385,7 @@ exports.TdDataTableComponent = __decorate$13([
     __metadata$6("design:paramtypes", [Object, _angular_core.ChangeDetectorRef])
 ], exports.TdDataTableComponent);
 
-var __decorate$16 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$17 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -2677,52 +3486,52 @@ exports.TdDataTableColumnComponent = (function () {
     };
     return TdDataTableColumnComponent;
 }());
-__decorate$16([
+__decorate$17([
     _angular_core.Input('name'),
     __metadata$9("design:type", String)
 ], exports.TdDataTableColumnComponent.prototype, "name", void 0);
-__decorate$16([
+__decorate$17([
     _angular_core.Input('sortable'),
     __metadata$9("design:type", Boolean)
 ], exports.TdDataTableColumnComponent.prototype, "sortable", void 0);
-__decorate$16([
+__decorate$17([
     _angular_core.Input('active'),
     __metadata$9("design:type", Boolean)
 ], exports.TdDataTableColumnComponent.prototype, "active", void 0);
-__decorate$16([
+__decorate$17([
     _angular_core.Input('numeric'),
     __metadata$9("design:type", Boolean)
 ], exports.TdDataTableColumnComponent.prototype, "numeric", void 0);
-__decorate$16([
+__decorate$17([
     _angular_core.Input('sortOrder'),
     __metadata$9("design:type", String),
     __metadata$9("design:paramtypes", [String])
 ], exports.TdDataTableColumnComponent.prototype, "sortOrder", null);
-__decorate$16([
+__decorate$17([
     _angular_core.Output('sortChange'),
     __metadata$9("design:type", _angular_core.EventEmitter)
 ], exports.TdDataTableColumnComponent.prototype, "onSortChange", void 0);
-__decorate$16([
+__decorate$17([
     _angular_core.HostBinding('class.mat-clickable'),
     __metadata$9("design:type", Boolean),
     __metadata$9("design:paramtypes", [])
 ], exports.TdDataTableColumnComponent.prototype, "bindClickable", null);
-__decorate$16([
+__decorate$17([
     _angular_core.HostBinding('class.mat-sortable'),
     __metadata$9("design:type", Boolean),
     __metadata$9("design:paramtypes", [])
 ], exports.TdDataTableColumnComponent.prototype, "bingSortable", null);
-__decorate$16([
+__decorate$17([
     _angular_core.HostBinding('class.mat-active'),
     __metadata$9("design:type", Boolean),
     __metadata$9("design:paramtypes", [])
 ], exports.TdDataTableColumnComponent.prototype, "bindActive", null);
-__decorate$16([
+__decorate$17([
     _angular_core.HostBinding('class.mat-numeric'),
     __metadata$9("design:type", Boolean),
     __metadata$9("design:paramtypes", [])
 ], exports.TdDataTableColumnComponent.prototype, "bindNumeric", null);
-exports.TdDataTableColumnComponent = __decorate$16([
+exports.TdDataTableColumnComponent = __decorate$17([
     _angular_core.Component({
         /* tslint:disable-next-line */
         selector: 'th[td-data-table-column]',
@@ -2732,7 +3541,7 @@ exports.TdDataTableColumnComponent = __decorate$16([
     __metadata$9("design:paramtypes", [_angular_core.ElementRef, _angular_core.Renderer2])
 ], exports.TdDataTableColumnComponent);
 
-var __decorate$17 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$18 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -2762,16 +3571,16 @@ exports.TdDataTableCellComponent = (function () {
     });
     return TdDataTableCellComponent;
 }());
-__decorate$17([
+__decorate$18([
     _angular_core.Input('numeric'),
     __metadata$10("design:type", Boolean)
 ], exports.TdDataTableCellComponent.prototype, "numeric", void 0);
-__decorate$17([
+__decorate$18([
     _angular_core.HostBinding('class.mat-numeric'),
     __metadata$10("design:type", Boolean),
     __metadata$10("design:paramtypes", [])
 ], exports.TdDataTableCellComponent.prototype, "bindNumeric", null);
-exports.TdDataTableCellComponent = __decorate$17([
+exports.TdDataTableCellComponent = __decorate$18([
     _angular_core.Component({
         /* tslint:disable-next-line */
         selector: 'td[td-data-table-cell]',
@@ -2781,7 +3590,7 @@ exports.TdDataTableCellComponent = __decorate$17([
     __metadata$10("design:paramtypes", [_angular_core.ElementRef, _angular_core.Renderer2])
 ], exports.TdDataTableCellComponent);
 
-var __decorate$18 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$19 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -2798,7 +3607,7 @@ exports.TdDataTableTableComponent = (function () {
     }
     return TdDataTableTableComponent;
 }());
-exports.TdDataTableTableComponent = __decorate$18([
+exports.TdDataTableTableComponent = __decorate$19([
     _angular_core.Component({
         /* tslint:disable-next-line */
         selector: 'table[td-data-table]',
@@ -2808,7 +3617,7 @@ exports.TdDataTableTableComponent = __decorate$18([
     __metadata$11("design:paramtypes", [_angular_core.ElementRef, _angular_core.Renderer2])
 ], exports.TdDataTableTableComponent);
 
-var __decorate$19 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$20 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -2890,7 +3699,7 @@ exports.TdDataTableService = (function () {
     };
     return TdDataTableService;
 }());
-exports.TdDataTableService = __decorate$19([
+exports.TdDataTableService = __decorate$20([
     _angular_core.Injectable()
 ], exports.TdDataTableService);
 function DATA_TABLE_PROVIDER_FACTORY(parent) {
@@ -2903,7 +3712,7 @@ var DATA_TABLE_PROVIDER = {
     useFactory: DATA_TABLE_PROVIDER_FACTORY,
 };
 
-var __decorate$12 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$13 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -2922,7 +3731,7 @@ exports.CovalentDataTableModule = (function () {
     }
     return CovalentDataTableModule;
 }());
-exports.CovalentDataTableModule = __decorate$12([
+exports.CovalentDataTableModule = __decorate$13([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
@@ -2943,7 +3752,7 @@ exports.CovalentDataTableModule = __decorate$12([
     })
 ], exports.CovalentDataTableModule);
 
-var __decorate$21 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$22 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -2957,7 +3766,7 @@ exports.TdDialogTitleDirective = (function () {
     }
     return TdDialogTitleDirective;
 }());
-exports.TdDialogTitleDirective = __decorate$21([
+exports.TdDialogTitleDirective = __decorate$22([
     _angular_core.Directive({ selector: 'td-dialog-title' })
 ], exports.TdDialogTitleDirective);
 var TdDialogContentDirective = (function () {
@@ -2965,7 +3774,7 @@ var TdDialogContentDirective = (function () {
     }
     return TdDialogContentDirective;
 }());
-TdDialogContentDirective = __decorate$21([
+TdDialogContentDirective = __decorate$22([
     _angular_core.Directive({ selector: 'td-dialog-content' })
 ], TdDialogContentDirective);
 var TdDialogActionsDirective = (function () {
@@ -2973,7 +3782,7 @@ var TdDialogActionsDirective = (function () {
     }
     return TdDialogActionsDirective;
 }());
-TdDialogActionsDirective = __decorate$21([
+TdDialogActionsDirective = __decorate$22([
     _angular_core.Directive({ selector: 'td-dialog-actions' })
 ], TdDialogActionsDirective);
 exports.TdDialogComponent = (function () {
@@ -2992,19 +3801,19 @@ exports.TdDialogComponent = (function () {
     };
     return TdDialogComponent;
 }());
-__decorate$21([
+__decorate$22([
     _angular_core.ContentChildren(exports.TdDialogTitleDirective),
     __metadata$12("design:type", _angular_core.QueryList)
 ], exports.TdDialogComponent.prototype, "dialogTitle", void 0);
-__decorate$21([
+__decorate$22([
     _angular_core.ContentChildren(TdDialogContentDirective),
     __metadata$12("design:type", _angular_core.QueryList)
 ], exports.TdDialogComponent.prototype, "dialogContent", void 0);
-__decorate$21([
+__decorate$22([
     _angular_core.ContentChildren(TdDialogActionsDirective),
     __metadata$12("design:type", _angular_core.QueryList)
 ], exports.TdDialogComponent.prototype, "dialogActions", void 0);
-exports.TdDialogComponent = __decorate$21([
+exports.TdDialogComponent = __decorate$22([
     _angular_core.Component({
         selector: 'td-dialog',
         template: "<div class=\"td-dialog-wrapper\"> <h3 class=\"td-dialog-title md-title\" *ngIf=\"dialogTitle.length > 0\"> <ng-content select=\"td-dialog-title\"></ng-content> </h3> <div class=\"td-dialog-content\" *ngIf=\"dialogContent.length > 0\"> <ng-content select=\"td-dialog-content\"></ng-content> </div> <div class=\"td-dialog-actions\" *ngIf=\"dialogActions.length > 0\" layout=\"row\"> <span flex></span> <ng-content select=\"td-dialog-actions\"></ng-content> </div> </div>",
@@ -3012,7 +3821,7 @@ exports.TdDialogComponent = __decorate$21([
     })
 ], exports.TdDialogComponent);
 
-var __decorate$22 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$23 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -3031,7 +3840,7 @@ exports.TdAlertDialogComponent = (function () {
     };
     return TdAlertDialogComponent;
 }());
-exports.TdAlertDialogComponent = __decorate$22([
+exports.TdAlertDialogComponent = __decorate$23([
     _angular_core.Component({
         selector: 'td-alert-dialog',
         template: "<td-dialog> <td-dialog-title *ngIf=\"title\"> {{title}} </td-dialog-title> <td-dialog-content class=\"md-subhead tc-grey-700\"> {{message}} </td-dialog-content> <td-dialog-actions> <button md-button color=\"accent\" (click)=\"close()\">{{closeButton}}</button> </td-dialog-actions> </td-dialog>",
@@ -3040,7 +3849,7 @@ exports.TdAlertDialogComponent = __decorate$22([
     __metadata$13("design:paramtypes", [_angular_material.MdDialogRef])
 ], exports.TdAlertDialogComponent);
 
-var __decorate$23 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$24 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -3063,7 +3872,7 @@ exports.TdConfirmDialogComponent = (function () {
     };
     return TdConfirmDialogComponent;
 }());
-exports.TdConfirmDialogComponent = __decorate$23([
+exports.TdConfirmDialogComponent = __decorate$24([
     _angular_core.Component({
         selector: 'td-confirm-dialog',
         template: "<td-dialog> <td-dialog-title *ngIf=\"title\"> {{title}} </td-dialog-title> <td-dialog-content class=\"md-subhead tc-grey-700\"> {{message}} </td-dialog-content> <td-dialog-actions> <button md-button #closeBtn  (keydown.arrowright)=\"acceptBtn.focus()\" (click)=\"cancel()\">{{cancelButton}}</button> <button md-button color=\"accent\" #acceptBtn (keydown.arrowleft)=\"closeBtn.focus()\" (click)=\"accept()\">{{acceptButton}}</button> </td-dialog-actions> </td-dialog>",
@@ -3072,7 +3881,7 @@ exports.TdConfirmDialogComponent = __decorate$23([
     __metadata$14("design:paramtypes", [_angular_material.MdDialogRef])
 ], exports.TdConfirmDialogComponent);
 
-var __decorate$24 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$25 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -3109,11 +3918,11 @@ exports.TdPromptDialogComponent = (function () {
     };
     return TdPromptDialogComponent;
 }());
-__decorate$24([
+__decorate$25([
     _angular_core.ViewChild('input'),
     __metadata$15("design:type", _angular_core.ElementRef)
 ], exports.TdPromptDialogComponent.prototype, "_input", void 0);
-exports.TdPromptDialogComponent = __decorate$24([
+exports.TdPromptDialogComponent = __decorate$25([
     _angular_core.Component({
         selector: 'td-prompt-dialog',
         template: "<td-dialog> <td-dialog-title *ngIf=\"title\"> {{title}} </td-dialog-title> <td-dialog-content layout=\"column\" class=\"md-subhead tc-grey-700\"> {{message}} <form #form=\"ngForm\" layout=\"row\" novalidate flex> <md-input-container flex> <input mdInput #input (focus)=\"handleInputFocus()\" (keydown.enter)=\"$event.preventDefault(); form.valid && accept()\" [(ngModel)]=\"value\" name=\"value\" required/> </md-input-container> </form> </td-dialog-content> <td-dialog-actions> <button md-button #closeBtn  (keydown.arrowright)=\"acceptBtn.focus()\" (click)=\"cancel()\">{{cancelButton}}</button> <button md-button color=\"accent\" #acceptBtn (keydown.arrowleft)=\"closeBtn.focus()\" [disabled]=\"!form.valid\" (click)=\"accept()\">{{acceptButton}}</button> </td-dialog-actions> </td-dialog>",
@@ -3122,7 +3931,7 @@ exports.TdPromptDialogComponent = __decorate$24([
     __metadata$15("design:paramtypes", [_angular_material.MdDialogRef])
 ], exports.TdPromptDialogComponent);
 
-var __decorate$25 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$26 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -3239,7 +4048,7 @@ exports.TdDialogService = (function () {
     };
     return TdDialogService;
 }());
-exports.TdDialogService = __decorate$25([
+exports.TdDialogService = __decorate$26([
     _angular_core.Injectable(),
     __metadata$16("design:paramtypes", [_angular_material.MdDialog])
 ], exports.TdDialogService);
@@ -3253,7 +4062,7 @@ var DIALOG_PROVIDER = {
     useFactory: DIALOG_PROVIDER_FACTORY,
 };
 
-var __decorate$20 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$21 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -3278,7 +4087,7 @@ exports.CovalentDialogsModule = (function () {
     }
     return CovalentDialogsModule;
 }());
-exports.CovalentDialogsModule = __decorate$20([
+exports.CovalentDialogsModule = __decorate$21([
     _angular_core.NgModule({
         imports: [
             _angular_forms.FormsModule,
@@ -3312,7 +4121,7 @@ var __extends$4 = (window && window.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __decorate$27 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$28 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -3328,7 +4137,7 @@ var TdExpansionPanelHeaderDirective = (function (_super) {
     }
     return TdExpansionPanelHeaderDirective;
 }(_angular_cdk.TemplatePortalDirective));
-TdExpansionPanelHeaderDirective = __decorate$27([
+TdExpansionPanelHeaderDirective = __decorate$28([
     _angular_core.Directive({
         selector: '[td-expansion-panel-header]ng-template',
     }),
@@ -3341,7 +4150,7 @@ var TdExpansionPanelLabelDirective = (function (_super) {
     }
     return TdExpansionPanelLabelDirective;
 }(_angular_cdk.TemplatePortalDirective));
-TdExpansionPanelLabelDirective = __decorate$27([
+TdExpansionPanelLabelDirective = __decorate$28([
     _angular_core.Directive({
         selector: '[td-expansion-panel-label]ng-template',
     }),
@@ -3354,7 +4163,7 @@ var TdExpansionPanelSublabelDirective = (function (_super) {
     }
     return TdExpansionPanelSublabelDirective;
 }(_angular_cdk.TemplatePortalDirective));
-TdExpansionPanelSublabelDirective = __decorate$27([
+TdExpansionPanelSublabelDirective = __decorate$28([
     _angular_core.Directive({
         selector: '[td-expansion-panel-sublabel]ng-template',
     }),
@@ -3365,7 +4174,7 @@ var TdExpansionPanelSummaryComponent = (function () {
     }
     return TdExpansionPanelSummaryComponent;
 }());
-TdExpansionPanelSummaryComponent = __decorate$27([
+TdExpansionPanelSummaryComponent = __decorate$28([
     _angular_core.Component({
         selector: 'td-expansion-summary',
         template: '<ng-content></ng-content>',
@@ -3476,40 +4285,40 @@ exports.TdExpansionPanelComponent = (function (_super) {
     };
     return TdExpansionPanelComponent;
 }(_TdExpansionPanelMixinBase));
-__decorate$27([
+__decorate$28([
     _angular_core.ContentChild(TdExpansionPanelHeaderDirective),
     __metadata$17("design:type", TdExpansionPanelHeaderDirective)
 ], exports.TdExpansionPanelComponent.prototype, "expansionPanelHeader", void 0);
-__decorate$27([
+__decorate$28([
     _angular_core.ContentChild(TdExpansionPanelLabelDirective),
     __metadata$17("design:type", TdExpansionPanelLabelDirective)
 ], exports.TdExpansionPanelComponent.prototype, "expansionPanelLabel", void 0);
-__decorate$27([
+__decorate$28([
     _angular_core.ContentChild(TdExpansionPanelSublabelDirective),
     __metadata$17("design:type", TdExpansionPanelSublabelDirective)
 ], exports.TdExpansionPanelComponent.prototype, "expansionPanelSublabel", void 0);
-__decorate$27([
+__decorate$28([
     _angular_core.Input(),
     __metadata$17("design:type", String)
 ], exports.TdExpansionPanelComponent.prototype, "label", void 0);
-__decorate$27([
+__decorate$28([
     _angular_core.Input(),
     __metadata$17("design:type", String)
 ], exports.TdExpansionPanelComponent.prototype, "sublabel", void 0);
-__decorate$27([
+__decorate$28([
     _angular_core.Input('expand'),
     __metadata$17("design:type", Boolean),
     __metadata$17("design:paramtypes", [Boolean])
 ], exports.TdExpansionPanelComponent.prototype, "expand", null);
-__decorate$27([
+__decorate$28([
     _angular_core.Output(),
     __metadata$17("design:type", _angular_core.EventEmitter)
 ], exports.TdExpansionPanelComponent.prototype, "expanded", void 0);
-__decorate$27([
+__decorate$28([
     _angular_core.Output(),
     __metadata$17("design:type", _angular_core.EventEmitter)
 ], exports.TdExpansionPanelComponent.prototype, "collapsed", void 0);
-exports.TdExpansionPanelComponent = __decorate$27([
+exports.TdExpansionPanelComponent = __decorate$28([
     _angular_core.Component({
         selector: 'td-expansion-panel',
         styles: [":host { display: block; } :host .td-expansion-panel-header { position: relative; outline: none; } :host .td-expansion-panel-header:focus:not(.mat-disabled), :host .td-expansion-panel-header:hover:not(.mat-disabled) { cursor: pointer; } :host .td-expansion-panel-header .td-expansion-panel-header-content { height: 48px; padding: 0 16px; } .td-expansion-label, .td-expansion-sublabel { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 5px; } /deep/ [dir='rtl'] .td-expansion-label, /deep/ [dir='rtl'] .td-expansion-sublabel { margin-left: 5px; margin-right: inherit; } "],
@@ -3523,7 +4332,7 @@ exports.TdExpansionPanelComponent = __decorate$27([
         _angular_core.ElementRef])
 ], exports.TdExpansionPanelComponent);
 
-var __decorate$28 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$29 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -3540,7 +4349,7 @@ exports.TdExpansionPanelGroupComponent = (function () {
     }
     return TdExpansionPanelGroupComponent;
 }());
-exports.TdExpansionPanelGroupComponent = __decorate$28([
+exports.TdExpansionPanelGroupComponent = __decorate$29([
     _angular_core.Component({
         selector: 'td-expansion-panel-group',
         styles: [""],
@@ -3550,7 +4359,7 @@ exports.TdExpansionPanelGroupComponent = __decorate$28([
         _angular_core.ElementRef])
 ], exports.TdExpansionPanelGroupComponent);
 
-var __decorate$26 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$27 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -3569,7 +4378,7 @@ exports.CovalentExpansionPanelModule = (function () {
     }
     return CovalentExpansionPanelModule;
 }());
-exports.CovalentExpansionPanelModule = __decorate$26([
+exports.CovalentExpansionPanelModule = __decorate$27([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
@@ -3586,7 +4395,7 @@ exports.CovalentExpansionPanelModule = __decorate$26([
     })
 ], exports.CovalentExpansionPanelModule);
 
-var __decorate$30 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$31 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -3649,27 +4458,27 @@ exports.TdFileSelectDirective = (function () {
     };
     return TdFileSelectDirective;
 }());
-__decorate$30([
+__decorate$31([
     _angular_core.Input('multiple'),
     __metadata$19("design:type", Boolean),
     __metadata$19("design:paramtypes", [Boolean])
 ], exports.TdFileSelectDirective.prototype, "multiple", null);
-__decorate$30([
+__decorate$31([
     _angular_core.Output('fileSelect'),
     __metadata$19("design:type", _angular_core.EventEmitter)
 ], exports.TdFileSelectDirective.prototype, "onFileSelect", void 0);
-__decorate$30([
+__decorate$31([
     _angular_core.HostBinding('attr.multiple'),
     __metadata$19("design:type", String),
     __metadata$19("design:paramtypes", [])
 ], exports.TdFileSelectDirective.prototype, "multipleBinding", null);
-__decorate$30([
+__decorate$31([
     _angular_core.HostListener('change', ['$event']),
     __metadata$19("design:type", Function),
     __metadata$19("design:paramtypes", [Event]),
     __metadata$19("design:returntype", void 0)
 ], exports.TdFileSelectDirective.prototype, "onChange", null);
-exports.TdFileSelectDirective = __decorate$30([
+exports.TdFileSelectDirective = __decorate$31([
     _angular_core.Directive({
         selector: '[tdFileSelect]',
     }),
@@ -3687,7 +4496,7 @@ var __extends$5 = (window && window.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __decorate$31 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$32 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -3821,50 +4630,50 @@ exports.TdFileDropDirective = (function (_super) {
     };
     return TdFileDropDirective;
 }(_TdFileDropMixinBase));
-__decorate$31([
+__decorate$32([
     _angular_core.Input('multiple'),
     __metadata$20("design:type", Boolean),
     __metadata$20("design:paramtypes", [Boolean])
 ], exports.TdFileDropDirective.prototype, "multiple", null);
-__decorate$31([
+__decorate$32([
     _angular_core.Output('fileDrop'),
     __metadata$20("design:type", _angular_core.EventEmitter)
 ], exports.TdFileDropDirective.prototype, "onFileDrop", void 0);
-__decorate$31([
+__decorate$32([
     _angular_core.HostBinding('attr.multiple'),
     __metadata$20("design:type", String),
     __metadata$20("design:paramtypes", [])
 ], exports.TdFileDropDirective.prototype, "multipleBinding", null);
-__decorate$31([
+__decorate$32([
     _angular_core.HostBinding('attr.disabled'),
     __metadata$20("design:type", String),
     __metadata$20("design:paramtypes", [])
 ], exports.TdFileDropDirective.prototype, "disabledBinding", null);
-__decorate$31([
+__decorate$32([
     _angular_core.HostListener('drop', ['$event']),
     __metadata$20("design:type", Function),
     __metadata$20("design:paramtypes", [Event]),
     __metadata$20("design:returntype", void 0)
 ], exports.TdFileDropDirective.prototype, "onDrop", null);
-__decorate$31([
+__decorate$32([
     _angular_core.HostListener('dragover', ['$event']),
     __metadata$20("design:type", Function),
     __metadata$20("design:paramtypes", [Event]),
     __metadata$20("design:returntype", void 0)
 ], exports.TdFileDropDirective.prototype, "onDragOver", null);
-__decorate$31([
+__decorate$32([
     _angular_core.HostListener('dragenter', ['$event']),
     __metadata$20("design:type", Function),
     __metadata$20("design:paramtypes", [Event]),
     __metadata$20("design:returntype", void 0)
 ], exports.TdFileDropDirective.prototype, "onDragEnter", null);
-__decorate$31([
+__decorate$32([
     _angular_core.HostListener('dragleave', ['$event']),
     __metadata$20("design:type", Function),
     __metadata$20("design:paramtypes", [Event]),
     __metadata$20("design:returntype", void 0)
 ], exports.TdFileDropDirective.prototype, "onDragLeave", null);
-exports.TdFileDropDirective = __decorate$31([
+exports.TdFileDropDirective = __decorate$32([
     _angular_core.Directive({
         selector: '[tdFileDrop]',
         inputs: ['disabled'],
@@ -3882,7 +4691,7 @@ var __extends$7 = (window && window.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __decorate$33 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$34 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -3906,7 +4715,7 @@ exports.TdFileInputLabelDirective = (function (_super) {
     }
     return TdFileInputLabelDirective;
 }(_angular_cdk.TemplatePortalDirective));
-exports.TdFileInputLabelDirective = __decorate$33([
+exports.TdFileInputLabelDirective = __decorate$34([
     _angular_core.Directive({
         selector: '[td-file-input-label]ng-template',
     }),
@@ -4008,28 +4817,28 @@ exports.TdFileInputComponent = (function (_super) {
     };
     return TdFileInputComponent;
 }(_TdFileInputMixinBase));
-__decorate$33([
+__decorate$34([
     _angular_core.ViewChild('fileInput'),
     __metadata$22("design:type", _angular_core.ElementRef)
 ], exports.TdFileInputComponent.prototype, "_inputElement", void 0);
-__decorate$33([
+__decorate$34([
     _angular_core.Input('color'),
     __metadata$22("design:type", String)
 ], exports.TdFileInputComponent.prototype, "color", void 0);
-__decorate$33([
+__decorate$34([
     _angular_core.Input('multiple'),
     __metadata$22("design:type", Boolean),
     __metadata$22("design:paramtypes", [Boolean])
 ], exports.TdFileInputComponent.prototype, "multiple", null);
-__decorate$33([
+__decorate$34([
     _angular_core.Input('accept'),
     __metadata$22("design:type", String)
 ], exports.TdFileInputComponent.prototype, "accept", void 0);
-__decorate$33([
+__decorate$34([
     _angular_core.Output('select'),
     __metadata$22("design:type", _angular_core.EventEmitter)
 ], exports.TdFileInputComponent.prototype, "onSelect", void 0);
-exports.TdFileInputComponent = __decorate$33([
+exports.TdFileInputComponent = __decorate$34([
     _angular_core.Component({
         changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
         providers: [FILE_INPUT_CONTROL_VALUE_ACCESSOR],
@@ -4051,7 +4860,7 @@ var __extends$6 = (window && window.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __decorate$32 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$33 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -4154,44 +4963,44 @@ exports.TdFileUploadComponent = (function (_super) {
     };
     return TdFileUploadComponent;
 }(_TdFileUploadMixinBase));
-__decorate$32([
+__decorate$33([
     _angular_core.ContentChild(exports.TdFileInputLabelDirective),
     __metadata$21("design:type", exports.TdFileInputLabelDirective)
 ], exports.TdFileUploadComponent.prototype, "inputLabel", void 0);
-__decorate$32([
+__decorate$33([
     _angular_core.Input('defaultColor'),
     __metadata$21("design:type", String)
 ], exports.TdFileUploadComponent.prototype, "defaultColor", void 0);
-__decorate$32([
+__decorate$33([
     _angular_core.Input('activeColor'),
     __metadata$21("design:type", String)
 ], exports.TdFileUploadComponent.prototype, "activeColor", void 0);
-__decorate$32([
+__decorate$33([
     _angular_core.Input('cancelColor'),
     __metadata$21("design:type", String)
 ], exports.TdFileUploadComponent.prototype, "cancelColor", void 0);
-__decorate$32([
+__decorate$33([
     _angular_core.Input('multiple'),
     __metadata$21("design:type", Boolean),
     __metadata$21("design:paramtypes", [Boolean])
 ], exports.TdFileUploadComponent.prototype, "multiple", null);
-__decorate$32([
+__decorate$33([
     _angular_core.Input('accept'),
     __metadata$21("design:type", String)
 ], exports.TdFileUploadComponent.prototype, "accept", void 0);
-__decorate$32([
+__decorate$33([
     _angular_core.Output('select'),
     __metadata$21("design:type", _angular_core.EventEmitter)
 ], exports.TdFileUploadComponent.prototype, "onSelect", void 0);
-__decorate$32([
+__decorate$33([
     _angular_core.Output('upload'),
     __metadata$21("design:type", _angular_core.EventEmitter)
 ], exports.TdFileUploadComponent.prototype, "onUpload", void 0);
-__decorate$32([
+__decorate$33([
     _angular_core.Output('cancel'),
     __metadata$21("design:type", _angular_core.EventEmitter)
 ], exports.TdFileUploadComponent.prototype, "onCancel", void 0);
-exports.TdFileUploadComponent = __decorate$32([
+exports.TdFileUploadComponent = __decorate$33([
     _angular_core.Component({
         changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
         selector: 'td-file-upload',
@@ -4202,7 +5011,7 @@ exports.TdFileUploadComponent = __decorate$32([
     __metadata$21("design:paramtypes", [_angular_core.ChangeDetectorRef])
 ], exports.TdFileUploadComponent);
 
-var __decorate$34 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$35 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -4284,12 +5093,12 @@ exports.TdFileService = (function () {
     };
     return TdFileService;
 }());
-exports.TdFileService = __decorate$34([
+exports.TdFileService = __decorate$35([
     _angular_core.Injectable(),
     __metadata$23("design:paramtypes", [])
 ], exports.TdFileService);
 
-var __decorate$29 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$30 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -4307,7 +5116,7 @@ exports.CovalentFileModule = (function () {
     }
     return CovalentFileModule;
 }());
-exports.CovalentFileModule = __decorate$29([
+exports.CovalentFileModule = __decorate$30([
     _angular_core.NgModule({
         imports: [
             _angular_http.HttpModule,
@@ -4330,7 +5139,7 @@ exports.CovalentFileModule = __decorate$29([
     })
 ], exports.CovalentFileModule);
 
-var __decorate$36 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$37 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -4550,22 +5359,22 @@ exports.TdJsonFormatterComponent.PREVIEW_STRING_MAX_LENGTH = 80;
  * Max tooltip preview elements.
  */
 exports.TdJsonFormatterComponent.PREVIEW_LIMIT = 5;
-__decorate$36([
+__decorate$37([
     _angular_core.Input('levelsOpen'),
     __metadata$24("design:type", Number),
     __metadata$24("design:paramtypes", [Number])
 ], exports.TdJsonFormatterComponent.prototype, "levelsOpen", null);
-__decorate$36([
+__decorate$37([
     _angular_core.Input('key'),
     __metadata$24("design:type", String),
     __metadata$24("design:paramtypes", [String])
 ], exports.TdJsonFormatterComponent.prototype, "key", null);
-__decorate$36([
+__decorate$37([
     _angular_core.Input('data'),
     __metadata$24("design:type", Object),
     __metadata$24("design:paramtypes", [Object])
 ], exports.TdJsonFormatterComponent.prototype, "data", null);
-exports.TdJsonFormatterComponent = TdJsonFormatterComponent_1 = __decorate$36([
+exports.TdJsonFormatterComponent = TdJsonFormatterComponent_1 = __decorate$37([
     _angular_core.Component({
         changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
         selector: 'td-json-formatter',
@@ -4581,7 +5390,7 @@ exports.TdJsonFormatterComponent = TdJsonFormatterComponent_1 = __decorate$36([
 ], exports.TdJsonFormatterComponent);
 var TdJsonFormatterComponent_1;
 
-var __decorate$35 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$36 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -4592,7 +5401,7 @@ exports.CovalentJsonFormatterModule = (function () {
     }
     return CovalentJsonFormatterModule;
 }());
-exports.CovalentJsonFormatterModule = __decorate$35([
+exports.CovalentJsonFormatterModule = __decorate$36([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
@@ -4608,7 +5417,7 @@ exports.CovalentJsonFormatterModule = __decorate$35([
     })
 ], exports.CovalentJsonFormatterModule);
 
-var __decorate$38 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$39 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -4681,23 +5490,23 @@ exports.TdLayoutComponent = (function () {
     };
     return TdLayoutComponent;
 }());
-__decorate$38([
+__decorate$39([
     _angular_core.ViewChild(_angular_material.MdSidenav),
     __metadata$25("design:type", _angular_material.MdSidenav)
 ], exports.TdLayoutComponent.prototype, "sidenav", void 0);
-__decorate$38([
+__decorate$39([
     _angular_core.Input('mode'),
     __metadata$25("design:type", String)
 ], exports.TdLayoutComponent.prototype, "mode", void 0);
-__decorate$38([
+__decorate$39([
     _angular_core.Input('opened'),
     __metadata$25("design:type", Boolean)
 ], exports.TdLayoutComponent.prototype, "opened", void 0);
-__decorate$38([
+__decorate$39([
     _angular_core.Input('sidenavWidth'),
     __metadata$25("design:type", String)
 ], exports.TdLayoutComponent.prototype, "sidenavWidth", void 0);
-exports.TdLayoutComponent = __decorate$38([
+exports.TdLayoutComponent = __decorate$39([
     _angular_core.Component({
         selector: 'td-layout',
         styles: [":host { display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } :host /deep/ > md-sidenav-container > md-sidenav { display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; flex-direction: column; } "],
@@ -4705,7 +5514,7 @@ exports.TdLayoutComponent = __decorate$38([
     })
 ], exports.TdLayoutComponent);
 
-var __decorate$40 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$41 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -4781,12 +5590,12 @@ var LayoutToggle = (function () {
     };
     return LayoutToggle;
 }());
-__decorate$40([
+__decorate$41([
     _angular_core.Input('hideWhenOpened'),
     __metadata$27("design:type", Boolean),
     __metadata$27("design:paramtypes", [Boolean])
 ], LayoutToggle.prototype, "hideWhenOpened", null);
-__decorate$40([
+__decorate$41([
     _angular_core.HostListener('click', ['$event']),
     __metadata$27("design:type", Function),
     __metadata$27("design:paramtypes", [Event]),
@@ -4803,7 +5612,7 @@ var __extends$8 = (window && window.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __decorate$39 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$40 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -4832,12 +5641,12 @@ exports.TdLayoutToggleDirective = (function (_super) {
     };
     return TdLayoutToggleDirective;
 }(LayoutToggle));
-__decorate$39([
+__decorate$40([
     _angular_core.Input('tdLayoutToggle'),
     __metadata$26("design:type", Boolean),
     __metadata$26("design:paramtypes", [Boolean])
 ], exports.TdLayoutToggleDirective.prototype, "tdLayoutToggle", null);
-exports.TdLayoutToggleDirective = __decorate$39([
+exports.TdLayoutToggleDirective = __decorate$40([
     _angular_core.Directive({
         selector: '[tdLayoutToggle]',
     }),
@@ -4863,12 +5672,12 @@ exports.TdLayoutCloseDirective = (function (_super) {
     };
     return TdLayoutCloseDirective;
 }(LayoutToggle));
-__decorate$39([
+__decorate$40([
     _angular_core.Input('tdLayoutClose'),
     __metadata$26("design:type", Boolean),
     __metadata$26("design:paramtypes", [Boolean])
 ], exports.TdLayoutCloseDirective.prototype, "tdLayoutClose", null);
-exports.TdLayoutCloseDirective = __decorate$39([
+exports.TdLayoutCloseDirective = __decorate$40([
     _angular_core.Directive({
         selector: '[tdLayoutClose]',
     }),
@@ -4894,12 +5703,12 @@ exports.TdLayoutOpenDirective = (function (_super) {
     };
     return TdLayoutOpenDirective;
 }(LayoutToggle));
-__decorate$39([
+__decorate$40([
     _angular_core.Input('tdLayoutOpen'),
     __metadata$26("design:type", Boolean),
     __metadata$26("design:paramtypes", [Boolean])
 ], exports.TdLayoutOpenDirective.prototype, "tdLayoutClose", null);
-exports.TdLayoutOpenDirective = __decorate$39([
+exports.TdLayoutOpenDirective = __decorate$40([
     _angular_core.Directive({
         selector: '[tdLayoutOpen]',
     }),
@@ -4909,7 +5718,7 @@ exports.TdLayoutOpenDirective = __decorate$39([
         _angular_core.ElementRef])
 ], exports.TdLayoutOpenDirective);
 
-var __decorate$41 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$42 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -4949,27 +5758,27 @@ exports.TdLayoutNavComponent = (function () {
     };
     return TdLayoutNavComponent;
 }());
-__decorate$41([
+__decorate$42([
     _angular_core.Input('toolbarTitle'),
     __metadata$28("design:type", String)
 ], exports.TdLayoutNavComponent.prototype, "toolbarTitle", void 0);
-__decorate$41([
+__decorate$42([
     _angular_core.Input('icon'),
     __metadata$28("design:type", String)
 ], exports.TdLayoutNavComponent.prototype, "icon", void 0);
-__decorate$41([
+__decorate$42([
     _angular_core.Input('logo'),
     __metadata$28("design:type", String)
 ], exports.TdLayoutNavComponent.prototype, "logo", void 0);
-__decorate$41([
+__decorate$42([
     _angular_core.Input('color'),
     __metadata$28("design:type", String)
 ], exports.TdLayoutNavComponent.prototype, "color", void 0);
-__decorate$41([
+__decorate$42([
     _angular_core.Input('navigationRoute'),
     __metadata$28("design:type", String)
 ], exports.TdLayoutNavComponent.prototype, "navigationRoute", void 0);
-exports.TdLayoutNavComponent = __decorate$41([
+exports.TdLayoutNavComponent = __decorate$42([
     _angular_core.Component({
         selector: 'td-layout-nav',
         styles: [".td-menu-button { margin-left: 0px; } /deep/ [dir='rtl'] .td-menu-button { margin-right: 0px; margin-left: 6px; } :host { display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } "],
@@ -4979,7 +5788,7 @@ exports.TdLayoutNavComponent = __decorate$41([
     __metadata$28("design:paramtypes", [_angular_router.Router])
 ], exports.TdLayoutNavComponent);
 
-var __decorate$42 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$43 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -5077,43 +5886,43 @@ exports.TdLayoutNavListComponent = (function () {
     };
     return TdLayoutNavListComponent;
 }());
-__decorate$42([
+__decorate$43([
     _angular_core.ViewChild(_angular_material.MdSidenav),
     __metadata$29("design:type", _angular_material.MdSidenav)
 ], exports.TdLayoutNavListComponent.prototype, "sidenav", void 0);
-__decorate$42([
+__decorate$43([
     _angular_core.Input('toolbarTitle'),
     __metadata$29("design:type", String)
 ], exports.TdLayoutNavListComponent.prototype, "toolbarTitle", void 0);
-__decorate$42([
+__decorate$43([
     _angular_core.Input('icon'),
     __metadata$29("design:type", String)
 ], exports.TdLayoutNavListComponent.prototype, "icon", void 0);
-__decorate$42([
+__decorate$43([
     _angular_core.Input('logo'),
     __metadata$29("design:type", String)
 ], exports.TdLayoutNavListComponent.prototype, "logo", void 0);
-__decorate$42([
+__decorate$43([
     _angular_core.Input('color'),
     __metadata$29("design:type", String)
 ], exports.TdLayoutNavListComponent.prototype, "color", void 0);
-__decorate$42([
+__decorate$43([
     _angular_core.Input('mode'),
     __metadata$29("design:type", String)
 ], exports.TdLayoutNavListComponent.prototype, "mode", void 0);
-__decorate$42([
+__decorate$43([
     _angular_core.Input('opened'),
     __metadata$29("design:type", Boolean)
 ], exports.TdLayoutNavListComponent.prototype, "opened", void 0);
-__decorate$42([
+__decorate$43([
     _angular_core.Input('sidenavWidth'),
     __metadata$29("design:type", String)
 ], exports.TdLayoutNavListComponent.prototype, "sidenavWidth", void 0);
-__decorate$42([
+__decorate$43([
     _angular_core.Input('navigationRoute'),
     __metadata$29("design:type", String)
 ], exports.TdLayoutNavListComponent.prototype, "navigationRoute", void 0);
-exports.TdLayoutNavListComponent = __decorate$42([
+exports.TdLayoutNavListComponent = __decorate$43([
     _angular_core.Component({
         selector: 'td-layout-nav-list',
         styles: [":host { display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-opened, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-opening, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-closed, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-closing { box-shadow: none; } :host .list { text-align: start; } :host /deep/ md-sidenav-container.td-layout-nav-list { /* Ensure the left sidenav is a flex column & 100% height */ } :host /deep/ md-sidenav-container.td-layout-nav-list > .mat-sidenav-content { flex-grow: 1; } :host /deep/ md-sidenav-container.td-layout-nav-list > md-sidenav { box-sizing: border-box; display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; flex-direction: column; } "],
@@ -5133,7 +5942,7 @@ var __extends$9 = (window && window.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __decorate$43 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$44 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -5162,12 +5971,12 @@ exports.TdLayoutNavListToggleDirective = (function (_super) {
     };
     return TdLayoutNavListToggleDirective;
 }(LayoutToggle));
-__decorate$43([
+__decorate$44([
     _angular_core.Input('tdLayoutNavListToggle'),
     __metadata$30("design:type", Boolean),
     __metadata$30("design:paramtypes", [Boolean])
 ], exports.TdLayoutNavListToggleDirective.prototype, "tdLayoutNavListToggle", null);
-exports.TdLayoutNavListToggleDirective = __decorate$43([
+exports.TdLayoutNavListToggleDirective = __decorate$44([
     _angular_core.Directive({
         selector: '[tdLayoutNavListToggle]',
     }),
@@ -5193,12 +6002,12 @@ exports.TdLayoutNavListCloseDirective = (function (_super) {
     };
     return TdLayoutNavListCloseDirective;
 }(LayoutToggle));
-__decorate$43([
+__decorate$44([
     _angular_core.Input('tdLayoutNavListClose'),
     __metadata$30("design:type", Boolean),
     __metadata$30("design:paramtypes", [Boolean])
 ], exports.TdLayoutNavListCloseDirective.prototype, "tdLayoutNavListClose", null);
-exports.TdLayoutNavListCloseDirective = __decorate$43([
+exports.TdLayoutNavListCloseDirective = __decorate$44([
     _angular_core.Directive({
         selector: '[tdLayoutNavListClose]',
     }),
@@ -5224,12 +6033,12 @@ exports.TdLayoutNavListOpenDirective = (function (_super) {
     };
     return TdLayoutNavListOpenDirective;
 }(LayoutToggle));
-__decorate$43([
+__decorate$44([
     _angular_core.Input('tdLayoutNavListOpen'),
     __metadata$30("design:type", Boolean),
     __metadata$30("design:paramtypes", [Boolean])
 ], exports.TdLayoutNavListOpenDirective.prototype, "tdLayoutNavListOpen", null);
-exports.TdLayoutNavListOpenDirective = __decorate$43([
+exports.TdLayoutNavListOpenDirective = __decorate$44([
     _angular_core.Directive({
         selector: '[tdLayoutNavListOpen]',
     }),
@@ -5239,7 +6048,7 @@ exports.TdLayoutNavListOpenDirective = __decorate$43([
         _angular_core.ElementRef])
 ], exports.TdLayoutNavListOpenDirective);
 
-var __decorate$44 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$45 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -5267,23 +6076,23 @@ exports.TdLayoutCardOverComponent = (function () {
     }
     return TdLayoutCardOverComponent;
 }());
-__decorate$44([
+__decorate$45([
     _angular_core.Input('cardTitle'),
     __metadata$31("design:type", String)
 ], exports.TdLayoutCardOverComponent.prototype, "cardTitle", void 0);
-__decorate$44([
+__decorate$45([
     _angular_core.Input('cardSubtitle'),
     __metadata$31("design:type", String)
 ], exports.TdLayoutCardOverComponent.prototype, "cardSubtitle", void 0);
-__decorate$44([
+__decorate$45([
     _angular_core.Input('cardWidth'),
     __metadata$31("design:type", Number)
 ], exports.TdLayoutCardOverComponent.prototype, "cardWidth", void 0);
-__decorate$44([
+__decorate$45([
     _angular_core.Input('color'),
     __metadata$31("design:type", String)
 ], exports.TdLayoutCardOverComponent.prototype, "color", void 0);
-exports.TdLayoutCardOverComponent = __decorate$44([
+exports.TdLayoutCardOverComponent = __decorate$45([
     _angular_core.Component({
         selector: 'td-layout-card-over',
         styles: [":host { position: relative; display: block; z-index: 2; width: 100%; min-height: 100%; height: 100%; } :host [td-after-card] { display: block; } .margin { margin-top: -64px; } "],
@@ -5291,7 +6100,7 @@ exports.TdLayoutCardOverComponent = __decorate$44([
     })
 ], exports.TdLayoutCardOverComponent);
 
-var __decorate$45 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$46 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -5364,23 +6173,23 @@ exports.TdLayoutManageListComponent = (function () {
     };
     return TdLayoutManageListComponent;
 }());
-__decorate$45([
+__decorate$46([
     _angular_core.ViewChild(_angular_material.MdSidenav),
     __metadata$32("design:type", _angular_material.MdSidenav)
 ], exports.TdLayoutManageListComponent.prototype, "sidenav", void 0);
-__decorate$45([
+__decorate$46([
     _angular_core.Input('mode'),
     __metadata$32("design:type", String)
 ], exports.TdLayoutManageListComponent.prototype, "mode", void 0);
-__decorate$45([
+__decorate$46([
     _angular_core.Input('opened'),
     __metadata$32("design:type", Boolean)
 ], exports.TdLayoutManageListComponent.prototype, "opened", void 0);
-__decorate$45([
+__decorate$46([
     _angular_core.Input('sidenavWidth'),
     __metadata$32("design:type", String)
 ], exports.TdLayoutManageListComponent.prototype, "sidenavWidth", void 0);
-exports.TdLayoutManageListComponent = __decorate$45([
+exports.TdLayoutManageListComponent = __decorate$46([
     _angular_core.Component({
         selector: 'td-layout-manage-list',
         styles: [":host { display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } :host md-sidenav-container.td-layout-manage-list > md-sidenav.mat-sidenav-opened, :host md-sidenav-container.td-layout-manage-list > md-sidenav.mat-sidenav-opening, :host md-sidenav-container.td-layout-manage-list > md-sidenav.mat-sidenav-closed, :host md-sidenav-container.td-layout-manage-list > md-sidenav.mat-sidenav-closing { box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2); } :host .list { text-align: start; } :host /deep/ md-sidenav-container.td-layout-manage-list { /* Ensure the left sidenav is a flex column & 100% height */ } :host /deep/ md-sidenav-container.td-layout-manage-list > .mat-sidenav-content { flex-grow: 1; } :host /deep/ md-sidenav-container.td-layout-manage-list > md-sidenav { box-sizing: border-box; display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; flex-direction: column; } :host /deep/ md-nav-list a[md-list-item] .mat-list-item-content { font-size: 14px; } :host /deep/ .mat-toolbar { font-weight: 400; } "],
@@ -5398,7 +6207,7 @@ var __extends$10 = (window && window.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __decorate$46 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$47 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -5427,12 +6236,12 @@ exports.TdLayoutManageListToggleDirective = (function (_super) {
     };
     return TdLayoutManageListToggleDirective;
 }(LayoutToggle));
-__decorate$46([
+__decorate$47([
     _angular_core.Input('tdLayoutManageListToggle'),
     __metadata$33("design:type", Boolean),
     __metadata$33("design:paramtypes", [Boolean])
 ], exports.TdLayoutManageListToggleDirective.prototype, "tdLayoutManageListToggle", null);
-exports.TdLayoutManageListToggleDirective = __decorate$46([
+exports.TdLayoutManageListToggleDirective = __decorate$47([
     _angular_core.Directive({
         selector: '[tdLayoutManageListToggle]',
     }),
@@ -5458,12 +6267,12 @@ exports.TdLayoutManageListCloseDirective = (function (_super) {
     };
     return TdLayoutManageListCloseDirective;
 }(LayoutToggle));
-__decorate$46([
+__decorate$47([
     _angular_core.Input('tdLayoutManageListClose'),
     __metadata$33("design:type", Boolean),
     __metadata$33("design:paramtypes", [Boolean])
 ], exports.TdLayoutManageListCloseDirective.prototype, "tdLayoutManageListClose", null);
-exports.TdLayoutManageListCloseDirective = __decorate$46([
+exports.TdLayoutManageListCloseDirective = __decorate$47([
     _angular_core.Directive({
         selector: '[tdLayoutManageListClose]',
     }),
@@ -5489,12 +6298,12 @@ exports.TdLayoutManageListOpenDirective = (function (_super) {
     };
     return TdLayoutManageListOpenDirective;
 }(LayoutToggle));
-__decorate$46([
+__decorate$47([
     _angular_core.Input('tdLayoutManageListOpen'),
     __metadata$33("design:type", Boolean),
     __metadata$33("design:paramtypes", [Boolean])
 ], exports.TdLayoutManageListOpenDirective.prototype, "tdLayoutManageListOpen", null);
-exports.TdLayoutManageListOpenDirective = __decorate$46([
+exports.TdLayoutManageListOpenDirective = __decorate$47([
     _angular_core.Directive({
         selector: '[tdLayoutManageListOpen]',
     }),
@@ -5504,7 +6313,7 @@ exports.TdLayoutManageListOpenDirective = __decorate$46([
         _angular_core.ElementRef])
 ], exports.TdLayoutManageListOpenDirective);
 
-var __decorate$47 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$48 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -5540,12 +6349,12 @@ exports.TdLayoutFooterComponent = (function () {
     });
     return TdLayoutFooterComponent;
 }());
-__decorate$47([
+__decorate$48([
     _angular_core.Input('color'),
     __metadata$34("design:type", String),
     __metadata$34("design:paramtypes", [String])
 ], exports.TdLayoutFooterComponent.prototype, "color", null);
-exports.TdLayoutFooterComponent = __decorate$47([
+exports.TdLayoutFooterComponent = __decorate$48([
     _angular_core.Component({
         /* tslint:disable-next-line */
         selector: 'td-layout-footer,td-layout-footer-inner',
@@ -5556,7 +6365,7 @@ exports.TdLayoutFooterComponent = __decorate$47([
         _angular_core.ElementRef])
 ], exports.TdLayoutFooterComponent);
 
-var __decorate$48 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$49 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -5573,7 +6382,7 @@ exports.TdNavigationDrawerMenuDirective = (function () {
     }
     return TdNavigationDrawerMenuDirective;
 }());
-exports.TdNavigationDrawerMenuDirective = __decorate$48([
+exports.TdNavigationDrawerMenuDirective = __decorate$49([
     _angular_core.Directive({
         selector: '[td-navigation-drawer-menu]',
     })
@@ -5583,7 +6392,7 @@ exports.TdNavigationDrawerToolbarDirective = (function () {
     }
     return TdNavigationDrawerToolbarDirective;
 }());
-exports.TdNavigationDrawerToolbarDirective = __decorate$48([
+exports.TdNavigationDrawerToolbarDirective = __decorate$49([
     _angular_core.Directive({
         selector: '[td-navigation-drawer-toolbar]',
     })
@@ -5708,35 +6517,35 @@ exports.TdNavigationDrawerComponent = (function () {
     };
     return TdNavigationDrawerComponent;
 }());
-__decorate$48([
+__decorate$49([
     _angular_core.ContentChildren(exports.TdNavigationDrawerMenuDirective),
     __metadata$35("design:type", _angular_core.QueryList)
 ], exports.TdNavigationDrawerComponent.prototype, "_drawerMenu", void 0);
-__decorate$48([
+__decorate$49([
     _angular_core.ContentChildren(exports.TdNavigationDrawerToolbarDirective),
     __metadata$35("design:type", _angular_core.QueryList)
 ], exports.TdNavigationDrawerComponent.prototype, "_toolbar", void 0);
-__decorate$48([
+__decorate$49([
     _angular_core.Input('sidenavTitle'),
     __metadata$35("design:type", String)
 ], exports.TdNavigationDrawerComponent.prototype, "sidenavTitle", void 0);
-__decorate$48([
+__decorate$49([
     _angular_core.Input('icon'),
     __metadata$35("design:type", String)
 ], exports.TdNavigationDrawerComponent.prototype, "icon", void 0);
-__decorate$48([
+__decorate$49([
     _angular_core.Input('logo'),
     __metadata$35("design:type", String)
 ], exports.TdNavigationDrawerComponent.prototype, "logo", void 0);
-__decorate$48([
+__decorate$49([
     _angular_core.Input('color'),
     __metadata$35("design:type", String)
 ], exports.TdNavigationDrawerComponent.prototype, "color", void 0);
-__decorate$48([
+__decorate$49([
     _angular_core.Input('navigationRoute'),
     __metadata$35("design:type", String)
 ], exports.TdNavigationDrawerComponent.prototype, "navigationRoute", void 0);
-__decorate$48([
+__decorate$49([
     _angular_core.Input('backgroundUrl')
     // TODO angular complains with warnings if this is type [SafeResourceUrl].. so we will make it <any> until its fixed.
     // https://github.com/webpack/webpack/issues/2977
@@ -5744,15 +6553,15 @@ __decorate$48([
     __metadata$35("design:type", Object),
     __metadata$35("design:paramtypes", [Object])
 ], exports.TdNavigationDrawerComponent.prototype, "backgroundUrl", null);
-__decorate$48([
+__decorate$49([
     _angular_core.Input('name'),
     __metadata$35("design:type", String)
 ], exports.TdNavigationDrawerComponent.prototype, "name", void 0);
-__decorate$48([
+__decorate$49([
     _angular_core.Input('email'),
     __metadata$35("design:type", String)
 ], exports.TdNavigationDrawerComponent.prototype, "email", void 0);
-exports.TdNavigationDrawerComponent = __decorate$48([
+exports.TdNavigationDrawerComponent = __decorate$49([
     _angular_core.Component({
         selector: 'td-navigation-drawer',
         styles: [":host { width: 100%; } :host md-toolbar { padding: 16px; } :host md-toolbar.td-toolbar-background { background-repeat: no-repeat; background-size: cover; } :host md-toolbar /deep/ > .mat-toolbar-layout > md-toolbar-row { height: auto !important; } :host > div { overflow: hidden; } "],
@@ -5766,7 +6575,7 @@ exports.TdNavigationDrawerComponent = __decorate$48([
         _angular_platformBrowser.DomSanitizer])
 ], exports.TdNavigationDrawerComponent);
 
-var __decorate$37 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$38 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -5797,7 +6606,7 @@ exports.CovalentLayoutModule = (function () {
     }
     return CovalentLayoutModule;
 }());
-exports.CovalentLayoutModule = __decorate$37([
+exports.CovalentLayoutModule = __decorate$38([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
@@ -5818,7 +6627,7 @@ exports.CovalentLayoutModule = __decorate$37([
     })
 ], exports.CovalentLayoutModule);
 
-var __decorate$51 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$52 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -5981,7 +6790,7 @@ var TdLoadingComponent = (function () {
     };
     return TdLoadingComponent;
 }());
-TdLoadingComponent = __decorate$51([
+TdLoadingComponent = __decorate$52([
     _angular_core.Component({
         selector: 'td-loading',
         styles: [".td-loading-wrapper { position: relative; display: block; } .td-loading-wrapper.td-fullscreen { position: inherit; } .td-loading-wrapper.td-overlay .td-loading { position: absolute; margin: 0; top: 0; left: 0; right: 0; bottom: 0; z-index: 1000; } .td-loading-wrapper.td-overlay .td-loading md-progress-bar { position: absolute; top: 0; left: 0; right: 0; } "],
@@ -5993,7 +6802,7 @@ TdLoadingComponent = __decorate$51([
     __metadata$37("design:paramtypes", [_angular_core.ChangeDetectorRef])
 ], TdLoadingComponent);
 
-var __decorate$52 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$53 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -6168,7 +6977,7 @@ var TdLoadingFactory = (function () {
     };
     return TdLoadingFactory;
 }());
-TdLoadingFactory = __decorate$52([
+TdLoadingFactory = __decorate$53([
     _angular_core.Injectable(),
     __metadata$38("design:paramtypes", [_angular_core.ComponentFactoryResolver,
         _angular_material.Overlay,
@@ -6194,7 +7003,7 @@ var __extends$11 = (window && window.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __decorate$50 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$51 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -6405,7 +7214,7 @@ exports.TdLoadingService = (function () {
     };
     return TdLoadingService;
 }());
-exports.TdLoadingService = __decorate$50([
+exports.TdLoadingService = __decorate$51([
     _angular_core.Injectable(),
     __metadata$36("design:paramtypes", [TdLoadingFactory])
 ], exports.TdLoadingService);
@@ -6419,7 +7228,7 @@ var LOADING_PROVIDER = {
     useFactory: LOADING_PROVIDER_FACTORY,
 };
 
-var __decorate$53 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$54 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -6581,36 +7390,36 @@ var TdLoadingDirective = (function () {
     };
     return TdLoadingDirective;
 }());
-__decorate$53([
+__decorate$54([
     _angular_core.Input('tdLoading'),
     __metadata$39("design:type", String),
     __metadata$39("design:paramtypes", [String])
 ], TdLoadingDirective.prototype, "name", null);
-__decorate$53([
+__decorate$54([
     _angular_core.Input('tdLoadingUntil'),
     __metadata$39("design:type", Object),
     __metadata$39("design:paramtypes", [Object])
 ], TdLoadingDirective.prototype, "until", null);
-__decorate$53([
+__decorate$54([
     _angular_core.Input('tdLoadingType'),
     __metadata$39("design:type", Number),
     __metadata$39("design:paramtypes", [Number])
 ], TdLoadingDirective.prototype, "type", null);
-__decorate$53([
+__decorate$54([
     _angular_core.Input('tdLoadingMode'),
     __metadata$39("design:type", Number),
     __metadata$39("design:paramtypes", [Number])
 ], TdLoadingDirective.prototype, "mode", null);
-__decorate$53([
+__decorate$54([
     _angular_core.Input('tdLoadingStrategy'),
     __metadata$39("design:type", Number),
     __metadata$39("design:paramtypes", [Number])
 ], TdLoadingDirective.prototype, "strategy", null);
-__decorate$53([
+__decorate$54([
     _angular_core.Input('tdLoadingColor'),
     __metadata$39("design:type", String)
 ], TdLoadingDirective.prototype, "color", void 0);
-TdLoadingDirective = __decorate$53([
+TdLoadingDirective = __decorate$54([
     _angular_core.Directive({
         selector: '[tdLoading]',
     }),
@@ -6619,7 +7428,7 @@ TdLoadingDirective = __decorate$53([
         exports.TdLoadingService])
 ], TdLoadingDirective);
 
-var __decorate$49 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$50 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -6637,7 +7446,7 @@ exports.CovalentLoadingModule = (function () {
     }
     return CovalentLoadingModule;
 }());
-exports.CovalentLoadingModule = __decorate$49([
+exports.CovalentLoadingModule = __decorate$50([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
@@ -6662,7 +7471,7 @@ exports.CovalentLoadingModule = __decorate$49([
     })
 ], exports.CovalentLoadingModule);
 
-var __decorate$55 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$56 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -6766,7 +7575,7 @@ exports.TdMediaService = (function () {
     };
     return TdMediaService;
 }());
-exports.TdMediaService = __decorate$55([
+exports.TdMediaService = __decorate$56([
     _angular_core.Injectable(),
     __metadata$40("design:paramtypes", [_angular_core.NgZone])
 ], exports.TdMediaService);
@@ -6780,7 +7589,7 @@ var MEDIA_PROVIDER = {
     useFactory: MEDIA_PROVIDER_FACTORY,
 };
 
-var __decorate$56 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$57 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -6898,34 +7707,34 @@ exports.TdMediaToggleDirective = (function () {
     };
     return TdMediaToggleDirective;
 }());
-__decorate$56([
+__decorate$57([
     _angular_core.Input('tdMediaToggle'),
     __metadata$41("design:type", String),
     __metadata$41("design:paramtypes", [String])
 ], exports.TdMediaToggleDirective.prototype, "query", null);
-__decorate$56([
+__decorate$57([
     _angular_core.Input('mediaAttributes'),
     __metadata$41("design:type", Object),
     __metadata$41("design:paramtypes", [Object])
 ], exports.TdMediaToggleDirective.prototype, "attributes", null);
-__decorate$56([
+__decorate$57([
     _angular_core.Input('mediaClasses'),
     __metadata$41("design:type", Array),
     __metadata$41("design:paramtypes", [Array])
 ], exports.TdMediaToggleDirective.prototype, "classes", null);
-__decorate$56([
+__decorate$57([
     _angular_core.Input('mediaStyles'),
     __metadata$41("design:type", Object),
     __metadata$41("design:paramtypes", [Object])
 ], exports.TdMediaToggleDirective.prototype, "styles", null);
-exports.TdMediaToggleDirective = __decorate$56([
+exports.TdMediaToggleDirective = __decorate$57([
     _angular_core.Directive({
         selector: '[tdMediaToggle]',
     }),
     __metadata$41("design:paramtypes", [_angular_core.Renderer2, _angular_core.ElementRef, exports.TdMediaService])
 ], exports.TdMediaToggleDirective);
 
-var __decorate$54 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$55 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -6939,7 +7748,7 @@ exports.CovalentMediaModule = (function () {
     }
     return CovalentMediaModule;
 }());
-exports.CovalentMediaModule = __decorate$54([
+exports.CovalentMediaModule = __decorate$55([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
@@ -6956,7 +7765,7 @@ exports.CovalentMediaModule = __decorate$54([
     })
 ], exports.CovalentMediaModule);
 
-var __decorate$58 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$59 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -6967,7 +7776,7 @@ exports.TdMenuComponent = (function () {
     }
     return TdMenuComponent;
 }());
-exports.TdMenuComponent = __decorate$58([
+exports.TdMenuComponent = __decorate$59([
     _angular_core.Component({
         selector: 'td-menu',
         template: "<div layout=\"column\"> <ng-content select=\"[td-menu-header]\"></ng-content> <md-divider></md-divider> <div class=\"td-menu-content\"> <ng-content></ng-content> </div> <md-divider></md-divider> <ng-content select=\"[td-menu-footer]\"></ng-content> </div>",
@@ -6975,7 +7784,7 @@ exports.TdMenuComponent = __decorate$58([
     })
 ], exports.TdMenuComponent);
 
-var __decorate$57 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$58 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -6989,7 +7798,7 @@ exports.CovalentMenuModule = (function () {
     }
     return CovalentMenuModule;
 }());
-exports.CovalentMenuModule = __decorate$57([
+exports.CovalentMenuModule = __decorate$58([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
@@ -7005,7 +7814,7 @@ exports.CovalentMenuModule = __decorate$57([
     })
 ], exports.CovalentMenuModule);
 
-var __decorate$60 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$61 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -7020,7 +7829,7 @@ var TdMessageContainerDirective = (function () {
     }
     return TdMessageContainerDirective;
 }());
-TdMessageContainerDirective = __decorate$60([
+TdMessageContainerDirective = __decorate$61([
     _angular_core.Directive({
         selector: '[tdMessageContainer]',
     }),
@@ -7207,58 +8016,58 @@ exports.TdMessageComponent = (function () {
     };
     return TdMessageComponent;
 }());
-__decorate$60([
+__decorate$61([
     _angular_core.ViewChild(TdMessageContainerDirective),
     __metadata$42("design:type", TdMessageContainerDirective)
 ], exports.TdMessageComponent.prototype, "_childElement", void 0);
-__decorate$60([
+__decorate$61([
     _angular_core.ViewChild(_angular_core.TemplateRef),
     __metadata$42("design:type", _angular_core.TemplateRef)
 ], exports.TdMessageComponent.prototype, "_template", void 0);
-__decorate$60([
+__decorate$61([
     _angular_core.HostBinding('@tdFadeInOut'),
     __metadata$42("design:type", Boolean),
     __metadata$42("design:paramtypes", [])
 ], exports.TdMessageComponent.prototype, "fadeAnimation", null);
-__decorate$60([
+__decorate$61([
     _angular_core.HostBinding('@tdCollapse'),
     __metadata$42("design:type", Boolean),
     __metadata$42("design:paramtypes", [])
 ], exports.TdMessageComponent.prototype, "collapsedAnimation", null);
-__decorate$60([
+__decorate$61([
     _angular_core.HostBinding('style.display'),
     __metadata$42("design:type", String),
     __metadata$42("design:paramtypes", [])
 ], exports.TdMessageComponent.prototype, "hidden", null);
-__decorate$60([
+__decorate$61([
     _angular_core.Input('label'),
     __metadata$42("design:type", String)
 ], exports.TdMessageComponent.prototype, "label", void 0);
-__decorate$60([
+__decorate$61([
     _angular_core.Input('sublabel'),
     __metadata$42("design:type", String)
 ], exports.TdMessageComponent.prototype, "sublabel", void 0);
-__decorate$60([
+__decorate$61([
     _angular_core.Input('icon'),
     __metadata$42("design:type", String)
 ], exports.TdMessageComponent.prototype, "icon", void 0);
-__decorate$60([
+__decorate$61([
     _angular_core.Input('color'),
     __metadata$42("design:type", String),
     __metadata$42("design:paramtypes", [String])
 ], exports.TdMessageComponent.prototype, "color", null);
-__decorate$60([
+__decorate$61([
     _angular_core.Input('opened'),
     __metadata$42("design:type", Boolean),
     __metadata$42("design:paramtypes", [Boolean])
 ], exports.TdMessageComponent.prototype, "opened", null);
-__decorate$60([
+__decorate$61([
     _angular_core.HostListener('@tdCollapse.done'),
     __metadata$42("design:type", Function),
     __metadata$42("design:paramtypes", []),
     __metadata$42("design:returntype", void 0)
 ], exports.TdMessageComponent.prototype, "animationDoneListener", null);
-exports.TdMessageComponent = __decorate$60([
+exports.TdMessageComponent = __decorate$61([
     _angular_core.Component({
         selector: 'td-message',
         template: "<div tdMessageContainer></div> <ng-template> <div class=\"pad-left pad-right td-message-wrapper\" layout=\"row\" layout-align=\"center center\"> <md-icon class=\"push-right\">{{icon}}</md-icon> <div> <div *ngIf=\"label\" class=\"td-message-label md-body-2\">{{label}}</div> <div *ngIf=\"sublabel\" class=\"td-message-sublabel md-body-1\">{{sublabel}}</div> </div> <span flex></span> <ng-content select=\"[td-message-actions]\"></ng-content> </div> </ng-template>",
@@ -7273,7 +8082,7 @@ exports.TdMessageComponent = __decorate$60([
         _angular_core.ElementRef])
 ], exports.TdMessageComponent);
 
-var __decorate$59 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$60 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -7288,7 +8097,7 @@ exports.CovalentMessageModule = (function () {
     }
     return CovalentMessageModule;
 }());
-exports.CovalentMessageModule = __decorate$59([
+exports.CovalentMessageModule = __decorate$60([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
@@ -7303,7 +8112,7 @@ exports.CovalentMessageModule = __decorate$59([
     })
 ], exports.CovalentMessageModule);
 
-var __decorate$62 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$63 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -7439,35 +8248,35 @@ exports.TdNotificationCountComponent = (function () {
     };
     return TdNotificationCountComponent;
 }());
-__decorate$62([
+__decorate$63([
     _angular_core.ViewChild('content'),
     __metadata$43("design:type", _angular_core.ElementRef)
 ], exports.TdNotificationCountComponent.prototype, "content", void 0);
-__decorate$62([
+__decorate$63([
     _angular_core.Input(),
     __metadata$43("design:type", String)
 ], exports.TdNotificationCountComponent.prototype, "color", void 0);
-__decorate$62([
+__decorate$63([
     _angular_core.Input(),
     __metadata$43("design:type", Number),
     __metadata$43("design:paramtypes", [Number])
 ], exports.TdNotificationCountComponent.prototype, "positionX", null);
-__decorate$62([
+__decorate$63([
     _angular_core.Input(),
     __metadata$43("design:type", Number),
     __metadata$43("design:paramtypes", [Number])
 ], exports.TdNotificationCountComponent.prototype, "positionY", null);
-__decorate$62([
+__decorate$63([
     _angular_core.Input(),
     __metadata$43("design:type", Object),
     __metadata$43("design:paramtypes", [Object])
 ], exports.TdNotificationCountComponent.prototype, "notifications", null);
-__decorate$62([
+__decorate$63([
     _angular_core.HostBinding('class.td-notification-hidden'),
     __metadata$43("design:type", Boolean),
     __metadata$43("design:paramtypes", [])
 ], exports.TdNotificationCountComponent.prototype, "hideHost", null);
-exports.TdNotificationCountComponent = __decorate$62([
+exports.TdNotificationCountComponent = __decorate$63([
     _angular_core.Component({
         selector: 'td-notification-count',
         styles: [":host { position: relative; display: block; text-align: center; min-width: 40px; height: 40px; } :host.td-notification-hidden { min-width: 0; } .td-notification-count { line-height: 21px; width: 20px; height: 20px; position: absolute; font-size: 10px; font-weight: 600; border-radius: 50%; z-index: 1; } .td-notification-count.td-notification-center-x { margin-left: auto; margin-right: auto; left: 0px; right: 0px; } .td-notification-count.td-notification-center-y { margin-top: auto; margin-bottom: auto; top: 0px; bottom: 0px; } .td-notification-count.td-notification-top { top: 0px; } .td-notification-count.td-notification-bottom { bottom: 0px; } .td-notification-count.td-notification-before { left: 0px; } .td-notification-count.td-notification-after { right: 0px; } .td-notification-count.td-notification-no-count { width: 8px; height: 8px; } .td-notification-count.td-notification-no-count.td-notification-top { top: 8px; } .td-notification-count.td-notification-no-count.td-notification-bottom { bottom: 8px; } .td-notification-count.td-notification-no-count.td-notification-before { left: 8px; } .td-notification-count.td-notification-no-count.td-notification-after { right: 8px; } /deep/ [dir='rtl'] .td-notification-count.td-notification-before { right: 0px; left: auto; } /deep/ [dir='rtl'] .td-notification-count.td-notification-after { left: 0px; right: auto; } /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-before { right: 8px; left: auto; } /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-after { left: 8px; right: auto; } .td-notification-content, .td-notification-content /deep/ > * { line-height: 40px; } "],
@@ -7476,7 +8285,7 @@ exports.TdNotificationCountComponent = __decorate$62([
     })
 ], exports.TdNotificationCountComponent);
 
-var __decorate$61 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$62 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -7490,7 +8299,7 @@ exports.CovalentNotificationsModule = (function () {
     }
     return CovalentNotificationsModule;
 }());
-exports.CovalentNotificationsModule = __decorate$61([
+exports.CovalentNotificationsModule = __decorate$62([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
@@ -7504,7 +8313,7 @@ exports.CovalentNotificationsModule = __decorate$61([
     })
 ], exports.CovalentNotificationsModule);
 
-var __decorate$64 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$65 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -7770,34 +8579,34 @@ exports.TdPagingBarComponent = (function () {
     };
     return TdPagingBarComponent;
 }());
-__decorate$64([
+__decorate$65([
     _angular_core.Input('firstLast'),
     __metadata$44("design:type", Boolean)
 ], exports.TdPagingBarComponent.prototype, "firstLast", void 0);
-__decorate$64([
+__decorate$65([
     _angular_core.Input('initialPage'),
     __metadata$44("design:type", Number)
 ], exports.TdPagingBarComponent.prototype, "initialPage", void 0);
-__decorate$64([
+__decorate$65([
     _angular_core.Input('pageLinkCount'),
     __metadata$44("design:type", Number),
     __metadata$44("design:paramtypes", [Number])
 ], exports.TdPagingBarComponent.prototype, "pageLinkCount", null);
-__decorate$64([
+__decorate$65([
     _angular_core.Input('pageSize'),
     __metadata$44("design:type", Number),
     __metadata$44("design:paramtypes", [Number])
 ], exports.TdPagingBarComponent.prototype, "pageSize", null);
-__decorate$64([
+__decorate$65([
     _angular_core.Input('total'),
     __metadata$44("design:type", Number),
     __metadata$44("design:paramtypes", [Number])
 ], exports.TdPagingBarComponent.prototype, "total", null);
-__decorate$64([
+__decorate$65([
     _angular_core.Output('change'),
     __metadata$44("design:type", _angular_core.EventEmitter)
 ], exports.TdPagingBarComponent.prototype, "onChange", void 0);
-exports.TdPagingBarComponent = __decorate$64([
+exports.TdPagingBarComponent = __decorate$65([
     _angular_core.Component({
         selector: 'td-paging-bar',
         template: "<div layout=\"row\" layout-align=\"end center\" class=\"md-caption td-paging-bar\" (change)=\"$event.stopPropagation()\" > <ng-content></ng-content> <div class=\"td-paging-bar-navigation\"> <button md-icon-button class=\"td-paging-bar-first-page\" type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMinPage()\" (click)=\"firstPage()\"> <md-icon>{{ isRTL ? 'skip_next' : 'skip_previous' }}</md-icon> </button> <button md-icon-button class=\"td-paging-bar-prev-page\" type=\"button\" [disabled]=\"isMinPage()\" (click)=\"prevPage()\"> <md-icon>{{ isRTL ? 'navigate_next' : 'navigate_before' }}</md-icon> </button> <ng-template *ngIf=\"pageLinkCount > 0\" let-link let-index=\"index\" ngFor [ngForOf]=\"pageLinks\"> <button class=\"td-paging-bar-link-page\" md-icon-button type=\"button\" [color]=\"page === link ? 'accent' : ''\" (click)=\"navigateToPage(link)\">{{link}}</button> </ng-template> <button md-icon-button class=\"td-paging-bar-next-page\" type=\"button\" [disabled]=\"isMaxPage()\" (click)=\"nextPage()\"> <md-icon>{{ isRTL ? 'navigate_before' : 'navigate_next' }}</md-icon> </button> <button md-icon-button class=\"td-paging-bar-last-page\" type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMaxPage()\" (click)=\"lastPage()\"> <md-icon>{{ isRTL ? 'skip_previous' : 'skip_next' }}</md-icon> </button> </div> </div>",
@@ -7807,7 +8616,7 @@ exports.TdPagingBarComponent = __decorate$64([
     __metadata$44("design:paramtypes", [_angular_cdk.Dir])
 ], exports.TdPagingBarComponent);
 
-var __decorate$63 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$64 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -7818,7 +8627,7 @@ exports.CovalentPagingModule = (function () {
     }
     return CovalentPagingModule;
 }());
-exports.CovalentPagingModule = __decorate$63([
+exports.CovalentPagingModule = __decorate$64([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
@@ -7834,7 +8643,7 @@ exports.CovalentPagingModule = __decorate$63([
     })
 ], exports.CovalentPagingModule);
 
-var __decorate$66 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$67 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -7923,39 +8732,39 @@ exports.TdSearchInputComponent = (function () {
     };
     return TdSearchInputComponent;
 }());
-__decorate$66([
+__decorate$67([
     _angular_core.ViewChild(_angular_material.MdInputDirective),
     __metadata$45("design:type", _angular_material.MdInputDirective)
 ], exports.TdSearchInputComponent.prototype, "_input", void 0);
-__decorate$66([
+__decorate$67([
     _angular_core.Input('showUnderline'),
     __metadata$45("design:type", Boolean)
 ], exports.TdSearchInputComponent.prototype, "showUnderline", void 0);
-__decorate$66([
+__decorate$67([
     _angular_core.Input('debounce'),
     __metadata$45("design:type", Number)
 ], exports.TdSearchInputComponent.prototype, "debounce", void 0);
-__decorate$66([
+__decorate$67([
     _angular_core.Input('placeholder'),
     __metadata$45("design:type", String)
 ], exports.TdSearchInputComponent.prototype, "placeholder", void 0);
-__decorate$66([
+__decorate$67([
     _angular_core.Output('searchDebounce'),
     __metadata$45("design:type", _angular_core.EventEmitter)
 ], exports.TdSearchInputComponent.prototype, "onSearchDebounce", void 0);
-__decorate$66([
+__decorate$67([
     _angular_core.Output('search'),
     __metadata$45("design:type", _angular_core.EventEmitter)
 ], exports.TdSearchInputComponent.prototype, "onSearch", void 0);
-__decorate$66([
+__decorate$67([
     _angular_core.Output('clear'),
     __metadata$45("design:type", _angular_core.EventEmitter)
 ], exports.TdSearchInputComponent.prototype, "onClear", void 0);
-__decorate$66([
+__decorate$67([
     _angular_core.Output('blur'),
     __metadata$45("design:type", _angular_core.EventEmitter)
 ], exports.TdSearchInputComponent.prototype, "onBlur", void 0);
-exports.TdSearchInputComponent = __decorate$66([
+exports.TdSearchInputComponent = __decorate$67([
     _angular_core.Component({
         selector: 'td-search-input',
         template: "<div class=\"td-search-input\" layout=\"row\" layout-align=\"end center\"> <md-input-container [class.mat-hide-underline]=\"!showUnderline\" floatPlaceholder=\"never\" flex> <input mdInput #searchElement type=\"search\" [(ngModel)]=\"value\" [placeholder]=\"placeholder\" (blur)=\"handleBlur()\" (search)=\"stopPropagation($event)\" (keyup.enter)=\"handleSearch($event)\"/> </md-input-container> <button md-icon-button type=\"button\" [@searchState]=\"(searchElement.value ?  'show' : (isRTL ? 'hide-left' : 'hide-right'))\" (click)=\"clearSearch()\" flex=\"none\"> <md-icon>cancel</md-icon> </button> </div>",
@@ -7983,7 +8792,7 @@ exports.TdSearchInputComponent = __decorate$66([
     __metadata$45("design:paramtypes", [_angular_cdk.Dir])
 ], exports.TdSearchInputComponent);
 
-var __decorate$67 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$68 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -8072,43 +8881,43 @@ exports.TdSearchBoxComponent = (function () {
     };
     return TdSearchBoxComponent;
 }());
-__decorate$67([
+__decorate$68([
     _angular_core.ViewChild(exports.TdSearchInputComponent),
     __metadata$46("design:type", exports.TdSearchInputComponent)
 ], exports.TdSearchBoxComponent.prototype, "_searchInput", void 0);
-__decorate$67([
+__decorate$68([
     _angular_core.Input('backIcon'),
     __metadata$46("design:type", String)
 ], exports.TdSearchBoxComponent.prototype, "backIcon", void 0);
-__decorate$67([
+__decorate$68([
     _angular_core.Input('showUnderline'),
     __metadata$46("design:type", Boolean)
 ], exports.TdSearchBoxComponent.prototype, "showUnderline", void 0);
-__decorate$67([
+__decorate$68([
     _angular_core.Input('debounce'),
     __metadata$46("design:type", Number)
 ], exports.TdSearchBoxComponent.prototype, "debounce", void 0);
-__decorate$67([
+__decorate$68([
     _angular_core.Input('alwaysVisible'),
     __metadata$46("design:type", Boolean)
 ], exports.TdSearchBoxComponent.prototype, "alwaysVisible", void 0);
-__decorate$67([
+__decorate$68([
     _angular_core.Input('placeholder'),
     __metadata$46("design:type", String)
 ], exports.TdSearchBoxComponent.prototype, "placeholder", void 0);
-__decorate$67([
+__decorate$68([
     _angular_core.Output('searchDebounce'),
     __metadata$46("design:type", _angular_core.EventEmitter)
 ], exports.TdSearchBoxComponent.prototype, "onSearchDebounce", void 0);
-__decorate$67([
+__decorate$68([
     _angular_core.Output('search'),
     __metadata$46("design:type", _angular_core.EventEmitter)
 ], exports.TdSearchBoxComponent.prototype, "onSearch", void 0);
-__decorate$67([
+__decorate$68([
     _angular_core.Output('clear'),
     __metadata$46("design:type", _angular_core.EventEmitter)
 ], exports.TdSearchBoxComponent.prototype, "onClear", void 0);
-exports.TdSearchBoxComponent = __decorate$67([
+exports.TdSearchBoxComponent = __decorate$68([
     _angular_core.Component({
         selector: 'td-search-box',
         template: "<div class=\"td-search-box\" layout=\"row\" layout-align=\"end center\"> <button md-icon-button type=\"button\" class=\"td-search-icon\" flex=\"none\" (click)=\"searchClicked()\"> <md-icon *ngIf=\"searchVisible && !alwaysVisible\">{{backIcon}}</md-icon> <md-icon *ngIf=\"!searchVisible || alwaysVisible\">search</md-icon> </button> <td-search-input #searchInput [@inputState]=\"alwaysVisible || searchVisible\" [debounce]=\"debounce\" [showUnderline]=\"showUnderline\" [placeholder]=\"placeholder\" (searchDebounce)=\"handleSearchDebounce($event)\" (search)=\"handleSearch($event)\" (clear)=\"handleClear(); toggleVisibility()\"> </td-search-input> </div>",
@@ -8130,7 +8939,7 @@ exports.TdSearchBoxComponent = __decorate$67([
     })
 ], exports.TdSearchBoxComponent);
 
-var __decorate$65 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$66 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -8141,7 +8950,7 @@ exports.CovalentSearchModule = (function () {
     }
     return CovalentSearchModule;
 }());
-exports.CovalentSearchModule = __decorate$65([
+exports.CovalentSearchModule = __decorate$66([
     _angular_core.NgModule({
         imports: [
             _angular_forms.FormsModule,
@@ -8171,7 +8980,7 @@ var __extends$12 = (window && window.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __decorate$70 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$71 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -8193,7 +9002,7 @@ var TdStepLabelDirective = (function (_super) {
     }
     return TdStepLabelDirective;
 }(_angular_cdk.TemplatePortalDirective));
-TdStepLabelDirective = __decorate$70([
+TdStepLabelDirective = __decorate$71([
     _angular_core.Directive({
         selector: '[td-step-label]ng-template',
     }),
@@ -8206,7 +9015,7 @@ var TdStepActionsDirective = (function (_super) {
     }
     return TdStepActionsDirective;
 }(_angular_cdk.TemplatePortalDirective));
-TdStepActionsDirective = __decorate$70([
+TdStepActionsDirective = __decorate$71([
     _angular_core.Directive({
         selector: '[td-step-actions]ng-template',
     }),
@@ -8219,7 +9028,7 @@ var TdStepSummaryDirective = (function (_super) {
     }
     return TdStepSummaryDirective;
 }(_angular_cdk.TemplatePortalDirective));
-TdStepSummaryDirective = __decorate$70([
+TdStepSummaryDirective = __decorate$71([
     _angular_core.Directive({
         selector: '[td-step-summary]ng-template',
     }),
@@ -8363,49 +9172,49 @@ exports.TdStepComponent = (function (_super) {
     };
     return TdStepComponent;
 }(_TdStepMixinBase));
-__decorate$70([
+__decorate$71([
     _angular_core.ViewChild(_angular_core.TemplateRef),
     __metadata$48("design:type", _angular_core.TemplateRef)
 ], exports.TdStepComponent.prototype, "_content", void 0);
-__decorate$70([
+__decorate$71([
     _angular_core.ContentChild(TdStepLabelDirective),
     __metadata$48("design:type", TdStepLabelDirective)
 ], exports.TdStepComponent.prototype, "stepLabel", void 0);
-__decorate$70([
+__decorate$71([
     _angular_core.ContentChild(TdStepActionsDirective),
     __metadata$48("design:type", TdStepActionsDirective)
 ], exports.TdStepComponent.prototype, "stepActions", void 0);
-__decorate$70([
+__decorate$71([
     _angular_core.ContentChild(TdStepSummaryDirective),
     __metadata$48("design:type", TdStepSummaryDirective)
 ], exports.TdStepComponent.prototype, "stepSummary", void 0);
-__decorate$70([
+__decorate$71([
     _angular_core.Input('label'),
     __metadata$48("design:type", String)
 ], exports.TdStepComponent.prototype, "label", void 0);
-__decorate$70([
+__decorate$71([
     _angular_core.Input('sublabel'),
     __metadata$48("design:type", String)
 ], exports.TdStepComponent.prototype, "sublabel", void 0);
-__decorate$70([
+__decorate$71([
     _angular_core.Input('active'),
     __metadata$48("design:type", Boolean),
     __metadata$48("design:paramtypes", [Boolean])
 ], exports.TdStepComponent.prototype, "active", null);
-__decorate$70([
+__decorate$71([
     _angular_core.Input('state'),
     __metadata$48("design:type", Number),
     __metadata$48("design:paramtypes", [Number])
 ], exports.TdStepComponent.prototype, "state", null);
-__decorate$70([
+__decorate$71([
     _angular_core.Output('activated'),
     __metadata$48("design:type", _angular_core.EventEmitter)
 ], exports.TdStepComponent.prototype, "onActivated", void 0);
-__decorate$70([
+__decorate$71([
     _angular_core.Output('deactivated'),
     __metadata$48("design:type", _angular_core.EventEmitter)
 ], exports.TdStepComponent.prototype, "onDeactivated", void 0);
-exports.TdStepComponent = __decorate$70([
+exports.TdStepComponent = __decorate$71([
     _angular_core.Component({
         selector: 'td-step',
         inputs: ['disabled', 'disableRipple'],
@@ -8414,7 +9223,7 @@ exports.TdStepComponent = __decorate$70([
     __metadata$48("design:paramtypes", [_angular_core.ViewContainerRef])
 ], exports.TdStepComponent);
 
-var __decorate$69 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$70 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -8550,21 +9359,21 @@ exports.TdStepsComponent = (function () {
     };
     return TdStepsComponent;
 }());
-__decorate$69([
+__decorate$70([
     _angular_core.ContentChildren(exports.TdStepComponent),
     __metadata$47("design:type", _angular_core.QueryList),
     __metadata$47("design:paramtypes", [_angular_core.QueryList])
 ], exports.TdStepsComponent.prototype, "stepsContent", null);
-__decorate$69([
+__decorate$70([
     _angular_core.Input('mode'),
     __metadata$47("design:type", Number),
     __metadata$47("design:paramtypes", [Number])
 ], exports.TdStepsComponent.prototype, "mode", null);
-__decorate$69([
+__decorate$70([
     _angular_core.Output('stepChange'),
     __metadata$47("design:type", _angular_core.EventEmitter)
 ], exports.TdStepsComponent.prototype, "onStepChange", void 0);
-exports.TdStepsComponent = __decorate$69([
+exports.TdStepsComponent = __decorate$70([
     _angular_core.Component({
         selector: 'td-steps',
         styles: [".td-line-wrapper, .td-step { position: relative; } .td-line-wrapper { width: 24px; min-height: 1px; } .td-horizontal-line { border-bottom-width: 1px; border-bottom-style: solid; height: 1px; position: relative; top: 36px; min-width: 15px; } /deep/ :not([dir='rtl']) .td-horizontal-line { left: -6px; right: -3px; } /deep/ [dir='rtl'] .td-horizontal-line { left: -3px; right: -6px; } .td-vertical-line { position: absolute; bottom: -16px; top: -16px; border-left-width: 1px; border-left-style: solid; } /deep/ :not([dir='rtl']) .td-vertical-line { left: 20px; right: auto; } /deep/ [dir='rtl'] .td-vertical-line { left: auto; right: 20px; } "],
@@ -8582,7 +9391,7 @@ var __extends$13 = (window && window.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __decorate$71 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$72 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -8624,19 +9433,19 @@ var TdStepHeaderComponent = (function (_super) {
     };
     return TdStepHeaderComponent;
 }(_TdStepHeaderMixinBase));
-__decorate$71([
+__decorate$72([
     _angular_core.Input('number'),
     __metadata$49("design:type", Number)
 ], TdStepHeaderComponent.prototype, "number", void 0);
-__decorate$71([
+__decorate$72([
     _angular_core.Input('active'),
     __metadata$49("design:type", Boolean)
 ], TdStepHeaderComponent.prototype, "active", void 0);
-__decorate$71([
+__decorate$72([
     _angular_core.Input('state'),
     __metadata$49("design:type", Number)
 ], TdStepHeaderComponent.prototype, "state", void 0);
-TdStepHeaderComponent = __decorate$71([
+TdStepHeaderComponent = __decorate$72([
     _angular_core.Component({
         selector: 'td-step-header',
         inputs: ['disabled', 'disableRipple'],
@@ -8645,7 +9454,7 @@ TdStepHeaderComponent = __decorate$71([
     })
 ], TdStepHeaderComponent);
 
-var __decorate$72 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$73 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -8671,15 +9480,15 @@ var TdStepBodyComponent = (function () {
     };
     return TdStepBodyComponent;
 }());
-__decorate$72([
+__decorate$73([
     _angular_core.Input('active'),
     __metadata$50("design:type", Boolean)
 ], TdStepBodyComponent.prototype, "active", void 0);
-__decorate$72([
+__decorate$73([
     _angular_core.Input('state'),
     __metadata$50("design:type", Number)
 ], TdStepBodyComponent.prototype, "state", void 0);
-TdStepBodyComponent = __decorate$72([
+TdStepBodyComponent = __decorate$73([
     _angular_core.Component({
         selector: 'td-step-body',
         styles: [".td-step-body { overflow-x: hidden; } .td-step-body .td-step-content { overflow-x: auto; } "],
@@ -8690,7 +9499,7 @@ TdStepBodyComponent = __decorate$72([
     })
 ], TdStepBodyComponent);
 
-var __decorate$68 = (window && window.__decorate) || function (decorators, target, key, desc) {
+var __decorate$69 = (window && window.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
@@ -8711,7 +9520,7 @@ exports.CovalentStepsModule = (function () {
     }
     return CovalentStepsModule;
 }());
-exports.CovalentStepsModule = __decorate$68([
+exports.CovalentStepsModule = __decorate$69([
     _angular_core.NgModule({
         imports: [
             _angular_common.CommonModule,
