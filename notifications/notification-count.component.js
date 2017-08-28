@@ -1,12 +1,4 @@
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
+import * as tslib_1 from "tslib";
 import { Component, Input, HostBinding, ChangeDetectionStrategy, ViewChild, ElementRef } from '@angular/core';
 export var TdNotificationCountPositionY;
 (function (TdNotificationCountPositionY) {
@@ -133,43 +125,43 @@ var TdNotificationCountComponent = (function () {
         }
         return false;
     };
+    tslib_1.__decorate([
+        ViewChild('content'),
+        tslib_1.__metadata("design:type", ElementRef)
+    ], TdNotificationCountComponent.prototype, "content", void 0);
+    tslib_1.__decorate([
+        Input(),
+        tslib_1.__metadata("design:type", String)
+    ], TdNotificationCountComponent.prototype, "color", void 0);
+    tslib_1.__decorate([
+        Input(),
+        tslib_1.__metadata("design:type", Number),
+        tslib_1.__metadata("design:paramtypes", [Number])
+    ], TdNotificationCountComponent.prototype, "positionX", null);
+    tslib_1.__decorate([
+        Input(),
+        tslib_1.__metadata("design:type", Number),
+        tslib_1.__metadata("design:paramtypes", [Number])
+    ], TdNotificationCountComponent.prototype, "positionY", null);
+    tslib_1.__decorate([
+        Input(),
+        tslib_1.__metadata("design:type", Object),
+        tslib_1.__metadata("design:paramtypes", [Object])
+    ], TdNotificationCountComponent.prototype, "notifications", null);
+    tslib_1.__decorate([
+        HostBinding('class.td-notification-hidden'),
+        tslib_1.__metadata("design:type", Boolean),
+        tslib_1.__metadata("design:paramtypes", [])
+    ], TdNotificationCountComponent.prototype, "hideHost", null);
+    TdNotificationCountComponent = tslib_1.__decorate([
+        Component({
+            selector: 'td-notification-count',
+            styles: [":host { position: relative; display: block; text-align: center; min-width: 40px; height: 40px; } :host.td-notification-hidden { min-width: 0; } .td-notification-count { line-height: 21px; width: 20px; height: 20px; position: absolute; font-size: 10px; font-weight: 600; border-radius: 50%; z-index: 1; } .td-notification-count.td-notification-center-x { margin-left: auto; margin-right: auto; left: 0px; right: 0px; } .td-notification-count.td-notification-center-y { margin-top: auto; margin-bottom: auto; top: 0px; bottom: 0px; } .td-notification-count.td-notification-top { top: 0px; } .td-notification-count.td-notification-bottom { bottom: 0px; } .td-notification-count.td-notification-before { left: 0px; } .td-notification-count.td-notification-after { right: 0px; } .td-notification-count.td-notification-no-count { width: 8px; height: 8px; } .td-notification-count.td-notification-no-count.td-notification-top { top: 8px; } .td-notification-count.td-notification-no-count.td-notification-bottom { bottom: 8px; } .td-notification-count.td-notification-no-count.td-notification-before { left: 8px; } .td-notification-count.td-notification-no-count.td-notification-after { right: 8px; } /deep/ [dir='rtl'] .td-notification-count.td-notification-before { right: 0px; left: auto; } /deep/ [dir='rtl'] .td-notification-count.td-notification-after { left: 0px; right: auto; } /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-before { right: 8px; left: auto; } /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-after { left: 8px; right: auto; } .td-notification-content, .td-notification-content /deep/ > * { line-height: 40px; } "],
+            template: "<div #content class=\"td-notification-content\"> <ng-content></ng-content> </div> <div *ngIf=\"show\" class=\"td-notification-count mat-{{color}}\" [class.td-notification-top]=\"positionY === 'top'\" [class.td-notification-bottom]=\"positionY === 'bottom'\" [class.td-notification-before]=\"positionX === 'before'\" [class.td-notification-after]=\"positionX === 'after'\" [class.td-notification-center-y]=\"positionY === 'center'\" [class.td-notification-center-x]=\"positionX === 'center'\" [class.td-notification-no-count]=\"noCount\"> {{noCount ? '' : notificationsDisplay}} </div>",
+            changeDetection: ChangeDetectionStrategy.OnPush,
+        })
+    ], TdNotificationCountComponent);
     return TdNotificationCountComponent;
 }());
-__decorate([
-    ViewChild('content'),
-    __metadata("design:type", ElementRef)
-], TdNotificationCountComponent.prototype, "content", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", String)
-], TdNotificationCountComponent.prototype, "color", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Number),
-    __metadata("design:paramtypes", [Number])
-], TdNotificationCountComponent.prototype, "positionX", null);
-__decorate([
-    Input(),
-    __metadata("design:type", Number),
-    __metadata("design:paramtypes", [Number])
-], TdNotificationCountComponent.prototype, "positionY", null);
-__decorate([
-    Input(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], TdNotificationCountComponent.prototype, "notifications", null);
-__decorate([
-    HostBinding('class.td-notification-hidden'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [])
-], TdNotificationCountComponent.prototype, "hideHost", null);
-TdNotificationCountComponent = __decorate([
-    Component({
-        selector: 'td-notification-count',
-        styles: [":host { position: relative; display: block; text-align: center; min-width: 40px; height: 40px; } :host.td-notification-hidden { min-width: 0; } .td-notification-count { line-height: 21px; width: 20px; height: 20px; position: absolute; font-size: 10px; font-weight: 600; border-radius: 50%; z-index: 1; } .td-notification-count.td-notification-center-x { margin-left: auto; margin-right: auto; left: 0px; right: 0px; } .td-notification-count.td-notification-center-y { margin-top: auto; margin-bottom: auto; top: 0px; bottom: 0px; } .td-notification-count.td-notification-top { top: 0px; } .td-notification-count.td-notification-bottom { bottom: 0px; } .td-notification-count.td-notification-before { left: 0px; } .td-notification-count.td-notification-after { right: 0px; } .td-notification-count.td-notification-no-count { width: 8px; height: 8px; } .td-notification-count.td-notification-no-count.td-notification-top { top: 8px; } .td-notification-count.td-notification-no-count.td-notification-bottom { bottom: 8px; } .td-notification-count.td-notification-no-count.td-notification-before { left: 8px; } .td-notification-count.td-notification-no-count.td-notification-after { right: 8px; } /deep/ [dir='rtl'] .td-notification-count.td-notification-before { right: 0px; left: auto; } /deep/ [dir='rtl'] .td-notification-count.td-notification-after { left: 0px; right: auto; } /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-before { right: 8px; left: auto; } /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-after { left: 8px; right: auto; } .td-notification-content, .td-notification-content /deep/ > * { line-height: 40px; } "],
-        template: "<div #content class=\"td-notification-content\"> <ng-content></ng-content> </div> <div *ngIf=\"show\" class=\"td-notification-count mat-{{color}}\" [class.td-notification-top]=\"positionY === 'top'\" [class.td-notification-bottom]=\"positionY === 'bottom'\" [class.td-notification-before]=\"positionX === 'before'\" [class.td-notification-after]=\"positionX === 'after'\" [class.td-notification-center-y]=\"positionY === 'center'\" [class.td-notification-center-x]=\"positionX === 'center'\" [class.td-notification-no-count]=\"noCount\"> {{noCount ? '' : notificationsDisplay}} </div>",
-        changeDetection: ChangeDetectionStrategy.OnPush,
-    })
-], TdNotificationCountComponent);
 export { TdNotificationCountComponent };
 //# sourceMappingURL=notification-count.component.js.map

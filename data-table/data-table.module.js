@@ -1,9 +1,4 @@
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
+import * as tslib_1 from "tslib";
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MdCheckboxModule, MdTooltipModule, MdIconModule, MdSelectionModule } from '@angular/material';
@@ -31,27 +26,27 @@ export { TdDataTableTableComponent } from './data-table-table/data-table-table.c
 var CovalentDataTableModule = (function () {
     function CovalentDataTableModule() {
     }
+    CovalentDataTableModule = tslib_1.__decorate([
+        NgModule({
+            imports: [
+                CommonModule,
+                MdCheckboxModule,
+                MdTooltipModule,
+                MdIconModule,
+                MdSelectionModule,
+            ],
+            declarations: [
+                TD_DATA_TABLE,
+            ],
+            exports: [
+                TD_DATA_TABLE,
+            ],
+            providers: [
+                DATA_TABLE_PROVIDER,
+            ],
+        })
+    ], CovalentDataTableModule);
     return CovalentDataTableModule;
 }());
-CovalentDataTableModule = __decorate([
-    NgModule({
-        imports: [
-            CommonModule,
-            MdCheckboxModule,
-            MdTooltipModule,
-            MdIconModule,
-            MdSelectionModule,
-        ],
-        declarations: [
-            TD_DATA_TABLE,
-        ],
-        exports: [
-            TD_DATA_TABLE,
-        ],
-        providers: [
-            DATA_TABLE_PROVIDER,
-        ],
-    })
-], CovalentDataTableModule);
 export { CovalentDataTableModule };
 //# sourceMappingURL=data-table.module.js.map

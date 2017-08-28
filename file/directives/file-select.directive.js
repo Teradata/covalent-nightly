@@ -1,15 +1,4 @@
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
+import * as tslib_1 from "tslib";
 import { Directive, Input, Output, EventEmitter } from '@angular/core';
 import { HostListener, HostBinding, Host, Optional } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk';
@@ -63,34 +52,34 @@ var TdFileSelectDirective = (function () {
             }
         }
     };
+    tslib_1.__decorate([
+        Input('multiple'),
+        tslib_1.__metadata("design:type", Boolean),
+        tslib_1.__metadata("design:paramtypes", [Boolean])
+    ], TdFileSelectDirective.prototype, "multiple", null);
+    tslib_1.__decorate([
+        Output('fileSelect'),
+        tslib_1.__metadata("design:type", EventEmitter)
+    ], TdFileSelectDirective.prototype, "onFileSelect", void 0);
+    tslib_1.__decorate([
+        HostBinding('attr.multiple'),
+        tslib_1.__metadata("design:type", String),
+        tslib_1.__metadata("design:paramtypes", [])
+    ], TdFileSelectDirective.prototype, "multipleBinding", null);
+    tslib_1.__decorate([
+        HostListener('change', ['$event']),
+        tslib_1.__metadata("design:type", Function),
+        tslib_1.__metadata("design:paramtypes", [Event]),
+        tslib_1.__metadata("design:returntype", void 0)
+    ], TdFileSelectDirective.prototype, "onChange", null);
+    TdFileSelectDirective = tslib_1.__decorate([
+        Directive({
+            selector: '[tdFileSelect]',
+        }),
+        tslib_1.__param(0, Optional()), tslib_1.__param(0, Host()),
+        tslib_1.__metadata("design:paramtypes", [NgModel])
+    ], TdFileSelectDirective);
     return TdFileSelectDirective;
 }());
-__decorate([
-    Input('multiple'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], TdFileSelectDirective.prototype, "multiple", null);
-__decorate([
-    Output('fileSelect'),
-    __metadata("design:type", EventEmitter)
-], TdFileSelectDirective.prototype, "onFileSelect", void 0);
-__decorate([
-    HostBinding('attr.multiple'),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [])
-], TdFileSelectDirective.prototype, "multipleBinding", null);
-__decorate([
-    HostListener('change', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Event]),
-    __metadata("design:returntype", void 0)
-], TdFileSelectDirective.prototype, "onChange", null);
-TdFileSelectDirective = __decorate([
-    Directive({
-        selector: '[tdFileSelect]',
-    }),
-    __param(0, Optional()), __param(0, Host()),
-    __metadata("design:paramtypes", [NgModel])
-], TdFileSelectDirective);
 export { TdFileSelectDirective };
 //# sourceMappingURL=file-select.directive.js.map

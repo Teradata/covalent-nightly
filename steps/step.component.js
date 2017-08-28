@@ -1,22 +1,4 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
+import * as tslib_1 from "tslib";
 import { Component, Directive, Input, Output, TemplateRef, ViewChild, ViewContainerRef, ContentChild } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { coerceBooleanProperty, TemplatePortalDirective, TemplatePortal } from '@angular/cdk';
@@ -28,46 +10,46 @@ export var StepState;
     StepState[StepState["Complete"] = 'complete'] = "Complete";
 })(StepState || (StepState = {}));
 var TdStepLabelDirective = (function (_super) {
-    __extends(TdStepLabelDirective, _super);
+    tslib_1.__extends(TdStepLabelDirective, _super);
     function TdStepLabelDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
+    TdStepLabelDirective = tslib_1.__decorate([
+        Directive({
+            selector: '[td-step-label]ng-template',
+        }),
+        tslib_1.__metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
+    ], TdStepLabelDirective);
     return TdStepLabelDirective;
 }(TemplatePortalDirective));
-TdStepLabelDirective = __decorate([
-    Directive({
-        selector: '[td-step-label]ng-template',
-    }),
-    __metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
-], TdStepLabelDirective);
 export { TdStepLabelDirective };
 var TdStepActionsDirective = (function (_super) {
-    __extends(TdStepActionsDirective, _super);
+    tslib_1.__extends(TdStepActionsDirective, _super);
     function TdStepActionsDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
+    TdStepActionsDirective = tslib_1.__decorate([
+        Directive({
+            selector: '[td-step-actions]ng-template',
+        }),
+        tslib_1.__metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
+    ], TdStepActionsDirective);
     return TdStepActionsDirective;
 }(TemplatePortalDirective));
-TdStepActionsDirective = __decorate([
-    Directive({
-        selector: '[td-step-actions]ng-template',
-    }),
-    __metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
-], TdStepActionsDirective);
 export { TdStepActionsDirective };
 var TdStepSummaryDirective = (function (_super) {
-    __extends(TdStepSummaryDirective, _super);
+    tslib_1.__extends(TdStepSummaryDirective, _super);
     function TdStepSummaryDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
+    TdStepSummaryDirective = tslib_1.__decorate([
+        Directive({
+            selector: '[td-step-summary]ng-template',
+        }),
+        tslib_1.__metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
+    ], TdStepSummaryDirective);
     return TdStepSummaryDirective;
 }(TemplatePortalDirective));
-TdStepSummaryDirective = __decorate([
-    Directive({
-        selector: '[td-step-summary]ng-template',
-    }),
-    __metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
-], TdStepSummaryDirective);
 export { TdStepSummaryDirective };
 var TdStepBase = (function () {
     function TdStepBase() {
@@ -78,7 +60,7 @@ export { TdStepBase };
 /* tslint:disable-next-line */
 export var _TdStepMixinBase = mixinDisableRipple(mixinDisabled(TdStepBase));
 var TdStepComponent = (function (_super) {
-    __extends(TdStepComponent, _super);
+    tslib_1.__extends(TdStepComponent, _super);
     function TdStepComponent(_viewContainerRef) {
         var _this = _super.call(this) || this;
         _this._viewContainerRef = _viewContainerRef;
@@ -206,57 +188,57 @@ var TdStepComponent = (function (_super) {
     TdStepComponent.prototype._onDeactivated = function () {
         this.onDeactivated.emit(undefined);
     };
+    tslib_1.__decorate([
+        ViewChild(TemplateRef),
+        tslib_1.__metadata("design:type", TemplateRef)
+    ], TdStepComponent.prototype, "_content", void 0);
+    tslib_1.__decorate([
+        ContentChild(TdStepLabelDirective),
+        tslib_1.__metadata("design:type", TdStepLabelDirective)
+    ], TdStepComponent.prototype, "stepLabel", void 0);
+    tslib_1.__decorate([
+        ContentChild(TdStepActionsDirective),
+        tslib_1.__metadata("design:type", TdStepActionsDirective)
+    ], TdStepComponent.prototype, "stepActions", void 0);
+    tslib_1.__decorate([
+        ContentChild(TdStepSummaryDirective),
+        tslib_1.__metadata("design:type", TdStepSummaryDirective)
+    ], TdStepComponent.prototype, "stepSummary", void 0);
+    tslib_1.__decorate([
+        Input('label'),
+        tslib_1.__metadata("design:type", String)
+    ], TdStepComponent.prototype, "label", void 0);
+    tslib_1.__decorate([
+        Input('sublabel'),
+        tslib_1.__metadata("design:type", String)
+    ], TdStepComponent.prototype, "sublabel", void 0);
+    tslib_1.__decorate([
+        Input('active'),
+        tslib_1.__metadata("design:type", Boolean),
+        tslib_1.__metadata("design:paramtypes", [Boolean])
+    ], TdStepComponent.prototype, "active", null);
+    tslib_1.__decorate([
+        Input('state'),
+        tslib_1.__metadata("design:type", Number),
+        tslib_1.__metadata("design:paramtypes", [Number])
+    ], TdStepComponent.prototype, "state", null);
+    tslib_1.__decorate([
+        Output('activated'),
+        tslib_1.__metadata("design:type", EventEmitter)
+    ], TdStepComponent.prototype, "onActivated", void 0);
+    tslib_1.__decorate([
+        Output('deactivated'),
+        tslib_1.__metadata("design:type", EventEmitter)
+    ], TdStepComponent.prototype, "onDeactivated", void 0);
+    TdStepComponent = tslib_1.__decorate([
+        Component({
+            selector: 'td-step',
+            inputs: ['disabled', 'disableRipple'],
+            template: "<ng-template> <ng-content></ng-content> </ng-template>",
+        }),
+        tslib_1.__metadata("design:paramtypes", [ViewContainerRef])
+    ], TdStepComponent);
     return TdStepComponent;
 }(_TdStepMixinBase));
-__decorate([
-    ViewChild(TemplateRef),
-    __metadata("design:type", TemplateRef)
-], TdStepComponent.prototype, "_content", void 0);
-__decorate([
-    ContentChild(TdStepLabelDirective),
-    __metadata("design:type", TdStepLabelDirective)
-], TdStepComponent.prototype, "stepLabel", void 0);
-__decorate([
-    ContentChild(TdStepActionsDirective),
-    __metadata("design:type", TdStepActionsDirective)
-], TdStepComponent.prototype, "stepActions", void 0);
-__decorate([
-    ContentChild(TdStepSummaryDirective),
-    __metadata("design:type", TdStepSummaryDirective)
-], TdStepComponent.prototype, "stepSummary", void 0);
-__decorate([
-    Input('label'),
-    __metadata("design:type", String)
-], TdStepComponent.prototype, "label", void 0);
-__decorate([
-    Input('sublabel'),
-    __metadata("design:type", String)
-], TdStepComponent.prototype, "sublabel", void 0);
-__decorate([
-    Input('active'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], TdStepComponent.prototype, "active", null);
-__decorate([
-    Input('state'),
-    __metadata("design:type", Number),
-    __metadata("design:paramtypes", [Number])
-], TdStepComponent.prototype, "state", null);
-__decorate([
-    Output('activated'),
-    __metadata("design:type", EventEmitter)
-], TdStepComponent.prototype, "onActivated", void 0);
-__decorate([
-    Output('deactivated'),
-    __metadata("design:type", EventEmitter)
-], TdStepComponent.prototype, "onDeactivated", void 0);
-TdStepComponent = __decorate([
-    Component({
-        selector: 'td-step',
-        inputs: ['disabled', 'disableRipple'],
-        template: "<ng-template> <ng-content></ng-content> </ng-template>",
-    }),
-    __metadata("design:paramtypes", [ViewContainerRef])
-], TdStepComponent);
 export { TdStepComponent };
 //# sourceMappingURL=step.component.js.map

@@ -1,12 +1,4 @@
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
+import * as tslib_1 from "tslib";
 import { Component, Directive, Input, Renderer2, ElementRef, ViewContainerRef, TemplateRef, ViewChild, HostBinding, HostListener, ChangeDetectorRef } from '@angular/core';
 import { TdCollapseAnimation } from '../common/animations/collapse/collapse.animation';
 import { TdFadeInOutAnimation } from '../common/animations/fade/fadeInOut.animation';
@@ -14,14 +6,14 @@ var TdMessageContainerDirective = (function () {
     function TdMessageContainerDirective(viewContainer) {
         this.viewContainer = viewContainer;
     }
+    TdMessageContainerDirective = tslib_1.__decorate([
+        Directive({
+            selector: '[tdMessageContainer]',
+        }),
+        tslib_1.__metadata("design:paramtypes", [ViewContainerRef])
+    ], TdMessageContainerDirective);
     return TdMessageContainerDirective;
 }());
-TdMessageContainerDirective = __decorate([
-    Directive({
-        selector: '[tdMessageContainer]',
-    }),
-    __metadata("design:paramtypes", [ViewContainerRef])
-], TdMessageContainerDirective);
 export { TdMessageContainerDirective };
 var TdMessageComponent = (function () {
     function TdMessageComponent(_renderer, _changeDetectorRef, _elementRef) {
@@ -202,72 +194,72 @@ var TdMessageComponent = (function () {
         this._childElement.viewContainer.clear();
         this._changeDetectorRef.markForCheck();
     };
+    tslib_1.__decorate([
+        ViewChild(TdMessageContainerDirective),
+        tslib_1.__metadata("design:type", TdMessageContainerDirective)
+    ], TdMessageComponent.prototype, "_childElement", void 0);
+    tslib_1.__decorate([
+        ViewChild(TemplateRef),
+        tslib_1.__metadata("design:type", TemplateRef)
+    ], TdMessageComponent.prototype, "_template", void 0);
+    tslib_1.__decorate([
+        HostBinding('@tdFadeInOut'),
+        tslib_1.__metadata("design:type", Boolean),
+        tslib_1.__metadata("design:paramtypes", [])
+    ], TdMessageComponent.prototype, "fadeAnimation", null);
+    tslib_1.__decorate([
+        HostBinding('@tdCollapse'),
+        tslib_1.__metadata("design:type", Boolean),
+        tslib_1.__metadata("design:paramtypes", [])
+    ], TdMessageComponent.prototype, "collapsedAnimation", null);
+    tslib_1.__decorate([
+        HostBinding('style.display'),
+        tslib_1.__metadata("design:type", String),
+        tslib_1.__metadata("design:paramtypes", [])
+    ], TdMessageComponent.prototype, "hidden", null);
+    tslib_1.__decorate([
+        Input('label'),
+        tslib_1.__metadata("design:type", String)
+    ], TdMessageComponent.prototype, "label", void 0);
+    tslib_1.__decorate([
+        Input('sublabel'),
+        tslib_1.__metadata("design:type", String)
+    ], TdMessageComponent.prototype, "sublabel", void 0);
+    tslib_1.__decorate([
+        Input('icon'),
+        tslib_1.__metadata("design:type", String)
+    ], TdMessageComponent.prototype, "icon", void 0);
+    tslib_1.__decorate([
+        Input('color'),
+        tslib_1.__metadata("design:type", String),
+        tslib_1.__metadata("design:paramtypes", [String])
+    ], TdMessageComponent.prototype, "color", null);
+    tslib_1.__decorate([
+        Input('opened'),
+        tslib_1.__metadata("design:type", Boolean),
+        tslib_1.__metadata("design:paramtypes", [Boolean])
+    ], TdMessageComponent.prototype, "opened", null);
+    tslib_1.__decorate([
+        HostListener('@tdCollapse.done'),
+        tslib_1.__metadata("design:type", Function),
+        tslib_1.__metadata("design:paramtypes", []),
+        tslib_1.__metadata("design:returntype", void 0)
+    ], TdMessageComponent.prototype, "animationDoneListener", null);
+    TdMessageComponent = tslib_1.__decorate([
+        Component({
+            selector: 'td-message',
+            template: "<div tdMessageContainer></div> <ng-template> <div class=\"pad-left pad-right td-message-wrapper\" layout=\"row\" layout-align=\"center center\"> <md-icon class=\"push-right\">{{icon}}</md-icon> <div> <div *ngIf=\"label\" class=\"td-message-label md-body-2\">{{label}}</div> <div *ngIf=\"sublabel\" class=\"td-message-sublabel md-body-1\">{{sublabel}}</div> </div> <span flex></span> <ng-content select=\"[td-message-actions]\"></ng-content> </div> </ng-template>",
+            styles: [":host { display: block; } :host .td-message-wrapper { min-height: 52px; } "],
+            animations: [
+                TdCollapseAnimation(100),
+                TdFadeInOutAnimation(100),
+            ],
+        }),
+        tslib_1.__metadata("design:paramtypes", [Renderer2,
+            ChangeDetectorRef,
+            ElementRef])
+    ], TdMessageComponent);
     return TdMessageComponent;
 }());
-__decorate([
-    ViewChild(TdMessageContainerDirective),
-    __metadata("design:type", TdMessageContainerDirective)
-], TdMessageComponent.prototype, "_childElement", void 0);
-__decorate([
-    ViewChild(TemplateRef),
-    __metadata("design:type", TemplateRef)
-], TdMessageComponent.prototype, "_template", void 0);
-__decorate([
-    HostBinding('@tdFadeInOut'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [])
-], TdMessageComponent.prototype, "fadeAnimation", null);
-__decorate([
-    HostBinding('@tdCollapse'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [])
-], TdMessageComponent.prototype, "collapsedAnimation", null);
-__decorate([
-    HostBinding('style.display'),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [])
-], TdMessageComponent.prototype, "hidden", null);
-__decorate([
-    Input('label'),
-    __metadata("design:type", String)
-], TdMessageComponent.prototype, "label", void 0);
-__decorate([
-    Input('sublabel'),
-    __metadata("design:type", String)
-], TdMessageComponent.prototype, "sublabel", void 0);
-__decorate([
-    Input('icon'),
-    __metadata("design:type", String)
-], TdMessageComponent.prototype, "icon", void 0);
-__decorate([
-    Input('color'),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], TdMessageComponent.prototype, "color", null);
-__decorate([
-    Input('opened'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], TdMessageComponent.prototype, "opened", null);
-__decorate([
-    HostListener('@tdCollapse.done'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], TdMessageComponent.prototype, "animationDoneListener", null);
-TdMessageComponent = __decorate([
-    Component({
-        selector: 'td-message',
-        template: "<div tdMessageContainer></div> <ng-template> <div class=\"pad-left pad-right td-message-wrapper\" layout=\"row\" layout-align=\"center center\"> <md-icon class=\"push-right\">{{icon}}</md-icon> <div> <div *ngIf=\"label\" class=\"td-message-label md-body-2\">{{label}}</div> <div *ngIf=\"sublabel\" class=\"td-message-sublabel md-body-1\">{{sublabel}}</div> </div> <span flex></span> <ng-content select=\"[td-message-actions]\"></ng-content> </div> </ng-template>",
-        styles: [":host { display: block; } :host .td-message-wrapper { min-height: 52px; } "],
-        animations: [
-            TdCollapseAnimation(100),
-            TdFadeInOutAnimation(100),
-        ],
-    }),
-    __metadata("design:paramtypes", [Renderer2,
-        ChangeDetectorRef,
-        ElementRef])
-], TdMessageComponent);
 export { TdMessageComponent };
 //# sourceMappingURL=message.component.js.map

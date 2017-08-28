@@ -1,15 +1,4 @@
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
+import * as tslib_1 from "tslib";
 import { Component, Input, Output, EventEmitter, forwardRef, ChangeDetectionStrategy, ChangeDetectorRef, ContentChildren, QueryList, Inject, Optional, ViewChildren } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -595,91 +584,91 @@ var TdDataTableComponent = (function () {
             }
         }
     };
+    tslib_1.__decorate([
+        ContentChildren(TdDataTableTemplateDirective),
+        tslib_1.__metadata("design:type", QueryList)
+    ], TdDataTableComponent.prototype, "_templates", void 0);
+    tslib_1.__decorate([
+        ViewChildren(TdDataTableRowComponent),
+        tslib_1.__metadata("design:type", QueryList)
+    ], TdDataTableComponent.prototype, "_rows", void 0);
+    tslib_1.__decorate([
+        Input(),
+        tslib_1.__metadata("design:type", Object),
+        tslib_1.__metadata("design:paramtypes", [Object])
+    ], TdDataTableComponent.prototype, "value", null);
+    tslib_1.__decorate([
+        Input('data'),
+        tslib_1.__metadata("design:type", Array),
+        tslib_1.__metadata("design:paramtypes", [Array])
+    ], TdDataTableComponent.prototype, "data", null);
+    tslib_1.__decorate([
+        Input('columns'),
+        tslib_1.__metadata("design:type", Array),
+        tslib_1.__metadata("design:paramtypes", [Array])
+    ], TdDataTableComponent.prototype, "columns", null);
+    tslib_1.__decorate([
+        Input('selectable'),
+        tslib_1.__metadata("design:type", Boolean),
+        tslib_1.__metadata("design:paramtypes", [Boolean])
+    ], TdDataTableComponent.prototype, "selectable", null);
+    tslib_1.__decorate([
+        Input('clickable'),
+        tslib_1.__metadata("design:type", Boolean),
+        tslib_1.__metadata("design:paramtypes", [Boolean])
+    ], TdDataTableComponent.prototype, "clickable", null);
+    tslib_1.__decorate([
+        Input('multiple'),
+        tslib_1.__metadata("design:type", Boolean),
+        tslib_1.__metadata("design:paramtypes", [Boolean])
+    ], TdDataTableComponent.prototype, "multiple", null);
+    tslib_1.__decorate([
+        Input('sortable'),
+        tslib_1.__metadata("design:type", Boolean),
+        tslib_1.__metadata("design:paramtypes", [Boolean])
+    ], TdDataTableComponent.prototype, "sortable", null);
+    tslib_1.__decorate([
+        Input('sortBy'),
+        tslib_1.__metadata("design:type", String),
+        tslib_1.__metadata("design:paramtypes", [String])
+    ], TdDataTableComponent.prototype, "sortBy", null);
+    tslib_1.__decorate([
+        Input('sortOrder'),
+        tslib_1.__metadata("design:type", String),
+        tslib_1.__metadata("design:paramtypes", [String])
+    ], TdDataTableComponent.prototype, "sortOrder", null);
+    tslib_1.__decorate([
+        Output('sortChange'),
+        tslib_1.__metadata("design:type", EventEmitter)
+    ], TdDataTableComponent.prototype, "onSortChange", void 0);
+    tslib_1.__decorate([
+        Output('rowSelect'),
+        tslib_1.__metadata("design:type", EventEmitter)
+    ], TdDataTableComponent.prototype, "onRowSelect", void 0);
+    tslib_1.__decorate([
+        Output('rowClick'),
+        tslib_1.__metadata("design:type", EventEmitter)
+    ], TdDataTableComponent.prototype, "onRowClick", void 0);
+    tslib_1.__decorate([
+        Output('selectAll'),
+        tslib_1.__metadata("design:type", EventEmitter)
+    ], TdDataTableComponent.prototype, "onSelectAll", void 0);
+    tslib_1.__decorate([
+        Input('compareWith'),
+        tslib_1.__metadata("design:type", Function)
+    ], TdDataTableComponent.prototype, "compareWith", void 0);
+    TdDataTableComponent = tslib_1.__decorate([
+        Component({
+            providers: [TD_DATA_TABLE_CONTROL_VALUE_ACCESSOR],
+            selector: 'td-data-table',
+            styles: [".mat-table-container { display: block; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; } table.td-data-table.mat-selectable tbody > tr.td-data-table-row { transition: background-color 0.2s; } table.td-data-table.mat-selectable .td-data-table-column:first-child, table.td-data-table.mat-selectable th.td-data-table-column:first-child, table.td-data-table.mat-selectable td.td-data-table-cell:first-child { width: 20px; padding: 0 24px; } table.td-data-table.mat-selectable .td-data-table-column:nth-child(2), table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2), table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) { padding-left: 0px; } [dir='rtl'] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2), [dir='rtl'] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2), [dir='rtl'] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) { padding-right: 0px; padding-left: 28px; } table.td-data-table td.mat-checkbox-cell, table.td-data-table th.mat-checkbox-column { width: 18px; font-size: 0 !important; } table.td-data-table td.mat-checkbox-cell md-pseudo-checkbox, table.td-data-table th.mat-checkbox-column md-pseudo-checkbox { width: 18px; height: 18px; } /deep/ table.td-data-table td.mat-checkbox-cell md-pseudo-checkbox.mat-pseudo-checkbox-checked::after, /deep/ table.td-data-table th.mat-checkbox-column md-pseudo-checkbox.mat-pseudo-checkbox-checked::after { width: 11px !important; height: 4px !important; } table.td-data-table td.mat-checkbox-cell md-checkbox /deep/ .mat-checkbox-inner-container, table.td-data-table th.mat-checkbox-column md-checkbox /deep/ .mat-checkbox-inner-container { width: 18px; height: 18px; margin: 0; } "],
+            template: "<div class=\"mat-table-container\" title> <table td-data-table [class.mat-selectable]=\"selectable\" [class.mat-clickable]=\"clickable\"> <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"selectable\"> <md-checkbox #checkBoxAll *ngIf=\"multiple\" [disabled]=\"!hasData\" [indeterminate]=\"indeterminate && !allSelected && hasData\" [checked]=\"allSelected && hasData\" (click)=\"selectAll(!checkBoxAll.checked)\" (keyup.enter)=\"selectAll(!checkBoxAll.checked)\" (keyup.space)=\"selectAll(!checkBoxAll.checked)\" (keydown.space)=\"blockEvent($event)\"> </md-checkbox> </th> <th td-data-table-column *ngFor=\"let column of columns\" [name]=\"column.name\" [numeric]=\"column.numeric\" [active]=\"(column.sortable || sortable) && column === sortByColumn\" [sortable]=\"column.sortable ||  sortable\" [sortOrder]=\"sortOrderEnum\" [hidden]=\"column.hidden\" (sortChange)=\"handleSort(column)\"> <span [mdTooltip]=\"column.tooltip\">{{column.label}}</span> </th> <tr td-data-table-row #dtRow [tabIndex]=\"selectable ? 0 : -1\" [selected]=\"(clickable || selectable) && isRowSelected(row)\" *ngFor=\"let row of data; let rowIndex = index\" (click)=\"handleRowClick(row, $event)\" (keyup)=\"selectable && _rowKeyup($event, row, rowIndex)\" (keydown.space)=\"blockEvent($event)\" (keydown.shift.space)=\"blockEvent($event)\" (keydown.shift)=\"disableTextSelection()\" (keyup.shift)=\"enableTextSelection()\"> <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"selectable\"> <md-pseudo-checkbox [state]=\"dtRow.selected ? 'checked' : 'unchecked'\" (mousedown)=\"disableTextSelection()\" (mouseup)=\"enableTextSelection()\" stopRowClick (click)=\"select(row, $event, rowIndex)\"> </md-pseudo-checkbox> </td> <td td-data-table-cell [numeric]=\"column.numeric\" [hidden]=\"column.hidden\" *ngFor=\"let column of columns\"> <span class=\"md-body-1\" *ngIf=\"!getTemplateRef(column.name)\">{{column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row)}}</span> <ng-template *ngIf=\"getTemplateRef(column.name)\" [ngTemplateOutlet]=\"getTemplateRef(column.name)\" [ngOutletContext]=\"{ value: getCellValue(column, row), row: row, column: column.name }\"> </ng-template> </td> </tr> </table> </div> ",
+            changeDetection: ChangeDetectionStrategy.OnPush,
+        }),
+        tslib_1.__param(0, Optional()), tslib_1.__param(0, Inject(DOCUMENT)),
+        tslib_1.__metadata("design:paramtypes", [Object, ChangeDetectorRef])
+    ], TdDataTableComponent);
     return TdDataTableComponent;
 }());
-__decorate([
-    ContentChildren(TdDataTableTemplateDirective),
-    __metadata("design:type", QueryList)
-], TdDataTableComponent.prototype, "_templates", void 0);
-__decorate([
-    ViewChildren(TdDataTableRowComponent),
-    __metadata("design:type", QueryList)
-], TdDataTableComponent.prototype, "_rows", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], TdDataTableComponent.prototype, "value", null);
-__decorate([
-    Input('data'),
-    __metadata("design:type", Array),
-    __metadata("design:paramtypes", [Array])
-], TdDataTableComponent.prototype, "data", null);
-__decorate([
-    Input('columns'),
-    __metadata("design:type", Array),
-    __metadata("design:paramtypes", [Array])
-], TdDataTableComponent.prototype, "columns", null);
-__decorate([
-    Input('selectable'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], TdDataTableComponent.prototype, "selectable", null);
-__decorate([
-    Input('clickable'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], TdDataTableComponent.prototype, "clickable", null);
-__decorate([
-    Input('multiple'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], TdDataTableComponent.prototype, "multiple", null);
-__decorate([
-    Input('sortable'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], TdDataTableComponent.prototype, "sortable", null);
-__decorate([
-    Input('sortBy'),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], TdDataTableComponent.prototype, "sortBy", null);
-__decorate([
-    Input('sortOrder'),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], TdDataTableComponent.prototype, "sortOrder", null);
-__decorate([
-    Output('sortChange'),
-    __metadata("design:type", EventEmitter)
-], TdDataTableComponent.prototype, "onSortChange", void 0);
-__decorate([
-    Output('rowSelect'),
-    __metadata("design:type", EventEmitter)
-], TdDataTableComponent.prototype, "onRowSelect", void 0);
-__decorate([
-    Output('rowClick'),
-    __metadata("design:type", EventEmitter)
-], TdDataTableComponent.prototype, "onRowClick", void 0);
-__decorate([
-    Output('selectAll'),
-    __metadata("design:type", EventEmitter)
-], TdDataTableComponent.prototype, "onSelectAll", void 0);
-__decorate([
-    Input('compareWith'),
-    __metadata("design:type", Function)
-], TdDataTableComponent.prototype, "compareWith", void 0);
-TdDataTableComponent = __decorate([
-    Component({
-        providers: [TD_DATA_TABLE_CONTROL_VALUE_ACCESSOR],
-        selector: 'td-data-table',
-        styles: [".mat-table-container { display: block; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; } table.td-data-table.mat-selectable tbody > tr.td-data-table-row { transition: background-color 0.2s; } table.td-data-table.mat-selectable .td-data-table-column:first-child, table.td-data-table.mat-selectable th.td-data-table-column:first-child, table.td-data-table.mat-selectable td.td-data-table-cell:first-child { width: 20px; padding: 0 24px; } table.td-data-table.mat-selectable .td-data-table-column:nth-child(2), table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2), table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) { padding-left: 0px; } [dir='rtl'] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2), [dir='rtl'] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2), [dir='rtl'] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) { padding-right: 0px; padding-left: 28px; } table.td-data-table td.mat-checkbox-cell, table.td-data-table th.mat-checkbox-column { width: 18px; font-size: 0 !important; } table.td-data-table td.mat-checkbox-cell md-pseudo-checkbox, table.td-data-table th.mat-checkbox-column md-pseudo-checkbox { width: 18px; height: 18px; } /deep/ table.td-data-table td.mat-checkbox-cell md-pseudo-checkbox.mat-pseudo-checkbox-checked::after, /deep/ table.td-data-table th.mat-checkbox-column md-pseudo-checkbox.mat-pseudo-checkbox-checked::after { width: 11px !important; height: 4px !important; } table.td-data-table td.mat-checkbox-cell md-checkbox /deep/ .mat-checkbox-inner-container, table.td-data-table th.mat-checkbox-column md-checkbox /deep/ .mat-checkbox-inner-container { width: 18px; height: 18px; margin: 0; } "],
-        template: "<div class=\"mat-table-container\" title> <table td-data-table [class.mat-selectable]=\"selectable\" [class.mat-clickable]=\"clickable\"> <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"selectable\"> <md-checkbox #checkBoxAll *ngIf=\"multiple\" [disabled]=\"!hasData\" [indeterminate]=\"indeterminate && !allSelected && hasData\" [checked]=\"allSelected && hasData\" (click)=\"selectAll(!checkBoxAll.checked)\" (keyup.enter)=\"selectAll(!checkBoxAll.checked)\" (keyup.space)=\"selectAll(!checkBoxAll.checked)\" (keydown.space)=\"blockEvent($event)\"> </md-checkbox> </th> <th td-data-table-column *ngFor=\"let column of columns\" [name]=\"column.name\" [numeric]=\"column.numeric\" [active]=\"(column.sortable || sortable) && column === sortByColumn\" [sortable]=\"column.sortable ||  sortable\" [sortOrder]=\"sortOrderEnum\" [hidden]=\"column.hidden\" (sortChange)=\"handleSort(column)\"> <span [mdTooltip]=\"column.tooltip\">{{column.label}}</span> </th> <tr td-data-table-row #dtRow [tabIndex]=\"selectable ? 0 : -1\" [selected]=\"(clickable || selectable) && isRowSelected(row)\" *ngFor=\"let row of data; let rowIndex = index\" (click)=\"handleRowClick(row, $event)\" (keyup)=\"selectable && _rowKeyup($event, row, rowIndex)\" (keydown.space)=\"blockEvent($event)\" (keydown.shift.space)=\"blockEvent($event)\" (keydown.shift)=\"disableTextSelection()\" (keyup.shift)=\"enableTextSelection()\"> <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"selectable\"> <md-pseudo-checkbox [state]=\"dtRow.selected ? 'checked' : 'unchecked'\" (mousedown)=\"disableTextSelection()\" (mouseup)=\"enableTextSelection()\" stopRowClick (click)=\"select(row, $event, rowIndex)\"> </md-pseudo-checkbox> </td> <td td-data-table-cell [numeric]=\"column.numeric\" [hidden]=\"column.hidden\" *ngFor=\"let column of columns\"> <span class=\"md-body-1\" *ngIf=\"!getTemplateRef(column.name)\">{{column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row)}}</span> <ng-template *ngIf=\"getTemplateRef(column.name)\" [ngTemplateOutlet]=\"getTemplateRef(column.name)\" [ngOutletContext]=\"{ value: getCellValue(column, row), row: row, column: column.name }\"> </ng-template> </td> </tr> </table> </div> ",
-        changeDetection: ChangeDetectionStrategy.OnPush,
-    }),
-    __param(0, Optional()), __param(0, Inject(DOCUMENT)),
-    __metadata("design:paramtypes", [Object, ChangeDetectorRef])
-], TdDataTableComponent);
 export { TdDataTableComponent };
 //# sourceMappingURL=data-table.component.js.map

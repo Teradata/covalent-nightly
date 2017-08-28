@@ -1,12 +1,4 @@
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
+import * as tslib_1 from "tslib";
 import { Directive, ElementRef, Input, Output, EventEmitter, HostBinding, Renderer2, ChangeDetectorRef } from '@angular/core';
 import { animate, AnimationBuilder, AUTO_STYLE, style, animation } from '@angular/animations';
 var TdFadeDirective = (function () {
@@ -131,43 +123,43 @@ var TdFadeDirective = (function () {
             this.onFadeOut.emit();
         }
     };
+    tslib_1.__decorate([
+        Input(),
+        tslib_1.__metadata("design:type", Number)
+    ], TdFadeDirective.prototype, "duration", void 0);
+    tslib_1.__decorate([
+        Input('tdFade'),
+        tslib_1.__metadata("design:type", Boolean),
+        tslib_1.__metadata("design:paramtypes", [Boolean])
+    ], TdFadeDirective.prototype, "state", null);
+    tslib_1.__decorate([
+        Output('fadeIn'),
+        tslib_1.__metadata("design:type", EventEmitter)
+    ], TdFadeDirective.prototype, "onFadeIn", void 0);
+    tslib_1.__decorate([
+        Output('fadeOut'),
+        tslib_1.__metadata("design:type", EventEmitter)
+    ], TdFadeDirective.prototype, "onFadeOut", void 0);
+    tslib_1.__decorate([
+        HostBinding('attr.aria-expanded'),
+        tslib_1.__metadata("design:type", Boolean),
+        tslib_1.__metadata("design:paramtypes", [])
+    ], TdFadeDirective.prototype, "ariaExpandedBinding", null);
+    tslib_1.__decorate([
+        HostBinding('attr.aria-hidden'),
+        tslib_1.__metadata("design:type", Boolean),
+        tslib_1.__metadata("design:paramtypes", [])
+    ], TdFadeDirective.prototype, "ariaHiddenBinding", null);
+    TdFadeDirective = tslib_1.__decorate([
+        Directive({
+            selector: '[tdFade]',
+        }),
+        tslib_1.__metadata("design:paramtypes", [Renderer2,
+            ElementRef,
+            ChangeDetectorRef,
+            AnimationBuilder])
+    ], TdFadeDirective);
     return TdFadeDirective;
 }());
-__decorate([
-    Input(),
-    __metadata("design:type", Number)
-], TdFadeDirective.prototype, "duration", void 0);
-__decorate([
-    Input('tdFade'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], TdFadeDirective.prototype, "state", null);
-__decorate([
-    Output('fadeIn'),
-    __metadata("design:type", EventEmitter)
-], TdFadeDirective.prototype, "onFadeIn", void 0);
-__decorate([
-    Output('fadeOut'),
-    __metadata("design:type", EventEmitter)
-], TdFadeDirective.prototype, "onFadeOut", void 0);
-__decorate([
-    HostBinding('attr.aria-expanded'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [])
-], TdFadeDirective.prototype, "ariaExpandedBinding", null);
-__decorate([
-    HostBinding('attr.aria-hidden'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [])
-], TdFadeDirective.prototype, "ariaHiddenBinding", null);
-TdFadeDirective = __decorate([
-    Directive({
-        selector: '[tdFade]',
-    }),
-    __metadata("design:paramtypes", [Renderer2,
-        ElementRef,
-        ChangeDetectorRef,
-        AnimationBuilder])
-], TdFadeDirective);
 export { TdFadeDirective };
 //# sourceMappingURL=fade.directive.js.map

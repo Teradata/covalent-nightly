@@ -1,12 +1,4 @@
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
+import * as tslib_1 from "tslib";
 import { Directive, Input } from '@angular/core';
 import { ViewContainerRef, TemplateRef } from '@angular/core';
 import { LoadingType, LoadingMode, LoadingStrategy } from '../loading.component';
@@ -163,44 +155,44 @@ var TdLoadingDirective = (function () {
             }, this._viewContainerRef, this._templateRef, this._context);
         }
     };
+    tslib_1.__decorate([
+        Input('tdLoading'),
+        tslib_1.__metadata("design:type", String),
+        tslib_1.__metadata("design:paramtypes", [String])
+    ], TdLoadingDirective.prototype, "name", null);
+    tslib_1.__decorate([
+        Input('tdLoadingUntil'),
+        tslib_1.__metadata("design:type", Object),
+        tslib_1.__metadata("design:paramtypes", [Object])
+    ], TdLoadingDirective.prototype, "until", null);
+    tslib_1.__decorate([
+        Input('tdLoadingType'),
+        tslib_1.__metadata("design:type", Number),
+        tslib_1.__metadata("design:paramtypes", [Number])
+    ], TdLoadingDirective.prototype, "type", null);
+    tslib_1.__decorate([
+        Input('tdLoadingMode'),
+        tslib_1.__metadata("design:type", Number),
+        tslib_1.__metadata("design:paramtypes", [Number])
+    ], TdLoadingDirective.prototype, "mode", null);
+    tslib_1.__decorate([
+        Input('tdLoadingStrategy'),
+        tslib_1.__metadata("design:type", Number),
+        tslib_1.__metadata("design:paramtypes", [Number])
+    ], TdLoadingDirective.prototype, "strategy", null);
+    tslib_1.__decorate([
+        Input('tdLoadingColor'),
+        tslib_1.__metadata("design:type", String)
+    ], TdLoadingDirective.prototype, "color", void 0);
+    TdLoadingDirective = tslib_1.__decorate([
+        Directive({
+            selector: '[tdLoading]',
+        }),
+        tslib_1.__metadata("design:paramtypes", [ViewContainerRef,
+            TemplateRef,
+            TdLoadingService])
+    ], TdLoadingDirective);
     return TdLoadingDirective;
 }());
-__decorate([
-    Input('tdLoading'),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], TdLoadingDirective.prototype, "name", null);
-__decorate([
-    Input('tdLoadingUntil'),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], TdLoadingDirective.prototype, "until", null);
-__decorate([
-    Input('tdLoadingType'),
-    __metadata("design:type", Number),
-    __metadata("design:paramtypes", [Number])
-], TdLoadingDirective.prototype, "type", null);
-__decorate([
-    Input('tdLoadingMode'),
-    __metadata("design:type", Number),
-    __metadata("design:paramtypes", [Number])
-], TdLoadingDirective.prototype, "mode", null);
-__decorate([
-    Input('tdLoadingStrategy'),
-    __metadata("design:type", Number),
-    __metadata("design:paramtypes", [Number])
-], TdLoadingDirective.prototype, "strategy", null);
-__decorate([
-    Input('tdLoadingColor'),
-    __metadata("design:type", String)
-], TdLoadingDirective.prototype, "color", void 0);
-TdLoadingDirective = __decorate([
-    Directive({
-        selector: '[tdLoading]',
-    }),
-    __metadata("design:paramtypes", [ViewContainerRef,
-        TemplateRef,
-        TdLoadingService])
-], TdLoadingDirective);
 export { TdLoadingDirective };
 //# sourceMappingURL=loading.directive.js.map
