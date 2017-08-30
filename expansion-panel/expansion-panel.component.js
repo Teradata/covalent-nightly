@@ -203,7 +203,7 @@ var TdExpansionPanelComponent = (function (_super) {
             inputs: ['disabled', 'disableRipple'],
             animations: [
                 TdCollapseAnimation(),
-                TdRotateAnimation('tdRotate'),
+                TdRotateAnimation({ anchor: 'tdRotate' }),
             ],
         }),
         tslib_1.__metadata("design:paramtypes", [Renderer2,

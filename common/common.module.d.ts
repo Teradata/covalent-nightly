@@ -4,7 +4,7 @@
 import { TdToggleDirective } from './animations/toggle/toggle.directive';
 import { TdFadeDirective } from './animations/fade/fade.directive';
 export { TdToggleDirective, TdFadeDirective };
-export { TdRotateAnimation } from './animations/rotate/rotate.animation';
+export { TdRotateAnimation, IRotateAnimation } from './animations/rotate/rotate.animation';
 export { TdCollapseAnimation } from './animations/collapse/collapse.animation';
 export { TdFadeInOutAnimation } from './animations/fade/fadeInOut.animation';
 /**
