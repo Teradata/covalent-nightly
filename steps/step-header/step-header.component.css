@@ -24,7 +24,9 @@
     line-height: 24px;
     border-radius: 99%;
     text-align: center;
-    flex: none; }
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none; }
     .td-step-header .td-circle md-icon {
       margin-top: 2px;
       font-weight: bold; }
@@ -51,3 +53,5 @@
   .td-step-header .td-step-sublabel {
     line-height: 14px;
     font-weight: normal; }
+
+/*# sourceMappingURL=step-header.component.css.map */

@@ -7,14 +7,21 @@
   padding: 0px 5px 0px 5px;
   min-height: 48px; }
   :host .td-chips-wrapper {
+    min-height: 42px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    min-height: 42px; }
-    :host .td-chips-wrapper.td-chips-stacked {
-      flex-direction: column;
-      align-items: stretch; }
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start; }
+    :host .td-chips-wrapper.td-chips-stacked .mat-basic-chip {
+      width: 100%; }
   :host /deep/ {
     /* TODO see if we can make styles more abstract to future proof for contact chips */ }
     :host /deep/ .mat-input-wrapper {
@@ -24,7 +31,8 @@
       cursor: default;
       border-radius: 16px;
       margin: 8px 8px 0 0;
-      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
       max-width: 100%;
       position: relative; }
       html[dir=rtl] :host /deep/ .mat-basic-chip {
@@ -44,7 +52,8 @@
         unicode-bidi: bidi-override; }
       :host /deep/ .mat-basic-chip .td-chip {
         min-height: 32px;
-        font-size: 14px;
+        line-height: 32px;
+        font-size: 13px;
         padding: 0 0 0 12px; }
         html[dir=rtl] :host /deep/ .mat-basic-chip .td-chip {
           padding: 0 12px 0 0;
@@ -62,13 +71,19 @@
           direction: ltr;
           unicode-bidi: bidi-override; }
         :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] {
-          display: flex;
-          order: -20;
-          justify-content: center;
-          align-items: center;
+          display: inline-block;
+          -webkit-box-ordinal-group: -19;
+              -ms-flex-order: -20;
+                  order: -20;
+          -webkit-box-pack: center;
+              -ms-flex-pack: center;
+                  justify-content: center;
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          text-align: center;
           height: 32px;
           width: 32px;
-          flex-shrink: 0;
           margin: 0 8px 0 -12px;
           border-radius: 50%; }
           html[dir=rtl] :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] {
@@ -105,7 +120,8 @@
           unicode-bidi: bidi-override; }
       :host /deep/ .mat-basic-chip md-icon.td-chip-removal {
         margin: 0 4px;
-        font-size: 21px; }
+        font-size: 21px;
+        line-height: 22px; }
         :host /deep/ .mat-basic-chip md-icon.td-chip-removal:hover {
           cursor: pointer; }
   :host .mat-input-underline {
@@ -122,14 +138,23 @@
       height: 2px;
       top: 0;
       width: 100%;
-      transform-origin: 50%;
-      transform: scaleX(0.5);
+      -webkit-transform-origin: 50%;
+              transform-origin: 50%;
+      -webkit-transform: scaleX(0.5);
+              transform: scaleX(0.5);
       visibility: hidden;
+      -webkit-transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
       transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); }
       :host .mat-input-underline .mat-input-ripple.mat-focused {
         visibility: visible;
-        transform: scaleX(1);
-        transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); }
+        -webkit-transform: scaleX(1);
+                transform: scaleX(1);
+        -webkit-transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear;
+        transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear;
+        transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+        transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear; }
 
 :host /deep/ md-input-container .mat-input-underline {
   display: none; }
+
+/*# sourceMappingURL=chips.component.css.map */

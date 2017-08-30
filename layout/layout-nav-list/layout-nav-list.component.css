@@ -1,4 +1,6 @@
 :host {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin: 0;
   width: 100%;
@@ -6,19 +8,26 @@
   height: 100%;
   overflow: hidden; }
   :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-opened, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-opening, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-closed, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-closing {
-    box-shadow: none; }
+    -webkit-box-shadow: none;
+            box-shadow: none; }
   :host .list {
     text-align: start; }
 
 :host /deep/ md-sidenav-container.td-layout-nav-list {
   /* Ensure the left sidenav is a flex column & 100% height */ }
   :host /deep/ md-sidenav-container.td-layout-nav-list > .mat-sidenav-content {
-    flex-grow: 1; }
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1; }
   :host /deep/ md-sidenav-container.td-layout-nav-list > md-sidenav {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
     display: -ms-flexbox;
     display: flex;
-    flex-direction: column; }
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+
+/*# sourceMappingURL=layout-nav-list.component.css.map */

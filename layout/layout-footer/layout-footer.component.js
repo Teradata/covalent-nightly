@@ -34,7 +34,7 @@ var TdLayoutFooterComponent = (function () {
         Component({
             /* tslint:disable-next-line */
             selector: 'td-layout-footer,td-layout-footer-inner',
-            styles: [":host { display: block; padding: 10px 16px; } "],
+            styles: [":host { display: block; padding: 10px 16px; } /*# sourceMappingURL=layout-footer.component.css.map */ "],
             template: "<ng-content></ng-content> ",
         }),
         tslib_1.__metadata("design:paramtypes", [Renderer2,

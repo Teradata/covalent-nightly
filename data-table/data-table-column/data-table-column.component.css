@@ -83,11 +83,16 @@
     line-height: 16px !important; }
     :host md-icon.td-data-table-sort-icon {
       opacity: 0;
-      transition: transform 0.25s, opacity 0.25s; }
+      -webkit-transition: -webkit-transform 0.25s;
+      transition: -webkit-transform 0.25s;
+      transition: transform 0.25s;
+      transition: transform 0.25s, -webkit-transform 0.25s; }
       :host md-icon.td-data-table-sort-icon.mat-asc {
-        transform: rotate(0deg); }
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg); }
       :host md-icon.td-data-table-sort-icon.mat-desc {
-        transform: rotate(180deg); }
+        -webkit-transform: rotate(180deg);
+                transform: rotate(180deg); }
   :host:hover.mat-sortable md-icon.td-data-table-sort-icon,
   :host.mat-active.mat-sortable md-icon.td-data-table-sort-icon {
     opacity: 1; }
@@ -112,8 +117,12 @@
     cursor: pointer; }
     :host.mat-clickable:focus {
       outline: none; }
+  :host .td-data-table-heading {
+    display: inline-block;
+    position: relative; }
   :host md-icon.td-data-table-sort-icon {
-    position: absolute; }
+    position: absolute;
+    top: 0px; }
   :host.mat-numeric {
     text-align: right; }
     html[dir=rtl] :host.mat-numeric {
@@ -197,3 +206,5 @@
     :host:not(.mat-numeric) md-icon.td-data-table-sort-icon bdo[dir=ltr] {
       direction: ltr;
       unicode-bidi: bidi-override; }
+
+/*# sourceMappingURL=data-table-column.component.css.map */

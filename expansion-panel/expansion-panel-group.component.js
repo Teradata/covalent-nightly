@@ -9,7 +9,7 @@ var TdExpansionPanelGroupComponent = (function () {
     TdExpansionPanelGroupComponent = tslib_1.__decorate([
         Component({
             selector: 'td-expansion-panel-group',
-            styles: [""],
+            styles: [" /*# sourceMappingURL=expansion-panel-group.component.css.map */ "],
             template: "<ng-content></ng-content>",
         }),
         tslib_1.__metadata("design:paramtypes", [Renderer2,

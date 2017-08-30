@@ -1,0 +1,1 @@
+{"version":3,"sources":["platform/core/message/message.component.scss"],"names":[],"mappings":"AAAA;EACE,eAAc,EAIf;EALD;IAGI,iBAAgB,EACjB","file":"platform/core/message/message.component.css","sourcesContent":[":host {\n  display: block;\n  .td-message-wrapper {\n    min-height: 52px;\n  }\n}"],"sourceRoot":"/source/"}

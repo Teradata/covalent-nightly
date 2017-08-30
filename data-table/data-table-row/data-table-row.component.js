@@ -35,7 +35,7 @@ var TdDataTableRowComponent = (function () {
         Component({
             /* tslint:disable-next-line */
             selector: 'tr[td-data-table-row]',
-            styles: [":host { border-bottom-style: solid; border-bottom-width: 1px; } tbody > :host { height: 48px; } thead > :host { height: 56px; } "],
+            styles: [":host { border-bottom-style: solid; border-bottom-width: 1px; } tbody > :host { height: 48px; } thead > :host { height: 56px; } /*# sourceMappingURL=data-table-row.component.css.map */ "],
             template: "<ng-content></ng-content>",
         }),
         tslib_1.__metadata("design:paramtypes", [ElementRef, Renderer2])

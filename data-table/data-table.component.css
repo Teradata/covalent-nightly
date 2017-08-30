@@ -5,6 +5,7 @@
   -webkit-overflow-scrolling: touch; }
 
 table.td-data-table.mat-selectable tbody > tr.td-data-table-row {
+  -webkit-transition: background-color 0.2s;
   transition: background-color 0.2s; }
 
 table.td-data-table.mat-selectable .td-data-table-column:first-child,
@@ -41,3 +42,5 @@ table.td-data-table th.mat-checkbox-column {
     width: 18px;
     height: 18px;
     margin: 0; }
+
+/*# sourceMappingURL=data-table.component.css.map */

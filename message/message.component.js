@@ -248,8 +248,8 @@ var TdMessageComponent = (function () {
     TdMessageComponent = tslib_1.__decorate([
         Component({
             selector: 'td-message',
-            template: "<div tdMessageContainer></div> <ng-template> <div class=\"pad-left pad-right td-message-wrapper\" layout=\"row\" layout-align=\"center center\"> <md-icon class=\"push-right\">{{icon}}</md-icon> <div> <div *ngIf=\"label\" class=\"td-message-label md-body-2\">{{label}}</div> <div *ngIf=\"sublabel\" class=\"td-message-sublabel md-body-1\">{{sublabel}}</div> </div> <span flex></span> <ng-content select=\"[td-message-actions]\"></ng-content> </div> </ng-template>",
-            styles: [":host { display: block; } :host .td-message-wrapper { min-height: 52px; } "],
+            template: "<div tdMessageContainer></div> <ng-template> <div layout=\"column\"> <div class=\"pad-top-sm pad-right pad-bottom-sm pad-left td-message-wrapper\" layout=\"row\" layout-align=\"center center\"> <md-icon class=\"push-right\">{{icon}}</md-icon> <div> <div *ngIf=\"label\" class=\"td-message-label md-body-2\">{{label}}</div> <div *ngIf=\"sublabel\" class=\"td-message-sublabel md-body-1\">{{sublabel}}</div> </div> <span flex></span> <ng-content select=\"[td-message-actions]\"></ng-content> </div> </div> </ng-template>",
+            styles: [":host { display: block; } :host .td-message-wrapper { min-height: 52px; } /*# sourceMappingURL=message.component.css.map */ "],
             animations: [
                 TdCollapseAnimation(100),
                 TdFadeInOutAnimation(100),

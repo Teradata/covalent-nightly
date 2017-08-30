@@ -1,0 +1,1 @@
+{"version":3,"sources":["platform/core/steps/step-body/step-body.component.scss"],"names":[],"mappings":"AAAA;EACE,mBAAkB,EAInB;EALD;IAGI,iBAAgB,EACjB","file":"platform/core/steps/step-body/step-body.component.css","sourcesContent":[".td-step-body {\n  overflow-x: hidden;\n  .td-step-content {\n    overflow-x: auto; \n  }\n}"],"sourceRoot":"/source/"}

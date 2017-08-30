@@ -6,6 +6,9 @@
       background-repeat: no-repeat;
       background-size: cover; }
     :host md-toolbar /deep/ > .mat-toolbar-layout > md-toolbar-row {
-      height: auto !important; }
+      height: auto !important;
+      display: block !important; }
   :host > div {
     overflow: hidden; }
+
+/*# sourceMappingURL=navigation-drawer.component.css.map */

@@ -14,9 +14,7 @@
   min-width: 44px;
   font-size: 12px; }
 
-/deep/ md-select .mat-select-value {
-  top: auto;
-  position: static; }
-
 /deep/ md-select .mat-select-underline {
   display: none; }
+
+/*# sourceMappingURL=paging-bar.component.css.map */

@@ -1,0 +1,1 @@
+{"version":3,"sources":["platform/core/layout/layout-footer/layout-footer.component.scss"],"names":[],"mappings":"AAAA;EACE,eAAc;EACd,mBAAkB,EACnB","file":"platform/core/layout/layout-footer/layout-footer.component.css","sourcesContent":[":host {\n  display: block;\n  padding: 10px 16px;\n}\n"],"sourceRoot":"/source/"}
