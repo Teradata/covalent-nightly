@@ -1,6 +1,6 @@
 import { ComponentFactoryResolver, Provider } from '@angular/core';
 import { Injector, ComponentRef, ViewContainerRef, TemplateRef } from '@angular/core';
-import { Overlay } from '@angular/material';
+import { Overlay } from '@angular/cdk/overlay';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import { TdLoadingContext } from '../directives/loading.directive';

@@ -1,8 +1,9 @@
 import * as tslib_1 from "tslib";
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PortalModule } from '@angular/cdk';
-import { MdProgressBarModule, MdProgressSpinnerModule, OverlayModule } from '@angular/material';
+import { PortalModule } from '@angular/cdk/portal';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { MdProgressBarModule, MdProgressSpinnerModule } from '@angular/material';
 import { LOADING_PROVIDER } from './services/loading.service';
 import { LOADING_FACTORY_PROVIDER } from './services/loading.factory';
 import { TdLoadingDirective } from './directives/loading.directive';

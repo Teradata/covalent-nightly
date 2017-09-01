@@ -1,6 +1,7 @@
 import * as tslib_1 from "tslib";
 import { Component, Directive, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewChild, ElementRef, Renderer2, TemplateRef, ViewContainerRef, ChangeDetectorRef, forwardRef } from '@angular/core';
-import { coerceBooleanProperty, TemplatePortalDirective } from '@angular/cdk';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { TemplatePortalDirective } from '@angular/cdk/portal';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { mixinDisabled } from '../../common/common.module';
 var noop = function () {

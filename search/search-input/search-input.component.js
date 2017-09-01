@@ -1,8 +1,8 @@
 import * as tslib_1 from "tslib";
 import { Component, ViewChild, Input, Output, EventEmitter, Optional } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { Dir } from '@angular/cdk';
-import { MdInputDirective } from '@angular/material';
+import { Dir } from '@angular/cdk/bidi';
+import { MdInput } from '@angular/material';
 import { debounceTime } from 'rxjs/operator/debounceTime';
 import { skip } from 'rxjs/operator/skip';
 var TdSearchInputComponent = (function () {
@@ -51,7 +51,7 @@ var TdSearchInputComponent = (function () {
     });
     TdSearchInputComponent.prototype.ngOnInit = function () {
         var _this = this;
-        debounceTime.call(skip.call(this._input._ngControl.valueChanges, 1), // skip first change when value is set to undefined
+        debounceTime.call(skip.call(this._input.ngControl.valueChanges, 1), // skip first change when value is set to undefined
         this.debounce)
             .subscribe(function (value) {
             _this._searchTermChanged(value);
@@ -81,8 +81,8 @@ var TdSearchInputComponent = (function () {
         this.onSearchDebounce.emit(value);
     };
     tslib_1.__decorate([
-        ViewChild(MdInputDirective),
-        tslib_1.__metadata("design:type", MdInputDirective)
+        ViewChild(MdInput),
+        tslib_1.__metadata("design:type", MdInput)
     ], TdSearchInputComponent.prototype, "_input", void 0);
     tslib_1.__decorate([
         Input('showUnderline'),
@@ -115,8 +115,8 @@ var TdSearchInputComponent = (function () {
     TdSearchInputComponent = tslib_1.__decorate([
         Component({
             selector: 'td-search-input',
-            template: "<div class=\"td-search-input\" layout=\"row\" layout-align=\"end center\"> <md-input-container [class.mat-hide-underline]=\"!showUnderline\" floatPlaceholder=\"never\" flex> <input mdInput #searchElement type=\"search\" [(ngModel)]=\"value\" [placeholder]=\"placeholder\" (blur)=\"handleBlur()\" (search)=\"stopPropagation($event)\" (keyup.enter)=\"handleSearch($event)\"/> </md-input-container> <button md-icon-button type=\"button\" [@searchState]=\"(searchElement.value ?  'show' : (isRTL ? 'hide-left' : 'hide-right'))\" (click)=\"clearSearch()\" flex=\"none\"> <md-icon>cancel</md-icon> </button> </div>",
-            styles: [".td-search-input { overflow-x: hidden; } .td-search-input /deep/ md-input-container.mat-hide-underline .mat-input-underline { display: none; } /*# sourceMappingURL=search-input.component.css.map */ "],
+            template: "<div class=\"td-search-input\" layout=\"row\" layout-align=\"end center\"> <md-form-field [class.mat-hide-underline]=\"!showUnderline\" floatPlaceholder=\"never\" flex> <input mdInput #searchElement type=\"search\" [(ngModel)]=\"value\" [placeholder]=\"placeholder\" (blur)=\"handleBlur()\" (search)=\"stopPropagation($event)\" (keyup.enter)=\"handleSearch($event)\"/> </md-form-field> <button md-icon-button type=\"button\" [@searchState]=\"(searchElement.value ?  'show' : (isRTL ? 'hide-left' : 'hide-right'))\" (click)=\"clearSearch()\" flex=\"none\"> <md-icon>cancel</md-icon> </button> </div>",
+            styles: [".td-search-input { overflow-x: hidden; } .td-search-input /deep/ md-form-field.mat-hide-underline .mat-form-field-underline { display: none; } /*# sourceMappingURL=search-input.component.css.map */ "],
             animations: [
                 trigger('searchState', [
                     state('hide-left', style({

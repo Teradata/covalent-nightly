@@ -1,8 +1,8 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/animations'), require('@angular/cdk'), require('@angular/router'), require('rxjs/operator/filter'), require('rxjs/operator/pairwise'), require('@angular/material'), require('@angular/platform-browser'), require('rxjs/observable/timer'), require('rxjs/observable/merge'), require('rxjs/operator/toPromise'), require('rxjs/observable/fromEvent'), require('@angular/http'), require('rxjs/Observable'), require('rxjs/Subject'), require('rxjs/operator/debounceTime'), require('rxjs/operator/skip')) :
-	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/animations', '@angular/cdk', '@angular/router', 'rxjs/operator/filter', 'rxjs/operator/pairwise', '@angular/material', '@angular/platform-browser', 'rxjs/observable/timer', 'rxjs/observable/merge', 'rxjs/operator/toPromise', 'rxjs/observable/fromEvent', '@angular/http', 'rxjs/Observable', 'rxjs/Subject', 'rxjs/operator/debounceTime', 'rxjs/operator/skip'], factory) :
-	(factory((global.td = global.td || {}, global.td.core = global.td.core || {}),global.ng.core,global.ng.common,global.ng.forms,global.ng.animations,global.ng.cdk,global.ng.router,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.ng.material,global.ng.platformBrowser,global.Rx.Observable,global.Rx.Observable,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.ng.http,global.Rx,global.Rx,global.Rx.Observable.prototype,global.Rx.Observable.prototype));
-}(this, (function (exports,_angular_core,_angular_common,_angular_forms,_angular_animations,_angular_cdk,_angular_router,rxjs_operator_filter,rxjs_operator_pairwise,_angular_material,_angular_platformBrowser,rxjs_observable_timer,rxjs_observable_merge,rxjs_operator_toPromise,rxjs_observable_fromEvent,_angular_http,rxjs_Observable,rxjs_Subject,rxjs_operator_debounceTime,rxjs_operator_skip) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/animations'), require('@angular/cdk/coercion'), require('@angular/router'), require('rxjs/operator/filter'), require('rxjs/operator/pairwise'), require('@angular/material'), require('@angular/platform-browser'), require('@angular/cdk/portal'), require('@angular/cdk/keycodes'), require('@angular/cdk/rxjs'), require('rxjs/observable/timer'), require('rxjs/observable/merge'), require('rxjs/operator/toPromise'), require('rxjs/observable/fromEvent'), require('@angular/http'), require('rxjs/Observable'), require('rxjs/Subject'), require('@angular/cdk/bidi'), require('@angular/cdk/scrolling'), require('@angular/cdk/overlay'), require('rxjs/operator/debounceTime'), require('rxjs/operator/skip')) :
+	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/animations', '@angular/cdk/coercion', '@angular/router', 'rxjs/operator/filter', 'rxjs/operator/pairwise', '@angular/material', '@angular/platform-browser', '@angular/cdk/portal', '@angular/cdk/keycodes', '@angular/cdk/rxjs', 'rxjs/observable/timer', 'rxjs/observable/merge', 'rxjs/operator/toPromise', 'rxjs/observable/fromEvent', '@angular/http', 'rxjs/Observable', 'rxjs/Subject', '@angular/cdk/bidi', '@angular/cdk/scrolling', '@angular/cdk/overlay', 'rxjs/operator/debounceTime', 'rxjs/operator/skip'], factory) :
+	(factory((global.td = global.td || {}, global.td.core = global.td.core || {}),global.ng.core,global.ng.common,global.ng.forms,global.ng.animations,global.ng.cdk.coercion,global.ng.router,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.ng.material,global.ng.platformBrowser,global.ng.cdk.portal,global.ng.cdk.keycodes,global.ng.cdk.rxjs,global.Rx.Observable,global.Rx.Observable,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.ng.http,global.Rx,global.Rx,global.ng.cdk.bidi,global.ng.cdk.scrolling,global.ng.cdk.overlay,global.Rx.Observable.prototype,global.Rx.Observable.prototype));
+}(this, (function (exports,_angular_core,_angular_common,_angular_forms,_angular_animations,_angular_cdk_coercion,_angular_router,rxjs_operator_filter,rxjs_operator_pairwise,_angular_material,_angular_platformBrowser,_angular_cdk_portal,_angular_cdk_keycodes,_angular_cdk_rxjs,rxjs_observable_timer,rxjs_observable_merge,rxjs_operator_toPromise,rxjs_observable_fromEvent,_angular_http,rxjs_Observable,rxjs_Subject,_angular_cdk_bidi,_angular_cdk_scrolling,_angular_cdk_overlay,rxjs_operator_debounceTime,rxjs_operator_skip) { 'use strict';
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
@@ -464,7 +464,7 @@ function mixinDisabled(base) {
                 return this._disabled;
             },
             set: function (value) {
-                var newValue = _angular_cdk.coerceBooleanProperty(value);
+                var newValue = _angular_cdk_coercion.coerceBooleanProperty(value);
                 if (this._disabled !== newValue) {
                     this._disabled = newValue;
                     this.onDisabledChange(this._disabled);
@@ -498,7 +498,7 @@ function mixinDisableRipple(base) {
                 return this._disableRipple;
             },
             set: function (value) {
-                var newValue = _angular_cdk.coerceBooleanProperty(value);
+                var newValue = _angular_cdk_coercion.coerceBooleanProperty(value);
                 if (this._disableRipple !== newValue) {
                     this._disableRipple = newValue;
                     this.onDisableRippleChange(this._disableRipple);
@@ -1685,7 +1685,7 @@ var TdChipDirective = (function (_super) {
         __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
     ], TdChipDirective);
     return TdChipDirective;
-}(_angular_cdk.TemplatePortalDirective));
+}(_angular_cdk_portal.TemplatePortalDirective));
 var TdAutocompleteOptionDirective = (function (_super) {
     __extends(TdAutocompleteOptionDirective, _super);
     function TdAutocompleteOptionDirective(templateRef, viewContainerRef) {
@@ -1698,7 +1698,7 @@ var TdAutocompleteOptionDirective = (function (_super) {
         __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
     ], TdAutocompleteOptionDirective);
     return TdAutocompleteOptionDirective;
-}(_angular_cdk.TemplatePortalDirective));
+}(_angular_cdk_portal.TemplatePortalDirective));
 var TdChipsBase = (function () {
     function TdChipsBase() {
     }
@@ -1809,7 +1809,7 @@ var TdChipsComponent = (function (_super) {
          * Defaults to false.
          */
         set: function (stacked) {
-            this._stacked = _angular_cdk.coerceBooleanProperty(stacked);
+            this._stacked = _angular_cdk_coercion.coerceBooleanProperty(stacked);
         },
         enumerable: true,
         configurable: true
@@ -1823,7 +1823,7 @@ var TdChipsComponent = (function (_super) {
          * Blocks custom inputs and only allows selections from the autocomplete list.
          */
         set: function (requireMatch) {
-            this._requireMatch = _angular_cdk.coerceBooleanProperty(requireMatch);
+            this._requireMatch = _angular_cdk_coercion.coerceBooleanProperty(requireMatch);
         },
         enumerable: true,
         configurable: true
@@ -1977,13 +1977,13 @@ var TdChipsComponent = (function (_super) {
     TdChipsComponent.prototype.keydownListener = function (event) {
         var _this = this;
         switch (event.keyCode) {
-            case _angular_cdk.TAB:
+            case _angular_cdk_keycodes.TAB:
                 // if tabing out, then unfocus the component
                 rxjs_operator_toPromise.toPromise.call(rxjs_observable_timer.timer()).then(function () {
                     _this.removeFocusedState();
                 });
                 break;
-            case _angular_cdk.ESCAPE:
+            case _angular_cdk_keycodes.ESCAPE:
                 if (this._inputChild.focused) {
                     this._nativeInput.nativeElement.blur();
                     this.removeFocusedState();
@@ -1998,7 +1998,7 @@ var TdChipsComponent = (function (_super) {
     };
     TdChipsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        _angular_cdk.RxChain.from(this.inputControl.valueChanges).call(_angular_cdk.debounceTime, this.debounce)
+        _angular_cdk_rxjs.RxChain.from(this.inputControl.valueChanges).call(_angular_cdk_rxjs.debounceTime, this.debounce)
             .subscribe(function (value) {
             _this.onInputChange.emit(value ? value : '');
         });
@@ -2020,6 +2020,9 @@ var TdChipsComponent = (function (_super) {
             this._outsideClickSubs.unsubscribe();
             this._outsideClickSubs = undefined;
         }
+    };
+    TdChipsComponent.prototype._setInternalClick = function () {
+        this._internalClick = true;
     };
     /** Method executed when the disabled value changes */
     TdChipsComponent.prototype.onDisabledChange = function (v) {
@@ -2126,6 +2129,7 @@ var TdChipsComponent = (function (_super) {
      * Sets focus of chip and sends out event
      */
     TdChipsComponent.prototype._handleChipFocus = function (event, value) {
+        this.setFocusedState();
         this.onChipFocus.emit(value);
     };
     TdChipsComponent.prototype._handleFocus = function () {
@@ -2168,7 +2172,7 @@ var TdChipsComponent = (function (_super) {
      */
     TdChipsComponent.prototype._inputKeydown = function (event) {
         switch (event.keyCode) {
-            case _angular_cdk.UP_ARROW:
+            case _angular_cdk_keycodes.UP_ARROW:
                 /**
                  * Since the first item is highlighted on [requireMatch], we need to inactivate it
                  * when pressing the up key
@@ -2182,9 +2186,9 @@ var TdChipsComponent = (function (_super) {
                     }
                 }
                 break;
-            case _angular_cdk.LEFT_ARROW:
-            case _angular_cdk.DELETE:
-            case _angular_cdk.BACKSPACE:
+            case _angular_cdk_keycodes.LEFT_ARROW:
+            case _angular_cdk_keycodes.DELETE:
+            case _angular_cdk_keycodes.BACKSPACE:
                 this._closeAutocomplete();
                 /** Check to see if input is empty when pressing left arrow to move to the last chip */
                 if (!this._inputChild.value) {
@@ -2193,7 +2197,7 @@ var TdChipsComponent = (function (_super) {
                     event.preventDefault();
                 }
                 break;
-            case _angular_cdk.RIGHT_ARROW:
+            case _angular_cdk_keycodes.RIGHT_ARROW:
                 this._closeAutocomplete();
                 /** Check to see if input is empty when pressing right arrow to move to the first chip */
                 if (!this._inputChild.value) {
@@ -2210,22 +2214,22 @@ var TdChipsComponent = (function (_super) {
      */
     TdChipsComponent.prototype._chipKeydown = function (event, index) {
         switch (event.keyCode) {
-            case _angular_cdk.DELETE:
-            case _angular_cdk.BACKSPACE:
+            case _angular_cdk_keycodes.DELETE:
+            case _angular_cdk_keycodes.BACKSPACE:
                 /** Check to see if we can delete a chip */
                 if (this.canRemoveChip) {
                     this.removeChip(index);
                 }
                 break;
-            case _angular_cdk.UP_ARROW:
-            case _angular_cdk.LEFT_ARROW:
+            case _angular_cdk_keycodes.UP_ARROW:
+            case _angular_cdk_keycodes.LEFT_ARROW:
                 /**
                  * Check to see if left/down arrow was pressed while focusing the first chip to focus input next
                  * Also check if input should be focused
                  */
                 if (index === 0) {
                     // only try to target input if pressing left
-                    if (this.canAddChip && event.keyCode === _angular_cdk.LEFT_ARROW) {
+                    if (this.canAddChip && event.keyCode === _angular_cdk_keycodes.LEFT_ARROW) {
                         this._inputChild.focus();
                     }
                     else {
@@ -2238,15 +2242,15 @@ var TdChipsComponent = (function (_super) {
                 // prevent default window scrolling
                 event.preventDefault();
                 break;
-            case _angular_cdk.DOWN_ARROW:
-            case _angular_cdk.RIGHT_ARROW:
+            case _angular_cdk_keycodes.DOWN_ARROW:
+            case _angular_cdk_keycodes.RIGHT_ARROW:
                 /**
                  * Check to see if right/up arrow was pressed while focusing the last chip to focus input next
                  * Also check if input should be focused
                  */
                 if (index === (this._totalChips - 1)) {
                     // only try to target input if pressing right
-                    if (this.canAddChip && event.keyCode === _angular_cdk.RIGHT_ARROW) {
+                    if (this.canAddChip && event.keyCode === _angular_cdk_keycodes.RIGHT_ARROW) {
                         this._inputChild.focus();
                     }
                     else {
@@ -2368,7 +2372,7 @@ var TdChipsComponent = (function (_super) {
     TdChipsComponent.prototype._watchOutsideClick = function () {
         var _this = this;
         if (this._document) {
-            this._outsideClickSubs = _angular_cdk.RxChain.from(rxjs_observable_merge.merge(rxjs_observable_fromEvent.fromEvent(this._document, 'click'), rxjs_observable_fromEvent.fromEvent(this._document, 'touchend'))).call(_angular_cdk.filter, function (event) {
+            this._outsideClickSubs = _angular_cdk_rxjs.RxChain.from(rxjs_observable_merge.merge(rxjs_observable_fromEvent.fromEvent(this._document, 'click'), rxjs_observable_fromEvent.fromEvent(this._document, 'touchend'))).call(_angular_cdk_rxjs.filter, function (event) {
                 var clickTarget = event.target;
                 setTimeout(function () {
                     _this._internalClick = false;
@@ -2392,8 +2396,8 @@ var TdChipsComponent = (function (_super) {
         __metadata("design:type", _angular_core.ElementRef)
     ], TdChipsComponent.prototype, "_nativeInput", void 0);
     __decorate([
-        _angular_core.ViewChild(_angular_material.MdInputDirective),
-        __metadata("design:type", _angular_material.MdInputDirective)
+        _angular_core.ViewChild(_angular_material.MdInput),
+        __metadata("design:type", _angular_material.MdInput)
     ], TdChipsComponent.prototype, "_inputChild", void 0);
     __decorate([
         _angular_core.ViewChild(_angular_material.MdAutocompleteTrigger),
@@ -2521,8 +2525,8 @@ var TdChipsComponent = (function (_super) {
                 }],
             selector: 'td-chips',
             inputs: ['disabled'],
-            styles: ["/** * Mixin that creates a new stacking context. * see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context */ :host { display: block; padding: 0px 5px 0px 5px; min-height: 48px; } :host .td-chips-wrapper { min-height: 42px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-align: start; -ms-flex-align: start; align-items: flex-start; } :host .td-chips-wrapper.td-chips-stacked .mat-basic-chip { width: 100%; } :host /deep/ { /* TODO see if we can make styles more abstract to future proof for contact chips */ } :host /deep/ .mat-input-wrapper { padding-bottom: 2px; } :host /deep/ .mat-basic-chip { display: inline-block; cursor: default; border-radius: 16px; margin: 8px 8px 0 0; -webkit-box-sizing: border-box; box-sizing: border-box; max-width: 100%; position: relative; } html[dir=rtl] :host /deep/ .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } :host /deep/ .mat-basic-chip bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip .td-chip { min-height: 32px; line-height: 32px; font-size: 13px; padding: 0 0 0 12px; } html[dir=rtl] :host /deep/ .mat-basic-chip .td-chip { padding: 0 12px 0 0; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip .td-chip { padding: 0 12px 0 0; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip .td-chip { padding: 0 12px 0 0; unicode-bidi: embed; } :host /deep/ .mat-basic-chip .td-chip bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip .td-chip bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] { display: inline-block; -webkit-box-ordinal-group: -19; -ms-flex-order: -20; order: -20; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; text-align: center; height: 32px; width: 32px; margin: 0 8px 0 -12px; border-radius: 50%; } html[dir=rtl] :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] { margin: 0 -12px 0 8px; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] { margin: 0 -12px 0 8px; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] { margin: 0 -12px 0 8px; unicode-bidi: embed; } :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip.td-chip-after-pad { padding: 0 12px 0 0; } html[dir=rtl] :host /deep/ .mat-basic-chip.td-chip-after-pad { padding: 0 0 0 12px; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip.td-chip-after-pad { padding: 0 0 0 12px; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip.td-chip-after-pad { padding: 0 0 0 12px; unicode-bidi: embed; } :host /deep/ .mat-basic-chip.td-chip-after-pad bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip.td-chip-after-pad bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip md-icon.td-chip-removal { margin: 0 4px; font-size: 21px; line-height: 22px; } :host /deep/ .mat-basic-chip md-icon.td-chip-removal:hover { cursor: pointer; } :host .mat-input-underline { position: relative; height: 1px; width: 100%; bottom: 0; } :host .mat-input-underline.mat-disabled { background-position: 0; bottom: -4px; background-color: transparent; } :host .mat-input-underline .mat-input-ripple { position: absolute; height: 2px; top: 0; width: 100%; -webkit-transform-origin: 50%; transform-origin: 50%; -webkit-transform: scaleX(0.5); transform: scaleX(0.5); visibility: hidden; -webkit-transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); } :host .mat-input-underline .mat-input-ripple.mat-focused { visibility: visible; -webkit-transform: scaleX(1); transform: scaleX(1); -webkit-transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear; transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear; transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear; } :host /deep/ md-input-container .mat-input-underline { display: none; } /*# sourceMappingURL=chips.component.css.map */ "],
-            template: "<div class=\"td-chips-wrapper\" [class.td-chips-stacked]=\"stacked\"> <ng-template let-chip let-first=\"first\" let-index=\"index\" ngFor [ngForOf]=\"value\"> <md-basic-chip [class.td-chip-disabled]=\"disabled\" [class.td-chip-after-pad]=\"!canRemoveChip\" [color]=\"color\" (keydown)=\"_chipKeydown($event, index)\" (blur)=\"_handleChipBlur($event, chip)\" (focus)=\"_handleChipFocus($event, chip)\"> <div class=\"td-chip\" layout=\"row\" [attr.layout-align]=\"stacked ? 'space-between center' : 'start center'\" > <span class=\"td-chip-content\" layout=\"row\" layout-align=\"start center\"> <span *ngIf=\"!_chipTemplate?.templateRef\">{{chip}}</span> <ng-template *ngIf=\"_chipTemplate?.templateRef\" [ngTemplateOutlet]=\"_chipTemplate?.templateRef\" [ngOutletContext]=\"{ chip: chip }\"> </ng-template> </span> <md-icon *ngIf=\"canRemoveChip\" class=\"td-chip-removal\" (click)=\"_internalClick = removeChip(index)\"> cancel </md-icon> </div> </md-basic-chip> </ng-template> <md-input-container floatPlaceholder=\"never\" [style.width.px]=\"canAddChip ? null : 0\" [style.height.px]=\"canAddChip ? null : 0\" [color]=\"color\"> <input mdInput #input [tabIndex]=\"-1\" [mdAutocomplete]=\"autocomplete\" [formControl]=\"inputControl\" [placeholder]=\"canAddChip? placeholder : ''\" (keydown)=\"_inputKeydown($event)\" (keyup.enter)=\"_handleAddChip()\" (focus)=\"_handleFocus()\"> </md-input-container> <md-autocomplete #autocomplete=\"mdAutocomplete\" [displayWith]=\"_removeInputDisplay\"> <ng-template let-item let-first=\"first\" ngFor [ngForOf]=\"items\"> <md-option (click)=\"_internalClick = addChip(item)\" [value]=\"item\"> <span *ngIf=\"!_autocompleteOptionTemplate?.templateRef\">{{item}}</span> <ng-template *ngIf=\"_autocompleteOptionTemplate?.templateRef\" [ngTemplateOutlet]=\"_autocompleteOptionTemplate?.templateRef\" [ngOutletContext]=\"{ option: item }\"> </ng-template> </md-option> </ng-template> </md-autocomplete> </div> <div *ngIf=\"chipAddition\" class=\"mat-input-underline\" [class.mat-disabled]=\"disabled\"> <span class=\"mat-input-ripple\" [class.mat-focused]=\"focused\"></span> </div> <ng-content></ng-content>",
+            styles: ["/** * Mixin that creates a new stacking context. * see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context */ :host { display: block; padding: 0px 5px 0px 5px; min-height: 48px; } :host .td-chips-wrapper { min-height: 42px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-align: start; -ms-flex-align: start; align-items: flex-start; } :host .td-chips-wrapper.td-chips-stacked .mat-basic-chip { width: 100%; } :host /deep/ { /* TODO see if we can make styles more abstract to future proof for contact chips */ } :host /deep/ .mat-form-field-wrapper { padding-bottom: 2px; } :host /deep/ .mat-basic-chip { display: inline-block; cursor: default; border-radius: 16px; margin: 8px 8px 0 0; -webkit-box-sizing: border-box; box-sizing: border-box; max-width: 100%; position: relative; } html[dir=rtl] :host /deep/ .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } :host /deep/ .mat-basic-chip bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip .td-chip { min-height: 32px; line-height: 32px; font-size: 13px; padding: 0 0 0 12px; } html[dir=rtl] :host /deep/ .mat-basic-chip .td-chip { padding: 0 12px 0 0; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip .td-chip { padding: 0 12px 0 0; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip .td-chip { padding: 0 12px 0 0; unicode-bidi: embed; } :host /deep/ .mat-basic-chip .td-chip bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip .td-chip bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] { display: inline-block; -webkit-box-ordinal-group: -19; -ms-flex-order: -20; order: -20; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; text-align: center; height: 32px; width: 32px; margin: 0 8px 0 -12px; border-radius: 50%; } html[dir=rtl] :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] { margin: 0 -12px 0 8px; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] { margin: 0 -12px 0 8px; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] { margin: 0 -12px 0 8px; unicode-bidi: embed; } :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip.td-chip-after-pad { padding: 0 12px 0 0; } html[dir=rtl] :host /deep/ .mat-basic-chip.td-chip-after-pad { padding: 0 0 0 12px; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip.td-chip-after-pad { padding: 0 0 0 12px; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip.td-chip-after-pad { padding: 0 0 0 12px; unicode-bidi: embed; } :host /deep/ .mat-basic-chip.td-chip-after-pad bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip.td-chip-after-pad bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip md-icon.td-chip-removal { margin: 0 4px; font-size: 21px; line-height: 22px; } :host /deep/ .mat-basic-chip md-icon.td-chip-removal:hover { cursor: pointer; } :host .mat-form-field-underline { position: relative; height: 1px; width: 100%; bottom: 0; } :host .mat-form-field-underline.mat-disabled { background-position: 0; bottom: -4px; background-color: transparent; } :host .mat-form-field-underline .mat-form-field-ripple { position: absolute; height: 2px; top: 0; width: 100%; -webkit-transform-origin: 50%; transform-origin: 50%; -webkit-transform: scaleX(0.5); transform: scaleX(0.5); visibility: hidden; -webkit-transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); } :host .mat-form-field-underline .mat-form-field-ripple.mat-focused { visibility: visible; -webkit-transform: scaleX(1); transform: scaleX(1); -webkit-transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear; transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear; transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear; } :host /deep/ md-form-field .mat-form-field-underline { display: none; } /*# sourceMappingURL=chips.component.css.map */ "],
+            template: "<div class=\"td-chips-wrapper\" [class.td-chips-stacked]=\"stacked\"> <ng-template let-chip let-first=\"first\" let-index=\"index\" ngFor [ngForOf]=\"value\"> <md-basic-chip [class.td-chip-disabled]=\"disabled\" [class.td-chip-after-pad]=\"!canRemoveChip\" [color]=\"color\" [disabled]=\"true\" (keydown)=\"_chipKeydown($event, index)\" (blur)=\"_handleChipBlur($event, chip)\" (focus)=\"_handleChipFocus($event, chip)\"> <div class=\"td-chip\" layout=\"row\" [attr.layout-align]=\"stacked ? 'space-between center' : 'start center'\" > <span class=\"td-chip-content\" layout=\"row\" layout-align=\"start center\"> <span *ngIf=\"!_chipTemplate?.templateRef\">{{chip}}</span> <ng-template *ngIf=\"_chipTemplate?.templateRef\" [ngTemplateOutlet]=\"_chipTemplate?.templateRef\" [ngOutletContext]=\"{ chip: chip }\"> </ng-template> </span> <md-icon *ngIf=\"canRemoveChip\" class=\"td-chip-removal\" (click)=\"_internalClick = removeChip(index)\"> cancel </md-icon> </div> </md-basic-chip> </ng-template> <md-form-field floatPlaceholder=\"never\" [style.width.px]=\"canAddChip ? null : 0\" [style.height.px]=\"canAddChip ? null : 0\" [color]=\"color\"> <input mdInput #input [tabIndex]=\"-1\" [mdAutocomplete]=\"autocomplete\" [formControl]=\"inputControl\" [placeholder]=\"canAddChip? placeholder : ''\" (keydown)=\"_inputKeydown($event)\" (keyup.enter)=\"_handleAddChip()\" (focus)=\"_handleFocus()\"> </md-form-field> <md-autocomplete #autocomplete=\"mdAutocomplete\" [displayWith]=\"_removeInputDisplay\" (optionSelected)=\"addChip($event.option.value)\"> <ng-template let-item let-first=\"first\" ngFor [ngForOf]=\"items\"> <md-option (click)=\"_setInternalClick()\" [value]=\"item\"> <span *ngIf=\"!_autocompleteOptionTemplate?.templateRef\">{{item}}</span> <ng-template *ngIf=\"_autocompleteOptionTemplate?.templateRef\" [ngTemplateOutlet]=\"_autocompleteOptionTemplate?.templateRef\" [ngOutletContext]=\"{ option: item }\"> </ng-template> </md-option> </ng-template> </md-autocomplete> </div> <div *ngIf=\"chipAddition\" class=\"mat-form-field-underline\" [class.mat-disabled]=\"disabled\"> <span class=\"mat-form-field-ripple\" [class.mat-focused]=\"focused\"></span> </div> <ng-content></ng-content>",
             changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
         }),
         __param(3, _angular_core.Optional()), __param(3, _angular_core.Inject(_angular_platformBrowser.DOCUMENT)),
@@ -2619,7 +2623,7 @@ var TdDataTableTemplateDirective = (function (_super) {
         __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
     ], TdDataTableTemplateDirective);
     return TdDataTableTemplateDirective;
-}(_angular_cdk.TemplatePortalDirective));
+}(_angular_cdk_portal.TemplatePortalDirective));
 
 var noop$1 = function () {
     // empty method
@@ -2790,7 +2794,7 @@ var TdDataTableComponent = (function () {
          * Defaults to 'false'
          */
         set: function (selectable) {
-            this._selectable = _angular_cdk.coerceBooleanProperty(selectable);
+            this._selectable = _angular_cdk_coercion.coerceBooleanProperty(selectable);
         },
         enumerable: true,
         configurable: true
@@ -2805,7 +2809,7 @@ var TdDataTableComponent = (function () {
          * Defaults to 'false'
          */
         set: function (clickable) {
-            this._clickable = _angular_cdk.coerceBooleanProperty(clickable);
+            this._clickable = _angular_cdk_coercion.coerceBooleanProperty(clickable);
         },
         enumerable: true,
         configurable: true
@@ -2820,7 +2824,7 @@ var TdDataTableComponent = (function () {
          * Defaults to 'false'
          */
         set: function (multiple) {
-            this._multiple = _angular_cdk.coerceBooleanProperty(multiple);
+            this._multiple = _angular_cdk_coercion.coerceBooleanProperty(multiple);
         },
         enumerable: true,
         configurable: true
@@ -2835,7 +2839,7 @@ var TdDataTableComponent = (function () {
          * Defaults to 'false'
          */
         set: function (sortable) {
-            this._sortable = _angular_cdk.coerceBooleanProperty(sortable);
+            this._sortable = _angular_cdk_coercion.coerceBooleanProperty(sortable);
         },
         enumerable: true,
         configurable: true
@@ -3066,12 +3070,12 @@ var TdDataTableComponent = (function () {
         var length;
         var rows;
         switch (event.keyCode) {
-            case _angular_cdk.ENTER:
-            case _angular_cdk.SPACE:
+            case _angular_cdk_keycodes.ENTER:
+            case _angular_cdk_keycodes.SPACE:
                 /** if user presses enter or space, the row should be selected */
                 this.select(row, event, index);
                 break;
-            case _angular_cdk.UP_ARROW:
+            case _angular_cdk_keycodes.UP_ARROW:
                 rows = this._rows.toArray();
                 length = rows.length;
                 // check to see if changing direction and need to toggle the current row
@@ -3097,7 +3101,7 @@ var TdDataTableComponent = (function () {
                     this._lastArrowKeyDirection = (!this._allSelected && !this._indeterminate) ? undefined : TdDataTableArrowKeyDirection.Ascending;
                 }
                 break;
-            case _angular_cdk.DOWN_ARROW:
+            case _angular_cdk_keycodes.DOWN_ARROW:
                 rows = this._rows.toArray();
                 length = rows.length;
                 // check to see if changing direction and need to toggle the current row
@@ -3599,7 +3603,7 @@ var CovalentDataTableModule = (function () {
                 _angular_material.MdCheckboxModule,
                 _angular_material.MdTooltipModule,
                 _angular_material.MdIconModule,
-                _angular_material.MdSelectionModule,
+                _angular_material.MdPseudoCheckboxModule,
             ],
             declarations: [
                 TD_DATA_TABLE,
@@ -3750,7 +3754,7 @@ var TdPromptDialogComponent = (function () {
     TdPromptDialogComponent = __decorate([
         _angular_core.Component({
             selector: 'td-prompt-dialog',
-            template: "<td-dialog> <td-dialog-title *ngIf=\"title\"> {{title}} </td-dialog-title> <td-dialog-content class=\"md-subhead tc-grey-700\"> {{message}} <form #form=\"ngForm\" novalidate> <div layout=\"row\"> <md-input-container flex> <input mdInput #input (focus)=\"handleInputFocus()\" (keydown.enter)=\"$event.preventDefault(); form.valid && accept()\" [(ngModel)]=\"value\" name=\"value\" required/> </md-input-container> </div> </form> </td-dialog-content> <td-dialog-actions> <button md-button #closeBtn  (keydown.arrowright)=\"acceptBtn.focus()\" (click)=\"cancel()\">{{cancelButton}}</button> <button md-button color=\"accent\" #acceptBtn (keydown.arrowleft)=\"closeBtn.focus()\" [disabled]=\"!form.valid\" (click)=\"accept()\">{{acceptButton}}</button> </td-dialog-actions> </td-dialog>",
+            template: "<td-dialog> <td-dialog-title *ngIf=\"title\"> {{title}} </td-dialog-title> <td-dialog-content class=\"md-subhead tc-grey-700\"> {{message}} <form #form=\"ngForm\" novalidate> <div layout=\"row\"> <md-form-field flex> <input mdInput #input (focus)=\"handleInputFocus()\" (keydown.enter)=\"$event.preventDefault(); form.valid && accept()\" [(ngModel)]=\"value\" name=\"value\" required/> </md-form-field> </div> </form> </td-dialog-content> <td-dialog-actions> <button md-button #closeBtn  (keydown.arrowright)=\"acceptBtn.focus()\" (click)=\"cancel()\">{{cancelButton}}</button> <button md-button color=\"accent\" #acceptBtn (keydown.arrowleft)=\"closeBtn.focus()\" [disabled]=\"!form.valid\" (click)=\"accept()\">{{acceptButton}}</button> </td-dialog-actions> </td-dialog>",
             styles: ["@media (min-width: 600px) { td-dialog { width: 400px; } } @media (max-width: 599px) { td-dialog { width: 250px; } } /*# sourceMappingURL=prompt-dialog.component.css.map */ "],
         }),
         __metadata("design:paramtypes", [_angular_material.MdDialogRef])
@@ -3935,7 +3939,7 @@ var TdExpansionPanelHeaderDirective = (function (_super) {
         __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
     ], TdExpansionPanelHeaderDirective);
     return TdExpansionPanelHeaderDirective;
-}(_angular_cdk.TemplatePortalDirective));
+}(_angular_cdk_portal.TemplatePortalDirective));
 var TdExpansionPanelLabelDirective = (function (_super) {
     __extends(TdExpansionPanelLabelDirective, _super);
     function TdExpansionPanelLabelDirective(templateRef, viewContainerRef) {
@@ -3948,7 +3952,7 @@ var TdExpansionPanelLabelDirective = (function (_super) {
         __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
     ], TdExpansionPanelLabelDirective);
     return TdExpansionPanelLabelDirective;
-}(_angular_cdk.TemplatePortalDirective));
+}(_angular_cdk_portal.TemplatePortalDirective));
 var TdExpansionPanelSublabelDirective = (function (_super) {
     __extends(TdExpansionPanelSublabelDirective, _super);
     function TdExpansionPanelSublabelDirective(templateRef, viewContainerRef) {
@@ -3961,7 +3965,7 @@ var TdExpansionPanelSublabelDirective = (function (_super) {
         __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
     ], TdExpansionPanelSublabelDirective);
     return TdExpansionPanelSublabelDirective;
-}(_angular_cdk.TemplatePortalDirective));
+}(_angular_cdk_portal.TemplatePortalDirective));
 var TdExpansionPanelSummaryComponent = (function () {
     function TdExpansionPanelSummaryComponent() {
     }
@@ -4009,7 +4013,7 @@ var TdExpansionPanelComponent = (function (_super) {
          * Toggles [TdExpansionPanelComponent] between expand/collapse.
          */
         set: function (expand) {
-            this._setExpand(_angular_cdk.coerceBooleanProperty(expand));
+            this._setExpand(_angular_cdk_coercion.coerceBooleanProperty(expand));
         },
         enumerable: true,
         configurable: true
@@ -4113,7 +4117,7 @@ var TdExpansionPanelComponent = (function (_super) {
         _angular_core.Component({
             selector: 'td-expansion-panel',
             styles: [":host { display: block; } :host .td-expansion-panel-header { position: relative; outline: none; } :host .td-expansion-panel-header:focus:not(.mat-disabled), :host .td-expansion-panel-header:hover:not(.mat-disabled) { cursor: pointer; } :host .td-expansion-panel-header .td-expansion-panel-header-content { height: 48px; padding: 0 16px; } .td-expansion-label, .td-expansion-sublabel { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 5px; } /deep/ [dir='rtl'] .td-expansion-label, /deep/ [dir='rtl'] .td-expansion-sublabel { margin-left: 5px; margin-right: inherit; } /*# sourceMappingURL=expansion-panel.component.css.map */ "],
-            template: "<div class=\"td-expansion-panel-header\" [class.mat-disabled]=\"disabled\" md-ripple [mdRippleDisabled]=\"disabled || disableRipple\" [tabIndex]=\"disabled? -1 : 0\" (keydown.enter)=\"clickEvent()\" (click)=\"clickEvent()\"> <ng-template [cdkPortalHost]=\"expansionPanelHeader\"></ng-template> <div class=\"td-expansion-panel-header-content\" [class.mat-disabled]=\"disabled\" *ngIf=\"!expansionPanelHeader\" layout=\"row\" layout-align=\"start center\" flex> <div *ngIf=\"label || expansionPanelLabel\" class=\"md-subhead td-expansion-label\" [attr.flex-gt-xs]=\"(sublabel || expansionPanelSublabel) ? 40 : null\"> <ng-template [cdkPortalHost]=\"expansionPanelLabel\"></ng-template> <ng-template [ngIf]=\"!expansionPanelLabel\">{{label}}</ng-template> </div> <div *ngIf=\"sublabel || expansionPanelSublabel\" class=\"md-body-1 td-expansion-sublabel\"> <ng-template [cdkPortalHost]=\"expansionPanelSublabel\"></ng-template> <ng-template [ngIf]=\"!expansionPanelSublabel\">{{sublabel}}</ng-template> </div> <span flex></span> <md-icon class=\"td-expand-icon\" *ngIf=\"!disabled\" [@tdRotate]=\"expand\">keyboard_arrow_down</md-icon> </div> </div> <div class=\"td-expansion-content\" [@tdCollapse]=\"!expand\"> <ng-content></ng-content> </div> <div class=\"td-expansion-summary\" [@tdCollapse]=\"expand\"> <ng-content select=\"td-expansion-summary\"></ng-content> </div> ",
+            template: "<div class=\"td-expansion-panel-header\" [class.mat-disabled]=\"disabled\" mdRipple [mdRippleDisabled]=\"disabled || disableRipple\" [tabIndex]=\"disabled? -1 : 0\" (keydown.enter)=\"clickEvent()\" (click)=\"clickEvent()\"> <ng-template [cdkPortalHost]=\"expansionPanelHeader\"></ng-template> <div class=\"td-expansion-panel-header-content\" [class.mat-disabled]=\"disabled\" *ngIf=\"!expansionPanelHeader\" layout=\"row\" layout-align=\"start center\" flex> <div *ngIf=\"label || expansionPanelLabel\" class=\"md-subhead td-expansion-label\" [attr.flex-gt-xs]=\"(sublabel || expansionPanelSublabel) ? 40 : null\"> <ng-template [cdkPortalHost]=\"expansionPanelLabel\"></ng-template> <ng-template [ngIf]=\"!expansionPanelLabel\">{{label}}</ng-template> </div> <div *ngIf=\"sublabel || expansionPanelSublabel\" class=\"md-body-1 td-expansion-sublabel\"> <ng-template [cdkPortalHost]=\"expansionPanelSublabel\"></ng-template> <ng-template [ngIf]=\"!expansionPanelSublabel\">{{sublabel}}</ng-template> </div> <span flex></span> <md-icon class=\"td-expand-icon\" *ngIf=\"!disabled\" [@tdRotate]=\"expand\">keyboard_arrow_down</md-icon> </div> </div> <div class=\"td-expansion-content\" [@tdCollapse]=\"!expand\"> <ng-content></ng-content> </div> <div class=\"td-expansion-summary\" [@tdCollapse]=\"expand\"> <ng-content select=\"td-expansion-summary\"></ng-content> </div> ",
             inputs: ['disabled', 'disableRipple'],
             animations: [
                 TdCollapseAnimation(),
@@ -4161,7 +4165,7 @@ var CovalentExpansionPanelModule = (function () {
                 _angular_common.CommonModule,
                 _angular_material.MdRippleModule,
                 _angular_material.MdIconModule,
-                _angular_cdk.PortalModule,
+                _angular_cdk_portal.PortalModule,
             ],
             declarations: [
                 TD_EXPANSION_PANEL,
@@ -4193,7 +4197,7 @@ var TdFileSelectDirective = (function () {
          * Can also be 'multiple' native attribute.
          */
         set: function (multiple) {
-            this._multiple = _angular_cdk.coerceBooleanProperty(multiple);
+            this._multiple = _angular_cdk_coercion.coerceBooleanProperty(multiple);
         },
         enumerable: true,
         configurable: true
@@ -4282,7 +4286,7 @@ var TdFileDropDirective = (function (_super) {
          * Can also be 'multiple' native attribute.
          */
         set: function (multiple) {
-            this._multiple = _angular_cdk.coerceBooleanProperty(multiple);
+            this._multiple = _angular_cdk_coercion.coerceBooleanProperty(multiple);
         },
         enumerable: true,
         configurable: true
@@ -4449,7 +4453,7 @@ var TdFileInputLabelDirective = (function (_super) {
         __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
     ], TdFileInputLabelDirective);
     return TdFileInputLabelDirective;
-}(_angular_cdk.TemplatePortalDirective));
+}(_angular_cdk_portal.TemplatePortalDirective));
 var TdFileInputBase = (function () {
     function TdFileInputBase() {
     }
@@ -4506,7 +4510,7 @@ var TdFileInputComponent = (function (_super) {
          * Sets if multiple files can be dropped/selected at once in [TdFileInputComponent].
          */
         set: function (multiple) {
-            this._multiple = _angular_cdk.coerceBooleanProperty(multiple);
+            this._multiple = _angular_cdk_coercion.coerceBooleanProperty(multiple);
         },
         enumerable: true,
         configurable: true
@@ -4635,7 +4639,7 @@ var TdFileUploadComponent = (function (_super) {
          * Sets if multiple files can be dropped/selected at once in [TdFileUploadComponent].
          */
         set: function (multiple) {
-            this._multiple = _angular_cdk.coerceBooleanProperty(multiple);
+            this._multiple = _angular_cdk_coercion.coerceBooleanProperty(multiple);
         },
         enumerable: true,
         configurable: true
@@ -4818,7 +4822,7 @@ var CovalentFileModule = (function () {
                 _angular_common.CommonModule,
                 _angular_material.MdIconModule,
                 _angular_material.MdButtonModule,
-                _angular_cdk.PortalModule,
+                _angular_cdk_portal.PortalModule,
             ],
             declarations: [
                 TD_FILE,
@@ -5068,7 +5072,7 @@ var TdJsonFormatterComponent = (function () {
         }),
         __param(1, _angular_core.Optional()),
         __metadata("design:paramtypes", [_angular_core.ChangeDetectorRef,
-            _angular_cdk.Dir])
+            _angular_cdk_bidi.Dir])
     ], TdJsonFormatterComponent);
     return TdJsonFormatterComponent;
     var TdJsonFormatterComponent_1;
@@ -5218,7 +5222,7 @@ var LayoutToggle = (function () {
     LayoutToggle.prototype.ngAfterViewInit = function () {
         var _this = this;
         this._initialized = true;
-        this._toggleSubs = rxjs_observable_merge.merge(this._layout.sidenav.onOpenStart, this._layout.sidenav.onCloseStart).subscribe(function () {
+        this._toggleSubs = this._layout.sidenav._animationStarted.subscribe(function () {
             _this._toggleVisibility();
         });
         // execute toggleVisibility since the onOpenStart and onCloseStart
@@ -5241,7 +5245,7 @@ var LayoutToggle = (function () {
         }
     };
     LayoutToggle.prototype._toggleVisibility = function () {
-        if (this._layout.sidenav._opened && this._hideWhenOpened) {
+        if (this._layout.sidenav.opened && this._hideWhenOpened) {
             this._renderer.setStyle(this._elementRef.nativeElement, 'display', 'none');
         }
         else {
@@ -5537,8 +5541,8 @@ var TdLayoutNavListComponent = (function () {
     TdLayoutNavListComponent = __decorate([
         _angular_core.Component({
             selector: 'td-layout-nav-list',
-            styles: [":host { display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-opened, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-opening, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-closed, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-sidenav-closing { -webkit-box-shadow: none; box-shadow: none; } :host .list { text-align: start; } :host /deep/ md-sidenav-container.td-layout-nav-list { /* Ensure the left sidenav is a flex column & 100% height */ } :host /deep/ md-sidenav-container.td-layout-nav-list > .mat-sidenav-content { -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; } :host /deep/ md-sidenav-container.td-layout-nav-list > md-sidenav { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; } /*# sourceMappingURL=layout-nav-list.component.css.map */ "],
-            template: "<div layout=\"column\" layout-fill> <div flex layout=\"column\" class=\"content md-content\"> <md-sidenav-container fullscreen class=\"td-layout-nav-list\" layout=\"row\" flex> <md-sidenav #sidenav align=\"start\" [mode]=\"mode\" [opened]=\"opened\" [disableClose]=\"disableClose\" [style.max-width]=\"sidenavWidth\" [style.min-width]=\"sidenavWidth\" layout=\"column\"  layout-fill class=\"md-whiteframe-z1\"> <md-toolbar [color]=\"color\" class=\"md-whiteframe-z1\"> <ng-content select=\"[td-menu-button]\"></ng-content> <span *ngIf=\"icon || logo || toolbarTitle\" [class.cursor-pointer]=\"routerEnabled\" (click)=\"handleNavigationClick()\" layout=\"row\" layout-align=\"start center\"> <md-icon *ngIf=\"icon\">{{icon}}</md-icon> <md-icon *ngIf=\"logo && !icon\" class=\"md-icon-logo\" [svgIcon]=\"logo\"></md-icon> <span *ngIf=\"toolbarTitle\">{{toolbarTitle}}</span> </span> <ng-content select=\"[td-sidenav-toolbar-content]\"></ng-content> </md-toolbar> <div flex class=\"list md-content\" cdkScrollable> <ng-content select=\"[td-sidenav-content]\"></ng-content> </div> </md-sidenav> <div layout=\"column\" layout-fill class=\"md-content\"> <md-toolbar [color]=\"color\" class=\"md-whiteframe-z1\"> <ng-content select=\"[td-toolbar-content]\"></ng-content> </md-toolbar> <div class=\"md-content\" flex cdkScrollable> <ng-content></ng-content> </div> <ng-content select=\"td-layout-footer-inner\"></ng-content> </div> </md-sidenav-container> </div> <ng-content select=\"td-layout-footer\"></ng-content> </div>",
+            styles: [":host { display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-drawer-opened, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-drawer-opening, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-drawer-closed, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-drawer-closing { -webkit-box-shadow: none; box-shadow: none; } :host .list { text-align: start; } :host /deep/ md-sidenav-container.td-layout-nav-list { /* Ensure the left sidenav is a flex column & 100% height */ } :host /deep/ md-sidenav-container.td-layout-nav-list > .mat-drawer-content { -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; } :host /deep/ md-sidenav-container.td-layout-nav-list > md-sidenav { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; } /*# sourceMappingURL=layout-nav-list.component.css.map */ "],
+            template: "<div layout=\"column\" layout-fill> <div flex layout=\"column\" class=\"content md-content\"> <md-sidenav-container fullscreen class=\"td-layout-nav-list\" layout=\"row\" flex> <md-sidenav #sidenav position=\"start\" [mode]=\"mode\" [opened]=\"opened\" [disableClose]=\"disableClose\" [style.max-width]=\"sidenavWidth\" [style.min-width]=\"sidenavWidth\" layout=\"column\"  layout-fill class=\"md-whiteframe-z1\"> <md-toolbar [color]=\"color\" class=\"md-whiteframe-z1\"> <ng-content select=\"[td-menu-button]\"></ng-content> <span *ngIf=\"icon || logo || toolbarTitle\" [class.cursor-pointer]=\"routerEnabled\" (click)=\"handleNavigationClick()\" layout=\"row\" layout-align=\"start center\"> <md-icon *ngIf=\"icon\">{{icon}}</md-icon> <md-icon *ngIf=\"logo && !icon\" class=\"md-icon-logo\" [svgIcon]=\"logo\"></md-icon> <span *ngIf=\"toolbarTitle\">{{toolbarTitle}}</span> </span> <ng-content select=\"[td-sidenav-toolbar-content]\"></ng-content> </md-toolbar> <div flex class=\"list md-content\" cdkScrollable> <ng-content select=\"[td-sidenav-content]\"></ng-content> </div> </md-sidenav> <div layout=\"column\" layout-fill class=\"md-content\"> <md-toolbar [color]=\"color\" class=\"md-whiteframe-z1\"> <ng-content select=\"[td-toolbar-content]\"></ng-content> </md-toolbar> <div class=\"md-content\" flex cdkScrollable> <ng-content></ng-content> </div> <ng-content select=\"td-layout-footer-inner\"></ng-content> </div> </md-sidenav-container> </div> <ng-content select=\"td-layout-footer\"></ng-content> </div>",
         }),
         __param(0, _angular_core.Optional()),
         __metadata("design:paramtypes", [_angular_router.Router])
@@ -5764,8 +5768,8 @@ var TdLayoutManageListComponent = (function () {
     TdLayoutManageListComponent = __decorate([
         _angular_core.Component({
             selector: 'td-layout-manage-list',
-            styles: [":host { display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } :host md-sidenav-container.td-layout-manage-list > md-sidenav.mat-sidenav-opened, :host md-sidenav-container.td-layout-manage-list > md-sidenav.mat-sidenav-opening, :host md-sidenav-container.td-layout-manage-list > md-sidenav.mat-sidenav-closed, :host md-sidenav-container.td-layout-manage-list > md-sidenav.mat-sidenav-closing { -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2); box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2); } :host .list { text-align: start; } :host /deep/ md-sidenav-container.td-layout-manage-list { /* Ensure the left sidenav is a flex column & 100% height */ } :host /deep/ md-sidenav-container.td-layout-manage-list > .mat-sidenav-content { -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; } :host /deep/ md-sidenav-container.td-layout-manage-list > md-sidenav { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; } :host /deep/ md-nav-list a[md-list-item] .mat-list-item-content { font-size: 14px; } :host /deep/ .mat-toolbar { font-weight: 400; } /*# sourceMappingURL=layout-manage-list.component.css.map */ "],
-            template: "<md-sidenav-container fullscreen class=\"td-layout-manage-list md-content\" flex layout=\"row\"> <md-sidenav #sidenav align=\"start\" [mode]=\"mode\" [opened]=\"opened\" [disableClose]=\"disableClose\" [style.max-width]=\"sidenavWidth\" [style.min-width]=\"sidenavWidth\" layout=\"column\" layout-fill class=\"md-whiteframe-z1\"> <ng-content select=\"md-toolbar[td-sidenav-content]\"></ng-content> <div flex class=\"list md-content\" cdkScrollable> <ng-content select=\"[td-sidenav-content]\"></ng-content> </div> </md-sidenav> <div layout=\"column\" layout-fill class=\"md-content\"> <ng-content select=\"md-toolbar\"></ng-content> <div class=\"md-content\" flex cdkScrollable> <ng-content></ng-content> </div> <ng-content select=\"td-layout-footer-inner\"></ng-content> </div> </md-sidenav-container> ",
+            styles: [":host { display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } :host md-sidenav-container.td-layout-manage-list > md-sidenav.mat-drawer-opened, :host md-sidenav-container.td-layout-manage-list > md-sidenav.mat-drawer-opening, :host md-sidenav-container.td-layout-manage-list > md-sidenav.mat-drawer-closed, :host md-sidenav-container.td-layout-manage-list > md-sidenav.mat-drawer-closing { -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2); box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2); } :host .list { text-align: start; } :host /deep/ md-sidenav-container.td-layout-manage-list { /* Ensure the left sidenav is a flex column & 100% height */ } :host /deep/ md-sidenav-container.td-layout-manage-list > .mat-drawer-content { -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; } :host /deep/ md-sidenav-container.td-layout-manage-list > md-sidenav { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; } :host /deep/ md-nav-list a[md-list-item] .mat-list-item-content { font-size: 14px; } :host /deep/ .mat-toolbar { font-weight: 400; } /*# sourceMappingURL=layout-manage-list.component.css.map */ "],
+            template: "<md-sidenav-container fullscreen class=\"td-layout-manage-list md-content\" flex layout=\"row\"> <md-sidenav #sidenav position=\"start\" [mode]=\"mode\" [opened]=\"opened\" [disableClose]=\"disableClose\" [style.max-width]=\"sidenavWidth\" [style.min-width]=\"sidenavWidth\" layout=\"column\" layout-fill class=\"md-whiteframe-z1\"> <ng-content select=\"md-toolbar[td-sidenav-content]\"></ng-content> <div flex class=\"list md-content\" cdkScrollable> <ng-content select=\"[td-sidenav-content]\"></ng-content> </div> </md-sidenav> <div layout=\"column\" layout-fill class=\"md-content\"> <ng-content select=\"md-toolbar\"></ng-content> <div class=\"md-content\" flex cdkScrollable> <ng-content></ng-content> </div> <ng-content select=\"td-layout-footer-inner\"></ng-content> </div> </md-sidenav-container> ",
         })
     ], TdLayoutManageListComponent);
     return TdLayoutManageListComponent;
@@ -6133,7 +6137,7 @@ var CovalentLayoutModule = (function () {
         _angular_core.NgModule({
             imports: [
                 _angular_common.CommonModule,
-                _angular_material.ScrollDispatchModule,
+                _angular_cdk_scrolling.ScrollDispatchModule,
                 _angular_material.MdSidenavModule,
                 _angular_material.MdToolbarModule,
                 _angular_material.MdButtonModule,
@@ -6344,7 +6348,7 @@ var TdLoadingFactory = (function () {
             if (registered > 0 && !loading) {
                 loading = true;
                 overlayRef = _this._createOverlay();
-                loadingRef.componentRef = overlayRef.attach(new _angular_cdk.ComponentPortal(TdLoadingComponent));
+                loadingRef.componentRef = overlayRef.attach(new _angular_cdk_portal.ComponentPortal(TdLoadingComponent));
                 _this._mapOptions(options, loadingRef.componentRef.instance);
                 loadingRef.componentRef.instance.startInAnimation();
                 loadingRef.componentRef.changeDetectorRef.detectChanges();
@@ -6373,7 +6377,7 @@ var TdLoadingFactory = (function () {
         options.style = LoadingStyle.Overlay;
         var loadingRef = this._createComponent(options);
         var loading = false;
-        loadingRef.componentRef.instance.content = new _angular_cdk.TemplatePortal(templateRef, viewContainerRef);
+        loadingRef.componentRef.instance.content = new _angular_cdk_portal.TemplatePortal(templateRef, viewContainerRef);
         viewContainerRef.clear();
         viewContainerRef.insert(loadingRef.componentRef.hostView, 0);
         loadingRef.observable
@@ -6436,7 +6440,7 @@ var TdLoadingFactory = (function () {
      * Creates a fullscreen overlay for the loading usage.
      */
     TdLoadingFactory.prototype._createOverlay = function () {
-        var state$$1 = new _angular_material.OverlayState();
+        var state$$1 = new _angular_cdk_overlay.OverlayState();
         state$$1.hasBackdrop = false;
         state$$1.positionStrategy = this._overlay.position().global().centerHorizontally().centerVertically();
         return this._overlay.create(state$$1);
@@ -6484,7 +6488,7 @@ var TdLoadingFactory = (function () {
     TdLoadingFactory = __decorate([
         _angular_core.Injectable(),
         __metadata("design:paramtypes", [_angular_core.ComponentFactoryResolver,
-            _angular_material.Overlay,
+            _angular_cdk_overlay.Overlay,
             _angular_core.Injector])
     ], TdLoadingFactory);
     return TdLoadingFactory;
@@ -6495,7 +6499,7 @@ function LOADING_FACTORY_PROVIDER_FACTORY(parent, componentFactoryResolver, over
 var LOADING_FACTORY_PROVIDER = {
     // If there is already a service available, use that. Otherwise, provide a new one.
     provide: TdLoadingFactory,
-    deps: [[new _angular_core.Optional(), new _angular_core.SkipSelf(), TdLoadingFactory], _angular_core.ComponentFactoryResolver, _angular_material.Overlay, _angular_core.Injector],
+    deps: [[new _angular_core.Optional(), new _angular_core.SkipSelf(), TdLoadingFactory], _angular_core.ComponentFactoryResolver, _angular_cdk_overlay.Overlay, _angular_core.Injector],
     useFactory: LOADING_FACTORY_PROVIDER_FACTORY,
 };
 
@@ -6922,8 +6926,8 @@ var CovalentLoadingModule = (function () {
                 _angular_common.CommonModule,
                 _angular_material.MdProgressBarModule,
                 _angular_material.MdProgressSpinnerModule,
-                _angular_material.OverlayModule,
-                _angular_cdk.PortalModule,
+                _angular_cdk_overlay.OverlayModule,
+                _angular_cdk_portal.PortalModule,
             ],
             declarations: [
                 TD_LOADING,
@@ -7220,7 +7224,7 @@ var TdMenuComponent = (function () {
         _angular_core.Component({
             selector: 'td-menu',
             template: "<div layout=\"column\"> <ng-content select=\"[td-menu-header]\"></ng-content> <md-divider></md-divider> <div class=\"td-menu-content\"> <ng-content></ng-content> </div> <md-divider></md-divider> <ng-content select=\"[td-menu-footer]\"></ng-content> </div>",
-            styles: [":host { display: block; margin-top: -8px; margin-bottom: -8px; } :host /deep/ [td-menu-header] { padding: 8px; text-align: center; } :host /deep/ md-list a[md-list-item].mat-2-line .mat-list-item-content, :host /deep/ md-list md-list-item.mat-2-line .mat-list-item-content, :host /deep/ md-list[dense] a[md-list-item].mat-2-line .mat-list-item-content, :host /deep/ md-list[dense] md-list-item.mat-2-line .mat-list-item-content, :host /deep/ md-nav-list a[md-list-item].mat-2-line .mat-list-item-content, :host /deep/ md-nav-list md-list-item.mat-2-line .mat-list-item-content, :host /deep/ md-nav-list[dense] a[md-list-item].mat-2-line .mat-list-item-content, :host /deep/ md-nav-list[dense] md-list-item.mat-2-line .mat-list-item-content { height: auto; padding: 8px; } :host /deep/ md-list a[md-list-item].mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ md-list md-list-item.mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ md-list[dense] a[md-list-item].mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ md-list[dense] md-list-item.mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ md-nav-list a[md-list-item].mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ md-nav-list md-list-item.mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ md-nav-list[dense] a[md-list-item].mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ md-nav-list[dense] md-list-item.mat-2-line .mat-list-item-content .mat-list-text { padding-right: 0px; } [dir='rtl'] :host /deep/ md-list a[md-list-item].mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ md-list md-list-item.mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ md-list[dense] a[md-list-item].mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ md-list[dense] md-list-item.mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ md-nav-list a[md-list-item].mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ md-nav-list md-list-item.mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ md-nav-list[dense] a[md-list-item].mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ md-nav-list[dense] md-list-item.mat-2-line .mat-list-item-content .mat-list-text { padding-left: 0px; padding-right: 16px; } :host /deep/ md-list a[md-list-item].mat-2-line .mat-list-item-content [md-line] + [md-line], :host /deep/ md-list md-list-item.mat-2-line .mat-list-item-content [md-line] + [md-line], :host /deep/ md-list[dense] a[md-list-item].mat-2-line .mat-list-item-content [md-line] + [md-line], :host /deep/ md-list[dense] md-list-item.mat-2-line .mat-list-item-content [md-line] + [md-line], :host /deep/ md-nav-list a[md-list-item].mat-2-line .mat-list-item-content [md-line] + [md-line], :host /deep/ md-nav-list md-list-item.mat-2-line .mat-list-item-content [md-line] + [md-line], :host /deep/ md-nav-list[dense] a[md-list-item].mat-2-line .mat-list-item-content [md-line] + [md-line], :host /deep/ md-nav-list[dense] md-list-item.mat-2-line .mat-list-item-content [md-line] + [md-line] { margin-top: 4px; } .td-menu-content { max-height: calc(50vh); overflow-y: auto; } /*# sourceMappingURL=menu.component.css.map */ "],
+            styles: [":host { display: block; margin-top: -8px; margin-bottom: -8px; } :host /deep/ [td-menu-header] { padding: 8px; text-align: center; } :host /deep/ md-list a[md-list-item].mat-2-line .mat-list-item-content, :host /deep/ md-list md-list-item.mat-2-line .mat-list-item-content, :host /deep/ md-list[dense] a[md-list-item].mat-2-line .mat-list-item-content, :host /deep/ md-list[dense] md-list-item.mat-2-line .mat-list-item-content, :host /deep/ md-nav-list a[md-list-item].mat-2-line .mat-list-item-content, :host /deep/ md-nav-list md-list-item.mat-2-line .mat-list-item-content, :host /deep/ md-nav-list[dense] a[md-list-item].mat-2-line .mat-list-item-content, :host /deep/ md-nav-list[dense] md-list-item.mat-2-line .mat-list-item-content { height: auto; padding: 8px; } :host /deep/ md-list a[md-list-item].mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ md-list md-list-item.mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ md-list[dense] a[md-list-item].mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ md-list[dense] md-list-item.mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ md-nav-list a[md-list-item].mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ md-nav-list md-list-item.mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ md-nav-list[dense] a[md-list-item].mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ md-nav-list[dense] md-list-item.mat-2-line .mat-list-item-content .mat-list-text { padding-right: 0px; } [dir='rtl'] :host /deep/ md-list a[md-list-item].mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ md-list md-list-item.mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ md-list[dense] a[md-list-item].mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ md-list[dense] md-list-item.mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ md-nav-list a[md-list-item].mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ md-nav-list md-list-item.mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ md-nav-list[dense] a[md-list-item].mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ md-nav-list[dense] md-list-item.mat-2-line .mat-list-item-content .mat-list-text { padding-left: 0px; padding-right: 16px; } :host /deep/ md-list a[md-list-item].mat-2-line .mat-list-item-content [mdLine] + [mdLine], :host /deep/ md-list md-list-item.mat-2-line .mat-list-item-content [mdLine] + [mdLine], :host /deep/ md-list[dense] a[md-list-item].mat-2-line .mat-list-item-content [mdLine] + [mdLine], :host /deep/ md-list[dense] md-list-item.mat-2-line .mat-list-item-content [mdLine] + [mdLine], :host /deep/ md-nav-list a[md-list-item].mat-2-line .mat-list-item-content [mdLine] + [mdLine], :host /deep/ md-nav-list md-list-item.mat-2-line .mat-list-item-content [mdLine] + [mdLine], :host /deep/ md-nav-list[dense] a[md-list-item].mat-2-line .mat-list-item-content [mdLine] + [mdLine], :host /deep/ md-nav-list[dense] md-list-item.mat-2-line .mat-list-item-content [mdLine] + [mdLine] { margin-top: 4px; } .td-menu-content { max-height: calc(50vh); overflow-y: auto; } /*# sourceMappingURL=menu.component.css.map */ "],
         })
     ], TdMenuComponent);
     return TdMenuComponent;
@@ -7759,7 +7763,7 @@ var TdPagingBarComponent = (function () {
          * Amount of page navigation links for the paging bar. Defaults to '0'
          */
         set: function (pageLinkCount) {
-            this._pageLinkCount = _angular_cdk.coerceNumberProperty(pageLinkCount);
+            this._pageLinkCount = _angular_cdk_coercion.coerceNumberProperty(pageLinkCount);
             this._calculatePageLinks();
         },
         enumerable: true,
@@ -7774,7 +7778,7 @@ var TdPagingBarComponent = (function () {
          * Selected page size for the pagination. Defaults 50.
          */
         set: function (pageSize) {
-            this._pageSize = _angular_cdk.coerceNumberProperty(pageSize);
+            this._pageSize = _angular_cdk_coercion.coerceNumberProperty(pageSize);
             this._page = 1;
             if (this._initialized) {
                 this._handleOnChange();
@@ -7792,7 +7796,7 @@ var TdPagingBarComponent = (function () {
          * Total rows for the pagination.
          */
         set: function (total) {
-            this._total = _angular_cdk.coerceNumberProperty(total);
+            this._total = _angular_cdk_coercion.coerceNumberProperty(total);
             this._calculateRows();
             this._calculatePageLinks();
         },
@@ -7854,7 +7858,7 @@ var TdPagingBarComponent = (function () {
         configurable: true
     });
     TdPagingBarComponent.prototype.ngOnInit = function () {
-        this._page = _angular_cdk.coerceNumberProperty(this.initialPage);
+        this._page = _angular_cdk_coercion.coerceNumberProperty(this.initialPage);
         this._calculateRows();
         this._calculatePageLinks();
         this._initialized = true;
@@ -7865,7 +7869,7 @@ var TdPagingBarComponent = (function () {
      */
     TdPagingBarComponent.prototype.navigateToPage = function (page) {
         if (page === 1 || (page >= 1 && page <= this.maxPage)) {
-            this._page = _angular_cdk.coerceNumberProperty(Math.floor(page));
+            this._page = _angular_cdk_coercion.coerceNumberProperty(Math.floor(page));
             this._handleOnChange();
             return true;
         }
@@ -8001,10 +8005,10 @@ var TdPagingBarComponent = (function () {
         _angular_core.Component({
             selector: 'td-paging-bar',
             template: "<div layout=\"row\" layout-align=\"end center\" class=\"md-caption td-paging-bar\" (change)=\"$event.stopPropagation()\" > <ng-content></ng-content> <div class=\"td-paging-bar-navigation\"> <button md-icon-button class=\"td-paging-bar-first-page\" type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMinPage()\" (click)=\"firstPage()\"> <md-icon>{{ isRTL ? 'skip_next' : 'skip_previous' }}</md-icon> </button> <button md-icon-button class=\"td-paging-bar-prev-page\" type=\"button\" [disabled]=\"isMinPage()\" (click)=\"prevPage()\"> <md-icon>{{ isRTL ? 'navigate_next' : 'navigate_before' }}</md-icon> </button> <ng-template *ngIf=\"pageLinkCount > 0\" let-link let-index=\"index\" ngFor [ngForOf]=\"pageLinks\"> <button class=\"td-paging-bar-link-page\" md-icon-button type=\"button\" [color]=\"page === link ? 'accent' : ''\" (click)=\"navigateToPage(link)\">{{link}}</button> </ng-template> <button md-icon-button class=\"td-paging-bar-next-page\" type=\"button\" [disabled]=\"isMaxPage()\" (click)=\"nextPage()\"> <md-icon>{{ isRTL ? 'navigate_before' : 'navigate_next' }}</md-icon> </button> <button md-icon-button class=\"td-paging-bar-last-page\" type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMaxPage()\" (click)=\"lastPage()\"> <md-icon>{{ isRTL ? 'skip_previous' : 'skip_next' }}</md-icon> </button> </div> </div>",
-            styles: [":host { display: block; } .td-paging-bar { height: 48px; } .td-paging-bar /deep/ > * { margin: 0 10px; } [md-icon-button] { font-size: 12px; font-weight: normal; } /deep/ md-select .mat-select-trigger { min-width: 44px; font-size: 12px; } /deep/ md-select .mat-select-underline { display: none; } /*# sourceMappingURL=paging-bar.component.css.map */ "],
+            styles: [":host { display: block; } .td-paging-bar { height: 48px; } .td-paging-bar /deep/ > * { margin: 0 10px; } [md-icon-button] { font-size: 12px; font-weight: normal; } /deep/ md-select.mat-select { padding-top: 0px; } /deep/ md-select .mat-select-trigger { min-width: 44px; font-size: 12px; } /deep/ md-select .mat-select-underline { display: none; } /*# sourceMappingURL=paging-bar.component.css.map */ "],
         }),
         __param(0, _angular_core.Optional()),
-        __metadata("design:paramtypes", [_angular_cdk.Dir])
+        __metadata("design:paramtypes", [_angular_cdk_bidi.Dir])
     ], TdPagingBarComponent);
     return TdPagingBarComponent;
 }());
@@ -8076,7 +8080,7 @@ var TdSearchInputComponent = (function () {
     });
     TdSearchInputComponent.prototype.ngOnInit = function () {
         var _this = this;
-        rxjs_operator_debounceTime.debounceTime.call(rxjs_operator_skip.skip.call(this._input._ngControl.valueChanges, 1), // skip first change when value is set to undefined
+        rxjs_operator_debounceTime.debounceTime.call(rxjs_operator_skip.skip.call(this._input.ngControl.valueChanges, 1), // skip first change when value is set to undefined
         this.debounce)
             .subscribe(function (value) {
             _this._searchTermChanged(value);
@@ -8106,8 +8110,8 @@ var TdSearchInputComponent = (function () {
         this.onSearchDebounce.emit(value);
     };
     __decorate([
-        _angular_core.ViewChild(_angular_material.MdInputDirective),
-        __metadata("design:type", _angular_material.MdInputDirective)
+        _angular_core.ViewChild(_angular_material.MdInput),
+        __metadata("design:type", _angular_material.MdInput)
     ], TdSearchInputComponent.prototype, "_input", void 0);
     __decorate([
         _angular_core.Input('showUnderline'),
@@ -8140,8 +8144,8 @@ var TdSearchInputComponent = (function () {
     TdSearchInputComponent = __decorate([
         _angular_core.Component({
             selector: 'td-search-input',
-            template: "<div class=\"td-search-input\" layout=\"row\" layout-align=\"end center\"> <md-input-container [class.mat-hide-underline]=\"!showUnderline\" floatPlaceholder=\"never\" flex> <input mdInput #searchElement type=\"search\" [(ngModel)]=\"value\" [placeholder]=\"placeholder\" (blur)=\"handleBlur()\" (search)=\"stopPropagation($event)\" (keyup.enter)=\"handleSearch($event)\"/> </md-input-container> <button md-icon-button type=\"button\" [@searchState]=\"(searchElement.value ?  'show' : (isRTL ? 'hide-left' : 'hide-right'))\" (click)=\"clearSearch()\" flex=\"none\"> <md-icon>cancel</md-icon> </button> </div>",
-            styles: [".td-search-input { overflow-x: hidden; } .td-search-input /deep/ md-input-container.mat-hide-underline .mat-input-underline { display: none; } /*# sourceMappingURL=search-input.component.css.map */ "],
+            template: "<div class=\"td-search-input\" layout=\"row\" layout-align=\"end center\"> <md-form-field [class.mat-hide-underline]=\"!showUnderline\" floatPlaceholder=\"never\" flex> <input mdInput #searchElement type=\"search\" [(ngModel)]=\"value\" [placeholder]=\"placeholder\" (blur)=\"handleBlur()\" (search)=\"stopPropagation($event)\" (keyup.enter)=\"handleSearch($event)\"/> </md-form-field> <button md-icon-button type=\"button\" [@searchState]=\"(searchElement.value ?  'show' : (isRTL ? 'hide-left' : 'hide-right'))\" (click)=\"clearSearch()\" flex=\"none\"> <md-icon>cancel</md-icon> </button> </div>",
+            styles: [".td-search-input { overflow-x: hidden; } .td-search-input /deep/ md-form-field.mat-hide-underline .mat-form-field-underline { display: none; } /*# sourceMappingURL=search-input.component.css.map */ "],
             animations: [
                 _angular_animations.trigger('searchState', [
                     _angular_animations.state('hide-left', _angular_animations.style({
@@ -8162,7 +8166,7 @@ var TdSearchInputComponent = (function () {
             ],
         }),
         __param(0, _angular_core.Optional()),
-        __metadata("design:paramtypes", [_angular_cdk.Dir])
+        __metadata("design:paramtypes", [_angular_cdk_bidi.Dir])
     ], TdSearchInputComponent);
     return TdSearchInputComponent;
 }());
@@ -8347,7 +8351,7 @@ var TdStepLabelDirective = (function (_super) {
         __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
     ], TdStepLabelDirective);
     return TdStepLabelDirective;
-}(_angular_cdk.TemplatePortalDirective));
+}(_angular_cdk_portal.TemplatePortalDirective));
 var TdStepActionsDirective = (function (_super) {
     __extends(TdStepActionsDirective, _super);
     function TdStepActionsDirective(templateRef, viewContainerRef) {
@@ -8360,7 +8364,7 @@ var TdStepActionsDirective = (function (_super) {
         __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
     ], TdStepActionsDirective);
     return TdStepActionsDirective;
-}(_angular_cdk.TemplatePortalDirective));
+}(_angular_cdk_portal.TemplatePortalDirective));
 var TdStepSummaryDirective = (function (_super) {
     __extends(TdStepSummaryDirective, _super);
     function TdStepSummaryDirective(templateRef, viewContainerRef) {
@@ -8373,7 +8377,7 @@ var TdStepSummaryDirective = (function (_super) {
         __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
     ], TdStepSummaryDirective);
     return TdStepSummaryDirective;
-}(_angular_cdk.TemplatePortalDirective));
+}(_angular_cdk_portal.TemplatePortalDirective));
 var TdStepBase = (function () {
     function TdStepBase() {
     }
@@ -8416,7 +8420,7 @@ var TdStepComponent = (function (_super) {
          * Toggles [TdStepComponent] between active/deactive.
          */
         set: function (active) {
-            this._setActive(_angular_cdk.coerceBooleanProperty(active));
+            this._setActive(_angular_cdk_coercion.coerceBooleanProperty(active));
         },
         enumerable: true,
         configurable: true
@@ -8447,7 +8451,7 @@ var TdStepComponent = (function (_super) {
         configurable: true
     });
     TdStepComponent.prototype.ngOnInit = function () {
-        this._contentPortal = new _angular_cdk.TemplatePortal(this._content, this._viewContainerRef);
+        this._contentPortal = new _angular_cdk_portal.TemplatePortal(this._content, this._viewContainerRef);
     };
     /**
      * Toggle active state of [TdStepComponent]
@@ -8759,7 +8763,7 @@ var TdStepHeaderComponent = (function (_super) {
             selector: 'td-step-header',
             inputs: ['disabled', 'disableRipple'],
             styles: [".td-step-header { position: relative; outline: none; } .td-step-header:hover:not(.mat-disabled) { cursor: pointer; } .td-step-header .td-step-header-content { height: 72px; } .td-step-header md-icon.td-edit-icon { margin: 0 8px; } .td-step-header md-icon.mat-warn { font-size: 24px; height: 24px; width: 24px; } .td-step-header md-icon.mat-complete { position: relative; left: -2px; top: 2px; font-size: 28px; height: 24px; width: 24px; } .td-step-header .td-circle { height: 24px; width: 24px; line-height: 24px; border-radius: 99%; text-align: center; -webkit-box-flex: 0; -ms-flex: none; flex: none; } .td-step-header .td-circle md-icon { margin-top: 2px; font-weight: bold; } .td-step-header .td-triangle > md-icon { font-size: 25px; } .td-step-header .td-complete { font-size: 0; } /deep/ :not([dir='rtl']) .td-step-header .td-circle, /deep/ :not([dir='rtl']) .td-step-header .td-triangle, /deep/ :not([dir='rtl']) .td-step-header .td-complete { margin-left: 8px; margin-right: 0px; } /deep/ [dir='rtl'] .td-step-header .td-circle, /deep/ [dir='rtl'] .td-step-header .td-triangle, /deep/ [dir='rtl'] .td-step-header .td-complete { margin-left: 0px; margin-right: 8px; } .td-step-header .td-circle, .td-step-header .td-complete { font-size: 14px; } .td-step-header .td-step-label-wrapper { padding-left: 8px; padding-right: 8px; } .td-step-header .td-step-sublabel { line-height: 14px; font-weight: normal; } /*# sourceMappingURL=step-header.component.css.map */ "],
-            template: "<div class=\"td-step-header\" [class.mat-disabled]=\"disabled\" md-ripple [mdRippleDisabled]=\"disabled || disableRipple\" [tabIndex]=\"disabled ? -1 : 0\" flex> <div class=\"td-step-header-content\" layout=\"row\"  layout-align=\"start center\" flex> <div class=\"td-circle\" [class.mat-inactive]=\"(!active && !isComplete()) || disabled\" [class.mat-active]=\"active && !disabled\" *ngIf=\"!isRequired() && !isComplete()\"> <span *ngIf=\"(active || !isComplete())\">{{number || ''}}</span> </div> <div class=\"td-complete\" *ngIf=\"isComplete()\"> <md-icon class=\"mat-complete\">check_circle</md-icon> </div> <div class=\"td-triangle\" [class.bg-muted]=\"disabled\" *ngIf=\"isRequired()\"> <md-icon class=\"mat-warn\">warning</md-icon> </div> <div class=\"td-step-label-wrapper\" [class.mat-inactive]=\"(!active && !isComplete()) || disabled\" [class.mat-warn]=\"isRequired() && !disabled\"> <div class=\"md-body-2 td-step-label\"> <ng-content select=\"[td-step-header-label]\"></ng-content> </div> <div class=\"md-caption td-step-sublabel\"> <ng-content select=\"[td-step-header-sublabel]\"></ng-content> </div> </div> <span flex></span> <md-icon class=\"td-edit-icon\" *ngIf=\"isComplete() && !active && !disabled\">mode_edit</md-icon> </div> </div>",
+            template: "<div class=\"td-step-header\" [class.mat-disabled]=\"disabled\" mdRipple [mdRippleDisabled]=\"disabled || disableRipple\" [tabIndex]=\"disabled ? -1 : 0\" flex> <div class=\"td-step-header-content\" layout=\"row\"  layout-align=\"start center\" flex> <div class=\"td-circle\" [class.mat-inactive]=\"(!active && !isComplete()) || disabled\" [class.mat-active]=\"active && !disabled\" *ngIf=\"!isRequired() && !isComplete()\"> <span *ngIf=\"(active || !isComplete())\">{{number || ''}}</span> </div> <div class=\"td-complete\" *ngIf=\"isComplete()\"> <md-icon class=\"mat-complete\">check_circle</md-icon> </div> <div class=\"td-triangle\" [class.bg-muted]=\"disabled\" *ngIf=\"isRequired()\"> <md-icon class=\"mat-warn\">warning</md-icon> </div> <div class=\"td-step-label-wrapper\" [class.mat-inactive]=\"(!active && !isComplete()) || disabled\" [class.mat-warn]=\"isRequired() && !disabled\"> <div class=\"md-body-2 td-step-label\"> <ng-content select=\"[td-step-header-label]\"></ng-content> </div> <div class=\"md-caption td-step-sublabel\"> <ng-content select=\"[td-step-header-sublabel]\"></ng-content> </div> </div> <span flex></span> <md-icon class=\"td-edit-icon\" *ngIf=\"isComplete() && !active && !disabled\">mode_edit</md-icon> </div> </div>",
         })
     ], TdStepHeaderComponent);
     return TdStepHeaderComponent;
@@ -8820,8 +8824,8 @@ var CovalentStepsModule = (function () {
                 _angular_common.CommonModule,
                 _angular_material.MdIconModule,
                 _angular_material.MdRippleModule,
-                _angular_cdk.PortalModule,
-                _angular_material.ScrollDispatchModule,
+                _angular_cdk_portal.PortalModule,
+                _angular_cdk_scrolling.ScrollDispatchModule,
                 CovalentCommonModule,
             ],
             declarations: [

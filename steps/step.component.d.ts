@@ -1,6 +1,6 @@
 import { TemplateRef, ViewContainerRef, OnInit } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import { TemplatePortalDirective, TemplatePortal } from '@angular/cdk';
+import { TemplatePortalDirective, TemplatePortal } from '@angular/cdk/portal';
 import { ICanDisable, ICanDisableRipple } from '../common/common.module';
 export declare enum StepState {
     None,
@@ -24,7 +24,7 @@ export declare class TdStepComponent extends _TdStepMixinBase implements OnInit,
     private _active;
     private _state;
     private _contentPortal;
-    readonly stepContent: TemplatePortal;
+    readonly stepContent: TemplatePortal<any>;
     _content: TemplateRef<any>;
     stepLabel: TdStepLabelDirective;
     stepActions: TdStepActionsDirective;

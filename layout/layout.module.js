@@ -1,7 +1,8 @@
 import * as tslib_1 from "tslib";
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MdSidenavModule, MdToolbarModule, MdButtonModule, MdIconModule, MdCardModule, MdListModule, ScrollDispatchModule } from '@angular/material';
+import { ScrollDispatchModule } from '@angular/cdk/scrolling';
+import { MdSidenavModule, MdToolbarModule, MdButtonModule, MdIconModule, MdCardModule, MdListModule } from '@angular/material';
 import { TdLayoutComponent } from './layout.component';
 import { TdLayoutToggleDirective, TdLayoutCloseDirective, TdLayoutOpenDirective } from './layout.directives';
 import { TdLayoutNavComponent } from './layout-nav/layout-nav.component';

@@ -1,6 +1,6 @@
 import * as tslib_1 from "tslib";
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ContentChild, ChangeDetectorRef } from '@angular/core';
-import { coerceBooleanProperty } from '@angular/cdk';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { mixinDisabled } from '../../common/common.module';
 import { TdFileInputLabelDirective } from '../file-input/file-input.component';
 var TdFileUploadBase = (function () {

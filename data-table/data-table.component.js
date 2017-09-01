@@ -2,7 +2,8 @@ import * as tslib_1 from "tslib";
 import { Component, Input, Output, EventEmitter, forwardRef, ChangeDetectionStrategy, ChangeDetectorRef, ContentChildren, QueryList, Inject, Optional, ViewChildren } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { coerceBooleanProperty, ENTER, SPACE, UP_ARROW, DOWN_ARROW } from '@angular/cdk';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { ENTER, SPACE, UP_ARROW, DOWN_ARROW } from '@angular/cdk/keycodes';
 import { TdDataTableRowComponent } from './data-table-row/data-table-row.component';
 import { TdDataTableTemplateDirective } from './directives/data-table-template.directive';
 var noop = function () {

@@ -24,7 +24,7 @@
       width: 100%; }
   :host /deep/ {
     /* TODO see if we can make styles more abstract to future proof for contact chips */ }
-    :host /deep/ .mat-input-wrapper {
+    :host /deep/ .mat-form-field-wrapper {
       padding-bottom: 2px; }
     :host /deep/ .mat-basic-chip {
       display: inline-block;
@@ -124,16 +124,16 @@
         line-height: 22px; }
         :host /deep/ .mat-basic-chip md-icon.td-chip-removal:hover {
           cursor: pointer; }
-  :host .mat-input-underline {
+  :host .mat-form-field-underline {
     position: relative;
     height: 1px;
     width: 100%;
     bottom: 0; }
-    :host .mat-input-underline.mat-disabled {
+    :host .mat-form-field-underline.mat-disabled {
       background-position: 0;
       bottom: -4px;
       background-color: transparent; }
-    :host .mat-input-underline .mat-input-ripple {
+    :host .mat-form-field-underline .mat-form-field-ripple {
       position: absolute;
       height: 2px;
       top: 0;
@@ -145,7 +145,7 @@
       visibility: hidden;
       -webkit-transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
       transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); }
-      :host .mat-input-underline .mat-input-ripple.mat-focused {
+      :host .mat-form-field-underline .mat-form-field-ripple.mat-focused {
         visibility: visible;
         -webkit-transform: scaleX(1);
                 transform: scaleX(1);
@@ -154,7 +154,7 @@
         transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
         transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear; }
 
-:host /deep/ md-input-container .mat-input-underline {
+:host /deep/ md-form-field .mat-form-field-underline {
   display: none; }
 
 /*# sourceMappingURL=chips.component.css.map */

@@ -1,7 +1,7 @@
 import * as tslib_1 from "tslib";
 import { Directive, Input, Output, EventEmitter } from '@angular/core';
 import { HostListener, HostBinding, ElementRef, Renderer2 } from '@angular/core';
-import { coerceBooleanProperty } from '@angular/cdk';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { mixinDisabled } from '../../common/common.module';
 var TdFileDropBase = (function () {
     function TdFileDropBase() {

@@ -1,8 +1,9 @@
 import * as tslib_1 from "tslib";
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PortalModule } from '@angular/cdk';
-import { MdIconModule, MdRippleModule, ScrollDispatchModule } from '@angular/material';
+import { PortalModule } from '@angular/cdk/portal';
+import { ScrollDispatchModule } from '@angular/cdk/scrolling';
+import { MdIconModule, MdRippleModule } from '@angular/material';
 import { CovalentCommonModule } from '../common/common.module';
 // Steps
 import { TdStepsComponent } from './steps.component';

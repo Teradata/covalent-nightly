@@ -1,9 +1,9 @@
 import { OnInit, EventEmitter } from '@angular/core';
-import { Dir } from '@angular/cdk';
-import { MdInputDirective } from '@angular/material';
+import { Dir } from '@angular/cdk/bidi';
+import { MdInput } from '@angular/material';
 export declare class TdSearchInputComponent implements OnInit {
     private _dir;
-    _input: MdInputDirective;
+    _input: MdInput;
     value: string;
     /**
      * showUnderline?: boolean

@@ -1,8 +1,8 @@
 import { DoCheck, QueryList, OnInit, ElementRef, TemplateRef, ViewContainerRef, ChangeDetectorRef, AfterViewInit, OnDestroy, Renderer2 } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { ControlValueAccessor, FormControl } from '@angular/forms';
-import { TemplatePortalDirective } from '@angular/cdk';
-import { MdChip, MdInputDirective, MdOption, MdAutocompleteTrigger } from '@angular/material';
+import { TemplatePortalDirective } from '@angular/cdk/portal';
+import { MdChip, MdInput, MdOption, MdAutocompleteTrigger } from '@angular/material';
 import { ICanDisable } from '../common/common.module';
 export declare class TdChipDirective extends TemplatePortalDirective {
     constructor(templateRef: TemplateRef<any>, viewContainerRef: ViewContainerRef);
@@ -35,7 +35,7 @@ export declare class TdChipsComponent extends _TdChipsMixinBase implements Contr
     private _tabIndex;
     _internalClick: boolean;
     _nativeInput: ElementRef;
-    _inputChild: MdInputDirective;
+    _inputChild: MdInput;
     _autocompleteTrigger: MdAutocompleteTrigger;
     _chipsChildren: QueryList<MdChip>;
     _chipTemplate: TdChipDirective;
@@ -169,6 +169,7 @@ export declare class TdChipsComponent extends _TdChipsMixinBase implements Contr
     ngAfterViewInit(): void;
     ngDoCheck(): void;
     ngOnDestroy(): void;
+    _setInternalClick(): void;
     /** Method executed when the disabled value changes */
     onDisabledChange(v: boolean): void;
     /**

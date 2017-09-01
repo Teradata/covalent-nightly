@@ -1,6 +1,5 @@
 import * as tslib_1 from "tslib";
 import { Input, HostListener } from '@angular/core';
-import { merge } from 'rxjs/observable/merge';
 var LayoutToggle = (function () {
     function LayoutToggle(_layout, _renderer, _elementRef) {
         this._layout = _layout;
@@ -36,7 +35,7 @@ var LayoutToggle = (function () {
     LayoutToggle.prototype.ngAfterViewInit = function () {
         var _this = this;
         this._initialized = true;
-        this._toggleSubs = merge(this._layout.sidenav.onOpenStart, this._layout.sidenav.onCloseStart).subscribe(function () {
+        this._toggleSubs = this._layout.sidenav._animationStarted.subscribe(function () {
             _this._toggleVisibility();
         });
         // execute toggleVisibility since the onOpenStart and onCloseStart
@@ -59,7 +58,7 @@ var LayoutToggle = (function () {
         }
     };
     LayoutToggle.prototype._toggleVisibility = function () {
-        if (this._layout.sidenav._opened && this._hideWhenOpened) {
+        if (this._layout.sidenav.opened && this._hideWhenOpened) {
             this._renderer.setStyle(this._elementRef.nativeElement, 'display', 'none');
         }
         else {

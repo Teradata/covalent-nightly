@@ -1,5 +1,5 @@
 import * as tslib_1 from "tslib";
-import { coerceBooleanProperty } from '@angular/cdk';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 /** Mixin to augment a component or directive with a `disabled` property. */
 export function mixinDisableRipple(base) {
     return (function (_super) {

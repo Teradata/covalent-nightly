@@ -1,7 +1,8 @@
 import * as tslib_1 from "tslib";
 import { Component, Directive, Input, Output, TemplateRef, ViewChild, ViewContainerRef, ContentChild } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import { coerceBooleanProperty, TemplatePortalDirective, TemplatePortal } from '@angular/cdk';
+import { TemplatePortalDirective, TemplatePortal } from '@angular/cdk/portal';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { mixinDisabled, mixinDisableRipple } from '../common/common.module';
 export var StepState;
 (function (StepState) {

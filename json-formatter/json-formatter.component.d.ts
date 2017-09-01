@@ -1,5 +1,5 @@
 import { ChangeDetectorRef } from '@angular/core';
-import { Dir } from '@angular/cdk';
+import { Dir } from '@angular/cdk/bidi';
 export declare class TdJsonFormatterComponent {
     private _changeDetectorRef;
     private _dir;

@@ -1,7 +1,7 @@
 import * as tslib_1 from "tslib";
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MdCheckboxModule, MdTooltipModule, MdIconModule, MdSelectionModule } from '@angular/material';
+import { MdCheckboxModule, MdTooltipModule, MdIconModule, MdPseudoCheckboxModule } from '@angular/material';
 import { TdDataTableComponent } from './data-table.component';
 import { TdDataTableColumnComponent } from './data-table-column/data-table-column.component';
 import { TdDataTableCellComponent } from './data-table-cell/data-table-cell.component';
@@ -33,7 +33,7 @@ var CovalentDataTableModule = (function () {
                 MdCheckboxModule,
                 MdTooltipModule,
                 MdIconModule,
-                MdSelectionModule,
+                MdPseudoCheckboxModule,
             ],
             declarations: [
                 TD_DATA_TABLE,

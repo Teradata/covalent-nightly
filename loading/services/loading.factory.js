@@ -1,8 +1,8 @@
 import * as tslib_1 from "tslib";
 import { Injectable, ComponentFactoryResolver, SkipSelf, Optional } from '@angular/core';
 import { Injector } from '@angular/core';
-import { TemplatePortal, ComponentPortal } from '@angular/cdk';
-import { Overlay, OverlayState } from '@angular/material';
+import { TemplatePortal, ComponentPortal } from '@angular/cdk/portal';
+import { Overlay, OverlayState } from '@angular/cdk/overlay';
 import { Subject } from 'rxjs/Subject';
 import { TdLoadingComponent, LoadingStyle } from '../loading.component';
 /**

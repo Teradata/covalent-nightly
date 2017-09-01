@@ -1,6 +1,6 @@
 import * as tslib_1 from "tslib";
 import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
-import { TemplatePortalDirective } from '@angular/cdk';
+import { TemplatePortalDirective } from '@angular/cdk/portal';
 var TdDataTableTemplateDirective = (function (_super) {
     tslib_1.__extends(TdDataTableTemplateDirective, _super);
     function TdDataTableTemplateDirective(templateRef, viewContainerRef) {

@@ -1,5 +1,5 @@
 import { EventEmitter, ElementRef, Renderer2, TemplateRef, ViewContainerRef, ChangeDetectorRef } from '@angular/core';
-import { TemplatePortalDirective } from '@angular/cdk';
+import { TemplatePortalDirective } from '@angular/cdk/portal';
 import { ControlValueAccessor } from '@angular/forms';
 import { ICanDisable } from '../../common/common.module';
 export declare const FILE_INPUT_CONTROL_VALUE_ACCESSOR: any;

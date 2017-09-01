@@ -1,6 +1,6 @@
 import { TemplateRef, ViewContainerRef, ElementRef, Renderer2 } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import { TemplatePortalDirective } from '@angular/cdk';
+import { TemplatePortalDirective } from '@angular/cdk/portal';
 import { ICanDisable, ICanDisableRipple } from '../common/common.module';
 export declare class TdExpansionPanelHeaderDirective extends TemplatePortalDirective {
     constructor(templateRef: TemplateRef<any>, viewContainerRef: ViewContainerRef);

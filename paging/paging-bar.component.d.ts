@@ -1,5 +1,5 @@
 import { EventEmitter, OnInit } from '@angular/core';
-import { Dir } from '@angular/cdk';
+import { Dir } from '@angular/cdk/bidi';
 export interface IPageChangeEvent {
     page: number;
     maxPage: number;
