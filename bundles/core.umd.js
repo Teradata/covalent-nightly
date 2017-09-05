@@ -446,6 +446,163 @@ function TdFadeInOutAnimation(duration) {
     ]);
 }
 
+/**
+ * Function TdBounceAnimation
+ *
+ * params:
+ * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation.
+ * * duration: Duration the animation will run in miliseconds. Defaults to 500 ms.
+ *
+ * Returns an [AnimationTriggerMetadata] object with states for a boolean trigger based bounce animation.
+ *
+ * usage: [@myAnchorName]="true|false"
+ */
+function TdBounceAnimation(bounceOptions) {
+    if (bounceOptions === void 0) { bounceOptions = {}; }
+    return _angular_animations.trigger(bounceOptions.anchor || 'tdbounce', [
+        _angular_animations.state('0', _angular_animations.style({
+            transform: 'translate3d(0, 0, 0)',
+        })),
+        _angular_animations.state('1', _angular_animations.style({
+            transform: 'translate3d(0, 0, 0)',
+        })),
+        _angular_animations.transition('0 <=> 1', _angular_animations.animate((bounceOptions.duration || 500) + 'ms', _angular_animations.keyframes([
+            _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0 }),
+            _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.2 }),
+            _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -30px, 0)', offset: 0.4 }),
+            _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -30px, 0)', offset: 0.43 }),
+            _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.53 }),
+            _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -15px, 0)', offset: .7 }),
+            _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.8 }),
+            _angular_animations.style({ transform: 'translate3d(0, -4px, 0)', offset: .9 }),
+            _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 1.0 }),
+        ]))),
+    ]);
+}
+
+/**
+ * Function TdFlashAnimation
+ *
+ * params:
+ * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation.
+ * * duration: Duration the animation will run in miliseconds. Defaults to 500 ms.
+ *
+ * Returns an [AnimationTriggerMetadata] object with states for a boolean trigger based flash animation.
+ *
+ * usage: [@myAnchorName]="true|false"
+ */
+function TdFlashAnimation(flashOptions) {
+    if (flashOptions === void 0) { flashOptions = {}; }
+    return _angular_animations.trigger(flashOptions.anchor || 'tdflash', [
+        _angular_animations.state('0', _angular_animations.style({
+            opacity: 1,
+        })),
+        _angular_animations.state('1', _angular_animations.style({
+            opacity: 1,
+        })),
+        _angular_animations.transition('0 <=> 1', _angular_animations.animate((flashOptions.duration || 500) + 'ms', _angular_animations.keyframes([
+            _angular_animations.style({ opacity: 1, offset: 0 }),
+            _angular_animations.style({ opacity: 0, offset: 0.25 }),
+            _angular_animations.style({ opacity: 1, offset: 0.5 }),
+            _angular_animations.style({ opacity: 0, offset: 0.75 }),
+            _angular_animations.style({ opacity: 1, offset: 1.0 }),
+        ]))),
+    ]);
+}
+
+/**
+ * Function TdHeadshakeAnimation
+ *
+ * params:
+ * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation.
+ * * duration: Duration the animation will run in miliseconds. Defaults to 500 ms.
+ *
+ * Returns an [AnimationTriggerMetadata] object with states for a boolean trigger based headshake animation.
+ *
+ * usage: [@myAnchorName]="true|false"
+ */
+function TdHeadshakeAnimation(headshakeOptions) {
+    if (headshakeOptions === void 0) { headshakeOptions = {}; }
+    return _angular_animations.trigger(headshakeOptions.anchor || 'tdheadshake', [
+        _angular_animations.state('0', _angular_animations.style({
+            transform: 'translateX(0)',
+        })),
+        _angular_animations.state('1', _angular_animations.style({
+            transform: 'translateX(0)',
+        })),
+        _angular_animations.transition('0 <=> 1', _angular_animations.animate((headshakeOptions.duration || 500) + 'ms', _angular_animations.keyframes([
+            _angular_animations.style({ transform: 'translateX(0)', offset: 0 }),
+            _angular_animations.style({ transform: 'translateX(-6px) rotateY(-9deg)', offset: 0.065 }),
+            _angular_animations.style({ transform: 'translateX(5px) rotateY(7deg)', offset: 0.185 }),
+            _angular_animations.style({ transform: 'translateX(-3px) rotateY(-5deg)', offset: 0.315 }),
+            _angular_animations.style({ transform: 'translateX(2px) rotateY(3deg)', offset: 0.435 }),
+            _angular_animations.style({ transform: 'translateX(0)', offset: 0.50 }),
+        ]))),
+    ]);
+}
+
+/**
+ * Function TdJelloAnimation
+ *
+ * params:
+ * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation.
+ * * duration: Duration the animation will run in miliseconds. Defaults to 500 ms.
+ *
+ * Returns an [AnimationTriggerMetadata] object with states for a boolean trigger based jello animation.
+ *
+ * usage: [@myAnchorName]="true|false"
+ */
+function TdJelloAnimation(jelloOptions) {
+    if (jelloOptions === void 0) { jelloOptions = {}; }
+    return _angular_animations.trigger(jelloOptions.anchor || 'tdjello', [
+        _angular_animations.state('0', _angular_animations.style({
+            transform: 'none',
+        })),
+        _angular_animations.state('1', _angular_animations.style({
+            transform: 'none',
+        })),
+        _angular_animations.transition('0 <=> 1', _angular_animations.animate((jelloOptions.duration || 500) + 'ms', _angular_animations.keyframes([
+            _angular_animations.style({ transform: 'none', offset: 0 }),
+            _angular_animations.style({ transform: 'none', offset: 0.011 }),
+            _angular_animations.style({ transform: 'skewX(-12.5deg) skewY(-12.5deg)', offset: 0.222 }),
+            _angular_animations.style({ transform: 'skewX(6.25deg) skewY(6.25deg)', offset: 0.333 }),
+            _angular_animations.style({ transform: 'skewX(-3.125deg) skewY(-3.125deg)', offset: 0.444 }),
+            _angular_animations.style({ transform: 'skewX(1.5625deg) skewY(1.5625deg)', offset: 0.555 }),
+            _angular_animations.style({ transform: 'skewX(-0.78125deg) skewY(-0.78125deg)', offset: 0.666 }),
+            _angular_animations.style({ transform: 'skewX(0.390625deg) skewY(0.390625deg)', offset: 0.777 }),
+            _angular_animations.style({ transform: 'skewX(-0.1953125deg) skewY(-0.1953125deg)', offset: 0.888 }),
+        ]))),
+    ]);
+}
+
+/**
+ * Function TdPulseAnimation
+ *
+ * params:
+ * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation.
+ * * duration: Duration the animation will run in miliseconds. Defaults to 500 ms.
+ *
+ * Returns an [AnimationTriggerMetadata] object with states for a boolean trigger based pulse animation.
+ *
+ * usage: [@myAnchorName]="true|false"
+ */
+function TdPulseAnimation(pulseOptions) {
+    if (pulseOptions === void 0) { pulseOptions = {}; }
+    return _angular_animations.trigger(pulseOptions.anchor || 'tdpulse', [
+        _angular_animations.state('0', _angular_animations.style({
+            transform: 'scale3d(1, 1, 1)',
+        })),
+        _angular_animations.state('1', _angular_animations.style({
+            transform: 'scale3d(1, 1, 1)',
+        })),
+        _angular_animations.transition('0 <=> 1', _angular_animations.animate((pulseOptions.duration || 500) + 'ms', _angular_animations.keyframes([
+            _angular_animations.style({ transform: 'scale3d(1, 1, 1)', offset: 0 }),
+            _angular_animations.style({ transform: 'scale3d(1.05, 1.05, 1.05)', offset: 0.5 }),
+            _angular_animations.style({ transform: 'scale3d(1, 1, 1)', offset: 1.0 }),
+        ]))),
+    ]);
+}
+
 /** Mixin to augment a component or directive with a `disabled` property. */
 function mixinDisabled(base) {
     return (function (_super) {
@@ -8851,6 +9008,11 @@ exports.CovalentCommonModule = CovalentCommonModule;
 exports.TdRotateAnimation = TdRotateAnimation;
 exports.TdCollapseAnimation = TdCollapseAnimation;
 exports.TdFadeInOutAnimation = TdFadeInOutAnimation;
+exports.TdBounceAnimation = TdBounceAnimation;
+exports.TdFlashAnimation = TdFlashAnimation;
+exports.TdHeadshakeAnimation = TdHeadshakeAnimation;
+exports.TdJelloAnimation = TdJelloAnimation;
+exports.TdPulseAnimation = TdPulseAnimation;
 exports.mixinDisabled = mixinDisabled;
 exports.mixinDisableRipple = mixinDisableRipple;
 exports.CovalentValidators = CovalentValidators;
