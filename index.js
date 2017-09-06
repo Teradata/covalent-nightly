@@ -14,4 +14,5 @@ export * from './notifications/notifications.module';
 export * from './paging/paging.module';
 export * from './search/search.module';
 export * from './steps/steps.module';
+export * from './virtual-scroll/virtual-scroll.module';
 //# sourceMappingURL=index.js.map
