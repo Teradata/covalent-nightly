@@ -251,8 +251,8 @@ var TdMessageComponent = (function () {
             template: "<div tdMessageContainer></div> <ng-template> <div layout=\"column\"> <div class=\"pad-top-sm pad-right pad-bottom-sm pad-left td-message-wrapper\" layout=\"row\" layout-align=\"center center\"> <md-icon class=\"push-right\">{{icon}}</md-icon> <div> <div *ngIf=\"label\" class=\"td-message-label md-body-2\">{{label}}</div> <div *ngIf=\"sublabel\" class=\"td-message-sublabel md-body-1\">{{sublabel}}</div> </div> <span flex></span> <ng-content select=\"[td-message-actions]\"></ng-content> </div> </div> </ng-template>",
             styles: [":host { display: block; } :host .td-message-wrapper { min-height: 52px; } /*# sourceMappingURL=message.component.css.map */ "],
             animations: [
-                TdCollapseAnimation(100),
-                TdFadeInOutAnimation(100),
+                TdCollapseAnimation({ duration: 100 }),
+                TdFadeInOutAnimation({ duration: 100 }),
             ],
         }),
         tslib_1.__metadata("design:paramtypes", [Renderer2,

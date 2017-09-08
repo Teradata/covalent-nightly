@@ -4,7 +4,7 @@ import { trigger, state, style, keyframes, transition, animate } from '@angular/
  *
  * params:
  * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation.
- * * duration: Duration the animation will run in miliseconds. Defaults to 500 ms.
+ * * duration: Duration the animation will run in milliseconds. Defaults to 500 ms.
  *
  * Returns an [AnimationTriggerMetadata] object with states for a boolean trigger based flash animation.
  *
@@ -12,14 +12,14 @@ import { trigger, state, style, keyframes, transition, animate } from '@angular/
  */
 export function TdFlashAnimation(flashOptions) {
     if (flashOptions === void 0) { flashOptions = {}; }
-    return trigger(flashOptions.anchor || 'tdflash', [
+    return trigger(flashOptions.anchor || 'tdFlash', [
         state('0', style({
             opacity: 1,
         })),
         state('1', style({
             opacity: 1,
         })),
-        transition('0 <=> 1', animate((flashOptions.duration || 500) + 'ms', keyframes([
+        transition('0 <=> 1', animate((flashOptions.duration || 500) + 'ms ' + (flashOptions.delay || 0) + 'ms', keyframes([
             style({ opacity: 1, offset: 0 }),
             style({ opacity: 0, offset: 0.25 }),
             style({ opacity: 1, offset: 0.5 }),

@@ -11,7 +11,7 @@ export declare class TdFadeDirective {
     private _animationFadeOutPlayer;
     /**
      * duration?: number
-     * Sets duration of fade animation in miliseconds.
+     * Sets duration of fade animation in milliseconds.
      * Defaults to 150 ms.
      */
     duration: number;

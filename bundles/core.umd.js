@@ -57,7 +57,7 @@ var TdToggleDirective = (function () {
         this._animationBuilder = _animationBuilder;
         /**
          * duration?: number
-         * Sets duration of toggle animation in miliseconds.
+         * Sets duration of toggle animation in milliseconds.
          * Defaults to 150 ms.
          */
         this.duration = 150;
@@ -206,7 +206,7 @@ var TdFadeDirective = (function () {
         this._animationBuilder = _animationBuilder;
         /**
          * duration?: number
-         * Sets duration of fade animation in miliseconds.
+         * Sets duration of fade animation in milliseconds.
          * Defaults to 150 ms.
          */
         this.duration = 150;
@@ -363,11 +363,11 @@ var TdFadeDirective = (function () {
  * Function TdRotateAnimation
  *
  * params:
- * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation.
- * * duration: Duration the animation will run in miliseconds. Defaults to 250 ms.
+ * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation. Defaults to tdRotate.
+ * * duration: Duration the animation will run in milliseconds. Defaults to 250 ms.
+ * * delay: Delay before the animation will run in milliseconds. Defaults to 0 ms.
  * * degrees: Degrees of rotation that the dom object will animation. A negative value will cause the animation to initially rotate counter-clockwise.
- * * ease: String representing timing of animation 'duration delay easing' EX: '2s 300ms ease-in', duration=2000, delay=300, easing=ease-in.
- * Defaults to ease-out.
+ * * ease: Animation accelerates and decelerates when rotation. Defaults to ease-in.
  *
  * Returns an [AnimationTriggerMetadata] object with states for a boolean trigger based rotation animation.
  *
@@ -383,7 +383,9 @@ function TdRotateAnimation(rotateOptions) {
             transform: 'rotate(' + (rotateOptions.degrees || 180) + 'deg)',
         })),
         _angular_animations.transition('0 <=> 1', [
-            _angular_animations.animate((rotateOptions.duration || 250) + 'ms ' + (rotateOptions.ease || 'ease-in')),
+            _angular_animations.animate((rotateOptions.duration || 250) + 'ms ' +
+                (rotateOptions.delay || 0) + 'ms ' +
+                (rotateOptions.ease || 'ease-in')),
         ]),
     ]);
 }
@@ -392,30 +394,38 @@ function TdRotateAnimation(rotateOptions) {
  * Function TdCollapseAnimation
  *
  * params:
- * * duration: Duration of animation in miliseconds. Defaults to 120 ms.
+ * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation. Defaults to tdCollapse.
+ * * duration: Duration the animation will run in milliseconds. Defaults to 150 ms.
+ * * delay: Delay before the animation will run in milliseconds. Defaults to 0 ms.
+ * * easeOnClose: Animation accelerates and decelerates when closing. Defaults to ease-in.
+ * * easeOnOpen: Animation accelerates and decelerates when opening. Defaults to ease-out.
  *
  * Returns an [AnimationTriggerMetadata] object with states for a collapse/expand animation.
  *
  * usage: [@tdCollapse]="true|false"
  */
-function TdCollapseAnimation(duration) {
-    if (duration === void 0) { duration = 120; }
-    return _angular_animations.trigger('tdCollapse', [
+function TdCollapseAnimation(collapseOptions) {
+    if (collapseOptions === void 0) { collapseOptions = {}; }
+    return _angular_animations.trigger(collapseOptions.anchor || 'tdCollapse', [
         _angular_animations.state('1', _angular_animations.style({
             height: '0',
             display: 'none',
+            overflow: 'hidden',
         })),
         _angular_animations.state('0', _angular_animations.style({
             height: _angular_animations.AUTO_STYLE,
             display: _angular_animations.AUTO_STYLE,
+            overflow: 'hidden',
         })),
         _angular_animations.transition('0 => 1', [
-            _angular_animations.style({ overflow: 'hidden' }),
-            _angular_animations.animate(duration + 'ms ease-in', _angular_animations.style({ height: '0' })),
+            _angular_animations.animate((collapseOptions.duration || 150) + 'ms ' +
+                (collapseOptions.delay || 0) + 'ms ' +
+                (collapseOptions.easeOnClose || 'ease-in')),
         ]),
         _angular_animations.transition('1 => 0', [
-            _angular_animations.style({ overflow: 'hidden' }),
-            _angular_animations.animate(duration + 'ms ease-out', _angular_animations.style({ height: _angular_animations.AUTO_STYLE })),
+            _angular_animations.animate((collapseOptions.duration || 150) + 'ms ' +
+                (collapseOptions.delay || 0) + 'ms ' +
+                (collapseOptions.easeOnOpen || 'ease-out')),
         ]),
     ]);
 }
@@ -424,25 +434,33 @@ function TdCollapseAnimation(duration) {
  * Function TdFadeInOutAnimation
  *
  * params:
- * * duration: Duration of animation in miliseconds. Defaults to 150 ms.
+ * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation. Defaults to tdFadeInOut
+ * * duration: Duration the animation will run in milliseconds. Defaults to 150 ms.
+ * * delay: Delay before the animation will run in milliseconds. Defaults to 0 ms.
+ * * easeOnIn: Animation accelerates and decelerates when fading in. Defaults to ease-in.
+ * * easeOnOut: Animation accelerates and decelerates when fading out. Defaults to ease-out.
  *
  * Returns an [AnimationTriggerMetadata] object with states for a fading animation.
  *
  * usage: [@tdFadeInOut]="true|false"
  */
-function TdFadeInOutAnimation(duration) {
-    if (duration === void 0) { duration = 150; }
-    return _angular_animations.trigger('tdFadeInOut', [
+function TdFadeInOutAnimation(fadeInOut) {
+    if (fadeInOut === void 0) { fadeInOut = {}; }
+    return _angular_animations.trigger((fadeInOut.anchor || 'tdFadeInOut'), [
         _angular_animations.state('0', _angular_animations.style({
             opacity: '0',
             display: 'none',
         })),
         _angular_animations.state('1', _angular_animations.style({
-            opacity: '*',
-            display: '*',
+            opacity: _angular_animations.AUTO_STYLE,
+            display: _angular_animations.AUTO_STYLE,
         })),
-        _angular_animations.transition('0 => 1', _angular_animations.animate(duration + 'ms ease-in')),
-        _angular_animations.transition('1 => 0', _angular_animations.animate(duration + 'ms ease-out')),
+        _angular_animations.transition('0 => 1', _angular_animations.animate((fadeInOut.duration || 150) + 'ms ' +
+            (fadeInOut.delay || 0) + 'ms ' +
+            (fadeInOut.easeOnIn || 'ease-in'))),
+        _angular_animations.transition('1 => 0', _angular_animations.animate((fadeInOut.duration || 150) + 'ms ' +
+            (fadeInOut.delay || 0) + 'ms ' +
+            (fadeInOut.easeOnOut || 'ease-out'))),
     ]);
 }
 
@@ -451,7 +469,7 @@ function TdFadeInOutAnimation(duration) {
  *
  * params:
  * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation.
- * * duration: Duration the animation will run in miliseconds. Defaults to 500 ms.
+ * * duration: Duration the animation will run in milliseconds. Defaults to 500 ms.
  *
  * Returns an [AnimationTriggerMetadata] object with states for a boolean trigger based bounce animation.
  *
@@ -459,14 +477,14 @@ function TdFadeInOutAnimation(duration) {
  */
 function TdBounceAnimation(bounceOptions) {
     if (bounceOptions === void 0) { bounceOptions = {}; }
-    return _angular_animations.trigger(bounceOptions.anchor || 'tdbounce', [
+    return _angular_animations.trigger(bounceOptions.anchor || 'tdBounce', [
         _angular_animations.state('0', _angular_animations.style({
             transform: 'translate3d(0, 0, 0)',
         })),
         _angular_animations.state('1', _angular_animations.style({
             transform: 'translate3d(0, 0, 0)',
         })),
-        _angular_animations.transition('0 <=> 1', _angular_animations.animate((bounceOptions.duration || 500) + 'ms', _angular_animations.keyframes([
+        _angular_animations.transition('0 <=> 1', _angular_animations.animate((bounceOptions.duration || 500) + 'ms ' + (bounceOptions.delay || 0) + 'ms', _angular_animations.keyframes([
             _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0 }),
             _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.2 }),
             _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -30px, 0)', offset: 0.4 }),
@@ -485,7 +503,7 @@ function TdBounceAnimation(bounceOptions) {
  *
  * params:
  * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation.
- * * duration: Duration the animation will run in miliseconds. Defaults to 500 ms.
+ * * duration: Duration the animation will run in milliseconds. Defaults to 500 ms.
  *
  * Returns an [AnimationTriggerMetadata] object with states for a boolean trigger based flash animation.
  *
@@ -493,14 +511,14 @@ function TdBounceAnimation(bounceOptions) {
  */
 function TdFlashAnimation(flashOptions) {
     if (flashOptions === void 0) { flashOptions = {}; }
-    return _angular_animations.trigger(flashOptions.anchor || 'tdflash', [
+    return _angular_animations.trigger(flashOptions.anchor || 'tdFlash', [
         _angular_animations.state('0', _angular_animations.style({
             opacity: 1,
         })),
         _angular_animations.state('1', _angular_animations.style({
             opacity: 1,
         })),
-        _angular_animations.transition('0 <=> 1', _angular_animations.animate((flashOptions.duration || 500) + 'ms', _angular_animations.keyframes([
+        _angular_animations.transition('0 <=> 1', _angular_animations.animate((flashOptions.duration || 500) + 'ms ' + (flashOptions.delay || 0) + 'ms', _angular_animations.keyframes([
             _angular_animations.style({ opacity: 1, offset: 0 }),
             _angular_animations.style({ opacity: 0, offset: 0.25 }),
             _angular_animations.style({ opacity: 1, offset: 0.5 }),
@@ -515,7 +533,7 @@ function TdFlashAnimation(flashOptions) {
  *
  * params:
  * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation.
- * * duration: Duration the animation will run in miliseconds. Defaults to 500 ms.
+ * * duration: Duration the animation will run in milliseconds. Defaults to 500 ms.
  *
  * Returns an [AnimationTriggerMetadata] object with states for a boolean trigger based headshake animation.
  *
@@ -523,14 +541,14 @@ function TdFlashAnimation(flashOptions) {
  */
 function TdHeadshakeAnimation(headshakeOptions) {
     if (headshakeOptions === void 0) { headshakeOptions = {}; }
-    return _angular_animations.trigger(headshakeOptions.anchor || 'tdheadshake', [
+    return _angular_animations.trigger(headshakeOptions.anchor || 'tdHeadshake', [
         _angular_animations.state('0', _angular_animations.style({
             transform: 'translateX(0)',
         })),
         _angular_animations.state('1', _angular_animations.style({
             transform: 'translateX(0)',
         })),
-        _angular_animations.transition('0 <=> 1', _angular_animations.animate((headshakeOptions.duration || 500) + 'ms', _angular_animations.keyframes([
+        _angular_animations.transition('0 <=> 1', _angular_animations.animate((headshakeOptions.duration || 500) + 'ms ' + (headshakeOptions.delay || 0) + 'ms', _angular_animations.keyframes([
             _angular_animations.style({ transform: 'translateX(0)', offset: 0 }),
             _angular_animations.style({ transform: 'translateX(-6px) rotateY(-9deg)', offset: 0.065 }),
             _angular_animations.style({ transform: 'translateX(5px) rotateY(7deg)', offset: 0.185 }),
@@ -546,7 +564,7 @@ function TdHeadshakeAnimation(headshakeOptions) {
  *
  * params:
  * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation.
- * * duration: Duration the animation will run in miliseconds. Defaults to 500 ms.
+ * * duration: Duration the animation will run in milliseconds. Defaults to 500 ms.
  *
  * Returns an [AnimationTriggerMetadata] object with states for a boolean trigger based jello animation.
  *
@@ -554,14 +572,14 @@ function TdHeadshakeAnimation(headshakeOptions) {
  */
 function TdJelloAnimation(jelloOptions) {
     if (jelloOptions === void 0) { jelloOptions = {}; }
-    return _angular_animations.trigger(jelloOptions.anchor || 'tdjello', [
+    return _angular_animations.trigger(jelloOptions.anchor || 'tdJello', [
         _angular_animations.state('0', _angular_animations.style({
             transform: 'none',
         })),
         _angular_animations.state('1', _angular_animations.style({
             transform: 'none',
         })),
-        _angular_animations.transition('0 <=> 1', _angular_animations.animate((jelloOptions.duration || 500) + 'ms', _angular_animations.keyframes([
+        _angular_animations.transition('0 <=> 1', _angular_animations.animate((jelloOptions.duration || 500) + 'ms ' + (jelloOptions.delay || 0) + 'ms', _angular_animations.keyframes([
             _angular_animations.style({ transform: 'none', offset: 0 }),
             _angular_animations.style({ transform: 'none', offset: 0.011 }),
             _angular_animations.style({ transform: 'skewX(-12.5deg) skewY(-12.5deg)', offset: 0.222 }),
@@ -580,7 +598,7 @@ function TdJelloAnimation(jelloOptions) {
  *
  * params:
  * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation.
- * * duration: Duration the animation will run in miliseconds. Defaults to 500 ms.
+ * * duration: Duration the animation will run in milliseconds. Defaults to 500 ms.
  *
  * Returns an [AnimationTriggerMetadata] object with states for a boolean trigger based pulse animation.
  *
@@ -588,14 +606,14 @@ function TdJelloAnimation(jelloOptions) {
  */
 function TdPulseAnimation(pulseOptions) {
     if (pulseOptions === void 0) { pulseOptions = {}; }
-    return _angular_animations.trigger(pulseOptions.anchor || 'tdpulse', [
+    return _angular_animations.trigger(pulseOptions.anchor || 'tdPulse', [
         _angular_animations.state('0', _angular_animations.style({
             transform: 'scale3d(1, 1, 1)',
         })),
         _angular_animations.state('1', _angular_animations.style({
             transform: 'scale3d(1, 1, 1)',
         })),
-        _angular_animations.transition('0 <=> 1', _angular_animations.animate((pulseOptions.duration || 500) + 'ms', _angular_animations.keyframes([
+        _angular_animations.transition('0 <=> 1', _angular_animations.animate((pulseOptions.duration || 500) + 'ms ' + (pulseOptions.delay || 0) + 'ms', _angular_animations.keyframes([
             _angular_animations.style({ transform: 'scale3d(1, 1, 1)', offset: 0 }),
             _angular_animations.style({ transform: 'scale3d(1.05, 1.05, 1.05)', offset: 0.5 }),
             _angular_animations.style({ transform: 'scale3d(1, 1, 1)', offset: 1.0 }),
@@ -7659,8 +7677,8 @@ var TdMessageComponent = (function () {
             template: "<div tdMessageContainer></div> <ng-template> <div layout=\"column\"> <div class=\"pad-top-sm pad-right pad-bottom-sm pad-left td-message-wrapper\" layout=\"row\" layout-align=\"center center\"> <md-icon class=\"push-right\">{{icon}}</md-icon> <div> <div *ngIf=\"label\" class=\"td-message-label md-body-2\">{{label}}</div> <div *ngIf=\"sublabel\" class=\"td-message-sublabel md-body-1\">{{sublabel}}</div> </div> <span flex></span> <ng-content select=\"[td-message-actions]\"></ng-content> </div> </div> </ng-template>",
             styles: [":host { display: block; } :host .td-message-wrapper { min-height: 52px; } /*# sourceMappingURL=message.component.css.map */ "],
             animations: [
-                TdCollapseAnimation(100),
-                TdFadeInOutAnimation(100),
+                TdCollapseAnimation({ duration: 100 }),
+                TdFadeInOutAnimation({ duration: 100 }),
             ],
         }),
         __metadata("design:paramtypes", [_angular_core.Renderer2,

@@ -12,7 +12,7 @@ export declare class TdToggleDirective {
     private _animationHidePlayer;
     /**
      * duration?: number
-     * Sets duration of toggle animation in miliseconds.
+     * Sets duration of toggle animation in milliseconds.
      * Defaults to 150 ms.
      */
     duration: number;

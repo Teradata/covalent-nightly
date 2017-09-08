@@ -9,7 +9,7 @@ var TdFadeDirective = (function () {
         this._animationBuilder = _animationBuilder;
         /**
          * duration?: number
-         * Sets duration of fade animation in miliseconds.
+         * Sets duration of fade animation in milliseconds.
          * Defaults to 150 ms.
          */
         this.duration = 150;
