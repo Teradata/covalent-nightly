@@ -2,10 +2,10 @@
   border-bottom-style: solid;
   border-bottom-width: 1px; }
 
-tbody > :host {
+:host.td-data-table-row {
   height: 48px; }
 
-thead > :host {
+:host.td-data-table-column-row {
   height: 56px; }
 
 /*# sourceMappingURL=data-table-row.component.css.map */

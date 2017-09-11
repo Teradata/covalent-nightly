@@ -48,7 +48,10 @@ export declare class TdDataTableColumnComponent {
     readonly bindActive: boolean;
     readonly bindNumeric: boolean;
     constructor(_elementRef: ElementRef, _renderer: Renderer2);
-    handleSortBy(): void;
+    /**
+     * Listening to click event on host to throw a sort event
+     */
+    handleClick(): void;
     isAscending(): boolean;
     isDescending(): boolean;
 }

@@ -1,46 +1,47 @@
-.mat-table-container {
+:host {
   display: block;
-  max-width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch; }
+  overflow: hidden; }
+  :host .td-data-table-scrollable {
+    position: relative;
+    overflow: auto;
+    height: calc(100% - 56px); }
 
-table.td-data-table.mat-selectable tbody > tr.td-data-table-row {
-  -webkit-transition: background-color 0.2s;
-  transition: background-color 0.2s; }
-
-table.td-data-table.mat-selectable .td-data-table-column:first-child,
-table.td-data-table.mat-selectable th.td-data-table-column:first-child,
-table.td-data-table.mat-selectable td.td-data-table-cell:first-child {
-  width: 20px;
-  padding: 0 24px; }
-
-table.td-data-table.mat-selectable .td-data-table-column:nth-child(2),
-table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2),
-table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) {
-  padding-left: 0px; }
-
-[dir='rtl'] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2), [dir='rtl']
-table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2), [dir='rtl']
-table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) {
-  padding-right: 0px;
-  padding-left: 28px; }
-
-table.td-data-table td.mat-checkbox-cell,
-table.td-data-table th.mat-checkbox-column {
-  width: 18px;
-  font-size: 0 !important; }
-  table.td-data-table td.mat-checkbox-cell md-pseudo-checkbox,
-  table.td-data-table th.mat-checkbox-column md-pseudo-checkbox {
+table.td-data-table {
+  width: auto !important; }
+  table.td-data-table.mat-selectable tbody > tr.td-data-table-row {
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s; }
+  table.td-data-table.mat-selectable .td-data-table-column:first-child > .td-data-table-column-content-wrapper,
+  table.td-data-table.mat-selectable th.td-data-table-column:first-child > .td-data-table-column-content-wrapper,
+  table.td-data-table.mat-selectable td.td-data-table-cell:first-child > .td-data-table-column-content-wrapper {
     width: 18px;
-    height: 18px; }
-    /deep/ table.td-data-table td.mat-checkbox-cell md-pseudo-checkbox.mat-pseudo-checkbox-checked::after, /deep/
-    table.td-data-table th.mat-checkbox-column md-pseudo-checkbox.mat-pseudo-checkbox-checked::after {
-      width: 11px !important;
-      height: 4px !important; }
-  table.td-data-table td.mat-checkbox-cell md-checkbox /deep/ .mat-checkbox-inner-container,
-  table.td-data-table th.mat-checkbox-column md-checkbox /deep/ .mat-checkbox-inner-container {
-    width: 18px;
-    height: 18px;
-    margin: 0; }
+    min-width: 18px;
+    padding: 0 24px; }
+  table.td-data-table.mat-selectable .td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper,
+  table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper,
+  table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) > .td-data-table-column-content-wrapper {
+    padding-left: 0px; }
+  [dir='rtl'] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, [dir='rtl']
+  table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, [dir='rtl']
+  table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) > .td-data-table-column-content-wrapper {
+    padding-right: 0px;
+    padding-left: 28px; }
+  table.td-data-table td.mat-checkbox-cell,
+  table.td-data-table th.mat-checkbox-column {
+    width: 42px;
+    font-size: 0 !important; }
+    table.td-data-table td.mat-checkbox-cell md-pseudo-checkbox,
+    table.td-data-table th.mat-checkbox-column md-pseudo-checkbox {
+      width: 18px;
+      height: 18px; }
+      /deep/ table.td-data-table td.mat-checkbox-cell md-pseudo-checkbox.mat-pseudo-checkbox-checked::after, /deep/
+      table.td-data-table th.mat-checkbox-column md-pseudo-checkbox.mat-pseudo-checkbox-checked::after {
+        width: 11px !important;
+        height: 4px !important; }
+    table.td-data-table td.mat-checkbox-cell md-checkbox /deep/ .mat-checkbox-inner-container,
+    table.td-data-table th.mat-checkbox-column md-checkbox /deep/ .mat-checkbox-inner-container {
+      width: 18px;
+      height: 18px;
+      margin: 0; }
 
 /*# sourceMappingURL=data-table.component.css.map */

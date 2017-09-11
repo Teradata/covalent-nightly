@@ -1,8 +1,8 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/animations'), require('@angular/cdk/coercion'), require('@angular/router'), require('rxjs/operator/filter'), require('rxjs/operator/pairwise'), require('@angular/material'), require('@angular/platform-browser'), require('@angular/cdk/portal'), require('@angular/cdk/keycodes'), require('@angular/cdk/rxjs'), require('rxjs/observable/timer'), require('rxjs/observable/merge'), require('rxjs/operator/toPromise'), require('rxjs/observable/fromEvent'), require('@angular/http'), require('rxjs/Observable'), require('rxjs/Subject'), require('@angular/cdk/bidi'), require('@angular/cdk/scrolling'), require('@angular/cdk/overlay'), require('rxjs/operator/debounceTime'), require('rxjs/operator/skip')) :
-	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/animations', '@angular/cdk/coercion', '@angular/router', 'rxjs/operator/filter', 'rxjs/operator/pairwise', '@angular/material', '@angular/platform-browser', '@angular/cdk/portal', '@angular/cdk/keycodes', '@angular/cdk/rxjs', 'rxjs/observable/timer', 'rxjs/observable/merge', 'rxjs/operator/toPromise', 'rxjs/observable/fromEvent', '@angular/http', 'rxjs/Observable', 'rxjs/Subject', '@angular/cdk/bidi', '@angular/cdk/scrolling', '@angular/cdk/overlay', 'rxjs/operator/debounceTime', 'rxjs/operator/skip'], factory) :
-	(factory((global.td = global.td || {}, global.td.core = global.td.core || {}),global.ng.core,global.ng.common,global.ng.forms,global.ng.animations,global.ng.cdk.coercion,global.ng.router,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.ng.material,global.ng.platformBrowser,global.ng.cdk.portal,global.ng.cdk.keycodes,global.ng.cdk.rxjs,global.Rx.Observable,global.Rx.Observable,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.ng.http,global.Rx,global.Rx,global.ng.cdk.bidi,global.ng.cdk.scrolling,global.ng.cdk.overlay,global.Rx.Observable.prototype,global.Rx.Observable.prototype));
-}(this, (function (exports,_angular_core,_angular_common,_angular_forms,_angular_animations,_angular_cdk_coercion,_angular_router,rxjs_operator_filter,rxjs_operator_pairwise,_angular_material,_angular_platformBrowser,_angular_cdk_portal,_angular_cdk_keycodes,_angular_cdk_rxjs,rxjs_observable_timer,rxjs_observable_merge,rxjs_operator_toPromise,rxjs_observable_fromEvent,_angular_http,rxjs_Observable,rxjs_Subject,_angular_cdk_bidi,_angular_cdk_scrolling,_angular_cdk_overlay,rxjs_operator_debounceTime,rxjs_operator_skip) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/animations'), require('@angular/cdk/coercion'), require('@angular/router'), require('rxjs/operator/filter'), require('rxjs/operator/pairwise'), require('@angular/material'), require('@angular/platform-browser'), require('@angular/cdk/portal'), require('@angular/cdk/keycodes'), require('@angular/cdk/rxjs'), require('rxjs/observable/timer'), require('rxjs/observable/merge'), require('rxjs/operator/toPromise'), require('rxjs/observable/fromEvent'), require('rxjs/Subject'), require('rxjs/operator/debounceTime'), require('@angular/http'), require('rxjs/Observable'), require('@angular/cdk/bidi'), require('@angular/cdk/scrolling'), require('@angular/cdk/overlay'), require('rxjs/operator/skip')) :
+	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/animations', '@angular/cdk/coercion', '@angular/router', 'rxjs/operator/filter', 'rxjs/operator/pairwise', '@angular/material', '@angular/platform-browser', '@angular/cdk/portal', '@angular/cdk/keycodes', '@angular/cdk/rxjs', 'rxjs/observable/timer', 'rxjs/observable/merge', 'rxjs/operator/toPromise', 'rxjs/observable/fromEvent', 'rxjs/Subject', 'rxjs/operator/debounceTime', '@angular/http', 'rxjs/Observable', '@angular/cdk/bidi', '@angular/cdk/scrolling', '@angular/cdk/overlay', 'rxjs/operator/skip'], factory) :
+	(factory((global.td = global.td || {}, global.td.core = global.td.core || {}),global.ng.core,global.ng.common,global.ng.forms,global.ng.animations,global.ng.cdk.coercion,global.ng.router,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.ng.material,global.ng.platformBrowser,global.ng.cdk.portal,global.ng.cdk.keycodes,global.ng.cdk.rxjs,global.Rx.Observable,global.Rx.Observable,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.Rx,global.Rx.Observable.prototype,global.ng.http,global.Rx,global.ng.cdk.bidi,global.ng.cdk.scrolling,global.ng.cdk.overlay,global.Rx.Observable.prototype));
+}(this, (function (exports,_angular_core,_angular_common,_angular_forms,_angular_animations,_angular_cdk_coercion,_angular_router,rxjs_operator_filter,rxjs_operator_pairwise,_angular_material,_angular_platformBrowser,_angular_cdk_portal,_angular_cdk_keycodes,_angular_cdk_rxjs,rxjs_observable_timer,rxjs_observable_merge,rxjs_operator_toPromise,rxjs_observable_fromEvent,rxjs_Subject,rxjs_operator_debounceTime,_angular_http,rxjs_Observable,_angular_cdk_bidi,_angular_cdk_scrolling,_angular_cdk_overlay,rxjs_operator_skip) { 'use strict';
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
@@ -2739,6 +2739,23 @@ exports.CovalentChipsModule = __decorate([
     })
 ], exports.CovalentChipsModule);
 
+exports.TdDataTableColumnRowComponent = (function () {
+    function TdDataTableColumnRowComponent(_elementRef, _renderer) {
+        this._elementRef = _elementRef;
+        this._renderer = _renderer;
+        this._renderer.addClass(this._elementRef.nativeElement, 'td-data-table-column-row');
+    }
+    return TdDataTableColumnRowComponent;
+}());
+exports.TdDataTableColumnRowComponent = __decorate([
+    _angular_core.Component({
+        /* tslint:disable-next-line */
+        selector: 'tr[td-data-table-column-row]',
+        styles: [":host { border-bottom-style: solid; border-bottom-width: 1px; } :host.td-data-table-row { height: 48px; } :host.td-data-table-column-row { height: 56px; } /*# sourceMappingURL=data-table-row.component.css.map */ "],
+        template: "<ng-content></ng-content>",
+    }),
+    __metadata("design:paramtypes", [_angular_core.ElementRef, _angular_core.Renderer2])
+], exports.TdDataTableColumnRowComponent);
 exports.TdDataTableRowComponent = (function () {
     function TdDataTableRowComponent(_elementRef, _renderer) {
         this._elementRef = _elementRef;
@@ -2762,6 +2779,12 @@ exports.TdDataTableRowComponent = (function () {
         enumerable: true,
         configurable: true
     });
+    /**
+     * Listening to click event to explicitly focus the row element.
+     */
+    TdDataTableRowComponent.prototype.clickListener = function () {
+        this.focus();
+    };
     TdDataTableRowComponent.prototype.focus = function () {
         this._elementRef.nativeElement.focus();
     };
@@ -2772,11 +2795,17 @@ __decorate([
     __metadata("design:type", Boolean),
     __metadata("design:paramtypes", [Boolean])
 ], exports.TdDataTableRowComponent.prototype, "selected", null);
+__decorate([
+    _angular_core.HostListener('click', ['$event']),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], exports.TdDataTableRowComponent.prototype, "clickListener", null);
 exports.TdDataTableRowComponent = __decorate([
     _angular_core.Component({
         /* tslint:disable-next-line */
         selector: 'tr[td-data-table-row]',
-        styles: [":host { border-bottom-style: solid; border-bottom-width: 1px; } tbody > :host { height: 48px; } thead > :host { height: 56px; } /*# sourceMappingURL=data-table-row.component.css.map */ "],
+        styles: [":host { border-bottom-style: solid; border-bottom-width: 1px; } :host.td-data-table-row { height: 48px; } :host.td-data-table-column-row { height: 56px; } /*# sourceMappingURL=data-table-row.component.css.map */ "],
         template: "<ng-content></ng-content>",
     }),
     __metadata("design:paramtypes", [_angular_core.ElementRef, _angular_core.Renderer2])
@@ -2811,15 +2840,20 @@ var TD_DATA_TABLE_CONTROL_VALUE_ACCESSOR = {
     TdDataTableSortingOrder[TdDataTableSortingOrder["Ascending"] = 'ASC'] = "Ascending";
     TdDataTableSortingOrder[TdDataTableSortingOrder["Descending"] = 'DESC'] = "Descending";
 })(exports.TdDataTableSortingOrder || (exports.TdDataTableSortingOrder = {}));
-var TdDataTableArrowKeyDirection;
-(function (TdDataTableArrowKeyDirection) {
-    TdDataTableArrowKeyDirection[TdDataTableArrowKeyDirection["Ascending"] = 'ASC'] = "Ascending";
-    TdDataTableArrowKeyDirection[TdDataTableArrowKeyDirection["Descending"] = 'DESC'] = "Descending";
-})(TdDataTableArrowKeyDirection || (TdDataTableArrowKeyDirection = {}));
 exports.TdDataTableComponent = (function () {
-    function TdDataTableComponent(_document, _changeDetectorRef) {
+    function TdDataTableComponent(_document, _elementRef, _domSanitizer, _changeDetectorRef) {
         this._document = _document;
+        this._elementRef = _elementRef;
+        this._domSanitizer = _domSanitizer;
         this._changeDetectorRef = _changeDetectorRef;
+        this._hostWidth = 0;
+        this._widths = [];
+        this._onResize = new rxjs_Subject.Subject();
+        this._scrollHorizontalOffset = 0;
+        this._scrollVerticalOffset = 0;
+        this._hostHeight = 0;
+        this._onHorizontalScroll = new rxjs_Subject.Subject();
+        this._onVerticalScroll = new rxjs_Subject.Subject();
         /**
          * Implemented as part of ControlValueAccessor.
          */
@@ -2835,8 +2869,10 @@ exports.TdDataTableComponent = (function () {
         this._sortable = false;
         this._sortOrder = exports.TdDataTableSortingOrder.Ascending;
         /** shift select */
+        this._shiftPreviouslyPressed = false;
         this._lastSelectedIndex = -1;
-        this._selectedBeforeLastIndex = -1;
+        this._firstSelectedIndex = -1;
+        this._firstCheckboxValue = false;
         /** template fetching support */
         this._templateMap = new Map();
         /**
@@ -2866,7 +2902,7 @@ exports.TdDataTableComponent = (function () {
         /**
          * compareWith?: function(row, model): boolean
          * Allows custom comparison between row and model to see if row is selected or not
-         * Default comparation is by object reference
+         * Default comparation is by reference
          */
         this.compareWith = function (row, model) {
             return row === model;
@@ -2874,6 +2910,110 @@ exports.TdDataTableComponent = (function () {
         this.onChange = function (_) { return noop$1; };
         this.onTouched = function () { return noop$1; };
     }
+    Object.defineProperty(TdDataTableComponent.prototype, "hostWidth", {
+        get: function () {
+            // if the checkboxes are rendered, we need to remove their width
+            // from the total width to calculate properly
+            if (this.selectable) {
+                return this._hostWidth - 42;
+            }
+            return this._hostWidth;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TdDataTableComponent.prototype, "rowHeight", {
+        /**
+         * Returns the height of the row
+         * For now we assume thats 49px.
+         */
+        get: function () {
+            return 49;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TdDataTableComponent.prototype, "offsetRows", {
+        /**
+         * Returns the number of rows that are rendered outside the viewport.
+         */
+        get: function () {
+            return 2;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TdDataTableComponent.prototype, "offsetTransform", {
+        /**
+         * Returns the offset style with a proper calculation on how much it should move
+         * over the y axis of the total height
+         */
+        get: function () {
+            var offset = 0;
+            if (this._scrollVerticalOffset > (this.offsetRows * this.rowHeight)) {
+                offset = this.fromRow * this.rowHeight;
+            }
+            return this._domSanitizer.bypassSecurityTrustStyle('translateY(' + (offset - this.totalHeight) + 'px)');
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TdDataTableComponent.prototype, "totalHeight", {
+        /**
+         * Returns the assumed total height of the rows
+         */
+        get: function () {
+            if (this._data) {
+                return this._data.length * this.rowHeight;
+            }
+            return 0;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TdDataTableComponent.prototype, "fromRow", {
+        /**
+         * Returns the initial row to render in the viewport
+         */
+        get: function () {
+            if (this._data) {
+                // we calculate how many rows would have been scrolled minus an offset
+                var fromRow = Math.floor((this._scrollVerticalOffset / this.rowHeight)) - this.offsetRows;
+                return fromRow > 0 ? fromRow : 0;
+            }
+            return 0;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TdDataTableComponent.prototype, "toRow", {
+        /**
+         * Returns the last row to render in the viewport
+         */
+        get: function () {
+            if (this._data) {
+                // we calculate how many rows would fit in the viewport and add an offset
+                var toRow = Math.floor((this._hostHeight / this.rowHeight)) + this.fromRow + (this.offsetRows * 2);
+                if (toRow > this._data.length) {
+                    toRow = this._data.length;
+                }
+                return toRow;
+            }
+            return 0;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TdDataTableComponent.prototype, "columnsLeftScroll", {
+        /**
+         * Returns scroll position to reposition column headers
+         */
+        get: function () {
+            return this._scrollHorizontalOffset * -1;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(TdDataTableComponent.prototype, "allSelected", {
         /**
          * Returns true if all values are selected.
@@ -2919,8 +3059,13 @@ exports.TdDataTableComponent = (function () {
          * Sets the data to be rendered as rows.
          */
         set: function (data) {
+            var _this = this;
             this._data = data;
-            this.refresh();
+            Promise.resolve().then(function () {
+                _this.refresh();
+                // scroll back to the top if the data has changed
+                _this._scrollableDiv.nativeElement.scrollTop = 0;
+            });
         },
         enumerable: true,
         configurable: true
@@ -3074,12 +3219,117 @@ exports.TdDataTableComponent = (function () {
         configurable: true
     });
     /**
+     * Initialize observable for resize and scroll events
+     */
+    TdDataTableComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // initialize observable for resize calculations
+        this._resizeSubs = rxjs_operator_debounceTime.debounceTime.call(this._onResize.asObservable(), 10).subscribe(function () {
+            _this._calculateWidths();
+        });
+        // initialize observable for scroll column header reposition
+        this._horizontalScrollSubs = this._onHorizontalScroll.asObservable()
+            .subscribe(function (horizontalScroll) {
+            _this._scrollHorizontalOffset = horizontalScroll;
+            _this._changeDetectorRef.markForCheck();
+        });
+        // initialize observable for virtual scroll rendering
+        this._verticalScrollSubs = this._onVerticalScroll.asObservable()
+            .subscribe(function (verticalScroll) {
+            _this._scrollVerticalOffset = verticalScroll;
+            _this._changeDetectorRef.markForCheck();
+        });
+    };
+    /**
      * Loads templates and sets them in a map for faster access.
      */
     TdDataTableComponent.prototype.ngAfterContentInit = function () {
         for (var i = 0; i < this._templates.toArray().length; i++) {
             this._templateMap.set(this._templates.toArray()[i].tdDataTableTemplate, this._templates.toArray()[i].templateRef);
         }
+    };
+    /**
+     * Checks hosts native elements widths to see if it has changed (resize check)
+     */
+    TdDataTableComponent.prototype.ngAfterContentChecked = function () {
+        if (this._elementRef.nativeElement) {
+            var newHostWidth = this._elementRef.nativeElement.getBoundingClientRect().width;
+            // if the width has changed then we throw a resize event.
+            if (this._hostWidth !== newHostWidth) {
+                this._hostWidth = newHostWidth;
+                this._onResize.next();
+            }
+        }
+        if (this._scrollableDiv.nativeElement) {
+            var newHostHeight = this._scrollableDiv.nativeElement.getBoundingClientRect().height;
+            // if the height of the viewport has changed, then we mark for check
+            if (this._hostHeight !== newHostHeight) {
+                this._hostHeight = newHostHeight;
+                this._changeDetectorRef.markForCheck();
+            }
+        }
+    };
+    /**
+     * Registers to an observable that checks if all rows have been rendered
+     * so we can start calculating the widths
+     */
+    TdDataTableComponent.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        this._rowsChangedSubs = rxjs_operator_debounceTime.debounceTime.call(this._rows.changes, 0).subscribe(function () {
+            _this._onResize.next();
+        });
+    };
+    /**
+     * Unsubscribes observables when data table is destroyed
+     */
+    TdDataTableComponent.prototype.ngOnDestroy = function () {
+        if (this._resizeSubs) {
+            this._resizeSubs.unsubscribe();
+        }
+        if (this._horizontalScrollSubs) {
+            this._horizontalScrollSubs.unsubscribe();
+        }
+        if (this._verticalScrollSubs) {
+            this._verticalScrollSubs.unsubscribe();
+        }
+        if (this._rowsChangedSubs) {
+            this._rowsChangedSubs.unsubscribe();
+        }
+    };
+    /**
+     * Method that gets executed every time there is a scroll event
+     * Calls the scroll observable
+     */
+    TdDataTableComponent.prototype.handleScroll = function (event) {
+        var element = event.target;
+        if (element) {
+            var horizontalScroll = element.scrollLeft;
+            if (this._scrollHorizontalOffset !== horizontalScroll) {
+                this._onHorizontalScroll.next(horizontalScroll);
+            }
+            var verticalScroll = element.scrollTop;
+            if (this._scrollVerticalOffset !== verticalScroll) {
+                this._onVerticalScroll.next(verticalScroll);
+            }
+        }
+    };
+    /**
+     * Returns the width needed for the columns via index
+     */
+    TdDataTableComponent.prototype.getColumnWidth = function (index) {
+        if (this._widths[index]) {
+            return this._widths[index].value;
+        }
+        return undefined;
+    };
+    /**
+     * Returns the width needed for the cells via index
+     */
+    TdDataTableComponent.prototype.getWidth = function (index) {
+        if (this._colElements && this._colElements.toArray()[index]) {
+            return this._colElements.toArray()[index].nativeElement.getBoundingClientRect().width;
+        }
+        return undefined;
     };
     TdDataTableComponent.prototype.getCellValue = function (column, value) {
         if (column.nested === undefined || column.nested) {
@@ -3103,6 +3353,7 @@ exports.TdDataTableComponent = (function () {
      * Refreshes data table and rerenders [data] and [columns]
      */
     TdDataTableComponent.prototype.refresh = function () {
+        this._calculateWidths();
         this._calculateCheckboxState();
         this._changeDetectorRef.markForCheck();
     };
@@ -3129,13 +3380,13 @@ exports.TdDataTableComponent = (function () {
                 // checking which ones are being toggled
                 if (_this.isRowSelected(row)) {
                     toggledRows.push(row);
-                }
-                row = _this._value.filter(function (val) {
-                    return _this.compareWith(row, val);
-                })[0];
-                var index = _this._value.indexOf(row);
-                if (index > -1) {
-                    _this._value.splice(index, 1);
+                    var modelRow = _this._value.filter(function (val) {
+                        return _this.compareWith(row, val);
+                    })[0];
+                    var index = _this._value.indexOf(modelRow);
+                    if (index > -1) {
+                        _this._value.splice(index, 1);
+                    }
                 }
             });
             this._allSelected = false;
@@ -3154,13 +3405,12 @@ exports.TdDataTableComponent = (function () {
         }).length > 0 : false;
     };
     /**
-     * Selects or clears a row depending on 'checked' value if the row is 'selected'
+     * Selects or clears a row depending on 'checked' value if the row 'isSelectable'
      * handles cntrl clicks and shift clicks for multi-select
      */
     TdDataTableComponent.prototype.select = function (row, event, currentSelected) {
         if (this.selectable) {
             this.blockEvent(event);
-            this._doSelection(row);
             // Check to see if Shift key is selected and need to select everything in between
             var mouseEvent = event;
             if (this.multiple && mouseEvent && mouseEvent.shiftKey && this._lastSelectedIndex > -1) {
@@ -3170,22 +3420,53 @@ exports.TdDataTableComponent = (function () {
                     firstIndex = this._lastSelectedIndex;
                     lastIndex = currentSelected;
                 }
-                for (var i = firstIndex + 1; i < lastIndex; i++) {
-                    this._doSelection(this._data[i]);
+                // if clicking a checkbox behind the initial check, then toggle all selections expect the initial checkbox
+                // else the checkboxes clicked are all after the initial one
+                if ((this._firstSelectedIndex >= currentSelected && this._lastSelectedIndex > this._firstSelectedIndex) ||
+                    (this._firstSelectedIndex <= currentSelected && this._lastSelectedIndex < this._firstSelectedIndex)) {
+                    for (var i = firstIndex; i <= lastIndex; i++) {
+                        if (this._firstSelectedIndex !== i) {
+                            this._doSelection(this._data[i]);
+                        }
+                    }
                 }
+                else if ((this._firstSelectedIndex > currentSelected) || (this._firstSelectedIndex < currentSelected)) {
+                    // change indexes depending on where the next checkbox is selected (before or after)
+                    if (this._firstSelectedIndex > currentSelected) {
+                        lastIndex--;
+                    }
+                    else if (this._firstSelectedIndex < currentSelected) {
+                        firstIndex++;
+                    }
+                    for (var i = firstIndex; i <= lastIndex; i++) {
+                        var rowSelected = this.isRowSelected(this._data[i]);
+                        // if row is selected and first checkbox was selected
+                        // or if row was unselected and first checkbox was unselected
+                        // we ignore the toggle
+                        if ((this._firstCheckboxValue && !rowSelected) ||
+                            (!this._firstCheckboxValue && rowSelected)) {
+                            this._doSelection(this._data[i]);
+                        }
+                        else if (this._shiftPreviouslyPressed) {
+                            // else if the checkbox selected was in the middle of the last selection and the first selection
+                            // then we undo the selections
+                            if ((currentSelected >= this._firstSelectedIndex && currentSelected <= this._lastSelectedIndex) ||
+                                (currentSelected <= this._firstSelectedIndex && currentSelected >= this._lastSelectedIndex)) {
+                                this._doSelection(this._data[i]);
+                            }
+                        }
+                    }
+                }
+                this._shiftPreviouslyPressed = true;
+                // if shift wasnt pressed, then we take the element checked as the first row
+                // incase the next click uses shift
             }
-            // set the last selected attribute unless the last selected unchecked a row
-            if (this.isRowSelected(this._data[currentSelected])) {
-                this._selectedBeforeLastIndex = this._lastSelectedIndex;
-                this._lastSelectedIndex = currentSelected;
+            else if (mouseEvent && !mouseEvent.shiftKey) {
+                this._firstCheckboxValue = this._doSelection(row);
+                this._shiftPreviouslyPressed = false;
+                this._firstSelectedIndex = currentSelected;
             }
-            else {
-                this._lastSelectedIndex = this._selectedBeforeLastIndex;
-            }
-            // everything is unselected so start over
-            if (!this._indeterminate && !this._allSelected) {
-                this._lastSelectedIndex = -1;
-            }
+            this._lastSelectedIndex = currentSelected;
         }
     };
     /**
@@ -3240,64 +3521,57 @@ exports.TdDataTableComponent = (function () {
      * Handle all keyup events when focusing a data table row
      */
     TdDataTableComponent.prototype._rowKeyup = function (event, row, index) {
-        var length;
-        var rows;
+        var _this = this;
         switch (event.keyCode) {
             case _angular_cdk_keycodes.ENTER:
             case _angular_cdk_keycodes.SPACE:
                 /** if user presses enter or space, the row should be selected */
-                this.select(row, event, index);
+                if (this.selectable) {
+                    this._doSelection(this._data[this.fromRow + index]);
+                }
                 break;
             case _angular_cdk_keycodes.UP_ARROW:
-                rows = this._rows.toArray();
-                length = rows.length;
-                // check to see if changing direction and need to toggle the current row
-                if (this._lastArrowKeyDirection === TdDataTableArrowKeyDirection.Descending) {
-                    index++;
-                }
                 /**
                  * if users presses the up arrow, we focus the prev row
                  * unless its the first row, then we move to the last row
                  */
                 if (index === 0) {
                     if (!event.shiftKey) {
-                        rows[length - 1].focus();
+                        this._scrollableDiv.nativeElement.scrollTop = this.totalHeight;
+                        var subs_1 = this._rows.changes.subscribe(function () {
+                            subs_1.unsubscribe();
+                            _this._rows.toArray()[_this._rows.toArray().length - 1].focus();
+                        });
                     }
                 }
                 else {
-                    rows[index - 1].focus();
+                    this._rows.toArray()[index - 1].focus();
                 }
                 this.blockEvent(event);
-                if (this.multiple && event.shiftKey) {
-                    this._doSelection(this._data[index - 1]);
-                    // if the checkboxes are all unselected then start over otherwise handle changing direction
-                    this._lastArrowKeyDirection = (!this._allSelected && !this._indeterminate) ? undefined : TdDataTableArrowKeyDirection.Ascending;
+                if (this.selectable && this.multiple && event.shiftKey && this.fromRow + index >= 0) {
+                    this._doSelection(this._data[this.fromRow + index]);
                 }
                 break;
             case _angular_cdk_keycodes.DOWN_ARROW:
-                rows = this._rows.toArray();
-                length = rows.length;
-                // check to see if changing direction and need to toggle the current row
-                if (this._lastArrowKeyDirection === TdDataTableArrowKeyDirection.Ascending) {
-                    index--;
-                }
                 /**
                  * if users presses the down arrow, we focus the next row
                  * unless its the last row, then we move to the first row
                  */
-                if (index === (length - 1)) {
+                if (index === (this._rows.toArray().length - 1)) {
                     if (!event.shiftKey) {
-                        rows[0].focus();
+                        this._scrollableDiv.nativeElement.scrollTop = 0;
+                        var subs_2 = this._rows.changes.subscribe(function () {
+                            subs_2.unsubscribe();
+                            _this._rows.toArray()[0].focus();
+                        });
                     }
                 }
                 else {
-                    rows[index + 1].focus();
+                    this._rows.toArray()[index + 1].focus();
                 }
                 this.blockEvent(event);
-                if (this.multiple && event.shiftKey) {
-                    this._doSelection(this._data[index + 1]);
-                    // if the checkboxes are all unselected then start over otherwise handle changing direction
-                    this._lastArrowKeyDirection = (!this._allSelected && !this._indeterminate) ? undefined : TdDataTableArrowKeyDirection.Descending;
+                if (this.selectable && this.multiple && event.shiftKey && this.fromRow + index < this._data.length) {
+                    this._doSelection(this._data[this.fromRow + index]);
                 }
                 break;
             default:
@@ -3358,6 +3632,7 @@ exports.TdDataTableComponent = (function () {
         this._calculateCheckboxState();
         this.onRowSelect.emit({ row: row, selected: !wasSelected });
         this.onChange(this._value);
+        return !wasSelected;
     };
     /**
      * Calculate all the state of all checkboxes
@@ -3377,12 +3652,125 @@ exports.TdDataTableComponent = (function () {
             }
         }
     };
+    /**
+     * Calculates the widths for columns and cells depending on content
+     */
+    TdDataTableComponent.prototype._calculateWidths = function () {
+        var _this = this;
+        if (this._colElements && this._colElements.length) {
+            this._widths = [];
+            this._colElements.forEach(function (col, index) {
+                _this._adjustColumnWidth(index, _this._calculateWidth());
+            });
+            this._adjustColumnWidhts();
+            this._changeDetectorRef.markForCheck();
+        }
+    };
+    /**
+     * Adjusts columns after calculation to see if they need to be recalculated.
+     */
+    TdDataTableComponent.prototype._adjustColumnWidhts = function () {
+        var _this = this;
+        var fixedTotalWidth = 0;
+        // get the number of total columns that have flexible widths (not fixed or hidden)
+        var flexibleWidths = this._widths.filter(function (width, index) {
+            if (_this.columns[index].hidden) {
+                return false;
+            }
+            if (width.limit || width.max || width.min) {
+                fixedTotalWidth += width.value;
+            }
+            return !width.limit && !width.max && !width.min;
+        }).length;
+        // calculate how much pixes are left that could be spread across
+        // the flexible columns
+        var recalculateHostWidth = 0;
+        if (fixedTotalWidth < this.hostWidth) {
+            recalculateHostWidth = this.hostWidth - fixedTotalWidth;
+        }
+        // if we have flexible columns and pixels to spare on them
+        // we try and spread the pixels across them
+        if (flexibleWidths && recalculateHostWidth) {
+            var newValue_1 = Math.floor(recalculateHostWidth / flexibleWidths);
+            var adjustedNumber_1 = 0;
+            // adjust the column widths with the spread pixels
+            this._widths.forEach(function (colWidth) {
+                if (_this._widths[colWidth.index].max && _this._widths[colWidth.index].value > newValue_1 ||
+                    _this._widths[colWidth.index].min && _this._widths[colWidth.index].value < newValue_1 ||
+                    !_this._widths[colWidth.index].limit) {
+                    _this._adjustColumnWidth(colWidth.index, newValue_1);
+                    adjustedNumber_1++;
+                }
+            });
+            // if there are still columns that need to be recalculated, we start over
+            var newFlexibleWidths = this._widths.filter(function (width) {
+                return !width.limit && !width.max;
+            }).length;
+            if (newFlexibleWidths !== adjustedNumber_1 && newFlexibleWidths !== flexibleWidths) {
+                this._adjustColumnWidhts();
+            }
+        }
+    };
+    /**
+     * Adjusts a single column to see if it can be recalculated
+     */
+    TdDataTableComponent.prototype._adjustColumnWidth = function (index, value) {
+        this._widths[index] = {
+            value: value,
+            index: index,
+            limit: false,
+            min: false,
+            max: false,
+        };
+        if (this.columns[index]) {
+            // if the provided width has min/max, then we check to see if we need to set it
+            if (typeof this.columns[index].width === 'object') {
+                var widthOpts = this.columns[index].width;
+                // if the column width is less than the configured min, we override it
+                if (widthOpts && widthOpts.min >= this._widths[index].value) {
+                    this._widths[index].value = widthOpts.min;
+                    this._widths[index].min = true;
+                    // if the column width is more than the configured max, we override it
+                }
+                else if (widthOpts && widthOpts.max <= this._widths[index].value) {
+                    this._widths[index].value = widthOpts.max;
+                    this._widths[index].max = true;
+                }
+                // if it has a fixed width, then we just set it
+            }
+            else if (typeof this.columns[index].width === 'number') {
+                this._widths[index].value = this.columns[index].width;
+                this._widths[index].limit = true;
+            }
+        }
+        // if there wasnt any width provided, we set a min of 100px
+        if (this._widths[index].value < 100) {
+            this._widths[index].value = 100;
+            this._widths[index].min = true;
+            this._widths[index].limit = false;
+        }
+    };
+    /**
+     * Generic method to calculate column width
+     */
+    TdDataTableComponent.prototype._calculateWidth = function () {
+        var renderedColumns = this.columns.filter(function (col) { return !col.hidden; });
+        return Math.floor(this.hostWidth / renderedColumns.length);
+    };
     return TdDataTableComponent;
 }());
 __decorate([
     _angular_core.ContentChildren(TdDataTableTemplateDirective),
     __metadata("design:type", _angular_core.QueryList)
 ], exports.TdDataTableComponent.prototype, "_templates", void 0);
+__decorate([
+    _angular_core.ViewChild('scrollableDiv'),
+    __metadata("design:type", _angular_core.ElementRef)
+], exports.TdDataTableComponent.prototype, "_scrollableDiv", void 0);
+__decorate([
+    _angular_core.ViewChildren('columnElement', { read: _angular_core.ElementRef }),
+    __metadata("design:type", _angular_core.QueryList)
+], exports.TdDataTableComponent.prototype, "_colElements", void 0);
 __decorate([
     _angular_core.ViewChildren(exports.TdDataTableRowComponent),
     __metadata("design:type", _angular_core.QueryList)
@@ -3456,12 +3844,14 @@ exports.TdDataTableComponent = __decorate([
     _angular_core.Component({
         providers: [TD_DATA_TABLE_CONTROL_VALUE_ACCESSOR],
         selector: 'td-data-table',
-        styles: [".mat-table-container { display: block; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; } table.td-data-table.mat-selectable tbody > tr.td-data-table-row { -webkit-transition: background-color 0.2s; transition: background-color 0.2s; } table.td-data-table.mat-selectable .td-data-table-column:first-child, table.td-data-table.mat-selectable th.td-data-table-column:first-child, table.td-data-table.mat-selectable td.td-data-table-cell:first-child { width: 20px; padding: 0 24px; } table.td-data-table.mat-selectable .td-data-table-column:nth-child(2), table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2), table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) { padding-left: 0px; } [dir='rtl'] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2), [dir='rtl'] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2), [dir='rtl'] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) { padding-right: 0px; padding-left: 28px; } table.td-data-table td.mat-checkbox-cell, table.td-data-table th.mat-checkbox-column { width: 18px; font-size: 0 !important; } table.td-data-table td.mat-checkbox-cell md-pseudo-checkbox, table.td-data-table th.mat-checkbox-column md-pseudo-checkbox { width: 18px; height: 18px; } /deep/ table.td-data-table td.mat-checkbox-cell md-pseudo-checkbox.mat-pseudo-checkbox-checked::after, /deep/ table.td-data-table th.mat-checkbox-column md-pseudo-checkbox.mat-pseudo-checkbox-checked::after { width: 11px !important; height: 4px !important; } table.td-data-table td.mat-checkbox-cell md-checkbox /deep/ .mat-checkbox-inner-container, table.td-data-table th.mat-checkbox-column md-checkbox /deep/ .mat-checkbox-inner-container { width: 18px; height: 18px; margin: 0; } /*# sourceMappingURL=data-table.component.css.map */ "],
-        template: "<div class=\"mat-table-container\" title> <table td-data-table [class.mat-selectable]=\"selectable\" [class.mat-clickable]=\"clickable\"> <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"selectable\"> <md-checkbox #checkBoxAll *ngIf=\"multiple\" [disabled]=\"!hasData\" [indeterminate]=\"indeterminate && !allSelected && hasData\" [checked]=\"allSelected && hasData\" (click)=\"selectAll(!checkBoxAll.checked)\" (keyup.enter)=\"selectAll(!checkBoxAll.checked)\" (keyup.space)=\"selectAll(!checkBoxAll.checked)\" (keydown.space)=\"blockEvent($event)\"> </md-checkbox> </th> <th td-data-table-column *ngFor=\"let column of columns\" [name]=\"column.name\" [numeric]=\"column.numeric\" [active]=\"(column.sortable || sortable) && column === sortByColumn\" [sortable]=\"column.sortable ||  sortable\" [sortOrder]=\"sortOrderEnum\" [hidden]=\"column.hidden\" (sortChange)=\"handleSort(column)\"> <span [mdTooltip]=\"column.tooltip\">{{column.label}}</span> </th> <tr td-data-table-row #dtRow [tabIndex]=\"selectable ? 0 : -1\" [selected]=\"(clickable || selectable) && isRowSelected(row)\" *ngFor=\"let row of data; let rowIndex = index\" (click)=\"handleRowClick(row, $event)\" (keyup)=\"selectable && _rowKeyup($event, row, rowIndex)\" (keydown.space)=\"blockEvent($event)\" (keydown.shift.space)=\"blockEvent($event)\" (keydown.shift)=\"disableTextSelection()\" (keyup.shift)=\"enableTextSelection()\"> <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"selectable\"> <md-pseudo-checkbox [state]=\"dtRow.selected ? 'checked' : 'unchecked'\" (mousedown)=\"disableTextSelection()\" (mouseup)=\"enableTextSelection()\" stopRowClick (click)=\"select(row, $event, rowIndex)\"> </md-pseudo-checkbox> </td> <td td-data-table-cell [numeric]=\"column.numeric\" [hidden]=\"column.hidden\" *ngFor=\"let column of columns\"> <span class=\"md-body-1\" *ngIf=\"!getTemplateRef(column.name)\">{{column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row)}}</span> <ng-template *ngIf=\"getTemplateRef(column.name)\" [ngTemplateOutlet]=\"getTemplateRef(column.name)\" [ngTemplateOutletContext]=\"{ value: getCellValue(column, row), row: row, column: column.name }\"> </ng-template> </td> </tr> </table> </div> ",
+        styles: [":host { display: block; overflow: hidden; } :host .td-data-table-scrollable { position: relative; overflow: auto; height: calc(100% - 56px); } table.td-data-table { width: auto !important; } table.td-data-table.mat-selectable tbody > tr.td-data-table-row { -webkit-transition: background-color 0.2s; transition: background-color 0.2s; } table.td-data-table.mat-selectable .td-data-table-column:first-child > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable th.td-data-table-column:first-child > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable td.td-data-table-cell:first-child > .td-data-table-column-content-wrapper { width: 18px; min-width: 18px; padding: 0 24px; } table.td-data-table.mat-selectable .td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) > .td-data-table-column-content-wrapper { padding-left: 0px; } [dir='rtl'] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, [dir='rtl'] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, [dir='rtl'] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) > .td-data-table-column-content-wrapper { padding-right: 0px; padding-left: 28px; } table.td-data-table td.mat-checkbox-cell, table.td-data-table th.mat-checkbox-column { width: 42px; font-size: 0 !important; } table.td-data-table td.mat-checkbox-cell md-pseudo-checkbox, table.td-data-table th.mat-checkbox-column md-pseudo-checkbox { width: 18px; height: 18px; } /deep/ table.td-data-table td.mat-checkbox-cell md-pseudo-checkbox.mat-pseudo-checkbox-checked::after, /deep/ table.td-data-table th.mat-checkbox-column md-pseudo-checkbox.mat-pseudo-checkbox-checked::after { width: 11px !important; height: 4px !important; } table.td-data-table td.mat-checkbox-cell md-checkbox /deep/ .mat-checkbox-inner-container, table.td-data-table th.mat-checkbox-column md-checkbox /deep/ .mat-checkbox-inner-container { width: 18px; height: 18px; margin: 0; } /*# sourceMappingURL=data-table.component.css.map */ "],
+        template: "<table td-data-table [style.left.px]=\"columnsLeftScroll\" [class.mat-selectable]=\"selectable\"> <tr td-data-table-column-row> <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"selectable\"> <md-checkbox #checkBoxAll *ngIf=\"multiple\" [disabled]=\"!hasData\" [indeterminate]=\"indeterminate && !allSelected && hasData\" [checked]=\"allSelected && hasData\" (click)=\"blockEvent($event); selectAll(!checkBoxAll.checked)\" (keyup.enter)=\"selectAll(!checkBoxAll.checked)\" (keyup.space)=\"selectAll(!checkBoxAll.checked)\" (keydown.space)=\"blockEvent($event)\"> </md-checkbox> </th> <th td-data-table-column #columnElement *ngFor=\"let column of columns; let i = index;\" [style.min-width.px]=\"getColumnWidth(i)\" [style.max-width.px]=\"getColumnWidth(i)\" [name]=\"column.name\" [numeric]=\"column.numeric\" [active]=\"(column.sortable || sortable) && column === sortByColumn\" [sortable]=\"column.sortable || sortable\" [sortOrder]=\"sortOrderEnum\" [hidden]=\"column.hidden\" (sortChange)=\"handleSort(column)\"> <span [mdTooltip]=\"column.tooltip\">{{column.label}}</span> </th> </tr> </table> <div #scrollableDiv class=\"td-data-table-scrollable\" (scroll)=\"handleScroll($event)\"> <div [style.height.px]=\"totalHeight\"></div> <table td-data-table [style.transform]=\"offsetTransform\" [style.position]=\"'absolute'\" [class.mat-selectable]=\"selectable\" [class.mat-clickable]=\"clickable\"> <tr td-data-table-row #dtRow [tabIndex]=\"selectable ? 0 : -1\" [selected]=\"(clickable || selectable) && isRowSelected(row)\" *ngFor=\"let row of data | slice:fromRow:toRow; let rowIndex = index\" (click)=\"handleRowClick(row, $event)\" (keyup)=\"selectable && _rowKeyup($event, row, rowIndex)\" (keydown.space)=\"blockEvent($event)\" (keydown.shift.space)=\"blockEvent($event)\" (keydown.shift)=\"disableTextSelection()\" (keyup.shift)=\"enableTextSelection()\"> <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"selectable\"> <md-pseudo-checkbox [state]=\"dtRow.selected ? 'checked' : 'unchecked'\" (mousedown)=\"disableTextSelection()\" (mouseup)=\"enableTextSelection()\" stopRowClick (click)=\"select(row, $event, fromRow + rowIndex)\"> </md-pseudo-checkbox> </td> <td td-data-table-cell [numeric]=\"column.numeric\" [hidden]=\"column.hidden\" *ngFor=\"let column of columns; let i = index\" [style.min-width.px]=\"getWidth(i)\" [style.max-width.px]=\"getWidth(i)\"> <span class=\"md-body-1\" *ngIf=\"!getTemplateRef(column.name)\">{{column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row)}}</span> <ng-template *ngIf=\"getTemplateRef(column.name)\" [ngTemplateOutlet]=\"getTemplateRef(column.name)\" [ngTemplateOutletContext]=\"{ value: getCellValue(column, row), row: row, column: column.name }\"> </ng-template> </td> </tr> </table> </div> <ng-content></ng-content>",
         changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
     }),
     __param(0, _angular_core.Optional()), __param(0, _angular_core.Inject(_angular_platformBrowser.DOCUMENT)),
-    __metadata("design:paramtypes", [Object, _angular_core.ChangeDetectorRef])
+    __metadata("design:paramtypes", [Object, _angular_core.ElementRef,
+        _angular_platformBrowser.DomSanitizer,
+        _angular_core.ChangeDetectorRef])
 ], exports.TdDataTableComponent);
 
 exports.TdDataTableColumnComponent = (function () {
@@ -3545,8 +3935,13 @@ exports.TdDataTableColumnComponent = (function () {
         enumerable: true,
         configurable: true
     });
-    TdDataTableColumnComponent.prototype.handleSortBy = function () {
-        this.onSortChange.emit({ name: this.name, order: this._sortOrder });
+    /**
+     * Listening to click event on host to throw a sort event
+     */
+    TdDataTableColumnComponent.prototype.handleClick = function () {
+        if (this.sortable) {
+            this.onSortChange.emit({ name: this.name, order: this._sortOrder });
+        }
     };
     TdDataTableColumnComponent.prototype.isAscending = function () {
         return this._sortOrder === exports.TdDataTableSortingOrder.Ascending;
@@ -3601,12 +3996,18 @@ __decorate([
     __metadata("design:type", Boolean),
     __metadata("design:paramtypes", [])
 ], exports.TdDataTableColumnComponent.prototype, "bindNumeric", null);
+__decorate([
+    _angular_core.HostListener('click', ['event']),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], exports.TdDataTableColumnComponent.prototype, "handleClick", null);
 exports.TdDataTableColumnComponent = __decorate([
     _angular_core.Component({
         /* tslint:disable-next-line */
         selector: 'th[td-data-table-column]',
-        styles: ["/** * Mixin that creates a new stacking context. * see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context */ :host { font-size: 12px; font-weight: bold; white-space: nowrap; padding: 0 28px 0 28px; position: relative; vertical-align: middle; text-align: left; } :host:first-child { padding-left: 24px; padding-right: initial; } html[dir=rtl] :host:first-child { padding-left: initial; unicode-bidi: embed; } body[dir=rtl] :host:first-child { padding-left: initial; unicode-bidi: embed; } [dir=rtl] :host:first-child { padding-left: initial; unicode-bidi: embed; } :host:first-child bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:first-child bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host:first-child { padding-right: 24px; unicode-bidi: embed; } body[dir=rtl] :host:first-child { padding-right: 24px; unicode-bidi: embed; } [dir=rtl] :host:first-child { padding-right: 24px; unicode-bidi: embed; } :host:first-child bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:first-child bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host:last-child { padding-left: initial; padding-right: 24px; } html[dir=rtl] :host:last-child { padding-left: 24px; unicode-bidi: embed; } body[dir=rtl] :host:last-child { padding-left: 24px; unicode-bidi: embed; } [dir=rtl] :host:last-child { padding-left: 24px; unicode-bidi: embed; } :host:last-child bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:last-child bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host:last-child { padding-right: initial; unicode-bidi: embed; } body[dir=rtl] :host:last-child { padding-right: initial; unicode-bidi: embed; } [dir=rtl] :host:last-child { padding-right: initial; unicode-bidi: embed; } :host:last-child bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:last-child bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host md-icon { height: 16px; width: 16px; font-size: 16px !important; line-height: 16px !important; } :host md-icon.td-data-table-sort-icon { opacity: 0; -webkit-transition: -webkit-transform 0.25s; transition: -webkit-transform 0.25s; transition: transform 0.25s; transition: transform 0.25s, -webkit-transform 0.25s; } :host md-icon.td-data-table-sort-icon.mat-asc { -webkit-transform: rotate(0deg); transform: rotate(0deg); } :host md-icon.td-data-table-sort-icon.mat-desc { -webkit-transform: rotate(180deg); transform: rotate(180deg); } :host:hover.mat-sortable md-icon.td-data-table-sort-icon, :host.mat-active.mat-sortable md-icon.td-data-table-sort-icon { opacity: 1; } html[dir=rtl] :host { text-align: right; unicode-bidi: embed; } body[dir=rtl] :host { text-align: right; unicode-bidi: embed; } [dir=rtl] :host { text-align: right; unicode-bidi: embed; } :host bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host > * { vertical-align: middle; } :host.mat-clickable { cursor: pointer; } :host.mat-clickable:focus { outline: none; } :host .td-data-table-heading { display: inline-block; position: relative; } :host md-icon.td-data-table-sort-icon { position: absolute; top: 0px; } :host.mat-numeric { text-align: right; } html[dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } body[dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } [dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } :host.mat-numeric bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host.mat-numeric bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host.mat-numeric md-icon.td-data-table-sort-icon { margin-left: -22px; margin-right: initial; } html[dir=rtl] :host.mat-numeric md-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } body[dir=rtl] :host.mat-numeric md-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } [dir=rtl] :host.mat-numeric md-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } :host.mat-numeric md-icon.td-data-table-sort-icon bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host.mat-numeric md-icon.td-data-table-sort-icon bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host.mat-numeric md-icon.td-data-table-sort-icon { margin-right: -22px; unicode-bidi: embed; } body[dir=rtl] :host.mat-numeric md-icon.td-data-table-sort-icon { margin-right: -22px; unicode-bidi: embed; } [dir=rtl] :host.mat-numeric md-icon.td-data-table-sort-icon { margin-right: -22px; unicode-bidi: embed; } :host.mat-numeric md-icon.td-data-table-sort-icon bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host.mat-numeric md-icon.td-data-table-sort-icon bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host:not(.mat-numeric) md-icon.td-data-table-sort-icon { margin-left: 6px; margin-right: initial; } html[dir=rtl] :host:not(.mat-numeric) md-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } body[dir=rtl] :host:not(.mat-numeric) md-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } [dir=rtl] :host:not(.mat-numeric) md-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } :host:not(.mat-numeric) md-icon.td-data-table-sort-icon bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:not(.mat-numeric) md-icon.td-data-table-sort-icon bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host:not(.mat-numeric) md-icon.td-data-table-sort-icon { margin-right: 6px; unicode-bidi: embed; } body[dir=rtl] :host:not(.mat-numeric) md-icon.td-data-table-sort-icon { margin-right: 6px; unicode-bidi: embed; } [dir=rtl] :host:not(.mat-numeric) md-icon.td-data-table-sort-icon { margin-right: 6px; unicode-bidi: embed; } :host:not(.mat-numeric) md-icon.td-data-table-sort-icon bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:not(.mat-numeric) md-icon.td-data-table-sort-icon bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } /*# sourceMappingURL=data-table-column.component.css.map */ "],
-        template: "<span class=\"td-data-table-heading\"> <md-icon  class=\"td-data-table-sort-icon\"  *ngIf=\"sortable && numeric\" [class.mat-asc]=\"(!(active) || isAscending())\" [class.mat-desc]=\"(active && isDescending())\" (click)=\"sortable && handleSortBy()\"> arrow_upward </md-icon> <span (click)=\"sortable && handleSortBy()\"> <ng-content></ng-content> </span> <md-icon  class=\"td-data-table-sort-icon\"  *ngIf=\"sortable && !numeric\" [class.mat-asc]=\"(!(active) || isAscending())\" [class.mat-desc]=\"(active && isDescending())\" (click)=\"sortable && handleSortBy()\"> arrow_upward </md-icon> </span>",
+        styles: ["/** * Mixin that creates a new stacking context. * see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context */ :host { font-size: 12px; font-weight: bold; white-space: nowrap; position: relative; padding: 0; vertical-align: middle; text-align: left; } :host > .td-data-table-heading { padding: 0 28px 0 28px; } :host:first-child > .td-data-table-heading { padding-left: 24px; padding-right: initial; } html[dir=rtl] :host:first-child > .td-data-table-heading { padding-left: initial; unicode-bidi: embed; } body[dir=rtl] :host:first-child > .td-data-table-heading { padding-left: initial; unicode-bidi: embed; } [dir=rtl] :host:first-child > .td-data-table-heading { padding-left: initial; unicode-bidi: embed; } :host:first-child > .td-data-table-heading bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:first-child > .td-data-table-heading bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host:first-child > .td-data-table-heading { padding-right: 24px; unicode-bidi: embed; } body[dir=rtl] :host:first-child > .td-data-table-heading { padding-right: 24px; unicode-bidi: embed; } [dir=rtl] :host:first-child > .td-data-table-heading { padding-right: 24px; unicode-bidi: embed; } :host:first-child > .td-data-table-heading bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:first-child > .td-data-table-heading bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host:last-child > .td-data-table-heading { padding-left: 28px; padding-right: 24px; } html[dir=rtl] :host:last-child > .td-data-table-heading { padding-left: 24px; unicode-bidi: embed; } body[dir=rtl] :host:last-child > .td-data-table-heading { padding-left: 24px; unicode-bidi: embed; } [dir=rtl] :host:last-child > .td-data-table-heading { padding-left: 24px; unicode-bidi: embed; } :host:last-child > .td-data-table-heading bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:last-child > .td-data-table-heading bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host:last-child > .td-data-table-heading { padding-right: 28px; unicode-bidi: embed; } body[dir=rtl] :host:last-child > .td-data-table-heading { padding-right: 28px; unicode-bidi: embed; } [dir=rtl] :host:last-child > .td-data-table-heading { padding-right: 28px; unicode-bidi: embed; } :host:last-child > .td-data-table-heading bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:last-child > .td-data-table-heading bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host md-icon { height: 16px; width: 16px; font-size: 16px !important; line-height: 16px !important; } :host md-icon.td-data-table-sort-icon { opacity: 0; -webkit-transition: -webkit-transform 0.25s; transition: -webkit-transform 0.25s; transition: transform 0.25s; transition: transform 0.25s, -webkit-transform 0.25s; } :host md-icon.td-data-table-sort-icon.mat-asc { -webkit-transform: rotate(0deg); transform: rotate(0deg); } :host md-icon.td-data-table-sort-icon.mat-desc { -webkit-transform: rotate(180deg); transform: rotate(180deg); } :host:hover.mat-sortable md-icon.td-data-table-sort-icon, :host.mat-active.mat-sortable md-icon.td-data-table-sort-icon { opacity: 1; } html[dir=rtl] :host { text-align: right; unicode-bidi: embed; } body[dir=rtl] :host { text-align: right; unicode-bidi: embed; } [dir=rtl] :host { text-align: right; unicode-bidi: embed; } :host bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host > * { vertical-align: middle; } :host.mat-clickable { cursor: pointer; } :host.mat-clickable:focus { outline: none; } :host .td-data-table-heading { display: inline-block; position: relative; } :host md-icon.td-data-table-sort-icon { position: absolute; top: 0px; } :host.mat-numeric { text-align: right; } html[dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } body[dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } [dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } :host.mat-numeric bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host.mat-numeric bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host.mat-numeric md-icon.td-data-table-sort-icon { margin-left: -22px; margin-right: initial; } html[dir=rtl] :host.mat-numeric md-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } body[dir=rtl] :host.mat-numeric md-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } [dir=rtl] :host.mat-numeric md-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } :host.mat-numeric md-icon.td-data-table-sort-icon bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host.mat-numeric md-icon.td-data-table-sort-icon bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host.mat-numeric md-icon.td-data-table-sort-icon { margin-right: -22px; unicode-bidi: embed; } body[dir=rtl] :host.mat-numeric md-icon.td-data-table-sort-icon { margin-right: -22px; unicode-bidi: embed; } [dir=rtl] :host.mat-numeric md-icon.td-data-table-sort-icon { margin-right: -22px; unicode-bidi: embed; } :host.mat-numeric md-icon.td-data-table-sort-icon bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host.mat-numeric md-icon.td-data-table-sort-icon bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host:not(.mat-numeric) md-icon.td-data-table-sort-icon { margin-left: 6px; margin-right: initial; } html[dir=rtl] :host:not(.mat-numeric) md-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } body[dir=rtl] :host:not(.mat-numeric) md-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } [dir=rtl] :host:not(.mat-numeric) md-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } :host:not(.mat-numeric) md-icon.td-data-table-sort-icon bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:not(.mat-numeric) md-icon.td-data-table-sort-icon bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host:not(.mat-numeric) md-icon.td-data-table-sort-icon { margin-right: 6px; unicode-bidi: embed; } body[dir=rtl] :host:not(.mat-numeric) md-icon.td-data-table-sort-icon { margin-right: 6px; unicode-bidi: embed; } [dir=rtl] :host:not(.mat-numeric) md-icon.td-data-table-sort-icon { margin-right: 6px; unicode-bidi: embed; } :host:not(.mat-numeric) md-icon.td-data-table-sort-icon bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:not(.mat-numeric) md-icon.td-data-table-sort-icon bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } /*# sourceMappingURL=data-table-column.component.css.map */ "],
+        template: "<span class=\"td-data-table-heading\"> <md-icon  class=\"td-data-table-sort-icon\"  *ngIf=\"sortable && numeric\" [class.mat-asc]=\"(!(active) || isAscending())\" [class.mat-desc]=\"(active && isDescending())\"> arrow_upward </md-icon> <span> <ng-content></ng-content> </span> <md-icon  class=\"td-data-table-sort-icon\"  *ngIf=\"sortable && !numeric\" [class.mat-asc]=\"(!(active) || isAscending())\" [class.mat-desc]=\"(active && isDescending())\"> arrow_upward </md-icon> </span> ",
     }),
     __metadata("design:paramtypes", [_angular_core.ElementRef, _angular_core.Renderer2])
 ], exports.TdDataTableColumnComponent);
@@ -3645,8 +4046,8 @@ exports.TdDataTableCellComponent = __decorate([
     _angular_core.Component({
         /* tslint:disable-next-line */
         selector: 'td[td-data-table-cell]',
-        styles: ["/** * Mixin that creates a new stacking context. * see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context */ :host { font-size: 13px; vertical-align: middle; text-align: left; padding: 0 28px 0 28px; } html[dir=rtl] :host { text-align: right; unicode-bidi: embed; } body[dir=rtl] :host { text-align: right; unicode-bidi: embed; } [dir=rtl] :host { text-align: right; unicode-bidi: embed; } :host bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host:first-child { padding-left: 24px; padding-right: initial; } html[dir=rtl] :host:first-child { padding-left: initial; unicode-bidi: embed; } body[dir=rtl] :host:first-child { padding-left: initial; unicode-bidi: embed; } [dir=rtl] :host:first-child { padding-left: initial; unicode-bidi: embed; } :host:first-child bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:first-child bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host:first-child { padding-right: 24px; unicode-bidi: embed; } body[dir=rtl] :host:first-child { padding-right: 24px; unicode-bidi: embed; } [dir=rtl] :host:first-child { padding-right: 24px; unicode-bidi: embed; } :host:first-child bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:first-child bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host:last-child { padding-left: initial; padding-right: 24px; } html[dir=rtl] :host:last-child { padding-left: 24px; unicode-bidi: embed; } body[dir=rtl] :host:last-child { padding-left: 24px; unicode-bidi: embed; } [dir=rtl] :host:last-child { padding-left: 24px; unicode-bidi: embed; } :host:last-child bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:last-child bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host:last-child { padding-right: initial; unicode-bidi: embed; } body[dir=rtl] :host:last-child { padding-right: initial; unicode-bidi: embed; } [dir=rtl] :host:last-child { padding-right: initial; unicode-bidi: embed; } :host:last-child bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:last-child bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host > * { vertical-align: middle; } :host.mat-clickable { cursor: pointer; } :host.mat-clickable:focus { outline: none; } :host.mat-numeric { text-align: right; } html[dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } body[dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } [dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } :host.mat-numeric bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host.mat-numeric bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } /*# sourceMappingURL=data-table-cell.component.css.map */ "],
-        template: "<ng-content></ng-content>",
+        styles: ["/** * Mixin that creates a new stacking context. * see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context */ :host { font-size: 13px; vertical-align: middle; text-align: left; padding: 0; } html[dir=rtl] :host { text-align: right; unicode-bidi: embed; } body[dir=rtl] :host { text-align: right; unicode-bidi: embed; } [dir=rtl] :host { text-align: right; unicode-bidi: embed; } :host bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host > .td-data-table-cell-content-wrapper { padding: 0 28px 0 28px; height: 48px; } :host:first-child > .td-data-table-cell-content-wrapper { padding-left: 24px; padding-right: initial; } html[dir=rtl] :host:first-child > .td-data-table-cell-content-wrapper { padding-left: initial; unicode-bidi: embed; } body[dir=rtl] :host:first-child > .td-data-table-cell-content-wrapper { padding-left: initial; unicode-bidi: embed; } [dir=rtl] :host:first-child > .td-data-table-cell-content-wrapper { padding-left: initial; unicode-bidi: embed; } :host:first-child > .td-data-table-cell-content-wrapper bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:first-child > .td-data-table-cell-content-wrapper bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host:first-child > .td-data-table-cell-content-wrapper { padding-right: 24px; unicode-bidi: embed; } body[dir=rtl] :host:first-child > .td-data-table-cell-content-wrapper { padding-right: 24px; unicode-bidi: embed; } [dir=rtl] :host:first-child > .td-data-table-cell-content-wrapper { padding-right: 24px; unicode-bidi: embed; } :host:first-child > .td-data-table-cell-content-wrapper bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:first-child > .td-data-table-cell-content-wrapper bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host:last-child > .td-data-table-cell-content-wrapper { padding-left: 28px; padding-right: 24px; } html[dir=rtl] :host:last-child > .td-data-table-cell-content-wrapper { padding-left: 24px; unicode-bidi: embed; } body[dir=rtl] :host:last-child > .td-data-table-cell-content-wrapper { padding-left: 24px; unicode-bidi: embed; } [dir=rtl] :host:last-child > .td-data-table-cell-content-wrapper { padding-left: 24px; unicode-bidi: embed; } :host:last-child > .td-data-table-cell-content-wrapper bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:last-child > .td-data-table-cell-content-wrapper bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host:last-child > .td-data-table-cell-content-wrapper { padding-right: 28px; unicode-bidi: embed; } body[dir=rtl] :host:last-child > .td-data-table-cell-content-wrapper { padding-right: 28px; unicode-bidi: embed; } [dir=rtl] :host:last-child > .td-data-table-cell-content-wrapper { padding-right: 28px; unicode-bidi: embed; } :host:last-child > .td-data-table-cell-content-wrapper bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:last-child > .td-data-table-cell-content-wrapper bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host > * { vertical-align: middle; } :host.mat-clickable { cursor: pointer; } :host.mat-clickable:focus { outline: none; } :host.mat-numeric { text-align: right; } html[dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } body[dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } [dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } :host.mat-numeric bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host.mat-numeric bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } /*# sourceMappingURL=data-table-cell.component.css.map */ "],
+        template: "<div class=\"td-data-table-cell-content-wrapper\" layout=\"row\" [attr.layout-align]=\"numeric ? 'end center' : 'start center'\"> <ng-content></ng-content> </div>",
     }),
     __metadata("design:paramtypes", [_angular_core.ElementRef, _angular_core.Renderer2])
 ], exports.TdDataTableCellComponent);
@@ -3663,8 +4064,8 @@ exports.TdDataTableTableComponent = __decorate([
     _angular_core.Component({
         /* tslint:disable-next-line */
         selector: 'table[td-data-table]',
-        styles: [":host { width: 100%; border-spacing: 0; overflow: hidden; border-collapse: collapse; } /*# sourceMappingURL=data-table-table.component.css.map */ "],
-        template: "<thead> <tr td-data-table-row> <ng-content select=th[td-data-table-column]></ng-content> </tr> </thead> <ng-content></ng-content>",
+        styles: [":host { width: 100%; position: relative; border-spacing: 0; overflow: hidden; border-collapse: collapse; } /*# sourceMappingURL=data-table-table.component.css.map */ "],
+        template: "<ng-content></ng-content>",
     }),
     __metadata("design:paramtypes", [_angular_core.ElementRef, _angular_core.Renderer2])
 ], exports.TdDataTableTableComponent);
@@ -3764,6 +4165,7 @@ var TD_DATA_TABLE = [
     exports.TdDataTableColumnComponent,
     exports.TdDataTableCellComponent,
     exports.TdDataTableRowComponent,
+    exports.TdDataTableColumnRowComponent,
     exports.TdDataTableTableComponent,
 ];
 exports.CovalentDataTableModule = (function () {

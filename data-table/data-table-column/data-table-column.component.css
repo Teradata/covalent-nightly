@@ -6,74 +6,76 @@
   font-size: 12px;
   font-weight: bold;
   white-space: nowrap;
-  padding: 0 28px 0 28px;
   position: relative;
+  padding: 0;
   vertical-align: middle;
   text-align: left; }
-  :host:first-child {
+  :host > .td-data-table-heading {
+    padding: 0 28px 0 28px; }
+  :host:first-child > .td-data-table-heading {
     padding-left: 24px;
     padding-right: initial; }
-    html[dir=rtl] :host:first-child {
+    html[dir=rtl] :host:first-child > .td-data-table-heading {
       padding-left: initial;
       unicode-bidi: embed; }
-    body[dir=rtl] :host:first-child {
+    body[dir=rtl] :host:first-child > .td-data-table-heading {
       padding-left: initial;
       unicode-bidi: embed; }
-    [dir=rtl] :host:first-child {
+    [dir=rtl] :host:first-child > .td-data-table-heading {
       padding-left: initial;
       unicode-bidi: embed; }
-    :host:first-child bdo[dir=rtl] {
+    :host:first-child > .td-data-table-heading bdo[dir=rtl] {
       direction: rtl;
       unicode-bidi: bidi-override; }
-    :host:first-child bdo[dir=ltr] {
+    :host:first-child > .td-data-table-heading bdo[dir=ltr] {
       direction: ltr;
       unicode-bidi: bidi-override; }
-    html[dir=rtl] :host:first-child {
+    html[dir=rtl] :host:first-child > .td-data-table-heading {
       padding-right: 24px;
       unicode-bidi: embed; }
-    body[dir=rtl] :host:first-child {
+    body[dir=rtl] :host:first-child > .td-data-table-heading {
       padding-right: 24px;
       unicode-bidi: embed; }
-    [dir=rtl] :host:first-child {
+    [dir=rtl] :host:first-child > .td-data-table-heading {
       padding-right: 24px;
       unicode-bidi: embed; }
-    :host:first-child bdo[dir=rtl] {
+    :host:first-child > .td-data-table-heading bdo[dir=rtl] {
       direction: rtl;
       unicode-bidi: bidi-override; }
-    :host:first-child bdo[dir=ltr] {
+    :host:first-child > .td-data-table-heading bdo[dir=ltr] {
       direction: ltr;
       unicode-bidi: bidi-override; }
-  :host:last-child {
-    padding-left: initial;
+  :host:last-child > .td-data-table-heading {
+    padding-left: 28px;
     padding-right: 24px; }
-    html[dir=rtl] :host:last-child {
+    html[dir=rtl] :host:last-child > .td-data-table-heading {
       padding-left: 24px;
       unicode-bidi: embed; }
-    body[dir=rtl] :host:last-child {
+    body[dir=rtl] :host:last-child > .td-data-table-heading {
       padding-left: 24px;
       unicode-bidi: embed; }
-    [dir=rtl] :host:last-child {
+    [dir=rtl] :host:last-child > .td-data-table-heading {
       padding-left: 24px;
       unicode-bidi: embed; }
-    :host:last-child bdo[dir=rtl] {
+    :host:last-child > .td-data-table-heading bdo[dir=rtl] {
       direction: rtl;
       unicode-bidi: bidi-override; }
-    :host:last-child bdo[dir=ltr] {
+    :host:last-child > .td-data-table-heading bdo[dir=ltr] {
       direction: ltr;
       unicode-bidi: bidi-override; }
-    html[dir=rtl] :host:last-child {
-      padding-right: initial;
+    html[dir=rtl] :host:last-child > .td-data-table-heading {
+      padding-right: 28px;
       unicode-bidi: embed; }
-    body[dir=rtl] :host:last-child {
-      padding-right: initial;
+    body[dir=rtl] :host:last-child > .td-data-table-heading {
+      padding-right: 28px;
       unicode-bidi: embed; }
-    [dir=rtl] :host:last-child {
-      padding-right: initial;
+    [dir=rtl] :host:last-child > .td-data-table-heading {
+      padding-right: 28px;
       unicode-bidi: embed; }
-    :host:last-child bdo[dir=rtl] {
+    :host:last-child > .td-data-table-heading bdo[dir=rtl] {
       direction: rtl;
       unicode-bidi: bidi-override; }
-    :host:last-child bdo[dir=ltr] {
+    :host:last-child > .td-data-table-heading bdo[dir=ltr] {
       direction: ltr;
       unicode-bidi: bidi-override; }
   :host md-icon {

@@ -1,4 +1,5 @@
-import { EventEmitter, ChangeDetectorRef, TemplateRef, AfterContentInit, QueryList } from '@angular/core';
+import { EventEmitter, ChangeDetectorRef, OnDestroy, AfterViewInit, TemplateRef, AfterContentInit, QueryList, ElementRef, OnInit, AfterContentChecked } from '@angular/core';
+import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { ControlValueAccessor } from '@angular/forms';
 import { TdDataTableRowComponent } from './data-table-row/data-table-row.component';
 import { ITdDataTableSortChangeEvent } from './data-table-column/data-table-column.component';
@@ -7,6 +8,10 @@ export declare const TD_DATA_TABLE_CONTROL_VALUE_ACCESSOR: any;
 export declare enum TdDataTableSortingOrder {
     Ascending,
     Descending,
+}
+export interface ITdDataTableColumnWidth {
+    min?: number;
+    max?: number;
 }
 export interface ITdDataTableColumn {
     name: string;
@@ -18,6 +23,7 @@ export interface ITdDataTableColumn {
     sortable?: boolean;
     hidden?: boolean;
     filter?: boolean;
+    width?: ITdDataTableColumnWidth | number;
 }
 export interface ITdDataTableSelectEvent {
     row: any;
@@ -30,13 +36,59 @@ export interface ITdDataTableSelectAllEvent {
 export interface ITdDataTableRowClickEvent {
     row: any;
 }
-export declare enum TdDataTableArrowKeyDirection {
-    Ascending,
-    Descending,
+export interface IInternalColumnWidth {
+    value: number;
+    limit: boolean;
+    index: number;
+    min?: boolean;
+    max?: boolean;
 }
-export declare class TdDataTableComponent implements ControlValueAccessor, AfterContentInit {
+export declare class TdDataTableComponent implements ControlValueAccessor, OnInit, AfterContentInit, AfterContentChecked, AfterViewInit, OnDestroy {
     private _document;
+    private _elementRef;
+    private _domSanitizer;
     private _changeDetectorRef;
+    /** reponsive width calculations */
+    private _resizeSubs;
+    private _rowsChangedSubs;
+    private _hostWidth;
+    readonly hostWidth: number;
+    private _widths;
+    private _onResize;
+    /** column header reposition and viewpoort */
+    private _verticalScrollSubs;
+    private _horizontalScrollSubs;
+    private _scrollHorizontalOffset;
+    private _scrollVerticalOffset;
+    private _hostHeight;
+    private _onHorizontalScroll;
+    private _onVerticalScroll;
+    /**
+     * Returns the height of the row
+     * For now we assume thats 49px.
+     */
+    readonly rowHeight: number;
+    /**
+     * Returns the number of rows that are rendered outside the viewport.
+     */
+    readonly offsetRows: number;
+    /**
+     * Returns the offset style with a proper calculation on how much it should move
+     * over the y axis of the total height
+     */
+    readonly offsetTransform: SafeStyle;
+    /**
+     * Returns the assumed total height of the rows
+     */
+    readonly totalHeight: number;
+    /**
+     * Returns the initial row to render in the viewport
+     */
+    readonly fromRow: number;
+    /**
+     * Returns the last row to render in the viewport
+     */
+    readonly toRow: number;
     /**
      * Implemented as part of ControlValueAccessor.
      */
@@ -56,13 +108,20 @@ export declare class TdDataTableComponent implements ControlValueAccessor, After
     private _sortBy;
     private _sortOrder;
     /** shift select */
+    private _shiftPreviouslyPressed;
     private _lastSelectedIndex;
-    private _selectedBeforeLastIndex;
-    private _lastArrowKeyDirection;
+    private _firstSelectedIndex;
+    private _firstCheckboxValue;
     /** template fetching support */
     private _templateMap;
     _templates: QueryList<TdDataTableTemplateDirective>;
+    _scrollableDiv: ElementRef;
+    _colElements: QueryList<ElementRef>;
     _rows: QueryList<TdDataTableRowComponent>;
+    /**
+     * Returns scroll position to reposition column headers
+     */
+    readonly columnsLeftScroll: number;
     /**
      * Returns true if all values are selected.
      */
@@ -149,17 +208,47 @@ export declare class TdDataTableComponent implements ControlValueAccessor, After
      * Emits an [ITdDataTableSelectAllEvent] implemented object.
      */
     onSelectAll: EventEmitter<ITdDataTableSelectAllEvent>;
-    constructor(_document: any, _changeDetectorRef: ChangeDetectorRef);
+    constructor(_document: any, _elementRef: ElementRef, _domSanitizer: DomSanitizer, _changeDetectorRef: ChangeDetectorRef);
     /**
      * compareWith?: function(row, model): boolean
      * Allows custom comparison between row and model to see if row is selected or not
-     * Default comparation is by object reference
+     * Default comparation is by reference
      */
     compareWith: (row: any, model: any) => boolean;
+    /**
+     * Initialize observable for resize and scroll events
+     */
+    ngOnInit(): void;
     /**
      * Loads templates and sets them in a map for faster access.
      */
     ngAfterContentInit(): void;
+    /**
+     * Checks hosts native elements widths to see if it has changed (resize check)
+     */
+    ngAfterContentChecked(): void;
+    /**
+     * Registers to an observable that checks if all rows have been rendered
+     * so we can start calculating the widths
+     */
+    ngAfterViewInit(): void;
+    /**
+     * Unsubscribes observables when data table is destroyed
+     */
+    ngOnDestroy(): void;
+    /**
+     * Method that gets executed every time there is a scroll event
+     * Calls the scroll observable
+     */
+    handleScroll(event: Event): void;
+    /**
+     * Returns the width needed for the columns via index
+     */
+    getColumnWidth(index: number): number;
+    /**
+     * Returns the width needed for the cells via index
+     */
+    getWidth(index: number): number;
     getCellValue(column: ITdDataTableColumn, value: any): string;
     /**
      * Getter method for template references
@@ -182,7 +271,7 @@ export declare class TdDataTableComponent implements ControlValueAccessor, After
      */
     isRowSelected(row: any): boolean;
     /**
-     * Selects or clears a row depending on 'checked' value if the row is 'selected'
+     * Selects or clears a row depending on 'checked' value if the row 'isSelectable'
      * handles cntrl clicks and shift clicks for multi-select
      */
     select(row: any, event: Event, currentSelected: number): void;
@@ -229,4 +318,20 @@ export declare class TdDataTableComponent implements ControlValueAccessor, After
      * Calculate all the state of all checkboxes
      */
     private _calculateCheckboxState();
+    /**
+     * Calculates the widths for columns and cells depending on content
+     */
+    private _calculateWidths();
+    /**
+     * Adjusts columns after calculation to see if they need to be recalculated.
+     */
+    private _adjustColumnWidhts();
+    /**
+     * Adjusts a single column to see if it can be recalculated
+     */
+    private _adjustColumnWidth(index, value);
+    /**
+     * Generic method to calculate column width
+     */
+    private _calculateWidth();
 }

@@ -1614,6 +1614,7 @@ td-paging-bar, td-paging-bar md-select .mat-select-value {
 .td-loading-wrapper.td-overlay .td-loading {
   background: rgba(255, 255, 255, 0.8); }
 
+table[td-data-table] .td-data-table-column-row,
 table[td-data-table] .td-data-table-row {
   border-bottom-color: rgba(0, 0, 0, 0.12); }
 
@@ -1643,17 +1644,14 @@ table[td-data-table] .td-data-table-column {
   table[td-data-table] .td-data-table-column.mat-active md-icon {
     color: black; }
 
-table[td-data-table].mat-selectable tbody > tr.td-data-table-row:not([disabled]):not(.td-selected):focus {
-  background-color: rgba(0, 0, 0, 0.04); }
-
 table[td-data-table].mat-selectable tbody > tr.td-data-table-row.td-selected {
-  background-color: rgba(3, 155, 229, 0.12); }
+  background-color: whitesmoke; }
 
-table[td-data-table].mat-clickable tbody > tr.td-data-table-row:not([disabled]):hover {
+table[td-data-table].mat-selectable tbody > tr.td-data-table-row:focus {
   background-color: rgba(0, 0, 0, 0.04); }
 
-table[td-data-table].mat-clickable tbody > tr.td-data-table-row:not([disabled]):active {
-  background-color: rgba(3, 155, 229, 0.12); }
+table[td-data-table].mat-clickable tbody > tr.td-data-table-row:hover {
+  background-color: rgba(0, 0, 0, 0.04); }
 
 .mat-selected-title {
   background-color: rgba(3, 155, 229, 0.12);

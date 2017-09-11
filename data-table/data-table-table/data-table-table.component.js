@@ -12,8 +12,8 @@ TdDataTableTableComponent = tslib_1.__decorate([
     Component({
         /* tslint:disable-next-line */
         selector: 'table[td-data-table]',
-        styles: [":host { width: 100%; border-spacing: 0; overflow: hidden; border-collapse: collapse; } /*# sourceMappingURL=data-table-table.component.css.map */ "],
-        template: "<thead> <tr td-data-table-row> <ng-content select=th[td-data-table-column]></ng-content> </tr> </thead> <ng-content></ng-content>",
+        styles: [":host { width: 100%; position: relative; border-spacing: 0; overflow: hidden; border-collapse: collapse; } /*# sourceMappingURL=data-table-table.component.css.map */ "],
+        template: "<ng-content></ng-content>",
     }),
     tslib_1.__metadata("design:paramtypes", [ElementRef, Renderer2])
 ], TdDataTableTableComponent);
