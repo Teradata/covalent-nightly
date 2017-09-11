@@ -17,22 +17,22 @@ var TdLayoutToggleDirective = (function (_super) {
     TdLayoutToggleDirective.prototype.onClick = function () {
         this._layout.toggle();
     };
-    tslib_1.__decorate([
-        Input('tdLayoutToggle'),
-        tslib_1.__metadata("design:type", Boolean),
-        tslib_1.__metadata("design:paramtypes", [Boolean])
-    ], TdLayoutToggleDirective.prototype, "tdLayoutToggle", null);
-    TdLayoutToggleDirective = tslib_1.__decorate([
-        Directive({
-            selector: '[tdLayoutToggle]',
-        }),
-        tslib_1.__param(0, Inject(forwardRef(function () { return TdLayoutComponent; }))),
-        tslib_1.__metadata("design:paramtypes", [TdLayoutComponent,
-            Renderer2,
-            ElementRef])
-    ], TdLayoutToggleDirective);
     return TdLayoutToggleDirective;
 }(LayoutToggle));
+tslib_1.__decorate([
+    Input('tdLayoutToggle'),
+    tslib_1.__metadata("design:type", Boolean),
+    tslib_1.__metadata("design:paramtypes", [Boolean])
+], TdLayoutToggleDirective.prototype, "tdLayoutToggle", null);
+TdLayoutToggleDirective = tslib_1.__decorate([
+    Directive({
+        selector: '[tdLayoutToggle]',
+    }),
+    tslib_1.__param(0, Inject(forwardRef(function () { return TdLayoutComponent; }))),
+    tslib_1.__metadata("design:paramtypes", [TdLayoutComponent,
+        Renderer2,
+        ElementRef])
+], TdLayoutToggleDirective);
 export { TdLayoutToggleDirective };
 var TdLayoutCloseDirective = (function (_super) {
     tslib_1.__extends(TdLayoutCloseDirective, _super);
@@ -49,22 +49,22 @@ var TdLayoutCloseDirective = (function (_super) {
     TdLayoutCloseDirective.prototype.onClick = function () {
         this._layout.close();
     };
-    tslib_1.__decorate([
-        Input('tdLayoutClose'),
-        tslib_1.__metadata("design:type", Boolean),
-        tslib_1.__metadata("design:paramtypes", [Boolean])
-    ], TdLayoutCloseDirective.prototype, "tdLayoutClose", null);
-    TdLayoutCloseDirective = tslib_1.__decorate([
-        Directive({
-            selector: '[tdLayoutClose]',
-        }),
-        tslib_1.__param(0, Inject(forwardRef(function () { return TdLayoutComponent; }))),
-        tslib_1.__metadata("design:paramtypes", [TdLayoutComponent,
-            Renderer2,
-            ElementRef])
-    ], TdLayoutCloseDirective);
     return TdLayoutCloseDirective;
 }(LayoutToggle));
+tslib_1.__decorate([
+    Input('tdLayoutClose'),
+    tslib_1.__metadata("design:type", Boolean),
+    tslib_1.__metadata("design:paramtypes", [Boolean])
+], TdLayoutCloseDirective.prototype, "tdLayoutClose", null);
+TdLayoutCloseDirective = tslib_1.__decorate([
+    Directive({
+        selector: '[tdLayoutClose]',
+    }),
+    tslib_1.__param(0, Inject(forwardRef(function () { return TdLayoutComponent; }))),
+    tslib_1.__metadata("design:paramtypes", [TdLayoutComponent,
+        Renderer2,
+        ElementRef])
+], TdLayoutCloseDirective);
 export { TdLayoutCloseDirective };
 var TdLayoutOpenDirective = (function (_super) {
     tslib_1.__extends(TdLayoutOpenDirective, _super);
@@ -81,21 +81,21 @@ var TdLayoutOpenDirective = (function (_super) {
     TdLayoutOpenDirective.prototype.onClick = function () {
         this._layout.open();
     };
-    tslib_1.__decorate([
-        Input('tdLayoutOpen'),
-        tslib_1.__metadata("design:type", Boolean),
-        tslib_1.__metadata("design:paramtypes", [Boolean])
-    ], TdLayoutOpenDirective.prototype, "tdLayoutClose", null);
-    TdLayoutOpenDirective = tslib_1.__decorate([
-        Directive({
-            selector: '[tdLayoutOpen]',
-        }),
-        tslib_1.__param(0, Inject(forwardRef(function () { return TdLayoutComponent; }))),
-        tslib_1.__metadata("design:paramtypes", [TdLayoutComponent,
-            Renderer2,
-            ElementRef])
-    ], TdLayoutOpenDirective);
     return TdLayoutOpenDirective;
 }(LayoutToggle));
+tslib_1.__decorate([
+    Input('tdLayoutOpen'),
+    tslib_1.__metadata("design:type", Boolean),
+    tslib_1.__metadata("design:paramtypes", [Boolean])
+], TdLayoutOpenDirective.prototype, "tdLayoutClose", null);
+TdLayoutOpenDirective = tslib_1.__decorate([
+    Directive({
+        selector: '[tdLayoutOpen]',
+    }),
+    tslib_1.__param(0, Inject(forwardRef(function () { return TdLayoutComponent; }))),
+    tslib_1.__metadata("design:paramtypes", [TdLayoutComponent,
+        Renderer2,
+        ElementRef])
+], TdLayoutOpenDirective);
 export { TdLayoutOpenDirective };
 //# sourceMappingURL=layout.directives.js.map

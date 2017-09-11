@@ -127,57 +127,57 @@ var TdFileDropDirective = (function (_super) {
         event.preventDefault();
         event.stopPropagation();
     };
-    tslib_1.__decorate([
-        Input('multiple'),
-        tslib_1.__metadata("design:type", Boolean),
-        tslib_1.__metadata("design:paramtypes", [Boolean])
-    ], TdFileDropDirective.prototype, "multiple", null);
-    tslib_1.__decorate([
-        Output('fileDrop'),
-        tslib_1.__metadata("design:type", EventEmitter)
-    ], TdFileDropDirective.prototype, "onFileDrop", void 0);
-    tslib_1.__decorate([
-        HostBinding('attr.multiple'),
-        tslib_1.__metadata("design:type", String),
-        tslib_1.__metadata("design:paramtypes", [])
-    ], TdFileDropDirective.prototype, "multipleBinding", null);
-    tslib_1.__decorate([
-        HostBinding('attr.disabled'),
-        tslib_1.__metadata("design:type", String),
-        tslib_1.__metadata("design:paramtypes", [])
-    ], TdFileDropDirective.prototype, "disabledBinding", null);
-    tslib_1.__decorate([
-        HostListener('drop', ['$event']),
-        tslib_1.__metadata("design:type", Function),
-        tslib_1.__metadata("design:paramtypes", [Event]),
-        tslib_1.__metadata("design:returntype", void 0)
-    ], TdFileDropDirective.prototype, "onDrop", null);
-    tslib_1.__decorate([
-        HostListener('dragover', ['$event']),
-        tslib_1.__metadata("design:type", Function),
-        tslib_1.__metadata("design:paramtypes", [Event]),
-        tslib_1.__metadata("design:returntype", void 0)
-    ], TdFileDropDirective.prototype, "onDragOver", null);
-    tslib_1.__decorate([
-        HostListener('dragenter', ['$event']),
-        tslib_1.__metadata("design:type", Function),
-        tslib_1.__metadata("design:paramtypes", [Event]),
-        tslib_1.__metadata("design:returntype", void 0)
-    ], TdFileDropDirective.prototype, "onDragEnter", null);
-    tslib_1.__decorate([
-        HostListener('dragleave', ['$event']),
-        tslib_1.__metadata("design:type", Function),
-        tslib_1.__metadata("design:paramtypes", [Event]),
-        tslib_1.__metadata("design:returntype", void 0)
-    ], TdFileDropDirective.prototype, "onDragLeave", null);
-    TdFileDropDirective = tslib_1.__decorate([
-        Directive({
-            selector: '[tdFileDrop]',
-            inputs: ['disabled'],
-        }),
-        tslib_1.__metadata("design:paramtypes", [Renderer2, ElementRef])
-    ], TdFileDropDirective);
     return TdFileDropDirective;
 }(_TdFileDropMixinBase));
+tslib_1.__decorate([
+    Input('multiple'),
+    tslib_1.__metadata("design:type", Boolean),
+    tslib_1.__metadata("design:paramtypes", [Boolean])
+], TdFileDropDirective.prototype, "multiple", null);
+tslib_1.__decorate([
+    Output('fileDrop'),
+    tslib_1.__metadata("design:type", EventEmitter)
+], TdFileDropDirective.prototype, "onFileDrop", void 0);
+tslib_1.__decorate([
+    HostBinding('attr.multiple'),
+    tslib_1.__metadata("design:type", String),
+    tslib_1.__metadata("design:paramtypes", [])
+], TdFileDropDirective.prototype, "multipleBinding", null);
+tslib_1.__decorate([
+    HostBinding('attr.disabled'),
+    tslib_1.__metadata("design:type", String),
+    tslib_1.__metadata("design:paramtypes", [])
+], TdFileDropDirective.prototype, "disabledBinding", null);
+tslib_1.__decorate([
+    HostListener('drop', ['$event']),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Event]),
+    tslib_1.__metadata("design:returntype", void 0)
+], TdFileDropDirective.prototype, "onDrop", null);
+tslib_1.__decorate([
+    HostListener('dragover', ['$event']),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Event]),
+    tslib_1.__metadata("design:returntype", void 0)
+], TdFileDropDirective.prototype, "onDragOver", null);
+tslib_1.__decorate([
+    HostListener('dragenter', ['$event']),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Event]),
+    tslib_1.__metadata("design:returntype", void 0)
+], TdFileDropDirective.prototype, "onDragEnter", null);
+tslib_1.__decorate([
+    HostListener('dragleave', ['$event']),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Event]),
+    tslib_1.__metadata("design:returntype", void 0)
+], TdFileDropDirective.prototype, "onDragLeave", null);
+TdFileDropDirective = tslib_1.__decorate([
+    Directive({
+        selector: '[tdFileDrop]',
+        inputs: ['disabled'],
+    }),
+    tslib_1.__metadata("design:paramtypes", [Renderer2, ElementRef])
+], TdFileDropDirective);
 export { TdFileDropDirective };
 //# sourceMappingURL=file-drop.directive.js.map

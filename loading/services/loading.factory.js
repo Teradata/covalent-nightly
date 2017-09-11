@@ -169,14 +169,14 @@ var TdLoadingFactory = (function () {
             instance.color = options.color;
         }
     };
-    TdLoadingFactory = tslib_1.__decorate([
-        Injectable(),
-        tslib_1.__metadata("design:paramtypes", [ComponentFactoryResolver,
-            Overlay,
-            Injector])
-    ], TdLoadingFactory);
     return TdLoadingFactory;
 }());
+TdLoadingFactory = tslib_1.__decorate([
+    Injectable(),
+    tslib_1.__metadata("design:paramtypes", [ComponentFactoryResolver,
+        Overlay,
+        Injector])
+], TdLoadingFactory);
 export { TdLoadingFactory };
 export function LOADING_FACTORY_PROVIDER_FACTORY(parent, componentFactoryResolver, overlay, injector) {
     return parent || new TdLoadingFactory(componentFactoryResolver, overlay, injector);

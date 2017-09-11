@@ -7,22 +7,22 @@ export { TdJsonFormatterComponent } from './json-formatter.component';
 var CovalentJsonFormatterModule = (function () {
     function CovalentJsonFormatterModule() {
     }
-    CovalentJsonFormatterModule = tslib_1.__decorate([
-        NgModule({
-            imports: [
-                CommonModule,
-                MdTooltipModule,
-                MdIconModule,
-            ],
-            declarations: [
-                TdJsonFormatterComponent,
-            ],
-            exports: [
-                TdJsonFormatterComponent,
-            ],
-        })
-    ], CovalentJsonFormatterModule);
     return CovalentJsonFormatterModule;
 }());
+CovalentJsonFormatterModule = tslib_1.__decorate([
+    NgModule({
+        imports: [
+            CommonModule,
+            MdTooltipModule,
+            MdIconModule,
+        ],
+        declarations: [
+            TdJsonFormatterComponent,
+        ],
+        exports: [
+            TdJsonFormatterComponent,
+        ],
+    })
+], CovalentJsonFormatterModule);
 export { CovalentJsonFormatterModule };
 //# sourceMappingURL=json-formatter.module.js.map

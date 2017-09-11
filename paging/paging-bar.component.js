@@ -254,43 +254,43 @@ var TdPagingBarComponent = (function () {
         };
         this.onChange.emit(event);
     };
-    tslib_1.__decorate([
-        Input('firstLast'),
-        tslib_1.__metadata("design:type", Boolean)
-    ], TdPagingBarComponent.prototype, "firstLast", void 0);
-    tslib_1.__decorate([
-        Input('initialPage'),
-        tslib_1.__metadata("design:type", Number)
-    ], TdPagingBarComponent.prototype, "initialPage", void 0);
-    tslib_1.__decorate([
-        Input('pageLinkCount'),
-        tslib_1.__metadata("design:type", Number),
-        tslib_1.__metadata("design:paramtypes", [Number])
-    ], TdPagingBarComponent.prototype, "pageLinkCount", null);
-    tslib_1.__decorate([
-        Input('pageSize'),
-        tslib_1.__metadata("design:type", Number),
-        tslib_1.__metadata("design:paramtypes", [Number])
-    ], TdPagingBarComponent.prototype, "pageSize", null);
-    tslib_1.__decorate([
-        Input('total'),
-        tslib_1.__metadata("design:type", Number),
-        tslib_1.__metadata("design:paramtypes", [Number])
-    ], TdPagingBarComponent.prototype, "total", null);
-    tslib_1.__decorate([
-        Output('change'),
-        tslib_1.__metadata("design:type", EventEmitter)
-    ], TdPagingBarComponent.prototype, "onChange", void 0);
-    TdPagingBarComponent = tslib_1.__decorate([
-        Component({
-            selector: 'td-paging-bar',
-            template: "<div layout=\"row\" layout-align=\"end center\" class=\"md-caption td-paging-bar\" (change)=\"$event.stopPropagation()\" > <ng-content></ng-content> <div class=\"td-paging-bar-navigation\"> <button md-icon-button class=\"td-paging-bar-first-page\" type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMinPage()\" (click)=\"firstPage()\"> <md-icon>{{ isRTL ? 'skip_next' : 'skip_previous' }}</md-icon> </button> <button md-icon-button class=\"td-paging-bar-prev-page\" type=\"button\" [disabled]=\"isMinPage()\" (click)=\"prevPage()\"> <md-icon>{{ isRTL ? 'navigate_next' : 'navigate_before' }}</md-icon> </button> <ng-template *ngIf=\"pageLinkCount > 0\" let-link let-index=\"index\" ngFor [ngForOf]=\"pageLinks\"> <button class=\"td-paging-bar-link-page\" md-icon-button type=\"button\" [color]=\"page === link ? 'accent' : ''\" (click)=\"navigateToPage(link)\">{{link}}</button> </ng-template> <button md-icon-button class=\"td-paging-bar-next-page\" type=\"button\" [disabled]=\"isMaxPage()\" (click)=\"nextPage()\"> <md-icon>{{ isRTL ? 'navigate_before' : 'navigate_next' }}</md-icon> </button> <button md-icon-button class=\"td-paging-bar-last-page\" type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMaxPage()\" (click)=\"lastPage()\"> <md-icon>{{ isRTL ? 'skip_previous' : 'skip_next' }}</md-icon> </button> </div> </div>",
-            styles: [":host { display: block; } .td-paging-bar { height: 48px; } .td-paging-bar /deep/ > * { margin: 0 10px; } [md-icon-button] { font-size: 12px; font-weight: normal; } /deep/ md-select.mat-select { padding-top: 0px; } /deep/ md-select .mat-select-trigger { min-width: 44px; font-size: 12px; } /deep/ md-select .mat-select-underline { display: none; } /*# sourceMappingURL=paging-bar.component.css.map */ "],
-        }),
-        tslib_1.__param(0, Optional()),
-        tslib_1.__metadata("design:paramtypes", [Dir])
-    ], TdPagingBarComponent);
     return TdPagingBarComponent;
 }());
+tslib_1.__decorate([
+    Input('firstLast'),
+    tslib_1.__metadata("design:type", Boolean)
+], TdPagingBarComponent.prototype, "firstLast", void 0);
+tslib_1.__decorate([
+    Input('initialPage'),
+    tslib_1.__metadata("design:type", Number)
+], TdPagingBarComponent.prototype, "initialPage", void 0);
+tslib_1.__decorate([
+    Input('pageLinkCount'),
+    tslib_1.__metadata("design:type", Number),
+    tslib_1.__metadata("design:paramtypes", [Number])
+], TdPagingBarComponent.prototype, "pageLinkCount", null);
+tslib_1.__decorate([
+    Input('pageSize'),
+    tslib_1.__metadata("design:type", Number),
+    tslib_1.__metadata("design:paramtypes", [Number])
+], TdPagingBarComponent.prototype, "pageSize", null);
+tslib_1.__decorate([
+    Input('total'),
+    tslib_1.__metadata("design:type", Number),
+    tslib_1.__metadata("design:paramtypes", [Number])
+], TdPagingBarComponent.prototype, "total", null);
+tslib_1.__decorate([
+    Output('change'),
+    tslib_1.__metadata("design:type", EventEmitter)
+], TdPagingBarComponent.prototype, "onChange", void 0);
+TdPagingBarComponent = tslib_1.__decorate([
+    Component({
+        selector: 'td-paging-bar',
+        template: "<div layout=\"row\" layout-align=\"end center\" class=\"md-caption td-paging-bar\" (change)=\"$event.stopPropagation()\" > <ng-content></ng-content> <div class=\"td-paging-bar-navigation\"> <button md-icon-button class=\"td-paging-bar-first-page\" type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMinPage()\" (click)=\"firstPage()\"> <md-icon>{{ isRTL ? 'skip_next' : 'skip_previous' }}</md-icon> </button> <button md-icon-button class=\"td-paging-bar-prev-page\" type=\"button\" [disabled]=\"isMinPage()\" (click)=\"prevPage()\"> <md-icon>{{ isRTL ? 'navigate_next' : 'navigate_before' }}</md-icon> </button> <ng-template *ngIf=\"pageLinkCount > 0\" let-link let-index=\"index\" ngFor [ngForOf]=\"pageLinks\"> <button class=\"td-paging-bar-link-page\" md-icon-button type=\"button\" [color]=\"page === link ? 'accent' : ''\" (click)=\"navigateToPage(link)\">{{link}}</button> </ng-template> <button md-icon-button class=\"td-paging-bar-next-page\" type=\"button\" [disabled]=\"isMaxPage()\" (click)=\"nextPage()\"> <md-icon>{{ isRTL ? 'navigate_before' : 'navigate_next' }}</md-icon> </button> <button md-icon-button class=\"td-paging-bar-last-page\" type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMaxPage()\" (click)=\"lastPage()\"> <md-icon>{{ isRTL ? 'skip_previous' : 'skip_next' }}</md-icon> </button> </div> </div>",
+        styles: [":host { display: block; } .td-paging-bar { height: 48px; } .td-paging-bar /deep/ > * { margin: 0 10px; } [md-icon-button] { font-size: 12px; font-weight: normal; } /deep/ md-select.mat-select { padding-top: 0px; } /deep/ md-select .mat-select-trigger { min-width: 44px; font-size: 12px; } /deep/ md-select .mat-select-underline { display: none; } /*# sourceMappingURL=paging-bar.component.css.map */ "],
+    }),
+    tslib_1.__param(0, Optional()),
+    tslib_1.__metadata("design:paramtypes", [Dir])
+], TdPagingBarComponent);
 export { TdPagingBarComponent };
 //# sourceMappingURL=paging-bar.component.js.map

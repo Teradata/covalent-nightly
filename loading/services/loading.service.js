@@ -204,12 +204,12 @@ var TdLoadingService = (function () {
         clearTimeout(this._timeouts[name]);
         delete this._timeouts[name];
     };
-    TdLoadingService = tslib_1.__decorate([
-        Injectable(),
-        tslib_1.__metadata("design:paramtypes", [TdLoadingFactory])
-    ], TdLoadingService);
     return TdLoadingService;
 }());
+TdLoadingService = tslib_1.__decorate([
+    Injectable(),
+    tslib_1.__metadata("design:paramtypes", [TdLoadingFactory])
+], TdLoadingService);
 export { TdLoadingService };
 export function LOADING_PROVIDER_FACTORY(parent, loadingFactory) {
     return parent || new TdLoadingService(loadingFactory);

@@ -62,12 +62,12 @@ var TdTimeAgoPipe = (function () {
             return Math.floor(diff) + ' years ago';
         }
     };
-    TdTimeAgoPipe = tslib_1.__decorate([
-        Pipe({
-            name: 'timeAgo',
-        })
-    ], TdTimeAgoPipe);
     return TdTimeAgoPipe;
 }());
+TdTimeAgoPipe = tslib_1.__decorate([
+    Pipe({
+        name: 'timeAgo',
+    })
+], TdTimeAgoPipe);
 export { TdTimeAgoPipe };
 //# sourceMappingURL=time-ago.pipe.js.map

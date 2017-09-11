@@ -80,66 +80,66 @@ var TdSearchInputComponent = (function () {
     TdSearchInputComponent.prototype._searchTermChanged = function (value) {
         this.onSearchDebounce.emit(value);
     };
-    tslib_1.__decorate([
-        ViewChild(MdInput),
-        tslib_1.__metadata("design:type", MdInput)
-    ], TdSearchInputComponent.prototype, "_input", void 0);
-    tslib_1.__decorate([
-        Input('showUnderline'),
-        tslib_1.__metadata("design:type", Boolean)
-    ], TdSearchInputComponent.prototype, "showUnderline", void 0);
-    tslib_1.__decorate([
-        Input('debounce'),
-        tslib_1.__metadata("design:type", Number)
-    ], TdSearchInputComponent.prototype, "debounce", void 0);
-    tslib_1.__decorate([
-        Input('placeholder'),
-        tslib_1.__metadata("design:type", String)
-    ], TdSearchInputComponent.prototype, "placeholder", void 0);
-    tslib_1.__decorate([
-        Output('searchDebounce'),
-        tslib_1.__metadata("design:type", EventEmitter)
-    ], TdSearchInputComponent.prototype, "onSearchDebounce", void 0);
-    tslib_1.__decorate([
-        Output('search'),
-        tslib_1.__metadata("design:type", EventEmitter)
-    ], TdSearchInputComponent.prototype, "onSearch", void 0);
-    tslib_1.__decorate([
-        Output('clear'),
-        tslib_1.__metadata("design:type", EventEmitter)
-    ], TdSearchInputComponent.prototype, "onClear", void 0);
-    tslib_1.__decorate([
-        Output('blur'),
-        tslib_1.__metadata("design:type", EventEmitter)
-    ], TdSearchInputComponent.prototype, "onBlur", void 0);
-    TdSearchInputComponent = tslib_1.__decorate([
-        Component({
-            selector: 'td-search-input',
-            template: "<div class=\"td-search-input\" layout=\"row\" layout-align=\"end center\"> <md-form-field [class.mat-hide-underline]=\"!showUnderline\" floatPlaceholder=\"never\" flex> <input mdInput #searchElement type=\"search\" [(ngModel)]=\"value\" [placeholder]=\"placeholder\" (blur)=\"handleBlur()\" (search)=\"stopPropagation($event)\" (keyup.enter)=\"handleSearch($event)\"/> </md-form-field> <button md-icon-button type=\"button\" [@searchState]=\"(searchElement.value ?  'show' : (isRTL ? 'hide-left' : 'hide-right'))\" (click)=\"clearSearch()\" flex=\"none\"> <md-icon>cancel</md-icon> </button> </div>",
-            styles: [".td-search-input { overflow-x: hidden; } .td-search-input /deep/ md-form-field.mat-hide-underline .mat-form-field-underline { display: none; } /*# sourceMappingURL=search-input.component.css.map */ "],
-            animations: [
-                trigger('searchState', [
-                    state('hide-left', style({
-                        transform: 'translateX(-150%)',
-                        display: 'none',
-                    })),
-                    state('hide-right', style({
-                        transform: 'translateX(150%)',
-                        display: 'none',
-                    })),
-                    state('show', style({
-                        transform: 'translateX(0%)',
-                        display: 'block',
-                    })),
-                    transition('* => show', animate('200ms ease-in')),
-                    transition('show => *', animate('200ms ease-out')),
-                ]),
-            ],
-        }),
-        tslib_1.__param(0, Optional()),
-        tslib_1.__metadata("design:paramtypes", [Dir])
-    ], TdSearchInputComponent);
     return TdSearchInputComponent;
 }());
+tslib_1.__decorate([
+    ViewChild(MdInput),
+    tslib_1.__metadata("design:type", MdInput)
+], TdSearchInputComponent.prototype, "_input", void 0);
+tslib_1.__decorate([
+    Input('showUnderline'),
+    tslib_1.__metadata("design:type", Boolean)
+], TdSearchInputComponent.prototype, "showUnderline", void 0);
+tslib_1.__decorate([
+    Input('debounce'),
+    tslib_1.__metadata("design:type", Number)
+], TdSearchInputComponent.prototype, "debounce", void 0);
+tslib_1.__decorate([
+    Input('placeholder'),
+    tslib_1.__metadata("design:type", String)
+], TdSearchInputComponent.prototype, "placeholder", void 0);
+tslib_1.__decorate([
+    Output('searchDebounce'),
+    tslib_1.__metadata("design:type", EventEmitter)
+], TdSearchInputComponent.prototype, "onSearchDebounce", void 0);
+tslib_1.__decorate([
+    Output('search'),
+    tslib_1.__metadata("design:type", EventEmitter)
+], TdSearchInputComponent.prototype, "onSearch", void 0);
+tslib_1.__decorate([
+    Output('clear'),
+    tslib_1.__metadata("design:type", EventEmitter)
+], TdSearchInputComponent.prototype, "onClear", void 0);
+tslib_1.__decorate([
+    Output('blur'),
+    tslib_1.__metadata("design:type", EventEmitter)
+], TdSearchInputComponent.prototype, "onBlur", void 0);
+TdSearchInputComponent = tslib_1.__decorate([
+    Component({
+        selector: 'td-search-input',
+        template: "<div class=\"td-search-input\" layout=\"row\" layout-align=\"end center\"> <md-form-field [class.mat-hide-underline]=\"!showUnderline\" floatPlaceholder=\"never\" flex> <input mdInput #searchElement type=\"search\" [(ngModel)]=\"value\" [placeholder]=\"placeholder\" (blur)=\"handleBlur()\" (search)=\"stopPropagation($event)\" (keyup.enter)=\"handleSearch($event)\"/> </md-form-field> <button md-icon-button type=\"button\" [@searchState]=\"(searchElement.value ?  'show' : (isRTL ? 'hide-left' : 'hide-right'))\" (click)=\"clearSearch()\" flex=\"none\"> <md-icon>cancel</md-icon> </button> </div>",
+        styles: [".td-search-input { overflow-x: hidden; } .td-search-input /deep/ md-form-field.mat-hide-underline .mat-form-field-underline { display: none; } /*# sourceMappingURL=search-input.component.css.map */ "],
+        animations: [
+            trigger('searchState', [
+                state('hide-left', style({
+                    transform: 'translateX(-150%)',
+                    display: 'none',
+                })),
+                state('hide-right', style({
+                    transform: 'translateX(150%)',
+                    display: 'none',
+                })),
+                state('show', style({
+                    transform: 'translateX(0%)',
+                    display: 'block',
+                })),
+                transition('* => show', animate('200ms ease-in')),
+                transition('show => *', animate('200ms ease-out')),
+            ]),
+        ],
+    }),
+    tslib_1.__param(0, Optional()),
+    tslib_1.__metadata("design:paramtypes", [Dir])
+], TdSearchInputComponent);
 export { TdSearchInputComponent };
 //# sourceMappingURL=search-input.component.js.map

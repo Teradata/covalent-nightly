@@ -10,54 +10,54 @@ var TdExpansionPanelHeaderDirective = (function (_super) {
     function TdExpansionPanelHeaderDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
-    TdExpansionPanelHeaderDirective = tslib_1.__decorate([
-        Directive({
-            selector: '[td-expansion-panel-header]ng-template',
-        }),
-        tslib_1.__metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
-    ], TdExpansionPanelHeaderDirective);
     return TdExpansionPanelHeaderDirective;
 }(TemplatePortalDirective));
+TdExpansionPanelHeaderDirective = tslib_1.__decorate([
+    Directive({
+        selector: '[td-expansion-panel-header]ng-template',
+    }),
+    tslib_1.__metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
+], TdExpansionPanelHeaderDirective);
 export { TdExpansionPanelHeaderDirective };
 var TdExpansionPanelLabelDirective = (function (_super) {
     tslib_1.__extends(TdExpansionPanelLabelDirective, _super);
     function TdExpansionPanelLabelDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
-    TdExpansionPanelLabelDirective = tslib_1.__decorate([
-        Directive({
-            selector: '[td-expansion-panel-label]ng-template',
-        }),
-        tslib_1.__metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
-    ], TdExpansionPanelLabelDirective);
     return TdExpansionPanelLabelDirective;
 }(TemplatePortalDirective));
+TdExpansionPanelLabelDirective = tslib_1.__decorate([
+    Directive({
+        selector: '[td-expansion-panel-label]ng-template',
+    }),
+    tslib_1.__metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
+], TdExpansionPanelLabelDirective);
 export { TdExpansionPanelLabelDirective };
 var TdExpansionPanelSublabelDirective = (function (_super) {
     tslib_1.__extends(TdExpansionPanelSublabelDirective, _super);
     function TdExpansionPanelSublabelDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
-    TdExpansionPanelSublabelDirective = tslib_1.__decorate([
-        Directive({
-            selector: '[td-expansion-panel-sublabel]ng-template',
-        }),
-        tslib_1.__metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
-    ], TdExpansionPanelSublabelDirective);
     return TdExpansionPanelSublabelDirective;
 }(TemplatePortalDirective));
+TdExpansionPanelSublabelDirective = tslib_1.__decorate([
+    Directive({
+        selector: '[td-expansion-panel-sublabel]ng-template',
+    }),
+    tslib_1.__metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
+], TdExpansionPanelSublabelDirective);
 export { TdExpansionPanelSublabelDirective };
 var TdExpansionPanelSummaryComponent = (function () {
     function TdExpansionPanelSummaryComponent() {
     }
-    TdExpansionPanelSummaryComponent = tslib_1.__decorate([
-        Component({
-            selector: 'td-expansion-summary',
-            template: '<ng-content></ng-content>',
-        })
-    ], TdExpansionPanelSummaryComponent);
     return TdExpansionPanelSummaryComponent;
 }());
+TdExpansionPanelSummaryComponent = tslib_1.__decorate([
+    Component({
+        selector: 'td-expansion-summary',
+        template: '<ng-content></ng-content>',
+    })
+], TdExpansionPanelSummaryComponent);
 export { TdExpansionPanelSummaryComponent };
 var TdExpansionPanelBase = (function () {
     function TdExpansionPanelBase() {
@@ -163,54 +163,54 @@ var TdExpansionPanelComponent = (function (_super) {
     TdExpansionPanelComponent.prototype._onCollapsed = function () {
         this.collapsed.emit(undefined);
     };
-    tslib_1.__decorate([
-        ContentChild(TdExpansionPanelHeaderDirective),
-        tslib_1.__metadata("design:type", TdExpansionPanelHeaderDirective)
-    ], TdExpansionPanelComponent.prototype, "expansionPanelHeader", void 0);
-    tslib_1.__decorate([
-        ContentChild(TdExpansionPanelLabelDirective),
-        tslib_1.__metadata("design:type", TdExpansionPanelLabelDirective)
-    ], TdExpansionPanelComponent.prototype, "expansionPanelLabel", void 0);
-    tslib_1.__decorate([
-        ContentChild(TdExpansionPanelSublabelDirective),
-        tslib_1.__metadata("design:type", TdExpansionPanelSublabelDirective)
-    ], TdExpansionPanelComponent.prototype, "expansionPanelSublabel", void 0);
-    tslib_1.__decorate([
-        Input(),
-        tslib_1.__metadata("design:type", String)
-    ], TdExpansionPanelComponent.prototype, "label", void 0);
-    tslib_1.__decorate([
-        Input(),
-        tslib_1.__metadata("design:type", String)
-    ], TdExpansionPanelComponent.prototype, "sublabel", void 0);
-    tslib_1.__decorate([
-        Input('expand'),
-        tslib_1.__metadata("design:type", Boolean),
-        tslib_1.__metadata("design:paramtypes", [Boolean])
-    ], TdExpansionPanelComponent.prototype, "expand", null);
-    tslib_1.__decorate([
-        Output(),
-        tslib_1.__metadata("design:type", EventEmitter)
-    ], TdExpansionPanelComponent.prototype, "expanded", void 0);
-    tslib_1.__decorate([
-        Output(),
-        tslib_1.__metadata("design:type", EventEmitter)
-    ], TdExpansionPanelComponent.prototype, "collapsed", void 0);
-    TdExpansionPanelComponent = tslib_1.__decorate([
-        Component({
-            selector: 'td-expansion-panel',
-            styles: [":host { display: block; } :host .td-expansion-panel-header { position: relative; outline: none; } :host .td-expansion-panel-header:focus:not(.mat-disabled), :host .td-expansion-panel-header:hover:not(.mat-disabled) { cursor: pointer; } :host .td-expansion-panel-header .td-expansion-panel-header-content { height: 48px; padding: 0 16px; } .td-expansion-label, .td-expansion-sublabel { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 5px; } /deep/ [dir='rtl'] .td-expansion-label, /deep/ [dir='rtl'] .td-expansion-sublabel { margin-left: 5px; margin-right: inherit; } /*# sourceMappingURL=expansion-panel.component.css.map */ "],
-            template: "<div class=\"td-expansion-panel-header\" [class.mat-disabled]=\"disabled\" mdRipple [mdRippleDisabled]=\"disabled || disableRipple\" [tabIndex]=\"disabled? -1 : 0\" (keydown.enter)=\"clickEvent()\" (click)=\"clickEvent()\"> <ng-template [cdkPortalHost]=\"expansionPanelHeader\"></ng-template> <div class=\"td-expansion-panel-header-content\" [class.mat-disabled]=\"disabled\" *ngIf=\"!expansionPanelHeader\" layout=\"row\" layout-align=\"start center\" flex> <div *ngIf=\"label || expansionPanelLabel\" class=\"md-subhead td-expansion-label\" [attr.flex-gt-xs]=\"(sublabel || expansionPanelSublabel) ? 40 : null\"> <ng-template [cdkPortalHost]=\"expansionPanelLabel\"></ng-template> <ng-template [ngIf]=\"!expansionPanelLabel\">{{label}}</ng-template> </div> <div *ngIf=\"sublabel || expansionPanelSublabel\" class=\"md-body-1 td-expansion-sublabel\"> <ng-template [cdkPortalHost]=\"expansionPanelSublabel\"></ng-template> <ng-template [ngIf]=\"!expansionPanelSublabel\">{{sublabel}}</ng-template> </div> <span flex></span> <md-icon class=\"td-expand-icon\" *ngIf=\"!disabled\" [@tdRotate]=\"expand\">keyboard_arrow_down</md-icon> </div> </div> <div class=\"td-expansion-content\" [@tdCollapse]=\"!expand\"> <ng-content></ng-content> </div> <div class=\"td-expansion-summary\" [@tdCollapse]=\"expand\"> <ng-content select=\"td-expansion-summary\"></ng-content> </div> ",
-            inputs: ['disabled', 'disableRipple'],
-            animations: [
-                TdCollapseAnimation(),
-                TdRotateAnimation({ anchor: 'tdRotate' }),
-            ],
-        }),
-        tslib_1.__metadata("design:paramtypes", [Renderer2,
-            ElementRef])
-    ], TdExpansionPanelComponent);
     return TdExpansionPanelComponent;
 }(_TdExpansionPanelMixinBase));
+tslib_1.__decorate([
+    ContentChild(TdExpansionPanelHeaderDirective),
+    tslib_1.__metadata("design:type", TdExpansionPanelHeaderDirective)
+], TdExpansionPanelComponent.prototype, "expansionPanelHeader", void 0);
+tslib_1.__decorate([
+    ContentChild(TdExpansionPanelLabelDirective),
+    tslib_1.__metadata("design:type", TdExpansionPanelLabelDirective)
+], TdExpansionPanelComponent.prototype, "expansionPanelLabel", void 0);
+tslib_1.__decorate([
+    ContentChild(TdExpansionPanelSublabelDirective),
+    tslib_1.__metadata("design:type", TdExpansionPanelSublabelDirective)
+], TdExpansionPanelComponent.prototype, "expansionPanelSublabel", void 0);
+tslib_1.__decorate([
+    Input(),
+    tslib_1.__metadata("design:type", String)
+], TdExpansionPanelComponent.prototype, "label", void 0);
+tslib_1.__decorate([
+    Input(),
+    tslib_1.__metadata("design:type", String)
+], TdExpansionPanelComponent.prototype, "sublabel", void 0);
+tslib_1.__decorate([
+    Input('expand'),
+    tslib_1.__metadata("design:type", Boolean),
+    tslib_1.__metadata("design:paramtypes", [Boolean])
+], TdExpansionPanelComponent.prototype, "expand", null);
+tslib_1.__decorate([
+    Output(),
+    tslib_1.__metadata("design:type", EventEmitter)
+], TdExpansionPanelComponent.prototype, "expanded", void 0);
+tslib_1.__decorate([
+    Output(),
+    tslib_1.__metadata("design:type", EventEmitter)
+], TdExpansionPanelComponent.prototype, "collapsed", void 0);
+TdExpansionPanelComponent = tslib_1.__decorate([
+    Component({
+        selector: 'td-expansion-panel',
+        styles: [":host { display: block; } :host .td-expansion-panel-header { position: relative; outline: none; } :host .td-expansion-panel-header:focus:not(.mat-disabled), :host .td-expansion-panel-header:hover:not(.mat-disabled) { cursor: pointer; } :host .td-expansion-panel-header .td-expansion-panel-header-content { height: 48px; padding: 0 16px; } .td-expansion-label, .td-expansion-sublabel { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 5px; } /deep/ [dir='rtl'] .td-expansion-label, /deep/ [dir='rtl'] .td-expansion-sublabel { margin-left: 5px; margin-right: inherit; } /*# sourceMappingURL=expansion-panel.component.css.map */ "],
+        template: "<div class=\"td-expansion-panel-header\" [class.mat-disabled]=\"disabled\" mdRipple [mdRippleDisabled]=\"disabled || disableRipple\" [tabIndex]=\"disabled? -1 : 0\" (keydown.enter)=\"clickEvent()\" (click)=\"clickEvent()\"> <ng-template [cdkPortalHost]=\"expansionPanelHeader\"></ng-template> <div class=\"td-expansion-panel-header-content\" [class.mat-disabled]=\"disabled\" *ngIf=\"!expansionPanelHeader\" layout=\"row\" layout-align=\"start center\" flex> <div *ngIf=\"label || expansionPanelLabel\" class=\"md-subhead td-expansion-label\" [attr.flex-gt-xs]=\"(sublabel || expansionPanelSublabel) ? 40 : null\"> <ng-template [cdkPortalHost]=\"expansionPanelLabel\"></ng-template> <ng-template [ngIf]=\"!expansionPanelLabel\">{{label}}</ng-template> </div> <div *ngIf=\"sublabel || expansionPanelSublabel\" class=\"md-body-1 td-expansion-sublabel\"> <ng-template [cdkPortalHost]=\"expansionPanelSublabel\"></ng-template> <ng-template [ngIf]=\"!expansionPanelSublabel\">{{sublabel}}</ng-template> </div> <span flex></span> <md-icon class=\"td-expand-icon\" *ngIf=\"!disabled\" [@tdRotate]=\"expand\">keyboard_arrow_down</md-icon> </div> </div> <div class=\"td-expansion-content\" [@tdCollapse]=\"!expand\"> <ng-content></ng-content> </div> <div class=\"td-expansion-summary\" [@tdCollapse]=\"expand\"> <ng-content select=\"td-expansion-summary\"></ng-content> </div> ",
+        inputs: ['disabled', 'disableRipple'],
+        animations: [
+            TdCollapseAnimation(),
+            TdRotateAnimation({ anchor: 'tdRotate' }),
+        ],
+    }),
+    tslib_1.__metadata("design:paramtypes", [Renderer2,
+        ElementRef])
+], TdExpansionPanelComponent);
 export { TdExpansionPanelComponent };
 //# sourceMappingURL=expansion-panel.component.js.map

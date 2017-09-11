@@ -23,12 +23,12 @@ var TdBytesPipe = (function () {
         }
         return parseFloat((bytes / Math.pow(k, i)).toFixed(precision)) + ' ' + sizes[i];
     };
-    TdBytesPipe = tslib_1.__decorate([
-        Pipe({
-            name: 'bytes',
-        })
-    ], TdBytesPipe);
     return TdBytesPipe;
 }());
+TdBytesPipe = tslib_1.__decorate([
+    Pipe({
+        name: 'bytes',
+    })
+], TdBytesPipe);
 export { TdBytesPipe };
 //# sourceMappingURL=bytes.pipe.js.map

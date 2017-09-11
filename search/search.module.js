@@ -10,26 +10,26 @@ export { TdSearchInputComponent } from './search-input/search-input.component';
 var CovalentSearchModule = (function () {
     function CovalentSearchModule() {
     }
-    CovalentSearchModule = tslib_1.__decorate([
-        NgModule({
-            imports: [
-                FormsModule,
-                CommonModule,
-                MdInputModule,
-                MdIconModule,
-                MdButtonModule,
-            ],
-            declarations: [
-                TdSearchInputComponent,
-                TdSearchBoxComponent,
-            ],
-            exports: [
-                TdSearchInputComponent,
-                TdSearchBoxComponent,
-            ],
-        })
-    ], CovalentSearchModule);
     return CovalentSearchModule;
 }());
+CovalentSearchModule = tslib_1.__decorate([
+    NgModule({
+        imports: [
+            FormsModule,
+            CommonModule,
+            MdInputModule,
+            MdIconModule,
+            MdButtonModule,
+        ],
+        declarations: [
+            TdSearchInputComponent,
+            TdSearchBoxComponent,
+        ],
+        exports: [
+            TdSearchInputComponent,
+            TdSearchBoxComponent,
+        ],
+    })
+], CovalentSearchModule);
 export { CovalentSearchModule };
 //# sourceMappingURL=search.module.js.map

@@ -17,12 +17,12 @@ var TdTruncatePipe = (function () {
         }
         return truncated;
     };
-    TdTruncatePipe = tslib_1.__decorate([
-        Pipe({
-            name: 'truncate',
-        })
-    ], TdTruncatePipe);
     return TdTruncatePipe;
 }());
+TdTruncatePipe = tslib_1.__decorate([
+    Pipe({
+        name: 'truncate',
+    })
+], TdTruncatePipe);
 export { TdTruncatePipe };
 //# sourceMappingURL=truncate.pipe.js.map

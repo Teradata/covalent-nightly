@@ -18,23 +18,23 @@ export { TdExpansionPanelGroupComponent } from './expansion-panel-group.componen
 var CovalentExpansionPanelModule = (function () {
     function CovalentExpansionPanelModule() {
     }
-    CovalentExpansionPanelModule = tslib_1.__decorate([
-        NgModule({
-            imports: [
-                CommonModule,
-                MdRippleModule,
-                MdIconModule,
-                PortalModule,
-            ],
-            declarations: [
-                TD_EXPANSION_PANEL,
-            ],
-            exports: [
-                TD_EXPANSION_PANEL,
-            ],
-        })
-    ], CovalentExpansionPanelModule);
     return CovalentExpansionPanelModule;
 }());
+CovalentExpansionPanelModule = tslib_1.__decorate([
+    NgModule({
+        imports: [
+            CommonModule,
+            MdRippleModule,
+            MdIconModule,
+            PortalModule,
+        ],
+        declarations: [
+            TD_EXPANSION_PANEL,
+        ],
+        exports: [
+            TD_EXPANSION_PANEL,
+        ],
+    })
+], CovalentExpansionPanelModule);
 export { CovalentExpansionPanelModule };
 //# sourceMappingURL=expansion-panel.module.js.map

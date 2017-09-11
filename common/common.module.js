@@ -63,33 +63,33 @@ import { IconService } from './services/icon.service';
 var CovalentCommonModule = (function () {
     function CovalentCommonModule() {
     }
-    CovalentCommonModule = tslib_1.__decorate([
-        NgModule({
-            imports: [
-                FormsModule,
-                CommonModule,
-            ],
-            declarations: [
-                TD_FORMS,
-                TD_PIPES,
-                TD_ANIMATIONS,
-                TD_VALIDATORS,
-            ],
-            exports: [
-                FormsModule,
-                CommonModule,
-                TD_FORMS,
-                TD_PIPES,
-                TD_ANIMATIONS,
-                TD_VALIDATORS,
-            ],
-            providers: [
-                RouterPathService,
-                IconService,
-            ],
-        })
-    ], CovalentCommonModule);
     return CovalentCommonModule;
 }());
+CovalentCommonModule = tslib_1.__decorate([
+    NgModule({
+        imports: [
+            FormsModule,
+            CommonModule,
+        ],
+        declarations: [
+            TD_FORMS,
+            TD_PIPES,
+            TD_ANIMATIONS,
+            TD_VALIDATORS,
+        ],
+        exports: [
+            FormsModule,
+            CommonModule,
+            TD_FORMS,
+            TD_PIPES,
+            TD_ANIMATIONS,
+            TD_VALIDATORS,
+        ],
+        providers: [
+            RouterPathService,
+            IconService,
+        ],
+    })
+], CovalentCommonModule);
 export { CovalentCommonModule };
 //# sourceMappingURL=common.module.js.map

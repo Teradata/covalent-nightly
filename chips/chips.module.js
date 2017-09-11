@@ -8,29 +8,29 @@ export { TdChipsComponent, TdChipDirective, TdAutocompleteOptionDirective } from
 var CovalentChipsModule = (function () {
     function CovalentChipsModule() {
     }
-    CovalentChipsModule = tslib_1.__decorate([
-        NgModule({
-            imports: [
-                ReactiveFormsModule,
-                CommonModule,
-                MdInputModule,
-                MdIconModule,
-                MdChipsModule,
-                MdAutocompleteModule,
-            ],
-            declarations: [
-                TdChipsComponent,
-                TdChipDirective,
-                TdAutocompleteOptionDirective,
-            ],
-            exports: [
-                TdChipsComponent,
-                TdChipDirective,
-                TdAutocompleteOptionDirective,
-            ],
-        })
-    ], CovalentChipsModule);
     return CovalentChipsModule;
 }());
+CovalentChipsModule = tslib_1.__decorate([
+    NgModule({
+        imports: [
+            ReactiveFormsModule,
+            CommonModule,
+            MdInputModule,
+            MdIconModule,
+            MdChipsModule,
+            MdAutocompleteModule,
+        ],
+        declarations: [
+            TdChipsComponent,
+            TdChipDirective,
+            TdAutocompleteOptionDirective,
+        ],
+        exports: [
+            TdChipsComponent,
+            TdChipDirective,
+            TdAutocompleteOptionDirective,
+        ],
+    })
+], CovalentChipsModule);
 export { CovalentChipsModule };
 //# sourceMappingURL=chips.module.js.map

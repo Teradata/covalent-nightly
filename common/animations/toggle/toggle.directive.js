@@ -119,35 +119,35 @@ var TdToggleDirective = (function () {
             this._changeDetectorRef.markForCheck();
         }
     };
-    tslib_1.__decorate([
-        Input(),
-        tslib_1.__metadata("design:type", Number)
-    ], TdToggleDirective.prototype, "duration", void 0);
-    tslib_1.__decorate([
-        Input('tdToggle'),
-        tslib_1.__metadata("design:type", Boolean),
-        tslib_1.__metadata("design:paramtypes", [Boolean])
-    ], TdToggleDirective.prototype, "state", null);
-    tslib_1.__decorate([
-        HostBinding('attr.aria-expanded'),
-        tslib_1.__metadata("design:type", Boolean),
-        tslib_1.__metadata("design:paramtypes", [])
-    ], TdToggleDirective.prototype, "ariaExpandedBinding", null);
-    tslib_1.__decorate([
-        HostBinding('attr.aria-hidden'),
-        tslib_1.__metadata("design:type", Boolean),
-        tslib_1.__metadata("design:paramtypes", [])
-    ], TdToggleDirective.prototype, "ariaHiddenBinding", null);
-    TdToggleDirective = tslib_1.__decorate([
-        Directive({
-            selector: '[tdToggle]',
-        }),
-        tslib_1.__metadata("design:paramtypes", [Renderer2,
-            ElementRef,
-            ChangeDetectorRef,
-            AnimationBuilder])
-    ], TdToggleDirective);
     return TdToggleDirective;
 }());
+tslib_1.__decorate([
+    Input(),
+    tslib_1.__metadata("design:type", Number)
+], TdToggleDirective.prototype, "duration", void 0);
+tslib_1.__decorate([
+    Input('tdToggle'),
+    tslib_1.__metadata("design:type", Boolean),
+    tslib_1.__metadata("design:paramtypes", [Boolean])
+], TdToggleDirective.prototype, "state", null);
+tslib_1.__decorate([
+    HostBinding('attr.aria-expanded'),
+    tslib_1.__metadata("design:type", Boolean),
+    tslib_1.__metadata("design:paramtypes", [])
+], TdToggleDirective.prototype, "ariaExpandedBinding", null);
+tslib_1.__decorate([
+    HostBinding('attr.aria-hidden'),
+    tslib_1.__metadata("design:type", Boolean),
+    tslib_1.__metadata("design:paramtypes", [])
+], TdToggleDirective.prototype, "ariaHiddenBinding", null);
+TdToggleDirective = tslib_1.__decorate([
+    Directive({
+        selector: '[tdToggle]',
+    }),
+    tslib_1.__metadata("design:paramtypes", [Renderer2,
+        ElementRef,
+        ChangeDetectorRef,
+        AnimationBuilder])
+], TdToggleDirective);
 export { TdToggleDirective };
 //# sourceMappingURL=toggle.directive.js.map

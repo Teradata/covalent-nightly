@@ -80,64 +80,64 @@ var TdSearchBoxComponent = (function () {
     TdSearchBoxComponent.prototype.handleClear = function () {
         this.onClear.emit(undefined);
     };
-    tslib_1.__decorate([
-        ViewChild(TdSearchInputComponent),
-        tslib_1.__metadata("design:type", TdSearchInputComponent)
-    ], TdSearchBoxComponent.prototype, "_searchInput", void 0);
-    tslib_1.__decorate([
-        Input('backIcon'),
-        tslib_1.__metadata("design:type", String)
-    ], TdSearchBoxComponent.prototype, "backIcon", void 0);
-    tslib_1.__decorate([
-        Input('showUnderline'),
-        tslib_1.__metadata("design:type", Boolean)
-    ], TdSearchBoxComponent.prototype, "showUnderline", void 0);
-    tslib_1.__decorate([
-        Input('debounce'),
-        tslib_1.__metadata("design:type", Number)
-    ], TdSearchBoxComponent.prototype, "debounce", void 0);
-    tslib_1.__decorate([
-        Input('alwaysVisible'),
-        tslib_1.__metadata("design:type", Boolean)
-    ], TdSearchBoxComponent.prototype, "alwaysVisible", void 0);
-    tslib_1.__decorate([
-        Input('placeholder'),
-        tslib_1.__metadata("design:type", String)
-    ], TdSearchBoxComponent.prototype, "placeholder", void 0);
-    tslib_1.__decorate([
-        Output('searchDebounce'),
-        tslib_1.__metadata("design:type", EventEmitter)
-    ], TdSearchBoxComponent.prototype, "onSearchDebounce", void 0);
-    tslib_1.__decorate([
-        Output('search'),
-        tslib_1.__metadata("design:type", EventEmitter)
-    ], TdSearchBoxComponent.prototype, "onSearch", void 0);
-    tslib_1.__decorate([
-        Output('clear'),
-        tslib_1.__metadata("design:type", EventEmitter)
-    ], TdSearchBoxComponent.prototype, "onClear", void 0);
-    TdSearchBoxComponent = tslib_1.__decorate([
-        Component({
-            selector: 'td-search-box',
-            template: "<div class=\"td-search-box\" layout=\"row\" layout-align=\"end center\"> <button md-icon-button type=\"button\" class=\"td-search-icon\" flex=\"none\" (click)=\"searchClicked()\"> <md-icon *ngIf=\"searchVisible && !alwaysVisible\">{{backIcon}}</md-icon> <md-icon *ngIf=\"!searchVisible || alwaysVisible\">search</md-icon> </button> <td-search-input #searchInput [@inputState]=\"alwaysVisible || searchVisible\" [debounce]=\"debounce\" [showUnderline]=\"showUnderline\" [placeholder]=\"placeholder\" (searchDebounce)=\"handleSearchDebounce($event)\" (search)=\"handleSearch($event)\" (clear)=\"handleClear(); toggleVisibility()\"> </td-search-input> </div>",
-            styles: [":host { display: block; } .td-search-box td-search-input { margin-left: 12px; } /deep/ [dir='rtl'] .td-search-box td-search-input { margin-right: 12px; margin-left: 0px !important; } /*# sourceMappingURL=search-box.component.css.map */ "],
-            animations: [
-                trigger('inputState', [
-                    state('0', style({
-                        width: '0%',
-                        margin: '0px',
-                    })),
-                    state('1', style({
-                        width: '100%',
-                        margin: AUTO_STYLE,
-                    })),
-                    transition('0 => 1', animate('200ms ease-in')),
-                    transition('1 => 0', animate('200ms ease-out')),
-                ]),
-            ],
-        })
-    ], TdSearchBoxComponent);
     return TdSearchBoxComponent;
 }());
+tslib_1.__decorate([
+    ViewChild(TdSearchInputComponent),
+    tslib_1.__metadata("design:type", TdSearchInputComponent)
+], TdSearchBoxComponent.prototype, "_searchInput", void 0);
+tslib_1.__decorate([
+    Input('backIcon'),
+    tslib_1.__metadata("design:type", String)
+], TdSearchBoxComponent.prototype, "backIcon", void 0);
+tslib_1.__decorate([
+    Input('showUnderline'),
+    tslib_1.__metadata("design:type", Boolean)
+], TdSearchBoxComponent.prototype, "showUnderline", void 0);
+tslib_1.__decorate([
+    Input('debounce'),
+    tslib_1.__metadata("design:type", Number)
+], TdSearchBoxComponent.prototype, "debounce", void 0);
+tslib_1.__decorate([
+    Input('alwaysVisible'),
+    tslib_1.__metadata("design:type", Boolean)
+], TdSearchBoxComponent.prototype, "alwaysVisible", void 0);
+tslib_1.__decorate([
+    Input('placeholder'),
+    tslib_1.__metadata("design:type", String)
+], TdSearchBoxComponent.prototype, "placeholder", void 0);
+tslib_1.__decorate([
+    Output('searchDebounce'),
+    tslib_1.__metadata("design:type", EventEmitter)
+], TdSearchBoxComponent.prototype, "onSearchDebounce", void 0);
+tslib_1.__decorate([
+    Output('search'),
+    tslib_1.__metadata("design:type", EventEmitter)
+], TdSearchBoxComponent.prototype, "onSearch", void 0);
+tslib_1.__decorate([
+    Output('clear'),
+    tslib_1.__metadata("design:type", EventEmitter)
+], TdSearchBoxComponent.prototype, "onClear", void 0);
+TdSearchBoxComponent = tslib_1.__decorate([
+    Component({
+        selector: 'td-search-box',
+        template: "<div class=\"td-search-box\" layout=\"row\" layout-align=\"end center\"> <button md-icon-button type=\"button\" class=\"td-search-icon\" flex=\"none\" (click)=\"searchClicked()\"> <md-icon *ngIf=\"searchVisible && !alwaysVisible\">{{backIcon}}</md-icon> <md-icon *ngIf=\"!searchVisible || alwaysVisible\">search</md-icon> </button> <td-search-input #searchInput [@inputState]=\"alwaysVisible || searchVisible\" [debounce]=\"debounce\" [showUnderline]=\"showUnderline\" [placeholder]=\"placeholder\" (searchDebounce)=\"handleSearchDebounce($event)\" (search)=\"handleSearch($event)\" (clear)=\"handleClear(); toggleVisibility()\"> </td-search-input> </div>",
+        styles: [":host { display: block; } .td-search-box td-search-input { margin-left: 12px; } /deep/ [dir='rtl'] .td-search-box td-search-input { margin-right: 12px; margin-left: 0px !important; } /*# sourceMappingURL=search-box.component.css.map */ "],
+        animations: [
+            trigger('inputState', [
+                state('0', style({
+                    width: '0%',
+                    margin: '0px',
+                })),
+                state('1', style({
+                    width: '100%',
+                    margin: AUTO_STYLE,
+                })),
+                transition('0 => 1', animate('200ms ease-in')),
+                transition('1 => 0', animate('200ms ease-out')),
+            ]),
+        ],
+    })
+], TdSearchBoxComponent);
 export { TdSearchBoxComponent };
 //# sourceMappingURL=search-box.component.js.map

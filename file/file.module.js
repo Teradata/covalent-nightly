@@ -25,29 +25,29 @@ export { TdFileService } from './services/file.service';
 var CovalentFileModule = (function () {
     function CovalentFileModule() {
     }
-    CovalentFileModule = tslib_1.__decorate([
-        NgModule({
-            imports: [
-                HttpModule,
-                JsonpModule,
-                FormsModule,
-                CommonModule,
-                MdIconModule,
-                MdButtonModule,
-                PortalModule,
-            ],
-            declarations: [
-                TD_FILE,
-            ],
-            exports: [
-                TD_FILE,
-            ],
-            providers: [
-                TdFileService,
-            ],
-        })
-    ], CovalentFileModule);
     return CovalentFileModule;
 }());
+CovalentFileModule = tslib_1.__decorate([
+    NgModule({
+        imports: [
+            HttpModule,
+            JsonpModule,
+            FormsModule,
+            CommonModule,
+            MdIconModule,
+            MdButtonModule,
+            PortalModule,
+        ],
+        declarations: [
+            TD_FILE,
+        ],
+        exports: [
+            TD_FILE,
+        ],
+        providers: [
+            TdFileService,
+        ],
+    })
+], CovalentFileModule);
 export { CovalentFileModule };
 //# sourceMappingURL=file.module.js.map

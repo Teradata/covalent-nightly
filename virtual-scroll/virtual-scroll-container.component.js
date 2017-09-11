@@ -180,42 +180,42 @@ var TdVirtualScrollContainerComponent = (function () {
             _this._changeDetectorRef.markForCheck();
         });
     };
-    tslib_1.__decorate([
-        Input('data'),
-        tslib_1.__metadata("design:type", Array),
-        tslib_1.__metadata("design:paramtypes", [Array])
-    ], TdVirtualScrollContainerComponent.prototype, "data", null);
-    tslib_1.__decorate([
-        ViewChildren('rowElement'),
-        tslib_1.__metadata("design:type", QueryList)
-    ], TdVirtualScrollContainerComponent.prototype, "_rows", void 0);
-    tslib_1.__decorate([
-        ContentChild(TdVirtualScrollRowDirective),
-        tslib_1.__metadata("design:type", TdVirtualScrollRowDirective)
-    ], TdVirtualScrollContainerComponent.prototype, "_rowTemplate", void 0);
-    tslib_1.__decorate([
-        Input('trackBy'),
-        tslib_1.__metadata("design:type", Object)
-    ], TdVirtualScrollContainerComponent.prototype, "trackBy", void 0);
-    tslib_1.__decorate([
-        HostListener('scroll', ['$event']),
-        tslib_1.__metadata("design:type", Function),
-        tslib_1.__metadata("design:paramtypes", [Event]),
-        tslib_1.__metadata("design:returntype", void 0)
-    ], TdVirtualScrollContainerComponent.prototype, "handleScroll", null);
-    TdVirtualScrollContainerComponent = tslib_1.__decorate([
-        Component({
-            selector: 'td-virtual-scroll-container',
-            styles: [":host { display: block; height: 100%; width: 100%; overflow: auto; position: relative; } /*# sourceMappingURL=virtual-scroll-container.component.css.map */ "],
-            template: "<div [style.height.px]=\"totalHeight\"></div> <div [style.transform]=\"offsetTransform\" [style.position]=\"'absolute'\" [style.min-width.%]=\"100\"> <ng-template let-row let-index=\"index\" ngFor [ngForOf]=\"virtualData\" [ngForTrackBy]=\"trackBy\"> <div #rowElement> <ng-template *ngIf=\"_rowTemplate\" [ngTemplateOutlet]=\"_rowTemplate.templateRef\" [ngTemplateOutletContext]=\"{row: row, index: (fromRow + index), first: (fromRow + index) === 0, last: (fromRow + index) === (data.length - 1), odd: ((fromRow + index + 1) % 2) === 1, even: ((fromRow + index + 1) % 2) === 0}\"> </ng-template> </div> </ng-template> </div>",
-            changeDetection: ChangeDetectionStrategy.OnPush,
-        }),
-        tslib_1.__metadata("design:paramtypes", [ElementRef,
-            DomSanitizer,
-            Renderer2,
-            ChangeDetectorRef])
-    ], TdVirtualScrollContainerComponent);
     return TdVirtualScrollContainerComponent;
 }());
+tslib_1.__decorate([
+    Input('data'),
+    tslib_1.__metadata("design:type", Array),
+    tslib_1.__metadata("design:paramtypes", [Array])
+], TdVirtualScrollContainerComponent.prototype, "data", null);
+tslib_1.__decorate([
+    ViewChildren('rowElement'),
+    tslib_1.__metadata("design:type", QueryList)
+], TdVirtualScrollContainerComponent.prototype, "_rows", void 0);
+tslib_1.__decorate([
+    ContentChild(TdVirtualScrollRowDirective),
+    tslib_1.__metadata("design:type", TdVirtualScrollRowDirective)
+], TdVirtualScrollContainerComponent.prototype, "_rowTemplate", void 0);
+tslib_1.__decorate([
+    Input('trackBy'),
+    tslib_1.__metadata("design:type", Object)
+], TdVirtualScrollContainerComponent.prototype, "trackBy", void 0);
+tslib_1.__decorate([
+    HostListener('scroll', ['$event']),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Event]),
+    tslib_1.__metadata("design:returntype", void 0)
+], TdVirtualScrollContainerComponent.prototype, "handleScroll", null);
+TdVirtualScrollContainerComponent = tslib_1.__decorate([
+    Component({
+        selector: 'td-virtual-scroll-container',
+        styles: [":host { display: block; height: 100%; width: 100%; overflow: auto; position: relative; } /*# sourceMappingURL=virtual-scroll-container.component.css.map */ "],
+        template: "<div [style.height.px]=\"totalHeight\"></div> <div [style.transform]=\"offsetTransform\" [style.position]=\"'absolute'\" [style.min-width.%]=\"100\"> <ng-template let-row let-index=\"index\" ngFor [ngForOf]=\"virtualData\" [ngForTrackBy]=\"trackBy\"> <div #rowElement> <ng-template *ngIf=\"_rowTemplate\" [ngTemplateOutlet]=\"_rowTemplate.templateRef\" [ngTemplateOutletContext]=\"{row: row, index: (fromRow + index), first: (fromRow + index) === 0, last: (fromRow + index) === (data.length - 1), odd: ((fromRow + index + 1) % 2) === 1, even: ((fromRow + index + 1) % 2) === 0}\"> </ng-template> </div> </ng-template> </div>",
+        changeDetection: ChangeDetectionStrategy.OnPush,
+    }),
+    tslib_1.__metadata("design:paramtypes", [ElementRef,
+        DomSanitizer,
+        Renderer2,
+        ChangeDetectorRef])
+], TdVirtualScrollContainerComponent);
 export { TdVirtualScrollContainerComponent };
 //# sourceMappingURL=virtual-scroll-container.component.js.map

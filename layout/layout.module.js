@@ -37,27 +37,27 @@ export { TdLayoutComponent, TdLayoutToggleDirective, TdLayoutCloseDirective, TdL
 var CovalentLayoutModule = (function () {
     function CovalentLayoutModule() {
     }
-    CovalentLayoutModule = tslib_1.__decorate([
-        NgModule({
-            imports: [
-                CommonModule,
-                ScrollDispatchModule,
-                MdSidenavModule,
-                MdToolbarModule,
-                MdButtonModule,
-                MdIconModule,
-                MdCardModule,
-                MdListModule,
-            ],
-            declarations: [
-                TD_LAYOUTS,
-            ],
-            exports: [
-                TD_LAYOUTS,
-            ],
-        })
-    ], CovalentLayoutModule);
     return CovalentLayoutModule;
 }());
+CovalentLayoutModule = tslib_1.__decorate([
+    NgModule({
+        imports: [
+            CommonModule,
+            ScrollDispatchModule,
+            MdSidenavModule,
+            MdToolbarModule,
+            MdButtonModule,
+            MdIconModule,
+            MdCardModule,
+            MdListModule,
+        ],
+        declarations: [
+            TD_LAYOUTS,
+        ],
+        exports: [
+            TD_LAYOUTS,
+        ],
+    })
+], CovalentLayoutModule);
 export { CovalentLayoutModule };
 //# sourceMappingURL=layout.module.js.map

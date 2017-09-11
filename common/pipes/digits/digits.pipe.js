@@ -26,14 +26,14 @@ var TdDigitsPipe = (function () {
         var size = sizes[i];
         return this._decimalPipe.transform(parseFloat((digits / Math.pow(k, i)).toFixed(precision))) + (size ? ' ' + size : '');
     };
-    TdDigitsPipe = tslib_1.__decorate([
-        Pipe({
-            name: 'digits',
-        }),
-        tslib_1.__param(0, Inject(LOCALE_ID)),
-        tslib_1.__metadata("design:paramtypes", [String])
-    ], TdDigitsPipe);
     return TdDigitsPipe;
 }());
+TdDigitsPipe = tslib_1.__decorate([
+    Pipe({
+        name: 'digits',
+    }),
+    tslib_1.__param(0, Inject(LOCALE_ID)),
+    tslib_1.__metadata("design:paramtypes", [String])
+], TdDigitsPipe);
 export { TdDigitsPipe };
 //# sourceMappingURL=digits.pipe.js.map

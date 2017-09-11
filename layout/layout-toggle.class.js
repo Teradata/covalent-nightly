@@ -65,18 +65,18 @@ var LayoutToggle = (function () {
             this._renderer.setStyle(this._elementRef.nativeElement, 'display', '');
         }
     };
-    tslib_1.__decorate([
-        Input('hideWhenOpened'),
-        tslib_1.__metadata("design:type", Boolean),
-        tslib_1.__metadata("design:paramtypes", [Boolean])
-    ], LayoutToggle.prototype, "hideWhenOpened", null);
-    tslib_1.__decorate([
-        HostListener('click', ['$event']),
-        tslib_1.__metadata("design:type", Function),
-        tslib_1.__metadata("design:paramtypes", [Event]),
-        tslib_1.__metadata("design:returntype", void 0)
-    ], LayoutToggle.prototype, "clickListener", null);
     return LayoutToggle;
 }());
 export { LayoutToggle };
+tslib_1.__decorate([
+    Input('hideWhenOpened'),
+    tslib_1.__metadata("design:type", Boolean),
+    tslib_1.__metadata("design:paramtypes", [Boolean])
+], LayoutToggle.prototype, "hideWhenOpened", null);
+tslib_1.__decorate([
+    HostListener('click', ['$event']),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Event]),
+    tslib_1.__metadata("design:returntype", void 0)
+], LayoutToggle.prototype, "clickListener", null);
 //# sourceMappingURL=layout-toggle.class.js.map

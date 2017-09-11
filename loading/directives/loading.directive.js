@@ -155,44 +155,44 @@ var TdLoadingDirective = (function () {
             }, this._viewContainerRef, this._templateRef, this._context);
         }
     };
-    tslib_1.__decorate([
-        Input('tdLoading'),
-        tslib_1.__metadata("design:type", String),
-        tslib_1.__metadata("design:paramtypes", [String])
-    ], TdLoadingDirective.prototype, "name", null);
-    tslib_1.__decorate([
-        Input('tdLoadingUntil'),
-        tslib_1.__metadata("design:type", Object),
-        tslib_1.__metadata("design:paramtypes", [Object])
-    ], TdLoadingDirective.prototype, "until", null);
-    tslib_1.__decorate([
-        Input('tdLoadingType'),
-        tslib_1.__metadata("design:type", Number),
-        tslib_1.__metadata("design:paramtypes", [Number])
-    ], TdLoadingDirective.prototype, "type", null);
-    tslib_1.__decorate([
-        Input('tdLoadingMode'),
-        tslib_1.__metadata("design:type", Number),
-        tslib_1.__metadata("design:paramtypes", [Number])
-    ], TdLoadingDirective.prototype, "mode", null);
-    tslib_1.__decorate([
-        Input('tdLoadingStrategy'),
-        tslib_1.__metadata("design:type", Number),
-        tslib_1.__metadata("design:paramtypes", [Number])
-    ], TdLoadingDirective.prototype, "strategy", null);
-    tslib_1.__decorate([
-        Input('tdLoadingColor'),
-        tslib_1.__metadata("design:type", String)
-    ], TdLoadingDirective.prototype, "color", void 0);
-    TdLoadingDirective = tslib_1.__decorate([
-        Directive({
-            selector: '[tdLoading]',
-        }),
-        tslib_1.__metadata("design:paramtypes", [ViewContainerRef,
-            TemplateRef,
-            TdLoadingService])
-    ], TdLoadingDirective);
     return TdLoadingDirective;
 }());
+tslib_1.__decorate([
+    Input('tdLoading'),
+    tslib_1.__metadata("design:type", String),
+    tslib_1.__metadata("design:paramtypes", [String])
+], TdLoadingDirective.prototype, "name", null);
+tslib_1.__decorate([
+    Input('tdLoadingUntil'),
+    tslib_1.__metadata("design:type", Object),
+    tslib_1.__metadata("design:paramtypes", [Object])
+], TdLoadingDirective.prototype, "until", null);
+tslib_1.__decorate([
+    Input('tdLoadingType'),
+    tslib_1.__metadata("design:type", Number),
+    tslib_1.__metadata("design:paramtypes", [Number])
+], TdLoadingDirective.prototype, "type", null);
+tslib_1.__decorate([
+    Input('tdLoadingMode'),
+    tslib_1.__metadata("design:type", Number),
+    tslib_1.__metadata("design:paramtypes", [Number])
+], TdLoadingDirective.prototype, "mode", null);
+tslib_1.__decorate([
+    Input('tdLoadingStrategy'),
+    tslib_1.__metadata("design:type", Number),
+    tslib_1.__metadata("design:paramtypes", [Number])
+], TdLoadingDirective.prototype, "strategy", null);
+tslib_1.__decorate([
+    Input('tdLoadingColor'),
+    tslib_1.__metadata("design:type", String)
+], TdLoadingDirective.prototype, "color", void 0);
+TdLoadingDirective = tslib_1.__decorate([
+    Directive({
+        selector: '[tdLoading]',
+    }),
+    tslib_1.__metadata("design:paramtypes", [ViewContainerRef,
+        TemplateRef,
+        TdLoadingService])
+], TdLoadingDirective);
 export { TdLoadingDirective };
 //# sourceMappingURL=loading.directive.js.map

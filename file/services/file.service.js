@@ -73,11 +73,11 @@ var TdFileService = (function () {
             xhr.send(formData);
         });
     };
-    TdFileService = tslib_1.__decorate([
-        Injectable(),
-        tslib_1.__metadata("design:paramtypes", [])
-    ], TdFileService);
     return TdFileService;
 }());
+TdFileService = tslib_1.__decorate([
+    Injectable(),
+    tslib_1.__metadata("design:paramtypes", [])
+], TdFileService);
 export { TdFileService };
 //# sourceMappingURL=file.service.js.map

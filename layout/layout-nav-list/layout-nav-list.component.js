@@ -86,52 +86,52 @@ var TdLayoutNavListComponent = (function () {
     TdLayoutNavListComponent.prototype.close = function () {
         return this.sidenav.close();
     };
-    tslib_1.__decorate([
-        ViewChild(MdSidenav),
-        tslib_1.__metadata("design:type", MdSidenav)
-    ], TdLayoutNavListComponent.prototype, "sidenav", void 0);
-    tslib_1.__decorate([
-        Input('toolbarTitle'),
-        tslib_1.__metadata("design:type", String)
-    ], TdLayoutNavListComponent.prototype, "toolbarTitle", void 0);
-    tslib_1.__decorate([
-        Input('icon'),
-        tslib_1.__metadata("design:type", String)
-    ], TdLayoutNavListComponent.prototype, "icon", void 0);
-    tslib_1.__decorate([
-        Input('logo'),
-        tslib_1.__metadata("design:type", String)
-    ], TdLayoutNavListComponent.prototype, "logo", void 0);
-    tslib_1.__decorate([
-        Input('color'),
-        tslib_1.__metadata("design:type", String)
-    ], TdLayoutNavListComponent.prototype, "color", void 0);
-    tslib_1.__decorate([
-        Input('mode'),
-        tslib_1.__metadata("design:type", String)
-    ], TdLayoutNavListComponent.prototype, "mode", void 0);
-    tslib_1.__decorate([
-        Input('opened'),
-        tslib_1.__metadata("design:type", Boolean)
-    ], TdLayoutNavListComponent.prototype, "opened", void 0);
-    tslib_1.__decorate([
-        Input('sidenavWidth'),
-        tslib_1.__metadata("design:type", String)
-    ], TdLayoutNavListComponent.prototype, "sidenavWidth", void 0);
-    tslib_1.__decorate([
-        Input('navigationRoute'),
-        tslib_1.__metadata("design:type", String)
-    ], TdLayoutNavListComponent.prototype, "navigationRoute", void 0);
-    TdLayoutNavListComponent = tslib_1.__decorate([
-        Component({
-            selector: 'td-layout-nav-list',
-            styles: [":host { display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-drawer-opened, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-drawer-opening, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-drawer-closed, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-drawer-closing { -webkit-box-shadow: none; box-shadow: none; } :host .list { text-align: start; } :host /deep/ md-sidenav-container.td-layout-nav-list { /* Ensure the left sidenav is a flex column & 100% height */ } :host /deep/ md-sidenav-container.td-layout-nav-list > .mat-drawer-content { -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; } :host /deep/ md-sidenav-container.td-layout-nav-list > md-sidenav { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; } /*# sourceMappingURL=layout-nav-list.component.css.map */ "],
-            template: "<div layout=\"column\" layout-fill> <div flex layout=\"column\" class=\"content md-content\"> <md-sidenav-container fullscreen class=\"td-layout-nav-list\" layout=\"row\" flex> <md-sidenav #sidenav position=\"start\" [mode]=\"mode\" [opened]=\"opened\" [disableClose]=\"disableClose\" [style.max-width]=\"sidenavWidth\" [style.min-width]=\"sidenavWidth\" layout=\"column\"  layout-fill class=\"md-whiteframe-z1\"> <md-toolbar [color]=\"color\" class=\"md-whiteframe-z1\"> <ng-content select=\"[td-menu-button]\"></ng-content> <span *ngIf=\"icon || logo || toolbarTitle\" [class.cursor-pointer]=\"routerEnabled\" (click)=\"handleNavigationClick()\" layout=\"row\" layout-align=\"start center\"> <md-icon *ngIf=\"icon\">{{icon}}</md-icon> <md-icon *ngIf=\"logo && !icon\" class=\"md-icon-logo\" [svgIcon]=\"logo\"></md-icon> <span *ngIf=\"toolbarTitle\">{{toolbarTitle}}</span> </span> <ng-content select=\"[td-sidenav-toolbar-content]\"></ng-content> </md-toolbar> <div flex class=\"list md-content\" cdkScrollable> <ng-content select=\"[td-sidenav-content]\"></ng-content> </div> </md-sidenav> <div layout=\"column\" layout-fill class=\"md-content\"> <md-toolbar [color]=\"color\" class=\"md-whiteframe-z1\"> <ng-content select=\"[td-toolbar-content]\"></ng-content> </md-toolbar> <div class=\"md-content\" flex cdkScrollable> <ng-content></ng-content> </div> <ng-content select=\"td-layout-footer-inner\"></ng-content> </div> </md-sidenav-container> </div> <ng-content select=\"td-layout-footer\"></ng-content> </div>",
-        }),
-        tslib_1.__param(0, Optional()),
-        tslib_1.__metadata("design:paramtypes", [Router])
-    ], TdLayoutNavListComponent);
     return TdLayoutNavListComponent;
 }());
+tslib_1.__decorate([
+    ViewChild(MdSidenav),
+    tslib_1.__metadata("design:type", MdSidenav)
+], TdLayoutNavListComponent.prototype, "sidenav", void 0);
+tslib_1.__decorate([
+    Input('toolbarTitle'),
+    tslib_1.__metadata("design:type", String)
+], TdLayoutNavListComponent.prototype, "toolbarTitle", void 0);
+tslib_1.__decorate([
+    Input('icon'),
+    tslib_1.__metadata("design:type", String)
+], TdLayoutNavListComponent.prototype, "icon", void 0);
+tslib_1.__decorate([
+    Input('logo'),
+    tslib_1.__metadata("design:type", String)
+], TdLayoutNavListComponent.prototype, "logo", void 0);
+tslib_1.__decorate([
+    Input('color'),
+    tslib_1.__metadata("design:type", String)
+], TdLayoutNavListComponent.prototype, "color", void 0);
+tslib_1.__decorate([
+    Input('mode'),
+    tslib_1.__metadata("design:type", String)
+], TdLayoutNavListComponent.prototype, "mode", void 0);
+tslib_1.__decorate([
+    Input('opened'),
+    tslib_1.__metadata("design:type", Boolean)
+], TdLayoutNavListComponent.prototype, "opened", void 0);
+tslib_1.__decorate([
+    Input('sidenavWidth'),
+    tslib_1.__metadata("design:type", String)
+], TdLayoutNavListComponent.prototype, "sidenavWidth", void 0);
+tslib_1.__decorate([
+    Input('navigationRoute'),
+    tslib_1.__metadata("design:type", String)
+], TdLayoutNavListComponent.prototype, "navigationRoute", void 0);
+TdLayoutNavListComponent = tslib_1.__decorate([
+    Component({
+        selector: 'td-layout-nav-list',
+        styles: [":host { display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-drawer-opened, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-drawer-opening, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-drawer-closed, :host md-sidenav-container.td-layout-nav-list > md-sidenav.mat-drawer-closing { -webkit-box-shadow: none; box-shadow: none; } :host .list { text-align: start; } :host /deep/ md-sidenav-container.td-layout-nav-list { /* Ensure the left sidenav is a flex column & 100% height */ } :host /deep/ md-sidenav-container.td-layout-nav-list > .mat-drawer-content { -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; } :host /deep/ md-sidenav-container.td-layout-nav-list > md-sidenav { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; } /*# sourceMappingURL=layout-nav-list.component.css.map */ "],
+        template: "<div layout=\"column\" layout-fill> <div flex layout=\"column\" class=\"content md-content\"> <md-sidenav-container fullscreen class=\"td-layout-nav-list\" layout=\"row\" flex> <md-sidenav #sidenav position=\"start\" [mode]=\"mode\" [opened]=\"opened\" [disableClose]=\"disableClose\" [style.max-width]=\"sidenavWidth\" [style.min-width]=\"sidenavWidth\" layout=\"column\"  layout-fill class=\"md-whiteframe-z1\"> <md-toolbar [color]=\"color\" class=\"md-whiteframe-z1\"> <ng-content select=\"[td-menu-button]\"></ng-content> <span *ngIf=\"icon || logo || toolbarTitle\" [class.cursor-pointer]=\"routerEnabled\" (click)=\"handleNavigationClick()\" layout=\"row\" layout-align=\"start center\"> <md-icon *ngIf=\"icon\">{{icon}}</md-icon> <md-icon *ngIf=\"logo && !icon\" class=\"md-icon-logo\" [svgIcon]=\"logo\"></md-icon> <span *ngIf=\"toolbarTitle\">{{toolbarTitle}}</span> </span> <ng-content select=\"[td-sidenav-toolbar-content]\"></ng-content> </md-toolbar> <div flex class=\"list md-content\" cdkScrollable> <ng-content select=\"[td-sidenav-content]\"></ng-content> </div> </md-sidenav> <div layout=\"column\" layout-fill class=\"md-content\"> <md-toolbar [color]=\"color\" class=\"md-whiteframe-z1\"> <ng-content select=\"[td-toolbar-content]\"></ng-content> </md-toolbar> <div class=\"md-content\" flex cdkScrollable> <ng-content></ng-content> </div> <ng-content select=\"td-layout-footer-inner\"></ng-content> </div> </md-sidenav-container> </div> <ng-content select=\"td-layout-footer\"></ng-content> </div>",
+    }),
+    tslib_1.__param(0, Optional()),
+    tslib_1.__metadata("design:paramtypes", [Router])
+], TdLayoutNavListComponent);
 export { TdLayoutNavListComponent };
 //# sourceMappingURL=layout-nav-list.component.js.map

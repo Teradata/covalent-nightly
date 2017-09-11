@@ -6,15 +6,15 @@ var TdDataTableTemplateDirective = (function (_super) {
     function TdDataTableTemplateDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
-    tslib_1.__decorate([
-        Input(),
-        tslib_1.__metadata("design:type", String)
-    ], TdDataTableTemplateDirective.prototype, "tdDataTableTemplate", void 0);
-    TdDataTableTemplateDirective = tslib_1.__decorate([
-        Directive({ selector: '[tdDataTableTemplate]ng-template' }),
-        tslib_1.__metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
-    ], TdDataTableTemplateDirective);
     return TdDataTableTemplateDirective;
 }(TemplatePortalDirective));
+tslib_1.__decorate([
+    Input(),
+    tslib_1.__metadata("design:type", String)
+], TdDataTableTemplateDirective.prototype, "tdDataTableTemplate", void 0);
+TdDataTableTemplateDirective = tslib_1.__decorate([
+    Directive({ selector: '[tdDataTableTemplate]ng-template' }),
+    tslib_1.__metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
+], TdDataTableTemplateDirective);
 export { TdDataTableTemplateDirective };
 //# sourceMappingURL=data-table-template.directive.js.map

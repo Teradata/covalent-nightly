@@ -6,12 +6,12 @@ var TdVirtualScrollRowDirective = (function (_super) {
     function TdVirtualScrollRowDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
-    TdVirtualScrollRowDirective = tslib_1.__decorate([
-        Directive({ selector: '[tdVirtualScrollRow]' }),
-        tslib_1.__metadata("design:paramtypes", [TemplateRef,
-            ViewContainerRef])
-    ], TdVirtualScrollRowDirective);
     return TdVirtualScrollRowDirective;
 }(TemplatePortalDirective));
+TdVirtualScrollRowDirective = tslib_1.__decorate([
+    Directive({ selector: '[tdVirtualScrollRow]' }),
+    tslib_1.__metadata("design:paramtypes", [TemplateRef,
+        ViewContainerRef])
+], TdVirtualScrollRowDirective);
 export { TdVirtualScrollRowDirective };
 //# sourceMappingURL=virtual-scroll-row.directive.js.map

@@ -14,20 +14,20 @@ var TdAutoTrimDirective = (function () {
             this._model.update.emit(this._model.value.trim());
         }
     };
-    tslib_1.__decorate([
-        HostListener('blur', ['$event']),
-        tslib_1.__metadata("design:type", Function),
-        tslib_1.__metadata("design:paramtypes", [Event]),
-        tslib_1.__metadata("design:returntype", void 0)
-    ], TdAutoTrimDirective.prototype, "onBlur", null);
-    TdAutoTrimDirective = tslib_1.__decorate([
-        Directive({
-            selector: '[tdAutoTrim]',
-        }),
-        tslib_1.__param(0, Optional()), tslib_1.__param(0, Host()),
-        tslib_1.__metadata("design:paramtypes", [NgModel])
-    ], TdAutoTrimDirective);
     return TdAutoTrimDirective;
 }());
+tslib_1.__decorate([
+    HostListener('blur', ['$event']),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Event]),
+    tslib_1.__metadata("design:returntype", void 0)
+], TdAutoTrimDirective.prototype, "onBlur", null);
+TdAutoTrimDirective = tslib_1.__decorate([
+    Directive({
+        selector: '[tdAutoTrim]',
+    }),
+    tslib_1.__param(0, Optional()), tslib_1.__param(0, Host()),
+    tslib_1.__metadata("design:paramtypes", [NgModel])
+], TdAutoTrimDirective);
 export { TdAutoTrimDirective };
 //# sourceMappingURL=auto-trim.directive.js.map
