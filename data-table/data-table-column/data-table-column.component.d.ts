@@ -8,6 +8,8 @@ export declare class TdDataTableColumnComponent {
     private _elementRef;
     private _renderer;
     private _sortOrder;
+    _columnContent: ElementRef;
+    readonly projectedWidth: number;
     /**
      * name?: string
      * Sets unique column [name] for [sortable] events.

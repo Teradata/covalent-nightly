@@ -31,7 +31,7 @@
   -webkit-font-feature-settings: 'liga';
           font-feature-settings: 'liga'; }
 
-md-icon.material-icons, md-icon.material-icons.mat-icon {
+mat-icon.material-icons, mat-icon.material-icons.mat-icon {
   width: 1em;
   height: 1em; }
 
@@ -71,308 +71,308 @@ md-icon.material-icons, md-icon.material-icons.mat-icon {
  * Mixin that creates a new stacking context.
  * see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
  */
-/** Mixin to create distinct classes for fab positions, e.g. ".md-fab-position-bottom-right". */
-[md-fab].md-fab-position-bottom-right,
+/** Mixin to create distinct classes for fab positions, e.g. ".mat-fab-position-bottom-right". */
+[mat-fab].mat-fab-position-bottom-right,
 .mat-fab.mat-fab-position-bottom-right,
-[md-fab].md-fab-bottom-right,
+[mat-fab].mat-fab-bottom-right,
 .mat-fab.mat-fab-bottom-right {
   top: auto;
   right: 20px;
   left: auto;
   bottom: 20px;
   position: absolute; }
-  html[dir=rtl] [md-fab].md-fab-position-bottom-right, html[dir=rtl]
+  html[dir=rtl] [mat-fab].mat-fab-position-bottom-right, html[dir=rtl]
   .mat-fab.mat-fab-position-bottom-right, html[dir=rtl]
-  [md-fab].md-fab-bottom-right, html[dir=rtl]
+  [mat-fab].mat-fab-bottom-right, html[dir=rtl]
   .mat-fab.mat-fab-bottom-right {
     right: auto;
     unicode-bidi: embed; }
-  body[dir=rtl] [md-fab].md-fab-position-bottom-right, body[dir=rtl]
+  body[dir=rtl] [mat-fab].mat-fab-position-bottom-right, body[dir=rtl]
   .mat-fab.mat-fab-position-bottom-right, body[dir=rtl]
-  [md-fab].md-fab-bottom-right, body[dir=rtl]
+  [mat-fab].mat-fab-bottom-right, body[dir=rtl]
   .mat-fab.mat-fab-bottom-right {
     right: auto;
     unicode-bidi: embed; }
-  [dir=rtl] [md-fab].md-fab-position-bottom-right, [dir=rtl]
+  [dir=rtl] [mat-fab].mat-fab-position-bottom-right, [dir=rtl]
   .mat-fab.mat-fab-position-bottom-right, [dir=rtl]
-  [md-fab].md-fab-bottom-right, [dir=rtl]
+  [mat-fab].mat-fab-bottom-right, [dir=rtl]
   .mat-fab.mat-fab-bottom-right {
     right: auto;
     unicode-bidi: embed; }
-  [md-fab].md-fab-position-bottom-right bdo[dir=rtl],
+  [mat-fab].mat-fab-position-bottom-right bdo[dir=rtl],
   .mat-fab.mat-fab-position-bottom-right bdo[dir=rtl],
-  [md-fab].md-fab-bottom-right bdo[dir=rtl],
+  [mat-fab].mat-fab-bottom-right bdo[dir=rtl],
   .mat-fab.mat-fab-bottom-right bdo[dir=rtl] {
     direction: rtl;
     unicode-bidi: bidi-override; }
-  [md-fab].md-fab-position-bottom-right bdo[dir=ltr],
+  [mat-fab].mat-fab-position-bottom-right bdo[dir=ltr],
   .mat-fab.mat-fab-position-bottom-right bdo[dir=ltr],
-  [md-fab].md-fab-bottom-right bdo[dir=ltr],
+  [mat-fab].mat-fab-bottom-right bdo[dir=ltr],
   .mat-fab.mat-fab-bottom-right bdo[dir=ltr] {
     direction: ltr;
     unicode-bidi: bidi-override; }
-  html[dir=rtl] [md-fab].md-fab-position-bottom-right, html[dir=rtl]
+  html[dir=rtl] [mat-fab].mat-fab-position-bottom-right, html[dir=rtl]
   .mat-fab.mat-fab-position-bottom-right, html[dir=rtl]
-  [md-fab].md-fab-bottom-right, html[dir=rtl]
+  [mat-fab].mat-fab-bottom-right, html[dir=rtl]
   .mat-fab.mat-fab-bottom-right {
     left: 20px;
     unicode-bidi: embed; }
-  body[dir=rtl] [md-fab].md-fab-position-bottom-right, body[dir=rtl]
+  body[dir=rtl] [mat-fab].mat-fab-position-bottom-right, body[dir=rtl]
   .mat-fab.mat-fab-position-bottom-right, body[dir=rtl]
-  [md-fab].md-fab-bottom-right, body[dir=rtl]
+  [mat-fab].mat-fab-bottom-right, body[dir=rtl]
   .mat-fab.mat-fab-bottom-right {
     left: 20px;
     unicode-bidi: embed; }
-  [dir=rtl] [md-fab].md-fab-position-bottom-right, [dir=rtl]
+  [dir=rtl] [mat-fab].mat-fab-position-bottom-right, [dir=rtl]
   .mat-fab.mat-fab-position-bottom-right, [dir=rtl]
-  [md-fab].md-fab-bottom-right, [dir=rtl]
+  [mat-fab].mat-fab-bottom-right, [dir=rtl]
   .mat-fab.mat-fab-bottom-right {
     left: 20px;
     unicode-bidi: embed; }
-  [md-fab].md-fab-position-bottom-right bdo[dir=rtl],
+  [mat-fab].mat-fab-position-bottom-right bdo[dir=rtl],
   .mat-fab.mat-fab-position-bottom-right bdo[dir=rtl],
-  [md-fab].md-fab-bottom-right bdo[dir=rtl],
+  [mat-fab].mat-fab-bottom-right bdo[dir=rtl],
   .mat-fab.mat-fab-bottom-right bdo[dir=rtl] {
     direction: rtl;
     unicode-bidi: bidi-override; }
-  [md-fab].md-fab-position-bottom-right bdo[dir=ltr],
+  [mat-fab].mat-fab-position-bottom-right bdo[dir=ltr],
   .mat-fab.mat-fab-position-bottom-right bdo[dir=ltr],
-  [md-fab].md-fab-bottom-right bdo[dir=ltr],
+  [mat-fab].mat-fab-bottom-right bdo[dir=ltr],
   .mat-fab.mat-fab-bottom-right bdo[dir=ltr] {
     direction: ltr;
     unicode-bidi: bidi-override; }
-  [md-fab].md-fab-position-bottom-right.fixed,
+  [mat-fab].mat-fab-position-bottom-right.fixed,
   .mat-fab.mat-fab-position-bottom-right.fixed,
-  [md-fab].md-fab-bottom-right.fixed,
+  [mat-fab].mat-fab-bottom-right.fixed,
   .mat-fab.mat-fab-bottom-right.fixed {
     position: fixed; }
 
-[md-fab].md-fab-position-bottom-left,
+[mat-fab].mat-fab-position-bottom-left,
 .mat-fab.mat-fab-position-bottom-left,
-[md-fab].md-fab-bottom-left,
+[mat-fab].mat-fab-bottom-left,
 .mat-fab.mat-fab-bottom-left {
   top: auto;
   right: auto;
   left: 20px;
   bottom: 20px;
   position: absolute; }
-  html[dir=rtl] [md-fab].md-fab-position-bottom-left, html[dir=rtl]
+  html[dir=rtl] [mat-fab].mat-fab-position-bottom-left, html[dir=rtl]
   .mat-fab.mat-fab-position-bottom-left, html[dir=rtl]
-  [md-fab].md-fab-bottom-left, html[dir=rtl]
+  [mat-fab].mat-fab-bottom-left, html[dir=rtl]
   .mat-fab.mat-fab-bottom-left {
     right: 20px;
     unicode-bidi: embed; }
-  body[dir=rtl] [md-fab].md-fab-position-bottom-left, body[dir=rtl]
+  body[dir=rtl] [mat-fab].mat-fab-position-bottom-left, body[dir=rtl]
   .mat-fab.mat-fab-position-bottom-left, body[dir=rtl]
-  [md-fab].md-fab-bottom-left, body[dir=rtl]
+  [mat-fab].mat-fab-bottom-left, body[dir=rtl]
   .mat-fab.mat-fab-bottom-left {
     right: 20px;
     unicode-bidi: embed; }
-  [dir=rtl] [md-fab].md-fab-position-bottom-left, [dir=rtl]
+  [dir=rtl] [mat-fab].mat-fab-position-bottom-left, [dir=rtl]
   .mat-fab.mat-fab-position-bottom-left, [dir=rtl]
-  [md-fab].md-fab-bottom-left, [dir=rtl]
+  [mat-fab].mat-fab-bottom-left, [dir=rtl]
   .mat-fab.mat-fab-bottom-left {
     right: 20px;
     unicode-bidi: embed; }
-  [md-fab].md-fab-position-bottom-left bdo[dir=rtl],
+  [mat-fab].mat-fab-position-bottom-left bdo[dir=rtl],
   .mat-fab.mat-fab-position-bottom-left bdo[dir=rtl],
-  [md-fab].md-fab-bottom-left bdo[dir=rtl],
+  [mat-fab].mat-fab-bottom-left bdo[dir=rtl],
   .mat-fab.mat-fab-bottom-left bdo[dir=rtl] {
     direction: rtl;
     unicode-bidi: bidi-override; }
-  [md-fab].md-fab-position-bottom-left bdo[dir=ltr],
+  [mat-fab].mat-fab-position-bottom-left bdo[dir=ltr],
   .mat-fab.mat-fab-position-bottom-left bdo[dir=ltr],
-  [md-fab].md-fab-bottom-left bdo[dir=ltr],
+  [mat-fab].mat-fab-bottom-left bdo[dir=ltr],
   .mat-fab.mat-fab-bottom-left bdo[dir=ltr] {
     direction: ltr;
     unicode-bidi: bidi-override; }
-  html[dir=rtl] [md-fab].md-fab-position-bottom-left, html[dir=rtl]
+  html[dir=rtl] [mat-fab].mat-fab-position-bottom-left, html[dir=rtl]
   .mat-fab.mat-fab-position-bottom-left, html[dir=rtl]
-  [md-fab].md-fab-bottom-left, html[dir=rtl]
+  [mat-fab].mat-fab-bottom-left, html[dir=rtl]
   .mat-fab.mat-fab-bottom-left {
     left: auto;
     unicode-bidi: embed; }
-  body[dir=rtl] [md-fab].md-fab-position-bottom-left, body[dir=rtl]
+  body[dir=rtl] [mat-fab].mat-fab-position-bottom-left, body[dir=rtl]
   .mat-fab.mat-fab-position-bottom-left, body[dir=rtl]
-  [md-fab].md-fab-bottom-left, body[dir=rtl]
+  [mat-fab].mat-fab-bottom-left, body[dir=rtl]
   .mat-fab.mat-fab-bottom-left {
     left: auto;
     unicode-bidi: embed; }
-  [dir=rtl] [md-fab].md-fab-position-bottom-left, [dir=rtl]
+  [dir=rtl] [mat-fab].mat-fab-position-bottom-left, [dir=rtl]
   .mat-fab.mat-fab-position-bottom-left, [dir=rtl]
-  [md-fab].md-fab-bottom-left, [dir=rtl]
+  [mat-fab].mat-fab-bottom-left, [dir=rtl]
   .mat-fab.mat-fab-bottom-left {
     left: auto;
     unicode-bidi: embed; }
-  [md-fab].md-fab-position-bottom-left bdo[dir=rtl],
+  [mat-fab].mat-fab-position-bottom-left bdo[dir=rtl],
   .mat-fab.mat-fab-position-bottom-left bdo[dir=rtl],
-  [md-fab].md-fab-bottom-left bdo[dir=rtl],
+  [mat-fab].mat-fab-bottom-left bdo[dir=rtl],
   .mat-fab.mat-fab-bottom-left bdo[dir=rtl] {
     direction: rtl;
     unicode-bidi: bidi-override; }
-  [md-fab].md-fab-position-bottom-left bdo[dir=ltr],
+  [mat-fab].mat-fab-position-bottom-left bdo[dir=ltr],
   .mat-fab.mat-fab-position-bottom-left bdo[dir=ltr],
-  [md-fab].md-fab-bottom-left bdo[dir=ltr],
+  [mat-fab].mat-fab-bottom-left bdo[dir=ltr],
   .mat-fab.mat-fab-bottom-left bdo[dir=ltr] {
     direction: ltr;
     unicode-bidi: bidi-override; }
-  [md-fab].md-fab-position-bottom-left.fixed,
+  [mat-fab].mat-fab-position-bottom-left.fixed,
   .mat-fab.mat-fab-position-bottom-left.fixed,
-  [md-fab].md-fab-bottom-left.fixed,
+  [mat-fab].mat-fab-bottom-left.fixed,
   .mat-fab.mat-fab-bottom-left.fixed {
     position: fixed; }
 
-[md-fab].md-fab-position-top-right,
+[mat-fab].mat-fab-position-top-right,
 .mat-fab.mat-fab-position-top-right,
-[md-fab].md-fab-top-right,
+[mat-fab].mat-fab-top-right,
 .mat-fab.mat-fab-top-right {
   top: 20px;
   right: 20px;
   left: auto;
   bottom: auto;
   position: absolute; }
-  html[dir=rtl] [md-fab].md-fab-position-top-right, html[dir=rtl]
+  html[dir=rtl] [mat-fab].mat-fab-position-top-right, html[dir=rtl]
   .mat-fab.mat-fab-position-top-right, html[dir=rtl]
-  [md-fab].md-fab-top-right, html[dir=rtl]
+  [mat-fab].mat-fab-top-right, html[dir=rtl]
   .mat-fab.mat-fab-top-right {
     right: auto;
     unicode-bidi: embed; }
-  body[dir=rtl] [md-fab].md-fab-position-top-right, body[dir=rtl]
+  body[dir=rtl] [mat-fab].mat-fab-position-top-right, body[dir=rtl]
   .mat-fab.mat-fab-position-top-right, body[dir=rtl]
-  [md-fab].md-fab-top-right, body[dir=rtl]
+  [mat-fab].mat-fab-top-right, body[dir=rtl]
   .mat-fab.mat-fab-top-right {
     right: auto;
     unicode-bidi: embed; }
-  [dir=rtl] [md-fab].md-fab-position-top-right, [dir=rtl]
+  [dir=rtl] [mat-fab].mat-fab-position-top-right, [dir=rtl]
   .mat-fab.mat-fab-position-top-right, [dir=rtl]
-  [md-fab].md-fab-top-right, [dir=rtl]
+  [mat-fab].mat-fab-top-right, [dir=rtl]
   .mat-fab.mat-fab-top-right {
     right: auto;
     unicode-bidi: embed; }
-  [md-fab].md-fab-position-top-right bdo[dir=rtl],
+  [mat-fab].mat-fab-position-top-right bdo[dir=rtl],
   .mat-fab.mat-fab-position-top-right bdo[dir=rtl],
-  [md-fab].md-fab-top-right bdo[dir=rtl],
+  [mat-fab].mat-fab-top-right bdo[dir=rtl],
   .mat-fab.mat-fab-top-right bdo[dir=rtl] {
     direction: rtl;
     unicode-bidi: bidi-override; }
-  [md-fab].md-fab-position-top-right bdo[dir=ltr],
+  [mat-fab].mat-fab-position-top-right bdo[dir=ltr],
   .mat-fab.mat-fab-position-top-right bdo[dir=ltr],
-  [md-fab].md-fab-top-right bdo[dir=ltr],
+  [mat-fab].mat-fab-top-right bdo[dir=ltr],
   .mat-fab.mat-fab-top-right bdo[dir=ltr] {
     direction: ltr;
     unicode-bidi: bidi-override; }
-  html[dir=rtl] [md-fab].md-fab-position-top-right, html[dir=rtl]
+  html[dir=rtl] [mat-fab].mat-fab-position-top-right, html[dir=rtl]
   .mat-fab.mat-fab-position-top-right, html[dir=rtl]
-  [md-fab].md-fab-top-right, html[dir=rtl]
+  [mat-fab].mat-fab-top-right, html[dir=rtl]
   .mat-fab.mat-fab-top-right {
     left: 20px;
     unicode-bidi: embed; }
-  body[dir=rtl] [md-fab].md-fab-position-top-right, body[dir=rtl]
+  body[dir=rtl] [mat-fab].mat-fab-position-top-right, body[dir=rtl]
   .mat-fab.mat-fab-position-top-right, body[dir=rtl]
-  [md-fab].md-fab-top-right, body[dir=rtl]
+  [mat-fab].mat-fab-top-right, body[dir=rtl]
   .mat-fab.mat-fab-top-right {
     left: 20px;
     unicode-bidi: embed; }
-  [dir=rtl] [md-fab].md-fab-position-top-right, [dir=rtl]
+  [dir=rtl] [mat-fab].mat-fab-position-top-right, [dir=rtl]
   .mat-fab.mat-fab-position-top-right, [dir=rtl]
-  [md-fab].md-fab-top-right, [dir=rtl]
+  [mat-fab].mat-fab-top-right, [dir=rtl]
   .mat-fab.mat-fab-top-right {
     left: 20px;
     unicode-bidi: embed; }
-  [md-fab].md-fab-position-top-right bdo[dir=rtl],
+  [mat-fab].mat-fab-position-top-right bdo[dir=rtl],
   .mat-fab.mat-fab-position-top-right bdo[dir=rtl],
-  [md-fab].md-fab-top-right bdo[dir=rtl],
+  [mat-fab].mat-fab-top-right bdo[dir=rtl],
   .mat-fab.mat-fab-top-right bdo[dir=rtl] {
     direction: rtl;
     unicode-bidi: bidi-override; }
-  [md-fab].md-fab-position-top-right bdo[dir=ltr],
+  [mat-fab].mat-fab-position-top-right bdo[dir=ltr],
   .mat-fab.mat-fab-position-top-right bdo[dir=ltr],
-  [md-fab].md-fab-top-right bdo[dir=ltr],
+  [mat-fab].mat-fab-top-right bdo[dir=ltr],
   .mat-fab.mat-fab-top-right bdo[dir=ltr] {
     direction: ltr;
     unicode-bidi: bidi-override; }
-  [md-fab].md-fab-position-top-right.fixed,
+  [mat-fab].mat-fab-position-top-right.fixed,
   .mat-fab.mat-fab-position-top-right.fixed,
-  [md-fab].md-fab-top-right.fixed,
+  [mat-fab].mat-fab-top-right.fixed,
   .mat-fab.mat-fab-top-right.fixed {
     position: fixed; }
 
-[md-fab].md-fab-position-top-left,
+[mat-fab].mat-fab-position-top-left,
 .mat-fab.mat-fab-position-top-left,
-[md-fab].md-fab-top-left,
+[mat-fab].mat-fab-top-left,
 .mat-fab.mat-fab-top-left {
   top: 20px;
   right: auto;
   left: 20px;
   bottom: auto;
   position: absolute; }
-  html[dir=rtl] [md-fab].md-fab-position-top-left, html[dir=rtl]
+  html[dir=rtl] [mat-fab].mat-fab-position-top-left, html[dir=rtl]
   .mat-fab.mat-fab-position-top-left, html[dir=rtl]
-  [md-fab].md-fab-top-left, html[dir=rtl]
+  [mat-fab].mat-fab-top-left, html[dir=rtl]
   .mat-fab.mat-fab-top-left {
     right: 20px;
     unicode-bidi: embed; }
-  body[dir=rtl] [md-fab].md-fab-position-top-left, body[dir=rtl]
+  body[dir=rtl] [mat-fab].mat-fab-position-top-left, body[dir=rtl]
   .mat-fab.mat-fab-position-top-left, body[dir=rtl]
-  [md-fab].md-fab-top-left, body[dir=rtl]
+  [mat-fab].mat-fab-top-left, body[dir=rtl]
   .mat-fab.mat-fab-top-left {
     right: 20px;
     unicode-bidi: embed; }
-  [dir=rtl] [md-fab].md-fab-position-top-left, [dir=rtl]
+  [dir=rtl] [mat-fab].mat-fab-position-top-left, [dir=rtl]
   .mat-fab.mat-fab-position-top-left, [dir=rtl]
-  [md-fab].md-fab-top-left, [dir=rtl]
+  [mat-fab].mat-fab-top-left, [dir=rtl]
   .mat-fab.mat-fab-top-left {
     right: 20px;
     unicode-bidi: embed; }
-  [md-fab].md-fab-position-top-left bdo[dir=rtl],
+  [mat-fab].mat-fab-position-top-left bdo[dir=rtl],
   .mat-fab.mat-fab-position-top-left bdo[dir=rtl],
-  [md-fab].md-fab-top-left bdo[dir=rtl],
+  [mat-fab].mat-fab-top-left bdo[dir=rtl],
   .mat-fab.mat-fab-top-left bdo[dir=rtl] {
     direction: rtl;
     unicode-bidi: bidi-override; }
-  [md-fab].md-fab-position-top-left bdo[dir=ltr],
+  [mat-fab].mat-fab-position-top-left bdo[dir=ltr],
   .mat-fab.mat-fab-position-top-left bdo[dir=ltr],
-  [md-fab].md-fab-top-left bdo[dir=ltr],
+  [mat-fab].mat-fab-top-left bdo[dir=ltr],
   .mat-fab.mat-fab-top-left bdo[dir=ltr] {
     direction: ltr;
     unicode-bidi: bidi-override; }
-  html[dir=rtl] [md-fab].md-fab-position-top-left, html[dir=rtl]
+  html[dir=rtl] [mat-fab].mat-fab-position-top-left, html[dir=rtl]
   .mat-fab.mat-fab-position-top-left, html[dir=rtl]
-  [md-fab].md-fab-top-left, html[dir=rtl]
+  [mat-fab].mat-fab-top-left, html[dir=rtl]
   .mat-fab.mat-fab-top-left {
     left: auto;
     unicode-bidi: embed; }
-  body[dir=rtl] [md-fab].md-fab-position-top-left, body[dir=rtl]
+  body[dir=rtl] [mat-fab].mat-fab-position-top-left, body[dir=rtl]
   .mat-fab.mat-fab-position-top-left, body[dir=rtl]
-  [md-fab].md-fab-top-left, body[dir=rtl]
+  [mat-fab].mat-fab-top-left, body[dir=rtl]
   .mat-fab.mat-fab-top-left {
     left: auto;
     unicode-bidi: embed; }
-  [dir=rtl] [md-fab].md-fab-position-top-left, [dir=rtl]
+  [dir=rtl] [mat-fab].mat-fab-position-top-left, [dir=rtl]
   .mat-fab.mat-fab-position-top-left, [dir=rtl]
-  [md-fab].md-fab-top-left, [dir=rtl]
+  [mat-fab].mat-fab-top-left, [dir=rtl]
   .mat-fab.mat-fab-top-left {
     left: auto;
     unicode-bidi: embed; }
-  [md-fab].md-fab-position-top-left bdo[dir=rtl],
+  [mat-fab].mat-fab-position-top-left bdo[dir=rtl],
   .mat-fab.mat-fab-position-top-left bdo[dir=rtl],
-  [md-fab].md-fab-top-left bdo[dir=rtl],
+  [mat-fab].mat-fab-top-left bdo[dir=rtl],
   .mat-fab.mat-fab-top-left bdo[dir=rtl] {
     direction: rtl;
     unicode-bidi: bidi-override; }
-  [md-fab].md-fab-position-top-left bdo[dir=ltr],
+  [mat-fab].mat-fab-position-top-left bdo[dir=ltr],
   .mat-fab.mat-fab-position-top-left bdo[dir=ltr],
-  [md-fab].md-fab-top-left bdo[dir=ltr],
+  [mat-fab].mat-fab-top-left bdo[dir=ltr],
   .mat-fab.mat-fab-top-left bdo[dir=ltr] {
     direction: ltr;
     unicode-bidi: bidi-override; }
-  [md-fab].md-fab-position-top-left.fixed,
+  [mat-fab].mat-fab-position-top-left.fixed,
   .mat-fab.mat-fab-position-top-left.fixed,
-  [md-fab].md-fab-top-left.fixed,
+  [mat-fab].mat-fab-top-left.fixed,
   .mat-fab.mat-fab-top-left.fixed {
     position: fixed; }
 
-button[md-icon-button].md-icon-button-mini {
+button[mat-icon-button].mat-icon-button-mini {
   height: 24px;
   line-height: 24px;
   width: 24px; }
@@ -380,9 +380,9 @@ button[md-icon-button].md-icon-button-mini {
 html .mat-card {
   padding: 0;
   margin: 8px; }
-  html .mat-card md-card-header {
+  html .mat-card mat-card-header {
     height: auto; }
-  html .mat-card [mdCardAvatar] {
+  html .mat-card [matCardAvatar] {
     font-size: 40px;
     line-height: 40px;
     height: 40px;
@@ -397,14 +397,14 @@ html .mat-card {
   html .mat-card .mat-card-sm-image,
   html .mat-card .mat-card-title-group {
     margin: 0; }
-  html .mat-card md-card-title {
+  html .mat-card mat-card-title {
     padding-top: 16px;
     padding-left: 16px;
     padding-right: 16px; }
-  html .mat-card md-card-subtitle {
+  html .mat-card mat-card-subtitle {
     padding-left: 16px;
     padding-right: 16px; }
-  html .mat-card md-card-content {
+  html .mat-card mat-card-content {
     padding: 16px; }
   html .mat-card .mat-card-actions, html .mat-card .mat-card .mat-card-actions {
     padding: 8px;
@@ -445,60 +445,60 @@ html[dir='rtl'] .mat-card .mat-card-md-image:first-child,
 html[dir='rtl'] .mat-card .mat-card-sm-image:first-child {
   border-top-right-radius: 2px; }
 
-.md-card-colored[href]:hover, .md-card-colored[ng-reflect-href]:hover {
+.mat-card-colored[href]:hover, .mat-card-colored[ng-reflect-href]:hover {
   cursor: pointer;
   -webkit-box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
           box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12); }
 
-.md-card-colored[href]:active, .md-card-colored[ng-reflect-href]:active {
+.mat-card-colored[href]:active, .mat-card-colored[ng-reflect-href]:active {
   -webkit-box-shadow: 0 6px 6px -3px rgba(0, 0, 0, 0.2), 0 10px 14px 1px rgba(0, 0, 0, 0.14), 0 4px 18px 3px rgba(0, 0, 0, 0.12);
           box-shadow: 0 6px 6px -3px rgba(0, 0, 0, 0.2), 0 10px 14px 1px rgba(0, 0, 0, 0.14), 0 4px 18px 3px rgba(0, 0, 0, 0.12); }
-  .md-card-colored[href]:active md-toolbar, .md-card-colored[ng-reflect-href]:active md-toolbar {
+  .mat-card-colored[href]:active mat-toolbar, .mat-card-colored[ng-reflect-href]:active mat-toolbar {
     background-color: rgba(255, 255, 255, 0.2);
     background-position: -100% 100%; }
 
-.md-card-colored[href] md-toolbar, .md-card-colored[ng-reflect-href] md-toolbar {
+.mat-card-colored[href] mat-toolbar, .mat-card-colored[ng-reflect-href] mat-toolbar {
   background-size: 200% 100%;
   background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, transparent), color-stop(50%, rgba(255, 255, 255, 0.2)));
   background-image: linear-gradient(to right, transparent 50%, rgba(255, 255, 255, 0.2) 50%);
   -webkit-transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease;
   transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease; }
 
-.md-card-colored md-toolbar {
+.mat-card-colored mat-toolbar {
   height: 148px;
   border-radius: 2px 2px 0 0;
   overflow: hidden; }
-  .md-card-colored md-toolbar md-icon,
-  .md-card-colored md-toolbar .mat-icon {
+  .mat-card-colored mat-toolbar mat-icon,
+  .mat-card-colored mat-toolbar .mat-icon {
     opacity: 0.65;
     color: white;
     font-size: 8rem;
     text-shadow: 0px 0px rgba(0, 0, 0, 0.01), 1px 1px rgba(0, 0, 0, 0.01), 2px 2px rgba(0, 0, 0, 0.01), 3px 3px rgba(0, 0, 0, 0.01), 4px 4px rgba(0, 0, 0, 0.01), 5px 5px rgba(0, 0, 0, 0.01), 6px 6px rgba(0, 0, 0, 0.01), 7px 7px rgba(0, 0, 0, 0.01), 8px 8px rgba(0, 0, 0, 0.01), 9px 9px rgba(0, 0, 0, 0.01), 10px 10px rgba(0, 0, 0, 0.01), 11px 11px rgba(0, 0, 0, 0.01), 12px 12px rgba(0, 0, 0, 0.01), 13px 13px rgba(0, 0, 0, 0.01), 14px 14px rgba(0, 0, 0, 0.01), 15px 15px rgba(0, 0, 0, 0.01), 16px 16px rgba(0, 0, 0, 0.01), 17px 17px rgba(0, 0, 0, 0.01), 18px 18px rgba(0, 0, 0, 0.01), 19px 19px rgba(0, 0, 0, 0.01), 20px 20px rgba(0, 0, 0, 0.01), 21px 21px rgba(0, 0, 0, 0.01), 22px 22px rgba(0, 0, 0, 0.01), 23px 23px rgba(0, 0, 0, 0.01), 24px 24px rgba(0, 0, 0, 0.01), 25px 25px rgba(0, 0, 0, 0.01), 26px 26px rgba(0, 0, 0, 0.01), 27px 27px rgba(0, 0, 0, 0.01), 28px 28px rgba(0, 0, 0, 0.01), 29px 29px rgba(0, 0, 0, 0.01), 30px 30px rgba(0, 0, 0, 0.01), 31px 31px rgba(0, 0, 0, 0.01), 32px 32px rgba(0, 0, 0, 0.01), 33px 33px rgba(0, 0, 0, 0.01), 34px 34px rgba(0, 0, 0, 0.01), 35px 35px rgba(0, 0, 0, 0.01), 36px 36px rgba(0, 0, 0, 0.01), 37px 37px rgba(0, 0, 0, 0.01), 38px 38px rgba(0, 0, 0, 0.01), 39px 39px rgba(0, 0, 0, 0.01), 40px 40px rgba(0, 0, 0, 0.01), 41px 41px rgba(0, 0, 0, 0.01), 42px 42px rgba(0, 0, 0, 0.01), 43px 43px rgba(0, 0, 0, 0.01), 44px 44px rgba(0, 0, 0, 0.01), 45px 45px rgba(0, 0, 0, 0.01), 46px 46px rgba(0, 0, 0, 0.01), 47px 47px rgba(0, 0, 0, 0.01), 48px 48px rgba(0, 0, 0, 0.01), 49px 49px rgba(0, 0, 0, 0.01), 50px 50px rgba(0, 0, 0, 0.01), 51px 51px rgba(0, 0, 0, 0.01), 52px 52px rgba(0, 0, 0, 0.01), 53px 53px rgba(0, 0, 0, 0.01), 54px 54px rgba(0, 0, 0, 0.01), 55px 55px rgba(0, 0, 0, 0.01), 56px 56px rgba(0, 0, 0, 0.01), 57px 57px rgba(0, 0, 0, 0.01), 58px 58px rgba(0, 0, 0, 0.01), 59px 59px rgba(0, 0, 0, 0.01), 60px 60px rgba(0, 0, 0, 0.01), 61px 61px rgba(0, 0, 0, 0.01), 62px 62px rgba(0, 0, 0, 0.01), 63px 63px rgba(0, 0, 0, 0.01), 64px 64px rgba(0, 0, 0, 0.01), 65px 65px rgba(0, 0, 0, 0.01), 66px 66px rgba(0, 0, 0, 0.01), 67px 67px rgba(0, 0, 0, 0.01), 68px 68px rgba(0, 0, 0, 0.01), 69px 69px rgba(0, 0, 0, 0.01), 70px 70px rgba(0, 0, 0, 0.01), 71px 71px rgba(0, 0, 0, 0.01), 72px 72px rgba(0, 0, 0, 0.01), 73px 73px rgba(0, 0, 0, 0.01), 74px 74px rgba(0, 0, 0, 0.01), 75px 75px rgba(0, 0, 0, 0.01), 76px 76px rgba(0, 0, 0, 0.01), 77px 77px rgba(0, 0, 0, 0.01), 78px 78px rgba(0, 0, 0, 0.01), 79px 79px rgba(0, 0, 0, 0.01), 80px 80px rgba(0, 0, 0, 0.01), 81px 81px rgba(0, 0, 0, 0.01), 82px 82px rgba(0, 0, 0, 0.01), 83px 83px rgba(0, 0, 0, 0.01), 84px 84px rgba(0, 0, 0, 0.01), 85px 85px rgba(0, 0, 0, 0.01), 86px 86px rgba(0, 0, 0, 0.01), 87px 87px rgba(0, 0, 0, 0.01), 88px 88px rgba(0, 0, 0, 0.01), 89px 89px rgba(0, 0, 0, 0.01), 90px 90px rgba(0, 0, 0, 0.01), 91px 91px rgba(0, 0, 0, 0.01), 92px 92px rgba(0, 0, 0, 0.01), 93px 93px rgba(0, 0, 0, 0.01), 94px 94px rgba(0, 0, 0, 0.01), 95px 95px rgba(0, 0, 0, 0.01), 96px 96px rgba(0, 0, 0, 0.01), 97px 97px rgba(0, 0, 0, 0.01), 98px 98px rgba(0, 0, 0, 0.01), 99px 99px rgba(0, 0, 0, 0.01), 100px 100px rgba(0, 0, 0, 0.01), 101px 101px rgba(0, 0, 0, 0.01), 102px 102px rgba(0, 0, 0, 0.01), 103px 103px rgba(0, 0, 0, 0.01), 104px 104px rgba(0, 0, 0, 0.01), 105px 105px rgba(0, 0, 0, 0.01), 106px 106px rgba(0, 0, 0, 0.01), 107px 107px rgba(0, 0, 0, 0.01), 108px 108px rgba(0, 0, 0, 0.01), 109px 109px rgba(0, 0, 0, 0.01), 110px 110px rgba(0, 0, 0, 0.01), 111px 111px rgba(0, 0, 0, 0.01), 112px 112px rgba(0, 0, 0, 0.01), 113px 113px rgba(0, 0, 0, 0.01), 114px 114px rgba(0, 0, 0, 0.01), 115px 115px rgba(0, 0, 0, 0.01), 116px 116px rgba(0, 0, 0, 0.01), 117px 117px rgba(0, 0, 0, 0.01), 118px 118px rgba(0, 0, 0, 0.01), 119px 119px rgba(0, 0, 0, 0.01), 120px 120px rgba(0, 0, 0, 0.01), 121px 121px rgba(0, 0, 0, 0.01), 122px 122px rgba(0, 0, 0, 0.01), 123px 123px rgba(0, 0, 0, 0.01), 124px 124px rgba(0, 0, 0, 0.01), 125px 125px rgba(0, 0, 0, 0.01), 126px 126px rgba(0, 0, 0, 0.01), 127px 127px rgba(0, 0, 0, 0.01), 128px 128px rgba(0, 0, 0, 0.01), 129px 129px rgba(0, 0, 0, 0.01), 130px 130px rgba(0, 0, 0, 0.01), 131px 131px rgba(0, 0, 0, 0.01), 132px 132px rgba(0, 0, 0, 0.01), 133px 133px rgba(0, 0, 0, 0.01), 134px 134px rgba(0, 0, 0, 0.01), 135px 135px rgba(0, 0, 0, 0.01), 136px 136px rgba(0, 0, 0, 0.01), 137px 137px rgba(0, 0, 0, 0.01), 138px 138px rgba(0, 0, 0, 0.01), 139px 139px rgba(0, 0, 0, 0.01), 140px 140px rgba(0, 0, 0, 0.01), 141px 141px rgba(0, 0, 0, 0.01), 142px 142px rgba(0, 0, 0, 0.01), 143px 143px rgba(0, 0, 0, 0.01), 144px 144px rgba(0, 0, 0, 0.01), 145px 145px rgba(0, 0, 0, 0.01), 146px 146px rgba(0, 0, 0, 0.01), 147px 147px rgba(0, 0, 0, 0.01), 148px 148px rgba(0, 0, 0, 0.01), 149px 149px rgba(0, 0, 0, 0.01), 150px 150px rgba(0, 0, 0, 0.01), 151px 151px rgba(0, 0, 0, 0.01), 152px 152px rgba(0, 0, 0, 0.01), 153px 153px rgba(0, 0, 0, 0.01), 154px 154px rgba(0, 0, 0, 0.01), 155px 155px rgba(0, 0, 0, 0.01), 156px 156px rgba(0, 0, 0, 0.01), 157px 157px rgba(0, 0, 0, 0.01), 158px 158px rgba(0, 0, 0, 0.01), 159px 159px rgba(0, 0, 0, 0.01), 160px 160px rgba(0, 0, 0, 0.01), 161px 161px rgba(0, 0, 0, 0.01), 162px 162px rgba(0, 0, 0, 0.01), 163px 163px rgba(0, 0, 0, 0.01), 164px 164px rgba(0, 0, 0, 0.01), 165px 165px rgba(0, 0, 0, 0.01), 166px 166px rgba(0, 0, 0, 0.01), 167px 167px rgba(0, 0, 0, 0.01), 168px 168px rgba(0, 0, 0, 0.01), 169px 169px rgba(0, 0, 0, 0.01), 170px 170px rgba(0, 0, 0, 0.01), 171px 171px rgba(0, 0, 0, 0.01), 172px 172px rgba(0, 0, 0, 0.01), 173px 173px rgba(0, 0, 0, 0.01), 174px 174px rgba(0, 0, 0, 0.01), 175px 175px rgba(0, 0, 0, 0.01), 176px 176px rgba(0, 0, 0, 0.01), 177px 177px rgba(0, 0, 0, 0.01), 178px 178px rgba(0, 0, 0, 0.01), 179px 179px rgba(0, 0, 0, 0.01), 180px 180px rgba(0, 0, 0, 0.01), 181px 181px rgba(0, 0, 0, 0.01), 182px 182px rgba(0, 0, 0, 0.01), 183px 183px rgba(0, 0, 0, 0.01), 184px 184px rgba(0, 0, 0, 0.01), 185px 185px rgba(0, 0, 0, 0.01), 186px 186px rgba(0, 0, 0, 0.01), 187px 187px rgba(0, 0, 0, 0.01), 188px 188px rgba(0, 0, 0, 0.01), 189px 189px rgba(0, 0, 0, 0.01), 190px 190px rgba(0, 0, 0, 0.01), 191px 191px rgba(0, 0, 0, 0.01), 192px 192px rgba(0, 0, 0, 0.01), 193px 193px rgba(0, 0, 0, 0.01), 194px 194px rgba(0, 0, 0, 0.01), 195px 195px rgba(0, 0, 0, 0.01), 196px 196px rgba(0, 0, 0, 0.01), 197px 197px rgba(0, 0, 0, 0.01), 198px 198px rgba(0, 0, 0, 0.01), 199px 199px rgba(0, 0, 0, 0.01), 200px 200px rgba(0, 0, 0, 0.01); }
 
-md-chip-list:not(.mat-chip-list-stacked) .md-chip-list-wrapper .mat-chip:not(.mat-basic-chip) {
+mat-chip-list:not(.mat-chip-list-stacked) .mat-chip-list-wrapper .mat-chip:not(.mat-basic-chip) {
   margin: 0 3px 0 3px; }
-  md-chip-list:not(.mat-chip-list-stacked) .md-chip-list-wrapper .mat-chip:not(.mat-basic-chip):first-child {
+  mat-chip-list:not(.mat-chip-list-stacked) .mat-chip-list-wrapper .mat-chip:not(.mat-basic-chip):first-child {
     margin-left: 0;
     margin-right: 3px; }
-    [dir='rtl'] md-chip-list:not(.mat-chip-list-stacked) .md-chip-list-wrapper .mat-chip:not(.mat-basic-chip):first-child {
+    [dir='rtl'] mat-chip-list:not(.mat-chip-list-stacked) .mat-chip-list-wrapper .mat-chip:not(.mat-basic-chip):first-child {
       margin-left: 3px;
       margin-right: 0; }
 
-md-chip-list.mat-chip-list-stacked .md-chip-list-wrapper {
+mat-chip-list.mat-chip-list-stacked .mat-chip-list-wrapper {
   display: block; }
-  md-chip-list.mat-chip-list-stacked .md-chip-list-wrapper .mat-chip:not(.mat-basic-chip) {
+  mat-chip-list.mat-chip-list-stacked .mat-chip-list-wrapper .mat-chip:not(.mat-basic-chip) {
     display: block;
     margin: 0;
     margin-bottom: 8px; }
-    [dir='rtl'] md-chip-list.mat-chip-list-stacked .md-chip-list-wrapper .mat-chip:not(.mat-basic-chip) {
+    [dir='rtl'] mat-chip-list.mat-chip-list-stacked .mat-chip-list-wrapper .mat-chip:not(.mat-basic-chip) {
       margin: 0;
       margin-bottom: 8px; }
-    md-chip-list.mat-chip-list-stacked .md-chip-list-wrapper .mat-chip:not(.mat-basic-chip):last-child, [dir='rtl'] md-chip-list.mat-chip-list-stacked .md-chip-list-wrapper .mat-chip:not(.mat-basic-chip):last-child {
+    mat-chip-list.mat-chip-list-stacked .mat-chip-list-wrapper .mat-chip:not(.mat-basic-chip):last-child, [dir='rtl'] mat-chip-list.mat-chip-list-stacked .mat-chip-list-wrapper .mat-chip:not(.mat-basic-chip):last-child {
       margin-bottom: 0; }
 
-md-sidenav-container > md-content,
-md-sidenav-container > [md-content],
-md-sidenav-container > .md-content {
+mat-sidenav-container > md-content,
+mat-sidenav-container > [md-content],
+mat-sidenav-container > .md-content {
   height: 100%;
   overflow: hidden; }
 
@@ -524,76 +524,76 @@ md-content,
   .md-content.autoScroll {
     -webkit-overflow-scrolling: auto; }
 
-md-divider[md-inset] {
+mat-divider[matInset] {
   margin-left: 72px;
   margin-right: 0; }
-  html[dir=rtl] md-divider[md-inset] {
+  html[dir=rtl] mat-divider[matInset] {
     margin-left: 0;
     unicode-bidi: embed; }
-  body[dir=rtl] md-divider[md-inset] {
+  body[dir=rtl] mat-divider[matInset] {
     margin-left: 0;
     unicode-bidi: embed; }
-  [dir=rtl] md-divider[md-inset] {
+  [dir=rtl] mat-divider[matInset] {
     margin-left: 0;
     unicode-bidi: embed; }
-  md-divider[md-inset] bdo[dir=rtl] {
+  mat-divider[matInset] bdo[dir=rtl] {
     direction: rtl;
     unicode-bidi: bidi-override; }
-  md-divider[md-inset] bdo[dir=ltr] {
+  mat-divider[matInset] bdo[dir=ltr] {
     direction: ltr;
     unicode-bidi: bidi-override; }
-  html[dir=rtl] md-divider[md-inset] {
+  html[dir=rtl] mat-divider[matInset] {
     margin-right: 72px;
     unicode-bidi: embed; }
-  body[dir=rtl] md-divider[md-inset] {
+  body[dir=rtl] mat-divider[matInset] {
     margin-right: 72px;
     unicode-bidi: embed; }
-  [dir=rtl] md-divider[md-inset] {
+  [dir=rtl] mat-divider[matInset] {
     margin-right: 72px;
     unicode-bidi: embed; }
-  md-divider[md-inset] bdo[dir=rtl] {
+  mat-divider[matInset] bdo[dir=rtl] {
     direction: rtl;
     unicode-bidi: bidi-override; }
-  md-divider[md-inset] bdo[dir=ltr] {
+  mat-divider[matInset] bdo[dir=ltr] {
     direction: ltr;
     unicode-bidi: bidi-override; }
 
-md-divider[mat-inset] {
+mat-divider[mat-inset] {
   margin-left: 72px;
   margin-right: 0; }
-  html[dir=rtl] md-divider[mat-inset] {
+  html[dir=rtl] mat-divider[mat-inset] {
     margin-left: 0;
     unicode-bidi: embed; }
-  body[dir=rtl] md-divider[mat-inset] {
+  body[dir=rtl] mat-divider[mat-inset] {
     margin-left: 0;
     unicode-bidi: embed; }
-  [dir=rtl] md-divider[mat-inset] {
+  [dir=rtl] mat-divider[mat-inset] {
     margin-left: 0;
     unicode-bidi: embed; }
-  md-divider[mat-inset] bdo[dir=rtl] {
+  mat-divider[mat-inset] bdo[dir=rtl] {
     direction: rtl;
     unicode-bidi: bidi-override; }
-  md-divider[mat-inset] bdo[dir=ltr] {
+  mat-divider[mat-inset] bdo[dir=ltr] {
     direction: ltr;
     unicode-bidi: bidi-override; }
-  html[dir=rtl] md-divider[mat-inset] {
+  html[dir=rtl] mat-divider[mat-inset] {
     margin-right: 72px;
     unicode-bidi: embed; }
-  body[dir=rtl] md-divider[mat-inset] {
+  body[dir=rtl] mat-divider[mat-inset] {
     margin-right: 72px;
     unicode-bidi: embed; }
-  [dir=rtl] md-divider[mat-inset] {
+  [dir=rtl] mat-divider[mat-inset] {
     margin-right: 72px;
     unicode-bidi: embed; }
-  md-divider[mat-inset] bdo[dir=rtl] {
+  mat-divider[mat-inset] bdo[dir=rtl] {
     direction: rtl;
     unicode-bidi: bidi-override; }
-  md-divider[mat-inset] bdo[dir=ltr] {
+  mat-divider[mat-inset] bdo[dir=ltr] {
     direction: ltr;
     unicode-bidi: bidi-override; }
 
-md-list-item md-icon[mdListAvatar],
-.mat-list-item-content md-icon[mdListAvatar] {
+mat-list-item mat-icon[matListAvatar],
+.mat-list-item-content mat-icon[matListAvatar] {
   -ms-flex-align: center;
   -webkit-box-align: center;
           align-items: center;
@@ -606,7 +606,7 @@ md-list-item md-icon[mdListAvatar],
   display: -ms-flexbox;
   display: flex; }
 
-.mat-icon.md-icon-logo {
+.mat-icon.mat-icon-logo {
   height: 24px;
   width: 100px; }
 
@@ -621,41 +621,41 @@ md-list-item md-icon[mdListAvatar],
  * Mixin that creates a new stacking context.
  * see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
  */
-md-sidenav {
+mat-sidenav {
   width: 320px; }
-  md-sidenav .mat-list-item-content md-icon {
+  mat-sidenav .mat-list-item-content mat-icon {
     margin-left: 0px;
     margin-right: 16px;
     color: #737373;
     fill: #737373; }
-    html[dir=rtl] md-sidenav .mat-list-item-content md-icon {
+    html[dir=rtl] mat-sidenav .mat-list-item-content mat-icon {
       margin-left: 16px;
       unicode-bidi: embed; }
-    body[dir=rtl] md-sidenav .mat-list-item-content md-icon {
+    body[dir=rtl] mat-sidenav .mat-list-item-content mat-icon {
       margin-left: 16px;
       unicode-bidi: embed; }
-    [dir=rtl] md-sidenav .mat-list-item-content md-icon {
+    [dir=rtl] mat-sidenav .mat-list-item-content mat-icon {
       margin-left: 16px;
       unicode-bidi: embed; }
-    md-sidenav .mat-list-item-content md-icon bdo[dir=rtl] {
+    mat-sidenav .mat-list-item-content mat-icon bdo[dir=rtl] {
       direction: rtl;
       unicode-bidi: bidi-override; }
-    md-sidenav .mat-list-item-content md-icon bdo[dir=ltr] {
+    mat-sidenav .mat-list-item-content mat-icon bdo[dir=ltr] {
       direction: ltr;
       unicode-bidi: bidi-override; }
-    html[dir=rtl] md-sidenav .mat-list-item-content md-icon {
+    html[dir=rtl] mat-sidenav .mat-list-item-content mat-icon {
       margin-right: 0px;
       unicode-bidi: embed; }
-    body[dir=rtl] md-sidenav .mat-list-item-content md-icon {
+    body[dir=rtl] mat-sidenav .mat-list-item-content mat-icon {
       margin-right: 0px;
       unicode-bidi: embed; }
-    [dir=rtl] md-sidenav .mat-list-item-content md-icon {
+    [dir=rtl] mat-sidenav .mat-list-item-content mat-icon {
       margin-right: 0px;
       unicode-bidi: embed; }
-    md-sidenav .mat-list-item-content md-icon bdo[dir=rtl] {
+    mat-sidenav .mat-list-item-content mat-icon bdo[dir=rtl] {
       direction: rtl;
       unicode-bidi: bidi-override; }
-    md-sidenav .mat-list-item-content md-icon bdo[dir=ltr] {
+    mat-sidenav .mat-list-item-content mat-icon bdo[dir=ltr] {
       direction: ltr;
       unicode-bidi: bidi-override; }
 
@@ -14294,10 +14294,10 @@ md-sidenav {
   [hide-xl]:not([show-xl]):not([show-gt-lg]):not([show]) {
     display: none; } }
 
-md-list md-list-item [mdListAvatar],
-md-list a[md-list-item] [mdListAvatar],
-md-nav-list md-list-item [mdListAvatar],
-md-nav-list a[md-list-item] [mdListAvatar] {
+mat-list mat-list-item [matListAvatar],
+mat-list a[mat-list-item] [matListAvatar],
+mat-nav-list mat-list-item [matListAvatar],
+mat-nav-list a[mat-list-item] [matListAvatar] {
   min-width: 40px; }
 
 html, body {
@@ -14493,28 +14493,28 @@ input[type="search"] {
   .md-padding {
     padding: 16px; } }
 
-md-sidenav [md-list-item], md-sidenav [md-list-item]:active, md-sidenav [md-list-item]:focus {
+mat-sidenav [mat-list-item], mat-sidenav [mat-list-item]:active, mat-sidenav [mat-list-item]:focus {
   outline: none; }
 
-md-toolbar [md-button]:first-of-type:not(:last-child) {
+mat-toolbar [mat-button]:first-of-type:not(:last-child) {
   margin-left: -6px; }
-  [dir='rtl'] md-toolbar [md-button]:first-of-type:not(:last-child) {
+  [dir='rtl'] mat-toolbar [mat-button]:first-of-type:not(:last-child) {
     margin-right: -6px;
     margin-left: 0; }
 
-md-toolbar [md-button]:last-of-type:not(:first-child) {
+mat-toolbar [mat-button]:last-of-type:not(:first-child) {
   margin-right: -6px; }
-  [dir='rtl'] md-toolbar [md-button]:last-of-type:not(:first-child) {
+  [dir='rtl'] mat-toolbar [mat-button]:last-of-type:not(:first-child) {
     margin-left: -6px;
     margin-right: 0; }
 
-md-toolbar .md-icon-logo {
+mat-toolbar .mat-icon-logo {
   margin-right: 10px; }
-  [dir='rtl'] md-toolbar .md-icon-logo {
+  [dir='rtl'] mat-toolbar .mat-icon-logo {
     margin-left: 10px;
     margin-right: 0; }
 
-md-toolbar [md-icon-button] {
+mat-toolbar [mat-icon-button] {
   margin: 0 6px; }
 
 /**
@@ -14593,7 +14593,7 @@ body {
   body .md-caption {
     font-size: 12px;
     letter-spacing: 0.020em; }
-  body .md-button {
+  body .mat-button {
     letter-spacing: 0.010em; }
 
 .md-whiteframe-1dp, .md-whiteframe-z1 {

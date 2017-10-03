@@ -2,7 +2,7 @@ import * as tslib_1 from "tslib";
 import { Component, ViewChild, Input, Output, EventEmitter, Optional } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Dir } from '@angular/cdk/bidi';
-import { MdInput } from '@angular/material';
+import { MatInput } from '@angular/material';
 import { debounceTime } from 'rxjs/operator/debounceTime';
 import { skip } from 'rxjs/operator/skip';
 var TdSearchInputComponent = (function () {
@@ -83,8 +83,8 @@ var TdSearchInputComponent = (function () {
     return TdSearchInputComponent;
 }());
 tslib_1.__decorate([
-    ViewChild(MdInput),
-    tslib_1.__metadata("design:type", MdInput)
+    ViewChild(MatInput),
+    tslib_1.__metadata("design:type", MatInput)
 ], TdSearchInputComponent.prototype, "_input", void 0);
 tslib_1.__decorate([
     Input('showUnderline'),
@@ -117,8 +117,8 @@ tslib_1.__decorate([
 TdSearchInputComponent = tslib_1.__decorate([
     Component({
         selector: 'td-search-input',
-        template: "<div class=\"td-search-input\" layout=\"row\" layout-align=\"end center\"> <md-form-field [class.mat-hide-underline]=\"!showUnderline\" floatPlaceholder=\"never\" flex> <input mdInput #searchElement type=\"search\" [(ngModel)]=\"value\" [placeholder]=\"placeholder\" (blur)=\"handleBlur()\" (search)=\"stopPropagation($event)\" (keyup.enter)=\"handleSearch($event)\"/> </md-form-field> <button md-icon-button type=\"button\" [@searchState]=\"(searchElement.value ?  'show' : (isRTL ? 'hide-left' : 'hide-right'))\" (click)=\"clearSearch()\" flex=\"none\"> <md-icon>cancel</md-icon> </button> </div>",
-        styles: [".td-search-input { overflow-x: hidden; } .td-search-input /deep/ md-form-field.mat-hide-underline .mat-form-field-underline { display: none; } /*# sourceMappingURL=search-input.component.css.map */ "],
+        template: "<div class=\"td-search-input\" layout=\"row\" layout-align=\"end center\"> <mat-form-field [class.mat-hide-underline]=\"!showUnderline\" floatPlaceholder=\"never\" flex> <input matInput #searchElement type=\"search\" [(ngModel)]=\"value\" [placeholder]=\"placeholder\" (blur)=\"handleBlur()\" (search)=\"stopPropagation($event)\" (keyup.enter)=\"handleSearch($event)\"/> </mat-form-field> <button mat-icon-button type=\"button\" [@searchState]=\"(searchElement.value ?  'show' : (isRTL ? 'hide-left' : 'hide-right'))\" (click)=\"clearSearch()\" flex=\"none\"> <mat-icon>cancel</mat-icon> </button> </div>",
+        styles: [".td-search-input { overflow-x: hidden; } .td-search-input /deep/ mat-form-field.mat-hide-underline .mat-form-field-underline { display: none; } /*# sourceMappingURL=search-input.component.css.map */ "],
         animations: [
             trigger('searchState', [
                 state('hide-left', style({

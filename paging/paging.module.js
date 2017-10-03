@@ -1,7 +1,7 @@
 import * as tslib_1 from "tslib";
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MdIconModule, MdButtonModule } from '@angular/material';
+import { MatIconModule, MatButtonModule } from '@angular/material';
 import { TdPagingBarComponent } from './paging-bar.component';
 export { TdPagingBarComponent } from './paging-bar.component';
 var CovalentPagingModule = (function () {
@@ -13,8 +13,8 @@ CovalentPagingModule = tslib_1.__decorate([
     NgModule({
         imports: [
             CommonModule,
-            MdIconModule,
-            MdButtonModule,
+            MatIconModule,
+            MatButtonModule,
         ],
         declarations: [
             TdPagingBarComponent,

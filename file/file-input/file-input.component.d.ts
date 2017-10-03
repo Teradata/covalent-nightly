@@ -23,7 +23,7 @@ export declare class TdFileInputComponent extends _TdFileInputMixinBase implemen
     readonly inputElement: HTMLInputElement;
     /**
      * color?: string
-     * Sets button color. Uses same color palette accepted as [mdButton].
+     * Sets button color. Uses same color palette accepted as [MatButton].
      */
     color: string;
     /**

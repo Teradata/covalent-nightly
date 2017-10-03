@@ -2,7 +2,7 @@ import { DoCheck, QueryList, OnInit, ElementRef, TemplateRef, ViewContainerRef, 
 import { EventEmitter } from '@angular/core';
 import { ControlValueAccessor, FormControl } from '@angular/forms';
 import { TemplatePortalDirective } from '@angular/cdk/portal';
-import { MdChip, MdInput, MdOption, MdAutocompleteTrigger } from '@angular/material';
+import { MatChip, MatInput, MatOption, MatAutocompleteTrigger } from '@angular/material';
 import { ICanDisable } from '../common/common.module';
 export declare class TdChipDirective extends TemplatePortalDirective {
     constructor(templateRef: TemplateRef<any>, viewContainerRef: ViewContainerRef);
@@ -35,23 +35,23 @@ export declare class TdChipsComponent extends _TdChipsMixinBase implements Contr
     private _tabIndex;
     _internalClick: boolean;
     _nativeInput: ElementRef;
-    _inputChild: MdInput;
-    _autocompleteTrigger: MdAutocompleteTrigger;
-    _chipsChildren: QueryList<MdChip>;
+    _inputChild: MatInput;
+    _autocompleteTrigger: MatAutocompleteTrigger;
+    _chipsChildren: QueryList<MatChip>;
     _chipTemplate: TdChipDirective;
     _autocompleteOptionTemplate: TdAutocompleteOptionDirective;
-    _options: QueryList<MdOption>;
+    _options: QueryList<MatOption>;
     /**
      * Flag that is true when autocomplete is focused.
      */
     readonly focused: boolean;
     /**
-     * FormControl for the mdInput element.
+     * FormControl for the matInput element.
      */
     inputControl: FormControl;
     /**
      * items?: any[]
-     * Renders the `md-autocomplete` with the provided list to display as options.
+     * Renders the `mat-autocomplete` with the provided list to display as options.
      */
     items: any[];
     /**

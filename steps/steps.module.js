@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PortalModule } from '@angular/cdk/portal';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
-import { MdIconModule, MdRippleModule } from '@angular/material';
+import { MatIconModule, MatRippleModule } from '@angular/material';
 import { CovalentCommonModule } from '../common/common.module';
 // Steps
 import { TdStepsComponent } from './steps.component';
@@ -30,8 +30,8 @@ CovalentStepsModule = tslib_1.__decorate([
     NgModule({
         imports: [
             CommonModule,
-            MdIconModule,
-            MdRippleModule,
+            MatIconModule,
+            MatRippleModule,
             PortalModule,
             ScrollDispatchModule,
             CovalentCommonModule,

@@ -21,6 +21,14 @@ export var TdDataTableSortingOrder;
     TdDataTableSortingOrder[TdDataTableSortingOrder["Ascending"] = 'ASC'] = "Ascending";
     TdDataTableSortingOrder[TdDataTableSortingOrder["Descending"] = 'DESC'] = "Descending";
 })(TdDataTableSortingOrder || (TdDataTableSortingOrder = {}));
+/**
+ * Constant to set the rows offset before and after the viewport
+ */
+var TD_VIRTUAL_OFFSET = 2;
+/**
+ * Constant to set default row height if none is provided
+ */
+var TD_VIRTUAL_DEFAULT_ROW_HEIGHT = 48;
 var TdDataTableComponent = (function () {
     function TdDataTableComponent(_document, _elementRef, _domSanitizer, _changeDetectorRef) {
         this._document = _document;
@@ -31,10 +39,19 @@ var TdDataTableComponent = (function () {
         this._widths = [];
         this._onResize = new Subject();
         this._scrollHorizontalOffset = 0;
-        this._scrollVerticalOffset = 0;
-        this._hostHeight = 0;
         this._onHorizontalScroll = new Subject();
         this._onVerticalScroll = new Subject();
+        // Array of cached row heights to allow dynamic row heights
+        this._rowHeightCache = [];
+        // Total pseudo height of all the elements
+        this._totalHeight = 0;
+        // Total host height for the viewport
+        this._hostHeight = 0;
+        // Scrolled vertical pixels
+        this._scrollVerticalOffset = 0;
+        // Variables that set from and to which rows will be rendered
+        this._fromRow = 0;
+        this._toRow = 0;
         /**
          * Implemented as part of ControlValueAccessor.
          */
@@ -103,38 +120,13 @@ var TdDataTableComponent = (function () {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(TdDataTableComponent.prototype, "rowHeight", {
-        /**
-         * Returns the height of the row
-         * For now we assume thats 49px.
-         */
-        get: function () {
-            return 49;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(TdDataTableComponent.prototype, "offsetRows", {
-        /**
-         * Returns the number of rows that are rendered outside the viewport.
-         */
-        get: function () {
-            return 2;
-        },
-        enumerable: true,
-        configurable: true
-    });
     Object.defineProperty(TdDataTableComponent.prototype, "offsetTransform", {
         /**
          * Returns the offset style with a proper calculation on how much it should move
          * over the y axis of the total height
          */
         get: function () {
-            var offset = 0;
-            if (this._scrollVerticalOffset > (this.offsetRows * this.rowHeight)) {
-                offset = this.fromRow * this.rowHeight;
-            }
-            return this._domSanitizer.bypassSecurityTrustStyle('translateY(' + (offset - this.totalHeight) + 'px)');
+            return this._offsetTransform;
         },
         enumerable: true,
         configurable: true
@@ -144,10 +136,7 @@ var TdDataTableComponent = (function () {
          * Returns the assumed total height of the rows
          */
         get: function () {
-            if (this._data) {
-                return this._data.length * this.rowHeight;
-            }
-            return 0;
+            return this._totalHeight;
         },
         enumerable: true,
         configurable: true
@@ -157,12 +146,7 @@ var TdDataTableComponent = (function () {
          * Returns the initial row to render in the viewport
          */
         get: function () {
-            if (this._data) {
-                // we calculate how many rows would have been scrolled minus an offset
-                var fromRow = Math.floor((this._scrollVerticalOffset / this.rowHeight)) - this.offsetRows;
-                return fromRow > 0 ? fromRow : 0;
-            }
-            return 0;
+            return this._fromRow;
         },
         enumerable: true,
         configurable: true
@@ -172,15 +156,7 @@ var TdDataTableComponent = (function () {
          * Returns the last row to render in the viewport
          */
         get: function () {
-            if (this._data) {
-                // we calculate how many rows would fit in the viewport and add an offset
-                var toRow = Math.floor((this._hostHeight / this.rowHeight)) + this.fromRow + (this.offsetRows * 2);
-                if (toRow > this._data.length) {
-                    toRow = this._data.length;
-                }
-                return toRow;
-            }
-            return 0;
+            return this._toRow;
         },
         enumerable: true,
         configurable: true
@@ -208,7 +184,7 @@ var TdDataTableComponent = (function () {
     Object.defineProperty(TdDataTableComponent.prototype, "indeterminate", {
         /**
          * Returns true if all values are not deselected
-         * and atleast one is.
+         * and at least one is.
          */
         get: function () {
             return this._indeterminate;
@@ -242,11 +218,19 @@ var TdDataTableComponent = (function () {
         set: function (data) {
             var _this = this;
             this._data = data;
+            this._rowHeightCache = [];
             Promise.resolve().then(function () {
                 _this.refresh();
                 // scroll back to the top if the data has changed
                 _this._scrollableDiv.nativeElement.scrollTop = 0;
             });
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TdDataTableComponent.prototype, "virtualData", {
+        get: function () {
+            return this._virtualData;
         },
         enumerable: true,
         configurable: true
@@ -405,8 +389,14 @@ var TdDataTableComponent = (function () {
     TdDataTableComponent.prototype.ngOnInit = function () {
         var _this = this;
         // initialize observable for resize calculations
-        this._resizeSubs = debounceTime.call(this._onResize.asObservable(), 10).subscribe(function () {
+        this._resizeSubs = this._onResize.asObservable().subscribe(function () {
+            if (_this._rows) {
+                _this._rows.toArray().forEach(function (row, index) {
+                    _this._rowHeightCache[_this.fromRow + index] = row.height + 1;
+                });
+            }
             _this._calculateWidths();
+            _this._calculateVirtualRows();
         });
         // initialize observable for scroll column header reposition
         this._horizontalScrollSubs = this._onHorizontalScroll.asObservable()
@@ -418,6 +408,7 @@ var TdDataTableComponent = (function () {
         this._verticalScrollSubs = this._onVerticalScroll.asObservable()
             .subscribe(function (verticalScroll) {
             _this._scrollVerticalOffset = verticalScroll;
+            _this._calculateVirtualRows();
             _this._changeDetectorRef.markForCheck();
         });
     };
@@ -446,6 +437,7 @@ var TdDataTableComponent = (function () {
             // if the height of the viewport has changed, then we mark for check
             if (this._hostHeight !== newHostHeight) {
                 this._hostHeight = newHostHeight;
+                this._calculateVirtualRows();
                 this._changeDetectorRef.markForCheck();
             }
         }
@@ -459,6 +451,7 @@ var TdDataTableComponent = (function () {
         this._rowsChangedSubs = debounceTime.call(this._rows.changes, 0).subscribe(function () {
             _this._onResize.next();
         });
+        this._calculateVirtualRows();
     };
     /**
      * Unsubscribes observables when data table is destroyed
@@ -503,15 +496,6 @@ var TdDataTableComponent = (function () {
         }
         return undefined;
     };
-    /**
-     * Returns the width needed for the cells via index
-     */
-    TdDataTableComponent.prototype.getWidth = function (index) {
-        if (this._colElements && this._colElements.toArray()[index]) {
-            return this._colElements.toArray()[index].nativeElement.getBoundingClientRect().width;
-        }
-        return undefined;
-    };
     TdDataTableComponent.prototype.getCellValue = function (column, value) {
         if (column.nested === undefined || column.nested) {
             return this._getNestedValue(column.name, value);
@@ -534,6 +518,7 @@ var TdDataTableComponent = (function () {
      * Refreshes data table and rerenders [data] and [columns]
      */
     TdDataTableComponent.prototype.refresh = function () {
+        this._calculateVirtualRows();
         this._calculateWidths();
         this._calculateCheckboxState();
         this._changeDetectorRef.markForCheck();
@@ -702,7 +687,6 @@ var TdDataTableComponent = (function () {
      * Handle all keyup events when focusing a data table row
      */
     TdDataTableComponent.prototype._rowKeyup = function (event, row, index) {
-        var _this = this;
         switch (event.keyCode) {
             case ENTER:
             case SPACE:
@@ -714,18 +698,9 @@ var TdDataTableComponent = (function () {
             case UP_ARROW:
                 /**
                  * if users presses the up arrow, we focus the prev row
-                 * unless its the first row, then we move to the last row
+                 * unless its the first row
                  */
-                if (index === 0) {
-                    if (!event.shiftKey) {
-                        this._scrollableDiv.nativeElement.scrollTop = this.totalHeight;
-                        var subs_1 = this._rows.changes.subscribe(function () {
-                            subs_1.unsubscribe();
-                            _this._rows.toArray()[_this._rows.toArray().length - 1].focus();
-                        });
-                    }
-                }
-                else {
+                if (index > 0) {
                     this._rows.toArray()[index - 1].focus();
                 }
                 this.blockEvent(event);
@@ -736,18 +711,9 @@ var TdDataTableComponent = (function () {
             case DOWN_ARROW:
                 /**
                  * if users presses the down arrow, we focus the next row
-                 * unless its the last row, then we move to the first row
+                 * unless its the last row
                  */
-                if (index === (this._rows.toArray().length - 1)) {
-                    if (!event.shiftKey) {
-                        this._scrollableDiv.nativeElement.scrollTop = 0;
-                        var subs_2 = this._rows.changes.subscribe(function () {
-                            subs_2.unsubscribe();
-                            _this._rows.toArray()[0].focus();
-                        });
-                    }
-                }
-                else {
+                if (index < (this._rows.toArray().length - 1)) {
                     this._rows.toArray()[index + 1].focus();
                 }
                 this.blockEvent(event);
@@ -794,10 +760,10 @@ var TdDataTableComponent = (function () {
     TdDataTableComponent.prototype._doSelection = function (row) {
         var _this = this;
         var wasSelected = this.isRowSelected(row);
-        if (!this._multiple) {
-            this.clearModel();
-        }
         if (!wasSelected) {
+            if (!this._multiple) {
+                this.clearModel();
+            }
             this._value.push(row);
         }
         else {
@@ -903,11 +869,15 @@ var TdDataTableComponent = (function () {
             min: false,
             max: false,
         };
+        // flag to see if we need to skip the min width projection
+        // depending if a width or min width has been provided
+        var skipMinWidthProjection = false;
         if (this.columns[index]) {
             // if the provided width has min/max, then we check to see if we need to set it
             if (typeof this.columns[index].width === 'object') {
                 var widthOpts = this.columns[index].width;
                 // if the column width is less than the configured min, we override it
+                skipMinWidthProjection = (widthOpts && !!widthOpts.min);
                 if (widthOpts && widthOpts.min >= this._widths[index].value) {
                     this._widths[index].value = widthOpts.min;
                     this._widths[index].min = true;
@@ -921,12 +891,13 @@ var TdDataTableComponent = (function () {
             }
             else if (typeof this.columns[index].width === 'number') {
                 this._widths[index].value = this.columns[index].width;
-                this._widths[index].limit = true;
+                skipMinWidthProjection = this._widths[index].limit = true;
             }
         }
-        // if there wasnt any width provided, we set a min of 100px
-        if (this._widths[index].value < 100) {
-            this._widths[index].value = 100;
+        // if there wasn't any width or min width provided, we set a min to what the column width min should be
+        if (!skipMinWidthProjection &&
+            this._widths[index].value < this._colElements.toArray()[index].projectedWidth) {
+            this._widths[index].value = this._colElements.toArray()[index].projectedWidth;
             this._widths[index].min = true;
             this._widths[index].limit = false;
         }
@@ -937,6 +908,74 @@ var TdDataTableComponent = (function () {
     TdDataTableComponent.prototype._calculateWidth = function () {
         var renderedColumns = this.columns.filter(function (col) { return !col.hidden; });
         return Math.floor(this.hostWidth / renderedColumns.length);
+    };
+    /**
+     * Method to calculate the rows to be rendered in the viewport
+     */
+    TdDataTableComponent.prototype._calculateVirtualRows = function () {
+        var _this = this;
+        var scrolledRows = 0;
+        if (this._data) {
+            this._totalHeight = 0;
+            var rowHeightSum_1 = 0;
+            // loop through all rows to see if we have their height cached
+            // and sum them all to calculate the total height
+            this._data.forEach(function (d, index) {
+                // iterate through all rows at first and assume all
+                // rows are the same height as the first one
+                if (!_this._rowHeightCache[index]) {
+                    _this._rowHeightCache[index] = _this._rowHeightCache[0] || TD_VIRTUAL_DEFAULT_ROW_HEIGHT;
+                }
+                rowHeightSum_1 += _this._rowHeightCache[index];
+                // check how many rows have been scrolled
+                if (_this._scrollVerticalOffset - rowHeightSum_1 > 0) {
+                    scrolledRows++;
+                }
+            });
+            this._totalHeight = rowHeightSum_1;
+            // set the initial row to be rendered taking into account the row offset
+            var fromRow = scrolledRows - TD_VIRTUAL_OFFSET;
+            this._fromRow = fromRow > 0 ? fromRow : 0;
+            var hostHeight = this._hostHeight;
+            var index = 0;
+            // calculate how many rows can fit in the viewport
+            while (hostHeight > 0) {
+                hostHeight -= this._rowHeightCache[this.fromRow + index];
+                index++;
+            }
+            // set the last row to be rendered taking into account the row offset
+            var range = (index - 1) + (TD_VIRTUAL_OFFSET * 2);
+            var toRow = range + this.fromRow;
+            // if last row is greater than the total length, then we use the total length
+            if (isFinite(toRow) && toRow > this._data.length) {
+                toRow = this._data.length;
+            }
+            else if (!isFinite(toRow)) {
+                toRow = TD_VIRTUAL_OFFSET;
+            }
+            this._toRow = toRow;
+        }
+        else {
+            this._totalHeight = 0;
+            this._fromRow = 0;
+            this._toRow = 0;
+        }
+        var offset = 0;
+        // calculate the proper offset depending on how many rows have been scrolled
+        if (scrolledRows > TD_VIRTUAL_OFFSET) {
+            for (var index = 0; index < this.fromRow; index++) {
+                offset += this._rowHeightCache[index];
+            }
+        }
+        this._offsetTransform = this._domSanitizer.bypassSecurityTrustStyle('translateY(' + (offset - this.totalHeight) + 'px)');
+        if (this._data) {
+            this._virtualData = this.data.slice(this.fromRow, this.toRow);
+        }
+        // mark for check at the end of the queue so we are sure
+        // that the changes will be marked
+        Promise.resolve().then(function () {
+            _this._changeDetectorRef.markForCheck();
+        });
     };
     return TdDataTableComponent;
 }());
@@ -949,7 +988,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", ElementRef)
 ], TdDataTableComponent.prototype, "_scrollableDiv", void 0);
 tslib_1.__decorate([
-    ViewChildren('columnElement', { read: ElementRef }),
+    ViewChildren('columnElement'),
     tslib_1.__metadata("design:type", QueryList)
 ], TdDataTableComponent.prototype, "_colElements", void 0);
 tslib_1.__decorate([
@@ -1025,8 +1064,8 @@ TdDataTableComponent = tslib_1.__decorate([
     Component({
         providers: [TD_DATA_TABLE_CONTROL_VALUE_ACCESSOR],
         selector: 'td-data-table',
-        styles: [":host { display: block; overflow: hidden; } :host .td-data-table-scrollable { position: relative; overflow: auto; height: calc(100% - 56px); } table.td-data-table { width: auto !important; } table.td-data-table.mat-selectable tbody > tr.td-data-table-row { -webkit-transition: background-color 0.2s; transition: background-color 0.2s; } table.td-data-table.mat-selectable .td-data-table-column:first-child > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable th.td-data-table-column:first-child > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable td.td-data-table-cell:first-child > .td-data-table-column-content-wrapper { width: 18px; min-width: 18px; padding: 0 24px; } table.td-data-table.mat-selectable .td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) > .td-data-table-column-content-wrapper { padding-left: 0px; } [dir='rtl'] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, [dir='rtl'] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, [dir='rtl'] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) > .td-data-table-column-content-wrapper { padding-right: 0px; padding-left: 28px; } table.td-data-table td.mat-checkbox-cell, table.td-data-table th.mat-checkbox-column { width: 42px; font-size: 0 !important; } table.td-data-table td.mat-checkbox-cell md-pseudo-checkbox, table.td-data-table th.mat-checkbox-column md-pseudo-checkbox { width: 18px; height: 18px; } /deep/ table.td-data-table td.mat-checkbox-cell md-pseudo-checkbox.mat-pseudo-checkbox-checked::after, /deep/ table.td-data-table th.mat-checkbox-column md-pseudo-checkbox.mat-pseudo-checkbox-checked::after { width: 11px !important; height: 4px !important; } table.td-data-table td.mat-checkbox-cell md-checkbox /deep/ .mat-checkbox-inner-container, table.td-data-table th.mat-checkbox-column md-checkbox /deep/ .mat-checkbox-inner-container { width: 18px; height: 18px; margin: 0; } /*# sourceMappingURL=data-table.component.css.map */ "],
-        template: "<table td-data-table [style.left.px]=\"columnsLeftScroll\" [class.mat-selectable]=\"selectable\"> <tr td-data-table-column-row> <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"selectable\"> <md-checkbox #checkBoxAll *ngIf=\"multiple\" [disabled]=\"!hasData\" [indeterminate]=\"indeterminate && !allSelected && hasData\" [checked]=\"allSelected && hasData\" (click)=\"blockEvent($event); selectAll(!checkBoxAll.checked)\" (keyup.enter)=\"selectAll(!checkBoxAll.checked)\" (keyup.space)=\"selectAll(!checkBoxAll.checked)\" (keydown.space)=\"blockEvent($event)\"> </md-checkbox> </th> <th td-data-table-column #columnElement *ngFor=\"let column of columns; let i = index;\" [style.min-width.px]=\"getColumnWidth(i)\" [style.max-width.px]=\"getColumnWidth(i)\" [name]=\"column.name\" [numeric]=\"column.numeric\" [active]=\"(column.sortable || sortable) && column === sortByColumn\" [sortable]=\"column.sortable || sortable\" [sortOrder]=\"sortOrderEnum\" [hidden]=\"column.hidden\" (sortChange)=\"handleSort(column)\"> <span [mdTooltip]=\"column.tooltip\">{{column.label}}</span> </th> </tr> </table> <div #scrollableDiv class=\"td-data-table-scrollable\" (scroll)=\"handleScroll($event)\"> <div [style.height.px]=\"totalHeight\"></div> <table td-data-table [style.transform]=\"offsetTransform\" [style.position]=\"'absolute'\" [class.mat-selectable]=\"selectable\" [class.mat-clickable]=\"clickable\"> <tr td-data-table-row #dtRow [tabIndex]=\"selectable ? 0 : -1\" [selected]=\"(clickable || selectable) && isRowSelected(row)\" *ngFor=\"let row of data | slice:fromRow:toRow; let rowIndex = index\" (click)=\"handleRowClick(row, $event)\" (keyup)=\"selectable && _rowKeyup($event, row, rowIndex)\" (keydown.space)=\"blockEvent($event)\" (keydown.shift.space)=\"blockEvent($event)\" (keydown.shift)=\"disableTextSelection()\" (keyup.shift)=\"enableTextSelection()\"> <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"selectable\"> <md-pseudo-checkbox [state]=\"dtRow.selected ? 'checked' : 'unchecked'\" (mousedown)=\"disableTextSelection()\" (mouseup)=\"enableTextSelection()\" stopRowClick (click)=\"select(row, $event, fromRow + rowIndex)\"> </md-pseudo-checkbox> </td> <td td-data-table-cell [numeric]=\"column.numeric\" [hidden]=\"column.hidden\" *ngFor=\"let column of columns; let i = index\" [style.min-width.px]=\"getWidth(i)\" [style.max-width.px]=\"getWidth(i)\"> <span class=\"md-body-1\" *ngIf=\"!getTemplateRef(column.name)\">{{column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row)}}</span> <ng-template *ngIf=\"getTemplateRef(column.name)\" [ngTemplateOutlet]=\"getTemplateRef(column.name)\" [ngTemplateOutletContext]=\"{ value: getCellValue(column, row), row: row, column: column.name }\"> </ng-template> </td> </tr> </table> </div> <ng-content></ng-content>",
+        styles: [":host { display: block; overflow: hidden; } :host .td-data-table-scrollable { position: relative; overflow: auto; height: calc(100% - 56px); } table.td-data-table { width: auto !important; } table.td-data-table.mat-selectable tbody > tr.td-data-table-row { -webkit-transition: background-color 0.2s; transition: background-color 0.2s; } table.td-data-table.mat-selectable .td-data-table-column:first-child > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable th.td-data-table-column:first-child > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable td.td-data-table-cell:first-child > .td-data-table-column-content-wrapper { width: 18px; min-width: 18px; padding: 0 24px; } table.td-data-table.mat-selectable .td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) > .td-data-table-column-content-wrapper { padding-left: 0px; } [dir='rtl'] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, [dir='rtl'] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, [dir='rtl'] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) > .td-data-table-column-content-wrapper { padding-right: 0px; padding-left: 28px; } table.td-data-table td.mat-checkbox-cell, table.td-data-table th.mat-checkbox-column { min-width: 42px; width: 42px; font-size: 0 !important; } table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox, table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox { width: 18px; height: 18px; } /deep/ table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after, /deep/ table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after { width: 11px !important; height: 4px !important; } table.td-data-table td.mat-checkbox-cell mat-checkbox /deep/ .mat-checkbox-inner-container, table.td-data-table th.mat-checkbox-column mat-checkbox /deep/ .mat-checkbox-inner-container { width: 18px; height: 18px; margin: 0; } /*# sourceMappingURL=data-table.component.css.map */ "],
+        template: "<table td-data-table [style.left.px]=\"columnsLeftScroll\" [class.mat-selectable]=\"selectable\"> <tr td-data-table-column-row> <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"selectable\"> <mat-checkbox #checkBoxAll *ngIf=\"multiple\" [disabled]=\"!hasData\" [indeterminate]=\"indeterminate && !allSelected && hasData\" [checked]=\"allSelected && hasData\" (click)=\"blockEvent($event); selectAll(!checkBoxAll.checked)\" (keyup.enter)=\"selectAll(!checkBoxAll.checked)\" (keyup.space)=\"selectAll(!checkBoxAll.checked)\" (keydown.space)=\"blockEvent($event)\"> </mat-checkbox> </th> <th td-data-table-column #columnElement *ngFor=\"let column of columns; let i = index;\" [style.min-width.px]=\"getColumnWidth(i)\" [style.max-width.px]=\"getColumnWidth(i)\" [name]=\"column.name\" [numeric]=\"column.numeric\" [active]=\"(column.sortable || sortable) && column === sortByColumn\" [sortable]=\"column.sortable || sortable\" [sortOrder]=\"sortOrderEnum\" [hidden]=\"column.hidden\" (sortChange)=\"handleSort(column)\"> <span [matTooltip]=\"column.tooltip\">{{column.label}}</span> </th> </tr> </table> <div #scrollableDiv class=\"td-data-table-scrollable\" (scroll)=\"handleScroll($event)\"> <div [style.height.px]=\"totalHeight\"></div> <table td-data-table [style.transform]=\"offsetTransform\" [style.position]=\"'absolute'\" [class.mat-selectable]=\"selectable\" [class.mat-clickable]=\"clickable\"> <tr td-data-table-row #dtRow [tabIndex]=\"selectable ? 0 : -1\" [selected]=\"(clickable || selectable) && isRowSelected(row)\" *ngFor=\"let row of virtualData; let rowIndex = index\" (click)=\"handleRowClick(row, $event)\" (keyup)=\"selectable && _rowKeyup($event, row, rowIndex)\" (keydown.space)=\"blockEvent($event)\" (keydown.shift.space)=\"blockEvent($event)\" (keydown.shift)=\"disableTextSelection()\" (keyup.shift)=\"enableTextSelection()\"> <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"selectable\"> <mat-pseudo-checkbox [state]=\"dtRow.selected ? 'checked' : 'unchecked'\" (mousedown)=\"disableTextSelection()\" (mouseup)=\"enableTextSelection()\" stopRowClick (click)=\"select(row, $event, fromRow + rowIndex)\"> </mat-pseudo-checkbox> </td> <td td-data-table-cell [numeric]=\"column.numeric\" [hidden]=\"column.hidden\" *ngFor=\"let column of columns; let i = index\" [style.min-width.px]=\"getColumnWidth(i)\" [style.max-width.px]=\"getColumnWidth(i)\"> <span class=\"md-body-1\" *ngIf=\"!getTemplateRef(column.name)\">{{column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row)}}</span> <ng-template *ngIf=\"getTemplateRef(column.name)\" [ngTemplateOutlet]=\"getTemplateRef(column.name)\" [ngTemplateOutletContext]=\"{ value: getCellValue(column, row), row: row, column: column.name }\"> </ng-template> </td> </tr> </table> </div> <ng-content></ng-content>",
         changeDetection: ChangeDetectionStrategy.OnPush,
     }),
     tslib_1.__param(0, Optional()), tslib_1.__param(0, Inject(DOCUMENT)),

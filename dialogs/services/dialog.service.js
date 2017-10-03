@@ -1,6 +1,6 @@
 import * as tslib_1 from "tslib";
 import { Injectable, SkipSelf, Optional } from '@angular/core';
-import { MdDialog, MdDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 import { TdAlertDialogComponent } from '../alert-dialog/alert-dialog.component';
 import { TdConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { TdPromptDialogComponent } from '../prompt-dialog/prompt-dialog.component';
@@ -11,15 +11,15 @@ var TdDialogService = (function () {
     /**
      * params:
      * - component: ComponentType<T>
-     * - config: MdDialogConfig
-     * Wrapper function over the open() method in MdDialog.
+     * - config: MatDialogConfig
+     * Wrapper function over the open() method in MatDialog.
      * Opens a modal dialog containing the given component.
      */
     TdDialogService.prototype.open = function (component, config) {
         return this._dialogService.open(component, config);
     };
     /**
-     * Wrapper function over the closeAll() method in MdDialog.
+     * Wrapper function over the closeAll() method in MatDialog.
      * Closes all of the currently-open dialogs.
      */
     TdDialogService.prototype.closeAll = function () {
@@ -35,7 +35,7 @@ var TdDialogService = (function () {
      * }
      *
      * Opens an alert dialog with the provided config.
-     * Returns an MdDialogRef<TdAlertDialogComponent> object.
+     * Returns an MatDialogRef<TdAlertDialogComponent> object.
      */
     TdDialogService.prototype.openAlert = function (config) {
         var dialogConfig = this._createConfig(config);
@@ -59,7 +59,7 @@ var TdDialogService = (function () {
      * }
      *
      * Opens a confirm dialog with the provided config.
-     * Returns an MdDialogRef<TdConfirmDialogComponent> object.
+     * Returns an MatDialogRef<TdConfirmDialogComponent> object.
      */
     TdDialogService.prototype.openConfirm = function (config) {
         var dialogConfig = this._createConfig(config);
@@ -87,7 +87,7 @@ var TdDialogService = (function () {
      * }
      *
      * Opens a prompt dialog with the provided config.
-     * Returns an MdDialogRef<TdPromptDialogComponent> object.
+     * Returns an MatDialogRef<TdPromptDialogComponent> object.
      */
     TdDialogService.prototype.openPrompt = function (config) {
         var dialogConfig = this._createConfig(config);
@@ -105,7 +105,7 @@ var TdDialogService = (function () {
         return dialogRef;
     };
     TdDialogService.prototype._createConfig = function (config) {
-        var dialogConfig = new MdDialogConfig();
+        var dialogConfig = new MatDialogConfig();
         dialogConfig.viewContainerRef = config.viewContainerRef;
         dialogConfig.disableClose = config.disableClose;
         return dialogConfig;
@@ -114,7 +114,7 @@ var TdDialogService = (function () {
 }());
 TdDialogService = tslib_1.__decorate([
     Injectable(),
-    tslib_1.__metadata("design:paramtypes", [MdDialog])
+    tslib_1.__metadata("design:paramtypes", [MatDialog])
 ], TdDialogService);
 export { TdDialogService };
 export function DIALOG_PROVIDER_FACTORY(parent, dialog) {
@@ -123,7 +123,7 @@ export function DIALOG_PROVIDER_FACTORY(parent, dialog) {
 export var DIALOG_PROVIDER = {
     // If there is already service available, use that. Otherwise, provide a new one.
     provide: TdDialogService,
-    deps: [[new Optional(), new SkipSelf(), TdDialogService], MdDialog],
+    deps: [[new Optional(), new SkipSelf(), TdDialogService], MatDialog],
     useFactory: DIALOG_PROVIDER_FACTORY,
 };
 //# sourceMappingURL=dialog.service.js.map

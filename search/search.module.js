@@ -2,7 +2,7 @@ import * as tslib_1 from "tslib";
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MdInputModule, MdIconModule, MdButtonModule } from '@angular/material';
+import { MatInputModule, MatIconModule, MatButtonModule } from '@angular/material';
 import { TdSearchInputComponent } from './search-input/search-input.component';
 import { TdSearchBoxComponent } from './search-box/search-box.component';
 export { TdSearchBoxComponent } from './search-box/search-box.component';
@@ -17,9 +17,9 @@ CovalentSearchModule = tslib_1.__decorate([
         imports: [
             FormsModule,
             CommonModule,
-            MdInputModule,
-            MdIconModule,
-            MdButtonModule,
+            MatInputModule,
+            MatIconModule,
+            MatButtonModule,
         ],
         declarations: [
             TdSearchInputComponent,

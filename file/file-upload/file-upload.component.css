@@ -11,7 +11,7 @@
   /deep/ [dir='rtl'] .td-file-upload-cancel {
     right: -12px;
     left: 0; }
-  .td-file-upload-cancel md-icon {
+  .td-file-upload-cancel mat-icon {
     border-radius: 12px;
     vertical-align: baseline; }
 

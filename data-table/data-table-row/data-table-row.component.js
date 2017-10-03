@@ -41,6 +41,17 @@ var TdDataTableRowComponent = (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(TdDataTableRowComponent.prototype, "height", {
+        get: function () {
+            var height = 48;
+            if (this._elementRef.nativeElement) {
+                height = this._elementRef.nativeElement.getBoundingClientRect().height;
+            }
+            return height;
+        },
+        enumerable: true,
+        configurable: true
+    });
     /**
      * Listening to click event to explicitly focus the row element.
      */

@@ -28,18 +28,19 @@ table.td-data-table {
     padding-left: 28px; }
   table.td-data-table td.mat-checkbox-cell,
   table.td-data-table th.mat-checkbox-column {
+    min-width: 42px;
     width: 42px;
     font-size: 0 !important; }
-    table.td-data-table td.mat-checkbox-cell md-pseudo-checkbox,
-    table.td-data-table th.mat-checkbox-column md-pseudo-checkbox {
+    table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox,
+    table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox {
       width: 18px;
       height: 18px; }
-      /deep/ table.td-data-table td.mat-checkbox-cell md-pseudo-checkbox.mat-pseudo-checkbox-checked::after, /deep/
-      table.td-data-table th.mat-checkbox-column md-pseudo-checkbox.mat-pseudo-checkbox-checked::after {
+      /deep/ table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after, /deep/
+      table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after {
         width: 11px !important;
         height: 4px !important; }
-    table.td-data-table td.mat-checkbox-cell md-checkbox /deep/ .mat-checkbox-inner-container,
-    table.td-data-table th.mat-checkbox-column md-checkbox /deep/ .mat-checkbox-inner-container {
+    table.td-data-table td.mat-checkbox-cell mat-checkbox /deep/ .mat-checkbox-inner-container,
+    table.td-data-table th.mat-checkbox-column mat-checkbox /deep/ .mat-checkbox-inner-container {
       width: 18px;
       height: 18px;
       margin: 0; }

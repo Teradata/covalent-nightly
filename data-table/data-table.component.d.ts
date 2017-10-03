@@ -2,7 +2,7 @@ import { EventEmitter, ChangeDetectorRef, OnDestroy, AfterViewInit, TemplateRef,
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { ControlValueAccessor } from '@angular/forms';
 import { TdDataTableRowComponent } from './data-table-row/data-table-row.component';
-import { ITdDataTableSortChangeEvent } from './data-table-column/data-table-column.component';
+import { ITdDataTableSortChangeEvent, TdDataTableColumnComponent } from './data-table-column/data-table-column.component';
 import { TdDataTableTemplateDirective } from './directives/data-table-template.directive';
 export declare const TD_DATA_TABLE_CONTROL_VALUE_ACCESSOR: any;
 export declare enum TdDataTableSortingOrder {
@@ -48,7 +48,7 @@ export declare class TdDataTableComponent implements ControlValueAccessor, OnIni
     private _elementRef;
     private _domSanitizer;
     private _changeDetectorRef;
-    /** reponsive width calculations */
+    /** responsive width calculations */
     private _resizeSubs;
     private _rowsChangedSubs;
     private _hostWidth;
@@ -59,19 +59,15 @@ export declare class TdDataTableComponent implements ControlValueAccessor, OnIni
     private _verticalScrollSubs;
     private _horizontalScrollSubs;
     private _scrollHorizontalOffset;
-    private _scrollVerticalOffset;
-    private _hostHeight;
     private _onHorizontalScroll;
     private _onVerticalScroll;
-    /**
-     * Returns the height of the row
-     * For now we assume thats 49px.
-     */
-    readonly rowHeight: number;
-    /**
-     * Returns the number of rows that are rendered outside the viewport.
-     */
-    readonly offsetRows: number;
+    private _rowHeightCache;
+    private _totalHeight;
+    private _hostHeight;
+    private _scrollVerticalOffset;
+    private _offsetTransform;
+    private _fromRow;
+    private _toRow;
     /**
      * Returns the offset style with a proper calculation on how much it should move
      * over the y axis of the total height
@@ -97,6 +93,7 @@ export declare class TdDataTableComponent implements ControlValueAccessor, OnIni
     private _onChangeCallback;
     /** internal attributes */
     private _data;
+    private _virtualData;
     private _columns;
     private _selectable;
     private _clickable;
@@ -116,7 +113,7 @@ export declare class TdDataTableComponent implements ControlValueAccessor, OnIni
     private _templateMap;
     _templates: QueryList<TdDataTableTemplateDirective>;
     _scrollableDiv: ElementRef;
-    _colElements: QueryList<ElementRef>;
+    _colElements: QueryList<TdDataTableColumnComponent>;
     _rows: QueryList<TdDataTableRowComponent>;
     /**
      * Returns scroll position to reposition column headers
@@ -128,7 +125,7 @@ export declare class TdDataTableComponent implements ControlValueAccessor, OnIni
     readonly allSelected: boolean;
     /**
      * Returns true if all values are not deselected
-     * and atleast one is.
+     * and at least one is.
      */
     readonly indeterminate: boolean;
     /**
@@ -140,6 +137,7 @@ export declare class TdDataTableComponent implements ControlValueAccessor, OnIni
      * Sets the data to be rendered as rows.
      */
     data: any[];
+    readonly virtualData: any[];
     /**
      * columns?: ITdDataTableColumn[]
      * Sets additional column configuration. [ITdDataTableColumn.name] has to exist in [data] as key.
@@ -245,10 +243,6 @@ export declare class TdDataTableComponent implements ControlValueAccessor, OnIni
      * Returns the width needed for the columns via index
      */
     getColumnWidth(index: number): number;
-    /**
-     * Returns the width needed for the cells via index
-     */
-    getWidth(index: number): number;
     getCellValue(column: ITdDataTableColumn, value: any): string;
     /**
      * Getter method for template references
@@ -334,4 +328,8 @@ export declare class TdDataTableComponent implements ControlValueAccessor, OnIni
      * Generic method to calculate column width
      */
     private _calculateWidth();
+    /**
+     * Method to calculate the rows to be rendered in the viewport
+     */
+    private _calculateVirtualRows();
 }

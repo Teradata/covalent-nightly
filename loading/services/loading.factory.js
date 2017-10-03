@@ -2,7 +2,7 @@ import * as tslib_1 from "tslib";
 import { Injectable, ComponentFactoryResolver, SkipSelf, Optional } from '@angular/core';
 import { Injector } from '@angular/core';
 import { TemplatePortal, ComponentPortal } from '@angular/cdk/portal';
-import { Overlay, OverlayState } from '@angular/cdk/overlay';
+import { Overlay, OverlayConfig } from '@angular/cdk/overlay';
 import { Subject } from 'rxjs/Subject';
 import { TdLoadingComponent, LoadingStyle } from '../loading.component';
 /**
@@ -124,7 +124,7 @@ var TdLoadingFactory = (function () {
      * Creates a fullscreen overlay for the loading usage.
      */
     TdLoadingFactory.prototype._createOverlay = function () {
-        var state = new OverlayState();
+        var state = new OverlayConfig();
         state.hasBackdrop = false;
         state.positionStrategy = this._overlay.position().global().centerHorizontally().centerVertically();
         return this._overlay.create(state);

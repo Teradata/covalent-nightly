@@ -89,8 +89,7 @@ var TdVirtualScrollContainerComponent = (function () {
     });
     TdVirtualScrollContainerComponent.prototype.ngAfterViewInit = function () {
         var _this = this;
-        var subs = this._rows.changes.subscribe(function () {
-            subs.unsubscribe();
+        this._rowChangeSubs = this._rows.changes.subscribe(function () {
             _this._calculateVirtualRows();
         });
         this._initialized = true;
@@ -103,6 +102,11 @@ var TdVirtualScrollContainerComponent = (function () {
             if (this._initialized) {
                 this._calculateVirtualRows();
             }
+        }
+    };
+    TdVirtualScrollContainerComponent.prototype.ngOnDestroy = function () {
+        if (this._rowChangeSubs) {
+            this._rowChangeSubs.unsubscribe();
         }
     };
     TdVirtualScrollContainerComponent.prototype.handleScroll = function (event) {

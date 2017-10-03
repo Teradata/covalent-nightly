@@ -11,7 +11,7 @@
     right: 0;
     bottom: 0;
     z-index: 1000; }
-    .td-loading-wrapper.td-overlay .td-loading md-progress-bar {
+    .td-loading-wrapper.td-overlay .td-loading mat-progress-bar {
       position: absolute;
       top: 0;
       left: 0;

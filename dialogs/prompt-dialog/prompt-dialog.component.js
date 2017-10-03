@@ -1,6 +1,6 @@
 import * as tslib_1 from "tslib";
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { MdDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 var TdPromptDialogComponent = (function () {
     function TdPromptDialogComponent(_dialogRef) {
         this._dialogRef = _dialogRef;
@@ -36,10 +36,10 @@ tslib_1.__decorate([
 TdPromptDialogComponent = tslib_1.__decorate([
     Component({
         selector: 'td-prompt-dialog',
-        template: "<td-dialog> <td-dialog-title *ngIf=\"title\"> {{title}} </td-dialog-title> <td-dialog-content class=\"md-subhead tc-grey-700\"> {{message}} <form #form=\"ngForm\" novalidate> <div layout=\"row\"> <md-form-field flex> <input mdInput #input (focus)=\"handleInputFocus()\" (keydown.enter)=\"$event.preventDefault(); form.valid && accept()\" [(ngModel)]=\"value\" name=\"value\" required/> </md-form-field> </div> </form> </td-dialog-content> <td-dialog-actions> <button md-button #closeBtn  (keydown.arrowright)=\"acceptBtn.focus()\" (click)=\"cancel()\">{{cancelButton}}</button> <button md-button color=\"accent\" #acceptBtn (keydown.arrowleft)=\"closeBtn.focus()\" [disabled]=\"!form.valid\" (click)=\"accept()\">{{acceptButton}}</button> </td-dialog-actions> </td-dialog>",
+        template: "<td-dialog> <td-dialog-title *ngIf=\"title\"> {{title}} </td-dialog-title> <td-dialog-content class=\"md-subhead tc-grey-700\"> {{message}} <form #form=\"ngForm\" novalidate> <div layout=\"row\"> <mat-form-field flex> <input matInput #input (focus)=\"handleInputFocus()\" (keydown.enter)=\"$event.preventDefault(); form.valid && accept()\" [(ngModel)]=\"value\" name=\"value\" required/> </mat-form-field> </div> </form> </td-dialog-content> <td-dialog-actions> <button mat-button #closeBtn  (keydown.arrowright)=\"acceptBtn.focus()\" (click)=\"cancel()\">{{cancelButton}}</button> <button mat-button color=\"accent\" #acceptBtn (keydown.arrowleft)=\"closeBtn.focus()\" [disabled]=\"!form.valid\" (click)=\"accept()\">{{acceptButton}}</button> </td-dialog-actions> </td-dialog>",
         styles: ["@media (min-width: 600px) { td-dialog { width: 400px; } } @media (max-width: 599px) { td-dialog { width: 250px; } } /*# sourceMappingURL=prompt-dialog.component.css.map */ "],
     }),
-    tslib_1.__metadata("design:paramtypes", [MdDialogRef])
+    tslib_1.__metadata("design:paramtypes", [MatDialogRef])
 ], TdPromptDialogComponent);
 export { TdPromptDialogComponent };
 //# sourceMappingURL=prompt-dialog.component.js.map

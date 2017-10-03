@@ -1,6 +1,6 @@
 import * as tslib_1 from "tslib";
 import { Component, Input, ViewChild } from '@angular/core';
-import { MdSidenav } from '@angular/material';
+import { MatSidenav } from '@angular/material';
 var TdLayoutManageListComponent = (function () {
     function TdLayoutManageListComponent() {
         /**
@@ -8,7 +8,7 @@ var TdLayoutManageListComponent = (function () {
          *
          * The mode or styling of the sidenav.
          * Defaults to "side".
-         * See "MdSidenav" documentation for more info.
+         * See "MatSidenav" documentation for more info.
          *
          * https://github.com/angular/material2/tree/master/src/lib/sidenav
          */
@@ -19,7 +19,7 @@ var TdLayoutManageListComponent = (function () {
          * Whether or not the sidenav is opened. Use this binding to open/close the sidenav.
          * Defaults to "true".
          *
-         * See "MdSidenav" documentation for more info.
+         * See "MatSidenav" documentation for more info.
          *
          * https://github.com/angular/material2/tree/master/src/lib/sidenav
          */
@@ -66,8 +66,8 @@ var TdLayoutManageListComponent = (function () {
     return TdLayoutManageListComponent;
 }());
 tslib_1.__decorate([
-    ViewChild(MdSidenav),
-    tslib_1.__metadata("design:type", MdSidenav)
+    ViewChild(MatSidenav),
+    tslib_1.__metadata("design:type", MatSidenav)
 ], TdLayoutManageListComponent.prototype, "sidenav", void 0);
 tslib_1.__decorate([
     Input('mode'),
@@ -84,8 +84,8 @@ tslib_1.__decorate([
 TdLayoutManageListComponent = tslib_1.__decorate([
     Component({
         selector: 'td-layout-manage-list',
-        styles: [":host { display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } :host md-sidenav-container.td-layout-manage-list > md-sidenav.mat-drawer-opened, :host md-sidenav-container.td-layout-manage-list > md-sidenav.mat-drawer-opening, :host md-sidenav-container.td-layout-manage-list > md-sidenav.mat-drawer-closed, :host md-sidenav-container.td-layout-manage-list > md-sidenav.mat-drawer-closing { -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2); box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2); } :host .list { text-align: start; } :host /deep/ md-sidenav-container.td-layout-manage-list { /* Ensure the left sidenav is a flex column & 100% height */ } :host /deep/ md-sidenav-container.td-layout-manage-list > .mat-drawer-content { -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; } :host /deep/ md-sidenav-container.td-layout-manage-list > md-sidenav { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; } :host /deep/ md-nav-list a[md-list-item] .mat-list-item-content { font-size: 14px; } :host /deep/ .mat-toolbar { font-weight: 400; } /*# sourceMappingURL=layout-manage-list.component.css.map */ "],
-        template: "<md-sidenav-container fullscreen class=\"td-layout-manage-list md-content\" flex layout=\"row\"> <md-sidenav #sidenav position=\"start\" [mode]=\"mode\" [opened]=\"opened\" [disableClose]=\"disableClose\" [style.max-width]=\"sidenavWidth\" [style.min-width]=\"sidenavWidth\" layout=\"column\" layout-fill class=\"md-whiteframe-z1\"> <ng-content select=\"md-toolbar[td-sidenav-content]\"></ng-content> <div flex class=\"list md-content\" cdkScrollable> <ng-content select=\"[td-sidenav-content]\"></ng-content> </div> </md-sidenav> <div layout=\"column\" layout-fill class=\"md-content\"> <ng-content select=\"md-toolbar\"></ng-content> <div class=\"md-content\" flex cdkScrollable> <ng-content></ng-content> </div> <ng-content select=\"td-layout-footer-inner\"></ng-content> </div> </md-sidenav-container> ",
+        styles: [":host { display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } :host mat-sidenav-container.td-layout-manage-list > mat-sidenav.mat-drawer-opened, :host mat-sidenav-container.td-layout-manage-list > mat-sidenav.mat-drawer-opening, :host mat-sidenav-container.td-layout-manage-list > mat-sidenav.mat-drawer-closed, :host mat-sidenav-container.td-layout-manage-list > mat-sidenav.mat-drawer-closing { -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2); box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2); } :host .list { text-align: start; } :host /deep/ mat-sidenav-container.td-layout-manage-list { /* Ensure the left sidenav is a flex column & 100% height */ } :host /deep/ mat-sidenav-container.td-layout-manage-list > .mat-drawer-content { -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; } :host /deep/ mat-sidenav-container.td-layout-manage-list > mat-sidenav { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; } :host /deep/ mat-nav-list a[mat-list-item] .mat-list-item-content { font-size: 14px; } :host /deep/ .mat-toolbar { font-weight: 400; } /*# sourceMappingURL=layout-manage-list.component.css.map */ "],
+        template: "<mat-sidenav-container fullscreen class=\"td-layout-manage-list md-content\" flex layout=\"row\"> <mat-sidenav #sidenav position=\"start\" [mode]=\"mode\" [opened]=\"opened\" [disableClose]=\"disableClose\" [style.max-width]=\"sidenavWidth\" [style.min-width]=\"sidenavWidth\" layout=\"column\" layout-fill class=\"md-whiteframe-z1\"> <ng-content select=\"mat-toolbar[td-sidenav-content]\"></ng-content> <div flex class=\"list md-content\" cdkScrollable> <ng-content select=\"[td-sidenav-content]\"></ng-content> </div> </mat-sidenav> <div layout=\"column\" layout-fill class=\"md-content\"> <ng-content select=\"mat-toolbar\"></ng-content> <div class=\"md-content\" flex cdkScrollable> <ng-content></ng-content> </div> <ng-content select=\"td-layout-footer-inner\"></ng-content> </div> </mat-sidenav-container> ",
     })
 ], TdLayoutManageListComponent);
 export { TdLayoutManageListComponent };

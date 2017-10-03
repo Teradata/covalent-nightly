@@ -1,5 +1,5 @@
 import { ElementRef, AfterViewInit } from '@angular/core';
-import { MdDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 export declare class TdPromptDialogComponent implements AfterViewInit {
     private _dialogRef;
     title: string;
@@ -8,7 +8,7 @@ export declare class TdPromptDialogComponent implements AfterViewInit {
     cancelButton: string;
     acceptButton: string;
     _input: ElementRef;
-    constructor(_dialogRef: MdDialogRef<TdPromptDialogComponent>);
+    constructor(_dialogRef: MatDialogRef<TdPromptDialogComponent>);
     ngAfterViewInit(): void;
     /**
      * Method executed when input is focused

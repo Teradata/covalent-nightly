@@ -2,7 +2,7 @@ import * as tslib_1 from "tslib";
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PortalModule } from '@angular/cdk/portal';
-import { MdRippleModule, MdIconModule } from '@angular/material';
+import { MatRippleModule, MatIconModule } from '@angular/material';
 import { TdExpansionPanelComponent, TdExpansionPanelHeaderDirective, TdExpansionPanelLabelDirective, TdExpansionPanelSublabelDirective, TdExpansionPanelSummaryComponent } from './expansion-panel.component';
 import { TdExpansionPanelGroupComponent } from './expansion-panel-group.component';
 var TD_EXPANSION_PANEL = [
@@ -24,8 +24,8 @@ CovalentExpansionPanelModule = tslib_1.__decorate([
     NgModule({
         imports: [
             CommonModule,
-            MdRippleModule,
-            MdIconModule,
+            MatRippleModule,
+            MatIconModule,
             PortalModule,
         ],
         declarations: [

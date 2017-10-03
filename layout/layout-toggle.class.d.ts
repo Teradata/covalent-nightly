@@ -1,10 +1,10 @@
 import { Renderer2, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
-import { MdDrawerToggleResult, MdSidenav } from '@angular/material';
+import { MatDrawerToggleResult, MatSidenav } from '@angular/material';
 export interface ILayoutTogglable {
-    sidenav: MdSidenav;
-    toggle(): Promise<MdDrawerToggleResult>;
-    open(): Promise<MdDrawerToggleResult>;
-    close(): Promise<MdDrawerToggleResult>;
+    sidenav: MatSidenav;
+    toggle(): Promise<MatDrawerToggleResult>;
+    open(): Promise<MatDrawerToggleResult>;
+    close(): Promise<MatDrawerToggleResult>;
 }
 export declare abstract class LayoutToggle implements AfterViewInit, OnDestroy {
     protected _layout: ILayoutTogglable;

@@ -19,17 +19,17 @@ var TdFileUploadComponent = (function (_super) {
         _this._multiple = false;
         /**
          * defaultColor?: string
-         * Sets browse button color. Uses same color palette accepted as [mdButton] and defaults to 'primary'.
+         * Sets browse button color. Uses same color palette accepted as [MatButton] and defaults to 'primary'.
          */
         _this.defaultColor = 'primary';
         /**
          * activeColor?: string
-         * Sets upload button color. Uses same color palette accepted as [mdButton] and defaults to 'accent'.
+         * Sets upload button color. Uses same color palette accepted as [MatButton] and defaults to 'accent'.
          */
         _this.activeColor = 'accent';
         /**
          * cancelColor?: string
-         * Sets cancel button color. Uses same color palette accepted as [mdButton] and defaults to 'warn'.
+         * Sets cancel button color. Uses same color palette accepted as [MatButton] and defaults to 'warn'.
          */
         _this.cancelColor = 'warn';
         /**
@@ -140,8 +140,8 @@ TdFileUploadComponent = tslib_1.__decorate([
         changeDetection: ChangeDetectionStrategy.OnPush,
         selector: 'td-file-upload',
         inputs: ['disabled'],
-        styles: [".td-file-upload { padding-left: 8px; padding-right: 8px; } .td-file-upload-cancel { height: 24px; width: 24px; position: relative; top: 24px; left: -12px; } /deep/ [dir='rtl'] .td-file-upload-cancel { right: -12px; left: 0; } .td-file-upload-cancel md-icon { border-radius: 12px; vertical-align: baseline; } /** * Class that is added ondragenter by the [TdFileDrop] directive. */ .drop-zone { border-radius: 3px; } .drop-zone * { pointer-events: none; } /*# sourceMappingURL=file-upload.component.css.map */ "],
-        template: "<td-file-input *ngIf=\"!files\" [multiple]=\"multiple\" [disabled]=\"disabled\" [accept]=\"accept\" [color]=\"defaultColor\" (select)=\"handleSelect($event)\"> <ng-template [cdkPortalHost]=\"inputLabel\" [ngIf]=\"true\"></ng-template> </td-file-input> <div *ngIf=\"files\" layout=\"row\"> <button #fileUpload class=\"td-file-upload\" md-raised-button type=\"button\" [color]=\"activeColor\" (keyup.delete)=\"cancel()\" (keyup.backspace)=\"cancel()\" (keyup.escape)=\"cancel()\" (click)=\"uploadPressed()\">  <ng-content></ng-content> </button> <button md-icon-button type=\"button\" class=\"td-file-upload-cancel\" [color]=\"cancelColor\"             (click)=\"cancel()\"> <md-icon>cancel</md-icon> </button> </div>",
+        styles: [".td-file-upload { padding-left: 8px; padding-right: 8px; } .td-file-upload-cancel { height: 24px; width: 24px; position: relative; top: 24px; left: -12px; } /deep/ [dir='rtl'] .td-file-upload-cancel { right: -12px; left: 0; } .td-file-upload-cancel mat-icon { border-radius: 12px; vertical-align: baseline; } /** * Class that is added ondragenter by the [TdFileDrop] directive. */ .drop-zone { border-radius: 3px; } .drop-zone * { pointer-events: none; } /*# sourceMappingURL=file-upload.component.css.map */ "],
+        template: "<td-file-input *ngIf=\"!files\" [multiple]=\"multiple\" [disabled]=\"disabled\" [accept]=\"accept\" [color]=\"defaultColor\" (select)=\"handleSelect($event)\"> <ng-template [cdkPortalHost]=\"inputLabel\" [ngIf]=\"true\"></ng-template> </td-file-input> <div *ngIf=\"files\" layout=\"row\"> <button #fileUpload class=\"td-file-upload\" mat-raised-button type=\"button\" [color]=\"activeColor\" (keyup.delete)=\"cancel()\" (keyup.backspace)=\"cancel()\" (keyup.escape)=\"cancel()\" (click)=\"uploadPressed()\">  <ng-content></ng-content> </button> <button mat-icon-button type=\"button\" class=\"td-file-upload-cancel\" [color]=\"cancelColor\"             (click)=\"cancel()\"> <mat-icon>cancel</mat-icon> </button> </div>",
     }),
     tslib_1.__metadata("design:paramtypes", [ChangeDetectorRef])
 ], TdFileUploadComponent);

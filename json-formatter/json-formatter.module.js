@@ -1,7 +1,7 @@
 import * as tslib_1 from "tslib";
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MdTooltipModule, MdIconModule } from '@angular/material';
+import { MatTooltipModule, MatIconModule } from '@angular/material';
 import { TdJsonFormatterComponent } from './json-formatter.component';
 export { TdJsonFormatterComponent } from './json-formatter.component';
 var CovalentJsonFormatterModule = (function () {
@@ -13,8 +13,8 @@ CovalentJsonFormatterModule = tslib_1.__decorate([
     NgModule({
         imports: [
             CommonModule,
-            MdTooltipModule,
-            MdIconModule,
+            MatTooltipModule,
+            MatIconModule,
         ],
         declarations: [
             TdJsonFormatterComponent,

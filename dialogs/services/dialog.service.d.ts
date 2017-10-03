@@ -1,5 +1,5 @@
 import { ViewContainerRef, Provider } from '@angular/core';
-import { MdDialog, MdDialogRef, MdDialogConfig, ComponentType } from '@angular/material';
+import { MatDialog, MatDialogRef, MatDialogConfig, ComponentType } from '@angular/material';
 import { TdAlertDialogComponent } from '../alert-dialog/alert-dialog.component';
 import { TdConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { TdPromptDialogComponent } from '../prompt-dialog/prompt-dialog.component';
@@ -21,17 +21,17 @@ export interface IPromptConfig extends IConfirmConfig {
 }
 export declare class TdDialogService {
     private _dialogService;
-    constructor(_dialogService: MdDialog);
+    constructor(_dialogService: MatDialog);
     /**
      * params:
      * - component: ComponentType<T>
-     * - config: MdDialogConfig
-     * Wrapper function over the open() method in MdDialog.
+     * - config: MatDialogConfig
+     * Wrapper function over the open() method in MatDialog.
      * Opens a modal dialog containing the given component.
      */
-    open<T>(component: ComponentType<T>, config?: MdDialogConfig): MdDialogRef<T>;
+    open<T>(component: ComponentType<T>, config?: MatDialogConfig): MatDialogRef<T>;
     /**
-     * Wrapper function over the closeAll() method in MdDialog.
+     * Wrapper function over the closeAll() method in MatDialog.
      * Closes all of the currently-open dialogs.
      */
     closeAll(): void;
@@ -45,9 +45,9 @@ export declare class TdDialogService {
      * }
      *
      * Opens an alert dialog with the provided config.
-     * Returns an MdDialogRef<TdAlertDialogComponent> object.
+     * Returns an MatDialogRef<TdAlertDialogComponent> object.
      */
-    openAlert(config: IAlertConfig): MdDialogRef<TdAlertDialogComponent>;
+    openAlert(config: IAlertConfig): MatDialogRef<TdAlertDialogComponent>;
     /**
      * params:
      * - config: IConfirmConfig {
@@ -59,9 +59,9 @@ export declare class TdDialogService {
      * }
      *
      * Opens a confirm dialog with the provided config.
-     * Returns an MdDialogRef<TdConfirmDialogComponent> object.
+     * Returns an MatDialogRef<TdConfirmDialogComponent> object.
      */
-    openConfirm(config: IConfirmConfig): MdDialogRef<TdConfirmDialogComponent>;
+    openConfirm(config: IConfirmConfig): MatDialogRef<TdConfirmDialogComponent>;
     /**
      * params:
      * - config: IPromptConfig {
@@ -74,10 +74,10 @@ export declare class TdDialogService {
      * }
      *
      * Opens a prompt dialog with the provided config.
-     * Returns an MdDialogRef<TdPromptDialogComponent> object.
+     * Returns an MatDialogRef<TdPromptDialogComponent> object.
      */
-    openPrompt(config: IPromptConfig): MdDialogRef<TdPromptDialogComponent>;
+    openPrompt(config: IPromptConfig): MatDialogRef<TdPromptDialogComponent>;
     private _createConfig(config);
 }
-export declare function DIALOG_PROVIDER_FACTORY(parent: TdDialogService, dialog: MdDialog): TdDialogService;
+export declare function DIALOG_PROVIDER_FACTORY(parent: TdDialogService, dialog: MatDialog): TdDialogService;
 export declare const DIALOG_PROVIDER: Provider;

@@ -11,17 +11,17 @@ export declare class TdFileUploadComponent extends _TdFileUploadMixinBase implem
     inputLabel: TdFileInputLabelDirective;
     /**
      * defaultColor?: string
-     * Sets browse button color. Uses same color palette accepted as [mdButton] and defaults to 'primary'.
+     * Sets browse button color. Uses same color palette accepted as [MatButton] and defaults to 'primary'.
      */
     defaultColor: string;
     /**
      * activeColor?: string
-     * Sets upload button color. Uses same color palette accepted as [mdButton] and defaults to 'accent'.
+     * Sets upload button color. Uses same color palette accepted as [MatButton] and defaults to 'accent'.
      */
     activeColor: string;
     /**
      * cancelColor?: string
-     * Sets cancel button color. Uses same color palette accepted as [mdButton] and defaults to 'warn'.
+     * Sets cancel button color. Uses same color palette accepted as [MatButton] and defaults to 'warn'.
      */
     cancelColor: string;
     /**

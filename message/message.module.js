@@ -1,7 +1,7 @@
 import * as tslib_1 from "tslib";
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MdIconModule } from '@angular/material';
+import { MatIconModule } from '@angular/material';
 import { TdMessageComponent, TdMessageContainerDirective } from './message.component';
 var TD_MESSAGE = [
     TdMessageComponent,
@@ -17,7 +17,7 @@ CovalentMessageModule = tslib_1.__decorate([
     NgModule({
         imports: [
             CommonModule,
-            MdIconModule,
+            MatIconModule,
         ],
         declarations: [
             TD_MESSAGE,
