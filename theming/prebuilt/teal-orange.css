@@ -1514,7 +1514,7 @@ td-steps .td-vertical-line {
 td-steps .td-step-header:focus:not(.mat-disabled), td-steps .td-step-header:hover:not(.mat-disabled) {
   background: rgba(0, 0, 0, 0.04); }
 
-td-steps .td-step-header .td-step-label-wrapper .md-caption {
+td-steps .td-step-header .td-step-label-wrapper .td-step-sublabel {
   color: rgba(0, 0, 0, 0.54); }
 
 td-steps .td-step-header .td-step-label-wrapper.mat-inactive, td-steps .td-step-header .td-step-label-wrapper.mat-inactive * {

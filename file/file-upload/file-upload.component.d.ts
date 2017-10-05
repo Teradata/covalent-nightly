@@ -1,6 +1,6 @@
 import { EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { ICanDisable } from '../../common/common.module';
-import { TdFileInputLabelDirective } from '../file-input/file-input.component';
+import { TdFileInputComponent, TdFileInputLabelDirective } from '../file-input/file-input.component';
 export declare class TdFileUploadBase {
 }
 export declare const _TdFileUploadMixinBase: (new (...args: any[]) => ICanDisable) & typeof TdFileUploadBase;
@@ -8,6 +8,7 @@ export declare class TdFileUploadComponent extends _TdFileUploadMixinBase implem
     private _changeDetectorRef;
     private _multiple;
     files: FileList | File;
+    fileInput: TdFileInputComponent;
     inputLabel: TdFileInputLabelDirective;
     /**
      * defaultColor?: string
@@ -37,7 +38,7 @@ export declare class TdFileUploadComponent extends _TdFileUploadMixinBase implem
     accept: string;
     /**
      * select?: function
-     * Event emitted when a file is selecte.
+     * Event emitted when a file is selected.
      * Emits a [File | FileList] object.
      */
     onSelect: EventEmitter<File | FileList>;

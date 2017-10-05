@@ -5252,7 +5252,7 @@ exports.TdFileUploadComponent = (function (_super) {
         _this.cancelColor = 'warn';
         /**
          * select?: function
-         * Event emitted when a file is selecte.
+         * Event emitted when a file is selected.
          * Emits a [File | FileList] object.
          */
         _this.onSelect = new _angular_core.EventEmitter();
@@ -5306,6 +5306,10 @@ exports.TdFileUploadComponent = (function (_super) {
     TdFileUploadComponent.prototype.cancel = function () {
         this.files = undefined;
         this.onCancel.emit(undefined);
+        // check if the file input is rendered before clearing it
+        if (this.fileInput) {
+            this.fileInput.clear();
+        }
         this._changeDetectorRef.markForCheck();
     };
     /** Method executed when the disabled value changes */
@@ -5316,6 +5320,10 @@ exports.TdFileUploadComponent = (function (_super) {
     };
     return TdFileUploadComponent;
 }(_TdFileUploadMixinBase));
+__decorate([
+    _angular_core.ViewChild(exports.TdFileInputComponent),
+    __metadata("design:type", exports.TdFileInputComponent)
+], exports.TdFileUploadComponent.prototype, "fileInput", void 0);
 __decorate([
     _angular_core.ContentChild(exports.TdFileInputLabelDirective),
     __metadata("design:type", exports.TdFileInputLabelDirective)

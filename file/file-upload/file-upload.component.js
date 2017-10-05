@@ -1,8 +1,8 @@
 import * as tslib_1 from "tslib";
-import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ContentChild, ChangeDetectorRef } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewChild, ContentChild, ChangeDetectorRef } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { mixinDisabled } from '../../common/common.module';
-import { TdFileInputLabelDirective } from '../file-input/file-input.component';
+import { TdFileInputComponent, TdFileInputLabelDirective } from '../file-input/file-input.component';
 var TdFileUploadBase = (function () {
     function TdFileUploadBase() {
     }
@@ -34,7 +34,7 @@ var TdFileUploadComponent = (function (_super) {
         _this.cancelColor = 'warn';
         /**
          * select?: function
-         * Event emitted when a file is selecte.
+         * Event emitted when a file is selected.
          * Emits a [File | FileList] object.
          */
         _this.onSelect = new EventEmitter();
@@ -88,6 +88,10 @@ var TdFileUploadComponent = (function (_super) {
     TdFileUploadComponent.prototype.cancel = function () {
         this.files = undefined;
         this.onCancel.emit(undefined);
+        // check if the file input is rendered before clearing it
+        if (this.fileInput) {
+            this.fileInput.clear();
+        }
         this._changeDetectorRef.markForCheck();
     };
     /** Method executed when the disabled value changes */
@@ -98,6 +102,10 @@ var TdFileUploadComponent = (function (_super) {
     };
     return TdFileUploadComponent;
 }(_TdFileUploadMixinBase));
+tslib_1.__decorate([
+    ViewChild(TdFileInputComponent),
+    tslib_1.__metadata("design:type", TdFileInputComponent)
+], TdFileUploadComponent.prototype, "fileInput", void 0);
 tslib_1.__decorate([
     ContentChild(TdFileInputLabelDirective),
     tslib_1.__metadata("design:type", TdFileInputLabelDirective)
