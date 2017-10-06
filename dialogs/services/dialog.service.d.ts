@@ -1,5 +1,6 @@
 import { ViewContainerRef, Provider } from '@angular/core';
-import { MatDialog, MatDialogRef, MatDialogConfig, ComponentType } from '@angular/material';
+import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
+import { ComponentType } from '@angular/cdk/portal';
 import { TdAlertDialogComponent } from '../alert-dialog/alert-dialog.component';
 import { TdConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { TdPromptDialogComponent } from '../prompt-dialog/prompt-dialog.component';

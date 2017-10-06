@@ -7,12 +7,5 @@
     :host .td-paging-bar [mat-icon-button] {
       font-size: 12px;
       font-weight: normal; }
-    :host .td-paging-bar /deep/ mat-select.mat-select {
-      padding-top: 0px; }
-    :host .td-paging-bar /deep/ mat-select .mat-select-trigger {
-      min-width: 44px;
-      font-size: 12px; }
-    :host .td-paging-bar /deep/ mat-select .mat-select-underline {
-      display: none; }
 
 /*# sourceMappingURL=paging-bar.component.css.map */
