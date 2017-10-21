@@ -6828,8 +6828,10 @@ var LoadingStyle;
     LoadingStyle[LoadingStyle["Overlay"] = 'overlay'] = "Overlay";
     LoadingStyle[LoadingStyle["None"] = 'none'] = "None";
 })(LoadingStyle || (LoadingStyle = {}));
+var TD_CIRCLE_DIAMETER = 100;
 var TdLoadingComponent = (function () {
-    function TdLoadingComponent(_changeDetectorRef) {
+    function TdLoadingComponent(_elementRef, _changeDetectorRef) {
+        this._elementRef = _elementRef;
         this._changeDetectorRef = _changeDetectorRef;
         this._animationIn = new rxjs_Subject.Subject();
         this._animationOut = new rxjs_Subject.Subject();
@@ -6891,13 +6893,26 @@ var TdLoadingComponent = (function () {
         }
     };
     TdLoadingComponent.prototype.getCircleDiameter = function () {
+        // we set a default diameter of 100 since this is the default in material
+        var diameter = TD_CIRCLE_DIAMETER;
+        // if height is provided, then we take that as diameter
         if (this.height) {
-            var diameter = this.height * (2 / 3);
-            if (diameter < 80) {
-                return diameter + "px";
-            }
+            diameter = this.height;
+            // else if its not provided, then we take the host height
         }
-        return '80px';
+        else if (this.height === undefined) {
+            diameter = this._hostHeight();
+        }
+        // if the diameter is over TD_CIRCLE_DIAMETER, we return TD_CIRCLE_DIAMETER
+        if (!!diameter && diameter <= TD_CIRCLE_DIAMETER) {
+            return diameter;
+        }
+        return TD_CIRCLE_DIAMETER;
+    };
+    TdLoadingComponent.prototype.getCircleStrokeWidth = function () {
+        // we calculate the stroke width by setting it as 10% of its diameter
+        var strokeWidth = this.getCircleDiameter() / 10;
+        return Math.abs(strokeWidth);
     };
     TdLoadingComponent.prototype.isCircular = function () {
         return this.type === exports.LoadingType.Circular;
@@ -6959,18 +6974,28 @@ var TdLoadingComponent = (function () {
         this._changeDetectorRef.markForCheck();
         return this._animationOut.asObservable();
     };
+    /**
+     * Returns the host height of the loading component
+     */
+    TdLoadingComponent.prototype._hostHeight = function () {
+        if (this._elementRef.nativeElement) {
+            return this._elementRef.nativeElement.getBoundingClientRect().height;
+        }
+        return 0;
+    };
     return TdLoadingComponent;
 }());
 TdLoadingComponent = __decorate([
     _angular_core.Component({
         selector: 'td-loading',
         styles: [".td-loading-wrapper { position: relative; display: block; } .td-loading-wrapper.td-fullscreen { position: inherit; } .td-loading-wrapper.td-overlay .td-loading { position: absolute; margin: 0; top: 0; left: 0; right: 0; bottom: 0; z-index: 1000; } .td-loading-wrapper.td-overlay .td-loading mat-progress-bar { position: absolute; top: 0; left: 0; right: 0; } /*# sourceMappingURL=loading.component.css.map */ "],
-        template: "<div class=\"td-loading-wrapper\" [style.min-height]=\"getHeight()\" [class.td-overlay]=\"isOverlay() || isFullScreen()\" [class.td-fullscreen]=\"isFullScreen()\"> <div [@tdFadeInOut]=\"animation\" (@tdFadeInOut.done)=\"animationComplete($event)\" [style.min-height]=\"getHeight()\" class=\"td-loading\" layout=\"row\" layout-align=\"center center\" flex> <mat-progress-spinner *ngIf=\"isCircular()\"  [mode]=\"mode\" [value]=\"value\"  [color]=\"color\"  [style.height]=\"getCircleDiameter()\" [style.width]=\"getCircleDiameter()\"> </mat-progress-spinner> <mat-progress-bar *ngIf=\"isLinear()\"  [mode]=\"mode\" [value]=\"value\" [color]=\"color\"> </mat-progress-bar> </div> <ng-template [cdkPortalHost]=\"content\"></ng-template> </div>",
+        template: "<div class=\"td-loading-wrapper\" [style.min-height]=\"getHeight()\" [class.td-overlay]=\"isOverlay() || isFullScreen()\" [class.td-fullscreen]=\"isFullScreen()\"> <div [@tdFadeInOut]=\"animation\" (@tdFadeInOut.done)=\"animationComplete($event)\" [style.min-height]=\"getHeight()\" class=\"td-loading\" layout=\"row\" layout-align=\"center center\" flex> <mat-progress-spinner *ngIf=\"isCircular()\"  [mode]=\"mode\" [value]=\"value\"  [color]=\"color\"  [diameter]=\"getCircleDiameter()\" [strokeWidth]=\"getCircleStrokeWidth()\"> </mat-progress-spinner> <mat-progress-bar *ngIf=\"isLinear()\"  [mode]=\"mode\" [value]=\"value\" [color]=\"color\"> </mat-progress-bar> </div> <ng-template [cdkPortalHost]=\"content\"></ng-template> </div>",
         animations: [
             TdFadeInOutAnimation(),
         ],
     }),
-    __metadata("design:paramtypes", [_angular_core.ChangeDetectorRef])
+    __metadata("design:paramtypes", [_angular_core.ElementRef,
+        _angular_core.ChangeDetectorRef])
 ], TdLoadingComponent);
 
 /**
@@ -7020,7 +7045,7 @@ var TdLoadingFactory = (function () {
     /**
      * Creates a loading component dynamically and attaches it into the given viewContainerRef.
      * Leverages TemplatePortals from material to inject the template inside of it so it fits
-     * perfecly when overlaying it.
+     * perfectly when overlaying it.
      *
      * Saves a reference in context to be called when registering/resolving the loading element.
      */

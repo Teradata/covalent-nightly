@@ -1,4 +1,4 @@
-import { ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectorRef, ElementRef } from '@angular/core';
 import { AnimationEvent } from '@angular/animations';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { Observable } from 'rxjs/Observable';
@@ -19,7 +19,9 @@ export declare enum LoadingStyle {
     Overlay,
     None,
 }
+export declare const TD_CIRCLE_DIAMETER: number;
 export declare class TdLoadingComponent {
+    private _elementRef;
     private _changeDetectorRef;
     private _animationIn;
     private _animationOut;
@@ -58,9 +60,10 @@ export declare class TdLoadingComponent {
      * Sets theme color of [TdLoadingComponent] rendered.
      */
     color: 'primary' | 'accent' | 'warn';
-    constructor(_changeDetectorRef: ChangeDetectorRef);
+    constructor(_elementRef: ElementRef, _changeDetectorRef: ChangeDetectorRef);
     getHeight(): string;
-    getCircleDiameter(): string;
+    getCircleDiameter(): number;
+    getCircleStrokeWidth(): number;
     isCircular(): boolean;
     isLinear(): boolean;
     isFullScreen(): boolean;
@@ -76,4 +79,8 @@ export declare class TdLoadingComponent {
      * Starts out animation and returns an observable for completition event.
      */
     startOutAnimation(): Observable<any>;
+    /**
+     * Returns the host height of the loading component
+     */
+    private _hostHeight();
 }
