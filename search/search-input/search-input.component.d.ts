@@ -21,6 +21,12 @@ export declare class TdSearchInputComponent implements OnInit {
      */
     placeholder: string;
     /**
+     * clearIcon?: string
+     * The icon used to clear the search input.
+     * Defaults to 'cancel' icon.
+     */
+    clearIcon: string;
+    /**
      * searchDebounce: function($event)
      * Event emitted after the [debounce] timeout.
      */

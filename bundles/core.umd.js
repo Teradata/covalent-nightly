@@ -8725,6 +8725,12 @@ exports.TdSearchInputComponent = (function () {
          */
         this.debounce = 400;
         /**
+         * clearIcon?: string
+         * The icon used to clear the search input.
+         * Defaults to 'cancel' icon.
+         */
+        this.clearIcon = 'cancel';
+        /**
          * searchDebounce: function($event)
          * Event emitted after the [debounce] timeout.
          */
@@ -8805,6 +8811,10 @@ __decorate([
     __metadata("design:type", String)
 ], exports.TdSearchInputComponent.prototype, "placeholder", void 0);
 __decorate([
+    _angular_core.Input('clearIcon'),
+    __metadata("design:type", String)
+], exports.TdSearchInputComponent.prototype, "clearIcon", void 0);
+__decorate([
     _angular_core.Output('searchDebounce'),
     __metadata("design:type", _angular_core.EventEmitter)
 ], exports.TdSearchInputComponent.prototype, "onSearchDebounce", void 0);
@@ -8823,7 +8833,7 @@ __decorate([
 exports.TdSearchInputComponent = __decorate([
     _angular_core.Component({
         selector: 'td-search-input',
-        template: "<div class=\"td-search-input\" layout=\"row\" layout-align=\"end center\"> <mat-form-field [class.mat-hide-underline]=\"!showUnderline\" floatPlaceholder=\"never\" flex> <input matInput #searchElement type=\"search\" [(ngModel)]=\"value\" [placeholder]=\"placeholder\" (blur)=\"handleBlur()\" (search)=\"stopPropagation($event)\" (keyup.enter)=\"handleSearch($event)\"/> </mat-form-field> <button mat-icon-button type=\"button\" [@searchState]=\"(searchElement.value ?  'show' : (isRTL ? 'hide-left' : 'hide-right'))\" (click)=\"clearSearch()\" flex=\"none\"> <mat-icon>cancel</mat-icon> </button> </div>",
+        template: "<div class=\"td-search-input\" layout=\"row\" layout-align=\"end center\"> <mat-form-field [class.mat-hide-underline]=\"!showUnderline\" floatPlaceholder=\"never\" flex> <input matInput #searchElement type=\"search\" [(ngModel)]=\"value\" [placeholder]=\"placeholder\" (blur)=\"handleBlur()\" (search)=\"stopPropagation($event)\" (keyup.enter)=\"handleSearch($event)\"/> </mat-form-field> <button mat-icon-button type=\"button\" [@searchState]=\"(searchElement.value ?  'show' : (isRTL ? 'hide-left' : 'hide-right'))\" (click)=\"clearSearch()\" flex=\"none\"> <mat-icon>{{clearIcon}}</mat-icon> </button> </div>",
         styles: [".td-search-input { overflow-x: hidden; } .td-search-input /deep/ mat-form-field.mat-hide-underline .mat-form-field-underline { display: none; } /*# sourceMappingURL=search-input.component.css.map */ "],
         animations: [
             _angular_animations.trigger('searchState', [
@@ -8857,6 +8867,18 @@ exports.TdSearchBoxComponent = (function () {
          * Defaults to 'search' icon.
          */
         this.backIcon = 'search';
+        /**
+         * searchIcon?: string
+         * The icon used to open/focus the search toggle.
+         * Defaults to 'search' icon.
+         */
+        this.searchIcon = 'search';
+        /**
+         * clearIcon?: string
+         * The icon used to clear the search input.
+         * Defaults to 'cancel' icon.
+         */
+        this.clearIcon = 'cancel';
         /**
          * showUnderline?: boolean
          * Sets if the input underline should be visible. Defaults to 'false'.
@@ -8937,6 +8959,14 @@ __decorate([
     __metadata("design:type", String)
 ], exports.TdSearchBoxComponent.prototype, "backIcon", void 0);
 __decorate([
+    _angular_core.Input('searchIcon'),
+    __metadata("design:type", String)
+], exports.TdSearchBoxComponent.prototype, "searchIcon", void 0);
+__decorate([
+    _angular_core.Input('clearIcon'),
+    __metadata("design:type", String)
+], exports.TdSearchBoxComponent.prototype, "clearIcon", void 0);
+__decorate([
     _angular_core.Input('showUnderline'),
     __metadata("design:type", Boolean)
 ], exports.TdSearchBoxComponent.prototype, "showUnderline", void 0);
@@ -8967,7 +8997,7 @@ __decorate([
 exports.TdSearchBoxComponent = __decorate([
     _angular_core.Component({
         selector: 'td-search-box',
-        template: "<div class=\"td-search-box\" layout=\"row\" layout-align=\"end center\"> <button mat-icon-button type=\"button\" class=\"td-search-icon\" flex=\"none\" (click)=\"searchClicked()\"> <mat-icon *ngIf=\"searchVisible && !alwaysVisible\">{{backIcon}}</mat-icon> <mat-icon *ngIf=\"!searchVisible || alwaysVisible\">search</mat-icon> </button> <td-search-input #searchInput [@inputState]=\"alwaysVisible || searchVisible\" [debounce]=\"debounce\" [showUnderline]=\"showUnderline\" [placeholder]=\"placeholder\" (searchDebounce)=\"handleSearchDebounce($event)\" (search)=\"handleSearch($event)\" (clear)=\"handleClear(); toggleVisibility()\"> </td-search-input> </div>",
+        template: "<div class=\"td-search-box\" layout=\"row\" layout-align=\"end center\"> <button mat-icon-button type=\"button\" class=\"td-search-icon\" flex=\"none\" (click)=\"searchClicked()\"> <mat-icon *ngIf=\"searchVisible && !alwaysVisible\">{{backIcon}}</mat-icon> <mat-icon *ngIf=\"!searchVisible || alwaysVisible\">{{searchIcon}}</mat-icon> </button> <td-search-input #searchInput [@inputState]=\"alwaysVisible || searchVisible\" [debounce]=\"debounce\" [showUnderline]=\"showUnderline\" [placeholder]=\"placeholder\" [clearIcon]=\"clearIcon\" (searchDebounce)=\"handleSearchDebounce($event)\" (search)=\"handleSearch($event)\" (clear)=\"handleClear(); toggleVisibility()\"> </td-search-input> </div>",
         styles: [":host { display: block; } .td-search-box td-search-input { margin-left: 12px; } /deep/ [dir='rtl'] .td-search-box td-search-input { margin-right: 12px; margin-left: 0px !important; } /*# sourceMappingURL=search-box.component.css.map */ "],
         animations: [
             _angular_animations.trigger('inputState', [

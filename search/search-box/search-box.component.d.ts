@@ -12,6 +12,18 @@ export declare class TdSearchBoxComponent {
      */
     backIcon: string;
     /**
+     * searchIcon?: string
+     * The icon used to open/focus the search toggle.
+     * Defaults to 'search' icon.
+     */
+    searchIcon: string;
+    /**
+     * clearIcon?: string
+     * The icon used to clear the search input.
+     * Defaults to 'cancel' icon.
+     */
+    clearIcon: string;
+    /**
      * showUnderline?: boolean
      * Sets if the input underline should be visible. Defaults to 'false'.
      */

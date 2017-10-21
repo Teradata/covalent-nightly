@@ -19,6 +19,12 @@ var TdSearchInputComponent = (function () {
          */
         this.debounce = 400;
         /**
+         * clearIcon?: string
+         * The icon used to clear the search input.
+         * Defaults to 'cancel' icon.
+         */
+        this.clearIcon = 'cancel';
+        /**
          * searchDebounce: function($event)
          * Event emitted after the [debounce] timeout.
          */
@@ -99,6 +105,10 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", String)
 ], TdSearchInputComponent.prototype, "placeholder", void 0);
 tslib_1.__decorate([
+    Input('clearIcon'),
+    tslib_1.__metadata("design:type", String)
+], TdSearchInputComponent.prototype, "clearIcon", void 0);
+tslib_1.__decorate([
     Output('searchDebounce'),
     tslib_1.__metadata("design:type", EventEmitter)
 ], TdSearchInputComponent.prototype, "onSearchDebounce", void 0);
@@ -117,7 +127,7 @@ tslib_1.__decorate([
 TdSearchInputComponent = tslib_1.__decorate([
     Component({
         selector: 'td-search-input',
-        template: "<div class=\"td-search-input\" layout=\"row\" layout-align=\"end center\"> <mat-form-field [class.mat-hide-underline]=\"!showUnderline\" floatPlaceholder=\"never\" flex> <input matInput #searchElement type=\"search\" [(ngModel)]=\"value\" [placeholder]=\"placeholder\" (blur)=\"handleBlur()\" (search)=\"stopPropagation($event)\" (keyup.enter)=\"handleSearch($event)\"/> </mat-form-field> <button mat-icon-button type=\"button\" [@searchState]=\"(searchElement.value ?  'show' : (isRTL ? 'hide-left' : 'hide-right'))\" (click)=\"clearSearch()\" flex=\"none\"> <mat-icon>cancel</mat-icon> </button> </div>",
+        template: "<div class=\"td-search-input\" layout=\"row\" layout-align=\"end center\"> <mat-form-field [class.mat-hide-underline]=\"!showUnderline\" floatPlaceholder=\"never\" flex> <input matInput #searchElement type=\"search\" [(ngModel)]=\"value\" [placeholder]=\"placeholder\" (blur)=\"handleBlur()\" (search)=\"stopPropagation($event)\" (keyup.enter)=\"handleSearch($event)\"/> </mat-form-field> <button mat-icon-button type=\"button\" [@searchState]=\"(searchElement.value ?  'show' : (isRTL ? 'hide-left' : 'hide-right'))\" (click)=\"clearSearch()\" flex=\"none\"> <mat-icon>{{clearIcon}}</mat-icon> </button> </div>",
         styles: [".td-search-input { overflow-x: hidden; } .td-search-input /deep/ mat-form-field.mat-hide-underline .mat-form-field-underline { display: none; } /*# sourceMappingURL=search-input.component.css.map */ "],
         animations: [
             trigger('searchState', [
