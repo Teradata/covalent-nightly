@@ -9770,7 +9770,7 @@ exports.TdVirtualScrollContainerComponent = __decorate([
     _angular_core.Component({
         selector: 'td-virtual-scroll-container',
         styles: [":host { display: block; height: 100%; width: 100%; overflow: auto; position: relative; } /*# sourceMappingURL=virtual-scroll-container.component.css.map */ "],
-        template: "<div [style.height.px]=\"totalHeight\"></div> <div [style.transform]=\"offsetTransform\" [style.position]=\"'absolute'\" [style.min-width.%]=\"100\"> <ng-template let-row let-index=\"index\" ngFor [ngForOf]=\"virtualData\" [ngForTrackBy]=\"trackBy\"> <div #rowElement> <ng-template *ngIf=\"_rowTemplate\" [ngTemplateOutlet]=\"_rowTemplate.templateRef\" [ngTemplateOutletContext]=\"{row: row, index: (fromRow + index), first: (fromRow + index) === 0, last: (fromRow + index) === (data.length - 1), odd: ((fromRow + index + 1) % 2) === 1, even: ((fromRow + index + 1) % 2) === 0}\"> </ng-template> </div> </ng-template> </div>",
+        template: "<div [style.height.px]=\"totalHeight\"></div> <div [style.transform]=\"offsetTransform\" [style.position]=\"'absolute'\" [style.width.%]=\"100\"> <ng-template let-row let-index=\"index\" ngFor [ngForOf]=\"virtualData\" [ngForTrackBy]=\"trackBy\"> <div #rowElement [style.width.%]=\"100\"> <ng-template *ngIf=\"_rowTemplate\" [ngTemplateOutlet]=\"_rowTemplate.templateRef\" [ngTemplateOutletContext]=\"{row: row, index: (fromRow + index), first: (fromRow + index) === 0, last: (fromRow + index) === (data.length - 1), odd: ((fromRow + index + 1) % 2) === 1, even: ((fromRow + index + 1) % 2) === 0}\"> </ng-template> </div> </ng-template> </div>",
         changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
     }),
     __metadata("design:paramtypes", [_angular_core.ElementRef,
