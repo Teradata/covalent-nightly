@@ -22,6 +22,29 @@
             align-items: flex-start; }
     :host .td-chips-wrapper.td-chips-stacked .mat-basic-chip {
       width: 100%; }
+  :host .td-chip, :host .td-chip > .td-chip-content {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    max-width: 100%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start; }
+    :host .td-chip.td-chip-stacked, :host .td-chip > .td-chip-content.td-chip-stacked {
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between; }
   :host /deep/ {
     /* TODO see if we can make styles more abstract to future proof for contact chips */ }
     :host /deep/ .mat-form-field-wrapper {
