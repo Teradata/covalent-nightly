@@ -4,8 +4,27 @@
 .td-json-formatter-wrapper {
   padding-top: 2px;
   padding-bottom: 2px; }
-  .td-json-formatter-wrapper .td-key.td-key-node:hover {
-    cursor: pointer; }
+  .td-json-formatter-wrapper .td-key {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    max-width: 100%;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start; }
+    .td-json-formatter-wrapper .td-key.td-key-node:hover {
+      cursor: pointer; }
   .td-json-formatter-wrapper .td-object-children .td-key,
   .td-json-formatter-wrapper .td-object-children .td-object-children {
     padding-left: 24px; }

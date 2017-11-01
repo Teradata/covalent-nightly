@@ -29,7 +29,8 @@
       -ms-flex-line-pack: center;
           align-content: center;
       max-width: 100%; }
-      :host .td-expansion-panel-header .td-expansion-panel-header-content .td-expansion-label {
+      :host .td-expansion-panel-header .td-expansion-panel-header-content .td-expansion-label,
+      :host .td-expansion-panel-header .td-expansion-panel-header-content .td-expansion-panel-spacer {
         -webkit-box-flex: 1;
             -ms-flex: 1;
                 flex: 1; }

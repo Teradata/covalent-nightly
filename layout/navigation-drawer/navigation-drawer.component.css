@@ -2,6 +2,9 @@
   width: 100%; }
   :host mat-toolbar {
     padding: 16px; }
+    :host mat-toolbar.td-toolbar-background {
+      background-repeat: no-repeat;
+      background-size: cover; }
     :host mat-toolbar .td-navigation-drawer-toolbar-content {
       -webkit-box-orient: horizontal;
       -webkit-box-direction: normal;
@@ -21,9 +24,20 @@
       -webkit-box-pack: start;
           -ms-flex-pack: start;
               justify-content: start; }
-    :host mat-toolbar.td-toolbar-background {
-      background-repeat: no-repeat;
-      background-size: cover; }
+    :host mat-toolbar .td-navigation-drawer-menu-toggle {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+      :host mat-toolbar .td-navigation-drawer-menu-toggle .td-navigation-drawer-label {
+        -webkit-box-flex: 1;
+            -ms-flex: 1;
+                flex: 1; }
     :host mat-toolbar /deep/ > .mat-toolbar-layout > mat-toolbar-row {
       height: auto !important;
       display: block !important; }
