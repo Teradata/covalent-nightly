@@ -5,7 +5,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { ENTER, SPACE, UP_ARROW, DOWN_ARROW } from '@angular/cdk/keycodes';
 import { Subject } from 'rxjs/Subject';
-import { debounceTime } from 'rxjs/operator/debounceTime';
+import { debounceTime } from 'rxjs/operators/debounceTime';
 import { TdDataTableRowComponent } from './data-table-row/data-table-row.component';
 import { TdDataTableTemplateDirective } from './directives/data-table-template.directive';
 var noop = function () {
@@ -448,7 +448,7 @@ var TdDataTableComponent = (function () {
      */
     TdDataTableComponent.prototype.ngAfterViewInit = function () {
         var _this = this;
-        this._rowsChangedSubs = debounceTime.call(this._rows.changes, 0).subscribe(function () {
+        this._rowsChangedSubs = this._rows.changes.pipe(debounceTime(0)).subscribe(function () {
             _this._onResize.next();
         });
         this._calculateVirtualRows();

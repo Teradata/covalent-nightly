@@ -1,6 +1,7 @@
 :host {
   display: block; }
   :host .td-message-wrapper {
+    padding: 8px 16px;
     min-height: 52px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
@@ -20,6 +21,8 @@
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: start; }
+    :host .td-message-wrapper .td-message-icon {
+      margin-right: 16px; }
     :host .td-message-wrapper .td-message-labels {
       -webkit-box-flex: 1;
           -ms-flex: 1;

@@ -1,12 +1,12 @@
 import * as tslib_1 from "tslib";
 import { Injectable } from '@angular/core';
 import { Router, RoutesRecognized } from '@angular/router';
-import { filter } from 'rxjs/operator/filter';
-import { pairwise } from 'rxjs/operator/pairwise';
+import { filter } from 'rxjs/operators/filter';
+import { pairwise } from 'rxjs/operators/pairwise';
 var RouterPathService = RouterPathService_1 = (function () {
     function RouterPathService(_router) {
         this._router = _router;
-        pairwise.call(filter.call(this._router.events, function (e) { return e instanceof RoutesRecognized; })).subscribe(function (e) {
+        this._router.events.pipe(filter(function (e) { return e instanceof RoutesRecognized; }), pairwise()).subscribe(function (e) {
             RouterPathService_1._previousRoute = e[0].urlAfterRedirects;
         });
     }

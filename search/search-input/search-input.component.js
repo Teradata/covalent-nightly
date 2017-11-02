@@ -3,8 +3,8 @@ import { Component, ViewChild, Input, Output, EventEmitter, Optional } from '@an
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Dir } from '@angular/cdk/bidi';
 import { MatInput } from '@angular/material';
-import { debounceTime } from 'rxjs/operator/debounceTime';
-import { skip } from 'rxjs/operator/skip';
+import { debounceTime } from 'rxjs/operators/debounceTime';
+import { skip } from 'rxjs/operators/skip';
 var TdSearchInputComponent = (function () {
     function TdSearchInputComponent(_dir) {
         this._dir = _dir;
@@ -57,9 +57,8 @@ var TdSearchInputComponent = (function () {
     });
     TdSearchInputComponent.prototype.ngOnInit = function () {
         var _this = this;
-        debounceTime.call(skip.call(this._input.ngControl.valueChanges, 1), // skip first change when value is set to undefined
-        this.debounce)
-            .subscribe(function (value) {
+        this._input.ngControl.valueChanges.pipe(skip(1), // skip first change when value is set to undefined
+        debounceTime(this.debounce)).subscribe(function (value) {
             _this._searchTermChanged(value);
         });
     };

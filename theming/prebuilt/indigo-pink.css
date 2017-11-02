@@ -15,6 +15,26 @@
  * This mixin contains shared option styles between the select and
  * autocomplete components.
  */
+/** Mixin to create distinct classes for fab positions, e.g. ".mat-fab-position-bottom-right". */
+/*
+*
+*  Responsive attributes
+*
+*  References:
+*  1) https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties#flex
+*  2) https://css-tricks.com/almanac/properties/f/flex/
+*  3) https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+*  4) https://github.com/philipwalton/flexbugs#3-min-height-on-a-flex-container-wont-apply-to-its-flex-items
+*  5) http://godban.com.ua/projects/flexgrid
+*
+*/
+@-moz-document url-prefix() {
+  [layout-fill] {
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+    height: 100%; } }
+
 .mat-elevation-z0 {
   -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
           box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12); }
@@ -1607,8 +1627,14 @@ td-file-input {
     -webkit-box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
             box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12); }
 
+.td-dialog-message {
+  color: rgba(0, 0, 0, 0.54); }
+
 .td-json-formatter-wrapper .td-key.td-key-node:focus, .td-json-formatter-wrapper .td-key.td-key-node:hover {
   background-color: rgba(0, 0, 0, 0.04); }
+
+.td-json-formatter-wrapper .td-key.td-key-node .td-node-icon {
+  color: rgba(0, 0, 0, 0.54); }
 
 .td-json-formatter-wrapper .key {
   color: #3f51b5; }
