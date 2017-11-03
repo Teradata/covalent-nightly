@@ -8,10 +8,9 @@
   height: 100%;
   overflow: hidden; }
   :host mat-sidenav-container.td-layout-manage-list {
-    display: block;
-    position: relative;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch; }
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1; }
     :host mat-sidenav-container.td-layout-manage-list > mat-sidenav.mat-drawer-opened, :host mat-sidenav-container.td-layout-manage-list > mat-sidenav.mat-drawer-opening, :host mat-sidenav-container.td-layout-manage-list > mat-sidenav.mat-drawer-closed, :host mat-sidenav-container.td-layout-manage-list > mat-sidenav.mat-drawer-closing {
       -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2);
               box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2); }
