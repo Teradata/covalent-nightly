@@ -11703,21 +11703,6 @@ body .text-nodecoration {
   [hide-xl]:not([show-xl]):not([show-gt-lg]):not([show]) {
     display: none; } }
 
-html, body {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  min-height: 100%;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
-/************
-  * Defaults
-  ************/
-html {
-  font-family: RobotoDraft, Roboto, "Helvetica Neue", sans-serif; }
-
 body {
   /************
     * Headings
@@ -11725,12 +11710,6 @@ body {
   /************
     * Body Copy
     ************/ }
-  body select,
-  body button,
-  body textarea,
-  body input {
-    font-family: RobotoDraft, Roboto, "Helvetica Neue", sans-serif;
-    font-size: 100%; }
   body .md-display-4 {
     font-size: 112px;
     font-weight: 300;

@@ -70,9 +70,6 @@
   .td-step-header .td-step-label-wrapper {
     padding-left: 8px;
     padding-right: 8px; }
-  .td-step-header .td-step-sublabel {
-    line-height: 14px;
-    font-weight: normal; }
   .td-step-header .td-step-header-separator {
     -webkit-box-flex: 1;
         -ms-flex: 1;

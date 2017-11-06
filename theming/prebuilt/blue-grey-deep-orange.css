@@ -1458,6 +1458,73 @@ input.mat-input-element {
 .mat-simple-snackbar-action {
   color: #ff5722; }
 
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.td-chip-content {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 12px; }
+
+.td-data-table-cell {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px; }
+
+.td-data-table-column {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 12px;
+  font-weight: 600; }
+
+.td-dialog-title {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 20px;
+  font-weight: 500; }
+
+.td-dialog-message {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px; }
+
+.td-expansion-label {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 400; }
+
+.td-expansion-sublabel {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 400; }
+
+.td-key {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px; }
+
+.td-message-label {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px; }
+
+.td-message-sublabel {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px; }
+
+.td-paging-bar {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 12px; }
+
+.td-step-label {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 500; }
+
+.td-step-sublabel {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  line-height: 20px; }
+
 mat-list-item mat-icon,
 .mat-list-item-content mat-icon {
   color: rgba(0, 0, 0, 0.54); }
@@ -1664,6 +1731,9 @@ td-paging-bar, td-paging-bar mat-select .mat-select-value {
 .td-loading-wrapper.td-overlay .td-loading {
   background: rgba(255, 255, 255, 0.8); }
 
+.td-data-table-scrollable {
+  border-top: 1px solid rgba(0, 0, 0, 0.12); }
+
 table[td-data-table] .td-data-table-column-row,
 table[td-data-table] .td-data-table-row {
   border-bottom-color: rgba(0, 0, 0, 0.12); }
@@ -1675,16 +1745,10 @@ table[td-data-table] .mat-checkbox-column {
   table[td-data-table] .mat-checkbox-column mat-pseudo-checkbox.mat-pseudo-checkbox-checked {
     background-color: #ff5722; }
 
-table[td-data-table] .td-data-table-cell {
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0.010em;
-  line-height: 20px; }
-  table[td-data-table] .td-data-table-cell mat-form-field .mat-form-field-underline {
-    display: none; }
+table[td-data-table] .td-data-table-cell mat-form-field .mat-form-field-underline {
+  display: none; }
 
 table[td-data-table] .td-data-table-column {
-  font-size: 12px;
   color: rgba(0, 0, 0, 0.54); }
   table[td-data-table] .td-data-table-column * {
     vertical-align: middle; }
