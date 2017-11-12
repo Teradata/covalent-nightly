@@ -1,6 +1,6 @@
 import * as tslib_1 from "tslib";
 import { Injectable, NgZone, SkipSelf, Optional } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { fromEvent } from 'rxjs/observable/fromEvent';
 var TdMediaService = (function () {
     function TdMediaService(_ngZone) {
@@ -69,7 +69,7 @@ var TdMediaService = (function () {
             query = this._queryMap.get(query.toLowerCase());
         }
         if (!this._querySources[query]) {
-            this._querySources[query] = new Subject();
+            this._querySources[query] = new BehaviorSubject(matchMedia(query).matches);
             this._queryObservables[query] = this._querySources[query].asObservable();
         }
         return this._queryObservables[query];

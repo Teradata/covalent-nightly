@@ -1,6 +1,7 @@
 import { Renderer2, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { MatDrawerToggleResult, MatSidenav } from '@angular/material';
 export interface ILayoutTogglable {
+    opened: boolean;
     sidenav: MatSidenav;
     toggle(): Promise<MatDrawerToggleResult>;
     open(): Promise<MatDrawerToggleResult>;
