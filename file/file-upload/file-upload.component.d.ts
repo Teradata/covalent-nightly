@@ -1,13 +1,24 @@
 import { EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { ICanDisable } from '../../common/common.module';
 import { TdFileInputComponent, TdFileInputLabelDirective } from '../file-input/file-input.component';
+import { ControlValueAccessor } from '@angular/forms';
 export declare class TdFileUploadBase {
 }
 export declare const _TdFileUploadMixinBase: (new (...args: any[]) => ICanDisable) & typeof TdFileUploadBase;
-export declare class TdFileUploadComponent extends _TdFileUploadMixinBase implements ICanDisable {
+export declare const FILE_UPLOAD_CONTROL_VALUE_ACCESSOR: any;
+export declare class TdFileUploadComponent extends _TdFileUploadMixinBase implements ControlValueAccessor, ICanDisable {
     private _changeDetectorRef;
+    /**
+     * Implemented as part of ControlValueAccessor.
+     */
+    private _value;
+    value: FileList | File;
     private _multiple;
-    files: FileList | File;
+    private _required;
+    /**
+     * @deprecated use value property instead
+     */
+    readonly files: FileList | File;
     fileInput: TdFileInputComponent;
     inputLabel: TdFileInputLabelDirective;
     /**
@@ -30,6 +41,12 @@ export declare class TdFileUploadComponent extends _TdFileUploadMixinBase implem
      * Sets if multiple files can be dropped/selected at once in [TdFileUploadComponent].
      */
     multiple: boolean;
+    /**
+     * required?: boolean
+     * Forces at least one file upload.
+     * Defaults to 'false'
+     */
+    required: boolean;
     /**
      * accept?: string
      * Sets files accepted when opening the file browser dialog.
@@ -61,7 +78,7 @@ export declare class TdFileUploadComponent extends _TdFileUploadMixinBase implem
     /**
      * Method executed when a file is selected.
      */
-    handleSelect(files: File | FileList): void;
+    handleSelect(value: File | FileList): void;
     /**
      * Methods executed when cancel button is clicked.
      * Clears files.
@@ -69,4 +86,12 @@ export declare class TdFileUploadComponent extends _TdFileUploadMixinBase implem
     cancel(): void;
     /** Method executed when the disabled value changes */
     onDisabledChange(v: boolean): void;
+    /**
+     * Implemented as part of ControlValueAccessor.
+     */
+    writeValue(value: any): void;
+    registerOnChange(fn: any): void;
+    registerOnTouched(fn: any): void;
+    onChange: (_: any) => any;
+    onTouched: () => any;
 }
