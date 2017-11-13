@@ -9,20 +9,20 @@ export { TdNotificationCountComponent, TdNotificationCountPositionX, TdNotificat
 var CovalentNotificationsModule = (function () {
     function CovalentNotificationsModule() {
     }
+    CovalentNotificationsModule = tslib_1.__decorate([
+        NgModule({
+            imports: [
+                CommonModule,
+            ],
+            declarations: [
+                TD_NOTIFICATIONS,
+            ],
+            exports: [
+                TD_NOTIFICATIONS,
+            ],
+        })
+    ], CovalentNotificationsModule);
     return CovalentNotificationsModule;
 }());
-CovalentNotificationsModule = tslib_1.__decorate([
-    NgModule({
-        imports: [
-            CommonModule,
-        ],
-        declarations: [
-            TD_NOTIFICATIONS,
-        ],
-        exports: [
-            TD_NOTIFICATIONS,
-        ],
-    })
-], CovalentNotificationsModule);
 export { CovalentNotificationsModule };
 //# sourceMappingURL=notifications.module.js.map

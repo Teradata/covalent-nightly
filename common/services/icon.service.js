@@ -796,10 +796,10 @@ var IconService = (function () {
             return el.toLowerCase().indexOf(query ? query.toLowerCase() : '') > -1;
         });
     };
+    IconService = tslib_1.__decorate([
+        Injectable()
+    ], IconService);
     return IconService;
 }());
-IconService = tslib_1.__decorate([
-    Injectable()
-], IconService);
 export { IconService };
 //# sourceMappingURL=icon.service.js.map

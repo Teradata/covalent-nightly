@@ -26,30 +26,30 @@ export { TdDialogService, TdDialogComponent, TdDialogTitleDirective, TdAlertDial
 var CovalentDialogsModule = (function () {
     function CovalentDialogsModule() {
     }
+    CovalentDialogsModule = tslib_1.__decorate([
+        NgModule({
+            imports: [
+                FormsModule,
+                CommonModule,
+                MatDialogModule,
+                MatInputModule,
+                MatButtonModule,
+            ],
+            declarations: [
+                TD_DIALOGS,
+            ],
+            exports: [
+                TD_DIALOGS,
+            ],
+            providers: [
+                DIALOG_PROVIDER,
+            ],
+            entryComponents: [
+                TD_DIALOGS_ENTRY_COMPONENTS,
+            ],
+        })
+    ], CovalentDialogsModule);
     return CovalentDialogsModule;
 }());
-CovalentDialogsModule = tslib_1.__decorate([
-    NgModule({
-        imports: [
-            FormsModule,
-            CommonModule,
-            MatDialogModule,
-            MatInputModule,
-            MatButtonModule,
-        ],
-        declarations: [
-            TD_DIALOGS,
-        ],
-        exports: [
-            TD_DIALOGS,
-        ],
-        providers: [
-            DIALOG_PROVIDER,
-        ],
-        entryComponents: [
-            TD_DIALOGS_ENTRY_COMPONENTS,
-        ],
-    })
-], CovalentDialogsModule);
 export { CovalentDialogsModule };
 //# sourceMappingURL=dialogs.module.js.map

@@ -17,14 +17,14 @@ var TdFileInputLabelDirective = (function (_super) {
     function TdFileInputLabelDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
+    TdFileInputLabelDirective = tslib_1.__decorate([
+        Directive({
+            selector: '[td-file-input-label]ng-template',
+        }),
+        tslib_1.__metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
+    ], TdFileInputLabelDirective);
     return TdFileInputLabelDirective;
 }(TemplatePortalDirective));
-TdFileInputLabelDirective = tslib_1.__decorate([
-    Directive({
-        selector: '[td-file-input-label]ng-template',
-    }),
-    tslib_1.__metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
-], TdFileInputLabelDirective);
 export { TdFileInputLabelDirective };
 var TdFileInputBase = (function () {
     function TdFileInputBase() {
@@ -121,39 +121,39 @@ var TdFileInputComponent = (function (_super) {
     TdFileInputComponent.prototype.registerOnTouched = function (fn) {
         this.onTouched = fn;
     };
+    tslib_1.__decorate([
+        ViewChild('fileInput'),
+        tslib_1.__metadata("design:type", ElementRef)
+    ], TdFileInputComponent.prototype, "_inputElement", void 0);
+    tslib_1.__decorate([
+        Input('color'),
+        tslib_1.__metadata("design:type", String)
+    ], TdFileInputComponent.prototype, "color", void 0);
+    tslib_1.__decorate([
+        Input('multiple'),
+        tslib_1.__metadata("design:type", Boolean),
+        tslib_1.__metadata("design:paramtypes", [Boolean])
+    ], TdFileInputComponent.prototype, "multiple", null);
+    tslib_1.__decorate([
+        Input('accept'),
+        tslib_1.__metadata("design:type", String)
+    ], TdFileInputComponent.prototype, "accept", void 0);
+    tslib_1.__decorate([
+        Output('select'),
+        tslib_1.__metadata("design:type", EventEmitter)
+    ], TdFileInputComponent.prototype, "onSelect", void 0);
+    TdFileInputComponent = tslib_1.__decorate([
+        Component({
+            changeDetection: ChangeDetectionStrategy.OnPush,
+            providers: [FILE_INPUT_CONTROL_VALUE_ACCESSOR],
+            selector: 'td-file-input',
+            inputs: ['disabled'],
+            styles: [":host { /** * Class that is added ondragenter by the [TdFileDrop] directive. */ } :host .td-file-input { padding-left: 8px; padding-right: 8px; } :host input.td-file-input-hidden { display: none; } :host .drop-zone { border-radius: 3px; } :host .drop-zone * { pointer-events: none; } /*# sourceMappingURL=file-input.component.css.map */ "],
+            template: "<div> <button mat-raised-button class=\"td-file-input\" type=\"button\" [color]=\"color\"  [multiple]=\"multiple\"  [disabled]=\"disabled\" (keyup.enter)=\"fileInput.click()\" (click)=\"fileInput.click()\" (fileDrop)=\"handleSelect($event)\" tdFileDrop> <ng-content></ng-content> </button> <input #fileInput  class=\"td-file-input-hidden\"  type=\"file\" [attr.accept]=\"accept\"                 (fileSelect)=\"handleSelect($event)\" [multiple]=\"multiple\"  [disabled]=\"disabled\" tdFileSelect> </div>",
+        }),
+        tslib_1.__metadata("design:paramtypes", [Renderer2, ChangeDetectorRef])
+    ], TdFileInputComponent);
     return TdFileInputComponent;
 }(_TdFileInputMixinBase));
-tslib_1.__decorate([
-    ViewChild('fileInput'),
-    tslib_1.__metadata("design:type", ElementRef)
-], TdFileInputComponent.prototype, "_inputElement", void 0);
-tslib_1.__decorate([
-    Input('color'),
-    tslib_1.__metadata("design:type", String)
-], TdFileInputComponent.prototype, "color", void 0);
-tslib_1.__decorate([
-    Input('multiple'),
-    tslib_1.__metadata("design:type", Boolean),
-    tslib_1.__metadata("design:paramtypes", [Boolean])
-], TdFileInputComponent.prototype, "multiple", null);
-tslib_1.__decorate([
-    Input('accept'),
-    tslib_1.__metadata("design:type", String)
-], TdFileInputComponent.prototype, "accept", void 0);
-tslib_1.__decorate([
-    Output('select'),
-    tslib_1.__metadata("design:type", EventEmitter)
-], TdFileInputComponent.prototype, "onSelect", void 0);
-TdFileInputComponent = tslib_1.__decorate([
-    Component({
-        changeDetection: ChangeDetectionStrategy.OnPush,
-        providers: [FILE_INPUT_CONTROL_VALUE_ACCESSOR],
-        selector: 'td-file-input',
-        inputs: ['disabled'],
-        styles: [":host { /** * Class that is added ondragenter by the [TdFileDrop] directive. */ } :host .td-file-input { padding-left: 8px; padding-right: 8px; } :host input.td-file-input-hidden { display: none; } :host .drop-zone { border-radius: 3px; } :host .drop-zone * { pointer-events: none; } /*# sourceMappingURL=file-input.component.css.map */ "],
-        template: "<div> <button mat-raised-button class=\"td-file-input\" type=\"button\" [color]=\"color\"  [multiple]=\"multiple\"  [disabled]=\"disabled\" (keyup.enter)=\"fileInput.click()\" (click)=\"fileInput.click()\" (fileDrop)=\"handleSelect($event)\" tdFileDrop> <ng-content></ng-content> </button> <input #fileInput  class=\"td-file-input-hidden\"  type=\"file\" [attr.accept]=\"accept\"                 (fileSelect)=\"handleSelect($event)\" [multiple]=\"multiple\"  [disabled]=\"disabled\" tdFileSelect> </div>",
-    }),
-    tslib_1.__metadata("design:paramtypes", [Renderer2, ChangeDetectorRef])
-], TdFileInputComponent);
 export { TdFileInputComponent };
 //# sourceMappingURL=file-input.component.js.map

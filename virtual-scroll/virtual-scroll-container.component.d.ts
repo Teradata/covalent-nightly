@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, QueryList, ElementRef, Renderer2, AfterViewChecked, OnDestroy } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, QueryList, ElementRef, Renderer2, AfterViewChecked, OnDestroy, TrackByFunction } from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { TdVirtualScrollRowDirective } from './virtual-scroll-row.directive';
 export declare class TdVirtualScrollContainerComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
@@ -38,7 +38,7 @@ export declare class TdVirtualScrollContainerComponent implements AfterViewInit,
      * This accepts the same trackBy function [ngFor] does.
      * https://angular.io/api/core/TrackByFunction
      */
-    trackBy: any;
+    trackBy: TrackByFunction<any>;
     handleScroll(event: Event): void;
     /**
      * Method to refresh and recalculate the virtual rows

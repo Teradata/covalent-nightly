@@ -7,22 +7,22 @@ export { TdPagingBarComponent } from './paging-bar.component';
 var CovalentPagingModule = (function () {
     function CovalentPagingModule() {
     }
+    CovalentPagingModule = tslib_1.__decorate([
+        NgModule({
+            imports: [
+                CommonModule,
+                MatIconModule,
+                MatButtonModule,
+            ],
+            declarations: [
+                TdPagingBarComponent,
+            ],
+            exports: [
+                TdPagingBarComponent,
+            ],
+        })
+    ], CovalentPagingModule);
     return CovalentPagingModule;
 }());
-CovalentPagingModule = tslib_1.__decorate([
-    NgModule({
-        imports: [
-            CommonModule,
-            MatIconModule,
-            MatButtonModule,
-        ],
-        declarations: [
-            TdPagingBarComponent,
-        ],
-        exports: [
-            TdPagingBarComponent,
-        ],
-    })
-], CovalentPagingModule);
 export { CovalentPagingModule };
 //# sourceMappingURL=paging.module.js.map

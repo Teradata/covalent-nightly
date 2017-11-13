@@ -6,17 +6,17 @@ var TdDataTableColumnRowComponent = (function () {
         this._renderer = _renderer;
         this._renderer.addClass(this._elementRef.nativeElement, 'td-data-table-column-row');
     }
+    TdDataTableColumnRowComponent = tslib_1.__decorate([
+        Component({
+            /* tslint:disable-next-line */
+            selector: 'tr[td-data-table-column-row]',
+            styles: [":host { border-bottom-style: solid; border-bottom-width: 1px; } :host.td-data-table-row { height: 48px; } :host.td-data-table-column-row { height: 56px; } /*# sourceMappingURL=data-table-row.component.css.map */ "],
+            template: "<ng-content></ng-content>",
+        }),
+        tslib_1.__metadata("design:paramtypes", [ElementRef, Renderer2])
+    ], TdDataTableColumnRowComponent);
     return TdDataTableColumnRowComponent;
 }());
-TdDataTableColumnRowComponent = tslib_1.__decorate([
-    Component({
-        /* tslint:disable-next-line */
-        selector: 'tr[td-data-table-column-row]',
-        styles: [":host { border-bottom-style: solid; border-bottom-width: 1px; } :host.td-data-table-row { height: 48px; } :host.td-data-table-column-row { height: 56px; } /*# sourceMappingURL=data-table-row.component.css.map */ "],
-        template: "<ng-content></ng-content>",
-    }),
-    tslib_1.__metadata("design:paramtypes", [ElementRef, Renderer2])
-], TdDataTableColumnRowComponent);
 export { TdDataTableColumnRowComponent };
 var TdDataTableRowComponent = (function () {
     function TdDataTableRowComponent(_elementRef, _renderer) {
@@ -61,27 +61,27 @@ var TdDataTableRowComponent = (function () {
     TdDataTableRowComponent.prototype.focus = function () {
         this._elementRef.nativeElement.focus();
     };
+    tslib_1.__decorate([
+        Input('selected'),
+        tslib_1.__metadata("design:type", Boolean),
+        tslib_1.__metadata("design:paramtypes", [Boolean])
+    ], TdDataTableRowComponent.prototype, "selected", null);
+    tslib_1.__decorate([
+        HostListener('click', ['$event']),
+        tslib_1.__metadata("design:type", Function),
+        tslib_1.__metadata("design:paramtypes", []),
+        tslib_1.__metadata("design:returntype", void 0)
+    ], TdDataTableRowComponent.prototype, "clickListener", null);
+    TdDataTableRowComponent = tslib_1.__decorate([
+        Component({
+            /* tslint:disable-next-line */
+            selector: 'tr[td-data-table-row]',
+            styles: [":host { border-bottom-style: solid; border-bottom-width: 1px; } :host.td-data-table-row { height: 48px; } :host.td-data-table-column-row { height: 56px; } /*# sourceMappingURL=data-table-row.component.css.map */ "],
+            template: "<ng-content></ng-content>",
+        }),
+        tslib_1.__metadata("design:paramtypes", [ElementRef, Renderer2])
+    ], TdDataTableRowComponent);
     return TdDataTableRowComponent;
 }());
-tslib_1.__decorate([
-    Input('selected'),
-    tslib_1.__metadata("design:type", Boolean),
-    tslib_1.__metadata("design:paramtypes", [Boolean])
-], TdDataTableRowComponent.prototype, "selected", null);
-tslib_1.__decorate([
-    HostListener('click', ['$event']),
-    tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", []),
-    tslib_1.__metadata("design:returntype", void 0)
-], TdDataTableRowComponent.prototype, "clickListener", null);
-TdDataTableRowComponent = tslib_1.__decorate([
-    Component({
-        /* tslint:disable-next-line */
-        selector: 'tr[td-data-table-row]',
-        styles: [":host { border-bottom-style: solid; border-bottom-width: 1px; } :host.td-data-table-row { height: 48px; } :host.td-data-table-column-row { height: 56px; } /*# sourceMappingURL=data-table-row.component.css.map */ "],
-        template: "<ng-content></ng-content>",
-    }),
-    tslib_1.__metadata("design:paramtypes", [ElementRef, Renderer2])
-], TdDataTableRowComponent);
 export { TdDataTableRowComponent };
 //# sourceMappingURL=data-table-row.component.js.map

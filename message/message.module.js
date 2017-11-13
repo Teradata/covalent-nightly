@@ -11,21 +11,21 @@ export { TdMessageComponent } from './message.component';
 var CovalentMessageModule = (function () {
     function CovalentMessageModule() {
     }
+    CovalentMessageModule = tslib_1.__decorate([
+        NgModule({
+            imports: [
+                CommonModule,
+                MatIconModule,
+            ],
+            declarations: [
+                TD_MESSAGE,
+            ],
+            exports: [
+                TD_MESSAGE,
+            ],
+        })
+    ], CovalentMessageModule);
     return CovalentMessageModule;
 }());
-CovalentMessageModule = tslib_1.__decorate([
-    NgModule({
-        imports: [
-            CommonModule,
-            MatIconModule,
-        ],
-        declarations: [
-            TD_MESSAGE,
-        ],
-        exports: [
-            TD_MESSAGE,
-        ],
-    })
-], CovalentMessageModule);
 export { CovalentMessageModule };
 //# sourceMappingURL=message.module.js.map

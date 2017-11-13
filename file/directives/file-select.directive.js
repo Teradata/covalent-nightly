@@ -52,34 +52,34 @@ var TdFileSelectDirective = (function () {
             }
         }
     };
+    tslib_1.__decorate([
+        Input('multiple'),
+        tslib_1.__metadata("design:type", Boolean),
+        tslib_1.__metadata("design:paramtypes", [Boolean])
+    ], TdFileSelectDirective.prototype, "multiple", null);
+    tslib_1.__decorate([
+        Output('fileSelect'),
+        tslib_1.__metadata("design:type", EventEmitter)
+    ], TdFileSelectDirective.prototype, "onFileSelect", void 0);
+    tslib_1.__decorate([
+        HostBinding('attr.multiple'),
+        tslib_1.__metadata("design:type", String),
+        tslib_1.__metadata("design:paramtypes", [])
+    ], TdFileSelectDirective.prototype, "multipleBinding", null);
+    tslib_1.__decorate([
+        HostListener('change', ['$event']),
+        tslib_1.__metadata("design:type", Function),
+        tslib_1.__metadata("design:paramtypes", [Event]),
+        tslib_1.__metadata("design:returntype", void 0)
+    ], TdFileSelectDirective.prototype, "onChange", null);
+    TdFileSelectDirective = tslib_1.__decorate([
+        Directive({
+            selector: '[tdFileSelect]',
+        }),
+        tslib_1.__param(0, Optional()), tslib_1.__param(0, Host()),
+        tslib_1.__metadata("design:paramtypes", [NgModel])
+    ], TdFileSelectDirective);
     return TdFileSelectDirective;
 }());
-tslib_1.__decorate([
-    Input('multiple'),
-    tslib_1.__metadata("design:type", Boolean),
-    tslib_1.__metadata("design:paramtypes", [Boolean])
-], TdFileSelectDirective.prototype, "multiple", null);
-tslib_1.__decorate([
-    Output('fileSelect'),
-    tslib_1.__metadata("design:type", EventEmitter)
-], TdFileSelectDirective.prototype, "onFileSelect", void 0);
-tslib_1.__decorate([
-    HostBinding('attr.multiple'),
-    tslib_1.__metadata("design:type", String),
-    tslib_1.__metadata("design:paramtypes", [])
-], TdFileSelectDirective.prototype, "multipleBinding", null);
-tslib_1.__decorate([
-    HostListener('change', ['$event']),
-    tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Event]),
-    tslib_1.__metadata("design:returntype", void 0)
-], TdFileSelectDirective.prototype, "onChange", null);
-TdFileSelectDirective = tslib_1.__decorate([
-    Directive({
-        selector: '[tdFileSelect]',
-    }),
-    tslib_1.__param(0, Optional()), tslib_1.__param(0, Host()),
-    tslib_1.__metadata("design:paramtypes", [NgModel])
-], TdFileSelectDirective);
 export { TdFileSelectDirective };
 //# sourceMappingURL=file-select.directive.js.map

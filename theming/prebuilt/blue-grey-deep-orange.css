@@ -338,7 +338,8 @@ input.mat-input-element {
 
 .mat-menu-item {
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  font-size: 16px; }
+  font-size: 16px;
+  font-weight: 400; }
 
 .mat-paginator,
 .mat-paginator-page-size .mat-select-trigger {
@@ -901,7 +902,8 @@ input.mat-input-element {
     color: rgba(0, 0, 0, 0.38); }
 
 :not(.mat-calendar-body-disabled):hover > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
-.cdk-keyboard-focused .mat-calendar-body-active > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected) {
+.cdk-keyboard-focused .mat-calendar-body-active > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+.cdk-program-focused .mat-calendar-body-active > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected) {
   background-color: rgba(0, 0, 0, 0.04); }
 
 .mat-calendar-body-selected {
@@ -948,9 +950,6 @@ input.mat-input-element {
   .mat-expansion-panel-header[aria-disabled='true'] .mat-expansion-panel-header-description {
     color: inherit; }
 
-.mat-form-field {
-  width: 200px; }
-
 .mat-form-field-placeholder {
   color: rgba(0, 0, 0, 0.54); }
 
@@ -969,11 +968,12 @@ input.mat-input-element {
 
 .mat-form-field-underline {
   background-color: rgba(0, 0, 0, 0.42); }
-  .mat-form-field-underline.mat-disabled {
-    background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.42)), color-stop(33%, rgba(0, 0, 0, 0.42)), color-stop(0%, transparent));
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.42) 33%, transparent 0%);
-    background-size: 4px 1px;
-    background-repeat: repeat-x; }
+
+.mat-form-field-disabled .mat-form-field-underline {
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.42)), color-stop(33%, rgba(0, 0, 0, 0.42)), color-stop(0%, transparent));
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.42) 33%, transparent 0%);
+  background-size: 4px 1px;
+  background-repeat: repeat-x; }
 
 .mat-form-field-ripple {
   background-color: #455a64; }
@@ -1401,6 +1401,9 @@ input.mat-input-element {
 .mat-tab-group.mat-background-primary .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron, .mat-tab-nav-bar.mat-background-primary .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron {
   border-color: rgba(255, 255, 255, 0.4); }
 
+.mat-tab-group.mat-background-primary .mat-ripple-element, .mat-tab-nav-bar.mat-background-primary .mat-ripple-element {
+  background-color: rgba(255, 255, 255, 0.12); }
+
 .mat-tab-group.mat-background-accent .mat-tab-label:focus, .mat-tab-group.mat-background-accent .mat-tab-link:focus, .mat-tab-nav-bar.mat-background-accent .mat-tab-label:focus, .mat-tab-nav-bar.mat-background-accent .mat-tab-link:focus {
   background-color: rgba(255, 158, 128, 0.3); }
 
@@ -1418,6 +1421,9 @@ input.mat-input-element {
 .mat-tab-group.mat-background-accent .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron, .mat-tab-nav-bar.mat-background-accent .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron {
   border-color: rgba(255, 255, 255, 0.4); }
 
+.mat-tab-group.mat-background-accent .mat-ripple-element, .mat-tab-nav-bar.mat-background-accent .mat-ripple-element {
+  background-color: rgba(255, 255, 255, 0.12); }
+
 .mat-tab-group.mat-background-warn .mat-tab-label:focus, .mat-tab-group.mat-background-warn .mat-tab-link:focus, .mat-tab-nav-bar.mat-background-warn .mat-tab-label:focus, .mat-tab-nav-bar.mat-background-warn .mat-tab-link:focus {
   background-color: rgba(255, 205, 210, 0.3); }
 
@@ -1434,6 +1440,9 @@ input.mat-input-element {
 
 .mat-tab-group.mat-background-warn .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron, .mat-tab-nav-bar.mat-background-warn .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron {
   border-color: rgba(255, 255, 255, 0.4); }
+
+.mat-tab-group.mat-background-warn .mat-ripple-element, .mat-tab-nav-bar.mat-background-warn .mat-ripple-element {
+  background-color: rgba(255, 255, 255, 0.12); }
 
 .mat-toolbar {
   background: whitesmoke;

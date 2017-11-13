@@ -27,27 +27,27 @@ export { TdDataTableTableComponent } from './data-table-table/data-table-table.c
 var CovalentDataTableModule = (function () {
     function CovalentDataTableModule() {
     }
+    CovalentDataTableModule = tslib_1.__decorate([
+        NgModule({
+            imports: [
+                CommonModule,
+                MatCheckboxModule,
+                MatTooltipModule,
+                MatIconModule,
+                MatPseudoCheckboxModule,
+            ],
+            declarations: [
+                TD_DATA_TABLE,
+            ],
+            exports: [
+                TD_DATA_TABLE,
+            ],
+            providers: [
+                DATA_TABLE_PROVIDER,
+            ],
+        })
+    ], CovalentDataTableModule);
     return CovalentDataTableModule;
 }());
-CovalentDataTableModule = tslib_1.__decorate([
-    NgModule({
-        imports: [
-            CommonModule,
-            MatCheckboxModule,
-            MatTooltipModule,
-            MatIconModule,
-            MatPseudoCheckboxModule,
-        ],
-        declarations: [
-            TD_DATA_TABLE,
-        ],
-        exports: [
-            TD_DATA_TABLE,
-        ],
-        providers: [
-            DATA_TABLE_PROVIDER,
-        ],
-    })
-], CovalentDataTableModule);
 export { CovalentDataTableModule };
 //# sourceMappingURL=data-table.module.js.map

@@ -11,20 +11,20 @@ export { TdVirtualScrollRowDirective, TdVirtualScrollContainerComponent };
 var CovalentVirtualScrollModule = (function () {
     function CovalentVirtualScrollModule() {
     }
+    CovalentVirtualScrollModule = tslib_1.__decorate([
+        NgModule({
+            imports: [
+                CommonModule,
+            ],
+            declarations: [
+                TD_VIRTUAL_SCROLL,
+            ],
+            exports: [
+                TD_VIRTUAL_SCROLL,
+            ],
+        })
+    ], CovalentVirtualScrollModule);
     return CovalentVirtualScrollModule;
 }());
-CovalentVirtualScrollModule = tslib_1.__decorate([
-    NgModule({
-        imports: [
-            CommonModule,
-        ],
-        declarations: [
-            TD_VIRTUAL_SCROLL,
-        ],
-        exports: [
-            TD_VIRTUAL_SCROLL,
-        ],
-    })
-], CovalentVirtualScrollModule);
 export { CovalentVirtualScrollModule };
 //# sourceMappingURL=virtual-scroll.module.js.map

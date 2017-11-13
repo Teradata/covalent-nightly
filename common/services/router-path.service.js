@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { Router, RoutesRecognized } from '@angular/router';
 import { filter } from 'rxjs/operators/filter';
 import { pairwise } from 'rxjs/operators/pairwise';
-var RouterPathService = RouterPathService_1 = (function () {
+var RouterPathService = (function () {
     function RouterPathService(_router) {
         this._router = _router;
         this._router.events.pipe(filter(function (e) { return e instanceof RoutesRecognized; }), pairwise()).subscribe(function (e) {
             RouterPathService_1._previousRoute = e[0].urlAfterRedirects;
         });
     }
+    RouterPathService_1 = RouterPathService;
     /*
     * Utility function to get the route the user previously went to
     * good for use in a "back button"
@@ -17,13 +18,13 @@ var RouterPathService = RouterPathService_1 = (function () {
     RouterPathService.prototype.getPreviousRoute = function () {
         return RouterPathService_1._previousRoute;
     };
+    RouterPathService._previousRoute = '/';
+    RouterPathService = RouterPathService_1 = tslib_1.__decorate([
+        Injectable(),
+        tslib_1.__metadata("design:paramtypes", [Router])
+    ], RouterPathService);
     return RouterPathService;
+    var RouterPathService_1;
 }());
-RouterPathService._previousRoute = '/';
-RouterPathService = RouterPathService_1 = tslib_1.__decorate([
-    Injectable(),
-    tslib_1.__metadata("design:paramtypes", [Router])
-], RouterPathService);
 export { RouterPathService };
-var RouterPathService_1;
 //# sourceMappingURL=router-path.service.js.map

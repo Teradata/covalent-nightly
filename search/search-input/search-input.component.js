@@ -85,70 +85,70 @@ var TdSearchInputComponent = (function () {
     TdSearchInputComponent.prototype._searchTermChanged = function (value) {
         this.onSearchDebounce.emit(value);
     };
+    tslib_1.__decorate([
+        ViewChild(MatInput),
+        tslib_1.__metadata("design:type", MatInput)
+    ], TdSearchInputComponent.prototype, "_input", void 0);
+    tslib_1.__decorate([
+        Input('showUnderline'),
+        tslib_1.__metadata("design:type", Boolean)
+    ], TdSearchInputComponent.prototype, "showUnderline", void 0);
+    tslib_1.__decorate([
+        Input('debounce'),
+        tslib_1.__metadata("design:type", Number)
+    ], TdSearchInputComponent.prototype, "debounce", void 0);
+    tslib_1.__decorate([
+        Input('placeholder'),
+        tslib_1.__metadata("design:type", String)
+    ], TdSearchInputComponent.prototype, "placeholder", void 0);
+    tslib_1.__decorate([
+        Input('clearIcon'),
+        tslib_1.__metadata("design:type", String)
+    ], TdSearchInputComponent.prototype, "clearIcon", void 0);
+    tslib_1.__decorate([
+        Output('searchDebounce'),
+        tslib_1.__metadata("design:type", EventEmitter)
+    ], TdSearchInputComponent.prototype, "onSearchDebounce", void 0);
+    tslib_1.__decorate([
+        Output('search'),
+        tslib_1.__metadata("design:type", EventEmitter)
+    ], TdSearchInputComponent.prototype, "onSearch", void 0);
+    tslib_1.__decorate([
+        Output('clear'),
+        tslib_1.__metadata("design:type", EventEmitter)
+    ], TdSearchInputComponent.prototype, "onClear", void 0);
+    tslib_1.__decorate([
+        Output('blur'),
+        tslib_1.__metadata("design:type", EventEmitter)
+    ], TdSearchInputComponent.prototype, "onBlur", void 0);
+    TdSearchInputComponent = tslib_1.__decorate([
+        Component({
+            selector: 'td-search-input',
+            template: "<div class=\"td-search-input\"> <mat-form-field class=\"td-search-input-field\" [class.mat-hide-underline]=\"!showUnderline\" floatPlaceholder=\"never\"> <input matInput #searchElement type=\"search\" [(ngModel)]=\"value\" [placeholder]=\"placeholder\" (blur)=\"handleBlur()\" (search)=\"stopPropagation($event)\" (keyup.enter)=\"handleSearch($event)\"/> </mat-form-field> <button mat-icon-button class=\"td-search-input-clear\" type=\"button\" [@searchState]=\"(searchElement.value ?  'show' : (isRTL ? 'hide-left' : 'hide-right'))\" (click)=\"clearSearch()\"> <mat-icon>{{clearIcon}}</mat-icon> </button> </div>",
+            styles: [".td-search-input { overflow-x: hidden; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; } .td-search-input .td-search-input-field { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } .td-search-input /deep/ mat-form-field.mat-hide-underline .mat-form-field-underline { display: none; } .td-search-input .td-search-input-clear { -webkit-box-flex: 0; -ms-flex: 0 0 auto; flex: 0 0 auto; } /*# sourceMappingURL=search-input.component.css.map */ "],
+            animations: [
+                trigger('searchState', [
+                    state('hide-left', style({
+                        transform: 'translateX(-150%)',
+                        display: 'none',
+                    })),
+                    state('hide-right', style({
+                        transform: 'translateX(150%)',
+                        display: 'none',
+                    })),
+                    state('show', style({
+                        transform: 'translateX(0%)',
+                        display: 'block',
+                    })),
+                    transition('* => show', animate('200ms ease-in')),
+                    transition('show => *', animate('200ms ease-out')),
+                ]),
+            ],
+        }),
+        tslib_1.__param(0, Optional()),
+        tslib_1.__metadata("design:paramtypes", [Dir])
+    ], TdSearchInputComponent);
     return TdSearchInputComponent;
 }());
-tslib_1.__decorate([
-    ViewChild(MatInput),
-    tslib_1.__metadata("design:type", MatInput)
-], TdSearchInputComponent.prototype, "_input", void 0);
-tslib_1.__decorate([
-    Input('showUnderline'),
-    tslib_1.__metadata("design:type", Boolean)
-], TdSearchInputComponent.prototype, "showUnderline", void 0);
-tslib_1.__decorate([
-    Input('debounce'),
-    tslib_1.__metadata("design:type", Number)
-], TdSearchInputComponent.prototype, "debounce", void 0);
-tslib_1.__decorate([
-    Input('placeholder'),
-    tslib_1.__metadata("design:type", String)
-], TdSearchInputComponent.prototype, "placeholder", void 0);
-tslib_1.__decorate([
-    Input('clearIcon'),
-    tslib_1.__metadata("design:type", String)
-], TdSearchInputComponent.prototype, "clearIcon", void 0);
-tslib_1.__decorate([
-    Output('searchDebounce'),
-    tslib_1.__metadata("design:type", EventEmitter)
-], TdSearchInputComponent.prototype, "onSearchDebounce", void 0);
-tslib_1.__decorate([
-    Output('search'),
-    tslib_1.__metadata("design:type", EventEmitter)
-], TdSearchInputComponent.prototype, "onSearch", void 0);
-tslib_1.__decorate([
-    Output('clear'),
-    tslib_1.__metadata("design:type", EventEmitter)
-], TdSearchInputComponent.prototype, "onClear", void 0);
-tslib_1.__decorate([
-    Output('blur'),
-    tslib_1.__metadata("design:type", EventEmitter)
-], TdSearchInputComponent.prototype, "onBlur", void 0);
-TdSearchInputComponent = tslib_1.__decorate([
-    Component({
-        selector: 'td-search-input',
-        template: "<div class=\"td-search-input\"> <mat-form-field class=\"td-search-input-field\" [class.mat-hide-underline]=\"!showUnderline\" floatPlaceholder=\"never\"> <input matInput #searchElement type=\"search\" [(ngModel)]=\"value\" [placeholder]=\"placeholder\" (blur)=\"handleBlur()\" (search)=\"stopPropagation($event)\" (keyup.enter)=\"handleSearch($event)\"/> </mat-form-field> <button mat-icon-button class=\"td-search-input-clear\" type=\"button\" [@searchState]=\"(searchElement.value ?  'show' : (isRTL ? 'hide-left' : 'hide-right'))\" (click)=\"clearSearch()\"> <mat-icon>{{clearIcon}}</mat-icon> </button> </div>",
-        styles: [".td-search-input { overflow-x: hidden; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; } .td-search-input .td-search-input-field { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } .td-search-input /deep/ mat-form-field.mat-hide-underline .mat-form-field-underline { display: none; } .td-search-input .td-search-input-clear { -webkit-box-flex: 0; -ms-flex: 0 0 auto; flex: 0 0 auto; } /*# sourceMappingURL=search-input.component.css.map */ "],
-        animations: [
-            trigger('searchState', [
-                state('hide-left', style({
-                    transform: 'translateX(-150%)',
-                    display: 'none',
-                })),
-                state('hide-right', style({
-                    transform: 'translateX(150%)',
-                    display: 'none',
-                })),
-                state('show', style({
-                    transform: 'translateX(0%)',
-                    display: 'block',
-                })),
-                transition('* => show', animate('200ms ease-in')),
-                transition('show => *', animate('200ms ease-out')),
-            ]),
-        ],
-    }),
-    tslib_1.__param(0, Optional()),
-    tslib_1.__metadata("design:paramtypes", [Dir])
-], TdSearchInputComponent);
 export { TdSearchInputComponent };
 //# sourceMappingURL=search-input.component.js.map

@@ -24,25 +24,25 @@ export { TdStepsComponent, StepMode } from './steps.component';
 var CovalentStepsModule = (function () {
     function CovalentStepsModule() {
     }
+    CovalentStepsModule = tslib_1.__decorate([
+        NgModule({
+            imports: [
+                CommonModule,
+                MatIconModule,
+                MatRippleModule,
+                PortalModule,
+                ScrollDispatchModule,
+                CovalentCommonModule,
+            ],
+            declarations: [
+                TD_STEPS,
+            ],
+            exports: [
+                TD_STEPS,
+            ],
+        })
+    ], CovalentStepsModule);
     return CovalentStepsModule;
 }());
-CovalentStepsModule = tslib_1.__decorate([
-    NgModule({
-        imports: [
-            CommonModule,
-            MatIconModule,
-            MatRippleModule,
-            PortalModule,
-            ScrollDispatchModule,
-            CovalentCommonModule,
-        ],
-        declarations: [
-            TD_STEPS,
-        ],
-        exports: [
-            TD_STEPS,
-        ],
-    })
-], CovalentStepsModule);
 export { CovalentStepsModule };
 //# sourceMappingURL=steps.module.js.map

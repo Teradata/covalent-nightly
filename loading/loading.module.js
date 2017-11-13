@@ -20,31 +20,31 @@ export { TdLoadingService } from './services/loading.service';
 var CovalentLoadingModule = (function () {
     function CovalentLoadingModule() {
     }
+    CovalentLoadingModule = tslib_1.__decorate([
+        NgModule({
+            imports: [
+                CommonModule,
+                MatProgressBarModule,
+                MatProgressSpinnerModule,
+                OverlayModule,
+                PortalModule,
+            ],
+            declarations: [
+                TD_LOADING,
+            ],
+            exports: [
+                TD_LOADING,
+            ],
+            providers: [
+                LOADING_FACTORY_PROVIDER,
+                LOADING_PROVIDER,
+            ],
+            entryComponents: [
+                TD_LOADING_ENTRY_COMPONENTS,
+            ],
+        })
+    ], CovalentLoadingModule);
     return CovalentLoadingModule;
 }());
-CovalentLoadingModule = tslib_1.__decorate([
-    NgModule({
-        imports: [
-            CommonModule,
-            MatProgressBarModule,
-            MatProgressSpinnerModule,
-            OverlayModule,
-            PortalModule,
-        ],
-        declarations: [
-            TD_LOADING,
-        ],
-        exports: [
-            TD_LOADING,
-        ],
-        providers: [
-            LOADING_FACTORY_PROVIDER,
-            LOADING_PROVIDER,
-        ],
-        entryComponents: [
-            TD_LOADING_ENTRY_COMPONENTS,
-        ],
-    })
-], CovalentLoadingModule);
 export { CovalentLoadingModule };
 //# sourceMappingURL=loading.module.js.map

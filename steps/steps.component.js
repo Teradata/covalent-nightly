@@ -127,28 +127,28 @@ var TdStepsComponent = (function () {
             this._subcriptions = undefined;
         }
     };
+    tslib_1.__decorate([
+        ContentChildren(TdStepComponent),
+        tslib_1.__metadata("design:type", QueryList),
+        tslib_1.__metadata("design:paramtypes", [QueryList])
+    ], TdStepsComponent.prototype, "stepsContent", null);
+    tslib_1.__decorate([
+        Input('mode'),
+        tslib_1.__metadata("design:type", Number),
+        tslib_1.__metadata("design:paramtypes", [Number])
+    ], TdStepsComponent.prototype, "mode", null);
+    tslib_1.__decorate([
+        Output('stepChange'),
+        tslib_1.__metadata("design:type", EventEmitter)
+    ], TdStepsComponent.prototype, "onStepChange", void 0);
+    TdStepsComponent = tslib_1.__decorate([
+        Component({
+            selector: 'td-steps',
+            styles: [".td-line-wrapper, .td-step { position: relative; } .td-steps-header { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; } .td-line-wrapper { width: 24px; min-height: 1px; } .td-horizontal-line { border-bottom-width: 1px; border-bottom-style: solid; height: 1px; position: relative; top: 36px; min-width: 15px; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; -webkit-box-sizing: border-box; box-sizing: border-box; } /deep/ :not([dir='rtl']) .td-horizontal-line { left: -6px; right: -3px; } /deep/ [dir='rtl'] .td-horizontal-line { left: -3px; right: -6px; } .td-vertical-line { position: absolute; bottom: -16px; top: -16px; border-left-width: 1px; border-left-style: solid; } /deep/ :not([dir='rtl']) .td-vertical-line { left: 20px; right: auto; } /deep/ [dir='rtl'] .td-vertical-line { left: auto; right: 20px; } /*# sourceMappingURL=steps.component.css.map */ "],
+            template: "<div *ngIf=\"isHorizontal()\" class=\"td-steps-header\"> <ng-template let-step let-index=\"index\" let-last=\"last\" ngFor [ngForOf]=\"steps\"> <td-step-header class=\"td-step-horizontal-header\" (keydown.enter)=\"step.open()\" [number]=\"index + 1\" [active]=\"step.active\" [disableRipple]=\"step.disableRipple\" [disabled]=\"step.disabled\"  [state]=\"step.state\" (click)=\"step.open()\"> <ng-template td-step-header-label [cdkPortalHost]=\"step.stepLabel\"></ng-template> <ng-template td-step-header-label [ngIf]=\"!step.stepLabel\">{{step.label}}</ng-template> <ng-template td-step-header-sublabel [ngIf]=\"true\">{{step.sublabel | truncate:30}}</ng-template> </td-step-header> <span *ngIf=\"!last\" class=\"td-horizontal-line\"></span> </ng-template> </div> <div *ngFor=\"let step of steps; let index = index; let last = last\" class=\"td-step\"> <td-step-header class=\"td-step-vertical-header\" (keydown.enter)=\"step.toggle()\" [number]=\"index + 1\" [active]=\"step.active\"  [disabled]=\"step.disabled\" [disableRipple]=\"step.disableRipple\" [state]=\"step.state\" (click)=\"step.toggle()\" *ngIf=\"isVertical()\"> <ng-template td-step-header-label [cdkPortalHost]=\"step.stepLabel\"></ng-template> <ng-template td-step-header-label [ngIf]=\"!step.stepLabel\">{{step.label}}</ng-template> <ng-template td-step-header-sublabel [ngIf]=\"true\">{{step.sublabel}}</ng-template> </td-step-header> <ng-template [ngIf]=\"isVertical() || step.active || (!areStepsActive() && prevStep === step)\"> <td-step-body [active]=\"step.active\" [state]=\"step.state\"> <div *ngIf=\"isVertical()\" class=\"td-line-wrapper\"> <div *ngIf=\"!last\" class=\"td-vertical-line\"></div> </div> <ng-template td-step-body-content [cdkPortalHost]=\"step.stepContent\"></ng-template> <ng-template td-step-body-actions [cdkPortalHost]=\"step.stepActions\"></ng-template> <ng-template td-step-body-summary [cdkPortalHost]=\"step.stepSummary\"></ng-template> </td-step-body> </ng-template> </div> ",
+        })
+    ], TdStepsComponent);
     return TdStepsComponent;
 }());
-tslib_1.__decorate([
-    ContentChildren(TdStepComponent),
-    tslib_1.__metadata("design:type", QueryList),
-    tslib_1.__metadata("design:paramtypes", [QueryList])
-], TdStepsComponent.prototype, "stepsContent", null);
-tslib_1.__decorate([
-    Input('mode'),
-    tslib_1.__metadata("design:type", Number),
-    tslib_1.__metadata("design:paramtypes", [Number])
-], TdStepsComponent.prototype, "mode", null);
-tslib_1.__decorate([
-    Output('stepChange'),
-    tslib_1.__metadata("design:type", EventEmitter)
-], TdStepsComponent.prototype, "onStepChange", void 0);
-TdStepsComponent = tslib_1.__decorate([
-    Component({
-        selector: 'td-steps',
-        styles: [".td-line-wrapper, .td-step { position: relative; } .td-steps-header { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; } .td-line-wrapper { width: 24px; min-height: 1px; } .td-horizontal-line { border-bottom-width: 1px; border-bottom-style: solid; height: 1px; position: relative; top: 36px; min-width: 15px; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; -webkit-box-sizing: border-box; box-sizing: border-box; } /deep/ :not([dir='rtl']) .td-horizontal-line { left: -6px; right: -3px; } /deep/ [dir='rtl'] .td-horizontal-line { left: -3px; right: -6px; } .td-vertical-line { position: absolute; bottom: -16px; top: -16px; border-left-width: 1px; border-left-style: solid; } /deep/ :not([dir='rtl']) .td-vertical-line { left: 20px; right: auto; } /deep/ [dir='rtl'] .td-vertical-line { left: auto; right: 20px; } /*# sourceMappingURL=steps.component.css.map */ "],
-        template: "<div *ngIf=\"isHorizontal()\" class=\"td-steps-header\"> <ng-template let-step let-index=\"index\" let-last=\"last\" ngFor [ngForOf]=\"steps\"> <td-step-header class=\"td-step-horizontal-header\" (keydown.enter)=\"step.open()\" [number]=\"index + 1\" [active]=\"step.active\" [disableRipple]=\"step.disableRipple\" [disabled]=\"step.disabled\"  [state]=\"step.state\" (click)=\"step.open()\"> <ng-template td-step-header-label [cdkPortalHost]=\"step.stepLabel\"></ng-template> <ng-template td-step-header-label [ngIf]=\"!step.stepLabel\">{{step.label}}</ng-template> <ng-template td-step-header-sublabel [ngIf]=\"true\">{{step.sublabel | truncate:30}}</ng-template> </td-step-header> <span *ngIf=\"!last\" class=\"td-horizontal-line\"></span> </ng-template> </div> <div *ngFor=\"let step of steps; let index = index; let last = last\" class=\"td-step\"> <td-step-header class=\"td-step-vertical-header\" (keydown.enter)=\"step.toggle()\" [number]=\"index + 1\" [active]=\"step.active\"  [disabled]=\"step.disabled\" [disableRipple]=\"step.disableRipple\" [state]=\"step.state\" (click)=\"step.toggle()\" *ngIf=\"isVertical()\"> <ng-template td-step-header-label [cdkPortalHost]=\"step.stepLabel\"></ng-template> <ng-template td-step-header-label [ngIf]=\"!step.stepLabel\">{{step.label}}</ng-template> <ng-template td-step-header-sublabel [ngIf]=\"true\">{{step.sublabel}}</ng-template> </td-step-header> <ng-template [ngIf]=\"isVertical() || step.active || (!areStepsActive() && prevStep === step)\"> <td-step-body [active]=\"step.active\" [state]=\"step.state\"> <div *ngIf=\"isVertical()\" class=\"td-line-wrapper\"> <div *ngIf=\"!last\" class=\"td-vertical-line\"></div> </div> <ng-template td-step-body-content [cdkPortalHost]=\"step.stepContent\"></ng-template> <ng-template td-step-body-actions [cdkPortalHost]=\"step.stepActions\"></ng-template> <ng-template td-step-body-summary [cdkPortalHost]=\"step.stepSummary\"></ng-template> </td-step-body> </ng-template> </div> ",
-    })
-], TdStepsComponent);
 export { TdStepsComponent };
 //# sourceMappingURL=steps.component.js.map

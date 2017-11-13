@@ -17,22 +17,22 @@ var TdLayoutNavListToggleDirective = (function (_super) {
     TdLayoutNavListToggleDirective.prototype.onClick = function () {
         this._layout.toggle();
     };
+    tslib_1.__decorate([
+        Input('tdLayoutNavListToggle'),
+        tslib_1.__metadata("design:type", Boolean),
+        tslib_1.__metadata("design:paramtypes", [Boolean])
+    ], TdLayoutNavListToggleDirective.prototype, "tdLayoutNavListToggle", null);
+    TdLayoutNavListToggleDirective = tslib_1.__decorate([
+        Directive({
+            selector: '[tdLayoutNavListToggle]',
+        }),
+        tslib_1.__param(0, Inject(forwardRef(function () { return TdLayoutNavListComponent; }))),
+        tslib_1.__metadata("design:paramtypes", [TdLayoutNavListComponent,
+            Renderer2,
+            ElementRef])
+    ], TdLayoutNavListToggleDirective);
     return TdLayoutNavListToggleDirective;
 }(LayoutToggle));
-tslib_1.__decorate([
-    Input('tdLayoutNavListToggle'),
-    tslib_1.__metadata("design:type", Boolean),
-    tslib_1.__metadata("design:paramtypes", [Boolean])
-], TdLayoutNavListToggleDirective.prototype, "tdLayoutNavListToggle", null);
-TdLayoutNavListToggleDirective = tslib_1.__decorate([
-    Directive({
-        selector: '[tdLayoutNavListToggle]',
-    }),
-    tslib_1.__param(0, Inject(forwardRef(function () { return TdLayoutNavListComponent; }))),
-    tslib_1.__metadata("design:paramtypes", [TdLayoutNavListComponent,
-        Renderer2,
-        ElementRef])
-], TdLayoutNavListToggleDirective);
 export { TdLayoutNavListToggleDirective };
 var TdLayoutNavListCloseDirective = (function (_super) {
     tslib_1.__extends(TdLayoutNavListCloseDirective, _super);
@@ -49,22 +49,22 @@ var TdLayoutNavListCloseDirective = (function (_super) {
     TdLayoutNavListCloseDirective.prototype.onClick = function () {
         this._layout.close();
     };
+    tslib_1.__decorate([
+        Input('tdLayoutNavListClose'),
+        tslib_1.__metadata("design:type", Boolean),
+        tslib_1.__metadata("design:paramtypes", [Boolean])
+    ], TdLayoutNavListCloseDirective.prototype, "tdLayoutNavListClose", null);
+    TdLayoutNavListCloseDirective = tslib_1.__decorate([
+        Directive({
+            selector: '[tdLayoutNavListClose]',
+        }),
+        tslib_1.__param(0, Inject(forwardRef(function () { return TdLayoutNavListComponent; }))),
+        tslib_1.__metadata("design:paramtypes", [TdLayoutNavListComponent,
+            Renderer2,
+            ElementRef])
+    ], TdLayoutNavListCloseDirective);
     return TdLayoutNavListCloseDirective;
 }(LayoutToggle));
-tslib_1.__decorate([
-    Input('tdLayoutNavListClose'),
-    tslib_1.__metadata("design:type", Boolean),
-    tslib_1.__metadata("design:paramtypes", [Boolean])
-], TdLayoutNavListCloseDirective.prototype, "tdLayoutNavListClose", null);
-TdLayoutNavListCloseDirective = tslib_1.__decorate([
-    Directive({
-        selector: '[tdLayoutNavListClose]',
-    }),
-    tslib_1.__param(0, Inject(forwardRef(function () { return TdLayoutNavListComponent; }))),
-    tslib_1.__metadata("design:paramtypes", [TdLayoutNavListComponent,
-        Renderer2,
-        ElementRef])
-], TdLayoutNavListCloseDirective);
 export { TdLayoutNavListCloseDirective };
 var TdLayoutNavListOpenDirective = (function (_super) {
     tslib_1.__extends(TdLayoutNavListOpenDirective, _super);
@@ -81,21 +81,21 @@ var TdLayoutNavListOpenDirective = (function (_super) {
     TdLayoutNavListOpenDirective.prototype.onClick = function () {
         this._layout.open();
     };
+    tslib_1.__decorate([
+        Input('tdLayoutNavListOpen'),
+        tslib_1.__metadata("design:type", Boolean),
+        tslib_1.__metadata("design:paramtypes", [Boolean])
+    ], TdLayoutNavListOpenDirective.prototype, "tdLayoutNavListOpen", null);
+    TdLayoutNavListOpenDirective = tslib_1.__decorate([
+        Directive({
+            selector: '[tdLayoutNavListOpen]',
+        }),
+        tslib_1.__param(0, Inject(forwardRef(function () { return TdLayoutNavListComponent; }))),
+        tslib_1.__metadata("design:paramtypes", [TdLayoutNavListComponent,
+            Renderer2,
+            ElementRef])
+    ], TdLayoutNavListOpenDirective);
     return TdLayoutNavListOpenDirective;
 }(LayoutToggle));
-tslib_1.__decorate([
-    Input('tdLayoutNavListOpen'),
-    tslib_1.__metadata("design:type", Boolean),
-    tslib_1.__metadata("design:paramtypes", [Boolean])
-], TdLayoutNavListOpenDirective.prototype, "tdLayoutNavListOpen", null);
-TdLayoutNavListOpenDirective = tslib_1.__decorate([
-    Directive({
-        selector: '[tdLayoutNavListOpen]',
-    }),
-    tslib_1.__param(0, Inject(forwardRef(function () { return TdLayoutNavListComponent; }))),
-    tslib_1.__metadata("design:paramtypes", [TdLayoutNavListComponent,
-        Renderer2,
-        ElementRef])
-], TdLayoutNavListOpenDirective);
 export { TdLayoutNavListOpenDirective };
 //# sourceMappingURL=layout-nav-list.directives.js.map

@@ -49,7 +49,7 @@ function __metadata(metadataKey, metadataValue) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
 }
 
-exports.TdToggleDirective = (function () {
+var TdToggleDirective = (function () {
     function TdToggleDirective(_renderer, _element, _changeDetectorRef, _animationBuilder) {
         this._renderer = _renderer;
         this._element = _element;
@@ -167,38 +167,38 @@ exports.TdToggleDirective = (function () {
             this._changeDetectorRef.markForCheck();
         }
     };
+    __decorate([
+        _angular_core.Input(),
+        __metadata("design:type", Number)
+    ], TdToggleDirective.prototype, "duration", void 0);
+    __decorate([
+        _angular_core.Input('tdToggle'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdToggleDirective.prototype, "state", null);
+    __decorate([
+        _angular_core.HostBinding('attr.aria-expanded'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [])
+    ], TdToggleDirective.prototype, "ariaExpandedBinding", null);
+    __decorate([
+        _angular_core.HostBinding('attr.aria-hidden'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [])
+    ], TdToggleDirective.prototype, "ariaHiddenBinding", null);
+    TdToggleDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[tdToggle]',
+        }),
+        __metadata("design:paramtypes", [_angular_core.Renderer2,
+            _angular_core.ElementRef,
+            _angular_core.ChangeDetectorRef,
+            _angular_animations.AnimationBuilder])
+    ], TdToggleDirective);
     return TdToggleDirective;
 }());
-__decorate([
-    _angular_core.Input(),
-    __metadata("design:type", Number)
-], exports.TdToggleDirective.prototype, "duration", void 0);
-__decorate([
-    _angular_core.Input('tdToggle'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdToggleDirective.prototype, "state", null);
-__decorate([
-    _angular_core.HostBinding('attr.aria-expanded'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [])
-], exports.TdToggleDirective.prototype, "ariaExpandedBinding", null);
-__decorate([
-    _angular_core.HostBinding('attr.aria-hidden'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [])
-], exports.TdToggleDirective.prototype, "ariaHiddenBinding", null);
-exports.TdToggleDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[tdToggle]',
-    }),
-    __metadata("design:paramtypes", [_angular_core.Renderer2,
-        _angular_core.ElementRef,
-        _angular_core.ChangeDetectorRef,
-        _angular_animations.AnimationBuilder])
-], exports.TdToggleDirective);
 
-exports.TdFadeDirective = (function () {
+var TdFadeDirective = (function () {
     function TdFadeDirective(_renderer, _element, _changeDetectorRef, _animationBuilder) {
         this._renderer = _renderer;
         this._element = _element;
@@ -320,44 +320,44 @@ exports.TdFadeDirective = (function () {
             this.onFadeOut.emit();
         }
     };
+    __decorate([
+        _angular_core.Input(),
+        __metadata("design:type", Number)
+    ], TdFadeDirective.prototype, "duration", void 0);
+    __decorate([
+        _angular_core.Input('tdFade'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdFadeDirective.prototype, "state", null);
+    __decorate([
+        _angular_core.Output('fadeIn'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdFadeDirective.prototype, "onFadeIn", void 0);
+    __decorate([
+        _angular_core.Output('fadeOut'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdFadeDirective.prototype, "onFadeOut", void 0);
+    __decorate([
+        _angular_core.HostBinding('attr.aria-expanded'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [])
+    ], TdFadeDirective.prototype, "ariaExpandedBinding", null);
+    __decorate([
+        _angular_core.HostBinding('attr.aria-hidden'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [])
+    ], TdFadeDirective.prototype, "ariaHiddenBinding", null);
+    TdFadeDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[tdFade]',
+        }),
+        __metadata("design:paramtypes", [_angular_core.Renderer2,
+            _angular_core.ElementRef,
+            _angular_core.ChangeDetectorRef,
+            _angular_animations.AnimationBuilder])
+    ], TdFadeDirective);
     return TdFadeDirective;
 }());
-__decorate([
-    _angular_core.Input(),
-    __metadata("design:type", Number)
-], exports.TdFadeDirective.prototype, "duration", void 0);
-__decorate([
-    _angular_core.Input('tdFade'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdFadeDirective.prototype, "state", null);
-__decorate([
-    _angular_core.Output('fadeIn'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdFadeDirective.prototype, "onFadeIn", void 0);
-__decorate([
-    _angular_core.Output('fadeOut'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdFadeDirective.prototype, "onFadeOut", void 0);
-__decorate([
-    _angular_core.HostBinding('attr.aria-expanded'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [])
-], exports.TdFadeDirective.prototype, "ariaExpandedBinding", null);
-__decorate([
-    _angular_core.HostBinding('attr.aria-hidden'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [])
-], exports.TdFadeDirective.prototype, "ariaHiddenBinding", null);
-exports.TdFadeDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[tdFade]',
-    }),
-    __metadata("design:paramtypes", [_angular_core.Renderer2,
-        _angular_core.ElementRef,
-        _angular_core.ChangeDetectorRef,
-        _angular_animations.AnimationBuilder])
-], exports.TdFadeDirective);
 
 /**
  * Function TdRotateAnimation
@@ -689,7 +689,7 @@ function mixinDisableRipple(base) {
     }(base));
 }
 
-exports.TdAutoTrimDirective = (function () {
+var TdAutoTrimDirective = (function () {
     function TdAutoTrimDirective(_model) {
         this._model = _model;
     }
@@ -701,21 +701,21 @@ exports.TdAutoTrimDirective = (function () {
             this._model.update.emit(this._model.value.trim());
         }
     };
+    __decorate([
+        _angular_core.HostListener('blur', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Event]),
+        __metadata("design:returntype", void 0)
+    ], TdAutoTrimDirective.prototype, "onBlur", null);
+    TdAutoTrimDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[tdAutoTrim]',
+        }),
+        __param(0, _angular_core.Optional()), __param(0, _angular_core.Host()),
+        __metadata("design:paramtypes", [_angular_forms.NgModel])
+    ], TdAutoTrimDirective);
     return TdAutoTrimDirective;
 }());
-__decorate([
-    _angular_core.HostListener('blur', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Event]),
-    __metadata("design:returntype", void 0)
-], exports.TdAutoTrimDirective.prototype, "onBlur", null);
-exports.TdAutoTrimDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[tdAutoTrim]',
-    }),
-    __param(0, _angular_core.Optional()), __param(0, _angular_core.Host()),
-    __metadata("design:paramtypes", [_angular_forms.NgModel])
-], exports.TdAutoTrimDirective);
 
 var CovalentValidators = (function () {
     function CovalentValidators() {
@@ -752,7 +752,7 @@ var CovalentValidators = (function () {
     return CovalentValidators;
 }());
 
-exports.TdTimeAgoPipe = (function () {
+var TdTimeAgoPipe = (function () {
     function TdTimeAgoPipe() {
     }
     TdTimeAgoPipe.prototype.transform = function (time, reference) {
@@ -814,15 +814,15 @@ exports.TdTimeAgoPipe = (function () {
             return Math.floor(diff) + ' years ago';
         }
     };
+    TdTimeAgoPipe = __decorate([
+        _angular_core.Pipe({
+            name: 'timeAgo',
+        })
+    ], TdTimeAgoPipe);
     return TdTimeAgoPipe;
 }());
-exports.TdTimeAgoPipe = __decorate([
-    _angular_core.Pipe({
-        name: 'timeAgo',
-    })
-], exports.TdTimeAgoPipe);
 
-exports.TdTimeDifferencePipe = (function () {
+var TdTimeDifferencePipe = (function () {
     function TdTimeDifferencePipe() {
     }
     TdTimeDifferencePipe.prototype.transform = function (start, end) {
@@ -858,15 +858,15 @@ exports.TdTimeDifferencePipe = (function () {
             pad.substring(0, pad.length - (minutes + '').length) + minutes + ':' +
             pad.substring(0, pad.length - (seconds + '').length) + seconds;
     };
+    TdTimeDifferencePipe = __decorate([
+        _angular_core.Pipe({
+            name: 'timeDifference',
+        })
+    ], TdTimeDifferencePipe);
     return TdTimeDifferencePipe;
 }());
-exports.TdTimeDifferencePipe = __decorate([
-    _angular_core.Pipe({
-        name: 'timeDifference',
-    })
-], exports.TdTimeDifferencePipe);
 
-exports.TdBytesPipe = (function () {
+var TdBytesPipe = (function () {
     function TdBytesPipe() {
     }
     /* `bytes` needs to be `any` or TypeScript complains
@@ -889,15 +889,15 @@ exports.TdBytesPipe = (function () {
         }
         return parseFloat((bytes / Math.pow(k, i)).toFixed(precision)) + ' ' + sizes[i];
     };
+    TdBytesPipe = __decorate([
+        _angular_core.Pipe({
+            name: 'bytes',
+        })
+    ], TdBytesPipe);
     return TdBytesPipe;
 }());
-exports.TdBytesPipe = __decorate([
-    _angular_core.Pipe({
-        name: 'bytes',
-    })
-], exports.TdBytesPipe);
 
-exports.TdDigitsPipe = (function () {
+var TdDigitsPipe = (function () {
     function TdDigitsPipe(_locale) {
         if (_locale === void 0) { _locale = 'en'; }
         this._locale = _locale;
@@ -922,17 +922,17 @@ exports.TdDigitsPipe = (function () {
         var size = sizes[i];
         return this._decimalPipe.transform(parseFloat((digits / Math.pow(k, i)).toFixed(precision))) + (size ? ' ' + size : '');
     };
+    TdDigitsPipe = __decorate([
+        _angular_core.Pipe({
+            name: 'digits',
+        }),
+        __param(0, _angular_core.Inject(_angular_core.LOCALE_ID)),
+        __metadata("design:paramtypes", [String])
+    ], TdDigitsPipe);
     return TdDigitsPipe;
 }());
-exports.TdDigitsPipe = __decorate([
-    _angular_core.Pipe({
-        name: 'digits',
-    }),
-    __param(0, _angular_core.Inject(_angular_core.LOCALE_ID)),
-    __metadata("design:paramtypes", [String])
-], exports.TdDigitsPipe);
 
-exports.TdTruncatePipe = (function () {
+var TdTruncatePipe = (function () {
     function TdTruncatePipe() {
     }
     TdTruncatePipe.prototype.transform = function (text, length) {
@@ -949,21 +949,22 @@ exports.TdTruncatePipe = (function () {
         }
         return truncated;
     };
+    TdTruncatePipe = __decorate([
+        _angular_core.Pipe({
+            name: 'truncate',
+        })
+    ], TdTruncatePipe);
     return TdTruncatePipe;
 }());
-exports.TdTruncatePipe = __decorate([
-    _angular_core.Pipe({
-        name: 'truncate',
-    })
-], exports.TdTruncatePipe);
 
-var RouterPathService = RouterPathService_1 = (function () {
+var RouterPathService = (function () {
     function RouterPathService(_router) {
         this._router = _router;
         this._router.events.pipe(rxjs_operators_filter.filter(function (e) { return e instanceof _angular_router.RoutesRecognized; }), rxjs_operators_pairwise.pairwise()).subscribe(function (e) {
             RouterPathService_1._previousRoute = e[0].urlAfterRedirects;
         });
     }
+    RouterPathService_1 = RouterPathService;
     /*
     * Utility function to get the route the user previously went to
     * good for use in a "back button"
@@ -971,14 +972,14 @@ var RouterPathService = RouterPathService_1 = (function () {
     RouterPathService.prototype.getPreviousRoute = function () {
         return RouterPathService_1._previousRoute;
     };
+    RouterPathService._previousRoute = '/';
+    RouterPathService = RouterPathService_1 = __decorate([
+        _angular_core.Injectable(),
+        __metadata("design:paramtypes", [_angular_router.Router])
+    ], RouterPathService);
     return RouterPathService;
+    var RouterPathService_1;
 }());
-RouterPathService._previousRoute = '/';
-RouterPathService = RouterPathService_1 = __decorate([
-    _angular_core.Injectable(),
-    __metadata("design:paramtypes", [_angular_router.Router])
-], RouterPathService);
-var RouterPathService_1;
 
 /*
  * Copyright (C) 2016-2017 by Teradata Corporation. All rights reserved.
@@ -1776,26 +1777,26 @@ var IconService = (function () {
             return el.toLowerCase().indexOf(query ? query.toLowerCase() : '') > -1;
         });
     };
+    IconService = __decorate([
+        _angular_core.Injectable()
+    ], IconService);
     return IconService;
 }());
-IconService = __decorate([
-    _angular_core.Injectable()
-], IconService);
 
 /**
  * ANIMATIONS
  */
 // Directives
 var TD_ANIMATIONS = [
-    exports.TdToggleDirective,
-    exports.TdFadeDirective,
+    TdToggleDirective,
+    TdFadeDirective,
 ];
 /**
  * FORMS
  */
 // Form Directives
 var TD_FORMS = [
-    exports.TdAutoTrimDirective,
+    TdAutoTrimDirective,
 ];
 // Validators
 var TD_VALIDATORS = [];
@@ -1803,76 +1804,76 @@ var TD_VALIDATORS = [];
  * PIPES
  */
 var TD_PIPES = [
-    exports.TdTimeAgoPipe,
-    exports.TdTimeDifferencePipe,
-    exports.TdBytesPipe,
-    exports.TdDigitsPipe,
-    exports.TdTruncatePipe,
+    TdTimeAgoPipe,
+    TdTimeDifferencePipe,
+    TdBytesPipe,
+    TdDigitsPipe,
+    TdTruncatePipe,
 ];
 /**
  * Services
  */
-exports.CovalentCommonModule = (function () {
+var CovalentCommonModule = (function () {
     function CovalentCommonModule() {
     }
+    CovalentCommonModule = __decorate([
+        _angular_core.NgModule({
+            imports: [
+                _angular_forms.FormsModule,
+                _angular_common.CommonModule,
+            ],
+            declarations: [
+                TD_FORMS,
+                TD_PIPES,
+                TD_ANIMATIONS,
+                TD_VALIDATORS,
+            ],
+            exports: [
+                _angular_forms.FormsModule,
+                _angular_common.CommonModule,
+                TD_FORMS,
+                TD_PIPES,
+                TD_ANIMATIONS,
+                TD_VALIDATORS,
+            ],
+            providers: [
+                RouterPathService,
+                IconService,
+            ],
+        })
+    ], CovalentCommonModule);
     return CovalentCommonModule;
 }());
-exports.CovalentCommonModule = __decorate([
-    _angular_core.NgModule({
-        imports: [
-            _angular_forms.FormsModule,
-            _angular_common.CommonModule,
-        ],
-        declarations: [
-            TD_FORMS,
-            TD_PIPES,
-            TD_ANIMATIONS,
-            TD_VALIDATORS,
-        ],
-        exports: [
-            _angular_forms.FormsModule,
-            _angular_common.CommonModule,
-            TD_FORMS,
-            TD_PIPES,
-            TD_ANIMATIONS,
-            TD_VALIDATORS,
-        ],
-        providers: [
-            RouterPathService,
-            IconService,
-        ],
-    })
-], exports.CovalentCommonModule);
 
 var noop = function () {
     // empty method
 };
-exports.TdChipDirective = (function (_super) {
+var TdChipDirective = (function (_super) {
     __extends(TdChipDirective, _super);
     function TdChipDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
+    TdChipDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[td-chip]ng-template',
+        }),
+        __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
+    ], TdChipDirective);
     return TdChipDirective;
 }(_angular_cdk_portal.TemplatePortalDirective));
-exports.TdChipDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[td-chip]ng-template',
-    }),
-    __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
-], exports.TdChipDirective);
-exports.TdAutocompleteOptionDirective = (function (_super) {
+var TdAutocompleteOptionDirective = (function (_super) {
     __extends(TdAutocompleteOptionDirective, _super);
     function TdAutocompleteOptionDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
+    TdAutocompleteOptionDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[td-autocomplete-option]ng-template',
+        }),
+        __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
+    ], TdAutocompleteOptionDirective);
     return TdAutocompleteOptionDirective;
 }(_angular_cdk_portal.TemplatePortalDirective));
-exports.TdAutocompleteOptionDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[td-autocomplete-option]ng-template',
-    }),
-    __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
-], exports.TdAutocompleteOptionDirective);
 var TdChipsBase = (function () {
     function TdChipsBase() {
     }
@@ -1880,7 +1881,7 @@ var TdChipsBase = (function () {
 }());
 /* tslint:disable-next-line */
 var _TdChipsMixinBase = mixinDisabled(TdChipsBase);
-exports.TdChipsComponent = TdChipsComponent_1 = (function (_super) {
+var TdChipsComponent = (function (_super) {
     __extends(TdChipsComponent, _super);
     function TdChipsComponent(_elementRef, _renderer, _changeDetectorRef, _document) {
         var _this = _super.call(this) || this;
@@ -1946,6 +1947,7 @@ exports.TdChipsComponent = TdChipsComponent_1 = (function (_super) {
         _this._renderer.addClass(_this._elementRef.nativeElement, 'mat-' + _this._color);
         return _this;
     }
+    TdChipsComponent_1 = TdChipsComponent;
     Object.defineProperty(TdChipsComponent.prototype, "focused", {
         /**
          * Flag that is true when autocomplete is focused.
@@ -2563,199 +2565,199 @@ exports.TdChipsComponent = TdChipsComponent_1 = (function (_super) {
         }
         return undefined;
     };
+    __decorate([
+        _angular_core.ViewChild('input'),
+        __metadata("design:type", _angular_core.ElementRef)
+    ], TdChipsComponent.prototype, "_nativeInput", void 0);
+    __decorate([
+        _angular_core.ViewChild(_angular_material.MatInput),
+        __metadata("design:type", _angular_material.MatInput)
+    ], TdChipsComponent.prototype, "_inputChild", void 0);
+    __decorate([
+        _angular_core.ViewChild(_angular_material.MatAutocompleteTrigger),
+        __metadata("design:type", _angular_material.MatAutocompleteTrigger)
+    ], TdChipsComponent.prototype, "_autocompleteTrigger", void 0);
+    __decorate([
+        _angular_core.ViewChildren(_angular_material.MatChip),
+        __metadata("design:type", _angular_core.QueryList)
+    ], TdChipsComponent.prototype, "_chipsChildren", void 0);
+    __decorate([
+        _angular_core.ContentChild(TdChipDirective),
+        __metadata("design:type", TdChipDirective)
+    ], TdChipsComponent.prototype, "_chipTemplate", void 0);
+    __decorate([
+        _angular_core.ContentChild(TdAutocompleteOptionDirective),
+        __metadata("design:type", TdAutocompleteOptionDirective)
+    ], TdChipsComponent.prototype, "_autocompleteOptionTemplate", void 0);
+    __decorate([
+        _angular_core.ViewChildren(_angular_material.MatOption),
+        __metadata("design:type", _angular_core.QueryList)
+    ], TdChipsComponent.prototype, "_options", void 0);
+    __decorate([
+        _angular_core.Input('items'),
+        __metadata("design:type", Array),
+        __metadata("design:paramtypes", [Array])
+    ], TdChipsComponent.prototype, "items", null);
+    __decorate([
+        _angular_core.Input('stacked'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdChipsComponent.prototype, "stacked", null);
+    __decorate([
+        _angular_core.Input('requireMatch'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdChipsComponent.prototype, "requireMatch", null);
+    __decorate([
+        _angular_core.Input('readOnly'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdChipsComponent.prototype, "readOnly", null);
+    __decorate([
+        _angular_core.Input('chipAddition'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdChipsComponent.prototype, "chipAddition", null);
+    __decorate([
+        _angular_core.Input('chipRemoval'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdChipsComponent.prototype, "chipRemoval", null);
+    __decorate([
+        _angular_core.Input('placeholder'),
+        __metadata("design:type", String)
+    ], TdChipsComponent.prototype, "placeholder", void 0);
+    __decorate([
+        _angular_core.Input('debounce'),
+        __metadata("design:type", Number)
+    ], TdChipsComponent.prototype, "debounce", void 0);
+    __decorate([
+        _angular_core.Input('color'),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], TdChipsComponent.prototype, "color", null);
+    __decorate([
+        _angular_core.Output('add'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdChipsComponent.prototype, "onAdd", void 0);
+    __decorate([
+        _angular_core.Output('remove'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdChipsComponent.prototype, "onRemove", void 0);
+    __decorate([
+        _angular_core.Output('inputChange'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdChipsComponent.prototype, "onInputChange", void 0);
+    __decorate([
+        _angular_core.Output('chipFocus'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdChipsComponent.prototype, "onChipFocus", void 0);
+    __decorate([
+        _angular_core.Output('chipBlur'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdChipsComponent.prototype, "onChipBlur", void 0);
+    __decorate([
+        _angular_core.Input(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], TdChipsComponent.prototype, "value", null);
+    __decorate([
+        _angular_core.HostBinding('attr.tabindex'),
+        __metadata("design:type", Number),
+        __metadata("design:paramtypes", [])
+    ], TdChipsComponent.prototype, "tabIndex", null);
+    __decorate([
+        _angular_core.HostListener('focus', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [FocusEvent]),
+        __metadata("design:returntype", void 0)
+    ], TdChipsComponent.prototype, "focusListener", null);
+    __decorate([
+        _angular_core.HostListener('mousedown', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [FocusEvent]),
+        __metadata("design:returntype", void 0)
+    ], TdChipsComponent.prototype, "mousedownListener", null);
+    __decorate([
+        _angular_core.HostListener('click', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Event]),
+        __metadata("design:returntype", void 0)
+    ], TdChipsComponent.prototype, "clickListener", null);
+    __decorate([
+        _angular_core.HostListener('keydown', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [KeyboardEvent]),
+        __metadata("design:returntype", void 0)
+    ], TdChipsComponent.prototype, "keydownListener", null);
+    TdChipsComponent = TdChipsComponent_1 = __decorate([
+        _angular_core.Component({
+            providers: [{
+                    provide: _angular_forms.NG_VALUE_ACCESSOR,
+                    useExisting: _angular_core.forwardRef(function () { return TdChipsComponent_1; }),
+                    multi: true,
+                }],
+            selector: 'td-chips',
+            inputs: ['disabled'],
+            styles: [":host { display: block; padding: 0px 5px 0px 5px; min-height: 48px; } :host .td-chips-wrapper { min-height: 42px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-align: start; -ms-flex-align: start; align-items: flex-start; } :host .td-chips-wrapper.td-chips-stacked .mat-basic-chip { width: 100%; } :host .td-chip, :host .td-chip > .td-chip-content { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; max-width: 100%; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: start; } :host .td-chip.td-chip-stacked, :host .td-chip > .td-chip-content.td-chip-stacked { -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; } :host /deep/ { /* TODO see if we can make styles more abstract to future proof for contact chips */ } :host /deep/ .mat-form-field-wrapper { padding-bottom: 2px; } :host /deep/ .mat-basic-chip { display: inline-block; cursor: default; border-radius: 16px; margin: 8px 8px 0 0; -webkit-box-sizing: border-box; box-sizing: border-box; max-width: 100%; position: relative; } html[dir=rtl] :host /deep/ .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } :host /deep/ .mat-basic-chip bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip .td-chip { min-height: 32px; line-height: 32px; font-size: 13px; padding: 0 0 0 12px; } html[dir=rtl] :host /deep/ .mat-basic-chip .td-chip { padding: 0 12px 0 0; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip .td-chip { padding: 0 12px 0 0; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip .td-chip { padding: 0 12px 0 0; unicode-bidi: embed; } :host /deep/ .mat-basic-chip .td-chip bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip .td-chip bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] { display: inline-block; -webkit-box-ordinal-group: -19; -ms-flex-order: -20; order: -20; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; text-align: center; height: 32px; width: 32px; margin: 0 8px 0 -12px; border-radius: 50%; } html[dir=rtl] :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] { margin: 0 -12px 0 8px; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] { margin: 0 -12px 0 8px; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] { margin: 0 -12px 0 8px; unicode-bidi: embed; } :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip.td-chip-after-pad { padding: 0 12px 0 0; } html[dir=rtl] :host /deep/ .mat-basic-chip.td-chip-after-pad { padding: 0 0 0 12px; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip.td-chip-after-pad { padding: 0 0 0 12px; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip.td-chip-after-pad { padding: 0 0 0 12px; unicode-bidi: embed; } :host /deep/ .mat-basic-chip.td-chip-after-pad bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip.td-chip-after-pad bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip mat-icon.td-chip-removal { margin: 0 4px; font-size: 21px; line-height: 22px; } :host /deep/ .mat-basic-chip mat-icon.td-chip-removal:hover { cursor: pointer; } :host .mat-form-field-underline { position: relative; height: 1px; width: 100%; bottom: 0; } :host .mat-form-field-underline.mat-disabled { background-position: 0; bottom: -4px; background-color: transparent; } :host .mat-form-field-underline .mat-form-field-ripple { position: absolute; height: 2px; top: 0; width: 100%; -webkit-transform-origin: 50%; transform-origin: 50%; -webkit-transform: scaleX(0.5); transform: scaleX(0.5); visibility: hidden; -webkit-transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); } :host .mat-form-field-underline .mat-form-field-ripple.mat-focused { visibility: visible; -webkit-transform: scaleX(1); transform: scaleX(1); -webkit-transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear; transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear; transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear; } :host /deep/ mat-form-field .mat-form-field-underline { display: none; } /*# sourceMappingURL=chips.component.css.map */ "],
+            template: "<div class=\"td-chips-wrapper\" [class.td-chips-stacked]=\"stacked\"> <ng-template let-chip let-first=\"first\" let-index=\"index\" ngFor [ngForOf]=\"value\"> <mat-basic-chip [class.td-chip-disabled]=\"disabled\" [class.td-chip-after-pad]=\"!canRemoveChip\" [color]=\"color\" [disabled]=\"true\" (keydown)=\"_chipKeydown($event, index)\" (blur)=\"_handleChipBlur($event, chip)\" (focus)=\"_handleChipFocus($event, chip)\"> <div class=\"td-chip\" [class.td-chip-stacked]=\"stacked\"> <span class=\"td-chip-content\"> <span *ngIf=\"!_chipTemplate?.templateRef\">{{chip}}</span> <ng-template *ngIf=\"_chipTemplate?.templateRef\" [ngTemplateOutlet]=\"_chipTemplate?.templateRef\" [ngTemplateOutletContext]=\"{ chip: chip }\"> </ng-template> </span> <mat-icon *ngIf=\"canRemoveChip\" class=\"td-chip-removal\" (click)=\"_internalClick = removeChip(index)\"> cancel </mat-icon> </div> </mat-basic-chip> </ng-template> <mat-form-field floatPlaceholder=\"never\" [style.width.px]=\"canAddChip ? null : 0\" [style.height.px]=\"canAddChip ? null : 0\" [color]=\"color\"> <input matInput #input [tabIndex]=\"-1\" [matAutocomplete]=\"autocomplete\" [formControl]=\"inputControl\" [placeholder]=\"canAddChip? placeholder : ''\" (keydown)=\"_inputKeydown($event)\" (keyup.enter)=\"_handleAddChip()\" (focus)=\"_handleFocus()\"> </mat-form-field> <mat-autocomplete #autocomplete=\"matAutocomplete\" [displayWith]=\"_removeInputDisplay\" (optionSelected)=\"addChip($event.option.value)\"> <ng-template let-item let-first=\"first\" ngFor [ngForOf]=\"items\"> <mat-option (click)=\"_setInternalClick()\" [value]=\"item\"> <span *ngIf=\"!_autocompleteOptionTemplate?.templateRef\">{{item}}</span> <ng-template *ngIf=\"_autocompleteOptionTemplate?.templateRef\" [ngTemplateOutlet]=\"_autocompleteOptionTemplate?.templateRef\" [ngTemplateOutletContext]=\"{ option: item }\"> </ng-template> </mat-option> </ng-template> </mat-autocomplete> </div> <div *ngIf=\"chipAddition\" class=\"mat-form-field-underline\" [class.mat-disabled]=\"disabled\"> <span class=\"mat-form-field-ripple\" [class.mat-focused]=\"focused\"></span> </div> <ng-content></ng-content>",
+            changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
+        }),
+        __param(3, _angular_core.Optional()), __param(3, _angular_core.Inject(_angular_platformBrowser.DOCUMENT)),
+        __metadata("design:paramtypes", [_angular_core.ElementRef,
+            _angular_core.Renderer2,
+            _angular_core.ChangeDetectorRef, Object])
+    ], TdChipsComponent);
     return TdChipsComponent;
+    var TdChipsComponent_1;
 }(_TdChipsMixinBase));
-__decorate([
-    _angular_core.ViewChild('input'),
-    __metadata("design:type", _angular_core.ElementRef)
-], exports.TdChipsComponent.prototype, "_nativeInput", void 0);
-__decorate([
-    _angular_core.ViewChild(_angular_material.MatInput),
-    __metadata("design:type", _angular_material.MatInput)
-], exports.TdChipsComponent.prototype, "_inputChild", void 0);
-__decorate([
-    _angular_core.ViewChild(_angular_material.MatAutocompleteTrigger),
-    __metadata("design:type", _angular_material.MatAutocompleteTrigger)
-], exports.TdChipsComponent.prototype, "_autocompleteTrigger", void 0);
-__decorate([
-    _angular_core.ViewChildren(_angular_material.MatChip),
-    __metadata("design:type", _angular_core.QueryList)
-], exports.TdChipsComponent.prototype, "_chipsChildren", void 0);
-__decorate([
-    _angular_core.ContentChild(exports.TdChipDirective),
-    __metadata("design:type", exports.TdChipDirective)
-], exports.TdChipsComponent.prototype, "_chipTemplate", void 0);
-__decorate([
-    _angular_core.ContentChild(exports.TdAutocompleteOptionDirective),
-    __metadata("design:type", exports.TdAutocompleteOptionDirective)
-], exports.TdChipsComponent.prototype, "_autocompleteOptionTemplate", void 0);
-__decorate([
-    _angular_core.ViewChildren(_angular_material.MatOption),
-    __metadata("design:type", _angular_core.QueryList)
-], exports.TdChipsComponent.prototype, "_options", void 0);
-__decorate([
-    _angular_core.Input('items'),
-    __metadata("design:type", Array),
-    __metadata("design:paramtypes", [Array])
-], exports.TdChipsComponent.prototype, "items", null);
-__decorate([
-    _angular_core.Input('stacked'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdChipsComponent.prototype, "stacked", null);
-__decorate([
-    _angular_core.Input('requireMatch'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdChipsComponent.prototype, "requireMatch", null);
-__decorate([
-    _angular_core.Input('readOnly'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdChipsComponent.prototype, "readOnly", null);
-__decorate([
-    _angular_core.Input('chipAddition'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdChipsComponent.prototype, "chipAddition", null);
-__decorate([
-    _angular_core.Input('chipRemoval'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdChipsComponent.prototype, "chipRemoval", null);
-__decorate([
-    _angular_core.Input('placeholder'),
-    __metadata("design:type", String)
-], exports.TdChipsComponent.prototype, "placeholder", void 0);
-__decorate([
-    _angular_core.Input('debounce'),
-    __metadata("design:type", Number)
-], exports.TdChipsComponent.prototype, "debounce", void 0);
-__decorate([
-    _angular_core.Input('color'),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], exports.TdChipsComponent.prototype, "color", null);
-__decorate([
-    _angular_core.Output('add'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdChipsComponent.prototype, "onAdd", void 0);
-__decorate([
-    _angular_core.Output('remove'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdChipsComponent.prototype, "onRemove", void 0);
-__decorate([
-    _angular_core.Output('inputChange'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdChipsComponent.prototype, "onInputChange", void 0);
-__decorate([
-    _angular_core.Output('chipFocus'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdChipsComponent.prototype, "onChipFocus", void 0);
-__decorate([
-    _angular_core.Output('chipBlur'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdChipsComponent.prototype, "onChipBlur", void 0);
-__decorate([
-    _angular_core.Input(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], exports.TdChipsComponent.prototype, "value", null);
-__decorate([
-    _angular_core.HostBinding('attr.tabindex'),
-    __metadata("design:type", Number),
-    __metadata("design:paramtypes", [])
-], exports.TdChipsComponent.prototype, "tabIndex", null);
-__decorate([
-    _angular_core.HostListener('focus', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [FocusEvent]),
-    __metadata("design:returntype", void 0)
-], exports.TdChipsComponent.prototype, "focusListener", null);
-__decorate([
-    _angular_core.HostListener('mousedown', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [FocusEvent]),
-    __metadata("design:returntype", void 0)
-], exports.TdChipsComponent.prototype, "mousedownListener", null);
-__decorate([
-    _angular_core.HostListener('click', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Event]),
-    __metadata("design:returntype", void 0)
-], exports.TdChipsComponent.prototype, "clickListener", null);
-__decorate([
-    _angular_core.HostListener('keydown', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [KeyboardEvent]),
-    __metadata("design:returntype", void 0)
-], exports.TdChipsComponent.prototype, "keydownListener", null);
-exports.TdChipsComponent = TdChipsComponent_1 = __decorate([
-    _angular_core.Component({
-        providers: [{
-                provide: _angular_forms.NG_VALUE_ACCESSOR,
-                useExisting: _angular_core.forwardRef(function () { return TdChipsComponent_1; }),
-                multi: true,
-            }],
-        selector: 'td-chips',
-        inputs: ['disabled'],
-        styles: [":host { display: block; padding: 0px 5px 0px 5px; min-height: 48px; } :host .td-chips-wrapper { min-height: 42px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-align: start; -ms-flex-align: start; align-items: flex-start; } :host .td-chips-wrapper.td-chips-stacked .mat-basic-chip { width: 100%; } :host .td-chip, :host .td-chip > .td-chip-content { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; max-width: 100%; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: start; } :host .td-chip.td-chip-stacked, :host .td-chip > .td-chip-content.td-chip-stacked { -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; } :host /deep/ { /* TODO see if we can make styles more abstract to future proof for contact chips */ } :host /deep/ .mat-form-field-wrapper { padding-bottom: 2px; } :host /deep/ .mat-basic-chip { display: inline-block; cursor: default; border-radius: 16px; margin: 8px 8px 0 0; -webkit-box-sizing: border-box; box-sizing: border-box; max-width: 100%; position: relative; } html[dir=rtl] :host /deep/ .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } :host /deep/ .mat-basic-chip bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip .td-chip { min-height: 32px; line-height: 32px; font-size: 13px; padding: 0 0 0 12px; } html[dir=rtl] :host /deep/ .mat-basic-chip .td-chip { padding: 0 12px 0 0; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip .td-chip { padding: 0 12px 0 0; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip .td-chip { padding: 0 12px 0 0; unicode-bidi: embed; } :host /deep/ .mat-basic-chip .td-chip bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip .td-chip bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] { display: inline-block; -webkit-box-ordinal-group: -19; -ms-flex-order: -20; order: -20; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; text-align: center; height: 32px; width: 32px; margin: 0 8px 0 -12px; border-radius: 50%; } html[dir=rtl] :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] { margin: 0 -12px 0 8px; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] { margin: 0 -12px 0 8px; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] { margin: 0 -12px 0 8px; unicode-bidi: embed; } :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip.td-chip-after-pad { padding: 0 12px 0 0; } html[dir=rtl] :host /deep/ .mat-basic-chip.td-chip-after-pad { padding: 0 0 0 12px; unicode-bidi: embed; } body[dir=rtl] :host /deep/ .mat-basic-chip.td-chip-after-pad { padding: 0 0 0 12px; unicode-bidi: embed; } [dir=rtl] :host /deep/ .mat-basic-chip.td-chip-after-pad { padding: 0 0 0 12px; unicode-bidi: embed; } :host /deep/ .mat-basic-chip.td-chip-after-pad bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip.td-chip-after-pad bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host /deep/ .mat-basic-chip mat-icon.td-chip-removal { margin: 0 4px; font-size: 21px; line-height: 22px; } :host /deep/ .mat-basic-chip mat-icon.td-chip-removal:hover { cursor: pointer; } :host .mat-form-field-underline { position: relative; height: 1px; width: 100%; bottom: 0; } :host .mat-form-field-underline.mat-disabled { background-position: 0; bottom: -4px; background-color: transparent; } :host .mat-form-field-underline .mat-form-field-ripple { position: absolute; height: 2px; top: 0; width: 100%; -webkit-transform-origin: 50%; transform-origin: 50%; -webkit-transform: scaleX(0.5); transform: scaleX(0.5); visibility: hidden; -webkit-transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); } :host .mat-form-field-underline .mat-form-field-ripple.mat-focused { visibility: visible; -webkit-transform: scaleX(1); transform: scaleX(1); -webkit-transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear; transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear; transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear; } :host /deep/ mat-form-field .mat-form-field-underline { display: none; } /*# sourceMappingURL=chips.component.css.map */ "],
-        template: "<div class=\"td-chips-wrapper\" [class.td-chips-stacked]=\"stacked\"> <ng-template let-chip let-first=\"first\" let-index=\"index\" ngFor [ngForOf]=\"value\"> <mat-basic-chip [class.td-chip-disabled]=\"disabled\" [class.td-chip-after-pad]=\"!canRemoveChip\" [color]=\"color\" [disabled]=\"true\" (keydown)=\"_chipKeydown($event, index)\" (blur)=\"_handleChipBlur($event, chip)\" (focus)=\"_handleChipFocus($event, chip)\"> <div class=\"td-chip\" [class.td-chip-stacked]=\"stacked\"> <span class=\"td-chip-content\"> <span *ngIf=\"!_chipTemplate?.templateRef\">{{chip}}</span> <ng-template *ngIf=\"_chipTemplate?.templateRef\" [ngTemplateOutlet]=\"_chipTemplate?.templateRef\" [ngTemplateOutletContext]=\"{ chip: chip }\"> </ng-template> </span> <mat-icon *ngIf=\"canRemoveChip\" class=\"td-chip-removal\" (click)=\"_internalClick = removeChip(index)\"> cancel </mat-icon> </div> </mat-basic-chip> </ng-template> <mat-form-field floatPlaceholder=\"never\" [style.width.px]=\"canAddChip ? null : 0\" [style.height.px]=\"canAddChip ? null : 0\" [color]=\"color\"> <input matInput #input [tabIndex]=\"-1\" [matAutocomplete]=\"autocomplete\" [formControl]=\"inputControl\" [placeholder]=\"canAddChip? placeholder : ''\" (keydown)=\"_inputKeydown($event)\" (keyup.enter)=\"_handleAddChip()\" (focus)=\"_handleFocus()\"> </mat-form-field> <mat-autocomplete #autocomplete=\"matAutocomplete\" [displayWith]=\"_removeInputDisplay\" (optionSelected)=\"addChip($event.option.value)\"> <ng-template let-item let-first=\"first\" ngFor [ngForOf]=\"items\"> <mat-option (click)=\"_setInternalClick()\" [value]=\"item\"> <span *ngIf=\"!_autocompleteOptionTemplate?.templateRef\">{{item}}</span> <ng-template *ngIf=\"_autocompleteOptionTemplate?.templateRef\" [ngTemplateOutlet]=\"_autocompleteOptionTemplate?.templateRef\" [ngTemplateOutletContext]=\"{ option: item }\"> </ng-template> </mat-option> </ng-template> </mat-autocomplete> </div> <div *ngIf=\"chipAddition\" class=\"mat-form-field-underline\" [class.mat-disabled]=\"disabled\"> <span class=\"mat-form-field-ripple\" [class.mat-focused]=\"focused\"></span> </div> <ng-content></ng-content>",
-        changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
-    }),
-    __param(3, _angular_core.Optional()), __param(3, _angular_core.Inject(_angular_platformBrowser.DOCUMENT)),
-    __metadata("design:paramtypes", [_angular_core.ElementRef,
-        _angular_core.Renderer2,
-        _angular_core.ChangeDetectorRef, Object])
-], exports.TdChipsComponent);
-var TdChipsComponent_1;
 
-exports.CovalentChipsModule = (function () {
+var CovalentChipsModule = (function () {
     function CovalentChipsModule() {
     }
+    CovalentChipsModule = __decorate([
+        _angular_core.NgModule({
+            imports: [
+                _angular_forms.ReactiveFormsModule,
+                _angular_common.CommonModule,
+                _angular_material.MatInputModule,
+                _angular_material.MatIconModule,
+                _angular_material.MatChipsModule,
+                _angular_material.MatAutocompleteModule,
+            ],
+            declarations: [
+                TdChipsComponent,
+                TdChipDirective,
+                TdAutocompleteOptionDirective,
+            ],
+            exports: [
+                TdChipsComponent,
+                TdChipDirective,
+                TdAutocompleteOptionDirective,
+            ],
+        })
+    ], CovalentChipsModule);
     return CovalentChipsModule;
 }());
-exports.CovalentChipsModule = __decorate([
-    _angular_core.NgModule({
-        imports: [
-            _angular_forms.ReactiveFormsModule,
-            _angular_common.CommonModule,
-            _angular_material.MatInputModule,
-            _angular_material.MatIconModule,
-            _angular_material.MatChipsModule,
-            _angular_material.MatAutocompleteModule,
-        ],
-        declarations: [
-            exports.TdChipsComponent,
-            exports.TdChipDirective,
-            exports.TdAutocompleteOptionDirective,
-        ],
-        exports: [
-            exports.TdChipsComponent,
-            exports.TdChipDirective,
-            exports.TdAutocompleteOptionDirective,
-        ],
-    })
-], exports.CovalentChipsModule);
 
-exports.TdDataTableColumnRowComponent = (function () {
+var TdDataTableColumnRowComponent = (function () {
     function TdDataTableColumnRowComponent(_elementRef, _renderer) {
         this._elementRef = _elementRef;
         this._renderer = _renderer;
         this._renderer.addClass(this._elementRef.nativeElement, 'td-data-table-column-row');
     }
+    TdDataTableColumnRowComponent = __decorate([
+        _angular_core.Component({
+            /* tslint:disable-next-line */
+            selector: 'tr[td-data-table-column-row]',
+            styles: [":host { border-bottom-style: solid; border-bottom-width: 1px; } :host.td-data-table-row { height: 48px; } :host.td-data-table-column-row { height: 56px; } /*# sourceMappingURL=data-table-row.component.css.map */ "],
+            template: "<ng-content></ng-content>",
+        }),
+        __metadata("design:paramtypes", [_angular_core.ElementRef, _angular_core.Renderer2])
+    ], TdDataTableColumnRowComponent);
     return TdDataTableColumnRowComponent;
 }());
-exports.TdDataTableColumnRowComponent = __decorate([
-    _angular_core.Component({
-        /* tslint:disable-next-line */
-        selector: 'tr[td-data-table-column-row]',
-        styles: [":host { border-bottom-style: solid; border-bottom-width: 1px; } :host.td-data-table-row { height: 48px; } :host.td-data-table-column-row { height: 56px; } /*# sourceMappingURL=data-table-row.component.css.map */ "],
-        template: "<ng-content></ng-content>",
-    }),
-    __metadata("design:paramtypes", [_angular_core.ElementRef, _angular_core.Renderer2])
-], exports.TdDataTableColumnRowComponent);
-exports.TdDataTableRowComponent = (function () {
+var TdDataTableRowComponent = (function () {
     function TdDataTableRowComponent(_elementRef, _renderer) {
         this._elementRef = _elementRef;
         this._renderer = _renderer;
@@ -2798,51 +2800,51 @@ exports.TdDataTableRowComponent = (function () {
     TdDataTableRowComponent.prototype.focus = function () {
         this._elementRef.nativeElement.focus();
     };
+    __decorate([
+        _angular_core.Input('selected'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdDataTableRowComponent.prototype, "selected", null);
+    __decorate([
+        _angular_core.HostListener('click', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], TdDataTableRowComponent.prototype, "clickListener", null);
+    TdDataTableRowComponent = __decorate([
+        _angular_core.Component({
+            /* tslint:disable-next-line */
+            selector: 'tr[td-data-table-row]',
+            styles: [":host { border-bottom-style: solid; border-bottom-width: 1px; } :host.td-data-table-row { height: 48px; } :host.td-data-table-column-row { height: 56px; } /*# sourceMappingURL=data-table-row.component.css.map */ "],
+            template: "<ng-content></ng-content>",
+        }),
+        __metadata("design:paramtypes", [_angular_core.ElementRef, _angular_core.Renderer2])
+    ], TdDataTableRowComponent);
     return TdDataTableRowComponent;
 }());
-__decorate([
-    _angular_core.Input('selected'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdDataTableRowComponent.prototype, "selected", null);
-__decorate([
-    _angular_core.HostListener('click', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], exports.TdDataTableRowComponent.prototype, "clickListener", null);
-exports.TdDataTableRowComponent = __decorate([
-    _angular_core.Component({
-        /* tslint:disable-next-line */
-        selector: 'tr[td-data-table-row]',
-        styles: [":host { border-bottom-style: solid; border-bottom-width: 1px; } :host.td-data-table-row { height: 48px; } :host.td-data-table-column-row { height: 56px; } /*# sourceMappingURL=data-table-row.component.css.map */ "],
-        template: "<ng-content></ng-content>",
-    }),
-    __metadata("design:paramtypes", [_angular_core.ElementRef, _angular_core.Renderer2])
-], exports.TdDataTableRowComponent);
 
 var TdDataTableTemplateDirective = (function (_super) {
     __extends(TdDataTableTemplateDirective, _super);
     function TdDataTableTemplateDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
+    __decorate([
+        _angular_core.Input(),
+        __metadata("design:type", String)
+    ], TdDataTableTemplateDirective.prototype, "tdDataTableTemplate", void 0);
+    TdDataTableTemplateDirective = __decorate([
+        _angular_core.Directive({ selector: '[tdDataTableTemplate]ng-template' }),
+        __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
+    ], TdDataTableTemplateDirective);
     return TdDataTableTemplateDirective;
 }(_angular_cdk_portal.TemplatePortalDirective));
-__decorate([
-    _angular_core.Input(),
-    __metadata("design:type", String)
-], TdDataTableTemplateDirective.prototype, "tdDataTableTemplate", void 0);
-TdDataTableTemplateDirective = __decorate([
-    _angular_core.Directive({ selector: '[tdDataTableTemplate]ng-template' }),
-    __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
-], TdDataTableTemplateDirective);
 
 var noop$1 = function () {
     // empty method
 };
 var TD_DATA_TABLE_CONTROL_VALUE_ACCESSOR = {
     provide: _angular_forms.NG_VALUE_ACCESSOR,
-    useExisting: _angular_core.forwardRef(function () { return exports.TdDataTableComponent; }),
+    useExisting: _angular_core.forwardRef(function () { return TdDataTableComponent; }),
     multi: true,
 };
 
@@ -2858,7 +2860,7 @@ var TD_VIRTUAL_OFFSET = 2;
  * Constant to set default row height if none is provided
  */
 var TD_VIRTUAL_DEFAULT_ROW_HEIGHT = 48;
-exports.TdDataTableComponent = (function () {
+var TdDataTableComponent = (function () {
     function TdDataTableComponent(_document, _elementRef, _domSanitizer, _changeDetectorRef) {
         this._document = _document;
         this._elementRef = _elementRef;
@@ -3806,104 +3808,104 @@ exports.TdDataTableComponent = (function () {
             _this._changeDetectorRef.markForCheck();
         });
     };
+    __decorate([
+        _angular_core.ContentChildren(TdDataTableTemplateDirective),
+        __metadata("design:type", _angular_core.QueryList)
+    ], TdDataTableComponent.prototype, "_templates", void 0);
+    __decorate([
+        _angular_core.ViewChild('scrollableDiv'),
+        __metadata("design:type", _angular_core.ElementRef)
+    ], TdDataTableComponent.prototype, "_scrollableDiv", void 0);
+    __decorate([
+        _angular_core.ViewChildren('columnElement'),
+        __metadata("design:type", _angular_core.QueryList)
+    ], TdDataTableComponent.prototype, "_colElements", void 0);
+    __decorate([
+        _angular_core.ViewChildren(TdDataTableRowComponent),
+        __metadata("design:type", _angular_core.QueryList)
+    ], TdDataTableComponent.prototype, "_rows", void 0);
+    __decorate([
+        _angular_core.Input(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], TdDataTableComponent.prototype, "value", null);
+    __decorate([
+        _angular_core.Input('data'),
+        __metadata("design:type", Array),
+        __metadata("design:paramtypes", [Array])
+    ], TdDataTableComponent.prototype, "data", null);
+    __decorate([
+        _angular_core.Input('columns'),
+        __metadata("design:type", Array),
+        __metadata("design:paramtypes", [Array])
+    ], TdDataTableComponent.prototype, "columns", null);
+    __decorate([
+        _angular_core.Input('selectable'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdDataTableComponent.prototype, "selectable", null);
+    __decorate([
+        _angular_core.Input('clickable'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdDataTableComponent.prototype, "clickable", null);
+    __decorate([
+        _angular_core.Input('multiple'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdDataTableComponent.prototype, "multiple", null);
+    __decorate([
+        _angular_core.Input('sortable'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdDataTableComponent.prototype, "sortable", null);
+    __decorate([
+        _angular_core.Input('sortBy'),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], TdDataTableComponent.prototype, "sortBy", null);
+    __decorate([
+        _angular_core.Input('sortOrder'),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], TdDataTableComponent.prototype, "sortOrder", null);
+    __decorate([
+        _angular_core.Output('sortChange'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdDataTableComponent.prototype, "onSortChange", void 0);
+    __decorate([
+        _angular_core.Output('rowSelect'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdDataTableComponent.prototype, "onRowSelect", void 0);
+    __decorate([
+        _angular_core.Output('rowClick'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdDataTableComponent.prototype, "onRowClick", void 0);
+    __decorate([
+        _angular_core.Output('selectAll'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdDataTableComponent.prototype, "onSelectAll", void 0);
+    __decorate([
+        _angular_core.Input('compareWith'),
+        __metadata("design:type", Function)
+    ], TdDataTableComponent.prototype, "compareWith", void 0);
+    TdDataTableComponent = __decorate([
+        _angular_core.Component({
+            providers: [TD_DATA_TABLE_CONTROL_VALUE_ACCESSOR],
+            selector: 'td-data-table',
+            styles: [":host { display: block; overflow: hidden; } :host .td-data-table-scrollable { position: relative; overflow: auto; height: calc(100% - 56px); } table.td-data-table { width: auto !important; } table.td-data-table.mat-selectable tbody > tr.td-data-table-row { -webkit-transition: background-color 0.2s; transition: background-color 0.2s; } table.td-data-table.mat-selectable .td-data-table-column:first-child > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable th.td-data-table-column:first-child > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable td.td-data-table-cell:first-child > .td-data-table-column-content-wrapper { width: 18px; min-width: 18px; padding: 0 24px; } table.td-data-table.mat-selectable .td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) > .td-data-table-column-content-wrapper { padding-left: 0px; } [dir='rtl'] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, [dir='rtl'] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, [dir='rtl'] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) > .td-data-table-column-content-wrapper { padding-right: 0px; padding-left: 28px; } table.td-data-table td.mat-checkbox-cell, table.td-data-table th.mat-checkbox-column { min-width: 42px; width: 42px; font-size: 0 !important; } table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox, table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox { width: 18px; height: 18px; } /deep/ table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after, /deep/ table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after { width: 11px !important; height: 4px !important; } table.td-data-table td.mat-checkbox-cell mat-checkbox /deep/ .mat-checkbox-inner-container, table.td-data-table th.mat-checkbox-column mat-checkbox /deep/ .mat-checkbox-inner-container { width: 18px; height: 18px; margin: 0; } /*# sourceMappingURL=data-table.component.css.map */ "],
+            template: "<table td-data-table [style.left.px]=\"columnsLeftScroll\" [class.mat-selectable]=\"selectable\"> <tr td-data-table-column-row> <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"selectable\"> <mat-checkbox #checkBoxAll *ngIf=\"multiple\" [disabled]=\"!hasData\" [indeterminate]=\"indeterminate && !allSelected && hasData\" [checked]=\"allSelected && hasData\" (click)=\"blockEvent($event); selectAll(!checkBoxAll.checked)\" (keyup.enter)=\"selectAll(!checkBoxAll.checked)\" (keyup.space)=\"selectAll(!checkBoxAll.checked)\" (keydown.space)=\"blockEvent($event)\"> </mat-checkbox> </th> <th td-data-table-column #columnElement *ngFor=\"let column of columns; let i = index;\" [style.min-width.px]=\"getColumnWidth(i)\" [style.max-width.px]=\"getColumnWidth(i)\" [name]=\"column.name\" [numeric]=\"column.numeric\" [active]=\"(column.sortable || sortable) && column === sortByColumn\" [sortable]=\"column.sortable || (sortable && column.sortable !== false)\" [sortOrder]=\"sortOrderEnum\" [hidden]=\"column.hidden\" (sortChange)=\"handleSort(column)\"> <span [matTooltip]=\"column.tooltip\">{{column.label}}</span> </th> </tr> </table> <div #scrollableDiv class=\"td-data-table-scrollable\" (scroll)=\"handleScroll($event)\"> <div [style.height.px]=\"totalHeight\"></div> <table td-data-table [style.transform]=\"offsetTransform\" [style.position]=\"'absolute'\" [class.mat-selectable]=\"selectable\" [class.mat-clickable]=\"clickable\"> <tr td-data-table-row #dtRow [tabIndex]=\"selectable ? 0 : -1\" [selected]=\"(clickable || selectable) && isRowSelected(row)\" *ngFor=\"let row of virtualData; let rowIndex = index\" (click)=\"handleRowClick(row, $event)\" (keyup)=\"selectable && _rowKeyup($event, row, rowIndex)\" (keydown.space)=\"blockEvent($event)\" (keydown.shift.space)=\"blockEvent($event)\" (keydown.shift)=\"disableTextSelection()\" (keyup.shift)=\"enableTextSelection()\"> <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"selectable\"> <mat-pseudo-checkbox [state]=\"dtRow.selected ? 'checked' : 'unchecked'\" (mousedown)=\"disableTextSelection()\" (mouseup)=\"enableTextSelection()\" stopRowClick (click)=\"select(row, $event, fromRow + rowIndex)\"> </mat-pseudo-checkbox> </td> <td td-data-table-cell [numeric]=\"column.numeric\" [hidden]=\"column.hidden\" *ngFor=\"let column of columns; let i = index\" [style.min-width.px]=\"getColumnWidth(i)\" [style.max-width.px]=\"getColumnWidth(i)\"> <span *ngIf=\"!getTemplateRef(column.name)\">{{column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row)}}</span> <ng-template *ngIf=\"getTemplateRef(column.name)\" [ngTemplateOutlet]=\"getTemplateRef(column.name)\" [ngTemplateOutletContext]=\"{ value: getCellValue(column, row), row: row, column: column.name }\"> </ng-template> </td> </tr> </table> </div> <ng-content></ng-content>",
+            changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
+        }),
+        __param(0, _angular_core.Optional()), __param(0, _angular_core.Inject(_angular_platformBrowser.DOCUMENT)),
+        __metadata("design:paramtypes", [Object, _angular_core.ElementRef,
+            _angular_platformBrowser.DomSanitizer,
+            _angular_core.ChangeDetectorRef])
+    ], TdDataTableComponent);
     return TdDataTableComponent;
 }());
-__decorate([
-    _angular_core.ContentChildren(TdDataTableTemplateDirective),
-    __metadata("design:type", _angular_core.QueryList)
-], exports.TdDataTableComponent.prototype, "_templates", void 0);
-__decorate([
-    _angular_core.ViewChild('scrollableDiv'),
-    __metadata("design:type", _angular_core.ElementRef)
-], exports.TdDataTableComponent.prototype, "_scrollableDiv", void 0);
-__decorate([
-    _angular_core.ViewChildren('columnElement'),
-    __metadata("design:type", _angular_core.QueryList)
-], exports.TdDataTableComponent.prototype, "_colElements", void 0);
-__decorate([
-    _angular_core.ViewChildren(exports.TdDataTableRowComponent),
-    __metadata("design:type", _angular_core.QueryList)
-], exports.TdDataTableComponent.prototype, "_rows", void 0);
-__decorate([
-    _angular_core.Input(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], exports.TdDataTableComponent.prototype, "value", null);
-__decorate([
-    _angular_core.Input('data'),
-    __metadata("design:type", Array),
-    __metadata("design:paramtypes", [Array])
-], exports.TdDataTableComponent.prototype, "data", null);
-__decorate([
-    _angular_core.Input('columns'),
-    __metadata("design:type", Array),
-    __metadata("design:paramtypes", [Array])
-], exports.TdDataTableComponent.prototype, "columns", null);
-__decorate([
-    _angular_core.Input('selectable'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdDataTableComponent.prototype, "selectable", null);
-__decorate([
-    _angular_core.Input('clickable'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdDataTableComponent.prototype, "clickable", null);
-__decorate([
-    _angular_core.Input('multiple'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdDataTableComponent.prototype, "multiple", null);
-__decorate([
-    _angular_core.Input('sortable'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdDataTableComponent.prototype, "sortable", null);
-__decorate([
-    _angular_core.Input('sortBy'),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], exports.TdDataTableComponent.prototype, "sortBy", null);
-__decorate([
-    _angular_core.Input('sortOrder'),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], exports.TdDataTableComponent.prototype, "sortOrder", null);
-__decorate([
-    _angular_core.Output('sortChange'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdDataTableComponent.prototype, "onSortChange", void 0);
-__decorate([
-    _angular_core.Output('rowSelect'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdDataTableComponent.prototype, "onRowSelect", void 0);
-__decorate([
-    _angular_core.Output('rowClick'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdDataTableComponent.prototype, "onRowClick", void 0);
-__decorate([
-    _angular_core.Output('selectAll'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdDataTableComponent.prototype, "onSelectAll", void 0);
-__decorate([
-    _angular_core.Input('compareWith'),
-    __metadata("design:type", Function)
-], exports.TdDataTableComponent.prototype, "compareWith", void 0);
-exports.TdDataTableComponent = __decorate([
-    _angular_core.Component({
-        providers: [TD_DATA_TABLE_CONTROL_VALUE_ACCESSOR],
-        selector: 'td-data-table',
-        styles: [":host { display: block; overflow: hidden; } :host .td-data-table-scrollable { position: relative; overflow: auto; height: calc(100% - 56px); } table.td-data-table { width: auto !important; } table.td-data-table.mat-selectable tbody > tr.td-data-table-row { -webkit-transition: background-color 0.2s; transition: background-color 0.2s; } table.td-data-table.mat-selectable .td-data-table-column:first-child > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable th.td-data-table-column:first-child > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable td.td-data-table-cell:first-child > .td-data-table-column-content-wrapper { width: 18px; min-width: 18px; padding: 0 24px; } table.td-data-table.mat-selectable .td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) > .td-data-table-column-content-wrapper { padding-left: 0px; } [dir='rtl'] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, [dir='rtl'] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, [dir='rtl'] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) > .td-data-table-column-content-wrapper { padding-right: 0px; padding-left: 28px; } table.td-data-table td.mat-checkbox-cell, table.td-data-table th.mat-checkbox-column { min-width: 42px; width: 42px; font-size: 0 !important; } table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox, table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox { width: 18px; height: 18px; } /deep/ table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after, /deep/ table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after { width: 11px !important; height: 4px !important; } table.td-data-table td.mat-checkbox-cell mat-checkbox /deep/ .mat-checkbox-inner-container, table.td-data-table th.mat-checkbox-column mat-checkbox /deep/ .mat-checkbox-inner-container { width: 18px; height: 18px; margin: 0; } /*# sourceMappingURL=data-table.component.css.map */ "],
-        template: "<table td-data-table [style.left.px]=\"columnsLeftScroll\" [class.mat-selectable]=\"selectable\"> <tr td-data-table-column-row> <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"selectable\"> <mat-checkbox #checkBoxAll *ngIf=\"multiple\" [disabled]=\"!hasData\" [indeterminate]=\"indeterminate && !allSelected && hasData\" [checked]=\"allSelected && hasData\" (click)=\"blockEvent($event); selectAll(!checkBoxAll.checked)\" (keyup.enter)=\"selectAll(!checkBoxAll.checked)\" (keyup.space)=\"selectAll(!checkBoxAll.checked)\" (keydown.space)=\"blockEvent($event)\"> </mat-checkbox> </th> <th td-data-table-column #columnElement *ngFor=\"let column of columns; let i = index;\" [style.min-width.px]=\"getColumnWidth(i)\" [style.max-width.px]=\"getColumnWidth(i)\" [name]=\"column.name\" [numeric]=\"column.numeric\" [active]=\"(column.sortable || sortable) && column === sortByColumn\" [sortable]=\"column.sortable || (sortable && column.sortable !== false)\" [sortOrder]=\"sortOrderEnum\" [hidden]=\"column.hidden\" (sortChange)=\"handleSort(column)\"> <span [matTooltip]=\"column.tooltip\">{{column.label}}</span> </th> </tr> </table> <div #scrollableDiv class=\"td-data-table-scrollable\" (scroll)=\"handleScroll($event)\"> <div [style.height.px]=\"totalHeight\"></div> <table td-data-table [style.transform]=\"offsetTransform\" [style.position]=\"'absolute'\" [class.mat-selectable]=\"selectable\" [class.mat-clickable]=\"clickable\"> <tr td-data-table-row #dtRow [tabIndex]=\"selectable ? 0 : -1\" [selected]=\"(clickable || selectable) && isRowSelected(row)\" *ngFor=\"let row of virtualData; let rowIndex = index\" (click)=\"handleRowClick(row, $event)\" (keyup)=\"selectable && _rowKeyup($event, row, rowIndex)\" (keydown.space)=\"blockEvent($event)\" (keydown.shift.space)=\"blockEvent($event)\" (keydown.shift)=\"disableTextSelection()\" (keyup.shift)=\"enableTextSelection()\"> <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"selectable\"> <mat-pseudo-checkbox [state]=\"dtRow.selected ? 'checked' : 'unchecked'\" (mousedown)=\"disableTextSelection()\" (mouseup)=\"enableTextSelection()\" stopRowClick (click)=\"select(row, $event, fromRow + rowIndex)\"> </mat-pseudo-checkbox> </td> <td td-data-table-cell [numeric]=\"column.numeric\" [hidden]=\"column.hidden\" *ngFor=\"let column of columns; let i = index\" [style.min-width.px]=\"getColumnWidth(i)\" [style.max-width.px]=\"getColumnWidth(i)\"> <span *ngIf=\"!getTemplateRef(column.name)\">{{column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row)}}</span> <ng-template *ngIf=\"getTemplateRef(column.name)\" [ngTemplateOutlet]=\"getTemplateRef(column.name)\" [ngTemplateOutletContext]=\"{ value: getCellValue(column, row), row: row, column: column.name }\"> </ng-template> </td> </tr> </table> </div> <ng-content></ng-content>",
-        changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
-    }),
-    __param(0, _angular_core.Optional()), __param(0, _angular_core.Inject(_angular_platformBrowser.DOCUMENT)),
-    __metadata("design:paramtypes", [Object, _angular_core.ElementRef,
-        _angular_platformBrowser.DomSanitizer,
-        _angular_core.ChangeDetectorRef])
-], exports.TdDataTableComponent);
 
-exports.TdDataTableColumnComponent = (function () {
+var TdDataTableColumnComponent = (function () {
     function TdDataTableColumnComponent(_elementRef, _renderer) {
         this._elementRef = _elementRef;
         this._renderer = _renderer;
@@ -4008,74 +4010,74 @@ exports.TdDataTableColumnComponent = (function () {
     TdDataTableColumnComponent.prototype.isDescending = function () {
         return this._sortOrder === exports.TdDataTableSortingOrder.Descending;
     };
+    __decorate([
+        _angular_core.ViewChild('columnContent', { read: _angular_core.ElementRef }),
+        __metadata("design:type", _angular_core.ElementRef)
+    ], TdDataTableColumnComponent.prototype, "_columnContent", void 0);
+    __decorate([
+        _angular_core.Input('name'),
+        __metadata("design:type", String)
+    ], TdDataTableColumnComponent.prototype, "name", void 0);
+    __decorate([
+        _angular_core.Input('sortable'),
+        __metadata("design:type", Boolean)
+    ], TdDataTableColumnComponent.prototype, "sortable", void 0);
+    __decorate([
+        _angular_core.Input('active'),
+        __metadata("design:type", Boolean)
+    ], TdDataTableColumnComponent.prototype, "active", void 0);
+    __decorate([
+        _angular_core.Input('numeric'),
+        __metadata("design:type", Boolean)
+    ], TdDataTableColumnComponent.prototype, "numeric", void 0);
+    __decorate([
+        _angular_core.Input('sortOrder'),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], TdDataTableColumnComponent.prototype, "sortOrder", null);
+    __decorate([
+        _angular_core.Output('sortChange'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdDataTableColumnComponent.prototype, "onSortChange", void 0);
+    __decorate([
+        _angular_core.HostBinding('class.mat-clickable'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [])
+    ], TdDataTableColumnComponent.prototype, "bindClickable", null);
+    __decorate([
+        _angular_core.HostBinding('class.mat-sortable'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [])
+    ], TdDataTableColumnComponent.prototype, "bingSortable", null);
+    __decorate([
+        _angular_core.HostBinding('class.mat-active'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [])
+    ], TdDataTableColumnComponent.prototype, "bindActive", null);
+    __decorate([
+        _angular_core.HostBinding('class.mat-numeric'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [])
+    ], TdDataTableColumnComponent.prototype, "bindNumeric", null);
+    __decorate([
+        _angular_core.HostListener('click', ['event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], TdDataTableColumnComponent.prototype, "handleClick", null);
+    TdDataTableColumnComponent = __decorate([
+        _angular_core.Component({
+            /* tslint:disable-next-line */
+            selector: 'th[td-data-table-column]',
+            styles: [":host { white-space: nowrap; position: relative; padding: 0; vertical-align: middle; text-align: left; } :host > .td-data-table-heading { padding: 0 28px 0 28px; } :host:first-child > .td-data-table-heading { padding-left: 24px; padding-right: initial; } html[dir=rtl] :host:first-child > .td-data-table-heading { padding-left: initial; unicode-bidi: embed; } body[dir=rtl] :host:first-child > .td-data-table-heading { padding-left: initial; unicode-bidi: embed; } [dir=rtl] :host:first-child > .td-data-table-heading { padding-left: initial; unicode-bidi: embed; } :host:first-child > .td-data-table-heading bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:first-child > .td-data-table-heading bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host:first-child > .td-data-table-heading { padding-right: 24px; unicode-bidi: embed; } body[dir=rtl] :host:first-child > .td-data-table-heading { padding-right: 24px; unicode-bidi: embed; } [dir=rtl] :host:first-child > .td-data-table-heading { padding-right: 24px; unicode-bidi: embed; } :host:first-child > .td-data-table-heading bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:first-child > .td-data-table-heading bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host:last-child > .td-data-table-heading { padding-left: 28px; padding-right: 24px; } html[dir=rtl] :host:last-child > .td-data-table-heading { padding-left: 24px; unicode-bidi: embed; } body[dir=rtl] :host:last-child > .td-data-table-heading { padding-left: 24px; unicode-bidi: embed; } [dir=rtl] :host:last-child > .td-data-table-heading { padding-left: 24px; unicode-bidi: embed; } :host:last-child > .td-data-table-heading bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:last-child > .td-data-table-heading bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host:last-child > .td-data-table-heading { padding-right: 28px; unicode-bidi: embed; } body[dir=rtl] :host:last-child > .td-data-table-heading { padding-right: 28px; unicode-bidi: embed; } [dir=rtl] :host:last-child > .td-data-table-heading { padding-right: 28px; unicode-bidi: embed; } :host:last-child > .td-data-table-heading bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:last-child > .td-data-table-heading bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host mat-icon { height: 16px; width: 16px; font-size: 16px !important; line-height: 16px !important; } :host mat-icon.td-data-table-sort-icon { opacity: 0; -webkit-transition: -webkit-transform 0.25s; transition: -webkit-transform 0.25s; transition: transform 0.25s; transition: transform 0.25s, -webkit-transform 0.25s; } :host mat-icon.td-data-table-sort-icon.mat-asc { -webkit-transform: rotate(0deg); transform: rotate(0deg); } :host mat-icon.td-data-table-sort-icon.mat-desc { -webkit-transform: rotate(180deg); transform: rotate(180deg); } :host:hover.mat-sortable mat-icon.td-data-table-sort-icon, :host.mat-active.mat-sortable mat-icon.td-data-table-sort-icon { opacity: 1; } html[dir=rtl] :host { text-align: right; unicode-bidi: embed; } body[dir=rtl] :host { text-align: right; unicode-bidi: embed; } [dir=rtl] :host { text-align: right; unicode-bidi: embed; } :host bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host > * { vertical-align: middle; } :host.mat-clickable { cursor: pointer; } :host.mat-clickable:focus { outline: none; } :host .td-data-table-heading { display: inline-block; position: relative; } :host mat-icon.td-data-table-sort-icon { position: absolute; top: 0px; } :host.mat-numeric { text-align: right; } html[dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } body[dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } [dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } :host.mat-numeric bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host.mat-numeric bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host.mat-numeric mat-icon.td-data-table-sort-icon { margin-left: -22px; margin-right: initial; } html[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } body[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } [dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } :host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon { margin-right: -22px; unicode-bidi: embed; } body[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon { margin-right: -22px; unicode-bidi: embed; } [dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon { margin-right: -22px; unicode-bidi: embed; } :host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon { margin-left: 6px; margin-right: initial; } html[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } body[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } [dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon { margin-right: 6px; unicode-bidi: embed; } body[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon { margin-right: 6px; unicode-bidi: embed; } [dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon { margin-right: 6px; unicode-bidi: embed; } :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } /*# sourceMappingURL=data-table-column.component.css.map */ "],
+            template: "<span #columnContent class=\"td-data-table-heading\"> <mat-icon  class=\"td-data-table-sort-icon\"  *ngIf=\"sortable && numeric\" [class.mat-asc]=\"(!(active) || isAscending())\" [class.mat-desc]=\"(active && isDescending())\"> arrow_upward </mat-icon> <span> <ng-content></ng-content> </span> <mat-icon  class=\"td-data-table-sort-icon\"  *ngIf=\"sortable && !numeric\" [class.mat-asc]=\"(!(active) || isAscending())\" [class.mat-desc]=\"(active && isDescending())\"> arrow_upward </mat-icon> </span> ",
+        }),
+        __metadata("design:paramtypes", [_angular_core.ElementRef, _angular_core.Renderer2])
+    ], TdDataTableColumnComponent);
     return TdDataTableColumnComponent;
 }());
-__decorate([
-    _angular_core.ViewChild('columnContent', { read: _angular_core.ElementRef }),
-    __metadata("design:type", _angular_core.ElementRef)
-], exports.TdDataTableColumnComponent.prototype, "_columnContent", void 0);
-__decorate([
-    _angular_core.Input('name'),
-    __metadata("design:type", String)
-], exports.TdDataTableColumnComponent.prototype, "name", void 0);
-__decorate([
-    _angular_core.Input('sortable'),
-    __metadata("design:type", Boolean)
-], exports.TdDataTableColumnComponent.prototype, "sortable", void 0);
-__decorate([
-    _angular_core.Input('active'),
-    __metadata("design:type", Boolean)
-], exports.TdDataTableColumnComponent.prototype, "active", void 0);
-__decorate([
-    _angular_core.Input('numeric'),
-    __metadata("design:type", Boolean)
-], exports.TdDataTableColumnComponent.prototype, "numeric", void 0);
-__decorate([
-    _angular_core.Input('sortOrder'),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], exports.TdDataTableColumnComponent.prototype, "sortOrder", null);
-__decorate([
-    _angular_core.Output('sortChange'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdDataTableColumnComponent.prototype, "onSortChange", void 0);
-__decorate([
-    _angular_core.HostBinding('class.mat-clickable'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [])
-], exports.TdDataTableColumnComponent.prototype, "bindClickable", null);
-__decorate([
-    _angular_core.HostBinding('class.mat-sortable'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [])
-], exports.TdDataTableColumnComponent.prototype, "bingSortable", null);
-__decorate([
-    _angular_core.HostBinding('class.mat-active'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [])
-], exports.TdDataTableColumnComponent.prototype, "bindActive", null);
-__decorate([
-    _angular_core.HostBinding('class.mat-numeric'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [])
-], exports.TdDataTableColumnComponent.prototype, "bindNumeric", null);
-__decorate([
-    _angular_core.HostListener('click', ['event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], exports.TdDataTableColumnComponent.prototype, "handleClick", null);
-exports.TdDataTableColumnComponent = __decorate([
-    _angular_core.Component({
-        /* tslint:disable-next-line */
-        selector: 'th[td-data-table-column]',
-        styles: [":host { white-space: nowrap; position: relative; padding: 0; vertical-align: middle; text-align: left; } :host > .td-data-table-heading { padding: 0 28px 0 28px; } :host:first-child > .td-data-table-heading { padding-left: 24px; padding-right: initial; } html[dir=rtl] :host:first-child > .td-data-table-heading { padding-left: initial; unicode-bidi: embed; } body[dir=rtl] :host:first-child > .td-data-table-heading { padding-left: initial; unicode-bidi: embed; } [dir=rtl] :host:first-child > .td-data-table-heading { padding-left: initial; unicode-bidi: embed; } :host:first-child > .td-data-table-heading bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:first-child > .td-data-table-heading bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host:first-child > .td-data-table-heading { padding-right: 24px; unicode-bidi: embed; } body[dir=rtl] :host:first-child > .td-data-table-heading { padding-right: 24px; unicode-bidi: embed; } [dir=rtl] :host:first-child > .td-data-table-heading { padding-right: 24px; unicode-bidi: embed; } :host:first-child > .td-data-table-heading bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:first-child > .td-data-table-heading bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host:last-child > .td-data-table-heading { padding-left: 28px; padding-right: 24px; } html[dir=rtl] :host:last-child > .td-data-table-heading { padding-left: 24px; unicode-bidi: embed; } body[dir=rtl] :host:last-child > .td-data-table-heading { padding-left: 24px; unicode-bidi: embed; } [dir=rtl] :host:last-child > .td-data-table-heading { padding-left: 24px; unicode-bidi: embed; } :host:last-child > .td-data-table-heading bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:last-child > .td-data-table-heading bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host:last-child > .td-data-table-heading { padding-right: 28px; unicode-bidi: embed; } body[dir=rtl] :host:last-child > .td-data-table-heading { padding-right: 28px; unicode-bidi: embed; } [dir=rtl] :host:last-child > .td-data-table-heading { padding-right: 28px; unicode-bidi: embed; } :host:last-child > .td-data-table-heading bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:last-child > .td-data-table-heading bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host mat-icon { height: 16px; width: 16px; font-size: 16px !important; line-height: 16px !important; } :host mat-icon.td-data-table-sort-icon { opacity: 0; -webkit-transition: -webkit-transform 0.25s; transition: -webkit-transform 0.25s; transition: transform 0.25s; transition: transform 0.25s, -webkit-transform 0.25s; } :host mat-icon.td-data-table-sort-icon.mat-asc { -webkit-transform: rotate(0deg); transform: rotate(0deg); } :host mat-icon.td-data-table-sort-icon.mat-desc { -webkit-transform: rotate(180deg); transform: rotate(180deg); } :host:hover.mat-sortable mat-icon.td-data-table-sort-icon, :host.mat-active.mat-sortable mat-icon.td-data-table-sort-icon { opacity: 1; } html[dir=rtl] :host { text-align: right; unicode-bidi: embed; } body[dir=rtl] :host { text-align: right; unicode-bidi: embed; } [dir=rtl] :host { text-align: right; unicode-bidi: embed; } :host bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host > * { vertical-align: middle; } :host.mat-clickable { cursor: pointer; } :host.mat-clickable:focus { outline: none; } :host .td-data-table-heading { display: inline-block; position: relative; } :host mat-icon.td-data-table-sort-icon { position: absolute; top: 0px; } :host.mat-numeric { text-align: right; } html[dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } body[dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } [dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } :host.mat-numeric bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host.mat-numeric bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host.mat-numeric mat-icon.td-data-table-sort-icon { margin-left: -22px; margin-right: initial; } html[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } body[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } [dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } :host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon { margin-right: -22px; unicode-bidi: embed; } body[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon { margin-right: -22px; unicode-bidi: embed; } [dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon { margin-right: -22px; unicode-bidi: embed; } :host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon { margin-left: 6px; margin-right: initial; } html[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } body[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } [dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon { margin-left: initial; unicode-bidi: embed; } :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon { margin-right: 6px; unicode-bidi: embed; } body[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon { margin-right: 6px; unicode-bidi: embed; } [dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon { margin-right: 6px; unicode-bidi: embed; } :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } /*# sourceMappingURL=data-table-column.component.css.map */ "],
-        template: "<span #columnContent class=\"td-data-table-heading\"> <mat-icon  class=\"td-data-table-sort-icon\"  *ngIf=\"sortable && numeric\" [class.mat-asc]=\"(!(active) || isAscending())\" [class.mat-desc]=\"(active && isDescending())\"> arrow_upward </mat-icon> <span> <ng-content></ng-content> </span> <mat-icon  class=\"td-data-table-sort-icon\"  *ngIf=\"sortable && !numeric\" [class.mat-asc]=\"(!(active) || isAscending())\" [class.mat-desc]=\"(active && isDescending())\"> arrow_upward </mat-icon> </span> ",
-    }),
-    __metadata("design:paramtypes", [_angular_core.ElementRef, _angular_core.Renderer2])
-], exports.TdDataTableColumnComponent);
 
-exports.TdDataTableCellComponent = (function () {
+var TdDataTableCellComponent = (function () {
     function TdDataTableCellComponent(_elementRef, _renderer) {
         this._elementRef = _elementRef;
         this._renderer = _renderer;
@@ -4094,46 +4096,46 @@ exports.TdDataTableCellComponent = (function () {
         enumerable: true,
         configurable: true
     });
+    __decorate([
+        _angular_core.Input('numeric'),
+        __metadata("design:type", Boolean)
+    ], TdDataTableCellComponent.prototype, "numeric", void 0);
+    __decorate([
+        _angular_core.HostBinding('class.mat-numeric'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [])
+    ], TdDataTableCellComponent.prototype, "bindNumeric", null);
+    TdDataTableCellComponent = __decorate([
+        _angular_core.Component({
+            /* tslint:disable-next-line */
+            selector: 'td[td-data-table-cell]',
+            styles: [":host { vertical-align: middle; text-align: left; padding: 0; } html[dir=rtl] :host { text-align: right; unicode-bidi: embed; } body[dir=rtl] :host { text-align: right; unicode-bidi: embed; } [dir=rtl] :host { text-align: right; unicode-bidi: embed; } :host bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host > .td-data-table-cell-content-wrapper { padding: 0 28px 0 28px; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: start; } :host > .td-data-table-cell-content-wrapper.td-data-table-cell-numeric { -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; } :host:first-child > .td-data-table-cell-content-wrapper { padding-left: 24px; padding-right: initial; } html[dir=rtl] :host:first-child > .td-data-table-cell-content-wrapper { padding-left: initial; unicode-bidi: embed; } body[dir=rtl] :host:first-child > .td-data-table-cell-content-wrapper { padding-left: initial; unicode-bidi: embed; } [dir=rtl] :host:first-child > .td-data-table-cell-content-wrapper { padding-left: initial; unicode-bidi: embed; } :host:first-child > .td-data-table-cell-content-wrapper bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:first-child > .td-data-table-cell-content-wrapper bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host:first-child > .td-data-table-cell-content-wrapper { padding-right: 24px; unicode-bidi: embed; } body[dir=rtl] :host:first-child > .td-data-table-cell-content-wrapper { padding-right: 24px; unicode-bidi: embed; } [dir=rtl] :host:first-child > .td-data-table-cell-content-wrapper { padding-right: 24px; unicode-bidi: embed; } :host:first-child > .td-data-table-cell-content-wrapper bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:first-child > .td-data-table-cell-content-wrapper bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host:last-child > .td-data-table-cell-content-wrapper { padding-left: 28px; padding-right: 24px; } html[dir=rtl] :host:last-child > .td-data-table-cell-content-wrapper { padding-left: 24px; unicode-bidi: embed; } body[dir=rtl] :host:last-child > .td-data-table-cell-content-wrapper { padding-left: 24px; unicode-bidi: embed; } [dir=rtl] :host:last-child > .td-data-table-cell-content-wrapper { padding-left: 24px; unicode-bidi: embed; } :host:last-child > .td-data-table-cell-content-wrapper bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:last-child > .td-data-table-cell-content-wrapper bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host:last-child > .td-data-table-cell-content-wrapper { padding-right: 28px; unicode-bidi: embed; } body[dir=rtl] :host:last-child > .td-data-table-cell-content-wrapper { padding-right: 28px; unicode-bidi: embed; } [dir=rtl] :host:last-child > .td-data-table-cell-content-wrapper { padding-right: 28px; unicode-bidi: embed; } :host:last-child > .td-data-table-cell-content-wrapper bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:last-child > .td-data-table-cell-content-wrapper bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host > * { vertical-align: middle; } :host.mat-clickable { cursor: pointer; } :host.mat-clickable:focus { outline: none; } :host.mat-numeric { text-align: right; } html[dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } body[dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } [dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } :host.mat-numeric bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host.mat-numeric bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } /*# sourceMappingURL=data-table-cell.component.css.map */ "],
+            template: "<div class=\"td-data-table-cell-content-wrapper\" [class.td-data-table-cell-numeric]=\"numeric\"> <ng-content></ng-content> </div>",
+        }),
+        __metadata("design:paramtypes", [_angular_core.ElementRef, _angular_core.Renderer2])
+    ], TdDataTableCellComponent);
     return TdDataTableCellComponent;
 }());
-__decorate([
-    _angular_core.Input('numeric'),
-    __metadata("design:type", Boolean)
-], exports.TdDataTableCellComponent.prototype, "numeric", void 0);
-__decorate([
-    _angular_core.HostBinding('class.mat-numeric'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [])
-], exports.TdDataTableCellComponent.prototype, "bindNumeric", null);
-exports.TdDataTableCellComponent = __decorate([
-    _angular_core.Component({
-        /* tslint:disable-next-line */
-        selector: 'td[td-data-table-cell]',
-        styles: [":host { vertical-align: middle; text-align: left; padding: 0; } html[dir=rtl] :host { text-align: right; unicode-bidi: embed; } body[dir=rtl] :host { text-align: right; unicode-bidi: embed; } [dir=rtl] :host { text-align: right; unicode-bidi: embed; } :host bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host > .td-data-table-cell-content-wrapper { padding: 0 28px 0 28px; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: start; } :host > .td-data-table-cell-content-wrapper.td-data-table-cell-numeric { -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; } :host:first-child > .td-data-table-cell-content-wrapper { padding-left: 24px; padding-right: initial; } html[dir=rtl] :host:first-child > .td-data-table-cell-content-wrapper { padding-left: initial; unicode-bidi: embed; } body[dir=rtl] :host:first-child > .td-data-table-cell-content-wrapper { padding-left: initial; unicode-bidi: embed; } [dir=rtl] :host:first-child > .td-data-table-cell-content-wrapper { padding-left: initial; unicode-bidi: embed; } :host:first-child > .td-data-table-cell-content-wrapper bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:first-child > .td-data-table-cell-content-wrapper bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host:first-child > .td-data-table-cell-content-wrapper { padding-right: 24px; unicode-bidi: embed; } body[dir=rtl] :host:first-child > .td-data-table-cell-content-wrapper { padding-right: 24px; unicode-bidi: embed; } [dir=rtl] :host:first-child > .td-data-table-cell-content-wrapper { padding-right: 24px; unicode-bidi: embed; } :host:first-child > .td-data-table-cell-content-wrapper bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:first-child > .td-data-table-cell-content-wrapper bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host:last-child > .td-data-table-cell-content-wrapper { padding-left: 28px; padding-right: 24px; } html[dir=rtl] :host:last-child > .td-data-table-cell-content-wrapper { padding-left: 24px; unicode-bidi: embed; } body[dir=rtl] :host:last-child > .td-data-table-cell-content-wrapper { padding-left: 24px; unicode-bidi: embed; } [dir=rtl] :host:last-child > .td-data-table-cell-content-wrapper { padding-left: 24px; unicode-bidi: embed; } :host:last-child > .td-data-table-cell-content-wrapper bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:last-child > .td-data-table-cell-content-wrapper bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } html[dir=rtl] :host:last-child > .td-data-table-cell-content-wrapper { padding-right: 28px; unicode-bidi: embed; } body[dir=rtl] :host:last-child > .td-data-table-cell-content-wrapper { padding-right: 28px; unicode-bidi: embed; } [dir=rtl] :host:last-child > .td-data-table-cell-content-wrapper { padding-right: 28px; unicode-bidi: embed; } :host:last-child > .td-data-table-cell-content-wrapper bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host:last-child > .td-data-table-cell-content-wrapper bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host > * { vertical-align: middle; } :host.mat-clickable { cursor: pointer; } :host.mat-clickable:focus { outline: none; } :host.mat-numeric { text-align: right; } html[dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } body[dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } [dir=rtl] :host.mat-numeric { text-align: left; unicode-bidi: embed; } :host.mat-numeric bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host.mat-numeric bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } /*# sourceMappingURL=data-table-cell.component.css.map */ "],
-        template: "<div class=\"td-data-table-cell-content-wrapper\" [class.td-data-table-cell-numeric]=\"numeric\"> <ng-content></ng-content> </div>",
-    }),
-    __metadata("design:paramtypes", [_angular_core.ElementRef, _angular_core.Renderer2])
-], exports.TdDataTableCellComponent);
 
-exports.TdDataTableTableComponent = (function () {
+var TdDataTableTableComponent = (function () {
     function TdDataTableTableComponent(_elementRef, _renderer) {
         this._elementRef = _elementRef;
         this._renderer = _renderer;
         this._renderer.addClass(this._elementRef.nativeElement, 'td-data-table');
     }
+    TdDataTableTableComponent = __decorate([
+        _angular_core.Component({
+            /* tslint:disable-next-line */
+            selector: 'table[td-data-table]',
+            styles: [":host { width: 100%; position: relative; border-spacing: 0; overflow: hidden; border-collapse: collapse; } /*# sourceMappingURL=data-table-table.component.css.map */ "],
+            template: "<ng-content></ng-content>",
+        }),
+        __metadata("design:paramtypes", [_angular_core.ElementRef, _angular_core.Renderer2])
+    ], TdDataTableTableComponent);
     return TdDataTableTableComponent;
 }());
-exports.TdDataTableTableComponent = __decorate([
-    _angular_core.Component({
-        /* tslint:disable-next-line */
-        selector: 'table[td-data-table]',
-        styles: [":host { width: 100%; position: relative; border-spacing: 0; overflow: hidden; border-collapse: collapse; } /*# sourceMappingURL=data-table-table.component.css.map */ "],
-        template: "<ng-content></ng-content>",
-    }),
-    __metadata("design:paramtypes", [_angular_core.ElementRef, _angular_core.Renderer2])
-], exports.TdDataTableTableComponent);
 
-exports.TdDataTableService = (function () {
+var TdDataTableService = (function () {
     function TdDataTableService() {
     }
     /**
@@ -4207,81 +4209,81 @@ exports.TdDataTableService = (function () {
         }
         return data;
     };
+    TdDataTableService = __decorate([
+        _angular_core.Injectable()
+    ], TdDataTableService);
     return TdDataTableService;
 }());
-exports.TdDataTableService = __decorate([
-    _angular_core.Injectable()
-], exports.TdDataTableService);
 function DATA_TABLE_PROVIDER_FACTORY(parent) {
-    return parent || new exports.TdDataTableService();
+    return parent || new TdDataTableService();
 }
 var DATA_TABLE_PROVIDER = {
     // If there is already a service available, use that. Otherwise, provide a new one.
-    provide: exports.TdDataTableService,
-    deps: [[new _angular_core.Optional(), new _angular_core.SkipSelf(), exports.TdDataTableService]],
+    provide: TdDataTableService,
+    deps: [[new _angular_core.Optional(), new _angular_core.SkipSelf(), TdDataTableService]],
     useFactory: DATA_TABLE_PROVIDER_FACTORY,
 };
 
 var TD_DATA_TABLE = [
-    exports.TdDataTableComponent,
+    TdDataTableComponent,
     TdDataTableTemplateDirective,
-    exports.TdDataTableColumnComponent,
-    exports.TdDataTableCellComponent,
-    exports.TdDataTableRowComponent,
-    exports.TdDataTableColumnRowComponent,
-    exports.TdDataTableTableComponent,
+    TdDataTableColumnComponent,
+    TdDataTableCellComponent,
+    TdDataTableRowComponent,
+    TdDataTableColumnRowComponent,
+    TdDataTableTableComponent,
 ];
-exports.CovalentDataTableModule = (function () {
+var CovalentDataTableModule = (function () {
     function CovalentDataTableModule() {
     }
+    CovalentDataTableModule = __decorate([
+        _angular_core.NgModule({
+            imports: [
+                _angular_common.CommonModule,
+                _angular_material.MatCheckboxModule,
+                _angular_material.MatTooltipModule,
+                _angular_material.MatIconModule,
+                _angular_material.MatPseudoCheckboxModule,
+            ],
+            declarations: [
+                TD_DATA_TABLE,
+            ],
+            exports: [
+                TD_DATA_TABLE,
+            ],
+            providers: [
+                DATA_TABLE_PROVIDER,
+            ],
+        })
+    ], CovalentDataTableModule);
     return CovalentDataTableModule;
 }());
-exports.CovalentDataTableModule = __decorate([
-    _angular_core.NgModule({
-        imports: [
-            _angular_common.CommonModule,
-            _angular_material.MatCheckboxModule,
-            _angular_material.MatTooltipModule,
-            _angular_material.MatIconModule,
-            _angular_material.MatPseudoCheckboxModule,
-        ],
-        declarations: [
-            TD_DATA_TABLE,
-        ],
-        exports: [
-            TD_DATA_TABLE,
-        ],
-        providers: [
-            DATA_TABLE_PROVIDER,
-        ],
-    })
-], exports.CovalentDataTableModule);
 
-exports.TdDialogTitleDirective = (function () {
+var TdDialogTitleDirective = (function () {
     function TdDialogTitleDirective() {
     }
+    TdDialogTitleDirective = __decorate([
+        _angular_core.Directive({ selector: 'td-dialog-title' })
+    ], TdDialogTitleDirective);
     return TdDialogTitleDirective;
 }());
-exports.TdDialogTitleDirective = __decorate([
-    _angular_core.Directive({ selector: 'td-dialog-title' })
-], exports.TdDialogTitleDirective);
 var TdDialogContentDirective = (function () {
     function TdDialogContentDirective() {
     }
+    TdDialogContentDirective = __decorate([
+        _angular_core.Directive({ selector: 'td-dialog-content' })
+    ], TdDialogContentDirective);
     return TdDialogContentDirective;
 }());
-TdDialogContentDirective = __decorate([
-    _angular_core.Directive({ selector: 'td-dialog-content' })
-], TdDialogContentDirective);
 var TdDialogActionsDirective = (function () {
     function TdDialogActionsDirective() {
     }
+    TdDialogActionsDirective = __decorate([
+        _angular_core.Directive({ selector: 'td-dialog-actions' })
+    ], TdDialogActionsDirective);
     return TdDialogActionsDirective;
 }());
-TdDialogActionsDirective = __decorate([
-    _angular_core.Directive({ selector: 'td-dialog-actions' })
-], TdDialogActionsDirective);
-exports.TdDialogComponent = (function () {
+var TdDialogComponent = (function () {
     function TdDialogComponent() {
     }
     TdDialogComponent.prototype.ngAfterContentInit = function () {
@@ -4295,29 +4297,29 @@ exports.TdDialogComponent = (function () {
             throw new Error('Duplicate td-dialog-actions component at in td-dialog.');
         }
     };
+    __decorate([
+        _angular_core.ContentChildren(TdDialogTitleDirective),
+        __metadata("design:type", _angular_core.QueryList)
+    ], TdDialogComponent.prototype, "dialogTitle", void 0);
+    __decorate([
+        _angular_core.ContentChildren(TdDialogContentDirective),
+        __metadata("design:type", _angular_core.QueryList)
+    ], TdDialogComponent.prototype, "dialogContent", void 0);
+    __decorate([
+        _angular_core.ContentChildren(TdDialogActionsDirective),
+        __metadata("design:type", _angular_core.QueryList)
+    ], TdDialogComponent.prototype, "dialogActions", void 0);
+    TdDialogComponent = __decorate([
+        _angular_core.Component({
+            selector: 'td-dialog',
+            template: "<div class=\"td-dialog-wrapper\"> <h3 class=\"td-dialog-title\" *ngIf=\"dialogTitle.length > 0\"> <ng-content select=\"td-dialog-title\"></ng-content> </h3> <div class=\"td-dialog-content\" *ngIf=\"dialogContent.length > 0\"> <ng-content select=\"td-dialog-content\"></ng-content> </div> <div class=\"td-dialog-actions\" *ngIf=\"dialogActions.length > 0\"> <span class=\"td-dialog-spacer\"></span> <ng-content select=\"td-dialog-actions\"></ng-content> </div> </div>",
+            styles: [".td-dialog-title { margin-top: 0; margin-bottom: 20px; } .td-dialog-content { margin-bottom: 16px; } .td-dialog-actions { position: relative; top: 16px; left: 16px; } /deep/ [dir='rtl'] .td-dialog-actions { right: 16px; left: auto; } :host { display: block; } :host .td-dialog-actions { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; } :host .td-dialog-actions .td-dialog-spacer { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } :host .td-dialog-actions /deep/ button { text-transform: uppercase; margin-left: 8px; padding-left: 8px; padding-right: 8px; min-width: 64px; } [dir='rtl'] :host .td-dialog-actions /deep/ button { margin-right: 8px; margin-left: inherit; } /*# sourceMappingURL=dialog.component.css.map */ "],
+        })
+    ], TdDialogComponent);
     return TdDialogComponent;
 }());
-__decorate([
-    _angular_core.ContentChildren(exports.TdDialogTitleDirective),
-    __metadata("design:type", _angular_core.QueryList)
-], exports.TdDialogComponent.prototype, "dialogTitle", void 0);
-__decorate([
-    _angular_core.ContentChildren(TdDialogContentDirective),
-    __metadata("design:type", _angular_core.QueryList)
-], exports.TdDialogComponent.prototype, "dialogContent", void 0);
-__decorate([
-    _angular_core.ContentChildren(TdDialogActionsDirective),
-    __metadata("design:type", _angular_core.QueryList)
-], exports.TdDialogComponent.prototype, "dialogActions", void 0);
-exports.TdDialogComponent = __decorate([
-    _angular_core.Component({
-        selector: 'td-dialog',
-        template: "<div class=\"td-dialog-wrapper\"> <h3 class=\"td-dialog-title\" *ngIf=\"dialogTitle.length > 0\"> <ng-content select=\"td-dialog-title\"></ng-content> </h3> <div class=\"td-dialog-content\" *ngIf=\"dialogContent.length > 0\"> <ng-content select=\"td-dialog-content\"></ng-content> </div> <div class=\"td-dialog-actions\" *ngIf=\"dialogActions.length > 0\"> <span class=\"td-dialog-spacer\"></span> <ng-content select=\"td-dialog-actions\"></ng-content> </div> </div>",
-        styles: [".td-dialog-title { margin-top: 0; margin-bottom: 20px; } .td-dialog-content { margin-bottom: 16px; } .td-dialog-actions { position: relative; top: 16px; left: 16px; } /deep/ [dir='rtl'] .td-dialog-actions { right: 16px; left: auto; } :host { display: block; } :host .td-dialog-actions { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; } :host .td-dialog-actions .td-dialog-spacer { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } :host .td-dialog-actions /deep/ button { text-transform: uppercase; margin-left: 8px; padding-left: 8px; padding-right: 8px; min-width: 64px; } [dir='rtl'] :host .td-dialog-actions /deep/ button { margin-right: 8px; margin-left: inherit; } /*# sourceMappingURL=dialog.component.css.map */ "],
-    })
-], exports.TdDialogComponent);
 
-exports.TdAlertDialogComponent = (function () {
+var TdAlertDialogComponent = (function () {
     function TdAlertDialogComponent(_dialogRef) {
         this._dialogRef = _dialogRef;
         this.closeButton = 'CLOSE';
@@ -4325,18 +4327,18 @@ exports.TdAlertDialogComponent = (function () {
     TdAlertDialogComponent.prototype.close = function () {
         this._dialogRef.close();
     };
+    TdAlertDialogComponent = __decorate([
+        _angular_core.Component({
+            selector: 'td-alert-dialog',
+            template: "<td-dialog> <td-dialog-title *ngIf=\"title\"> {{title}} </td-dialog-title> <td-dialog-content> <span class=\"td-dialog-message\">{{message}}</span> </td-dialog-content> <td-dialog-actions> <button mat-button color=\"accent\" (click)=\"close()\">{{closeButton}}</button> </td-dialog-actions> </td-dialog>",
+            styles: ["@media (min-width: 600px) { td-dialog { width: 400px; } } @media (max-width: 599px) { td-dialog { width: 250px; } } /*# sourceMappingURL=alert-dialog.component.css.map */ "],
+        }),
+        __metadata("design:paramtypes", [_angular_material.MatDialogRef])
+    ], TdAlertDialogComponent);
     return TdAlertDialogComponent;
 }());
-exports.TdAlertDialogComponent = __decorate([
-    _angular_core.Component({
-        selector: 'td-alert-dialog',
-        template: "<td-dialog> <td-dialog-title *ngIf=\"title\"> {{title}} </td-dialog-title> <td-dialog-content> <span class=\"td-dialog-message\">{{message}}</span> </td-dialog-content> <td-dialog-actions> <button mat-button color=\"accent\" (click)=\"close()\">{{closeButton}}</button> </td-dialog-actions> </td-dialog>",
-        styles: ["@media (min-width: 600px) { td-dialog { width: 400px; } } @media (max-width: 599px) { td-dialog { width: 250px; } } /*# sourceMappingURL=alert-dialog.component.css.map */ "],
-    }),
-    __metadata("design:paramtypes", [_angular_material.MatDialogRef])
-], exports.TdAlertDialogComponent);
 
-exports.TdConfirmDialogComponent = (function () {
+var TdConfirmDialogComponent = (function () {
     function TdConfirmDialogComponent(_dialogRef) {
         this._dialogRef = _dialogRef;
         this.cancelButton = 'CANCEL';
@@ -4348,18 +4350,18 @@ exports.TdConfirmDialogComponent = (function () {
     TdConfirmDialogComponent.prototype.accept = function () {
         this._dialogRef.close(true);
     };
+    TdConfirmDialogComponent = __decorate([
+        _angular_core.Component({
+            selector: 'td-confirm-dialog',
+            template: "<td-dialog> <td-dialog-title *ngIf=\"title\"> {{title}} </td-dialog-title> <td-dialog-content> <span class=\"td-dialog-message\">{{message}}</span> </td-dialog-content> <td-dialog-actions> <button mat-button #closeBtn  (keydown.arrowright)=\"acceptBtn.focus()\" (click)=\"cancel()\">{{cancelButton}}</button> <button mat-button color=\"accent\" #acceptBtn (keydown.arrowleft)=\"closeBtn.focus()\" (click)=\"accept()\">{{acceptButton}}</button> </td-dialog-actions> </td-dialog>",
+            styles: ["@media (min-width: 600px) { td-dialog { width: 400px; } } @media (max-width: 599px) { td-dialog { width: 250px; } } /*# sourceMappingURL=confirm-dialog.component.css.map */ "],
+        }),
+        __metadata("design:paramtypes", [_angular_material.MatDialogRef])
+    ], TdConfirmDialogComponent);
     return TdConfirmDialogComponent;
 }());
-exports.TdConfirmDialogComponent = __decorate([
-    _angular_core.Component({
-        selector: 'td-confirm-dialog',
-        template: "<td-dialog> <td-dialog-title *ngIf=\"title\"> {{title}} </td-dialog-title> <td-dialog-content> <span class=\"td-dialog-message\">{{message}}</span> </td-dialog-content> <td-dialog-actions> <button mat-button #closeBtn  (keydown.arrowright)=\"acceptBtn.focus()\" (click)=\"cancel()\">{{cancelButton}}</button> <button mat-button color=\"accent\" #acceptBtn (keydown.arrowleft)=\"closeBtn.focus()\" (click)=\"accept()\">{{acceptButton}}</button> </td-dialog-actions> </td-dialog>",
-        styles: ["@media (min-width: 600px) { td-dialog { width: 400px; } } @media (max-width: 599px) { td-dialog { width: 250px; } } /*# sourceMappingURL=confirm-dialog.component.css.map */ "],
-    }),
-    __metadata("design:paramtypes", [_angular_material.MatDialogRef])
-], exports.TdConfirmDialogComponent);
 
-exports.TdPromptDialogComponent = (function () {
+var TdPromptDialogComponent = (function () {
     function TdPromptDialogComponent(_dialogRef) {
         this._dialogRef = _dialogRef;
         this.cancelButton = 'CANCEL';
@@ -4385,22 +4387,22 @@ exports.TdPromptDialogComponent = (function () {
     TdPromptDialogComponent.prototype.accept = function () {
         this._dialogRef.close(this.value);
     };
+    __decorate([
+        _angular_core.ViewChild('input'),
+        __metadata("design:type", _angular_core.ElementRef)
+    ], TdPromptDialogComponent.prototype, "_input", void 0);
+    TdPromptDialogComponent = __decorate([
+        _angular_core.Component({
+            selector: 'td-prompt-dialog',
+            template: "<td-dialog> <td-dialog-title *ngIf=\"title\"> {{title}} </td-dialog-title> <td-dialog-content> <span class=\"td-dialog-message\">{{message}}</span> <form #form=\"ngForm\" novalidate> <div class=\"td-dialog-input-wrapper\"> <mat-form-field class=\"td-dialog-input\"> <input matInput #input (focus)=\"handleInputFocus()\" (keydown.enter)=\"$event.preventDefault(); form.valid && accept()\" [(ngModel)]=\"value\" name=\"value\" required/> </mat-form-field> </div> </form> </td-dialog-content> <td-dialog-actions> <button mat-button #closeBtn  (keydown.arrowright)=\"acceptBtn.focus()\" (click)=\"cancel()\">{{cancelButton}}</button> <button mat-button color=\"accent\" #acceptBtn (keydown.arrowleft)=\"closeBtn.focus()\" [disabled]=\"!form.valid\" (click)=\"accept()\">{{acceptButton}}</button> </td-dialog-actions> </td-dialog>",
+            styles: ["@media (min-width: 600px) { td-dialog { width: 400px; } } @media (max-width: 599px) { td-dialog { width: 250px; } } .td-dialog-input-wrapper { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; } .td-dialog-input-wrapper .td-dialog-input { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; -webkit-box-sizing: border-box; box-sizing: border-box; } /*# sourceMappingURL=prompt-dialog.component.css.map */ "],
+        }),
+        __metadata("design:paramtypes", [_angular_material.MatDialogRef])
+    ], TdPromptDialogComponent);
     return TdPromptDialogComponent;
 }());
-__decorate([
-    _angular_core.ViewChild('input'),
-    __metadata("design:type", _angular_core.ElementRef)
-], exports.TdPromptDialogComponent.prototype, "_input", void 0);
-exports.TdPromptDialogComponent = __decorate([
-    _angular_core.Component({
-        selector: 'td-prompt-dialog',
-        template: "<td-dialog> <td-dialog-title *ngIf=\"title\"> {{title}} </td-dialog-title> <td-dialog-content> <span class=\"td-dialog-message\">{{message}}</span> <form #form=\"ngForm\" novalidate> <div class=\"td-dialog-input-wrapper\"> <mat-form-field class=\"td-dialog-input\"> <input matInput #input (focus)=\"handleInputFocus()\" (keydown.enter)=\"$event.preventDefault(); form.valid && accept()\" [(ngModel)]=\"value\" name=\"value\" required/> </mat-form-field> </div> </form> </td-dialog-content> <td-dialog-actions> <button mat-button #closeBtn  (keydown.arrowright)=\"acceptBtn.focus()\" (click)=\"cancel()\">{{cancelButton}}</button> <button mat-button color=\"accent\" #acceptBtn (keydown.arrowleft)=\"closeBtn.focus()\" [disabled]=\"!form.valid\" (click)=\"accept()\">{{acceptButton}}</button> </td-dialog-actions> </td-dialog>",
-        styles: ["@media (min-width: 600px) { td-dialog { width: 400px; } } @media (max-width: 599px) { td-dialog { width: 250px; } } .td-dialog-input-wrapper { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; } .td-dialog-input-wrapper .td-dialog-input { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; -webkit-box-sizing: border-box; box-sizing: border-box; } /*# sourceMappingURL=prompt-dialog.component.css.map */ "],
-    }),
-    __metadata("design:paramtypes", [_angular_material.MatDialogRef])
-], exports.TdPromptDialogComponent);
 
-exports.TdDialogService = (function () {
+var TdDialogService = (function () {
     function TdDialogService(_dialogService) {
         this._dialogService = _dialogService;
     }
@@ -4435,7 +4437,7 @@ exports.TdDialogService = (function () {
      */
     TdDialogService.prototype.openAlert = function (config) {
         var dialogConfig = this._createConfig(config);
-        var dialogRef = this._dialogService.open(exports.TdAlertDialogComponent, dialogConfig);
+        var dialogRef = this._dialogService.open(TdAlertDialogComponent, dialogConfig);
         var alertDialogComponent = dialogRef.componentInstance;
         alertDialogComponent.title = config.title;
         alertDialogComponent.message = config.message;
@@ -4459,7 +4461,7 @@ exports.TdDialogService = (function () {
      */
     TdDialogService.prototype.openConfirm = function (config) {
         var dialogConfig = this._createConfig(config);
-        var dialogRef = this._dialogService.open(exports.TdConfirmDialogComponent, dialogConfig);
+        var dialogRef = this._dialogService.open(TdConfirmDialogComponent, dialogConfig);
         var confirmDialogComponent = dialogRef.componentInstance;
         confirmDialogComponent.title = config.title;
         confirmDialogComponent.message = config.message;
@@ -4487,7 +4489,7 @@ exports.TdDialogService = (function () {
      */
     TdDialogService.prototype.openPrompt = function (config) {
         var dialogConfig = this._createConfig(config);
-        var dialogRef = this._dialogService.open(exports.TdPromptDialogComponent, dialogConfig);
+        var dialogRef = this._dialogService.open(TdPromptDialogComponent, dialogConfig);
         var promptDialogComponent = dialogRef.componentInstance;
         promptDialogComponent.title = config.title;
         promptDialogComponent.message = config.message;
@@ -4506,115 +4508,115 @@ exports.TdDialogService = (function () {
         dialogConfig.disableClose = config.disableClose;
         return dialogConfig;
     };
+    TdDialogService = __decorate([
+        _angular_core.Injectable(),
+        __metadata("design:paramtypes", [_angular_material.MatDialog])
+    ], TdDialogService);
     return TdDialogService;
 }());
-exports.TdDialogService = __decorate([
-    _angular_core.Injectable(),
-    __metadata("design:paramtypes", [_angular_material.MatDialog])
-], exports.TdDialogService);
 function DIALOG_PROVIDER_FACTORY(parent, dialog) {
-    return parent || new exports.TdDialogService(dialog);
+    return parent || new TdDialogService(dialog);
 }
 var DIALOG_PROVIDER = {
     // If there is already service available, use that. Otherwise, provide a new one.
-    provide: exports.TdDialogService,
-    deps: [[new _angular_core.Optional(), new _angular_core.SkipSelf(), exports.TdDialogService], _angular_material.MatDialog],
+    provide: TdDialogService,
+    deps: [[new _angular_core.Optional(), new _angular_core.SkipSelf(), TdDialogService], _angular_material.MatDialog],
     useFactory: DIALOG_PROVIDER_FACTORY,
 };
 
 var TD_DIALOGS = [
-    exports.TdAlertDialogComponent,
-    exports.TdConfirmDialogComponent,
-    exports.TdPromptDialogComponent,
-    exports.TdDialogComponent,
-    exports.TdDialogTitleDirective,
+    TdAlertDialogComponent,
+    TdConfirmDialogComponent,
+    TdPromptDialogComponent,
+    TdDialogComponent,
+    TdDialogTitleDirective,
     TdDialogActionsDirective,
     TdDialogContentDirective,
 ];
 var TD_DIALOGS_ENTRY_COMPONENTS = [
-    exports.TdAlertDialogComponent,
-    exports.TdConfirmDialogComponent,
-    exports.TdPromptDialogComponent,
+    TdAlertDialogComponent,
+    TdConfirmDialogComponent,
+    TdPromptDialogComponent,
 ];
-exports.CovalentDialogsModule = (function () {
+var CovalentDialogsModule = (function () {
     function CovalentDialogsModule() {
     }
+    CovalentDialogsModule = __decorate([
+        _angular_core.NgModule({
+            imports: [
+                _angular_forms.FormsModule,
+                _angular_common.CommonModule,
+                _angular_material.MatDialogModule,
+                _angular_material.MatInputModule,
+                _angular_material.MatButtonModule,
+            ],
+            declarations: [
+                TD_DIALOGS,
+            ],
+            exports: [
+                TD_DIALOGS,
+            ],
+            providers: [
+                DIALOG_PROVIDER,
+            ],
+            entryComponents: [
+                TD_DIALOGS_ENTRY_COMPONENTS,
+            ],
+        })
+    ], CovalentDialogsModule);
     return CovalentDialogsModule;
 }());
-exports.CovalentDialogsModule = __decorate([
-    _angular_core.NgModule({
-        imports: [
-            _angular_forms.FormsModule,
-            _angular_common.CommonModule,
-            _angular_material.MatDialogModule,
-            _angular_material.MatInputModule,
-            _angular_material.MatButtonModule,
-        ],
-        declarations: [
-            TD_DIALOGS,
-        ],
-        exports: [
-            TD_DIALOGS,
-        ],
-        providers: [
-            DIALOG_PROVIDER,
-        ],
-        entryComponents: [
-            TD_DIALOGS_ENTRY_COMPONENTS,
-        ],
-    })
-], exports.CovalentDialogsModule);
 
 var TdExpansionPanelHeaderDirective = (function (_super) {
     __extends(TdExpansionPanelHeaderDirective, _super);
     function TdExpansionPanelHeaderDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
+    TdExpansionPanelHeaderDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[td-expansion-panel-header]ng-template',
+        }),
+        __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
+    ], TdExpansionPanelHeaderDirective);
     return TdExpansionPanelHeaderDirective;
 }(_angular_cdk_portal.TemplatePortalDirective));
-TdExpansionPanelHeaderDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[td-expansion-panel-header]ng-template',
-    }),
-    __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
-], TdExpansionPanelHeaderDirective);
 var TdExpansionPanelLabelDirective = (function (_super) {
     __extends(TdExpansionPanelLabelDirective, _super);
     function TdExpansionPanelLabelDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
+    TdExpansionPanelLabelDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[td-expansion-panel-label]ng-template',
+        }),
+        __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
+    ], TdExpansionPanelLabelDirective);
     return TdExpansionPanelLabelDirective;
 }(_angular_cdk_portal.TemplatePortalDirective));
-TdExpansionPanelLabelDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[td-expansion-panel-label]ng-template',
-    }),
-    __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
-], TdExpansionPanelLabelDirective);
 var TdExpansionPanelSublabelDirective = (function (_super) {
     __extends(TdExpansionPanelSublabelDirective, _super);
     function TdExpansionPanelSublabelDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
+    TdExpansionPanelSublabelDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[td-expansion-panel-sublabel]ng-template',
+        }),
+        __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
+    ], TdExpansionPanelSublabelDirective);
     return TdExpansionPanelSublabelDirective;
 }(_angular_cdk_portal.TemplatePortalDirective));
-TdExpansionPanelSublabelDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[td-expansion-panel-sublabel]ng-template',
-    }),
-    __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
-], TdExpansionPanelSublabelDirective);
 var TdExpansionPanelSummaryComponent = (function () {
     function TdExpansionPanelSummaryComponent() {
     }
+    TdExpansionPanelSummaryComponent = __decorate([
+        _angular_core.Component({
+            selector: 'td-expansion-summary',
+            template: '<ng-content></ng-content>',
+        })
+    ], TdExpansionPanelSummaryComponent);
     return TdExpansionPanelSummaryComponent;
 }());
-TdExpansionPanelSummaryComponent = __decorate([
-    _angular_core.Component({
-        selector: 'td-expansion-summary',
-        template: '<ng-content></ng-content>',
-    })
-], TdExpansionPanelSummaryComponent);
 var TdExpansionPanelBase = (function () {
     function TdExpansionPanelBase() {
     }
@@ -4622,7 +4624,7 @@ var TdExpansionPanelBase = (function () {
 }());
 /* tslint:disable-next-line */
 var _TdExpansionPanelMixinBase = mixinDisableRipple(mixinDisabled(TdExpansionPanelBase));
-exports.TdExpansionPanelComponent = (function (_super) {
+var TdExpansionPanelComponent = (function (_super) {
     __extends(TdExpansionPanelComponent, _super);
     function TdExpansionPanelComponent(_renderer, _elementRef) {
         var _this = _super.call(this) || this;
@@ -4718,105 +4720,105 @@ exports.TdExpansionPanelComponent = (function (_super) {
     TdExpansionPanelComponent.prototype._onCollapsed = function () {
         this.collapsed.emit(undefined);
     };
+    __decorate([
+        _angular_core.ContentChild(TdExpansionPanelHeaderDirective),
+        __metadata("design:type", TdExpansionPanelHeaderDirective)
+    ], TdExpansionPanelComponent.prototype, "expansionPanelHeader", void 0);
+    __decorate([
+        _angular_core.ContentChild(TdExpansionPanelLabelDirective),
+        __metadata("design:type", TdExpansionPanelLabelDirective)
+    ], TdExpansionPanelComponent.prototype, "expansionPanelLabel", void 0);
+    __decorate([
+        _angular_core.ContentChild(TdExpansionPanelSublabelDirective),
+        __metadata("design:type", TdExpansionPanelSublabelDirective)
+    ], TdExpansionPanelComponent.prototype, "expansionPanelSublabel", void 0);
+    __decorate([
+        _angular_core.Input(),
+        __metadata("design:type", String)
+    ], TdExpansionPanelComponent.prototype, "label", void 0);
+    __decorate([
+        _angular_core.Input(),
+        __metadata("design:type", String)
+    ], TdExpansionPanelComponent.prototype, "sublabel", void 0);
+    __decorate([
+        _angular_core.Input('expand'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdExpansionPanelComponent.prototype, "expand", null);
+    __decorate([
+        _angular_core.Output(),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdExpansionPanelComponent.prototype, "expanded", void 0);
+    __decorate([
+        _angular_core.Output(),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdExpansionPanelComponent.prototype, "collapsed", void 0);
+    TdExpansionPanelComponent = __decorate([
+        _angular_core.Component({
+            selector: 'td-expansion-panel',
+            styles: [":host { display: block; } :host .td-expansion-panel-header { position: relative; outline: none; } :host .td-expansion-panel-header:focus:not(.mat-disabled), :host .td-expansion-panel-header:hover:not(.mat-disabled) { cursor: pointer; } :host .td-expansion-panel-header .td-expansion-panel-header-content { height: 48px; padding: 0 16px; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: start; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; } :host .td-expansion-panel-header .td-expansion-panel-header-content .td-expansion-label, :host .td-expansion-panel-header .td-expansion-panel-header-content .td-expansion-panel-spacer { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } .td-expansion-label, .td-expansion-sublabel { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 5px; } /deep/ [dir='rtl'] .td-expansion-label, /deep/ [dir='rtl'] .td-expansion-sublabel { margin-left: 5px; margin-right: inherit; } /*# sourceMappingURL=expansion-panel.component.css.map */ "],
+            template: "<div class=\"td-expansion-panel-header\" [class.mat-disabled]=\"disabled\" matRipple [matRippleDisabled]=\"disabled || disableRipple\" [tabIndex]=\"disabled? -1 : 0\" (keydown.enter)=\"clickEvent()\" (click)=\"clickEvent()\"> <ng-template [cdkPortalHost]=\"expansionPanelHeader\"></ng-template> <div class=\"td-expansion-panel-header-content\" [class.mat-disabled]=\"disabled\" *ngIf=\"!expansionPanelHeader\"> <div *ngIf=\"label || expansionPanelLabel\" class=\"td-expansion-label\"> <ng-template [cdkPortalHost]=\"expansionPanelLabel\"></ng-template> <ng-template [ngIf]=\"!expansionPanelLabel\">{{label}}</ng-template> </div> <div *ngIf=\"sublabel || expansionPanelSublabel\" class=\"td-expansion-sublabel\"> <ng-template [cdkPortalHost]=\"expansionPanelSublabel\"></ng-template> <ng-template [ngIf]=\"!expansionPanelSublabel\">{{sublabel}}</ng-template> </div> <span class=\"td-expansion-panel-spacer\"></span> <mat-icon class=\"td-expand-icon\" *ngIf=\"!disabled\" [@tdRotate]=\"expand\">keyboard_arrow_down</mat-icon> </div> </div> <div class=\"td-expansion-content\" [@tdCollapse]=\"!expand\"> <ng-content></ng-content> </div> <div class=\"td-expansion-summary\" [@tdCollapse]=\"expand\"> <ng-content select=\"td-expansion-summary\"></ng-content> </div> ",
+            inputs: ['disabled', 'disableRipple'],
+            animations: [
+                TdCollapseAnimation(),
+                TdRotateAnimation({ anchor: 'tdRotate' }),
+            ],
+        }),
+        __metadata("design:paramtypes", [_angular_core.Renderer2,
+            _angular_core.ElementRef])
+    ], TdExpansionPanelComponent);
     return TdExpansionPanelComponent;
 }(_TdExpansionPanelMixinBase));
-__decorate([
-    _angular_core.ContentChild(TdExpansionPanelHeaderDirective),
-    __metadata("design:type", TdExpansionPanelHeaderDirective)
-], exports.TdExpansionPanelComponent.prototype, "expansionPanelHeader", void 0);
-__decorate([
-    _angular_core.ContentChild(TdExpansionPanelLabelDirective),
-    __metadata("design:type", TdExpansionPanelLabelDirective)
-], exports.TdExpansionPanelComponent.prototype, "expansionPanelLabel", void 0);
-__decorate([
-    _angular_core.ContentChild(TdExpansionPanelSublabelDirective),
-    __metadata("design:type", TdExpansionPanelSublabelDirective)
-], exports.TdExpansionPanelComponent.prototype, "expansionPanelSublabel", void 0);
-__decorate([
-    _angular_core.Input(),
-    __metadata("design:type", String)
-], exports.TdExpansionPanelComponent.prototype, "label", void 0);
-__decorate([
-    _angular_core.Input(),
-    __metadata("design:type", String)
-], exports.TdExpansionPanelComponent.prototype, "sublabel", void 0);
-__decorate([
-    _angular_core.Input('expand'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdExpansionPanelComponent.prototype, "expand", null);
-__decorate([
-    _angular_core.Output(),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdExpansionPanelComponent.prototype, "expanded", void 0);
-__decorate([
-    _angular_core.Output(),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdExpansionPanelComponent.prototype, "collapsed", void 0);
-exports.TdExpansionPanelComponent = __decorate([
-    _angular_core.Component({
-        selector: 'td-expansion-panel',
-        styles: [":host { display: block; } :host .td-expansion-panel-header { position: relative; outline: none; } :host .td-expansion-panel-header:focus:not(.mat-disabled), :host .td-expansion-panel-header:hover:not(.mat-disabled) { cursor: pointer; } :host .td-expansion-panel-header .td-expansion-panel-header-content { height: 48px; padding: 0 16px; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: start; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; } :host .td-expansion-panel-header .td-expansion-panel-header-content .td-expansion-label, :host .td-expansion-panel-header .td-expansion-panel-header-content .td-expansion-panel-spacer { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } .td-expansion-label, .td-expansion-sublabel { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 5px; } /deep/ [dir='rtl'] .td-expansion-label, /deep/ [dir='rtl'] .td-expansion-sublabel { margin-left: 5px; margin-right: inherit; } /*# sourceMappingURL=expansion-panel.component.css.map */ "],
-        template: "<div class=\"td-expansion-panel-header\" [class.mat-disabled]=\"disabled\" matRipple [matRippleDisabled]=\"disabled || disableRipple\" [tabIndex]=\"disabled? -1 : 0\" (keydown.enter)=\"clickEvent()\" (click)=\"clickEvent()\"> <ng-template [cdkPortalHost]=\"expansionPanelHeader\"></ng-template> <div class=\"td-expansion-panel-header-content\" [class.mat-disabled]=\"disabled\" *ngIf=\"!expansionPanelHeader\"> <div *ngIf=\"label || expansionPanelLabel\" class=\"td-expansion-label\"> <ng-template [cdkPortalHost]=\"expansionPanelLabel\"></ng-template> <ng-template [ngIf]=\"!expansionPanelLabel\">{{label}}</ng-template> </div> <div *ngIf=\"sublabel || expansionPanelSublabel\" class=\"td-expansion-sublabel\"> <ng-template [cdkPortalHost]=\"expansionPanelSublabel\"></ng-template> <ng-template [ngIf]=\"!expansionPanelSublabel\">{{sublabel}}</ng-template> </div> <span class=\"td-expansion-panel-spacer\"></span> <mat-icon class=\"td-expand-icon\" *ngIf=\"!disabled\" [@tdRotate]=\"expand\">keyboard_arrow_down</mat-icon> </div> </div> <div class=\"td-expansion-content\" [@tdCollapse]=\"!expand\"> <ng-content></ng-content> </div> <div class=\"td-expansion-summary\" [@tdCollapse]=\"expand\"> <ng-content select=\"td-expansion-summary\"></ng-content> </div> ",
-        inputs: ['disabled', 'disableRipple'],
-        animations: [
-            TdCollapseAnimation(),
-            TdRotateAnimation({ anchor: 'tdRotate' }),
-        ],
-    }),
-    __metadata("design:paramtypes", [_angular_core.Renderer2,
-        _angular_core.ElementRef])
-], exports.TdExpansionPanelComponent);
 
-exports.TdExpansionPanelGroupComponent = (function () {
+var TdExpansionPanelGroupComponent = (function () {
     function TdExpansionPanelGroupComponent(_renderer, _elementRef) {
         this._renderer = _renderer;
         this._elementRef = _elementRef;
         this._renderer.addClass(this._elementRef.nativeElement, 'td-expansion-panel-group');
     }
+    TdExpansionPanelGroupComponent = __decorate([
+        _angular_core.Component({
+            selector: 'td-expansion-panel-group',
+            styles: [" /*# sourceMappingURL=expansion-panel-group.component.css.map */ "],
+            template: "<ng-content></ng-content>",
+        }),
+        __metadata("design:paramtypes", [_angular_core.Renderer2,
+            _angular_core.ElementRef])
+    ], TdExpansionPanelGroupComponent);
     return TdExpansionPanelGroupComponent;
 }());
-exports.TdExpansionPanelGroupComponent = __decorate([
-    _angular_core.Component({
-        selector: 'td-expansion-panel-group',
-        styles: [" /*# sourceMappingURL=expansion-panel-group.component.css.map */ "],
-        template: "<ng-content></ng-content>",
-    }),
-    __metadata("design:paramtypes", [_angular_core.Renderer2,
-        _angular_core.ElementRef])
-], exports.TdExpansionPanelGroupComponent);
 
 var TD_EXPANSION_PANEL = [
-    exports.TdExpansionPanelGroupComponent,
-    exports.TdExpansionPanelComponent,
+    TdExpansionPanelGroupComponent,
+    TdExpansionPanelComponent,
     TdExpansionPanelHeaderDirective,
     TdExpansionPanelLabelDirective,
     TdExpansionPanelSublabelDirective,
     TdExpansionPanelSummaryComponent,
 ];
-exports.CovalentExpansionPanelModule = (function () {
+var CovalentExpansionPanelModule = (function () {
     function CovalentExpansionPanelModule() {
     }
+    CovalentExpansionPanelModule = __decorate([
+        _angular_core.NgModule({
+            imports: [
+                _angular_common.CommonModule,
+                _angular_material.MatRippleModule,
+                _angular_material.MatIconModule,
+                _angular_cdk_portal.PortalModule,
+            ],
+            declarations: [
+                TD_EXPANSION_PANEL,
+            ],
+            exports: [
+                TD_EXPANSION_PANEL,
+            ],
+        })
+    ], CovalentExpansionPanelModule);
     return CovalentExpansionPanelModule;
 }());
-exports.CovalentExpansionPanelModule = __decorate([
-    _angular_core.NgModule({
-        imports: [
-            _angular_common.CommonModule,
-            _angular_material.MatRippleModule,
-            _angular_material.MatIconModule,
-            _angular_cdk_portal.PortalModule,
-        ],
-        declarations: [
-            TD_EXPANSION_PANEL,
-        ],
-        exports: [
-            TD_EXPANSION_PANEL,
-        ],
-    })
-], exports.CovalentExpansionPanelModule);
 
-exports.TdFileSelectDirective = (function () {
+var TdFileSelectDirective = (function () {
     function TdFileSelectDirective(model) {
         this.model = model;
         this._multiple = false;
@@ -4865,35 +4867,35 @@ exports.TdFileSelectDirective = (function () {
             }
         }
     };
+    __decorate([
+        _angular_core.Input('multiple'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdFileSelectDirective.prototype, "multiple", null);
+    __decorate([
+        _angular_core.Output('fileSelect'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdFileSelectDirective.prototype, "onFileSelect", void 0);
+    __decorate([
+        _angular_core.HostBinding('attr.multiple'),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [])
+    ], TdFileSelectDirective.prototype, "multipleBinding", null);
+    __decorate([
+        _angular_core.HostListener('change', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Event]),
+        __metadata("design:returntype", void 0)
+    ], TdFileSelectDirective.prototype, "onChange", null);
+    TdFileSelectDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[tdFileSelect]',
+        }),
+        __param(0, _angular_core.Optional()), __param(0, _angular_core.Host()),
+        __metadata("design:paramtypes", [_angular_forms.NgModel])
+    ], TdFileSelectDirective);
     return TdFileSelectDirective;
 }());
-__decorate([
-    _angular_core.Input('multiple'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdFileSelectDirective.prototype, "multiple", null);
-__decorate([
-    _angular_core.Output('fileSelect'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdFileSelectDirective.prototype, "onFileSelect", void 0);
-__decorate([
-    _angular_core.HostBinding('attr.multiple'),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [])
-], exports.TdFileSelectDirective.prototype, "multipleBinding", null);
-__decorate([
-    _angular_core.HostListener('change', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Event]),
-    __metadata("design:returntype", void 0)
-], exports.TdFileSelectDirective.prototype, "onChange", null);
-exports.TdFileSelectDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[tdFileSelect]',
-    }),
-    __param(0, _angular_core.Optional()), __param(0, _angular_core.Host()),
-    __metadata("design:paramtypes", [_angular_forms.NgModel])
-], exports.TdFileSelectDirective);
 
 var TdFileDropBase = (function () {
     function TdFileDropBase() {
@@ -4902,7 +4904,7 @@ var TdFileDropBase = (function () {
 }());
 /* tslint:disable-next-line */
 var _TdFileDropMixinBase = mixinDisabled(TdFileDropBase);
-exports.TdFileDropDirective = (function (_super) {
+var TdFileDropDirective = (function (_super) {
     __extends(TdFileDropDirective, _super);
     function TdFileDropDirective(_renderer, _element) {
         var _this = _super.call(this) || this;
@@ -5018,80 +5020,80 @@ exports.TdFileDropDirective = (function (_super) {
         event.preventDefault();
         event.stopPropagation();
     };
+    __decorate([
+        _angular_core.Input('multiple'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdFileDropDirective.prototype, "multiple", null);
+    __decorate([
+        _angular_core.Output('fileDrop'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdFileDropDirective.prototype, "onFileDrop", void 0);
+    __decorate([
+        _angular_core.HostBinding('attr.multiple'),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [])
+    ], TdFileDropDirective.prototype, "multipleBinding", null);
+    __decorate([
+        _angular_core.HostBinding('attr.disabled'),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [])
+    ], TdFileDropDirective.prototype, "disabledBinding", null);
+    __decorate([
+        _angular_core.HostListener('drop', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Event]),
+        __metadata("design:returntype", void 0)
+    ], TdFileDropDirective.prototype, "onDrop", null);
+    __decorate([
+        _angular_core.HostListener('dragover', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Event]),
+        __metadata("design:returntype", void 0)
+    ], TdFileDropDirective.prototype, "onDragOver", null);
+    __decorate([
+        _angular_core.HostListener('dragenter', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Event]),
+        __metadata("design:returntype", void 0)
+    ], TdFileDropDirective.prototype, "onDragEnter", null);
+    __decorate([
+        _angular_core.HostListener('dragleave', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Event]),
+        __metadata("design:returntype", void 0)
+    ], TdFileDropDirective.prototype, "onDragLeave", null);
+    TdFileDropDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[tdFileDrop]',
+            inputs: ['disabled'],
+        }),
+        __metadata("design:paramtypes", [_angular_core.Renderer2, _angular_core.ElementRef])
+    ], TdFileDropDirective);
     return TdFileDropDirective;
 }(_TdFileDropMixinBase));
-__decorate([
-    _angular_core.Input('multiple'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdFileDropDirective.prototype, "multiple", null);
-__decorate([
-    _angular_core.Output('fileDrop'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdFileDropDirective.prototype, "onFileDrop", void 0);
-__decorate([
-    _angular_core.HostBinding('attr.multiple'),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [])
-], exports.TdFileDropDirective.prototype, "multipleBinding", null);
-__decorate([
-    _angular_core.HostBinding('attr.disabled'),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [])
-], exports.TdFileDropDirective.prototype, "disabledBinding", null);
-__decorate([
-    _angular_core.HostListener('drop', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Event]),
-    __metadata("design:returntype", void 0)
-], exports.TdFileDropDirective.prototype, "onDrop", null);
-__decorate([
-    _angular_core.HostListener('dragover', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Event]),
-    __metadata("design:returntype", void 0)
-], exports.TdFileDropDirective.prototype, "onDragOver", null);
-__decorate([
-    _angular_core.HostListener('dragenter', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Event]),
-    __metadata("design:returntype", void 0)
-], exports.TdFileDropDirective.prototype, "onDragEnter", null);
-__decorate([
-    _angular_core.HostListener('dragleave', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Event]),
-    __metadata("design:returntype", void 0)
-], exports.TdFileDropDirective.prototype, "onDragLeave", null);
-exports.TdFileDropDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[tdFileDrop]',
-        inputs: ['disabled'],
-    }),
-    __metadata("design:paramtypes", [_angular_core.Renderer2, _angular_core.ElementRef])
-], exports.TdFileDropDirective);
 
 var noop$3 = function () {
     // empty method
 };
 var FILE_INPUT_CONTROL_VALUE_ACCESSOR = {
     provide: _angular_forms.NG_VALUE_ACCESSOR,
-    useExisting: _angular_core.forwardRef(function () { return exports.TdFileInputComponent; }),
+    useExisting: _angular_core.forwardRef(function () { return TdFileInputComponent; }),
     multi: true,
 };
-exports.TdFileInputLabelDirective = (function (_super) {
+var TdFileInputLabelDirective = (function (_super) {
     __extends(TdFileInputLabelDirective, _super);
     function TdFileInputLabelDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
+    TdFileInputLabelDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[td-file-input-label]ng-template',
+        }),
+        __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
+    ], TdFileInputLabelDirective);
     return TdFileInputLabelDirective;
 }(_angular_cdk_portal.TemplatePortalDirective));
-exports.TdFileInputLabelDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[td-file-input-label]ng-template',
-    }),
-    __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
-], exports.TdFileInputLabelDirective);
 var TdFileInputBase = (function () {
     function TdFileInputBase() {
     }
@@ -5099,7 +5101,7 @@ var TdFileInputBase = (function () {
 }());
 /* tslint:disable-next-line */
 var _TdFileInputMixinBase = mixinDisabled(TdFileInputBase);
-exports.TdFileInputComponent = (function (_super) {
+var TdFileInputComponent = (function (_super) {
     __extends(TdFileInputComponent, _super);
     function TdFileInputComponent(_renderer, _changeDetectorRef) {
         var _this = _super.call(this) || this;
@@ -5186,40 +5188,40 @@ exports.TdFileInputComponent = (function (_super) {
     TdFileInputComponent.prototype.registerOnTouched = function (fn) {
         this.onTouched = fn;
     };
+    __decorate([
+        _angular_core.ViewChild('fileInput'),
+        __metadata("design:type", _angular_core.ElementRef)
+    ], TdFileInputComponent.prototype, "_inputElement", void 0);
+    __decorate([
+        _angular_core.Input('color'),
+        __metadata("design:type", String)
+    ], TdFileInputComponent.prototype, "color", void 0);
+    __decorate([
+        _angular_core.Input('multiple'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdFileInputComponent.prototype, "multiple", null);
+    __decorate([
+        _angular_core.Input('accept'),
+        __metadata("design:type", String)
+    ], TdFileInputComponent.prototype, "accept", void 0);
+    __decorate([
+        _angular_core.Output('select'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdFileInputComponent.prototype, "onSelect", void 0);
+    TdFileInputComponent = __decorate([
+        _angular_core.Component({
+            changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
+            providers: [FILE_INPUT_CONTROL_VALUE_ACCESSOR],
+            selector: 'td-file-input',
+            inputs: ['disabled'],
+            styles: [":host { /** * Class that is added ondragenter by the [TdFileDrop] directive. */ } :host .td-file-input { padding-left: 8px; padding-right: 8px; } :host input.td-file-input-hidden { display: none; } :host .drop-zone { border-radius: 3px; } :host .drop-zone * { pointer-events: none; } /*# sourceMappingURL=file-input.component.css.map */ "],
+            template: "<div> <button mat-raised-button class=\"td-file-input\" type=\"button\" [color]=\"color\"  [multiple]=\"multiple\"  [disabled]=\"disabled\" (keyup.enter)=\"fileInput.click()\" (click)=\"fileInput.click()\" (fileDrop)=\"handleSelect($event)\" tdFileDrop> <ng-content></ng-content> </button> <input #fileInput  class=\"td-file-input-hidden\"  type=\"file\" [attr.accept]=\"accept\"                 (fileSelect)=\"handleSelect($event)\" [multiple]=\"multiple\"  [disabled]=\"disabled\" tdFileSelect> </div>",
+        }),
+        __metadata("design:paramtypes", [_angular_core.Renderer2, _angular_core.ChangeDetectorRef])
+    ], TdFileInputComponent);
     return TdFileInputComponent;
 }(_TdFileInputMixinBase));
-__decorate([
-    _angular_core.ViewChild('fileInput'),
-    __metadata("design:type", _angular_core.ElementRef)
-], exports.TdFileInputComponent.prototype, "_inputElement", void 0);
-__decorate([
-    _angular_core.Input('color'),
-    __metadata("design:type", String)
-], exports.TdFileInputComponent.prototype, "color", void 0);
-__decorate([
-    _angular_core.Input('multiple'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdFileInputComponent.prototype, "multiple", null);
-__decorate([
-    _angular_core.Input('accept'),
-    __metadata("design:type", String)
-], exports.TdFileInputComponent.prototype, "accept", void 0);
-__decorate([
-    _angular_core.Output('select'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdFileInputComponent.prototype, "onSelect", void 0);
-exports.TdFileInputComponent = __decorate([
-    _angular_core.Component({
-        changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
-        providers: [FILE_INPUT_CONTROL_VALUE_ACCESSOR],
-        selector: 'td-file-input',
-        inputs: ['disabled'],
-        styles: [":host { /** * Class that is added ondragenter by the [TdFileDrop] directive. */ } :host .td-file-input { padding-left: 8px; padding-right: 8px; } :host input.td-file-input-hidden { display: none; } :host .drop-zone { border-radius: 3px; } :host .drop-zone * { pointer-events: none; } /*# sourceMappingURL=file-input.component.css.map */ "],
-        template: "<div> <button mat-raised-button class=\"td-file-input\" type=\"button\" [color]=\"color\"  [multiple]=\"multiple\"  [disabled]=\"disabled\" (keyup.enter)=\"fileInput.click()\" (click)=\"fileInput.click()\" (fileDrop)=\"handleSelect($event)\" tdFileDrop> <ng-content></ng-content> </button> <input #fileInput  class=\"td-file-input-hidden\"  type=\"file\" [attr.accept]=\"accept\"                 (fileSelect)=\"handleSelect($event)\" [multiple]=\"multiple\"  [disabled]=\"disabled\" tdFileSelect> </div>",
-    }),
-    __metadata("design:paramtypes", [_angular_core.Renderer2, _angular_core.ChangeDetectorRef])
-], exports.TdFileInputComponent);
 
 var noop$2 = function () {
     // empty method
@@ -5233,10 +5235,10 @@ var TdFileUploadBase = (function () {
 var _TdFileUploadMixinBase = mixinDisabled(TdFileUploadBase);
 var FILE_UPLOAD_CONTROL_VALUE_ACCESSOR = {
     provide: _angular_forms.NG_VALUE_ACCESSOR,
-    useExisting: _angular_core.forwardRef(function () { return exports.TdFileUploadComponent; }),
+    useExisting: _angular_core.forwardRef(function () { return TdFileUploadComponent; }),
     multi: true,
 };
-exports.TdFileUploadComponent = (function (_super) {
+var TdFileUploadComponent = (function (_super) {
     __extends(TdFileUploadComponent, _super);
     function TdFileUploadComponent(_changeDetectorRef) {
         var _this = _super.call(this) || this;
@@ -5381,67 +5383,67 @@ exports.TdFileUploadComponent = (function (_super) {
     TdFileUploadComponent.prototype.registerOnTouched = function (fn) {
         this.onTouched = fn;
     };
+    __decorate([
+        _angular_core.ViewChild(TdFileInputComponent),
+        __metadata("design:type", TdFileInputComponent)
+    ], TdFileUploadComponent.prototype, "fileInput", void 0);
+    __decorate([
+        _angular_core.ContentChild(TdFileInputLabelDirective),
+        __metadata("design:type", TdFileInputLabelDirective)
+    ], TdFileUploadComponent.prototype, "inputLabel", void 0);
+    __decorate([
+        _angular_core.Input('defaultColor'),
+        __metadata("design:type", String)
+    ], TdFileUploadComponent.prototype, "defaultColor", void 0);
+    __decorate([
+        _angular_core.Input('activeColor'),
+        __metadata("design:type", String)
+    ], TdFileUploadComponent.prototype, "activeColor", void 0);
+    __decorate([
+        _angular_core.Input('cancelColor'),
+        __metadata("design:type", String)
+    ], TdFileUploadComponent.prototype, "cancelColor", void 0);
+    __decorate([
+        _angular_core.Input('multiple'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdFileUploadComponent.prototype, "multiple", null);
+    __decorate([
+        _angular_core.Input('required'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdFileUploadComponent.prototype, "required", null);
+    __decorate([
+        _angular_core.Input('accept'),
+        __metadata("design:type", String)
+    ], TdFileUploadComponent.prototype, "accept", void 0);
+    __decorate([
+        _angular_core.Output('select'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdFileUploadComponent.prototype, "onSelect", void 0);
+    __decorate([
+        _angular_core.Output('upload'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdFileUploadComponent.prototype, "onUpload", void 0);
+    __decorate([
+        _angular_core.Output('cancel'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdFileUploadComponent.prototype, "onCancel", void 0);
+    TdFileUploadComponent = __decorate([
+        _angular_core.Component({
+            changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
+            providers: [FILE_UPLOAD_CONTROL_VALUE_ACCESSOR],
+            selector: 'td-file-upload',
+            inputs: ['disabled'],
+            styles: [".td-file-upload { padding-left: 8px; padding-right: 8px; } .td-file-upload-cancel { height: 24px; width: 24px; position: relative; top: 24px; left: -12px; } /deep/ [dir='rtl'] .td-file-upload-cancel { right: -12px; left: 0; } .td-file-upload-cancel mat-icon { border-radius: 12px; vertical-align: baseline; } /** * Class that is added ondragenter by the [TdFileDrop] directive. */ .drop-zone { border-radius: 3px; } .drop-zone * { pointer-events: none; } /*# sourceMappingURL=file-upload.component.css.map */ "],
+            template: "<td-file-input *ngIf=\"!value\" [(ngModel)]=\"value\" [multiple]=\"multiple\" [disabled]=\"disabled\" [accept]=\"accept\" [color]=\"defaultColor\" (select)=\"handleSelect($event)\"> <ng-template [cdkPortalHost]=\"inputLabel\" [ngIf]=\"true\"></ng-template> </td-file-input> <div *ngIf=\"value\"> <button #fileUpload class=\"td-file-upload\" mat-raised-button type=\"button\" [color]=\"activeColor\" (keyup.delete)=\"cancel()\" (keyup.backspace)=\"cancel()\" (keyup.escape)=\"cancel()\" (click)=\"uploadPressed()\">  <ng-content></ng-content> </button> <button mat-icon-button type=\"button\" class=\"td-file-upload-cancel\" [color]=\"cancelColor\"             (click)=\"cancel()\"> <mat-icon>cancel</mat-icon> </button> </div>",
+        }),
+        __metadata("design:paramtypes", [_angular_core.ChangeDetectorRef])
+    ], TdFileUploadComponent);
     return TdFileUploadComponent;
 }(_TdFileUploadMixinBase));
-__decorate([
-    _angular_core.ViewChild(exports.TdFileInputComponent),
-    __metadata("design:type", exports.TdFileInputComponent)
-], exports.TdFileUploadComponent.prototype, "fileInput", void 0);
-__decorate([
-    _angular_core.ContentChild(exports.TdFileInputLabelDirective),
-    __metadata("design:type", exports.TdFileInputLabelDirective)
-], exports.TdFileUploadComponent.prototype, "inputLabel", void 0);
-__decorate([
-    _angular_core.Input('defaultColor'),
-    __metadata("design:type", String)
-], exports.TdFileUploadComponent.prototype, "defaultColor", void 0);
-__decorate([
-    _angular_core.Input('activeColor'),
-    __metadata("design:type", String)
-], exports.TdFileUploadComponent.prototype, "activeColor", void 0);
-__decorate([
-    _angular_core.Input('cancelColor'),
-    __metadata("design:type", String)
-], exports.TdFileUploadComponent.prototype, "cancelColor", void 0);
-__decorate([
-    _angular_core.Input('multiple'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdFileUploadComponent.prototype, "multiple", null);
-__decorate([
-    _angular_core.Input('required'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdFileUploadComponent.prototype, "required", null);
-__decorate([
-    _angular_core.Input('accept'),
-    __metadata("design:type", String)
-], exports.TdFileUploadComponent.prototype, "accept", void 0);
-__decorate([
-    _angular_core.Output('select'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdFileUploadComponent.prototype, "onSelect", void 0);
-__decorate([
-    _angular_core.Output('upload'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdFileUploadComponent.prototype, "onUpload", void 0);
-__decorate([
-    _angular_core.Output('cancel'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdFileUploadComponent.prototype, "onCancel", void 0);
-exports.TdFileUploadComponent = __decorate([
-    _angular_core.Component({
-        changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
-        providers: [FILE_UPLOAD_CONTROL_VALUE_ACCESSOR],
-        selector: 'td-file-upload',
-        inputs: ['disabled'],
-        styles: [".td-file-upload { padding-left: 8px; padding-right: 8px; } .td-file-upload-cancel { height: 24px; width: 24px; position: relative; top: 24px; left: -12px; } /deep/ [dir='rtl'] .td-file-upload-cancel { right: -12px; left: 0; } .td-file-upload-cancel mat-icon { border-radius: 12px; vertical-align: baseline; } /** * Class that is added ondragenter by the [TdFileDrop] directive. */ .drop-zone { border-radius: 3px; } .drop-zone * { pointer-events: none; } /*# sourceMappingURL=file-upload.component.css.map */ "],
-        template: "<td-file-input *ngIf=\"!value\" [(ngModel)]=\"value\" [multiple]=\"multiple\" [disabled]=\"disabled\" [accept]=\"accept\" [color]=\"defaultColor\" (select)=\"handleSelect($event)\"> <ng-template [cdkPortalHost]=\"inputLabel\" [ngIf]=\"true\"></ng-template> </td-file-input> <div *ngIf=\"value\"> <button #fileUpload class=\"td-file-upload\" mat-raised-button type=\"button\" [color]=\"activeColor\" (keyup.delete)=\"cancel()\" (keyup.backspace)=\"cancel()\" (keyup.escape)=\"cancel()\" (click)=\"uploadPressed()\">  <ng-content></ng-content> </button> <button mat-icon-button type=\"button\" class=\"td-file-upload-cancel\" [color]=\"cancelColor\"             (click)=\"cancel()\"> <mat-icon>cancel</mat-icon> </button> </div>",
-    }),
-    __metadata("design:paramtypes", [_angular_core.ChangeDetectorRef])
-], exports.TdFileUploadComponent);
 
-exports.TdFileService = (function () {
+var TdFileService = (function () {
     function TdFileService() {
         this._progressSubject = new rxjs_Subject.Subject();
         this._progressObservable = this._progressSubject.asObservable();
@@ -5512,55 +5514,56 @@ exports.TdFileService = (function () {
             xhr.send(formData);
         });
     };
+    TdFileService = __decorate([
+        _angular_core.Injectable(),
+        __metadata("design:paramtypes", [])
+    ], TdFileService);
     return TdFileService;
 }());
-exports.TdFileService = __decorate([
-    _angular_core.Injectable(),
-    __metadata("design:paramtypes", [])
-], exports.TdFileService);
 
 var TD_FILE = [
-    exports.TdFileSelectDirective,
-    exports.TdFileDropDirective,
-    exports.TdFileUploadComponent,
-    exports.TdFileInputComponent,
-    exports.TdFileInputLabelDirective,
+    TdFileSelectDirective,
+    TdFileDropDirective,
+    TdFileUploadComponent,
+    TdFileInputComponent,
+    TdFileInputLabelDirective,
 ];
-exports.CovalentFileModule = (function () {
+var CovalentFileModule = (function () {
     function CovalentFileModule() {
     }
+    CovalentFileModule = __decorate([
+        _angular_core.NgModule({
+            imports: [
+                _angular_http.HttpModule,
+                _angular_http.JsonpModule,
+                _angular_forms.FormsModule,
+                _angular_common.CommonModule,
+                _angular_material.MatIconModule,
+                _angular_material.MatButtonModule,
+                _angular_cdk_portal.PortalModule,
+            ],
+            declarations: [
+                TD_FILE,
+            ],
+            exports: [
+                TD_FILE,
+            ],
+            providers: [
+                TdFileService,
+            ],
+        })
+    ], CovalentFileModule);
     return CovalentFileModule;
 }());
-exports.CovalentFileModule = __decorate([
-    _angular_core.NgModule({
-        imports: [
-            _angular_http.HttpModule,
-            _angular_http.JsonpModule,
-            _angular_forms.FormsModule,
-            _angular_common.CommonModule,
-            _angular_material.MatIconModule,
-            _angular_material.MatButtonModule,
-            _angular_cdk_portal.PortalModule,
-        ],
-        declarations: [
-            TD_FILE,
-        ],
-        exports: [
-            TD_FILE,
-        ],
-        providers: [
-            exports.TdFileService,
-        ],
-    })
-], exports.CovalentFileModule);
 
-exports.TdJsonFormatterComponent = TdJsonFormatterComponent_1 = (function () {
+var TdJsonFormatterComponent = (function () {
     function TdJsonFormatterComponent(_changeDetectorRef, _dir) {
         this._changeDetectorRef = _changeDetectorRef;
         this._dir = _dir;
         this._open = false;
         this._levelsOpen = 0;
     }
+    TdJsonFormatterComponent_1 = TdJsonFormatterComponent;
     Object.defineProperty(TdJsonFormatterComponent.prototype, "levelsOpen", {
         get: function () {
             return this._levelsOpen;
@@ -5754,73 +5757,73 @@ exports.TdJsonFormatterComponent = TdJsonFormatterComponent_1 = (function () {
             }
         }
     };
+    /**
+     * Max length for property names. Any names bigger than this get trunctated.
+     */
+    TdJsonFormatterComponent.KEY_MAX_LENGTH = 30;
+    /**
+     * Max length for preview string. Any names bigger than this get trunctated.
+     */
+    TdJsonFormatterComponent.PREVIEW_STRING_MAX_LENGTH = 80;
+    /**
+     * Max tooltip preview elements.
+     */
+    TdJsonFormatterComponent.PREVIEW_LIMIT = 5;
+    __decorate([
+        _angular_core.Input('levelsOpen'),
+        __metadata("design:type", Number),
+        __metadata("design:paramtypes", [Number])
+    ], TdJsonFormatterComponent.prototype, "levelsOpen", null);
+    __decorate([
+        _angular_core.Input('key'),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], TdJsonFormatterComponent.prototype, "key", null);
+    __decorate([
+        _angular_core.Input('data'),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], TdJsonFormatterComponent.prototype, "data", null);
+    TdJsonFormatterComponent = TdJsonFormatterComponent_1 = __decorate([
+        _angular_core.Component({
+            changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
+            selector: 'td-json-formatter',
+            styles: [":host { display: block; } .td-json-formatter-wrapper { padding-top: 2px; padding-bottom: 2px; } .td-json-formatter-wrapper .td-key { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: start; } .td-json-formatter-wrapper .td-key.td-key-node:hover { cursor: pointer; } .td-json-formatter-wrapper .td-object-children .td-key, .td-json-formatter-wrapper .td-object-children .td-object-children { padding-left: 24px; } /deep/ [dir='rtl'] .td-json-formatter-wrapper .td-object-children .td-key, /deep/ [dir='rtl'] .td-json-formatter-wrapper .td-object-children .td-object-children { padding-right: 24px; padding-left: 0; } .td-json-formatter-wrapper .td-object-children .td-key.td-key-leaf, .td-json-formatter-wrapper .td-object-children .td-object-children.td-key-leaf { padding-left: 48px; } /deep/ [dir='rtl'] .td-json-formatter-wrapper .td-object-children .td-key.td-key-leaf, /deep/ [dir='rtl'] .td-json-formatter-wrapper .td-object-children .td-object-children.td-key-leaf { padding-right: 48px; padding-left: 0; } .td-json-formatter-wrapper .value { margin-left: 5px; } /deep/ [dir='rtl'] .td-json-formatter-wrapper .value { padding-right: 5px; padding-left: 0; } .td-json-formatter-wrapper .value .td-empty { opacity: .5; text-decoration: line-through; } .td-json-formatter-wrapper .value .string { word-break: break-word; } .td-json-formatter-wrapper .value .date { word-break: break-word; } /*# sourceMappingURL=json-formatter.component.css.map */ "],
+            template: "<div class=\"td-json-formatter-wrapper\"> <a class=\"td-key\" [class.td-key-node]=\"hasChildren()\" [class.td-key-leaf]=\"!hasChildren()\" [tabIndex]=\"isObject()? 0 : -1\" (keydown.enter)=\"toggle()\" (click)=\"toggle()\"> <mat-icon class=\"td-node-icon\" *ngIf=\"hasChildren()\">{{open? 'keyboard_arrow_down' : (isRTL ? 'keyboard_arrow_left' : 'keyboard_arrow_right')}}</mat-icon> <span *ngIf=\"key\" class=\"key\">{{key}}:</span> <span class=\"value\"> <span [class.td-empty]=\"!hasChildren()\" *ngIf=\"isObject()\" [matTooltip]=\"getPreview()\" matTooltipPosition=\"after\"> <span>{{getObjectName()}}</span> <span *ngIf=\"isArray()\">[{{data.length}}]</span> </span> <span *ngIf=\"!isObject()\" [class]=\"getType(data)\">{{getValue(data)}}</span> </span> </a> <div class=\"td-object-children\" [@tdCollapse]=\"!(hasChildren() && open)\"> <ng-template let-key ngFor [ngForOf]=\"children\"> <td-json-formatter [key]=\"key\" [data]=\"data[key]\" [levelsOpen]=\"levelsOpen - 1\"></td-json-formatter> </ng-template> </div> </div>",
+            animations: [
+                TdCollapseAnimation(),
+            ],
+        }),
+        __param(1, _angular_core.Optional()),
+        __metadata("design:paramtypes", [_angular_core.ChangeDetectorRef,
+            _angular_cdk_bidi.Dir])
+    ], TdJsonFormatterComponent);
     return TdJsonFormatterComponent;
+    var TdJsonFormatterComponent_1;
 }());
-/**
- * Max length for property names. Any names bigger than this get trunctated.
- */
-exports.TdJsonFormatterComponent.KEY_MAX_LENGTH = 30;
-/**
- * Max length for preview string. Any names bigger than this get trunctated.
- */
-exports.TdJsonFormatterComponent.PREVIEW_STRING_MAX_LENGTH = 80;
-/**
- * Max tooltip preview elements.
- */
-exports.TdJsonFormatterComponent.PREVIEW_LIMIT = 5;
-__decorate([
-    _angular_core.Input('levelsOpen'),
-    __metadata("design:type", Number),
-    __metadata("design:paramtypes", [Number])
-], exports.TdJsonFormatterComponent.prototype, "levelsOpen", null);
-__decorate([
-    _angular_core.Input('key'),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], exports.TdJsonFormatterComponent.prototype, "key", null);
-__decorate([
-    _angular_core.Input('data'),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], exports.TdJsonFormatterComponent.prototype, "data", null);
-exports.TdJsonFormatterComponent = TdJsonFormatterComponent_1 = __decorate([
-    _angular_core.Component({
-        changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
-        selector: 'td-json-formatter',
-        styles: [":host { display: block; } .td-json-formatter-wrapper { padding-top: 2px; padding-bottom: 2px; } .td-json-formatter-wrapper .td-key { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: start; } .td-json-formatter-wrapper .td-key.td-key-node:hover { cursor: pointer; } .td-json-formatter-wrapper .td-object-children .td-key, .td-json-formatter-wrapper .td-object-children .td-object-children { padding-left: 24px; } /deep/ [dir='rtl'] .td-json-formatter-wrapper .td-object-children .td-key, /deep/ [dir='rtl'] .td-json-formatter-wrapper .td-object-children .td-object-children { padding-right: 24px; padding-left: 0; } .td-json-formatter-wrapper .td-object-children .td-key.td-key-leaf, .td-json-formatter-wrapper .td-object-children .td-object-children.td-key-leaf { padding-left: 48px; } /deep/ [dir='rtl'] .td-json-formatter-wrapper .td-object-children .td-key.td-key-leaf, /deep/ [dir='rtl'] .td-json-formatter-wrapper .td-object-children .td-object-children.td-key-leaf { padding-right: 48px; padding-left: 0; } .td-json-formatter-wrapper .value { margin-left: 5px; } /deep/ [dir='rtl'] .td-json-formatter-wrapper .value { padding-right: 5px; padding-left: 0; } .td-json-formatter-wrapper .value .td-empty { opacity: .5; text-decoration: line-through; } .td-json-formatter-wrapper .value .string { word-break: break-word; } .td-json-formatter-wrapper .value .date { word-break: break-word; } /*# sourceMappingURL=json-formatter.component.css.map */ "],
-        template: "<div class=\"td-json-formatter-wrapper\"> <a class=\"td-key\" [class.td-key-node]=\"hasChildren()\" [class.td-key-leaf]=\"!hasChildren()\" [tabIndex]=\"isObject()? 0 : -1\" (keydown.enter)=\"toggle()\" (click)=\"toggle()\"> <mat-icon class=\"td-node-icon\" *ngIf=\"hasChildren()\">{{open? 'keyboard_arrow_down' : (isRTL ? 'keyboard_arrow_left' : 'keyboard_arrow_right')}}</mat-icon> <span *ngIf=\"key\" class=\"key\">{{key}}:</span> <span class=\"value\"> <span [class.td-empty]=\"!hasChildren()\" *ngIf=\"isObject()\" [matTooltip]=\"getPreview()\" matTooltipPosition=\"after\"> <span>{{getObjectName()}}</span> <span *ngIf=\"isArray()\">[{{data.length}}]</span> </span> <span *ngIf=\"!isObject()\" [class]=\"getType(data)\">{{getValue(data)}}</span> </span> </a> <div class=\"td-object-children\" [@tdCollapse]=\"!(hasChildren() && open)\"> <ng-template let-key ngFor [ngForOf]=\"children\"> <td-json-formatter [key]=\"key\" [data]=\"data[key]\" [levelsOpen]=\"levelsOpen - 1\"></td-json-formatter> </ng-template> </div> </div>",
-        animations: [
-            TdCollapseAnimation(),
-        ],
-    }),
-    __param(1, _angular_core.Optional()),
-    __metadata("design:paramtypes", [_angular_core.ChangeDetectorRef,
-        _angular_cdk_bidi.Dir])
-], exports.TdJsonFormatterComponent);
-var TdJsonFormatterComponent_1;
 
-exports.CovalentJsonFormatterModule = (function () {
+var CovalentJsonFormatterModule = (function () {
     function CovalentJsonFormatterModule() {
     }
+    CovalentJsonFormatterModule = __decorate([
+        _angular_core.NgModule({
+            imports: [
+                _angular_common.CommonModule,
+                _angular_material.MatTooltipModule,
+                _angular_material.MatIconModule,
+            ],
+            declarations: [
+                TdJsonFormatterComponent,
+            ],
+            exports: [
+                TdJsonFormatterComponent,
+            ],
+        })
+    ], CovalentJsonFormatterModule);
     return CovalentJsonFormatterModule;
 }());
-exports.CovalentJsonFormatterModule = __decorate([
-    _angular_core.NgModule({
-        imports: [
-            _angular_common.CommonModule,
-            _angular_material.MatTooltipModule,
-            _angular_material.MatIconModule,
-        ],
-        declarations: [
-            exports.TdJsonFormatterComponent,
-        ],
-        exports: [
-            exports.TdJsonFormatterComponent,
-        ],
-    })
-], exports.CovalentJsonFormatterModule);
 
-exports.TdLayoutComponent = (function () {
+var TdLayoutComponent = (function () {
     function TdLayoutComponent() {
         /**
          * mode?: 'side', 'push' or 'over'
@@ -5882,31 +5885,31 @@ exports.TdLayoutComponent = (function () {
     TdLayoutComponent.prototype.close = function () {
         return this.sidenav.close();
     };
+    __decorate([
+        _angular_core.ViewChild(_angular_material.MatSidenav),
+        __metadata("design:type", _angular_material.MatSidenav)
+    ], TdLayoutComponent.prototype, "sidenav", void 0);
+    __decorate([
+        _angular_core.Input('mode'),
+        __metadata("design:type", String)
+    ], TdLayoutComponent.prototype, "mode", void 0);
+    __decorate([
+        _angular_core.Input('opened'),
+        __metadata("design:type", Boolean)
+    ], TdLayoutComponent.prototype, "opened", void 0);
+    __decorate([
+        _angular_core.Input('sidenavWidth'),
+        __metadata("design:type", String)
+    ], TdLayoutComponent.prototype, "sidenavWidth", void 0);
+    TdLayoutComponent = __decorate([
+        _angular_core.Component({
+            selector: 'td-layout',
+            styles: [":host { display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } :host /deep/ > mat-sidenav-container > mat-sidenav { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; } /*# sourceMappingURL=layout.component.css.map */ "],
+            template: "<mat-sidenav-container fullscreen> <mat-sidenav #sidenav class=\"td-layout-sidenav\" [mode]=\"mode\" [opened]=\"opened\" [style.max-width]=\"sidenavWidth\" [style.min-width]=\"sidenavWidth\" [disableClose]=\"disableClose\"> <ng-content select=\"td-navigation-drawer\"></ng-content> <ng-content select=\"[td-sidenav-content]\"></ng-content> </mat-sidenav> <ng-content></ng-content> </mat-sidenav-container> ",
+        })
+    ], TdLayoutComponent);
     return TdLayoutComponent;
 }());
-__decorate([
-    _angular_core.ViewChild(_angular_material.MatSidenav),
-    __metadata("design:type", _angular_material.MatSidenav)
-], exports.TdLayoutComponent.prototype, "sidenav", void 0);
-__decorate([
-    _angular_core.Input('mode'),
-    __metadata("design:type", String)
-], exports.TdLayoutComponent.prototype, "mode", void 0);
-__decorate([
-    _angular_core.Input('opened'),
-    __metadata("design:type", Boolean)
-], exports.TdLayoutComponent.prototype, "opened", void 0);
-__decorate([
-    _angular_core.Input('sidenavWidth'),
-    __metadata("design:type", String)
-], exports.TdLayoutComponent.prototype, "sidenavWidth", void 0);
-exports.TdLayoutComponent = __decorate([
-    _angular_core.Component({
-        selector: 'td-layout',
-        styles: [":host { display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } :host /deep/ > mat-sidenav-container > mat-sidenav { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; } /*# sourceMappingURL=layout.component.css.map */ "],
-        template: "<mat-sidenav-container fullscreen> <mat-sidenav #sidenav class=\"td-layout-sidenav\" [mode]=\"mode\" [opened]=\"opened\" [style.max-width]=\"sidenavWidth\" [style.min-width]=\"sidenavWidth\" [disableClose]=\"disableClose\"> <ng-content select=\"td-navigation-drawer\"></ng-content> <ng-content select=\"[td-sidenav-content]\"></ng-content> </mat-sidenav> <ng-content></ng-content> </mat-sidenav-container> ",
-    })
-], exports.TdLayoutComponent);
 
 var LayoutToggle = (function () {
     function LayoutToggle(_layout, _renderer, _elementRef) {
@@ -5978,21 +5981,21 @@ var LayoutToggle = (function () {
             this._renderer.setStyle(this._elementRef.nativeElement, 'display', '');
         }
     };
+    __decorate([
+        _angular_core.Input('hideWhenOpened'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], LayoutToggle.prototype, "hideWhenOpened", null);
+    __decorate([
+        _angular_core.HostListener('click', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Event]),
+        __metadata("design:returntype", void 0)
+    ], LayoutToggle.prototype, "clickListener", null);
     return LayoutToggle;
 }());
-__decorate([
-    _angular_core.Input('hideWhenOpened'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], LayoutToggle.prototype, "hideWhenOpened", null);
-__decorate([
-    _angular_core.HostListener('click', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Event]),
-    __metadata("design:returntype", void 0)
-], LayoutToggle.prototype, "clickListener", null);
 
-exports.TdLayoutToggleDirective = (function (_super) {
+var TdLayoutToggleDirective = (function (_super) {
     __extends(TdLayoutToggleDirective, _super);
     function TdLayoutToggleDirective(layout, renderer, elementRef) {
         return _super.call(this, layout, renderer, elementRef) || this;
@@ -6007,23 +6010,23 @@ exports.TdLayoutToggleDirective = (function (_super) {
     TdLayoutToggleDirective.prototype.onClick = function () {
         this._layout.toggle();
     };
+    __decorate([
+        _angular_core.Input('tdLayoutToggle'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdLayoutToggleDirective.prototype, "tdLayoutToggle", null);
+    TdLayoutToggleDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[tdLayoutToggle]',
+        }),
+        __param(0, _angular_core.Inject(_angular_core.forwardRef(function () { return TdLayoutComponent; }))),
+        __metadata("design:paramtypes", [TdLayoutComponent,
+            _angular_core.Renderer2,
+            _angular_core.ElementRef])
+    ], TdLayoutToggleDirective);
     return TdLayoutToggleDirective;
 }(LayoutToggle));
-__decorate([
-    _angular_core.Input('tdLayoutToggle'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdLayoutToggleDirective.prototype, "tdLayoutToggle", null);
-exports.TdLayoutToggleDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[tdLayoutToggle]',
-    }),
-    __param(0, _angular_core.Inject(_angular_core.forwardRef(function () { return exports.TdLayoutComponent; }))),
-    __metadata("design:paramtypes", [exports.TdLayoutComponent,
-        _angular_core.Renderer2,
-        _angular_core.ElementRef])
-], exports.TdLayoutToggleDirective);
-exports.TdLayoutCloseDirective = (function (_super) {
+var TdLayoutCloseDirective = (function (_super) {
     __extends(TdLayoutCloseDirective, _super);
     function TdLayoutCloseDirective(layout, renderer, elementRef) {
         return _super.call(this, layout, renderer, elementRef) || this;
@@ -6038,23 +6041,23 @@ exports.TdLayoutCloseDirective = (function (_super) {
     TdLayoutCloseDirective.prototype.onClick = function () {
         this._layout.close();
     };
+    __decorate([
+        _angular_core.Input('tdLayoutClose'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdLayoutCloseDirective.prototype, "tdLayoutClose", null);
+    TdLayoutCloseDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[tdLayoutClose]',
+        }),
+        __param(0, _angular_core.Inject(_angular_core.forwardRef(function () { return TdLayoutComponent; }))),
+        __metadata("design:paramtypes", [TdLayoutComponent,
+            _angular_core.Renderer2,
+            _angular_core.ElementRef])
+    ], TdLayoutCloseDirective);
     return TdLayoutCloseDirective;
 }(LayoutToggle));
-__decorate([
-    _angular_core.Input('tdLayoutClose'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdLayoutCloseDirective.prototype, "tdLayoutClose", null);
-exports.TdLayoutCloseDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[tdLayoutClose]',
-    }),
-    __param(0, _angular_core.Inject(_angular_core.forwardRef(function () { return exports.TdLayoutComponent; }))),
-    __metadata("design:paramtypes", [exports.TdLayoutComponent,
-        _angular_core.Renderer2,
-        _angular_core.ElementRef])
-], exports.TdLayoutCloseDirective);
-exports.TdLayoutOpenDirective = (function (_super) {
+var TdLayoutOpenDirective = (function (_super) {
     __extends(TdLayoutOpenDirective, _super);
     function TdLayoutOpenDirective(layout, renderer, elementRef) {
         return _super.call(this, layout, renderer, elementRef) || this;
@@ -6069,24 +6072,24 @@ exports.TdLayoutOpenDirective = (function (_super) {
     TdLayoutOpenDirective.prototype.onClick = function () {
         this._layout.open();
     };
+    __decorate([
+        _angular_core.Input('tdLayoutOpen'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdLayoutOpenDirective.prototype, "tdLayoutClose", null);
+    TdLayoutOpenDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[tdLayoutOpen]',
+        }),
+        __param(0, _angular_core.Inject(_angular_core.forwardRef(function () { return TdLayoutComponent; }))),
+        __metadata("design:paramtypes", [TdLayoutComponent,
+            _angular_core.Renderer2,
+            _angular_core.ElementRef])
+    ], TdLayoutOpenDirective);
     return TdLayoutOpenDirective;
 }(LayoutToggle));
-__decorate([
-    _angular_core.Input('tdLayoutOpen'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdLayoutOpenDirective.prototype, "tdLayoutClose", null);
-exports.TdLayoutOpenDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[tdLayoutOpen]',
-    }),
-    __param(0, _angular_core.Inject(_angular_core.forwardRef(function () { return exports.TdLayoutComponent; }))),
-    __metadata("design:paramtypes", [exports.TdLayoutComponent,
-        _angular_core.Renderer2,
-        _angular_core.ElementRef])
-], exports.TdLayoutOpenDirective);
 
-exports.TdLayoutNavComponent = (function () {
+var TdLayoutNavComponent = (function () {
     function TdLayoutNavComponent(_router) {
         this._router = _router;
         /**
@@ -6112,39 +6115,39 @@ exports.TdLayoutNavComponent = (function () {
             this._router.navigateByUrl(this.navigationRoute);
         }
     };
+    __decorate([
+        _angular_core.Input('toolbarTitle'),
+        __metadata("design:type", String)
+    ], TdLayoutNavComponent.prototype, "toolbarTitle", void 0);
+    __decorate([
+        _angular_core.Input('icon'),
+        __metadata("design:type", String)
+    ], TdLayoutNavComponent.prototype, "icon", void 0);
+    __decorate([
+        _angular_core.Input('logo'),
+        __metadata("design:type", String)
+    ], TdLayoutNavComponent.prototype, "logo", void 0);
+    __decorate([
+        _angular_core.Input('color'),
+        __metadata("design:type", String)
+    ], TdLayoutNavComponent.prototype, "color", void 0);
+    __decorate([
+        _angular_core.Input('navigationRoute'),
+        __metadata("design:type", String)
+    ], TdLayoutNavComponent.prototype, "navigationRoute", void 0);
+    TdLayoutNavComponent = __decorate([
+        _angular_core.Component({
+            selector: 'td-layout-nav',
+            styles: [".td-menu-button { margin-left: 0px; } /deep/ [dir='rtl'] .td-menu-button { margin-right: 0px; margin-left: 6px; } :host { display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } :host .td-layout-nav-wrapper { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; } :host .td-layout-nav-wrapper .td-layout-nav-toolbar-content { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: start; } :host .td-layout-nav-wrapper .td-layout-nav-content { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; position: relative; overflow: auto; -webkit-overflow-scrolling: touch; } /*# sourceMappingURL=layout-nav.component.css.map */ "],
+            template: "<div class=\"td-layout-nav-wrapper\"> <mat-toolbar [color]=\"color\"> <ng-content select=\"[td-menu-button]\"></ng-content> <span *ngIf=\"icon || logo || toolbarTitle\" [class.cursor-pointer]=\"routerEnabled\" (click)=\"handleNavigationClick()\" class=\"td-layout-nav-toolbar-content\"> <mat-icon *ngIf=\"icon\">{{icon}}</mat-icon> <mat-icon *ngIf=\"logo && !icon\" class=\"mat-icon-logo\" [svgIcon]=\"logo\"></mat-icon> <span *ngIf=\"toolbarTitle\">{{toolbarTitle}}</span> </span> <ng-content select=\"[td-toolbar-content]\"></ng-content> </mat-toolbar> <div class=\"td-layout-nav-content\" cdkScrollable> <ng-content></ng-content> </div> <ng-content select=\"td-layout-footer\"></ng-content> </div> ",
+        }),
+        __param(0, _angular_core.Optional()),
+        __metadata("design:paramtypes", [_angular_router.Router])
+    ], TdLayoutNavComponent);
     return TdLayoutNavComponent;
 }());
-__decorate([
-    _angular_core.Input('toolbarTitle'),
-    __metadata("design:type", String)
-], exports.TdLayoutNavComponent.prototype, "toolbarTitle", void 0);
-__decorate([
-    _angular_core.Input('icon'),
-    __metadata("design:type", String)
-], exports.TdLayoutNavComponent.prototype, "icon", void 0);
-__decorate([
-    _angular_core.Input('logo'),
-    __metadata("design:type", String)
-], exports.TdLayoutNavComponent.prototype, "logo", void 0);
-__decorate([
-    _angular_core.Input('color'),
-    __metadata("design:type", String)
-], exports.TdLayoutNavComponent.prototype, "color", void 0);
-__decorate([
-    _angular_core.Input('navigationRoute'),
-    __metadata("design:type", String)
-], exports.TdLayoutNavComponent.prototype, "navigationRoute", void 0);
-exports.TdLayoutNavComponent = __decorate([
-    _angular_core.Component({
-        selector: 'td-layout-nav',
-        styles: [".td-menu-button { margin-left: 0px; } /deep/ [dir='rtl'] .td-menu-button { margin-right: 0px; margin-left: 6px; } :host { display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } :host .td-layout-nav-wrapper { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; } :host .td-layout-nav-wrapper .td-layout-nav-toolbar-content { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: start; } :host .td-layout-nav-wrapper .td-layout-nav-content { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; position: relative; overflow: auto; -webkit-overflow-scrolling: touch; } /*# sourceMappingURL=layout-nav.component.css.map */ "],
-        template: "<div class=\"td-layout-nav-wrapper\"> <mat-toolbar [color]=\"color\"> <ng-content select=\"[td-menu-button]\"></ng-content> <span *ngIf=\"icon || logo || toolbarTitle\" [class.cursor-pointer]=\"routerEnabled\" (click)=\"handleNavigationClick()\" class=\"td-layout-nav-toolbar-content\"> <mat-icon *ngIf=\"icon\">{{icon}}</mat-icon> <mat-icon *ngIf=\"logo && !icon\" class=\"mat-icon-logo\" [svgIcon]=\"logo\"></mat-icon> <span *ngIf=\"toolbarTitle\">{{toolbarTitle}}</span> </span> <ng-content select=\"[td-toolbar-content]\"></ng-content> </mat-toolbar> <div class=\"td-layout-nav-content\" cdkScrollable> <ng-content></ng-content> </div> <ng-content select=\"td-layout-footer\"></ng-content> </div> ",
-    }),
-    __param(0, _angular_core.Optional()),
-    __metadata("design:paramtypes", [_angular_router.Router])
-], exports.TdLayoutNavComponent);
 
-exports.TdLayoutNavListComponent = (function () {
+var TdLayoutNavListComponent = (function () {
     function TdLayoutNavListComponent(_router) {
         this._router = _router;
         /**
@@ -6228,55 +6231,55 @@ exports.TdLayoutNavListComponent = (function () {
     TdLayoutNavListComponent.prototype.close = function () {
         return this.sidenav.close();
     };
+    __decorate([
+        _angular_core.ViewChild(_angular_material.MatSidenav),
+        __metadata("design:type", _angular_material.MatSidenav)
+    ], TdLayoutNavListComponent.prototype, "sidenav", void 0);
+    __decorate([
+        _angular_core.Input('toolbarTitle'),
+        __metadata("design:type", String)
+    ], TdLayoutNavListComponent.prototype, "toolbarTitle", void 0);
+    __decorate([
+        _angular_core.Input('icon'),
+        __metadata("design:type", String)
+    ], TdLayoutNavListComponent.prototype, "icon", void 0);
+    __decorate([
+        _angular_core.Input('logo'),
+        __metadata("design:type", String)
+    ], TdLayoutNavListComponent.prototype, "logo", void 0);
+    __decorate([
+        _angular_core.Input('color'),
+        __metadata("design:type", String)
+    ], TdLayoutNavListComponent.prototype, "color", void 0);
+    __decorate([
+        _angular_core.Input('mode'),
+        __metadata("design:type", String)
+    ], TdLayoutNavListComponent.prototype, "mode", void 0);
+    __decorate([
+        _angular_core.Input('opened'),
+        __metadata("design:type", Boolean)
+    ], TdLayoutNavListComponent.prototype, "opened", void 0);
+    __decorate([
+        _angular_core.Input('sidenavWidth'),
+        __metadata("design:type", String)
+    ], TdLayoutNavListComponent.prototype, "sidenavWidth", void 0);
+    __decorate([
+        _angular_core.Input('navigationRoute'),
+        __metadata("design:type", String)
+    ], TdLayoutNavListComponent.prototype, "navigationRoute", void 0);
+    TdLayoutNavListComponent = __decorate([
+        _angular_core.Component({
+            selector: 'td-layout-nav-list',
+            styles: [":host { display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-sizing: border-box; box-sizing: border-box; display: flex; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } :host .td-layout-nav-list-wrapper { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; position: relative; overflow: auto; -webkit-overflow-scrolling: touch; } :host .td-layout-nav-list-wrapper .td-layout-nav-list-toolbar-content { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: start; } :host .td-layout-nav-list-wrapper .td-layout-nav-list-content { text-align: start; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; display: block; position: relative; overflow: auto; -webkit-overflow-scrolling: touch; } :host .td-layout-nav-list-wrapper .td-layout-nav-list-main { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; position: relative; overflow: auto; } :host .td-layout-nav-list-wrapper .td-layout-nav-list-main .td-layout-nav-list-content { display: block; position: relative; overflow: auto; -webkit-overflow-scrolling: touch; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } :host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } :host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list > mat-sidenav.mat-drawer-opened, :host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list > mat-sidenav.mat-drawer-opening, :host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list > mat-sidenav.mat-drawer-closed, :host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list > mat-sidenav.mat-drawer-closing { -webkit-box-shadow: none; box-shadow: none; } :host /deep/ mat-sidenav-container.td-layout-nav-list { /* Ensure the left sidenav is a flex column & 100% height */ } :host /deep/ mat-sidenav-container.td-layout-nav-list > .mat-drawer-content { -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; } :host /deep/ mat-sidenav-container.td-layout-nav-list > mat-sidenav { -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12); box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12); -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; } /*# sourceMappingURL=layout-nav-list.component.css.map */ "],
+            template: "<div class=\"td-layout-nav-list-wrapper\"> <mat-sidenav-container fullscreen class=\"td-layout-nav-list\"> <mat-sidenav #sidenav position=\"start\" [mode]=\"mode\" [opened]=\"opened\" [disableClose]=\"disableClose\" [style.max-width]=\"sidenavWidth\" [style.min-width]=\"sidenavWidth\"> <mat-toolbar [color]=\"color\"> <ng-content select=\"[td-menu-button]\"></ng-content> <span *ngIf=\"icon || logo || toolbarTitle\" class=\"td-layout-nav-list-toolbar-content\" [class.cursor-pointer]=\"routerEnabled\" (click)=\"handleNavigationClick()\"> <mat-icon *ngIf=\"icon\">{{icon}}</mat-icon> <mat-icon *ngIf=\"logo && !icon\" class=\"mat-icon-logo\" [svgIcon]=\"logo\"></mat-icon> <span *ngIf=\"toolbarTitle\">{{toolbarTitle}}</span> </span> <ng-content select=\"[td-sidenav-toolbar-content]\"></ng-content> </mat-toolbar> <div class=\"td-layout-nav-list-content\" cdkScrollable> <ng-content select=\"[td-sidenav-content]\"></ng-content> </div> </mat-sidenav> <div class=\"td-layout-nav-list-main\"> <mat-toolbar [color]=\"color\"> <ng-content select=\"[td-toolbar-content]\"></ng-content> </mat-toolbar> <div class=\"td-layout-nav-list-content\" cdkScrollable> <ng-content></ng-content> </div> <ng-content select=\"td-layout-footer-inner\"></ng-content> </div> </mat-sidenav-container> </div> <ng-content select=\"td-layout-footer\"></ng-content>",
+        }),
+        __param(0, _angular_core.Optional()),
+        __metadata("design:paramtypes", [_angular_router.Router])
+    ], TdLayoutNavListComponent);
     return TdLayoutNavListComponent;
 }());
-__decorate([
-    _angular_core.ViewChild(_angular_material.MatSidenav),
-    __metadata("design:type", _angular_material.MatSidenav)
-], exports.TdLayoutNavListComponent.prototype, "sidenav", void 0);
-__decorate([
-    _angular_core.Input('toolbarTitle'),
-    __metadata("design:type", String)
-], exports.TdLayoutNavListComponent.prototype, "toolbarTitle", void 0);
-__decorate([
-    _angular_core.Input('icon'),
-    __metadata("design:type", String)
-], exports.TdLayoutNavListComponent.prototype, "icon", void 0);
-__decorate([
-    _angular_core.Input('logo'),
-    __metadata("design:type", String)
-], exports.TdLayoutNavListComponent.prototype, "logo", void 0);
-__decorate([
-    _angular_core.Input('color'),
-    __metadata("design:type", String)
-], exports.TdLayoutNavListComponent.prototype, "color", void 0);
-__decorate([
-    _angular_core.Input('mode'),
-    __metadata("design:type", String)
-], exports.TdLayoutNavListComponent.prototype, "mode", void 0);
-__decorate([
-    _angular_core.Input('opened'),
-    __metadata("design:type", Boolean)
-], exports.TdLayoutNavListComponent.prototype, "opened", void 0);
-__decorate([
-    _angular_core.Input('sidenavWidth'),
-    __metadata("design:type", String)
-], exports.TdLayoutNavListComponent.prototype, "sidenavWidth", void 0);
-__decorate([
-    _angular_core.Input('navigationRoute'),
-    __metadata("design:type", String)
-], exports.TdLayoutNavListComponent.prototype, "navigationRoute", void 0);
-exports.TdLayoutNavListComponent = __decorate([
-    _angular_core.Component({
-        selector: 'td-layout-nav-list',
-        styles: [":host { display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-sizing: border-box; box-sizing: border-box; display: flex; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } :host .td-layout-nav-list-wrapper { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; position: relative; overflow: auto; -webkit-overflow-scrolling: touch; } :host .td-layout-nav-list-wrapper .td-layout-nav-list-toolbar-content { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: start; } :host .td-layout-nav-list-wrapper .td-layout-nav-list-content { text-align: start; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; display: block; position: relative; overflow: auto; -webkit-overflow-scrolling: touch; } :host .td-layout-nav-list-wrapper .td-layout-nav-list-main { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; position: relative; overflow: auto; } :host .td-layout-nav-list-wrapper .td-layout-nav-list-main .td-layout-nav-list-content { display: block; position: relative; overflow: auto; -webkit-overflow-scrolling: touch; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } :host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } :host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list > mat-sidenav.mat-drawer-opened, :host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list > mat-sidenav.mat-drawer-opening, :host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list > mat-sidenav.mat-drawer-closed, :host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list > mat-sidenav.mat-drawer-closing { -webkit-box-shadow: none; box-shadow: none; } :host /deep/ mat-sidenav-container.td-layout-nav-list { /* Ensure the left sidenav is a flex column & 100% height */ } :host /deep/ mat-sidenav-container.td-layout-nav-list > .mat-drawer-content { -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; } :host /deep/ mat-sidenav-container.td-layout-nav-list > mat-sidenav { -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12); box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12); -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; } /*# sourceMappingURL=layout-nav-list.component.css.map */ "],
-        template: "<div class=\"td-layout-nav-list-wrapper\"> <mat-sidenav-container fullscreen class=\"td-layout-nav-list\"> <mat-sidenav #sidenav position=\"start\" [mode]=\"mode\" [opened]=\"opened\" [disableClose]=\"disableClose\" [style.max-width]=\"sidenavWidth\" [style.min-width]=\"sidenavWidth\"> <mat-toolbar [color]=\"color\"> <ng-content select=\"[td-menu-button]\"></ng-content> <span *ngIf=\"icon || logo || toolbarTitle\" class=\"td-layout-nav-list-toolbar-content\" [class.cursor-pointer]=\"routerEnabled\" (click)=\"handleNavigationClick()\"> <mat-icon *ngIf=\"icon\">{{icon}}</mat-icon> <mat-icon *ngIf=\"logo && !icon\" class=\"mat-icon-logo\" [svgIcon]=\"logo\"></mat-icon> <span *ngIf=\"toolbarTitle\">{{toolbarTitle}}</span> </span> <ng-content select=\"[td-sidenav-toolbar-content]\"></ng-content> </mat-toolbar> <div class=\"td-layout-nav-list-content\" cdkScrollable> <ng-content select=\"[td-sidenav-content]\"></ng-content> </div> </mat-sidenav> <div class=\"td-layout-nav-list-main\"> <mat-toolbar [color]=\"color\"> <ng-content select=\"[td-toolbar-content]\"></ng-content> </mat-toolbar> <div class=\"td-layout-nav-list-content\" cdkScrollable> <ng-content></ng-content> </div> <ng-content select=\"td-layout-footer-inner\"></ng-content> </div> </mat-sidenav-container> </div> <ng-content select=\"td-layout-footer\"></ng-content>",
-    }),
-    __param(0, _angular_core.Optional()),
-    __metadata("design:paramtypes", [_angular_router.Router])
-], exports.TdLayoutNavListComponent);
 
-exports.TdLayoutNavListToggleDirective = (function (_super) {
+var TdLayoutNavListToggleDirective = (function (_super) {
     __extends(TdLayoutNavListToggleDirective, _super);
     function TdLayoutNavListToggleDirective(layout, renderer, elementRef) {
         return _super.call(this, layout, renderer, elementRef) || this;
@@ -6291,23 +6294,23 @@ exports.TdLayoutNavListToggleDirective = (function (_super) {
     TdLayoutNavListToggleDirective.prototype.onClick = function () {
         this._layout.toggle();
     };
+    __decorate([
+        _angular_core.Input('tdLayoutNavListToggle'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdLayoutNavListToggleDirective.prototype, "tdLayoutNavListToggle", null);
+    TdLayoutNavListToggleDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[tdLayoutNavListToggle]',
+        }),
+        __param(0, _angular_core.Inject(_angular_core.forwardRef(function () { return TdLayoutNavListComponent; }))),
+        __metadata("design:paramtypes", [TdLayoutNavListComponent,
+            _angular_core.Renderer2,
+            _angular_core.ElementRef])
+    ], TdLayoutNavListToggleDirective);
     return TdLayoutNavListToggleDirective;
 }(LayoutToggle));
-__decorate([
-    _angular_core.Input('tdLayoutNavListToggle'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdLayoutNavListToggleDirective.prototype, "tdLayoutNavListToggle", null);
-exports.TdLayoutNavListToggleDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[tdLayoutNavListToggle]',
-    }),
-    __param(0, _angular_core.Inject(_angular_core.forwardRef(function () { return exports.TdLayoutNavListComponent; }))),
-    __metadata("design:paramtypes", [exports.TdLayoutNavListComponent,
-        _angular_core.Renderer2,
-        _angular_core.ElementRef])
-], exports.TdLayoutNavListToggleDirective);
-exports.TdLayoutNavListCloseDirective = (function (_super) {
+var TdLayoutNavListCloseDirective = (function (_super) {
     __extends(TdLayoutNavListCloseDirective, _super);
     function TdLayoutNavListCloseDirective(layout, renderer, elementRef) {
         return _super.call(this, layout, renderer, elementRef) || this;
@@ -6322,23 +6325,23 @@ exports.TdLayoutNavListCloseDirective = (function (_super) {
     TdLayoutNavListCloseDirective.prototype.onClick = function () {
         this._layout.close();
     };
+    __decorate([
+        _angular_core.Input('tdLayoutNavListClose'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdLayoutNavListCloseDirective.prototype, "tdLayoutNavListClose", null);
+    TdLayoutNavListCloseDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[tdLayoutNavListClose]',
+        }),
+        __param(0, _angular_core.Inject(_angular_core.forwardRef(function () { return TdLayoutNavListComponent; }))),
+        __metadata("design:paramtypes", [TdLayoutNavListComponent,
+            _angular_core.Renderer2,
+            _angular_core.ElementRef])
+    ], TdLayoutNavListCloseDirective);
     return TdLayoutNavListCloseDirective;
 }(LayoutToggle));
-__decorate([
-    _angular_core.Input('tdLayoutNavListClose'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdLayoutNavListCloseDirective.prototype, "tdLayoutNavListClose", null);
-exports.TdLayoutNavListCloseDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[tdLayoutNavListClose]',
-    }),
-    __param(0, _angular_core.Inject(_angular_core.forwardRef(function () { return exports.TdLayoutNavListComponent; }))),
-    __metadata("design:paramtypes", [exports.TdLayoutNavListComponent,
-        _angular_core.Renderer2,
-        _angular_core.ElementRef])
-], exports.TdLayoutNavListCloseDirective);
-exports.TdLayoutNavListOpenDirective = (function (_super) {
+var TdLayoutNavListOpenDirective = (function (_super) {
     __extends(TdLayoutNavListOpenDirective, _super);
     function TdLayoutNavListOpenDirective(layout, renderer, elementRef) {
         return _super.call(this, layout, renderer, elementRef) || this;
@@ -6353,24 +6356,24 @@ exports.TdLayoutNavListOpenDirective = (function (_super) {
     TdLayoutNavListOpenDirective.prototype.onClick = function () {
         this._layout.open();
     };
+    __decorate([
+        _angular_core.Input('tdLayoutNavListOpen'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdLayoutNavListOpenDirective.prototype, "tdLayoutNavListOpen", null);
+    TdLayoutNavListOpenDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[tdLayoutNavListOpen]',
+        }),
+        __param(0, _angular_core.Inject(_angular_core.forwardRef(function () { return TdLayoutNavListComponent; }))),
+        __metadata("design:paramtypes", [TdLayoutNavListComponent,
+            _angular_core.Renderer2,
+            _angular_core.ElementRef])
+    ], TdLayoutNavListOpenDirective);
     return TdLayoutNavListOpenDirective;
 }(LayoutToggle));
-__decorate([
-    _angular_core.Input('tdLayoutNavListOpen'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdLayoutNavListOpenDirective.prototype, "tdLayoutNavListOpen", null);
-exports.TdLayoutNavListOpenDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[tdLayoutNavListOpen]',
-    }),
-    __param(0, _angular_core.Inject(_angular_core.forwardRef(function () { return exports.TdLayoutNavListComponent; }))),
-    __metadata("design:paramtypes", [exports.TdLayoutNavListComponent,
-        _angular_core.Renderer2,
-        _angular_core.ElementRef])
-], exports.TdLayoutNavListOpenDirective);
 
-exports.TdLayoutCardOverComponent = (function () {
+var TdLayoutCardOverComponent = (function () {
     function TdLayoutCardOverComponent() {
         /**
          * cardWidth?: string
@@ -6387,33 +6390,33 @@ exports.TdLayoutCardOverComponent = (function () {
          */
         this.color = 'primary';
     }
+    __decorate([
+        _angular_core.Input('cardTitle'),
+        __metadata("design:type", String)
+    ], TdLayoutCardOverComponent.prototype, "cardTitle", void 0);
+    __decorate([
+        _angular_core.Input('cardSubtitle'),
+        __metadata("design:type", String)
+    ], TdLayoutCardOverComponent.prototype, "cardSubtitle", void 0);
+    __decorate([
+        _angular_core.Input('cardWidth'),
+        __metadata("design:type", Number)
+    ], TdLayoutCardOverComponent.prototype, "cardWidth", void 0);
+    __decorate([
+        _angular_core.Input('color'),
+        __metadata("design:type", String)
+    ], TdLayoutCardOverComponent.prototype, "color", void 0);
+    TdLayoutCardOverComponent = __decorate([
+        _angular_core.Component({
+            selector: 'td-layout-card-over',
+            styles: [":host { position: relative; display: block; z-index: 2; width: 100%; min-height: 100%; height: 100%; } :host [td-after-card] { display: block; } .td-layout-card-over-wrapper { margin: -64px; margin-left: 0; margin-right: 0; width: 100%; min-height: 100%; height: 100%; } @media (min-width: 600px) { .td-layout-card-over-wrapper { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: start; -ms-flex-align: start; align-items: flex-start; -ms-flex-line-pack: start; align-content: flex-start; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; } .td-layout-card-over-wrapper .td-layout-card-over { max-height: 100%; -webkit-box-sizing: border-box; box-sizing: border-box; } } @media (max-width: 599px) { .td-layout-card-over-wrapper .td-layout-card-over { max-width: 100% !important; } } /*# sourceMappingURL=layout-card-over.component.css.map */ "],
+            template: "<mat-toolbar [color]=\"color\"> </mat-toolbar> <div class=\"td-layout-card-over-wrapper\"> <div class=\"td-layout-card-over\" [style.max-width.%]=\"cardWidth\" [style.flex]=\"'1 1 ' + cardWidth + '%'\" [style.-ms-flex]=\"'1 1 ' + cardWidth + '%'\" [style.-webkit-box-flex]=\"1\"> <mat-card> <mat-card-title *ngIf=\"cardTitle\">{{cardTitle}}</mat-card-title> <mat-card-subtitle *ngIf=\"cardSubtitle\">{{cardSubtitle}}</mat-card-subtitle> <mat-divider *ngIf=\"cardTitle || cardSubtitle\"></mat-divider> <ng-content></ng-content> </mat-card> <ng-content select=\"[td-after-card]\"></ng-content> </div> </div> ",
+        })
+    ], TdLayoutCardOverComponent);
     return TdLayoutCardOverComponent;
 }());
-__decorate([
-    _angular_core.Input('cardTitle'),
-    __metadata("design:type", String)
-], exports.TdLayoutCardOverComponent.prototype, "cardTitle", void 0);
-__decorate([
-    _angular_core.Input('cardSubtitle'),
-    __metadata("design:type", String)
-], exports.TdLayoutCardOverComponent.prototype, "cardSubtitle", void 0);
-__decorate([
-    _angular_core.Input('cardWidth'),
-    __metadata("design:type", Number)
-], exports.TdLayoutCardOverComponent.prototype, "cardWidth", void 0);
-__decorate([
-    _angular_core.Input('color'),
-    __metadata("design:type", String)
-], exports.TdLayoutCardOverComponent.prototype, "color", void 0);
-exports.TdLayoutCardOverComponent = __decorate([
-    _angular_core.Component({
-        selector: 'td-layout-card-over',
-        styles: [":host { position: relative; display: block; z-index: 2; width: 100%; min-height: 100%; height: 100%; } :host [td-after-card] { display: block; } .td-layout-card-over-wrapper { margin: -64px; margin-left: 0; margin-right: 0; width: 100%; min-height: 100%; height: 100%; } @media (min-width: 600px) { .td-layout-card-over-wrapper { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: start; -ms-flex-align: start; align-items: flex-start; -ms-flex-line-pack: start; align-content: flex-start; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; } .td-layout-card-over-wrapper .td-layout-card-over { max-height: 100%; -webkit-box-sizing: border-box; box-sizing: border-box; } } @media (max-width: 599px) { .td-layout-card-over-wrapper .td-layout-card-over { max-width: 100% !important; } } /*# sourceMappingURL=layout-card-over.component.css.map */ "],
-        template: "<mat-toolbar [color]=\"color\"> </mat-toolbar> <div class=\"td-layout-card-over-wrapper\"> <div class=\"td-layout-card-over\" [style.max-width.%]=\"cardWidth\" [style.flex]=\"'1 1 ' + cardWidth + '%'\" [style.-ms-flex]=\"'1 1 ' + cardWidth + '%'\" [style.-webkit-box-flex]=\"1\"> <mat-card> <mat-card-title *ngIf=\"cardTitle\">{{cardTitle}}</mat-card-title> <mat-card-subtitle *ngIf=\"cardSubtitle\">{{cardSubtitle}}</mat-card-subtitle> <mat-divider *ngIf=\"cardTitle || cardSubtitle\"></mat-divider> <ng-content></ng-content> </mat-card> <ng-content select=\"[td-after-card]\"></ng-content> </div> </div> ",
-    })
-], exports.TdLayoutCardOverComponent);
 
-exports.TdLayoutManageListComponent = (function () {
+var TdLayoutManageListComponent = (function () {
     function TdLayoutManageListComponent() {
         /**
          * mode?: 'side', 'push' or 'over'
@@ -6475,33 +6478,33 @@ exports.TdLayoutManageListComponent = (function () {
     TdLayoutManageListComponent.prototype.close = function () {
         return this.sidenav.close();
     };
+    __decorate([
+        _angular_core.ViewChild(_angular_material.MatSidenav),
+        __metadata("design:type", _angular_material.MatSidenav)
+    ], TdLayoutManageListComponent.prototype, "sidenav", void 0);
+    __decorate([
+        _angular_core.Input('mode'),
+        __metadata("design:type", String)
+    ], TdLayoutManageListComponent.prototype, "mode", void 0);
+    __decorate([
+        _angular_core.Input('opened'),
+        __metadata("design:type", Boolean)
+    ], TdLayoutManageListComponent.prototype, "opened", void 0);
+    __decorate([
+        _angular_core.Input('sidenavWidth'),
+        __metadata("design:type", String)
+    ], TdLayoutManageListComponent.prototype, "sidenavWidth", void 0);
+    TdLayoutManageListComponent = __decorate([
+        _angular_core.Component({
+            selector: 'td-layout-manage-list',
+            styles: [":host { display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } :host mat-sidenav-container.td-layout-manage-list { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } :host mat-sidenav-container.td-layout-manage-list > mat-sidenav.mat-drawer-opened, :host mat-sidenav-container.td-layout-manage-list > mat-sidenav.mat-drawer-opening, :host mat-sidenav-container.td-layout-manage-list > mat-sidenav.mat-drawer-closed, :host mat-sidenav-container.td-layout-manage-list > mat-sidenav.mat-drawer-closing { -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2); box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2); } :host .td-layout-manage-list-sidenav { text-align: start; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; display: block; position: relative; overflow: auto; -webkit-overflow-scrolling: touch; } :host .td-layout-manage-list-main { margin: 0; width: 100%; min-height: 100%; height: 100%; position: relative; overflow: auto; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; } :host .td-layout-manage-list-main .td-layout-manage-list-content { display: block; position: relative; overflow: auto; -webkit-overflow-scrolling: touch; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } :host /deep/ mat-sidenav-container.td-layout-manage-list { /* Ensure the left sidenav is a flex column & 100% height */ } :host /deep/ mat-sidenav-container.td-layout-manage-list > .mat-drawer-content { -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; } :host /deep/ mat-sidenav-container.td-layout-manage-list > mat-sidenav { -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12); box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12); -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; } :host /deep/ mat-nav-list a[mat-list-item] .mat-list-item-content { font-size: 14px; } :host /deep/ .mat-toolbar { font-weight: 400; } /*# sourceMappingURL=layout-manage-list.component.css.map */ "],
+            template: "<mat-sidenav-container fullscreen class=\"td-layout-manage-list\"> <mat-sidenav #sidenav position=\"start\" [mode]=\"mode\" [opened]=\"opened\" [disableClose]=\"disableClose\" [style.max-width]=\"sidenavWidth\" [style.min-width]=\"sidenavWidth\"> <ng-content select=\"mat-toolbar[td-sidenav-content]\"></ng-content> <div class=\"td-layout-manage-list-sidenav\" cdkScrollable> <ng-content select=\"[td-sidenav-content]\"></ng-content> </div> </mat-sidenav> <div class=\"td-layout-manage-list-main\"> <ng-content select=\"mat-toolbar\"></ng-content> <div class=\"td-layout-manage-list-content\" cdkScrollable> <ng-content></ng-content> </div> <ng-content select=\"td-layout-footer-inner\"></ng-content> </div> </mat-sidenav-container> ",
+        })
+    ], TdLayoutManageListComponent);
     return TdLayoutManageListComponent;
 }());
-__decorate([
-    _angular_core.ViewChild(_angular_material.MatSidenav),
-    __metadata("design:type", _angular_material.MatSidenav)
-], exports.TdLayoutManageListComponent.prototype, "sidenav", void 0);
-__decorate([
-    _angular_core.Input('mode'),
-    __metadata("design:type", String)
-], exports.TdLayoutManageListComponent.prototype, "mode", void 0);
-__decorate([
-    _angular_core.Input('opened'),
-    __metadata("design:type", Boolean)
-], exports.TdLayoutManageListComponent.prototype, "opened", void 0);
-__decorate([
-    _angular_core.Input('sidenavWidth'),
-    __metadata("design:type", String)
-], exports.TdLayoutManageListComponent.prototype, "sidenavWidth", void 0);
-exports.TdLayoutManageListComponent = __decorate([
-    _angular_core.Component({
-        selector: 'td-layout-manage-list',
-        styles: [":host { display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } :host mat-sidenav-container.td-layout-manage-list { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } :host mat-sidenav-container.td-layout-manage-list > mat-sidenav.mat-drawer-opened, :host mat-sidenav-container.td-layout-manage-list > mat-sidenav.mat-drawer-opening, :host mat-sidenav-container.td-layout-manage-list > mat-sidenav.mat-drawer-closed, :host mat-sidenav-container.td-layout-manage-list > mat-sidenav.mat-drawer-closing { -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2); box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2); } :host .td-layout-manage-list-sidenav { text-align: start; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; display: block; position: relative; overflow: auto; -webkit-overflow-scrolling: touch; } :host .td-layout-manage-list-main { margin: 0; width: 100%; min-height: 100%; height: 100%; position: relative; overflow: auto; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; } :host .td-layout-manage-list-main .td-layout-manage-list-content { display: block; position: relative; overflow: auto; -webkit-overflow-scrolling: touch; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } :host /deep/ mat-sidenav-container.td-layout-manage-list { /* Ensure the left sidenav is a flex column & 100% height */ } :host /deep/ mat-sidenav-container.td-layout-manage-list > .mat-drawer-content { -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; } :host /deep/ mat-sidenav-container.td-layout-manage-list > mat-sidenav { -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12); box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12); -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; } :host /deep/ mat-nav-list a[mat-list-item] .mat-list-item-content { font-size: 14px; } :host /deep/ .mat-toolbar { font-weight: 400; } /*# sourceMappingURL=layout-manage-list.component.css.map */ "],
-        template: "<mat-sidenav-container fullscreen class=\"td-layout-manage-list\"> <mat-sidenav #sidenav position=\"start\" [mode]=\"mode\" [opened]=\"opened\" [disableClose]=\"disableClose\" [style.max-width]=\"sidenavWidth\" [style.min-width]=\"sidenavWidth\"> <ng-content select=\"mat-toolbar[td-sidenav-content]\"></ng-content> <div class=\"td-layout-manage-list-sidenav\" cdkScrollable> <ng-content select=\"[td-sidenav-content]\"></ng-content> </div> </mat-sidenav> <div class=\"td-layout-manage-list-main\"> <ng-content select=\"mat-toolbar\"></ng-content> <div class=\"td-layout-manage-list-content\" cdkScrollable> <ng-content></ng-content> </div> <ng-content select=\"td-layout-footer-inner\"></ng-content> </div> </mat-sidenav-container> ",
-    })
-], exports.TdLayoutManageListComponent);
 
-exports.TdLayoutManageListToggleDirective = (function (_super) {
+var TdLayoutManageListToggleDirective = (function (_super) {
     __extends(TdLayoutManageListToggleDirective, _super);
     function TdLayoutManageListToggleDirective(layout, renderer, elementRef) {
         return _super.call(this, layout, renderer, elementRef) || this;
@@ -6516,23 +6519,23 @@ exports.TdLayoutManageListToggleDirective = (function (_super) {
     TdLayoutManageListToggleDirective.prototype.onClick = function () {
         this._layout.toggle();
     };
+    __decorate([
+        _angular_core.Input('tdLayoutManageListToggle'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdLayoutManageListToggleDirective.prototype, "tdLayoutManageListToggle", null);
+    TdLayoutManageListToggleDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[tdLayoutManageListToggle]',
+        }),
+        __param(0, _angular_core.Inject(_angular_core.forwardRef(function () { return TdLayoutManageListComponent; }))),
+        __metadata("design:paramtypes", [TdLayoutManageListComponent,
+            _angular_core.Renderer2,
+            _angular_core.ElementRef])
+    ], TdLayoutManageListToggleDirective);
     return TdLayoutManageListToggleDirective;
 }(LayoutToggle));
-__decorate([
-    _angular_core.Input('tdLayoutManageListToggle'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdLayoutManageListToggleDirective.prototype, "tdLayoutManageListToggle", null);
-exports.TdLayoutManageListToggleDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[tdLayoutManageListToggle]',
-    }),
-    __param(0, _angular_core.Inject(_angular_core.forwardRef(function () { return exports.TdLayoutManageListComponent; }))),
-    __metadata("design:paramtypes", [exports.TdLayoutManageListComponent,
-        _angular_core.Renderer2,
-        _angular_core.ElementRef])
-], exports.TdLayoutManageListToggleDirective);
-exports.TdLayoutManageListCloseDirective = (function (_super) {
+var TdLayoutManageListCloseDirective = (function (_super) {
     __extends(TdLayoutManageListCloseDirective, _super);
     function TdLayoutManageListCloseDirective(layout, renderer, elementRef) {
         return _super.call(this, layout, renderer, elementRef) || this;
@@ -6547,23 +6550,23 @@ exports.TdLayoutManageListCloseDirective = (function (_super) {
     TdLayoutManageListCloseDirective.prototype.onClick = function () {
         this._layout.close();
     };
+    __decorate([
+        _angular_core.Input('tdLayoutManageListClose'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdLayoutManageListCloseDirective.prototype, "tdLayoutManageListClose", null);
+    TdLayoutManageListCloseDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[tdLayoutManageListClose]',
+        }),
+        __param(0, _angular_core.Inject(_angular_core.forwardRef(function () { return TdLayoutManageListComponent; }))),
+        __metadata("design:paramtypes", [TdLayoutManageListComponent,
+            _angular_core.Renderer2,
+            _angular_core.ElementRef])
+    ], TdLayoutManageListCloseDirective);
     return TdLayoutManageListCloseDirective;
 }(LayoutToggle));
-__decorate([
-    _angular_core.Input('tdLayoutManageListClose'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdLayoutManageListCloseDirective.prototype, "tdLayoutManageListClose", null);
-exports.TdLayoutManageListCloseDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[tdLayoutManageListClose]',
-    }),
-    __param(0, _angular_core.Inject(_angular_core.forwardRef(function () { return exports.TdLayoutManageListComponent; }))),
-    __metadata("design:paramtypes", [exports.TdLayoutManageListComponent,
-        _angular_core.Renderer2,
-        _angular_core.ElementRef])
-], exports.TdLayoutManageListCloseDirective);
-exports.TdLayoutManageListOpenDirective = (function (_super) {
+var TdLayoutManageListOpenDirective = (function (_super) {
     __extends(TdLayoutManageListOpenDirective, _super);
     function TdLayoutManageListOpenDirective(layout, renderer, elementRef) {
         return _super.call(this, layout, renderer, elementRef) || this;
@@ -6578,24 +6581,24 @@ exports.TdLayoutManageListOpenDirective = (function (_super) {
     TdLayoutManageListOpenDirective.prototype.onClick = function () {
         this._layout.open();
     };
+    __decorate([
+        _angular_core.Input('tdLayoutManageListOpen'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdLayoutManageListOpenDirective.prototype, "tdLayoutManageListOpen", null);
+    TdLayoutManageListOpenDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[tdLayoutManageListOpen]',
+        }),
+        __param(0, _angular_core.Inject(_angular_core.forwardRef(function () { return TdLayoutManageListComponent; }))),
+        __metadata("design:paramtypes", [TdLayoutManageListComponent,
+            _angular_core.Renderer2,
+            _angular_core.ElementRef])
+    ], TdLayoutManageListOpenDirective);
     return TdLayoutManageListOpenDirective;
 }(LayoutToggle));
-__decorate([
-    _angular_core.Input('tdLayoutManageListOpen'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdLayoutManageListOpenDirective.prototype, "tdLayoutManageListOpen", null);
-exports.TdLayoutManageListOpenDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[tdLayoutManageListOpen]',
-    }),
-    __param(0, _angular_core.Inject(_angular_core.forwardRef(function () { return exports.TdLayoutManageListComponent; }))),
-    __metadata("design:paramtypes", [exports.TdLayoutManageListComponent,
-        _angular_core.Renderer2,
-        _angular_core.ElementRef])
-], exports.TdLayoutManageListOpenDirective);
 
-exports.TdLayoutFooterComponent = (function () {
+var TdLayoutFooterComponent = (function () {
     function TdLayoutFooterComponent(_renderer, _elementRef) {
         this._renderer = _renderer;
         this._elementRef = _elementRef;
@@ -6620,45 +6623,45 @@ exports.TdLayoutFooterComponent = (function () {
         enumerable: true,
         configurable: true
     });
+    __decorate([
+        _angular_core.Input('color'),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], TdLayoutFooterComponent.prototype, "color", null);
+    TdLayoutFooterComponent = __decorate([
+        _angular_core.Component({
+            /* tslint:disable-next-line */
+            selector: 'td-layout-footer,td-layout-footer-inner',
+            styles: [":host { display: block; padding: 10px 16px; } /*# sourceMappingURL=layout-footer.component.css.map */ "],
+            template: "<ng-content></ng-content> ",
+        }),
+        __metadata("design:paramtypes", [_angular_core.Renderer2,
+            _angular_core.ElementRef])
+    ], TdLayoutFooterComponent);
     return TdLayoutFooterComponent;
 }());
-__decorate([
-    _angular_core.Input('color'),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], exports.TdLayoutFooterComponent.prototype, "color", null);
-exports.TdLayoutFooterComponent = __decorate([
-    _angular_core.Component({
-        /* tslint:disable-next-line */
-        selector: 'td-layout-footer,td-layout-footer-inner',
-        styles: [":host { display: block; padding: 10px 16px; } /*# sourceMappingURL=layout-footer.component.css.map */ "],
-        template: "<ng-content></ng-content> ",
-    }),
-    __metadata("design:paramtypes", [_angular_core.Renderer2,
-        _angular_core.ElementRef])
-], exports.TdLayoutFooterComponent);
 
-exports.TdNavigationDrawerMenuDirective = (function () {
+var TdNavigationDrawerMenuDirective = (function () {
     function TdNavigationDrawerMenuDirective() {
     }
+    TdNavigationDrawerMenuDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[td-navigation-drawer-menu]',
+        })
+    ], TdNavigationDrawerMenuDirective);
     return TdNavigationDrawerMenuDirective;
 }());
-exports.TdNavigationDrawerMenuDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[td-navigation-drawer-menu]',
-    })
-], exports.TdNavigationDrawerMenuDirective);
-exports.TdNavigationDrawerToolbarDirective = (function () {
+var TdNavigationDrawerToolbarDirective = (function () {
     function TdNavigationDrawerToolbarDirective() {
     }
+    TdNavigationDrawerToolbarDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[td-navigation-drawer-toolbar]',
+        })
+    ], TdNavigationDrawerToolbarDirective);
     return TdNavigationDrawerToolbarDirective;
 }());
-exports.TdNavigationDrawerToolbarDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[td-navigation-drawer-toolbar]',
-    })
-], exports.TdNavigationDrawerToolbarDirective);
-exports.TdNavigationDrawerComponent = (function () {
+var TdNavigationDrawerComponent = (function () {
     function TdNavigationDrawerComponent(_layout, _router, _sanitize) {
         this._layout = _layout;
         this._router = _router;
@@ -6737,8 +6740,10 @@ exports.TdNavigationDrawerComponent = (function () {
     });
     TdNavigationDrawerComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this._closeSubscription = this._layout.sidenav.onClose.subscribe(function () {
-            _this._menuToggled = false;
+        this._closeSubscription = this._layout.sidenav.openedChange.subscribe(function (opened) {
+            if (!opened) {
+                _this._menuToggled = false;
+            }
         });
     };
     TdNavigationDrawerComponent.prototype.ngOnDestroy = function () {
@@ -6776,111 +6781,111 @@ exports.TdNavigationDrawerComponent = (function () {
     TdNavigationDrawerComponent.prototype.close = function () {
         return this._layout.close();
     };
+    __decorate([
+        _angular_core.ContentChildren(TdNavigationDrawerMenuDirective),
+        __metadata("design:type", _angular_core.QueryList)
+    ], TdNavigationDrawerComponent.prototype, "_drawerMenu", void 0);
+    __decorate([
+        _angular_core.ContentChildren(TdNavigationDrawerToolbarDirective),
+        __metadata("design:type", _angular_core.QueryList)
+    ], TdNavigationDrawerComponent.prototype, "_toolbar", void 0);
+    __decorate([
+        _angular_core.Input('sidenavTitle'),
+        __metadata("design:type", String)
+    ], TdNavigationDrawerComponent.prototype, "sidenavTitle", void 0);
+    __decorate([
+        _angular_core.Input('icon'),
+        __metadata("design:type", String)
+    ], TdNavigationDrawerComponent.prototype, "icon", void 0);
+    __decorate([
+        _angular_core.Input('logo'),
+        __metadata("design:type", String)
+    ], TdNavigationDrawerComponent.prototype, "logo", void 0);
+    __decorate([
+        _angular_core.Input('color'),
+        __metadata("design:type", String)
+    ], TdNavigationDrawerComponent.prototype, "color", void 0);
+    __decorate([
+        _angular_core.Input('navigationRoute'),
+        __metadata("design:type", String)
+    ], TdNavigationDrawerComponent.prototype, "navigationRoute", void 0);
+    __decorate([
+        _angular_core.Input('backgroundUrl')
+        // TODO angular complains with warnings if this is type [SafeResourceUrl].. so we will make it <any> until its fixed.
+        // https://github.com/webpack/webpack/issues/2977
+        ,
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], TdNavigationDrawerComponent.prototype, "backgroundUrl", null);
+    __decorate([
+        _angular_core.Input('name'),
+        __metadata("design:type", String)
+    ], TdNavigationDrawerComponent.prototype, "name", void 0);
+    __decorate([
+        _angular_core.Input('email'),
+        __metadata("design:type", String)
+    ], TdNavigationDrawerComponent.prototype, "email", void 0);
+    TdNavigationDrawerComponent = __decorate([
+        _angular_core.Component({
+            selector: 'td-navigation-drawer',
+            styles: [":host { width: 100%; } :host mat-toolbar { padding: 16px; } :host mat-toolbar.td-toolbar-background { background-repeat: no-repeat; background-size: cover; } :host mat-toolbar.td-nagivation-drawer-toolbar { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; height: auto !important; display: block !important; } :host mat-toolbar .td-navigation-drawer-toolbar-content { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: start; } :host mat-toolbar .td-navigation-drawer-menu-toggle { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; } :host mat-toolbar .td-navigation-drawer-menu-toggle .td-navigation-drawer-label { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } :host mat-toolbar .td-navigation-drawer-menu-toggle .td-navigation-drawer-menu-button { height: 24px; line-height: 24px; width: 24px; } :host > div { overflow: hidden; } /*# sourceMappingURL=navigation-drawer.component.css.map */ "],
+            template: "<mat-toolbar [color]=\"color\" [style.background-image]=\"backgroundImage\" [class.td-toolbar-background]=\"!!isBackgroundAvailable\" class=\"td-nagivation-drawer-toolbar\"> <ng-content select=\"[td-navigation-drawer-toolbar]\"></ng-content> <ng-container *ngIf=\"!isCustomToolbar\"> <div *ngIf=\"icon || logo || sidenavTitle\" class=\"td-navigation-drawer-toolbar-content\" [class.cursor-pointer]=\"routerEnabled\" (click)=\"handleNavigationClick()\"> <mat-icon *ngIf=\"icon\">{{icon}}</mat-icon> <mat-icon *ngIf=\"logo && !icon\" class=\"mat-icon-logo\" [svgIcon]=\"logo\"></mat-icon> <span *ngIf=\"sidenavTitle\" class=\"md-subhead\">{{sidenavTitle}}</span> </div> <div class=\"md-body-2\" *ngIf=\"email && name\">{{name}}</div> <div class=\"td-navigation-drawer-menu-toggle md-body-1\" href *ngIf=\"email || name\" (click)=\"toggleMenu()\"> <span class=\"td-navigation-drawer-label\">{{email || name}}</span> <button mat-icon-button class=\"td-navigation-drawer-menu-button\" *ngIf=\"isMenuAvailable\"> <mat-icon *ngIf=\"!menuToggled\">arrow_drop_down</mat-icon> <mat-icon *ngIf=\"menuToggled\">arrow_drop_up</mat-icon> </button> </div> </ng-container> </mat-toolbar> <div [@tdCollapse]=\"menuToggled\"> <ng-content></ng-content> </div> <div [@tdCollapse]=\"!menuToggled\"> <ng-content select=\"[td-navigation-drawer-menu]\"></ng-content> </div> ",
+            animations: [TdCollapseAnimation()],
+        }),
+        __param(0, _angular_core.Inject(_angular_core.forwardRef(function () { return TdLayoutComponent; }))),
+        __param(1, _angular_core.Optional()),
+        __metadata("design:paramtypes", [TdLayoutComponent,
+            _angular_router.Router,
+            _angular_platformBrowser.DomSanitizer])
+    ], TdNavigationDrawerComponent);
     return TdNavigationDrawerComponent;
 }());
-__decorate([
-    _angular_core.ContentChildren(exports.TdNavigationDrawerMenuDirective),
-    __metadata("design:type", _angular_core.QueryList)
-], exports.TdNavigationDrawerComponent.prototype, "_drawerMenu", void 0);
-__decorate([
-    _angular_core.ContentChildren(exports.TdNavigationDrawerToolbarDirective),
-    __metadata("design:type", _angular_core.QueryList)
-], exports.TdNavigationDrawerComponent.prototype, "_toolbar", void 0);
-__decorate([
-    _angular_core.Input('sidenavTitle'),
-    __metadata("design:type", String)
-], exports.TdNavigationDrawerComponent.prototype, "sidenavTitle", void 0);
-__decorate([
-    _angular_core.Input('icon'),
-    __metadata("design:type", String)
-], exports.TdNavigationDrawerComponent.prototype, "icon", void 0);
-__decorate([
-    _angular_core.Input('logo'),
-    __metadata("design:type", String)
-], exports.TdNavigationDrawerComponent.prototype, "logo", void 0);
-__decorate([
-    _angular_core.Input('color'),
-    __metadata("design:type", String)
-], exports.TdNavigationDrawerComponent.prototype, "color", void 0);
-__decorate([
-    _angular_core.Input('navigationRoute'),
-    __metadata("design:type", String)
-], exports.TdNavigationDrawerComponent.prototype, "navigationRoute", void 0);
-__decorate([
-    _angular_core.Input('backgroundUrl')
-    // TODO angular complains with warnings if this is type [SafeResourceUrl].. so we will make it <any> until its fixed.
-    // https://github.com/webpack/webpack/issues/2977
-    ,
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], exports.TdNavigationDrawerComponent.prototype, "backgroundUrl", null);
-__decorate([
-    _angular_core.Input('name'),
-    __metadata("design:type", String)
-], exports.TdNavigationDrawerComponent.prototype, "name", void 0);
-__decorate([
-    _angular_core.Input('email'),
-    __metadata("design:type", String)
-], exports.TdNavigationDrawerComponent.prototype, "email", void 0);
-exports.TdNavigationDrawerComponent = __decorate([
-    _angular_core.Component({
-        selector: 'td-navigation-drawer',
-        styles: [":host { width: 100%; } :host mat-toolbar { padding: 16px; } :host mat-toolbar.td-toolbar-background { background-repeat: no-repeat; background-size: cover; } :host mat-toolbar .td-navigation-drawer-toolbar-content { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: start; } :host mat-toolbar .td-navigation-drawer-menu-toggle { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; } :host mat-toolbar .td-navigation-drawer-menu-toggle .td-navigation-drawer-label { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } :host mat-toolbar .td-navigation-drawer-menu-toggle .td-navigation-drawer-menu-button { height: 24px; line-height: 24px; width: 24px; } :host mat-toolbar /deep/ > .mat-toolbar-layout > mat-toolbar-row { height: auto !important; display: block !important; } :host > div { overflow: hidden; } /*# sourceMappingURL=navigation-drawer.component.css.map */ "],
-        template: "<mat-toolbar [color]=\"color\" [style.background-image]=\"backgroundImage\" [class.td-toolbar-background]=\"!!isBackgroundAvailable\"> <ng-content select=\"[td-navigation-drawer-toolbar]\"></ng-content> <ng-container *ngIf=\"!isCustomToolbar\"> <span *ngIf=\"icon || logo || sidenavTitle\" class=\"td-navigation-drawer-toolbar-content\" [class.cursor-pointer]=\"routerEnabled\" (click)=\"handleNavigationClick()\"> <mat-icon *ngIf=\"icon\">{{icon}}</mat-icon> <mat-icon *ngIf=\"logo && !icon\" class=\"mat-icon-logo\" [svgIcon]=\"logo\"></mat-icon> <span *ngIf=\"sidenavTitle\" class=\"md-subhead\">{{sidenavTitle}}</span> </span> <div class=\"md-body-2\" *ngIf=\"email && name\">{{name}}</div> <div class=\"td-navigation-drawer-menu-toggle md-body-1\" href *ngIf=\"email || name\" (click)=\"toggleMenu()\"> <span class=\"td-navigation-drawer-label\">{{email || name}}</span> <button mat-icon-button class=\"td-navigation-drawer-menu-button\" *ngIf=\"isMenuAvailable\"> <mat-icon *ngIf=\"!menuToggled\">arrow_drop_down</mat-icon> <mat-icon *ngIf=\"menuToggled\">arrow_drop_up</mat-icon> </button> </div> </ng-container> </mat-toolbar> <div [@tdCollapse]=\"menuToggled\"> <ng-content></ng-content> </div> <div [@tdCollapse]=\"!menuToggled\"> <ng-content select=\"[td-navigation-drawer-menu]\"></ng-content> </div> ",
-        animations: [TdCollapseAnimation()],
-    }),
-    __param(0, _angular_core.Inject(_angular_core.forwardRef(function () { return exports.TdLayoutComponent; }))),
-    __param(1, _angular_core.Optional()),
-    __metadata("design:paramtypes", [exports.TdLayoutComponent,
-        _angular_router.Router,
-        _angular_platformBrowser.DomSanitizer])
-], exports.TdNavigationDrawerComponent);
 
 var TD_LAYOUTS = [
-    exports.TdLayoutComponent,
-    exports.TdLayoutToggleDirective,
-    exports.TdLayoutCloseDirective,
-    exports.TdLayoutOpenDirective,
-    exports.TdLayoutNavComponent,
-    exports.TdLayoutNavListComponent,
-    exports.TdLayoutNavListToggleDirective,
-    exports.TdLayoutNavListCloseDirective,
-    exports.TdLayoutNavListOpenDirective,
-    exports.TdLayoutCardOverComponent,
-    exports.TdLayoutManageListComponent,
-    exports.TdLayoutManageListToggleDirective,
-    exports.TdLayoutManageListCloseDirective,
-    exports.TdLayoutManageListOpenDirective,
-    exports.TdLayoutFooterComponent,
-    exports.TdNavigationDrawerComponent,
-    exports.TdNavigationDrawerMenuDirective,
-    exports.TdNavigationDrawerToolbarDirective,
+    TdLayoutComponent,
+    TdLayoutToggleDirective,
+    TdLayoutCloseDirective,
+    TdLayoutOpenDirective,
+    TdLayoutNavComponent,
+    TdLayoutNavListComponent,
+    TdLayoutNavListToggleDirective,
+    TdLayoutNavListCloseDirective,
+    TdLayoutNavListOpenDirective,
+    TdLayoutCardOverComponent,
+    TdLayoutManageListComponent,
+    TdLayoutManageListToggleDirective,
+    TdLayoutManageListCloseDirective,
+    TdLayoutManageListOpenDirective,
+    TdLayoutFooterComponent,
+    TdNavigationDrawerComponent,
+    TdNavigationDrawerMenuDirective,
+    TdNavigationDrawerToolbarDirective,
 ];
-exports.CovalentLayoutModule = (function () {
+var CovalentLayoutModule = (function () {
     function CovalentLayoutModule() {
     }
+    CovalentLayoutModule = __decorate([
+        _angular_core.NgModule({
+            imports: [
+                _angular_common.CommonModule,
+                _angular_cdk_scrolling.ScrollDispatchModule,
+                _angular_material.MatSidenavModule,
+                _angular_material.MatToolbarModule,
+                _angular_material.MatButtonModule,
+                _angular_material.MatIconModule,
+                _angular_material.MatCardModule,
+                _angular_material.MatListModule,
+            ],
+            declarations: [
+                TD_LAYOUTS,
+            ],
+            exports: [
+                TD_LAYOUTS,
+            ],
+        })
+    ], CovalentLayoutModule);
     return CovalentLayoutModule;
 }());
-exports.CovalentLayoutModule = __decorate([
-    _angular_core.NgModule({
-        imports: [
-            _angular_common.CommonModule,
-            _angular_cdk_scrolling.ScrollDispatchModule,
-            _angular_material.MatSidenavModule,
-            _angular_material.MatToolbarModule,
-            _angular_material.MatButtonModule,
-            _angular_material.MatIconModule,
-            _angular_material.MatCardModule,
-            _angular_material.MatListModule,
-        ],
-        declarations: [
-            TD_LAYOUTS,
-        ],
-        exports: [
-            TD_LAYOUTS,
-        ],
-    })
-], exports.CovalentLayoutModule);
 
 (function (LoadingType) {
     LoadingType[LoadingType["Circular"] = 'circular'] = "Circular";
@@ -7057,20 +7062,20 @@ var TdLoadingComponent = (function () {
         }
         return 0;
     };
+    TdLoadingComponent = __decorate([
+        _angular_core.Component({
+            selector: 'td-loading',
+            styles: [".td-loading-wrapper { position: relative; display: block; } .td-loading-wrapper.td-fullscreen { position: inherit; } .td-loading-wrapper .td-loading { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } .td-loading-wrapper.td-overlay .td-loading { position: absolute; margin: 0; top: 0; left: 0; right: 0; z-index: 1000; } .td-loading-wrapper.td-overlay .td-loading mat-progress-bar { position: absolute; top: 0; left: 0; right: 0; } .td-loading-wrapper.td-overlay-circular .td-loading { bottom: 0; } /*# sourceMappingURL=loading.component.css.map */ "],
+            template: "<div class=\"td-loading-wrapper\" [style.min-height]=\"getHeight()\" [class.td-overlay-circular]=\"(isOverlay() || isFullScreen()) && !isLinear()\" [class.td-overlay]=\"isOverlay() || isFullScreen()\"  [class.td-fullscreen]=\"isFullScreen()\"> <div [@tdFadeInOut]=\"animation\" (@tdFadeInOut.done)=\"animationComplete($event)\" [style.min-height]=\"getHeight()\" class=\"td-loading\"> <mat-progress-spinner *ngIf=\"isCircular()\"  [mode]=\"mode\" [value]=\"value\"  [color]=\"color\"  [diameter]=\"getCircleDiameter()\" [strokeWidth]=\"getCircleStrokeWidth()\"> </mat-progress-spinner> <mat-progress-bar *ngIf=\"isLinear()\"  [mode]=\"mode\" [value]=\"value\" [color]=\"color\"> </mat-progress-bar> </div> <ng-template [cdkPortalHost]=\"content\"></ng-template> </div>",
+            animations: [
+                TdFadeInOutAnimation(),
+            ],
+        }),
+        __metadata("design:paramtypes", [_angular_core.ElementRef,
+            _angular_core.ChangeDetectorRef])
+    ], TdLoadingComponent);
     return TdLoadingComponent;
 }());
-TdLoadingComponent = __decorate([
-    _angular_core.Component({
-        selector: 'td-loading',
-        styles: [".td-loading-wrapper { position: relative; display: block; } .td-loading-wrapper.td-fullscreen { position: inherit; } .td-loading-wrapper .td-loading { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } .td-loading-wrapper.td-overlay .td-loading { position: absolute; margin: 0; top: 0; left: 0; right: 0; z-index: 1000; } .td-loading-wrapper.td-overlay .td-loading mat-progress-bar { position: absolute; top: 0; left: 0; right: 0; } .td-loading-wrapper.td-overlay-circular .td-loading { bottom: 0; } /*# sourceMappingURL=loading.component.css.map */ "],
-        template: "<div class=\"td-loading-wrapper\" [style.min-height]=\"getHeight()\" [class.td-overlay-circular]=\"(isOverlay() || isFullScreen()) && !isLinear()\" [class.td-overlay]=\"isOverlay() || isFullScreen()\"  [class.td-fullscreen]=\"isFullScreen()\"> <div [@tdFadeInOut]=\"animation\" (@tdFadeInOut.done)=\"animationComplete($event)\" [style.min-height]=\"getHeight()\" class=\"td-loading\"> <mat-progress-spinner *ngIf=\"isCircular()\"  [mode]=\"mode\" [value]=\"value\"  [color]=\"color\"  [diameter]=\"getCircleDiameter()\" [strokeWidth]=\"getCircleStrokeWidth()\"> </mat-progress-spinner> <mat-progress-bar *ngIf=\"isLinear()\"  [mode]=\"mode\" [value]=\"value\" [color]=\"color\"> </mat-progress-bar> </div> <ng-template [cdkPortalHost]=\"content\"></ng-template> </div>",
-        animations: [
-            TdFadeInOutAnimation(),
-        ],
-    }),
-    __metadata("design:paramtypes", [_angular_core.ElementRef,
-        _angular_core.ChangeDetectorRef])
-], TdLoadingComponent);
 
 /**
  * NOTE: @internal usage only.
@@ -7236,14 +7241,14 @@ var TdLoadingFactory = (function () {
             instance.color = options.color;
         }
     };
+    TdLoadingFactory = __decorate([
+        _angular_core.Injectable(),
+        __metadata("design:paramtypes", [_angular_core.ComponentFactoryResolver,
+            _angular_cdk_overlay.Overlay,
+            _angular_core.Injector])
+    ], TdLoadingFactory);
     return TdLoadingFactory;
 }());
-TdLoadingFactory = __decorate([
-    _angular_core.Injectable(),
-    __metadata("design:paramtypes", [_angular_core.ComponentFactoryResolver,
-        _angular_cdk_overlay.Overlay,
-        _angular_core.Injector])
-], TdLoadingFactory);
 function LOADING_FACTORY_PROVIDER_FACTORY(parent, componentFactoryResolver, overlay, injector) {
     return parent || new TdLoadingFactory(componentFactoryResolver, overlay, injector);
 }
@@ -7275,7 +7280,7 @@ var TdLoadingDirectiveConfig = (function (_super) {
     }
     return TdLoadingDirectiveConfig;
 }(TdLoadingConfig));
-exports.TdLoadingService = (function () {
+var TdLoadingService = (function () {
     function TdLoadingService(_loadingFactory) {
         this._loadingFactory = _loadingFactory;
         this._context = {};
@@ -7454,19 +7459,19 @@ exports.TdLoadingService = (function () {
         clearTimeout(this._timeouts[name]);
         delete this._timeouts[name];
     };
+    TdLoadingService = __decorate([
+        _angular_core.Injectable(),
+        __metadata("design:paramtypes", [TdLoadingFactory])
+    ], TdLoadingService);
     return TdLoadingService;
 }());
-exports.TdLoadingService = __decorate([
-    _angular_core.Injectable(),
-    __metadata("design:paramtypes", [TdLoadingFactory])
-], exports.TdLoadingService);
 function LOADING_PROVIDER_FACTORY(parent, loadingFactory) {
-    return parent || new exports.TdLoadingService(loadingFactory);
+    return parent || new TdLoadingService(loadingFactory);
 }
 var LOADING_PROVIDER = {
     // If there is already a service available, use that. Otherwise, provide a new one.
-    provide: exports.TdLoadingService,
-    deps: [[new _angular_core.Optional(), new _angular_core.SkipSelf(), exports.TdLoadingService], TdLoadingFactory],
+    provide: TdLoadingService,
+    deps: [[new _angular_core.Optional(), new _angular_core.SkipSelf(), TdLoadingService], TdLoadingFactory],
     useFactory: LOADING_PROVIDER_FACTORY,
 };
 
@@ -7621,45 +7626,45 @@ var TdLoadingDirective = (function () {
             }, this._viewContainerRef, this._templateRef, this._context);
         }
     };
+    __decorate([
+        _angular_core.Input('tdLoading'),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], TdLoadingDirective.prototype, "name", null);
+    __decorate([
+        _angular_core.Input('tdLoadingUntil'),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], TdLoadingDirective.prototype, "until", null);
+    __decorate([
+        _angular_core.Input('tdLoadingType'),
+        __metadata("design:type", Number),
+        __metadata("design:paramtypes", [Number])
+    ], TdLoadingDirective.prototype, "type", null);
+    __decorate([
+        _angular_core.Input('tdLoadingMode'),
+        __metadata("design:type", Number),
+        __metadata("design:paramtypes", [Number])
+    ], TdLoadingDirective.prototype, "mode", null);
+    __decorate([
+        _angular_core.Input('tdLoadingStrategy'),
+        __metadata("design:type", Number),
+        __metadata("design:paramtypes", [Number])
+    ], TdLoadingDirective.prototype, "strategy", null);
+    __decorate([
+        _angular_core.Input('tdLoadingColor'),
+        __metadata("design:type", String)
+    ], TdLoadingDirective.prototype, "color", void 0);
+    TdLoadingDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[tdLoading]',
+        }),
+        __metadata("design:paramtypes", [_angular_core.ViewContainerRef,
+            _angular_core.TemplateRef,
+            TdLoadingService])
+    ], TdLoadingDirective);
     return TdLoadingDirective;
 }());
-__decorate([
-    _angular_core.Input('tdLoading'),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], TdLoadingDirective.prototype, "name", null);
-__decorate([
-    _angular_core.Input('tdLoadingUntil'),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], TdLoadingDirective.prototype, "until", null);
-__decorate([
-    _angular_core.Input('tdLoadingType'),
-    __metadata("design:type", Number),
-    __metadata("design:paramtypes", [Number])
-], TdLoadingDirective.prototype, "type", null);
-__decorate([
-    _angular_core.Input('tdLoadingMode'),
-    __metadata("design:type", Number),
-    __metadata("design:paramtypes", [Number])
-], TdLoadingDirective.prototype, "mode", null);
-__decorate([
-    _angular_core.Input('tdLoadingStrategy'),
-    __metadata("design:type", Number),
-    __metadata("design:paramtypes", [Number])
-], TdLoadingDirective.prototype, "strategy", null);
-__decorate([
-    _angular_core.Input('tdLoadingColor'),
-    __metadata("design:type", String)
-], TdLoadingDirective.prototype, "color", void 0);
-TdLoadingDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[tdLoading]',
-    }),
-    __metadata("design:paramtypes", [_angular_core.ViewContainerRef,
-        _angular_core.TemplateRef,
-        exports.TdLoadingService])
-], TdLoadingDirective);
 
 var TD_LOADING = [
     TdLoadingComponent,
@@ -7668,37 +7673,37 @@ var TD_LOADING = [
 var TD_LOADING_ENTRY_COMPONENTS = [
     TdLoadingComponent,
 ];
-exports.CovalentLoadingModule = (function () {
+var CovalentLoadingModule = (function () {
     function CovalentLoadingModule() {
     }
+    CovalentLoadingModule = __decorate([
+        _angular_core.NgModule({
+            imports: [
+                _angular_common.CommonModule,
+                _angular_material.MatProgressBarModule,
+                _angular_material.MatProgressSpinnerModule,
+                _angular_cdk_overlay.OverlayModule,
+                _angular_cdk_portal.PortalModule,
+            ],
+            declarations: [
+                TD_LOADING,
+            ],
+            exports: [
+                TD_LOADING,
+            ],
+            providers: [
+                LOADING_FACTORY_PROVIDER,
+                LOADING_PROVIDER,
+            ],
+            entryComponents: [
+                TD_LOADING_ENTRY_COMPONENTS,
+            ],
+        })
+    ], CovalentLoadingModule);
     return CovalentLoadingModule;
 }());
-exports.CovalentLoadingModule = __decorate([
-    _angular_core.NgModule({
-        imports: [
-            _angular_common.CommonModule,
-            _angular_material.MatProgressBarModule,
-            _angular_material.MatProgressSpinnerModule,
-            _angular_cdk_overlay.OverlayModule,
-            _angular_cdk_portal.PortalModule,
-        ],
-        declarations: [
-            TD_LOADING,
-        ],
-        exports: [
-            TD_LOADING,
-        ],
-        providers: [
-            LOADING_FACTORY_PROVIDER,
-            LOADING_PROVIDER,
-        ],
-        entryComponents: [
-            TD_LOADING_ENTRY_COMPONENTS,
-        ],
-    })
-], exports.CovalentLoadingModule);
 
-exports.TdMediaService = (function () {
+var TdMediaService = (function () {
     function TdMediaService(_ngZone) {
         var _this = this;
         this._ngZone = _ngZone;
@@ -7791,23 +7796,23 @@ exports.TdMediaService = (function () {
     TdMediaService.prototype._matchMediaTrigger = function (query) {
         this._querySources[query].next(matchMedia(query).matches);
     };
+    TdMediaService = __decorate([
+        _angular_core.Injectable(),
+        __metadata("design:paramtypes", [_angular_core.NgZone])
+    ], TdMediaService);
     return TdMediaService;
 }());
-exports.TdMediaService = __decorate([
-    _angular_core.Injectable(),
-    __metadata("design:paramtypes", [_angular_core.NgZone])
-], exports.TdMediaService);
 function MEDIA_PROVIDER_FACTORY(parent, ngZone) {
-    return parent || new exports.TdMediaService(ngZone);
+    return parent || new TdMediaService(ngZone);
 }
 var MEDIA_PROVIDER = {
     // If there is already a service available, use that. Otherwise, provide a new one.
-    provide: exports.TdMediaService,
-    deps: [[new _angular_core.Optional(), new _angular_core.SkipSelf(), exports.TdMediaService], _angular_core.NgZone],
+    provide: TdMediaService,
+    deps: [[new _angular_core.Optional(), new _angular_core.SkipSelf(), TdMediaService], _angular_core.NgZone],
     useFactory: MEDIA_PROVIDER_FACTORY,
 };
 
-exports.TdMediaToggleDirective = (function () {
+var TdMediaToggleDirective = (function () {
     function TdMediaToggleDirective(_renderer, _elementRef, _mediaService) {
         this._renderer = _renderer;
         this._elementRef = _elementRef;
@@ -7914,110 +7919,110 @@ exports.TdMediaToggleDirective = (function () {
             }
         }
     };
+    __decorate([
+        _angular_core.Input('tdMediaToggle'),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], TdMediaToggleDirective.prototype, "query", null);
+    __decorate([
+        _angular_core.Input('mediaAttributes'),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], TdMediaToggleDirective.prototype, "attributes", null);
+    __decorate([
+        _angular_core.Input('mediaClasses'),
+        __metadata("design:type", Array),
+        __metadata("design:paramtypes", [Array])
+    ], TdMediaToggleDirective.prototype, "classes", null);
+    __decorate([
+        _angular_core.Input('mediaStyles'),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], TdMediaToggleDirective.prototype, "styles", null);
+    TdMediaToggleDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[tdMediaToggle]',
+        }),
+        __metadata("design:paramtypes", [_angular_core.Renderer2, _angular_core.ElementRef, TdMediaService])
+    ], TdMediaToggleDirective);
     return TdMediaToggleDirective;
 }());
-__decorate([
-    _angular_core.Input('tdMediaToggle'),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], exports.TdMediaToggleDirective.prototype, "query", null);
-__decorate([
-    _angular_core.Input('mediaAttributes'),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], exports.TdMediaToggleDirective.prototype, "attributes", null);
-__decorate([
-    _angular_core.Input('mediaClasses'),
-    __metadata("design:type", Array),
-    __metadata("design:paramtypes", [Array])
-], exports.TdMediaToggleDirective.prototype, "classes", null);
-__decorate([
-    _angular_core.Input('mediaStyles'),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], exports.TdMediaToggleDirective.prototype, "styles", null);
-exports.TdMediaToggleDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[tdMediaToggle]',
-    }),
-    __metadata("design:paramtypes", [_angular_core.Renderer2, _angular_core.ElementRef, exports.TdMediaService])
-], exports.TdMediaToggleDirective);
 
 var TD_MEDIA = [
-    exports.TdMediaToggleDirective,
+    TdMediaToggleDirective,
 ];
-exports.CovalentMediaModule = (function () {
+var CovalentMediaModule = (function () {
     function CovalentMediaModule() {
     }
+    CovalentMediaModule = __decorate([
+        _angular_core.NgModule({
+            imports: [
+                _angular_common.CommonModule,
+            ],
+            declarations: [
+                TD_MEDIA,
+            ],
+            exports: [
+                TD_MEDIA,
+            ],
+            providers: [
+                MEDIA_PROVIDER,
+            ],
+        })
+    ], CovalentMediaModule);
     return CovalentMediaModule;
 }());
-exports.CovalentMediaModule = __decorate([
-    _angular_core.NgModule({
-        imports: [
-            _angular_common.CommonModule,
-        ],
-        declarations: [
-            TD_MEDIA,
-        ],
-        exports: [
-            TD_MEDIA,
-        ],
-        providers: [
-            MEDIA_PROVIDER,
-        ],
-    })
-], exports.CovalentMediaModule);
 
-exports.TdMenuComponent = (function () {
+var TdMenuComponent = (function () {
     function TdMenuComponent() {
     }
+    TdMenuComponent = __decorate([
+        _angular_core.Component({
+            selector: 'td-menu',
+            template: "<ng-content select=\"[td-menu-header]\"></ng-content> <mat-divider></mat-divider> <div class=\"td-menu-content\"> <ng-content></ng-content> </div> <mat-divider></mat-divider> <ng-content select=\"[td-menu-footer]\"></ng-content>",
+            styles: [":host { display: block; margin-top: -8px; margin-bottom: -8px; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; } :host /deep/ [td-menu-header] { padding: 8px; text-align: center; } :host /deep/ mat-list a[mat-list-item].mat-2-line, :host /deep/ mat-list mat-list-item.mat-2-line, :host /deep/ mat-list[dense] a[mat-list-item].mat-2-line, :host /deep/ mat-list[dense] mat-list-item.mat-2-line, :host /deep/ mat-nav-list a[mat-list-item].mat-2-line, :host /deep/ mat-nav-list mat-list-item.mat-2-line, :host /deep/ mat-nav-list[dense] a[mat-list-item].mat-2-line, :host /deep/ mat-nav-list[dense] mat-list-item.mat-2-line { height: auto; } :host /deep/ mat-list a[mat-list-item].mat-2-line .mat-list-item-content, :host /deep/ mat-list mat-list-item.mat-2-line .mat-list-item-content, :host /deep/ mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content, :host /deep/ mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content, :host /deep/ mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content, :host /deep/ mat-nav-list mat-list-item.mat-2-line .mat-list-item-content, :host /deep/ mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content, :host /deep/ mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content { height: auto; padding: 8px; } :host /deep/ mat-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ mat-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ mat-nav-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text { padding-right: 0px; } [dir='rtl'] :host /deep/ mat-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ mat-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ mat-nav-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text { padding-left: 0px; padding-right: 16px; } :host /deep/ mat-list a[mat-list-item].mat-2-line .mat-list-item-content [matLine] + [matLine], :host /deep/ mat-list mat-list-item.mat-2-line .mat-list-item-content [matLine] + [matLine], :host /deep/ mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content [matLine] + [matLine], :host /deep/ mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content [matLine] + [matLine], :host /deep/ mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content [matLine] + [matLine], :host /deep/ mat-nav-list mat-list-item.mat-2-line .mat-list-item-content [matLine] + [matLine], :host /deep/ mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content [matLine] + [matLine], :host /deep/ mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content [matLine] + [matLine] { margin-top: 4px; } .td-menu-content { max-height: calc(50vh); overflow-y: auto; } /*# sourceMappingURL=menu.component.css.map */ "],
+        })
+    ], TdMenuComponent);
     return TdMenuComponent;
 }());
-exports.TdMenuComponent = __decorate([
-    _angular_core.Component({
-        selector: 'td-menu',
-        template: "<ng-content select=\"[td-menu-header]\"></ng-content> <mat-divider></mat-divider> <div class=\"td-menu-content\"> <ng-content></ng-content> </div> <mat-divider></mat-divider> <ng-content select=\"[td-menu-footer]\"></ng-content>",
-        styles: [":host { display: block; margin-top: -8px; margin-bottom: -8px; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; } :host /deep/ [td-menu-header] { padding: 8px; text-align: center; } :host /deep/ mat-list a[mat-list-item].mat-2-line .mat-list-item-content, :host /deep/ mat-list mat-list-item.mat-2-line .mat-list-item-content, :host /deep/ mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content, :host /deep/ mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content, :host /deep/ mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content, :host /deep/ mat-nav-list mat-list-item.mat-2-line .mat-list-item-content, :host /deep/ mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content, :host /deep/ mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content { height: auto; padding: 8px; } :host /deep/ mat-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ mat-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ mat-nav-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text, :host /deep/ mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text { padding-right: 0px; } [dir='rtl'] :host /deep/ mat-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ mat-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ mat-nav-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl'] :host /deep/ mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text { padding-left: 0px; padding-right: 16px; } :host /deep/ mat-list a[mat-list-item].mat-2-line .mat-list-item-content [matLine] + [matLine], :host /deep/ mat-list mat-list-item.mat-2-line .mat-list-item-content [matLine] + [matLine], :host /deep/ mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content [matLine] + [matLine], :host /deep/ mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content [matLine] + [matLine], :host /deep/ mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content [matLine] + [matLine], :host /deep/ mat-nav-list mat-list-item.mat-2-line .mat-list-item-content [matLine] + [matLine], :host /deep/ mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content [matLine] + [matLine], :host /deep/ mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content [matLine] + [matLine] { margin-top: 4px; } .td-menu-content { max-height: calc(50vh); overflow-y: auto; } /*# sourceMappingURL=menu.component.css.map */ "],
-    })
-], exports.TdMenuComponent);
 
 var TD_MENU = [
-    exports.TdMenuComponent,
+    TdMenuComponent,
 ];
-exports.CovalentMenuModule = (function () {
+var CovalentMenuModule = (function () {
     function CovalentMenuModule() {
     }
+    CovalentMenuModule = __decorate([
+        _angular_core.NgModule({
+            imports: [
+                _angular_common.CommonModule,
+                _angular_material.MatMenuModule,
+                _angular_material.MatListModule,
+            ],
+            declarations: [
+                TD_MENU,
+            ],
+            exports: [
+                TD_MENU,
+            ],
+        })
+    ], CovalentMenuModule);
     return CovalentMenuModule;
 }());
-exports.CovalentMenuModule = __decorate([
-    _angular_core.NgModule({
-        imports: [
-            _angular_common.CommonModule,
-            _angular_material.MatMenuModule,
-            _angular_material.MatListModule,
-        ],
-        declarations: [
-            TD_MENU,
-        ],
-        exports: [
-            TD_MENU,
-        ],
-    })
-], exports.CovalentMenuModule);
 
 var TdMessageContainerDirective = (function () {
     function TdMessageContainerDirective(viewContainer) {
         this.viewContainer = viewContainer;
     }
+    TdMessageContainerDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[tdMessageContainer]',
+        }),
+        __metadata("design:paramtypes", [_angular_core.ViewContainerRef])
+    ], TdMessageContainerDirective);
     return TdMessageContainerDirective;
 }());
-TdMessageContainerDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[tdMessageContainer]',
-    }),
-    __metadata("design:paramtypes", [_angular_core.ViewContainerRef])
-], TdMessageContainerDirective);
-exports.TdMessageComponent = (function () {
+var TdMessageComponent = (function () {
     function TdMessageComponent(_renderer, _changeDetectorRef, _elementRef) {
         this._renderer = _renderer;
         this._changeDetectorRef = _changeDetectorRef;
@@ -8196,97 +8201,97 @@ exports.TdMessageComponent = (function () {
         this._childElement.viewContainer.clear();
         this._changeDetectorRef.markForCheck();
     };
+    __decorate([
+        _angular_core.ViewChild(TdMessageContainerDirective),
+        __metadata("design:type", TdMessageContainerDirective)
+    ], TdMessageComponent.prototype, "_childElement", void 0);
+    __decorate([
+        _angular_core.ViewChild(_angular_core.TemplateRef),
+        __metadata("design:type", _angular_core.TemplateRef)
+    ], TdMessageComponent.prototype, "_template", void 0);
+    __decorate([
+        _angular_core.HostBinding('@tdFadeInOut'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [])
+    ], TdMessageComponent.prototype, "fadeAnimation", null);
+    __decorate([
+        _angular_core.HostBinding('@tdCollapse'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [])
+    ], TdMessageComponent.prototype, "collapsedAnimation", null);
+    __decorate([
+        _angular_core.HostBinding('style.display'),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [])
+    ], TdMessageComponent.prototype, "hidden", null);
+    __decorate([
+        _angular_core.Input('label'),
+        __metadata("design:type", String)
+    ], TdMessageComponent.prototype, "label", void 0);
+    __decorate([
+        _angular_core.Input('sublabel'),
+        __metadata("design:type", String)
+    ], TdMessageComponent.prototype, "sublabel", void 0);
+    __decorate([
+        _angular_core.Input('icon'),
+        __metadata("design:type", String)
+    ], TdMessageComponent.prototype, "icon", void 0);
+    __decorate([
+        _angular_core.Input('color'),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], TdMessageComponent.prototype, "color", null);
+    __decorate([
+        _angular_core.Input('opened'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdMessageComponent.prototype, "opened", null);
+    __decorate([
+        _angular_core.HostListener('@tdCollapse.done'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], TdMessageComponent.prototype, "animationDoneListener", null);
+    TdMessageComponent = __decorate([
+        _angular_core.Component({
+            selector: 'td-message',
+            template: "<div tdMessageContainer></div> <ng-template> <div class=\"td-message-wrapper\"> <mat-icon class=\"td-message-icon\">{{icon}}</mat-icon> <div class=\"td-message-labels\"> <div *ngIf=\"label\" class=\"td-message-label\">{{label}}</div> <div *ngIf=\"sublabel\" class=\"td-message-sublabel\">{{sublabel}}</div> </div> <ng-content select=\"[td-message-actions]\"></ng-content> </div> </ng-template>",
+            styles: [":host { display: block; } :host .td-message-wrapper { padding: 8px 16px; min-height: 52px; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: start; } :host .td-message-wrapper .td-message-icon { margin-right: 16px; } :host .td-message-wrapper .td-message-labels { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } /*# sourceMappingURL=message.component.css.map */ "],
+            animations: [
+                TdCollapseAnimation({ duration: 100 }),
+                TdFadeInOutAnimation({ duration: 100 }),
+            ],
+        }),
+        __metadata("design:paramtypes", [_angular_core.Renderer2,
+            _angular_core.ChangeDetectorRef,
+            _angular_core.ElementRef])
+    ], TdMessageComponent);
     return TdMessageComponent;
 }());
-__decorate([
-    _angular_core.ViewChild(TdMessageContainerDirective),
-    __metadata("design:type", TdMessageContainerDirective)
-], exports.TdMessageComponent.prototype, "_childElement", void 0);
-__decorate([
-    _angular_core.ViewChild(_angular_core.TemplateRef),
-    __metadata("design:type", _angular_core.TemplateRef)
-], exports.TdMessageComponent.prototype, "_template", void 0);
-__decorate([
-    _angular_core.HostBinding('@tdFadeInOut'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [])
-], exports.TdMessageComponent.prototype, "fadeAnimation", null);
-__decorate([
-    _angular_core.HostBinding('@tdCollapse'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [])
-], exports.TdMessageComponent.prototype, "collapsedAnimation", null);
-__decorate([
-    _angular_core.HostBinding('style.display'),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [])
-], exports.TdMessageComponent.prototype, "hidden", null);
-__decorate([
-    _angular_core.Input('label'),
-    __metadata("design:type", String)
-], exports.TdMessageComponent.prototype, "label", void 0);
-__decorate([
-    _angular_core.Input('sublabel'),
-    __metadata("design:type", String)
-], exports.TdMessageComponent.prototype, "sublabel", void 0);
-__decorate([
-    _angular_core.Input('icon'),
-    __metadata("design:type", String)
-], exports.TdMessageComponent.prototype, "icon", void 0);
-__decorate([
-    _angular_core.Input('color'),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], exports.TdMessageComponent.prototype, "color", null);
-__decorate([
-    _angular_core.Input('opened'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdMessageComponent.prototype, "opened", null);
-__decorate([
-    _angular_core.HostListener('@tdCollapse.done'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], exports.TdMessageComponent.prototype, "animationDoneListener", null);
-exports.TdMessageComponent = __decorate([
-    _angular_core.Component({
-        selector: 'td-message',
-        template: "<div tdMessageContainer></div> <ng-template> <div class=\"td-message-wrapper\"> <mat-icon class=\"td-message-icon\">{{icon}}</mat-icon> <div class=\"td-message-labels\"> <div *ngIf=\"label\" class=\"td-message-label\">{{label}}</div> <div *ngIf=\"sublabel\" class=\"td-message-sublabel\">{{sublabel}}</div> </div> <ng-content select=\"[td-message-actions]\"></ng-content> </div> </ng-template>",
-        styles: [":host { display: block; } :host .td-message-wrapper { padding: 8px 16px; min-height: 52px; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: start; } :host .td-message-wrapper .td-message-icon { margin-right: 16px; } :host .td-message-wrapper .td-message-labels { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } /*# sourceMappingURL=message.component.css.map */ "],
-        animations: [
-            TdCollapseAnimation({ duration: 100 }),
-            TdFadeInOutAnimation({ duration: 100 }),
-        ],
-    }),
-    __metadata("design:paramtypes", [_angular_core.Renderer2,
-        _angular_core.ChangeDetectorRef,
-        _angular_core.ElementRef])
-], exports.TdMessageComponent);
 
 var TD_MESSAGE = [
-    exports.TdMessageComponent,
+    TdMessageComponent,
     TdMessageContainerDirective,
 ];
-exports.CovalentMessageModule = (function () {
+var CovalentMessageModule = (function () {
     function CovalentMessageModule() {
     }
+    CovalentMessageModule = __decorate([
+        _angular_core.NgModule({
+            imports: [
+                _angular_common.CommonModule,
+                _angular_material.MatIconModule,
+            ],
+            declarations: [
+                TD_MESSAGE,
+            ],
+            exports: [
+                TD_MESSAGE,
+            ],
+        })
+    ], CovalentMessageModule);
     return CovalentMessageModule;
 }());
-exports.CovalentMessageModule = __decorate([
-    _angular_core.NgModule({
-        imports: [
-            _angular_common.CommonModule,
-            _angular_material.MatIconModule,
-        ],
-        declarations: [
-            TD_MESSAGE,
-        ],
-        exports: [
-            TD_MESSAGE,
-        ],
-    })
-], exports.CovalentMessageModule);
 
 (function (TdNotificationCountPositionY) {
     TdNotificationCountPositionY[TdNotificationCountPositionY["Top"] = 'top'] = "Top";
@@ -8299,7 +8304,7 @@ exports.CovalentMessageModule = __decorate([
     TdNotificationCountPositionX[TdNotificationCountPositionX["After"] = 'after'] = "After";
     TdNotificationCountPositionX[TdNotificationCountPositionX["Center"] = 'center'] = "Center";
 })(exports.TdNotificationCountPositionX || (exports.TdNotificationCountPositionX = {}));
-exports.TdNotificationCountComponent = (function () {
+var TdNotificationCountComponent = (function () {
     function TdNotificationCountComponent() {
         this._notifications = 0;
         /**
@@ -8412,68 +8417,68 @@ exports.TdNotificationCountComponent = (function () {
         }
         return false;
     };
+    __decorate([
+        _angular_core.ViewChild('content'),
+        __metadata("design:type", _angular_core.ElementRef)
+    ], TdNotificationCountComponent.prototype, "content", void 0);
+    __decorate([
+        _angular_core.Input(),
+        __metadata("design:type", String)
+    ], TdNotificationCountComponent.prototype, "color", void 0);
+    __decorate([
+        _angular_core.Input(),
+        __metadata("design:type", Number),
+        __metadata("design:paramtypes", [Number])
+    ], TdNotificationCountComponent.prototype, "positionX", null);
+    __decorate([
+        _angular_core.Input(),
+        __metadata("design:type", Number),
+        __metadata("design:paramtypes", [Number])
+    ], TdNotificationCountComponent.prototype, "positionY", null);
+    __decorate([
+        _angular_core.Input(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], TdNotificationCountComponent.prototype, "notifications", null);
+    __decorate([
+        _angular_core.HostBinding('class.td-notification-hidden'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [])
+    ], TdNotificationCountComponent.prototype, "hideHost", null);
+    TdNotificationCountComponent = __decorate([
+        _angular_core.Component({
+            selector: 'td-notification-count',
+            styles: [":host { position: relative; display: block; text-align: center; min-width: 40px; height: 40px; } :host.td-notification-hidden { min-width: 0; } .td-notification-count { line-height: 21px; width: 20px; height: 20px; position: absolute; font-size: 10px; font-weight: 600; border-radius: 50%; z-index: 1; } .td-notification-count.td-notification-center-x { margin-left: auto; margin-right: auto; left: 0px; right: 0px; } .td-notification-count.td-notification-center-y { margin-top: auto; margin-bottom: auto; top: 0px; bottom: 0px; } .td-notification-count.td-notification-top { top: 0px; } .td-notification-count.td-notification-bottom { bottom: 0px; } .td-notification-count.td-notification-before { left: 0px; } .td-notification-count.td-notification-after { right: 0px; } .td-notification-count.td-notification-no-count { width: 8px; height: 8px; } .td-notification-count.td-notification-no-count.td-notification-top { top: 8px; } .td-notification-count.td-notification-no-count.td-notification-bottom { bottom: 8px; } .td-notification-count.td-notification-no-count.td-notification-before { left: 8px; } .td-notification-count.td-notification-no-count.td-notification-after { right: 8px; } /deep/ [dir='rtl'] .td-notification-count.td-notification-before { right: 0px; left: auto; } /deep/ [dir='rtl'] .td-notification-count.td-notification-after { left: 0px; right: auto; } /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-before { right: 8px; left: auto; } /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-after { left: 8px; right: auto; } .td-notification-content, .td-notification-content /deep/ > * { line-height: 40px; } /*# sourceMappingURL=notification-count.component.css.map */ "],
+            template: "<div #content class=\"td-notification-content\"> <ng-content></ng-content> </div> <div *ngIf=\"show\" class=\"td-notification-count mat-{{color}}\" [class.td-notification-top]=\"positionY === 'top'\" [class.td-notification-bottom]=\"positionY === 'bottom'\" [class.td-notification-before]=\"positionX === 'before'\" [class.td-notification-after]=\"positionX === 'after'\" [class.td-notification-center-y]=\"positionY === 'center'\" [class.td-notification-center-x]=\"positionX === 'center'\" [class.td-notification-no-count]=\"noCount\"> {{noCount ? '' : notificationsDisplay}} </div>",
+            changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
+        })
+    ], TdNotificationCountComponent);
     return TdNotificationCountComponent;
 }());
-__decorate([
-    _angular_core.ViewChild('content'),
-    __metadata("design:type", _angular_core.ElementRef)
-], exports.TdNotificationCountComponent.prototype, "content", void 0);
-__decorate([
-    _angular_core.Input(),
-    __metadata("design:type", String)
-], exports.TdNotificationCountComponent.prototype, "color", void 0);
-__decorate([
-    _angular_core.Input(),
-    __metadata("design:type", Number),
-    __metadata("design:paramtypes", [Number])
-], exports.TdNotificationCountComponent.prototype, "positionX", null);
-__decorate([
-    _angular_core.Input(),
-    __metadata("design:type", Number),
-    __metadata("design:paramtypes", [Number])
-], exports.TdNotificationCountComponent.prototype, "positionY", null);
-__decorate([
-    _angular_core.Input(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], exports.TdNotificationCountComponent.prototype, "notifications", null);
-__decorate([
-    _angular_core.HostBinding('class.td-notification-hidden'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [])
-], exports.TdNotificationCountComponent.prototype, "hideHost", null);
-exports.TdNotificationCountComponent = __decorate([
-    _angular_core.Component({
-        selector: 'td-notification-count',
-        styles: [":host { position: relative; display: block; text-align: center; min-width: 40px; height: 40px; } :host.td-notification-hidden { min-width: 0; } .td-notification-count { line-height: 21px; width: 20px; height: 20px; position: absolute; font-size: 10px; font-weight: 600; border-radius: 50%; z-index: 1; } .td-notification-count.td-notification-center-x { margin-left: auto; margin-right: auto; left: 0px; right: 0px; } .td-notification-count.td-notification-center-y { margin-top: auto; margin-bottom: auto; top: 0px; bottom: 0px; } .td-notification-count.td-notification-top { top: 0px; } .td-notification-count.td-notification-bottom { bottom: 0px; } .td-notification-count.td-notification-before { left: 0px; } .td-notification-count.td-notification-after { right: 0px; } .td-notification-count.td-notification-no-count { width: 8px; height: 8px; } .td-notification-count.td-notification-no-count.td-notification-top { top: 8px; } .td-notification-count.td-notification-no-count.td-notification-bottom { bottom: 8px; } .td-notification-count.td-notification-no-count.td-notification-before { left: 8px; } .td-notification-count.td-notification-no-count.td-notification-after { right: 8px; } /deep/ [dir='rtl'] .td-notification-count.td-notification-before { right: 0px; left: auto; } /deep/ [dir='rtl'] .td-notification-count.td-notification-after { left: 0px; right: auto; } /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-before { right: 8px; left: auto; } /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-after { left: 8px; right: auto; } .td-notification-content, .td-notification-content /deep/ > * { line-height: 40px; } /*# sourceMappingURL=notification-count.component.css.map */ "],
-        template: "<div #content class=\"td-notification-content\"> <ng-content></ng-content> </div> <div *ngIf=\"show\" class=\"td-notification-count mat-{{color}}\" [class.td-notification-top]=\"positionY === 'top'\" [class.td-notification-bottom]=\"positionY === 'bottom'\" [class.td-notification-before]=\"positionX === 'before'\" [class.td-notification-after]=\"positionX === 'after'\" [class.td-notification-center-y]=\"positionY === 'center'\" [class.td-notification-center-x]=\"positionX === 'center'\" [class.td-notification-no-count]=\"noCount\"> {{noCount ? '' : notificationsDisplay}} </div>",
-        changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
-    })
-], exports.TdNotificationCountComponent);
 
 var TD_NOTIFICATIONS = [
-    exports.TdNotificationCountComponent,
+    TdNotificationCountComponent,
 ];
-exports.CovalentNotificationsModule = (function () {
+var CovalentNotificationsModule = (function () {
     function CovalentNotificationsModule() {
     }
+    CovalentNotificationsModule = __decorate([
+        _angular_core.NgModule({
+            imports: [
+                _angular_common.CommonModule,
+            ],
+            declarations: [
+                TD_NOTIFICATIONS,
+            ],
+            exports: [
+                TD_NOTIFICATIONS,
+            ],
+        })
+    ], CovalentNotificationsModule);
     return CovalentNotificationsModule;
 }());
-exports.CovalentNotificationsModule = __decorate([
-    _angular_core.NgModule({
-        imports: [
-            _angular_common.CommonModule,
-        ],
-        declarations: [
-            TD_NOTIFICATIONS,
-        ],
-        exports: [
-            TD_NOTIFICATIONS,
-        ],
-    })
-], exports.CovalentNotificationsModule);
 
-exports.TdPagingBarComponent = (function () {
+var TdPagingBarComponent = (function () {
     function TdPagingBarComponent(_dir) {
         this._dir = _dir;
         this._pageSize = 50;
@@ -8725,67 +8730,67 @@ exports.TdPagingBarComponent = (function () {
         };
         this.onChange.emit(event);
     };
+    __decorate([
+        _angular_core.Input('firstLast'),
+        __metadata("design:type", Boolean)
+    ], TdPagingBarComponent.prototype, "firstLast", void 0);
+    __decorate([
+        _angular_core.Input('initialPage'),
+        __metadata("design:type", Number)
+    ], TdPagingBarComponent.prototype, "initialPage", void 0);
+    __decorate([
+        _angular_core.Input('pageLinkCount'),
+        __metadata("design:type", Number),
+        __metadata("design:paramtypes", [Number])
+    ], TdPagingBarComponent.prototype, "pageLinkCount", null);
+    __decorate([
+        _angular_core.Input('pageSize'),
+        __metadata("design:type", Number),
+        __metadata("design:paramtypes", [Number])
+    ], TdPagingBarComponent.prototype, "pageSize", null);
+    __decorate([
+        _angular_core.Input('total'),
+        __metadata("design:type", Number),
+        __metadata("design:paramtypes", [Number])
+    ], TdPagingBarComponent.prototype, "total", null);
+    __decorate([
+        _angular_core.Output('change'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdPagingBarComponent.prototype, "onChange", void 0);
+    TdPagingBarComponent = __decorate([
+        _angular_core.Component({
+            selector: 'td-paging-bar',
+            template: "<div class=\"td-paging-bar\" (change)=\"$event.stopPropagation()\" > <ng-content></ng-content> <div class=\"td-paging-bar-navigation\"> <button mat-icon-button class=\"td-paging-bar-first-page\" type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMinPage()\" (click)=\"firstPage()\"> <mat-icon>{{ isRTL ? 'skip_next' : 'skip_previous' }}</mat-icon> </button> <button mat-icon-button class=\"td-paging-bar-prev-page\" type=\"button\" [disabled]=\"isMinPage()\" (click)=\"prevPage()\"> <mat-icon>{{ isRTL ? 'navigate_next' : 'navigate_before' }}</mat-icon> </button> <ng-template *ngIf=\"pageLinkCount > 0\" let-link let-index=\"index\" ngFor [ngForOf]=\"pageLinks\"> <button class=\"td-paging-bar-link-page\" mat-icon-button type=\"button\" [color]=\"page === link ? 'accent' : ''\" (click)=\"navigateToPage(link)\">{{link}}</button> </ng-template> <button mat-icon-button class=\"td-paging-bar-next-page\" type=\"button\" [disabled]=\"isMaxPage()\" (click)=\"nextPage()\"> <mat-icon>{{ isRTL ? 'navigate_before' : 'navigate_next' }}</mat-icon> </button> <button mat-icon-button class=\"td-paging-bar-last-page\" type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMaxPage()\" (click)=\"lastPage()\"> <mat-icon>{{ isRTL ? 'skip_previous' : 'skip_next' }}</mat-icon> </button> </div> </div>",
+            styles: [":host { display: block; } :host .td-paging-bar { height: 48px; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; } :host .td-paging-bar /deep/ > * { margin: 0 10px; } :host .td-paging-bar [mat-icon-button] { font-size: 12px; font-weight: normal; } /*# sourceMappingURL=paging-bar.component.css.map */ "],
+        }),
+        __param(0, _angular_core.Optional()),
+        __metadata("design:paramtypes", [_angular_cdk_bidi.Dir])
+    ], TdPagingBarComponent);
     return TdPagingBarComponent;
 }());
-__decorate([
-    _angular_core.Input('firstLast'),
-    __metadata("design:type", Boolean)
-], exports.TdPagingBarComponent.prototype, "firstLast", void 0);
-__decorate([
-    _angular_core.Input('initialPage'),
-    __metadata("design:type", Number)
-], exports.TdPagingBarComponent.prototype, "initialPage", void 0);
-__decorate([
-    _angular_core.Input('pageLinkCount'),
-    __metadata("design:type", Number),
-    __metadata("design:paramtypes", [Number])
-], exports.TdPagingBarComponent.prototype, "pageLinkCount", null);
-__decorate([
-    _angular_core.Input('pageSize'),
-    __metadata("design:type", Number),
-    __metadata("design:paramtypes", [Number])
-], exports.TdPagingBarComponent.prototype, "pageSize", null);
-__decorate([
-    _angular_core.Input('total'),
-    __metadata("design:type", Number),
-    __metadata("design:paramtypes", [Number])
-], exports.TdPagingBarComponent.prototype, "total", null);
-__decorate([
-    _angular_core.Output('change'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdPagingBarComponent.prototype, "onChange", void 0);
-exports.TdPagingBarComponent = __decorate([
-    _angular_core.Component({
-        selector: 'td-paging-bar',
-        template: "<div class=\"td-paging-bar\" (change)=\"$event.stopPropagation()\" > <ng-content></ng-content> <div class=\"td-paging-bar-navigation\"> <button mat-icon-button class=\"td-paging-bar-first-page\" type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMinPage()\" (click)=\"firstPage()\"> <mat-icon>{{ isRTL ? 'skip_next' : 'skip_previous' }}</mat-icon> </button> <button mat-icon-button class=\"td-paging-bar-prev-page\" type=\"button\" [disabled]=\"isMinPage()\" (click)=\"prevPage()\"> <mat-icon>{{ isRTL ? 'navigate_next' : 'navigate_before' }}</mat-icon> </button> <ng-template *ngIf=\"pageLinkCount > 0\" let-link let-index=\"index\" ngFor [ngForOf]=\"pageLinks\"> <button class=\"td-paging-bar-link-page\" mat-icon-button type=\"button\" [color]=\"page === link ? 'accent' : ''\" (click)=\"navigateToPage(link)\">{{link}}</button> </ng-template> <button mat-icon-button class=\"td-paging-bar-next-page\" type=\"button\" [disabled]=\"isMaxPage()\" (click)=\"nextPage()\"> <mat-icon>{{ isRTL ? 'navigate_before' : 'navigate_next' }}</mat-icon> </button> <button mat-icon-button class=\"td-paging-bar-last-page\" type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMaxPage()\" (click)=\"lastPage()\"> <mat-icon>{{ isRTL ? 'skip_previous' : 'skip_next' }}</mat-icon> </button> </div> </div>",
-        styles: [":host { display: block; } :host .td-paging-bar { height: 48px; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; } :host .td-paging-bar /deep/ > * { margin: 0 10px; } :host .td-paging-bar [mat-icon-button] { font-size: 12px; font-weight: normal; } /*# sourceMappingURL=paging-bar.component.css.map */ "],
-    }),
-    __param(0, _angular_core.Optional()),
-    __metadata("design:paramtypes", [_angular_cdk_bidi.Dir])
-], exports.TdPagingBarComponent);
 
-exports.CovalentPagingModule = (function () {
+var CovalentPagingModule = (function () {
     function CovalentPagingModule() {
     }
+    CovalentPagingModule = __decorate([
+        _angular_core.NgModule({
+            imports: [
+                _angular_common.CommonModule,
+                _angular_material.MatIconModule,
+                _angular_material.MatButtonModule,
+            ],
+            declarations: [
+                TdPagingBarComponent,
+            ],
+            exports: [
+                TdPagingBarComponent,
+            ],
+        })
+    ], CovalentPagingModule);
     return CovalentPagingModule;
 }());
-exports.CovalentPagingModule = __decorate([
-    _angular_core.NgModule({
-        imports: [
-            _angular_common.CommonModule,
-            _angular_material.MatIconModule,
-            _angular_material.MatButtonModule,
-        ],
-        declarations: [
-            exports.TdPagingBarComponent,
-        ],
-        exports: [
-            exports.TdPagingBarComponent,
-        ],
-    })
-], exports.CovalentPagingModule);
 
-exports.TdSearchInputComponent = (function () {
+var TdSearchInputComponent = (function () {
     function TdSearchInputComponent(_dir) {
         this._dir = _dir;
         /**
@@ -8865,73 +8870,73 @@ exports.TdSearchInputComponent = (function () {
     TdSearchInputComponent.prototype._searchTermChanged = function (value) {
         this.onSearchDebounce.emit(value);
     };
+    __decorate([
+        _angular_core.ViewChild(_angular_material.MatInput),
+        __metadata("design:type", _angular_material.MatInput)
+    ], TdSearchInputComponent.prototype, "_input", void 0);
+    __decorate([
+        _angular_core.Input('showUnderline'),
+        __metadata("design:type", Boolean)
+    ], TdSearchInputComponent.prototype, "showUnderline", void 0);
+    __decorate([
+        _angular_core.Input('debounce'),
+        __metadata("design:type", Number)
+    ], TdSearchInputComponent.prototype, "debounce", void 0);
+    __decorate([
+        _angular_core.Input('placeholder'),
+        __metadata("design:type", String)
+    ], TdSearchInputComponent.prototype, "placeholder", void 0);
+    __decorate([
+        _angular_core.Input('clearIcon'),
+        __metadata("design:type", String)
+    ], TdSearchInputComponent.prototype, "clearIcon", void 0);
+    __decorate([
+        _angular_core.Output('searchDebounce'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdSearchInputComponent.prototype, "onSearchDebounce", void 0);
+    __decorate([
+        _angular_core.Output('search'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdSearchInputComponent.prototype, "onSearch", void 0);
+    __decorate([
+        _angular_core.Output('clear'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdSearchInputComponent.prototype, "onClear", void 0);
+    __decorate([
+        _angular_core.Output('blur'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdSearchInputComponent.prototype, "onBlur", void 0);
+    TdSearchInputComponent = __decorate([
+        _angular_core.Component({
+            selector: 'td-search-input',
+            template: "<div class=\"td-search-input\"> <mat-form-field class=\"td-search-input-field\" [class.mat-hide-underline]=\"!showUnderline\" floatPlaceholder=\"never\"> <input matInput #searchElement type=\"search\" [(ngModel)]=\"value\" [placeholder]=\"placeholder\" (blur)=\"handleBlur()\" (search)=\"stopPropagation($event)\" (keyup.enter)=\"handleSearch($event)\"/> </mat-form-field> <button mat-icon-button class=\"td-search-input-clear\" type=\"button\" [@searchState]=\"(searchElement.value ?  'show' : (isRTL ? 'hide-left' : 'hide-right'))\" (click)=\"clearSearch()\"> <mat-icon>{{clearIcon}}</mat-icon> </button> </div>",
+            styles: [".td-search-input { overflow-x: hidden; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; } .td-search-input .td-search-input-field { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } .td-search-input /deep/ mat-form-field.mat-hide-underline .mat-form-field-underline { display: none; } .td-search-input .td-search-input-clear { -webkit-box-flex: 0; -ms-flex: 0 0 auto; flex: 0 0 auto; } /*# sourceMappingURL=search-input.component.css.map */ "],
+            animations: [
+                _angular_animations.trigger('searchState', [
+                    _angular_animations.state('hide-left', _angular_animations.style({
+                        transform: 'translateX(-150%)',
+                        display: 'none',
+                    })),
+                    _angular_animations.state('hide-right', _angular_animations.style({
+                        transform: 'translateX(150%)',
+                        display: 'none',
+                    })),
+                    _angular_animations.state('show', _angular_animations.style({
+                        transform: 'translateX(0%)',
+                        display: 'block',
+                    })),
+                    _angular_animations.transition('* => show', _angular_animations.animate('200ms ease-in')),
+                    _angular_animations.transition('show => *', _angular_animations.animate('200ms ease-out')),
+                ]),
+            ],
+        }),
+        __param(0, _angular_core.Optional()),
+        __metadata("design:paramtypes", [_angular_cdk_bidi.Dir])
+    ], TdSearchInputComponent);
     return TdSearchInputComponent;
 }());
-__decorate([
-    _angular_core.ViewChild(_angular_material.MatInput),
-    __metadata("design:type", _angular_material.MatInput)
-], exports.TdSearchInputComponent.prototype, "_input", void 0);
-__decorate([
-    _angular_core.Input('showUnderline'),
-    __metadata("design:type", Boolean)
-], exports.TdSearchInputComponent.prototype, "showUnderline", void 0);
-__decorate([
-    _angular_core.Input('debounce'),
-    __metadata("design:type", Number)
-], exports.TdSearchInputComponent.prototype, "debounce", void 0);
-__decorate([
-    _angular_core.Input('placeholder'),
-    __metadata("design:type", String)
-], exports.TdSearchInputComponent.prototype, "placeholder", void 0);
-__decorate([
-    _angular_core.Input('clearIcon'),
-    __metadata("design:type", String)
-], exports.TdSearchInputComponent.prototype, "clearIcon", void 0);
-__decorate([
-    _angular_core.Output('searchDebounce'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdSearchInputComponent.prototype, "onSearchDebounce", void 0);
-__decorate([
-    _angular_core.Output('search'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdSearchInputComponent.prototype, "onSearch", void 0);
-__decorate([
-    _angular_core.Output('clear'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdSearchInputComponent.prototype, "onClear", void 0);
-__decorate([
-    _angular_core.Output('blur'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdSearchInputComponent.prototype, "onBlur", void 0);
-exports.TdSearchInputComponent = __decorate([
-    _angular_core.Component({
-        selector: 'td-search-input',
-        template: "<div class=\"td-search-input\"> <mat-form-field class=\"td-search-input-field\" [class.mat-hide-underline]=\"!showUnderline\" floatPlaceholder=\"never\"> <input matInput #searchElement type=\"search\" [(ngModel)]=\"value\" [placeholder]=\"placeholder\" (blur)=\"handleBlur()\" (search)=\"stopPropagation($event)\" (keyup.enter)=\"handleSearch($event)\"/> </mat-form-field> <button mat-icon-button class=\"td-search-input-clear\" type=\"button\" [@searchState]=\"(searchElement.value ?  'show' : (isRTL ? 'hide-left' : 'hide-right'))\" (click)=\"clearSearch()\"> <mat-icon>{{clearIcon}}</mat-icon> </button> </div>",
-        styles: [".td-search-input { overflow-x: hidden; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; } .td-search-input .td-search-input-field { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } .td-search-input /deep/ mat-form-field.mat-hide-underline .mat-form-field-underline { display: none; } .td-search-input .td-search-input-clear { -webkit-box-flex: 0; -ms-flex: 0 0 auto; flex: 0 0 auto; } /*# sourceMappingURL=search-input.component.css.map */ "],
-        animations: [
-            _angular_animations.trigger('searchState', [
-                _angular_animations.state('hide-left', _angular_animations.style({
-                    transform: 'translateX(-150%)',
-                    display: 'none',
-                })),
-                _angular_animations.state('hide-right', _angular_animations.style({
-                    transform: 'translateX(150%)',
-                    display: 'none',
-                })),
-                _angular_animations.state('show', _angular_animations.style({
-                    transform: 'translateX(0%)',
-                    display: 'block',
-                })),
-                _angular_animations.transition('* => show', _angular_animations.animate('200ms ease-in')),
-                _angular_animations.transition('show => *', _angular_animations.animate('200ms ease-out')),
-            ]),
-        ],
-    }),
-    __param(0, _angular_core.Optional()),
-    __metadata("design:paramtypes", [_angular_cdk_bidi.Dir])
-], exports.TdSearchInputComponent);
 
-exports.TdSearchBoxComponent = (function () {
+var TdSearchBoxComponent = (function () {
     function TdSearchBoxComponent() {
         this._searchVisible = false;
         /**
@@ -9021,98 +9026,98 @@ exports.TdSearchBoxComponent = (function () {
     TdSearchBoxComponent.prototype.handleClear = function () {
         this.onClear.emit(undefined);
     };
+    __decorate([
+        _angular_core.ViewChild(TdSearchInputComponent),
+        __metadata("design:type", TdSearchInputComponent)
+    ], TdSearchBoxComponent.prototype, "_searchInput", void 0);
+    __decorate([
+        _angular_core.Input('backIcon'),
+        __metadata("design:type", String)
+    ], TdSearchBoxComponent.prototype, "backIcon", void 0);
+    __decorate([
+        _angular_core.Input('searchIcon'),
+        __metadata("design:type", String)
+    ], TdSearchBoxComponent.prototype, "searchIcon", void 0);
+    __decorate([
+        _angular_core.Input('clearIcon'),
+        __metadata("design:type", String)
+    ], TdSearchBoxComponent.prototype, "clearIcon", void 0);
+    __decorate([
+        _angular_core.Input('showUnderline'),
+        __metadata("design:type", Boolean)
+    ], TdSearchBoxComponent.prototype, "showUnderline", void 0);
+    __decorate([
+        _angular_core.Input('debounce'),
+        __metadata("design:type", Number)
+    ], TdSearchBoxComponent.prototype, "debounce", void 0);
+    __decorate([
+        _angular_core.Input('alwaysVisible'),
+        __metadata("design:type", Boolean)
+    ], TdSearchBoxComponent.prototype, "alwaysVisible", void 0);
+    __decorate([
+        _angular_core.Input('placeholder'),
+        __metadata("design:type", String)
+    ], TdSearchBoxComponent.prototype, "placeholder", void 0);
+    __decorate([
+        _angular_core.Output('searchDebounce'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdSearchBoxComponent.prototype, "onSearchDebounce", void 0);
+    __decorate([
+        _angular_core.Output('search'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdSearchBoxComponent.prototype, "onSearch", void 0);
+    __decorate([
+        _angular_core.Output('clear'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdSearchBoxComponent.prototype, "onClear", void 0);
+    TdSearchBoxComponent = __decorate([
+        _angular_core.Component({
+            selector: 'td-search-box',
+            template: "<div class=\"td-search-box\"> <button mat-icon-button type=\"button\" class=\"td-search-icon\" (click)=\"searchClicked()\"> <mat-icon *ngIf=\"searchVisible && !alwaysVisible\">{{backIcon}}</mat-icon> <mat-icon *ngIf=\"!searchVisible || alwaysVisible\">{{searchIcon}}</mat-icon> </button> <td-search-input #searchInput [@inputState]=\"alwaysVisible || searchVisible\" [debounce]=\"debounce\" [showUnderline]=\"showUnderline\" [placeholder]=\"placeholder\" [clearIcon]=\"clearIcon\" (searchDebounce)=\"handleSearchDebounce($event)\" (search)=\"handleSearch($event)\" (clear)=\"handleClear(); toggleVisibility()\"> </td-search-input> </div>",
+            styles: [":host { display: block; } .td-search-box { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; } .td-search-box .td-search-icon { -webkit-box-flex: 0; -ms-flex: 0 0 auto; flex: 0 0 auto; } .td-search-box td-search-input { margin-left: 12px; } /deep/ [dir='rtl'] .td-search-box td-search-input { margin-right: 12px; margin-left: 0px !important; } /*# sourceMappingURL=search-box.component.css.map */ "],
+            animations: [
+                _angular_animations.trigger('inputState', [
+                    _angular_animations.state('0', _angular_animations.style({
+                        width: '0%',
+                        margin: '0px',
+                    })),
+                    _angular_animations.state('1', _angular_animations.style({
+                        width: '100%',
+                        margin: _angular_animations.AUTO_STYLE,
+                    })),
+                    _angular_animations.transition('0 => 1', _angular_animations.animate('200ms ease-in')),
+                    _angular_animations.transition('1 => 0', _angular_animations.animate('200ms ease-out')),
+                ]),
+            ],
+        })
+    ], TdSearchBoxComponent);
     return TdSearchBoxComponent;
 }());
-__decorate([
-    _angular_core.ViewChild(exports.TdSearchInputComponent),
-    __metadata("design:type", exports.TdSearchInputComponent)
-], exports.TdSearchBoxComponent.prototype, "_searchInput", void 0);
-__decorate([
-    _angular_core.Input('backIcon'),
-    __metadata("design:type", String)
-], exports.TdSearchBoxComponent.prototype, "backIcon", void 0);
-__decorate([
-    _angular_core.Input('searchIcon'),
-    __metadata("design:type", String)
-], exports.TdSearchBoxComponent.prototype, "searchIcon", void 0);
-__decorate([
-    _angular_core.Input('clearIcon'),
-    __metadata("design:type", String)
-], exports.TdSearchBoxComponent.prototype, "clearIcon", void 0);
-__decorate([
-    _angular_core.Input('showUnderline'),
-    __metadata("design:type", Boolean)
-], exports.TdSearchBoxComponent.prototype, "showUnderline", void 0);
-__decorate([
-    _angular_core.Input('debounce'),
-    __metadata("design:type", Number)
-], exports.TdSearchBoxComponent.prototype, "debounce", void 0);
-__decorate([
-    _angular_core.Input('alwaysVisible'),
-    __metadata("design:type", Boolean)
-], exports.TdSearchBoxComponent.prototype, "alwaysVisible", void 0);
-__decorate([
-    _angular_core.Input('placeholder'),
-    __metadata("design:type", String)
-], exports.TdSearchBoxComponent.prototype, "placeholder", void 0);
-__decorate([
-    _angular_core.Output('searchDebounce'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdSearchBoxComponent.prototype, "onSearchDebounce", void 0);
-__decorate([
-    _angular_core.Output('search'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdSearchBoxComponent.prototype, "onSearch", void 0);
-__decorate([
-    _angular_core.Output('clear'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdSearchBoxComponent.prototype, "onClear", void 0);
-exports.TdSearchBoxComponent = __decorate([
-    _angular_core.Component({
-        selector: 'td-search-box',
-        template: "<div class=\"td-search-box\"> <button mat-icon-button type=\"button\" class=\"td-search-icon\" (click)=\"searchClicked()\"> <mat-icon *ngIf=\"searchVisible && !alwaysVisible\">{{backIcon}}</mat-icon> <mat-icon *ngIf=\"!searchVisible || alwaysVisible\">{{searchIcon}}</mat-icon> </button> <td-search-input #searchInput [@inputState]=\"alwaysVisible || searchVisible\" [debounce]=\"debounce\" [showUnderline]=\"showUnderline\" [placeholder]=\"placeholder\" [clearIcon]=\"clearIcon\" (searchDebounce)=\"handleSearchDebounce($event)\" (search)=\"handleSearch($event)\" (clear)=\"handleClear(); toggleVisibility()\"> </td-search-input> </div>",
-        styles: [":host { display: block; } .td-search-box { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; } .td-search-box .td-search-icon { -webkit-box-flex: 0; -ms-flex: 0 0 auto; flex: 0 0 auto; } .td-search-box td-search-input { margin-left: 12px; } /deep/ [dir='rtl'] .td-search-box td-search-input { margin-right: 12px; margin-left: 0px !important; } /*# sourceMappingURL=search-box.component.css.map */ "],
-        animations: [
-            _angular_animations.trigger('inputState', [
-                _angular_animations.state('0', _angular_animations.style({
-                    width: '0%',
-                    margin: '0px',
-                })),
-                _angular_animations.state('1', _angular_animations.style({
-                    width: '100%',
-                    margin: _angular_animations.AUTO_STYLE,
-                })),
-                _angular_animations.transition('0 => 1', _angular_animations.animate('200ms ease-in')),
-                _angular_animations.transition('1 => 0', _angular_animations.animate('200ms ease-out')),
-            ]),
-        ],
-    })
-], exports.TdSearchBoxComponent);
 
-exports.CovalentSearchModule = (function () {
+var CovalentSearchModule = (function () {
     function CovalentSearchModule() {
     }
+    CovalentSearchModule = __decorate([
+        _angular_core.NgModule({
+            imports: [
+                _angular_forms.FormsModule,
+                _angular_common.CommonModule,
+                _angular_material.MatInputModule,
+                _angular_material.MatIconModule,
+                _angular_material.MatButtonModule,
+            ],
+            declarations: [
+                TdSearchInputComponent,
+                TdSearchBoxComponent,
+            ],
+            exports: [
+                TdSearchInputComponent,
+                TdSearchBoxComponent,
+            ],
+        })
+    ], CovalentSearchModule);
     return CovalentSearchModule;
 }());
-exports.CovalentSearchModule = __decorate([
-    _angular_core.NgModule({
-        imports: [
-            _angular_forms.FormsModule,
-            _angular_common.CommonModule,
-            _angular_material.MatInputModule,
-            _angular_material.MatIconModule,
-            _angular_material.MatButtonModule,
-        ],
-        declarations: [
-            exports.TdSearchInputComponent,
-            exports.TdSearchBoxComponent,
-        ],
-        exports: [
-            exports.TdSearchInputComponent,
-            exports.TdSearchBoxComponent,
-        ],
-    })
-], exports.CovalentSearchModule);
 
 (function (StepState) {
     StepState[StepState["None"] = 'none'] = "None";
@@ -9124,40 +9129,40 @@ var TdStepLabelDirective = (function (_super) {
     function TdStepLabelDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
+    TdStepLabelDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[td-step-label]ng-template',
+        }),
+        __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
+    ], TdStepLabelDirective);
     return TdStepLabelDirective;
 }(_angular_cdk_portal.TemplatePortalDirective));
-TdStepLabelDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[td-step-label]ng-template',
-    }),
-    __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
-], TdStepLabelDirective);
 var TdStepActionsDirective = (function (_super) {
     __extends(TdStepActionsDirective, _super);
     function TdStepActionsDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
+    TdStepActionsDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[td-step-actions]ng-template',
+        }),
+        __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
+    ], TdStepActionsDirective);
     return TdStepActionsDirective;
 }(_angular_cdk_portal.TemplatePortalDirective));
-TdStepActionsDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[td-step-actions]ng-template',
-    }),
-    __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
-], TdStepActionsDirective);
 var TdStepSummaryDirective = (function (_super) {
     __extends(TdStepSummaryDirective, _super);
     function TdStepSummaryDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
+    TdStepSummaryDirective = __decorate([
+        _angular_core.Directive({
+            selector: '[td-step-summary]ng-template',
+        }),
+        __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
+    ], TdStepSummaryDirective);
     return TdStepSummaryDirective;
 }(_angular_cdk_portal.TemplatePortalDirective));
-TdStepSummaryDirective = __decorate([
-    _angular_core.Directive({
-        selector: '[td-step-summary]ng-template',
-    }),
-    __metadata("design:paramtypes", [_angular_core.TemplateRef, _angular_core.ViewContainerRef])
-], TdStepSummaryDirective);
 var TdStepBase = (function () {
     function TdStepBase() {
     }
@@ -9165,7 +9170,7 @@ var TdStepBase = (function () {
 }());
 /* tslint:disable-next-line */
 var _TdStepMixinBase = mixinDisableRipple(mixinDisabled(TdStepBase));
-exports.TdStepComponent = (function (_super) {
+var TdStepComponent = (function (_super) {
     __extends(TdStepComponent, _super);
     function TdStepComponent(_viewContainerRef) {
         var _this = _super.call(this) || this;
@@ -9294,64 +9299,64 @@ exports.TdStepComponent = (function (_super) {
     TdStepComponent.prototype._onDeactivated = function () {
         this.onDeactivated.emit(undefined);
     };
+    __decorate([
+        _angular_core.ViewChild(_angular_core.TemplateRef),
+        __metadata("design:type", _angular_core.TemplateRef)
+    ], TdStepComponent.prototype, "_content", void 0);
+    __decorate([
+        _angular_core.ContentChild(TdStepLabelDirective),
+        __metadata("design:type", TdStepLabelDirective)
+    ], TdStepComponent.prototype, "stepLabel", void 0);
+    __decorate([
+        _angular_core.ContentChild(TdStepActionsDirective),
+        __metadata("design:type", TdStepActionsDirective)
+    ], TdStepComponent.prototype, "stepActions", void 0);
+    __decorate([
+        _angular_core.ContentChild(TdStepSummaryDirective),
+        __metadata("design:type", TdStepSummaryDirective)
+    ], TdStepComponent.prototype, "stepSummary", void 0);
+    __decorate([
+        _angular_core.Input('label'),
+        __metadata("design:type", String)
+    ], TdStepComponent.prototype, "label", void 0);
+    __decorate([
+        _angular_core.Input('sublabel'),
+        __metadata("design:type", String)
+    ], TdStepComponent.prototype, "sublabel", void 0);
+    __decorate([
+        _angular_core.Input('active'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TdStepComponent.prototype, "active", null);
+    __decorate([
+        _angular_core.Input('state'),
+        __metadata("design:type", Number),
+        __metadata("design:paramtypes", [Number])
+    ], TdStepComponent.prototype, "state", null);
+    __decorate([
+        _angular_core.Output('activated'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdStepComponent.prototype, "onActivated", void 0);
+    __decorate([
+        _angular_core.Output('deactivated'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdStepComponent.prototype, "onDeactivated", void 0);
+    TdStepComponent = __decorate([
+        _angular_core.Component({
+            selector: 'td-step',
+            inputs: ['disabled', 'disableRipple'],
+            template: "<ng-template> <ng-content></ng-content> </ng-template>",
+        }),
+        __metadata("design:paramtypes", [_angular_core.ViewContainerRef])
+    ], TdStepComponent);
     return TdStepComponent;
 }(_TdStepMixinBase));
-__decorate([
-    _angular_core.ViewChild(_angular_core.TemplateRef),
-    __metadata("design:type", _angular_core.TemplateRef)
-], exports.TdStepComponent.prototype, "_content", void 0);
-__decorate([
-    _angular_core.ContentChild(TdStepLabelDirective),
-    __metadata("design:type", TdStepLabelDirective)
-], exports.TdStepComponent.prototype, "stepLabel", void 0);
-__decorate([
-    _angular_core.ContentChild(TdStepActionsDirective),
-    __metadata("design:type", TdStepActionsDirective)
-], exports.TdStepComponent.prototype, "stepActions", void 0);
-__decorate([
-    _angular_core.ContentChild(TdStepSummaryDirective),
-    __metadata("design:type", TdStepSummaryDirective)
-], exports.TdStepComponent.prototype, "stepSummary", void 0);
-__decorate([
-    _angular_core.Input('label'),
-    __metadata("design:type", String)
-], exports.TdStepComponent.prototype, "label", void 0);
-__decorate([
-    _angular_core.Input('sublabel'),
-    __metadata("design:type", String)
-], exports.TdStepComponent.prototype, "sublabel", void 0);
-__decorate([
-    _angular_core.Input('active'),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], exports.TdStepComponent.prototype, "active", null);
-__decorate([
-    _angular_core.Input('state'),
-    __metadata("design:type", Number),
-    __metadata("design:paramtypes", [Number])
-], exports.TdStepComponent.prototype, "state", null);
-__decorate([
-    _angular_core.Output('activated'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdStepComponent.prototype, "onActivated", void 0);
-__decorate([
-    _angular_core.Output('deactivated'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdStepComponent.prototype, "onDeactivated", void 0);
-exports.TdStepComponent = __decorate([
-    _angular_core.Component({
-        selector: 'td-step',
-        inputs: ['disabled', 'disableRipple'],
-        template: "<ng-template> <ng-content></ng-content> </ng-template>",
-    }),
-    __metadata("design:paramtypes", [_angular_core.ViewContainerRef])
-], exports.TdStepComponent);
 
 (function (StepMode) {
     StepMode[StepMode["Vertical"] = 'vertical'] = "Vertical";
     StepMode[StepMode["Horizontal"] = 'horizontal'] = "Horizontal";
 })(exports.StepMode || (exports.StepMode = {}));
-exports.TdStepsComponent = (function () {
+var TdStepsComponent = (function () {
     function TdStepsComponent() {
         this._mode = exports.StepMode.Vertical;
         /**
@@ -9471,29 +9476,29 @@ exports.TdStepsComponent = (function () {
             this._subcriptions = undefined;
         }
     };
+    __decorate([
+        _angular_core.ContentChildren(TdStepComponent),
+        __metadata("design:type", _angular_core.QueryList),
+        __metadata("design:paramtypes", [_angular_core.QueryList])
+    ], TdStepsComponent.prototype, "stepsContent", null);
+    __decorate([
+        _angular_core.Input('mode'),
+        __metadata("design:type", Number),
+        __metadata("design:paramtypes", [Number])
+    ], TdStepsComponent.prototype, "mode", null);
+    __decorate([
+        _angular_core.Output('stepChange'),
+        __metadata("design:type", _angular_core.EventEmitter)
+    ], TdStepsComponent.prototype, "onStepChange", void 0);
+    TdStepsComponent = __decorate([
+        _angular_core.Component({
+            selector: 'td-steps',
+            styles: [".td-line-wrapper, .td-step { position: relative; } .td-steps-header { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; } .td-line-wrapper { width: 24px; min-height: 1px; } .td-horizontal-line { border-bottom-width: 1px; border-bottom-style: solid; height: 1px; position: relative; top: 36px; min-width: 15px; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; -webkit-box-sizing: border-box; box-sizing: border-box; } /deep/ :not([dir='rtl']) .td-horizontal-line { left: -6px; right: -3px; } /deep/ [dir='rtl'] .td-horizontal-line { left: -3px; right: -6px; } .td-vertical-line { position: absolute; bottom: -16px; top: -16px; border-left-width: 1px; border-left-style: solid; } /deep/ :not([dir='rtl']) .td-vertical-line { left: 20px; right: auto; } /deep/ [dir='rtl'] .td-vertical-line { left: auto; right: 20px; } /*# sourceMappingURL=steps.component.css.map */ "],
+            template: "<div *ngIf=\"isHorizontal()\" class=\"td-steps-header\"> <ng-template let-step let-index=\"index\" let-last=\"last\" ngFor [ngForOf]=\"steps\"> <td-step-header class=\"td-step-horizontal-header\" (keydown.enter)=\"step.open()\" [number]=\"index + 1\" [active]=\"step.active\" [disableRipple]=\"step.disableRipple\" [disabled]=\"step.disabled\"  [state]=\"step.state\" (click)=\"step.open()\"> <ng-template td-step-header-label [cdkPortalHost]=\"step.stepLabel\"></ng-template> <ng-template td-step-header-label [ngIf]=\"!step.stepLabel\">{{step.label}}</ng-template> <ng-template td-step-header-sublabel [ngIf]=\"true\">{{step.sublabel | truncate:30}}</ng-template> </td-step-header> <span *ngIf=\"!last\" class=\"td-horizontal-line\"></span> </ng-template> </div> <div *ngFor=\"let step of steps; let index = index; let last = last\" class=\"td-step\"> <td-step-header class=\"td-step-vertical-header\" (keydown.enter)=\"step.toggle()\" [number]=\"index + 1\" [active]=\"step.active\"  [disabled]=\"step.disabled\" [disableRipple]=\"step.disableRipple\" [state]=\"step.state\" (click)=\"step.toggle()\" *ngIf=\"isVertical()\"> <ng-template td-step-header-label [cdkPortalHost]=\"step.stepLabel\"></ng-template> <ng-template td-step-header-label [ngIf]=\"!step.stepLabel\">{{step.label}}</ng-template> <ng-template td-step-header-sublabel [ngIf]=\"true\">{{step.sublabel}}</ng-template> </td-step-header> <ng-template [ngIf]=\"isVertical() || step.active || (!areStepsActive() && prevStep === step)\"> <td-step-body [active]=\"step.active\" [state]=\"step.state\"> <div *ngIf=\"isVertical()\" class=\"td-line-wrapper\"> <div *ngIf=\"!last\" class=\"td-vertical-line\"></div> </div> <ng-template td-step-body-content [cdkPortalHost]=\"step.stepContent\"></ng-template> <ng-template td-step-body-actions [cdkPortalHost]=\"step.stepActions\"></ng-template> <ng-template td-step-body-summary [cdkPortalHost]=\"step.stepSummary\"></ng-template> </td-step-body> </ng-template> </div> ",
+        })
+    ], TdStepsComponent);
     return TdStepsComponent;
 }());
-__decorate([
-    _angular_core.ContentChildren(exports.TdStepComponent),
-    __metadata("design:type", _angular_core.QueryList),
-    __metadata("design:paramtypes", [_angular_core.QueryList])
-], exports.TdStepsComponent.prototype, "stepsContent", null);
-__decorate([
-    _angular_core.Input('mode'),
-    __metadata("design:type", Number),
-    __metadata("design:paramtypes", [Number])
-], exports.TdStepsComponent.prototype, "mode", null);
-__decorate([
-    _angular_core.Output('stepChange'),
-    __metadata("design:type", _angular_core.EventEmitter)
-], exports.TdStepsComponent.prototype, "onStepChange", void 0);
-exports.TdStepsComponent = __decorate([
-    _angular_core.Component({
-        selector: 'td-steps',
-        styles: [".td-line-wrapper, .td-step { position: relative; } .td-steps-header { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; } .td-line-wrapper { width: 24px; min-height: 1px; } .td-horizontal-line { border-bottom-width: 1px; border-bottom-style: solid; height: 1px; position: relative; top: 36px; min-width: 15px; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; -webkit-box-sizing: border-box; box-sizing: border-box; } /deep/ :not([dir='rtl']) .td-horizontal-line { left: -6px; right: -3px; } /deep/ [dir='rtl'] .td-horizontal-line { left: -3px; right: -6px; } .td-vertical-line { position: absolute; bottom: -16px; top: -16px; border-left-width: 1px; border-left-style: solid; } /deep/ :not([dir='rtl']) .td-vertical-line { left: 20px; right: auto; } /deep/ [dir='rtl'] .td-vertical-line { left: auto; right: 20px; } /*# sourceMappingURL=steps.component.css.map */ "],
-        template: "<div *ngIf=\"isHorizontal()\" class=\"td-steps-header\"> <ng-template let-step let-index=\"index\" let-last=\"last\" ngFor [ngForOf]=\"steps\"> <td-step-header class=\"td-step-horizontal-header\" (keydown.enter)=\"step.open()\" [number]=\"index + 1\" [active]=\"step.active\" [disableRipple]=\"step.disableRipple\" [disabled]=\"step.disabled\"  [state]=\"step.state\" (click)=\"step.open()\"> <ng-template td-step-header-label [cdkPortalHost]=\"step.stepLabel\"></ng-template> <ng-template td-step-header-label [ngIf]=\"!step.stepLabel\">{{step.label}}</ng-template> <ng-template td-step-header-sublabel [ngIf]=\"true\">{{step.sublabel | truncate:30}}</ng-template> </td-step-header> <span *ngIf=\"!last\" class=\"td-horizontal-line\"></span> </ng-template> </div> <div *ngFor=\"let step of steps; let index = index; let last = last\" class=\"td-step\"> <td-step-header class=\"td-step-vertical-header\" (keydown.enter)=\"step.toggle()\" [number]=\"index + 1\" [active]=\"step.active\"  [disabled]=\"step.disabled\" [disableRipple]=\"step.disableRipple\" [state]=\"step.state\" (click)=\"step.toggle()\" *ngIf=\"isVertical()\"> <ng-template td-step-header-label [cdkPortalHost]=\"step.stepLabel\"></ng-template> <ng-template td-step-header-label [ngIf]=\"!step.stepLabel\">{{step.label}}</ng-template> <ng-template td-step-header-sublabel [ngIf]=\"true\">{{step.sublabel}}</ng-template> </td-step-header> <ng-template [ngIf]=\"isVertical() || step.active || (!areStepsActive() && prevStep === step)\"> <td-step-body [active]=\"step.active\" [state]=\"step.state\"> <div *ngIf=\"isVertical()\" class=\"td-line-wrapper\"> <div *ngIf=\"!last\" class=\"td-vertical-line\"></div> </div> <ng-template td-step-body-content [cdkPortalHost]=\"step.stepContent\"></ng-template> <ng-template td-step-body-actions [cdkPortalHost]=\"step.stepActions\"></ng-template> <ng-template td-step-body-summary [cdkPortalHost]=\"step.stepSummary\"></ng-template> </td-step-body> </ng-template> </div> ",
-    })
-], exports.TdStepsComponent);
 
 var TdStepHeaderBase = (function () {
     function TdStepHeaderBase() {
@@ -9526,28 +9531,28 @@ var TdStepHeaderComponent = (function (_super) {
     TdStepHeaderComponent.prototype.isRequired = function () {
         return this.state === exports.StepState.Required;
     };
+    __decorate([
+        _angular_core.Input('number'),
+        __metadata("design:type", Number)
+    ], TdStepHeaderComponent.prototype, "number", void 0);
+    __decorate([
+        _angular_core.Input('active'),
+        __metadata("design:type", Boolean)
+    ], TdStepHeaderComponent.prototype, "active", void 0);
+    __decorate([
+        _angular_core.Input('state'),
+        __metadata("design:type", Number)
+    ], TdStepHeaderComponent.prototype, "state", void 0);
+    TdStepHeaderComponent = __decorate([
+        _angular_core.Component({
+            selector: 'td-step-header',
+            inputs: ['disabled', 'disableRipple'],
+            styles: [".td-step-header { position: relative; outline: none; height: 72px; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: start; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; } .td-step-header:hover:not(.mat-disabled) { cursor: pointer; } .td-step-header mat-icon.td-edit-icon { margin: 0 8px; } .td-step-header mat-icon.mat-warn { font-size: 24px; height: 24px; width: 24px; } .td-step-header mat-icon.mat-complete { position: relative; left: -2px; top: 2px; font-size: 28px; height: 24px; width: 24px; } .td-step-header .td-circle { height: 24px; width: 24px; line-height: 24px; border-radius: 99%; text-align: center; -webkit-box-flex: 0; -ms-flex: none; flex: none; } .td-step-header .td-circle mat-icon { margin-top: 2px; font-weight: bold; } .td-step-header .td-triangle > mat-icon { font-size: 25px; } .td-step-header .td-complete { font-size: 0; } /deep/ :not([dir='rtl']) .td-step-header .td-circle, /deep/ :not([dir='rtl']) .td-step-header .td-triangle, /deep/ :not([dir='rtl']) .td-step-header .td-complete { margin-left: 8px; margin-right: 0px; } /deep/ [dir='rtl'] .td-step-header .td-circle, /deep/ [dir='rtl'] .td-step-header .td-triangle, /deep/ [dir='rtl'] .td-step-header .td-complete { margin-left: 0px; margin-right: 8px; } .td-step-header .td-circle, .td-step-header .td-complete { font-size: 14px; } .td-step-header .td-step-label-wrapper { padding-left: 8px; padding-right: 8px; } .td-step-header .td-step-header-separator { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; -webkit-box-sizing: border-box; box-sizing: border-box; } /*# sourceMappingURL=step-header.component.css.map */ "],
+            template: "<div class=\"td-step-header\" [class.mat-disabled]=\"disabled\" matRipple [matRippleDisabled]=\"disabled || disableRipple\" [tabIndex]=\"disabled ? -1 : 0\"> <div class=\"td-circle\" [class.mat-inactive]=\"(!active && !isComplete()) || disabled\" [class.mat-active]=\"active && !disabled\" *ngIf=\"!isRequired() && !isComplete()\"> <span *ngIf=\"(active || !isComplete())\">{{number || ''}}</span> </div> <div class=\"td-complete\" *ngIf=\"isComplete()\"> <mat-icon class=\"mat-complete\">check_circle</mat-icon> </div> <div class=\"td-triangle\" [class.bg-muted]=\"disabled\" *ngIf=\"isRequired()\"> <mat-icon class=\"mat-warn\">warning</mat-icon> </div> <div class=\"td-step-label-wrapper\" [class.mat-inactive]=\"(!active && !isComplete()) || disabled\" [class.mat-warn]=\"isRequired() && !disabled\"> <div class=\"td-step-label\"> <ng-content select=\"[td-step-header-label]\"></ng-content> </div> <div class=\"td-step-sublabel\"> <ng-content select=\"[td-step-header-sublabel]\"></ng-content> </div> </div> <span class=\"td-step-header-separator\"></span> <mat-icon class=\"td-edit-icon\" *ngIf=\"isComplete() && !active && !disabled\">mode_edit</mat-icon> </div>",
+        })
+    ], TdStepHeaderComponent);
     return TdStepHeaderComponent;
 }(_TdStepHeaderMixinBase));
-__decorate([
-    _angular_core.Input('number'),
-    __metadata("design:type", Number)
-], TdStepHeaderComponent.prototype, "number", void 0);
-__decorate([
-    _angular_core.Input('active'),
-    __metadata("design:type", Boolean)
-], TdStepHeaderComponent.prototype, "active", void 0);
-__decorate([
-    _angular_core.Input('state'),
-    __metadata("design:type", Number)
-], TdStepHeaderComponent.prototype, "state", void 0);
-TdStepHeaderComponent = __decorate([
-    _angular_core.Component({
-        selector: 'td-step-header',
-        inputs: ['disabled', 'disableRipple'],
-        styles: [".td-step-header { position: relative; outline: none; height: 72px; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: start; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; } .td-step-header:hover:not(.mat-disabled) { cursor: pointer; } .td-step-header mat-icon.td-edit-icon { margin: 0 8px; } .td-step-header mat-icon.mat-warn { font-size: 24px; height: 24px; width: 24px; } .td-step-header mat-icon.mat-complete { position: relative; left: -2px; top: 2px; font-size: 28px; height: 24px; width: 24px; } .td-step-header .td-circle { height: 24px; width: 24px; line-height: 24px; border-radius: 99%; text-align: center; -webkit-box-flex: 0; -ms-flex: none; flex: none; } .td-step-header .td-circle mat-icon { margin-top: 2px; font-weight: bold; } .td-step-header .td-triangle > mat-icon { font-size: 25px; } .td-step-header .td-complete { font-size: 0; } /deep/ :not([dir='rtl']) .td-step-header .td-circle, /deep/ :not([dir='rtl']) .td-step-header .td-triangle, /deep/ :not([dir='rtl']) .td-step-header .td-complete { margin-left: 8px; margin-right: 0px; } /deep/ [dir='rtl'] .td-step-header .td-circle, /deep/ [dir='rtl'] .td-step-header .td-triangle, /deep/ [dir='rtl'] .td-step-header .td-complete { margin-left: 0px; margin-right: 8px; } .td-step-header .td-circle, .td-step-header .td-complete { font-size: 14px; } .td-step-header .td-step-label-wrapper { padding-left: 8px; padding-right: 8px; } .td-step-header .td-step-header-separator { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; -webkit-box-sizing: border-box; box-sizing: border-box; } /*# sourceMappingURL=step-header.component.css.map */ "],
-        template: "<div class=\"td-step-header\" [class.mat-disabled]=\"disabled\" matRipple [matRippleDisabled]=\"disabled || disableRipple\" [tabIndex]=\"disabled ? -1 : 0\"> <div class=\"td-circle\" [class.mat-inactive]=\"(!active && !isComplete()) || disabled\" [class.mat-active]=\"active && !disabled\" *ngIf=\"!isRequired() && !isComplete()\"> <span *ngIf=\"(active || !isComplete())\">{{number || ''}}</span> </div> <div class=\"td-complete\" *ngIf=\"isComplete()\"> <mat-icon class=\"mat-complete\">check_circle</mat-icon> </div> <div class=\"td-triangle\" [class.bg-muted]=\"disabled\" *ngIf=\"isRequired()\"> <mat-icon class=\"mat-warn\">warning</mat-icon> </div> <div class=\"td-step-label-wrapper\" [class.mat-inactive]=\"(!active && !isComplete()) || disabled\" [class.mat-warn]=\"isRequired() && !disabled\"> <div class=\"td-step-label\"> <ng-content select=\"[td-step-header-label]\"></ng-content> </div> <div class=\"td-step-sublabel\"> <ng-content select=\"[td-step-header-sublabel]\"></ng-content> </div> </div> <span class=\"td-step-header-separator\"></span> <mat-icon class=\"td-edit-icon\" *ngIf=\"isComplete() && !active && !disabled\">mode_edit</mat-icon> </div>",
-    })
-], TdStepHeaderComponent);
 
 var TdStepBodyComponent = (function () {
     function TdStepBodyComponent() {
@@ -9564,76 +9569,76 @@ var TdStepBodyComponent = (function () {
     TdStepBodyComponent.prototype.isComplete = function () {
         return this.state === exports.StepState.Complete;
     };
+    __decorate([
+        _angular_core.Input('active'),
+        __metadata("design:type", Boolean)
+    ], TdStepBodyComponent.prototype, "active", void 0);
+    __decorate([
+        _angular_core.Input('state'),
+        __metadata("design:type", Number)
+    ], TdStepBodyComponent.prototype, "state", void 0);
+    TdStepBodyComponent = __decorate([
+        _angular_core.Component({
+            selector: 'td-step-body',
+            styles: [":host { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; } :host .td-step-body { overflow-x: hidden; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; -webkit-box-sizing: border-box; box-sizing: border-box; } :host .td-step-body .td-step-content { overflow-x: auto; } :host .td-step-body .td-step-actions { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; } /*# sourceMappingURL=step-body.component.css.map */ "],
+            template: "<ng-content></ng-content> <div class=\"td-step-body\"> <div class=\"td-step-content-wrapper\" [@tdCollapse]=\"!active\"> <div #contentRef cdkScrollable [class.td-step-content]=\"contentRef.children.length || contentRef.textContent.trim()\"> <ng-content select=\"[td-step-body-content]\"></ng-content> </div> <div #actionsRef [class.td-step-actions]=\"actionsRef.children.length || actionsRef.textContent.trim()\"> <ng-content select=\"[td-step-body-actions]\"></ng-content> </div> </div> <div #summaryRef [@tdCollapse]=\"active || !isComplete()\" [class.td-step-summary]=\"summaryRef.children.length || summaryRef.textContent.trim()\"> <ng-content select=\"[td-step-body-summary]\"></ng-content> </div> </div>",
+            animations: [
+                TdCollapseAnimation(),
+            ],
+        })
+    ], TdStepBodyComponent);
     return TdStepBodyComponent;
 }());
-__decorate([
-    _angular_core.Input('active'),
-    __metadata("design:type", Boolean)
-], TdStepBodyComponent.prototype, "active", void 0);
-__decorate([
-    _angular_core.Input('state'),
-    __metadata("design:type", Number)
-], TdStepBodyComponent.prototype, "state", void 0);
-TdStepBodyComponent = __decorate([
-    _angular_core.Component({
-        selector: 'td-step-body',
-        styles: [":host { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; } :host .td-step-body { overflow-x: hidden; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; -webkit-box-sizing: border-box; box-sizing: border-box; } :host .td-step-body .td-step-content { overflow-x: auto; } :host .td-step-body .td-step-actions { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; } /*# sourceMappingURL=step-body.component.css.map */ "],
-        template: "<ng-content></ng-content> <div class=\"td-step-body\"> <div class=\"td-step-content-wrapper\" [@tdCollapse]=\"!active\"> <div #contentRef cdkScrollable [class.td-step-content]=\"contentRef.children.length || contentRef.textContent.trim()\"> <ng-content select=\"[td-step-body-content]\"></ng-content> </div> <div #actionsRef [class.td-step-actions]=\"actionsRef.children.length || actionsRef.textContent.trim()\"> <ng-content select=\"[td-step-body-actions]\"></ng-content> </div> </div> <div #summaryRef [@tdCollapse]=\"active || !isComplete()\" [class.td-step-summary]=\"summaryRef.children.length || summaryRef.textContent.trim()\"> <ng-content select=\"[td-step-body-summary]\"></ng-content> </div> </div>",
-        animations: [
-            TdCollapseAnimation(),
-        ],
-    })
-], TdStepBodyComponent);
 
 // Steps
 var TD_STEPS = [
-    exports.TdStepsComponent,
-    exports.TdStepComponent,
+    TdStepsComponent,
+    TdStepComponent,
     TdStepHeaderComponent,
     TdStepBodyComponent,
     TdStepLabelDirective,
     TdStepActionsDirective,
     TdStepSummaryDirective,
 ];
-exports.CovalentStepsModule = (function () {
+var CovalentStepsModule = (function () {
     function CovalentStepsModule() {
     }
+    CovalentStepsModule = __decorate([
+        _angular_core.NgModule({
+            imports: [
+                _angular_common.CommonModule,
+                _angular_material.MatIconModule,
+                _angular_material.MatRippleModule,
+                _angular_cdk_portal.PortalModule,
+                _angular_cdk_scrolling.ScrollDispatchModule,
+                CovalentCommonModule,
+            ],
+            declarations: [
+                TD_STEPS,
+            ],
+            exports: [
+                TD_STEPS,
+            ],
+        })
+    ], CovalentStepsModule);
     return CovalentStepsModule;
 }());
-exports.CovalentStepsModule = __decorate([
-    _angular_core.NgModule({
-        imports: [
-            _angular_common.CommonModule,
-            _angular_material.MatIconModule,
-            _angular_material.MatRippleModule,
-            _angular_cdk_portal.PortalModule,
-            _angular_cdk_scrolling.ScrollDispatchModule,
-            exports.CovalentCommonModule,
-        ],
-        declarations: [
-            TD_STEPS,
-        ],
-        exports: [
-            TD_STEPS,
-        ],
-    })
-], exports.CovalentStepsModule);
 
-exports.TdVirtualScrollRowDirective = (function (_super) {
+var TdVirtualScrollRowDirective = (function (_super) {
     __extends(TdVirtualScrollRowDirective, _super);
     function TdVirtualScrollRowDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
+    TdVirtualScrollRowDirective = __decorate([
+        _angular_core.Directive({ selector: '[tdVirtualScrollRow]' }),
+        __metadata("design:paramtypes", [_angular_core.TemplateRef,
+            _angular_core.ViewContainerRef])
+    ], TdVirtualScrollRowDirective);
     return TdVirtualScrollRowDirective;
 }(_angular_cdk_portal.TemplatePortalDirective));
-exports.TdVirtualScrollRowDirective = __decorate([
-    _angular_core.Directive({ selector: '[tdVirtualScrollRow]' }),
-    __metadata("design:paramtypes", [_angular_core.TemplateRef,
-        _angular_core.ViewContainerRef])
-], exports.TdVirtualScrollRowDirective);
 
 var TD_VIRTUAL_OFFSET$1 = 2;
-exports.TdVirtualScrollContainerComponent = (function () {
+var TdVirtualScrollContainerComponent = (function () {
     function TdVirtualScrollContainerComponent(_elementRef, _domSanitizer, _renderer, _changeDetectorRef) {
         this._elementRef = _elementRef;
         this._domSanitizer = _domSanitizer;
@@ -9814,67 +9819,76 @@ exports.TdVirtualScrollContainerComponent = (function () {
             _this._changeDetectorRef.markForCheck();
         });
     };
+    __decorate([
+        _angular_core.Input('data'),
+        __metadata("design:type", Array),
+        __metadata("design:paramtypes", [Array])
+    ], TdVirtualScrollContainerComponent.prototype, "data", null);
+    __decorate([
+        _angular_core.ViewChildren('rowElement'),
+        __metadata("design:type", _angular_core.QueryList)
+    ], TdVirtualScrollContainerComponent.prototype, "_rows", void 0);
+    __decorate([
+        _angular_core.ContentChild(TdVirtualScrollRowDirective),
+        __metadata("design:type", TdVirtualScrollRowDirective)
+    ], TdVirtualScrollContainerComponent.prototype, "_rowTemplate", void 0);
+    __decorate([
+        _angular_core.Input('trackBy'),
+        __metadata("design:type", Function)
+    ], TdVirtualScrollContainerComponent.prototype, "trackBy", void 0);
+    __decorate([
+        _angular_core.HostListener('scroll', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Event]),
+        __metadata("design:returntype", void 0)
+    ], TdVirtualScrollContainerComponent.prototype, "handleScroll", null);
+    TdVirtualScrollContainerComponent = __decorate([
+        _angular_core.Component({
+            selector: 'td-virtual-scroll-container',
+            styles: [":host { display: block; height: 100%; width: 100%; overflow: auto; position: relative; } /*# sourceMappingURL=virtual-scroll-container.component.css.map */ "],
+            template: "<div [style.height.px]=\"totalHeight\"></div> <div [style.transform]=\"offsetTransform\" [style.position]=\"'absolute'\" [style.width.%]=\"100\"> <ng-template let-row let-index=\"index\" ngFor [ngForOf]=\"virtualData\" [ngForTrackBy]=\"trackBy\"> <div #rowElement [style.width.%]=\"100\"> <ng-template *ngIf=\"_rowTemplate\" [ngTemplateOutlet]=\"_rowTemplate.templateRef\" [ngTemplateOutletContext]=\"{row: row, index: (fromRow + index), first: (fromRow + index) === 0, last: (fromRow + index) === (data.length - 1), odd: ((fromRow + index + 1) % 2) === 1, even: ((fromRow + index + 1) % 2) === 0}\"> </ng-template> </div> </ng-template> </div>",
+            changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
+        }),
+        __metadata("design:paramtypes", [_angular_core.ElementRef,
+            _angular_platformBrowser.DomSanitizer,
+            _angular_core.Renderer2,
+            _angular_core.ChangeDetectorRef])
+    ], TdVirtualScrollContainerComponent);
     return TdVirtualScrollContainerComponent;
 }());
-__decorate([
-    _angular_core.Input('data'),
-    __metadata("design:type", Array),
-    __metadata("design:paramtypes", [Array])
-], exports.TdVirtualScrollContainerComponent.prototype, "data", null);
-__decorate([
-    _angular_core.ViewChildren('rowElement'),
-    __metadata("design:type", _angular_core.QueryList)
-], exports.TdVirtualScrollContainerComponent.prototype, "_rows", void 0);
-__decorate([
-    _angular_core.ContentChild(exports.TdVirtualScrollRowDirective),
-    __metadata("design:type", exports.TdVirtualScrollRowDirective)
-], exports.TdVirtualScrollContainerComponent.prototype, "_rowTemplate", void 0);
-__decorate([
-    _angular_core.Input('trackBy'),
-    __metadata("design:type", Object)
-], exports.TdVirtualScrollContainerComponent.prototype, "trackBy", void 0);
-__decorate([
-    _angular_core.HostListener('scroll', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Event]),
-    __metadata("design:returntype", void 0)
-], exports.TdVirtualScrollContainerComponent.prototype, "handleScroll", null);
-exports.TdVirtualScrollContainerComponent = __decorate([
-    _angular_core.Component({
-        selector: 'td-virtual-scroll-container',
-        styles: [":host { display: block; height: 100%; width: 100%; overflow: auto; position: relative; } /*# sourceMappingURL=virtual-scroll-container.component.css.map */ "],
-        template: "<div [style.height.px]=\"totalHeight\"></div> <div [style.transform]=\"offsetTransform\" [style.position]=\"'absolute'\" [style.width.%]=\"100\"> <ng-template let-row let-index=\"index\" ngFor [ngForOf]=\"virtualData\" [ngForTrackBy]=\"trackBy\"> <div #rowElement [style.width.%]=\"100\"> <ng-template *ngIf=\"_rowTemplate\" [ngTemplateOutlet]=\"_rowTemplate.templateRef\" [ngTemplateOutletContext]=\"{row: row, index: (fromRow + index), first: (fromRow + index) === 0, last: (fromRow + index) === (data.length - 1), odd: ((fromRow + index + 1) % 2) === 1, even: ((fromRow + index + 1) % 2) === 0}\"> </ng-template> </div> </ng-template> </div>",
-        changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
-    }),
-    __metadata("design:paramtypes", [_angular_core.ElementRef,
-        _angular_platformBrowser.DomSanitizer,
-        _angular_core.Renderer2,
-        _angular_core.ChangeDetectorRef])
-], exports.TdVirtualScrollContainerComponent);
 
 var TD_VIRTUAL_SCROLL = [
-    exports.TdVirtualScrollRowDirective,
-    exports.TdVirtualScrollContainerComponent,
+    TdVirtualScrollRowDirective,
+    TdVirtualScrollContainerComponent,
 ];
-exports.CovalentVirtualScrollModule = (function () {
+var CovalentVirtualScrollModule = (function () {
     function CovalentVirtualScrollModule() {
     }
+    CovalentVirtualScrollModule = __decorate([
+        _angular_core.NgModule({
+            imports: [
+                _angular_common.CommonModule,
+            ],
+            declarations: [
+                TD_VIRTUAL_SCROLL,
+            ],
+            exports: [
+                TD_VIRTUAL_SCROLL,
+            ],
+        })
+    ], CovalentVirtualScrollModule);
     return CovalentVirtualScrollModule;
 }());
-exports.CovalentVirtualScrollModule = __decorate([
-    _angular_core.NgModule({
-        imports: [
-            _angular_common.CommonModule,
-        ],
-        declarations: [
-            TD_VIRTUAL_SCROLL,
-        ],
-        exports: [
-            TD_VIRTUAL_SCROLL,
-        ],
-    })
-], exports.CovalentVirtualScrollModule);
 
+exports.TdToggleDirective = TdToggleDirective;
+exports.TdFadeDirective = TdFadeDirective;
+exports.TdAutoTrimDirective = TdAutoTrimDirective;
+exports.TdTimeAgoPipe = TdTimeAgoPipe;
+exports.TdTimeDifferencePipe = TdTimeDifferencePipe;
+exports.TdBytesPipe = TdBytesPipe;
+exports.TdDigitsPipe = TdDigitsPipe;
+exports.TdTruncatePipe = TdTruncatePipe;
+exports.CovalentCommonModule = CovalentCommonModule;
 exports.TdRotateAnimation = TdRotateAnimation;
 exports.TdCollapseAnimation = TdCollapseAnimation;
 exports.TdFadeInOutAnimation = TdFadeInOutAnimation;
@@ -9886,6 +9900,78 @@ exports.TdPulseAnimation = TdPulseAnimation;
 exports.mixinDisabled = mixinDisabled;
 exports.mixinDisableRipple = mixinDisableRipple;
 exports.CovalentValidators = CovalentValidators;
+exports.CovalentChipsModule = CovalentChipsModule;
+exports.TdChipsComponent = TdChipsComponent;
+exports.TdChipDirective = TdChipDirective;
+exports.TdAutocompleteOptionDirective = TdAutocompleteOptionDirective;
+exports.CovalentDataTableModule = CovalentDataTableModule;
+exports.TdDataTableComponent = TdDataTableComponent;
+exports.TdDataTableService = TdDataTableService;
+exports.TdDataTableColumnComponent = TdDataTableColumnComponent;
+exports.TdDataTableCellComponent = TdDataTableCellComponent;
+exports.TdDataTableRowComponent = TdDataTableRowComponent;
+exports.TdDataTableColumnRowComponent = TdDataTableColumnRowComponent;
+exports.TdDataTableTableComponent = TdDataTableTableComponent;
+exports.TdDialogService = TdDialogService;
+exports.TdDialogComponent = TdDialogComponent;
+exports.TdDialogTitleDirective = TdDialogTitleDirective;
+exports.TdAlertDialogComponent = TdAlertDialogComponent;
+exports.TdConfirmDialogComponent = TdConfirmDialogComponent;
+exports.TdPromptDialogComponent = TdPromptDialogComponent;
+exports.CovalentDialogsModule = CovalentDialogsModule;
+exports.CovalentExpansionPanelModule = CovalentExpansionPanelModule;
+exports.TdExpansionPanelComponent = TdExpansionPanelComponent;
+exports.TdExpansionPanelGroupComponent = TdExpansionPanelGroupComponent;
+exports.CovalentFileModule = CovalentFileModule;
+exports.TdFileUploadComponent = TdFileUploadComponent;
+exports.TdFileInputComponent = TdFileInputComponent;
+exports.TdFileInputLabelDirective = TdFileInputLabelDirective;
+exports.TdFileSelectDirective = TdFileSelectDirective;
+exports.TdFileDropDirective = TdFileDropDirective;
+exports.TdFileService = TdFileService;
+exports.CovalentJsonFormatterModule = CovalentJsonFormatterModule;
+exports.TdJsonFormatterComponent = TdJsonFormatterComponent;
+exports.TdLayoutComponent = TdLayoutComponent;
+exports.TdLayoutToggleDirective = TdLayoutToggleDirective;
+exports.TdLayoutCloseDirective = TdLayoutCloseDirective;
+exports.TdLayoutOpenDirective = TdLayoutOpenDirective;
+exports.TdLayoutNavComponent = TdLayoutNavComponent;
+exports.TdLayoutNavListComponent = TdLayoutNavListComponent;
+exports.TdLayoutNavListToggleDirective = TdLayoutNavListToggleDirective;
+exports.TdLayoutNavListCloseDirective = TdLayoutNavListCloseDirective;
+exports.TdLayoutNavListOpenDirective = TdLayoutNavListOpenDirective;
+exports.TdLayoutCardOverComponent = TdLayoutCardOverComponent;
+exports.TdLayoutManageListComponent = TdLayoutManageListComponent;
+exports.TdLayoutManageListToggleDirective = TdLayoutManageListToggleDirective;
+exports.TdLayoutManageListCloseDirective = TdLayoutManageListCloseDirective;
+exports.TdLayoutManageListOpenDirective = TdLayoutManageListOpenDirective;
+exports.TdLayoutFooterComponent = TdLayoutFooterComponent;
+exports.TdNavigationDrawerComponent = TdNavigationDrawerComponent;
+exports.TdNavigationDrawerMenuDirective = TdNavigationDrawerMenuDirective;
+exports.TdNavigationDrawerToolbarDirective = TdNavigationDrawerToolbarDirective;
+exports.CovalentLayoutModule = CovalentLayoutModule;
+exports.CovalentLoadingModule = CovalentLoadingModule;
+exports.TdLoadingService = TdLoadingService;
+exports.TdMediaService = TdMediaService;
+exports.TdMediaToggleDirective = TdMediaToggleDirective;
+exports.CovalentMediaModule = CovalentMediaModule;
+exports.CovalentMenuModule = CovalentMenuModule;
+exports.TdMenuComponent = TdMenuComponent;
+exports.CovalentMessageModule = CovalentMessageModule;
+exports.TdMessageComponent = TdMessageComponent;
+exports.CovalentNotificationsModule = CovalentNotificationsModule;
+exports.TdNotificationCountComponent = TdNotificationCountComponent;
+exports.CovalentPagingModule = CovalentPagingModule;
+exports.TdPagingBarComponent = TdPagingBarComponent;
+exports.CovalentSearchModule = CovalentSearchModule;
+exports.TdSearchBoxComponent = TdSearchBoxComponent;
+exports.TdSearchInputComponent = TdSearchInputComponent;
+exports.CovalentStepsModule = CovalentStepsModule;
+exports.TdStepComponent = TdStepComponent;
+exports.TdStepsComponent = TdStepsComponent;
+exports.TdVirtualScrollRowDirective = TdVirtualScrollRowDirective;
+exports.TdVirtualScrollContainerComponent = TdVirtualScrollContainerComponent;
+exports.CovalentVirtualScrollModule = CovalentVirtualScrollModule;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 

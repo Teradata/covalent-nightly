@@ -6,14 +6,14 @@ var TdMessageContainerDirective = (function () {
     function TdMessageContainerDirective(viewContainer) {
         this.viewContainer = viewContainer;
     }
+    TdMessageContainerDirective = tslib_1.__decorate([
+        Directive({
+            selector: '[tdMessageContainer]',
+        }),
+        tslib_1.__metadata("design:paramtypes", [ViewContainerRef])
+    ], TdMessageContainerDirective);
     return TdMessageContainerDirective;
 }());
-TdMessageContainerDirective = tslib_1.__decorate([
-    Directive({
-        selector: '[tdMessageContainer]',
-    }),
-    tslib_1.__metadata("design:paramtypes", [ViewContainerRef])
-], TdMessageContainerDirective);
 export { TdMessageContainerDirective };
 var TdMessageComponent = (function () {
     function TdMessageComponent(_renderer, _changeDetectorRef, _elementRef) {
@@ -194,72 +194,72 @@ var TdMessageComponent = (function () {
         this._childElement.viewContainer.clear();
         this._changeDetectorRef.markForCheck();
     };
+    tslib_1.__decorate([
+        ViewChild(TdMessageContainerDirective),
+        tslib_1.__metadata("design:type", TdMessageContainerDirective)
+    ], TdMessageComponent.prototype, "_childElement", void 0);
+    tslib_1.__decorate([
+        ViewChild(TemplateRef),
+        tslib_1.__metadata("design:type", TemplateRef)
+    ], TdMessageComponent.prototype, "_template", void 0);
+    tslib_1.__decorate([
+        HostBinding('@tdFadeInOut'),
+        tslib_1.__metadata("design:type", Boolean),
+        tslib_1.__metadata("design:paramtypes", [])
+    ], TdMessageComponent.prototype, "fadeAnimation", null);
+    tslib_1.__decorate([
+        HostBinding('@tdCollapse'),
+        tslib_1.__metadata("design:type", Boolean),
+        tslib_1.__metadata("design:paramtypes", [])
+    ], TdMessageComponent.prototype, "collapsedAnimation", null);
+    tslib_1.__decorate([
+        HostBinding('style.display'),
+        tslib_1.__metadata("design:type", String),
+        tslib_1.__metadata("design:paramtypes", [])
+    ], TdMessageComponent.prototype, "hidden", null);
+    tslib_1.__decorate([
+        Input('label'),
+        tslib_1.__metadata("design:type", String)
+    ], TdMessageComponent.prototype, "label", void 0);
+    tslib_1.__decorate([
+        Input('sublabel'),
+        tslib_1.__metadata("design:type", String)
+    ], TdMessageComponent.prototype, "sublabel", void 0);
+    tslib_1.__decorate([
+        Input('icon'),
+        tslib_1.__metadata("design:type", String)
+    ], TdMessageComponent.prototype, "icon", void 0);
+    tslib_1.__decorate([
+        Input('color'),
+        tslib_1.__metadata("design:type", String),
+        tslib_1.__metadata("design:paramtypes", [String])
+    ], TdMessageComponent.prototype, "color", null);
+    tslib_1.__decorate([
+        Input('opened'),
+        tslib_1.__metadata("design:type", Boolean),
+        tslib_1.__metadata("design:paramtypes", [Boolean])
+    ], TdMessageComponent.prototype, "opened", null);
+    tslib_1.__decorate([
+        HostListener('@tdCollapse.done'),
+        tslib_1.__metadata("design:type", Function),
+        tslib_1.__metadata("design:paramtypes", []),
+        tslib_1.__metadata("design:returntype", void 0)
+    ], TdMessageComponent.prototype, "animationDoneListener", null);
+    TdMessageComponent = tslib_1.__decorate([
+        Component({
+            selector: 'td-message',
+            template: "<div tdMessageContainer></div> <ng-template> <div class=\"td-message-wrapper\"> <mat-icon class=\"td-message-icon\">{{icon}}</mat-icon> <div class=\"td-message-labels\"> <div *ngIf=\"label\" class=\"td-message-label\">{{label}}</div> <div *ngIf=\"sublabel\" class=\"td-message-sublabel\">{{sublabel}}</div> </div> <ng-content select=\"[td-message-actions]\"></ng-content> </div> </ng-template>",
+            styles: [":host { display: block; } :host .td-message-wrapper { padding: 8px 16px; min-height: 52px; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: start; } :host .td-message-wrapper .td-message-icon { margin-right: 16px; } :host .td-message-wrapper .td-message-labels { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } /*# sourceMappingURL=message.component.css.map */ "],
+            animations: [
+                TdCollapseAnimation({ duration: 100 }),
+                TdFadeInOutAnimation({ duration: 100 }),
+            ],
+        }),
+        tslib_1.__metadata("design:paramtypes", [Renderer2,
+            ChangeDetectorRef,
+            ElementRef])
+    ], TdMessageComponent);
     return TdMessageComponent;
 }());
-tslib_1.__decorate([
-    ViewChild(TdMessageContainerDirective),
-    tslib_1.__metadata("design:type", TdMessageContainerDirective)
-], TdMessageComponent.prototype, "_childElement", void 0);
-tslib_1.__decorate([
-    ViewChild(TemplateRef),
-    tslib_1.__metadata("design:type", TemplateRef)
-], TdMessageComponent.prototype, "_template", void 0);
-tslib_1.__decorate([
-    HostBinding('@tdFadeInOut'),
-    tslib_1.__metadata("design:type", Boolean),
-    tslib_1.__metadata("design:paramtypes", [])
-], TdMessageComponent.prototype, "fadeAnimation", null);
-tslib_1.__decorate([
-    HostBinding('@tdCollapse'),
-    tslib_1.__metadata("design:type", Boolean),
-    tslib_1.__metadata("design:paramtypes", [])
-], TdMessageComponent.prototype, "collapsedAnimation", null);
-tslib_1.__decorate([
-    HostBinding('style.display'),
-    tslib_1.__metadata("design:type", String),
-    tslib_1.__metadata("design:paramtypes", [])
-], TdMessageComponent.prototype, "hidden", null);
-tslib_1.__decorate([
-    Input('label'),
-    tslib_1.__metadata("design:type", String)
-], TdMessageComponent.prototype, "label", void 0);
-tslib_1.__decorate([
-    Input('sublabel'),
-    tslib_1.__metadata("design:type", String)
-], TdMessageComponent.prototype, "sublabel", void 0);
-tslib_1.__decorate([
-    Input('icon'),
-    tslib_1.__metadata("design:type", String)
-], TdMessageComponent.prototype, "icon", void 0);
-tslib_1.__decorate([
-    Input('color'),
-    tslib_1.__metadata("design:type", String),
-    tslib_1.__metadata("design:paramtypes", [String])
-], TdMessageComponent.prototype, "color", null);
-tslib_1.__decorate([
-    Input('opened'),
-    tslib_1.__metadata("design:type", Boolean),
-    tslib_1.__metadata("design:paramtypes", [Boolean])
-], TdMessageComponent.prototype, "opened", null);
-tslib_1.__decorate([
-    HostListener('@tdCollapse.done'),
-    tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", []),
-    tslib_1.__metadata("design:returntype", void 0)
-], TdMessageComponent.prototype, "animationDoneListener", null);
-TdMessageComponent = tslib_1.__decorate([
-    Component({
-        selector: 'td-message',
-        template: "<div tdMessageContainer></div> <ng-template> <div class=\"td-message-wrapper\"> <mat-icon class=\"td-message-icon\">{{icon}}</mat-icon> <div class=\"td-message-labels\"> <div *ngIf=\"label\" class=\"td-message-label\">{{label}}</div> <div *ngIf=\"sublabel\" class=\"td-message-sublabel\">{{sublabel}}</div> </div> <ng-content select=\"[td-message-actions]\"></ng-content> </div> </ng-template>",
-        styles: [":host { display: block; } :host .td-message-wrapper { padding: 8px 16px; min-height: 52px; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: start; } :host .td-message-wrapper .td-message-icon { margin-right: 16px; } :host .td-message-wrapper .td-message-labels { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } /*# sourceMappingURL=message.component.css.map */ "],
-        animations: [
-            TdCollapseAnimation({ duration: 100 }),
-            TdFadeInOutAnimation({ duration: 100 }),
-        ],
-    }),
-    tslib_1.__metadata("design:paramtypes", [Renderer2,
-        ChangeDetectorRef,
-        ElementRef])
-], TdMessageComponent);
 export { TdMessageComponent };
 //# sourceMappingURL=message.component.js.map

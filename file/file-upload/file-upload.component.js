@@ -165,64 +165,64 @@ var TdFileUploadComponent = (function (_super) {
     TdFileUploadComponent.prototype.registerOnTouched = function (fn) {
         this.onTouched = fn;
     };
+    tslib_1.__decorate([
+        ViewChild(TdFileInputComponent),
+        tslib_1.__metadata("design:type", TdFileInputComponent)
+    ], TdFileUploadComponent.prototype, "fileInput", void 0);
+    tslib_1.__decorate([
+        ContentChild(TdFileInputLabelDirective),
+        tslib_1.__metadata("design:type", TdFileInputLabelDirective)
+    ], TdFileUploadComponent.prototype, "inputLabel", void 0);
+    tslib_1.__decorate([
+        Input('defaultColor'),
+        tslib_1.__metadata("design:type", String)
+    ], TdFileUploadComponent.prototype, "defaultColor", void 0);
+    tslib_1.__decorate([
+        Input('activeColor'),
+        tslib_1.__metadata("design:type", String)
+    ], TdFileUploadComponent.prototype, "activeColor", void 0);
+    tslib_1.__decorate([
+        Input('cancelColor'),
+        tslib_1.__metadata("design:type", String)
+    ], TdFileUploadComponent.prototype, "cancelColor", void 0);
+    tslib_1.__decorate([
+        Input('multiple'),
+        tslib_1.__metadata("design:type", Boolean),
+        tslib_1.__metadata("design:paramtypes", [Boolean])
+    ], TdFileUploadComponent.prototype, "multiple", null);
+    tslib_1.__decorate([
+        Input('required'),
+        tslib_1.__metadata("design:type", Boolean),
+        tslib_1.__metadata("design:paramtypes", [Boolean])
+    ], TdFileUploadComponent.prototype, "required", null);
+    tslib_1.__decorate([
+        Input('accept'),
+        tslib_1.__metadata("design:type", String)
+    ], TdFileUploadComponent.prototype, "accept", void 0);
+    tslib_1.__decorate([
+        Output('select'),
+        tslib_1.__metadata("design:type", EventEmitter)
+    ], TdFileUploadComponent.prototype, "onSelect", void 0);
+    tslib_1.__decorate([
+        Output('upload'),
+        tslib_1.__metadata("design:type", EventEmitter)
+    ], TdFileUploadComponent.prototype, "onUpload", void 0);
+    tslib_1.__decorate([
+        Output('cancel'),
+        tslib_1.__metadata("design:type", EventEmitter)
+    ], TdFileUploadComponent.prototype, "onCancel", void 0);
+    TdFileUploadComponent = tslib_1.__decorate([
+        Component({
+            changeDetection: ChangeDetectionStrategy.OnPush,
+            providers: [FILE_UPLOAD_CONTROL_VALUE_ACCESSOR],
+            selector: 'td-file-upload',
+            inputs: ['disabled'],
+            styles: [".td-file-upload { padding-left: 8px; padding-right: 8px; } .td-file-upload-cancel { height: 24px; width: 24px; position: relative; top: 24px; left: -12px; } /deep/ [dir='rtl'] .td-file-upload-cancel { right: -12px; left: 0; } .td-file-upload-cancel mat-icon { border-radius: 12px; vertical-align: baseline; } /** * Class that is added ondragenter by the [TdFileDrop] directive. */ .drop-zone { border-radius: 3px; } .drop-zone * { pointer-events: none; } /*# sourceMappingURL=file-upload.component.css.map */ "],
+            template: "<td-file-input *ngIf=\"!value\" [(ngModel)]=\"value\" [multiple]=\"multiple\" [disabled]=\"disabled\" [accept]=\"accept\" [color]=\"defaultColor\" (select)=\"handleSelect($event)\"> <ng-template [cdkPortalHost]=\"inputLabel\" [ngIf]=\"true\"></ng-template> </td-file-input> <div *ngIf=\"value\"> <button #fileUpload class=\"td-file-upload\" mat-raised-button type=\"button\" [color]=\"activeColor\" (keyup.delete)=\"cancel()\" (keyup.backspace)=\"cancel()\" (keyup.escape)=\"cancel()\" (click)=\"uploadPressed()\">  <ng-content></ng-content> </button> <button mat-icon-button type=\"button\" class=\"td-file-upload-cancel\" [color]=\"cancelColor\"             (click)=\"cancel()\"> <mat-icon>cancel</mat-icon> </button> </div>",
+        }),
+        tslib_1.__metadata("design:paramtypes", [ChangeDetectorRef])
+    ], TdFileUploadComponent);
     return TdFileUploadComponent;
 }(_TdFileUploadMixinBase));
-tslib_1.__decorate([
-    ViewChild(TdFileInputComponent),
-    tslib_1.__metadata("design:type", TdFileInputComponent)
-], TdFileUploadComponent.prototype, "fileInput", void 0);
-tslib_1.__decorate([
-    ContentChild(TdFileInputLabelDirective),
-    tslib_1.__metadata("design:type", TdFileInputLabelDirective)
-], TdFileUploadComponent.prototype, "inputLabel", void 0);
-tslib_1.__decorate([
-    Input('defaultColor'),
-    tslib_1.__metadata("design:type", String)
-], TdFileUploadComponent.prototype, "defaultColor", void 0);
-tslib_1.__decorate([
-    Input('activeColor'),
-    tslib_1.__metadata("design:type", String)
-], TdFileUploadComponent.prototype, "activeColor", void 0);
-tslib_1.__decorate([
-    Input('cancelColor'),
-    tslib_1.__metadata("design:type", String)
-], TdFileUploadComponent.prototype, "cancelColor", void 0);
-tslib_1.__decorate([
-    Input('multiple'),
-    tslib_1.__metadata("design:type", Boolean),
-    tslib_1.__metadata("design:paramtypes", [Boolean])
-], TdFileUploadComponent.prototype, "multiple", null);
-tslib_1.__decorate([
-    Input('required'),
-    tslib_1.__metadata("design:type", Boolean),
-    tslib_1.__metadata("design:paramtypes", [Boolean])
-], TdFileUploadComponent.prototype, "required", null);
-tslib_1.__decorate([
-    Input('accept'),
-    tslib_1.__metadata("design:type", String)
-], TdFileUploadComponent.prototype, "accept", void 0);
-tslib_1.__decorate([
-    Output('select'),
-    tslib_1.__metadata("design:type", EventEmitter)
-], TdFileUploadComponent.prototype, "onSelect", void 0);
-tslib_1.__decorate([
-    Output('upload'),
-    tslib_1.__metadata("design:type", EventEmitter)
-], TdFileUploadComponent.prototype, "onUpload", void 0);
-tslib_1.__decorate([
-    Output('cancel'),
-    tslib_1.__metadata("design:type", EventEmitter)
-], TdFileUploadComponent.prototype, "onCancel", void 0);
-TdFileUploadComponent = tslib_1.__decorate([
-    Component({
-        changeDetection: ChangeDetectionStrategy.OnPush,
-        providers: [FILE_UPLOAD_CONTROL_VALUE_ACCESSOR],
-        selector: 'td-file-upload',
-        inputs: ['disabled'],
-        styles: [".td-file-upload { padding-left: 8px; padding-right: 8px; } .td-file-upload-cancel { height: 24px; width: 24px; position: relative; top: 24px; left: -12px; } /deep/ [dir='rtl'] .td-file-upload-cancel { right: -12px; left: 0; } .td-file-upload-cancel mat-icon { border-radius: 12px; vertical-align: baseline; } /** * Class that is added ondragenter by the [TdFileDrop] directive. */ .drop-zone { border-radius: 3px; } .drop-zone * { pointer-events: none; } /*# sourceMappingURL=file-upload.component.css.map */ "],
-        template: "<td-file-input *ngIf=\"!value\" [(ngModel)]=\"value\" [multiple]=\"multiple\" [disabled]=\"disabled\" [accept]=\"accept\" [color]=\"defaultColor\" (select)=\"handleSelect($event)\"> <ng-template [cdkPortalHost]=\"inputLabel\" [ngIf]=\"true\"></ng-template> </td-file-input> <div *ngIf=\"value\"> <button #fileUpload class=\"td-file-upload\" mat-raised-button type=\"button\" [color]=\"activeColor\" (keyup.delete)=\"cancel()\" (keyup.backspace)=\"cancel()\" (keyup.escape)=\"cancel()\" (click)=\"uploadPressed()\">  <ng-content></ng-content> </button> <button mat-icon-button type=\"button\" class=\"td-file-upload-cancel\" [color]=\"cancelColor\"             (click)=\"cancel()\"> <mat-icon>cancel</mat-icon> </button> </div>",
-    }),
-    tslib_1.__metadata("design:paramtypes", [ChangeDetectorRef])
-], TdFileUploadComponent);
 export { TdFileUploadComponent };
 //# sourceMappingURL=file-upload.component.js.map

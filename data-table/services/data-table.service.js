@@ -75,11 +75,11 @@ var TdDataTableService = (function () {
         }
         return data;
     };
+    TdDataTableService = tslib_1.__decorate([
+        Injectable()
+    ], TdDataTableService);
     return TdDataTableService;
 }());
-TdDataTableService = tslib_1.__decorate([
-    Injectable()
-], TdDataTableService);
 export { TdDataTableService };
 export function DATA_TABLE_PROVIDER_FACTORY(parent) {
     return parent || new TdDataTableService();

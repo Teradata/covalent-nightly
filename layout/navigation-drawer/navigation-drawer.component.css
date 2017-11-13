@@ -5,6 +5,13 @@
     :host mat-toolbar.td-toolbar-background {
       background-repeat: no-repeat;
       background-size: cover; }
+    :host mat-toolbar.td-nagivation-drawer-toolbar {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      height: auto !important;
+      display: block !important; }
     :host mat-toolbar .td-navigation-drawer-toolbar-content {
       -webkit-box-orient: horizontal;
       -webkit-box-direction: normal;
@@ -42,9 +49,6 @@
         height: 24px;
         line-height: 24px;
         width: 24px; }
-    :host mat-toolbar /deep/ > .mat-toolbar-layout > mat-toolbar-row {
-      height: auto !important;
-      display: block !important; }
   :host > div {
     overflow: hidden; }
 

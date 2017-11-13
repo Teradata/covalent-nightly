@@ -36,12 +36,12 @@ var TdTimeDifferencePipe = (function () {
             pad.substring(0, pad.length - (minutes + '').length) + minutes + ':' +
             pad.substring(0, pad.length - (seconds + '').length) + seconds;
     };
+    TdTimeDifferencePipe = tslib_1.__decorate([
+        Pipe({
+            name: 'timeDifference',
+        })
+    ], TdTimeDifferencePipe);
     return TdTimeDifferencePipe;
 }());
-TdTimeDifferencePipe = tslib_1.__decorate([
-    Pipe({
-        name: 'timeDifference',
-    })
-], TdTimeDifferencePipe);
 export { TdTimeDifferencePipe };
 //# sourceMappingURL=time-difference.pipe.js.map

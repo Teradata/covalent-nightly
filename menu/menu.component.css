@@ -16,44 +16,53 @@
   padding: 8px;
   text-align: center; }
 
-:host /deep/ mat-list a[mat-list-item].mat-2-line .mat-list-item-content,
-:host /deep/ mat-list mat-list-item.mat-2-line .mat-list-item-content,
-:host /deep/ mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content,
-:host /deep/ mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content,
-:host /deep/ mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content,
-:host /deep/ mat-nav-list mat-list-item.mat-2-line .mat-list-item-content,
-:host /deep/ mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content,
-:host /deep/ mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content {
-  height: auto;
-  padding: 8px; }
-  :host /deep/ mat-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,
-  :host /deep/ mat-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,
-  :host /deep/ mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,
-  :host /deep/ mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,
-  :host /deep/ mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,
-  :host /deep/ mat-nav-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,
-  :host /deep/ mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,
-  :host /deep/ mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text {
-    padding-right: 0px; }
-    [dir='rtl'] :host /deep/ mat-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl']
-    :host /deep/ mat-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl']
-    :host /deep/ mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl']
-    :host /deep/ mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl']
-    :host /deep/ mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl']
-    :host /deep/ mat-nav-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl']
-    :host /deep/ mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl']
+:host /deep/ mat-list a[mat-list-item].mat-2-line,
+:host /deep/ mat-list mat-list-item.mat-2-line,
+:host /deep/ mat-list[dense] a[mat-list-item].mat-2-line,
+:host /deep/ mat-list[dense] mat-list-item.mat-2-line,
+:host /deep/ mat-nav-list a[mat-list-item].mat-2-line,
+:host /deep/ mat-nav-list mat-list-item.mat-2-line,
+:host /deep/ mat-nav-list[dense] a[mat-list-item].mat-2-line,
+:host /deep/ mat-nav-list[dense] mat-list-item.mat-2-line {
+  height: auto; }
+  :host /deep/ mat-list a[mat-list-item].mat-2-line .mat-list-item-content,
+  :host /deep/ mat-list mat-list-item.mat-2-line .mat-list-item-content,
+  :host /deep/ mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content,
+  :host /deep/ mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content,
+  :host /deep/ mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content,
+  :host /deep/ mat-nav-list mat-list-item.mat-2-line .mat-list-item-content,
+  :host /deep/ mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content,
+  :host /deep/ mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content {
+    height: auto;
+    padding: 8px; }
+    :host /deep/ mat-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,
+    :host /deep/ mat-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,
+    :host /deep/ mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,
+    :host /deep/ mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,
+    :host /deep/ mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,
+    :host /deep/ mat-nav-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,
+    :host /deep/ mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,
     :host /deep/ mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text {
-      padding-left: 0px;
-      padding-right: 16px; }
-  :host /deep/ mat-list a[mat-list-item].mat-2-line .mat-list-item-content [matLine] + [matLine],
-  :host /deep/ mat-list mat-list-item.mat-2-line .mat-list-item-content [matLine] + [matLine],
-  :host /deep/ mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content [matLine] + [matLine],
-  :host /deep/ mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content [matLine] + [matLine],
-  :host /deep/ mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content [matLine] + [matLine],
-  :host /deep/ mat-nav-list mat-list-item.mat-2-line .mat-list-item-content [matLine] + [matLine],
-  :host /deep/ mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content [matLine] + [matLine],
-  :host /deep/ mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content [matLine] + [matLine] {
-    margin-top: 4px; }
+      padding-right: 0px; }
+      [dir='rtl'] :host /deep/ mat-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl']
+      :host /deep/ mat-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl']
+      :host /deep/ mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl']
+      :host /deep/ mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl']
+      :host /deep/ mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl']
+      :host /deep/ mat-nav-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl']
+      :host /deep/ mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text, [dir='rtl']
+      :host /deep/ mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text {
+        padding-left: 0px;
+        padding-right: 16px; }
+    :host /deep/ mat-list a[mat-list-item].mat-2-line .mat-list-item-content [matLine] + [matLine],
+    :host /deep/ mat-list mat-list-item.mat-2-line .mat-list-item-content [matLine] + [matLine],
+    :host /deep/ mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content [matLine] + [matLine],
+    :host /deep/ mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content [matLine] + [matLine],
+    :host /deep/ mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content [matLine] + [matLine],
+    :host /deep/ mat-nav-list mat-list-item.mat-2-line .mat-list-item-content [matLine] + [matLine],
+    :host /deep/ mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content [matLine] + [matLine],
+    :host /deep/ mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content [matLine] + [matLine] {
+      margin-top: 4px; }
 
 .td-menu-content {
   max-height: calc(50vh);

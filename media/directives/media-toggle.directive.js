@@ -109,33 +109,33 @@ var TdMediaToggleDirective = (function () {
             }
         }
     };
+    tslib_1.__decorate([
+        Input('tdMediaToggle'),
+        tslib_1.__metadata("design:type", String),
+        tslib_1.__metadata("design:paramtypes", [String])
+    ], TdMediaToggleDirective.prototype, "query", null);
+    tslib_1.__decorate([
+        Input('mediaAttributes'),
+        tslib_1.__metadata("design:type", Object),
+        tslib_1.__metadata("design:paramtypes", [Object])
+    ], TdMediaToggleDirective.prototype, "attributes", null);
+    tslib_1.__decorate([
+        Input('mediaClasses'),
+        tslib_1.__metadata("design:type", Array),
+        tslib_1.__metadata("design:paramtypes", [Array])
+    ], TdMediaToggleDirective.prototype, "classes", null);
+    tslib_1.__decorate([
+        Input('mediaStyles'),
+        tslib_1.__metadata("design:type", Object),
+        tslib_1.__metadata("design:paramtypes", [Object])
+    ], TdMediaToggleDirective.prototype, "styles", null);
+    TdMediaToggleDirective = tslib_1.__decorate([
+        Directive({
+            selector: '[tdMediaToggle]',
+        }),
+        tslib_1.__metadata("design:paramtypes", [Renderer2, ElementRef, TdMediaService])
+    ], TdMediaToggleDirective);
     return TdMediaToggleDirective;
 }());
-tslib_1.__decorate([
-    Input('tdMediaToggle'),
-    tslib_1.__metadata("design:type", String),
-    tslib_1.__metadata("design:paramtypes", [String])
-], TdMediaToggleDirective.prototype, "query", null);
-tslib_1.__decorate([
-    Input('mediaAttributes'),
-    tslib_1.__metadata("design:type", Object),
-    tslib_1.__metadata("design:paramtypes", [Object])
-], TdMediaToggleDirective.prototype, "attributes", null);
-tslib_1.__decorate([
-    Input('mediaClasses'),
-    tslib_1.__metadata("design:type", Array),
-    tslib_1.__metadata("design:paramtypes", [Array])
-], TdMediaToggleDirective.prototype, "classes", null);
-tslib_1.__decorate([
-    Input('mediaStyles'),
-    tslib_1.__metadata("design:type", Object),
-    tslib_1.__metadata("design:paramtypes", [Object])
-], TdMediaToggleDirective.prototype, "styles", null);
-TdMediaToggleDirective = tslib_1.__decorate([
-    Directive({
-        selector: '[tdMediaToggle]',
-    }),
-    tslib_1.__metadata("design:paramtypes", [Renderer2, ElementRef, TdMediaService])
-], TdMediaToggleDirective);
 export { TdMediaToggleDirective };
 //# sourceMappingURL=media-toggle.directive.js.map

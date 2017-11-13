@@ -95,12 +95,12 @@ var TdMediaService = (function () {
     TdMediaService.prototype._matchMediaTrigger = function (query) {
         this._querySources[query].next(matchMedia(query).matches);
     };
+    TdMediaService = tslib_1.__decorate([
+        Injectable(),
+        tslib_1.__metadata("design:paramtypes", [NgZone])
+    ], TdMediaService);
     return TdMediaService;
 }());
-TdMediaService = tslib_1.__decorate([
-    Injectable(),
-    tslib_1.__metadata("design:paramtypes", [NgZone])
-], TdMediaService);
 export { TdMediaService };
 export function MEDIA_PROVIDER_FACTORY(parent, ngZone) {
     return parent || new TdMediaService(ngZone);

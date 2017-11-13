@@ -110,12 +110,12 @@ var TdDialogService = (function () {
         dialogConfig.disableClose = config.disableClose;
         return dialogConfig;
     };
+    TdDialogService = tslib_1.__decorate([
+        Injectable(),
+        tslib_1.__metadata("design:paramtypes", [MatDialog])
+    ], TdDialogService);
     return TdDialogService;
 }());
-TdDialogService = tslib_1.__decorate([
-    Injectable(),
-    tslib_1.__metadata("design:paramtypes", [MatDialog])
-], TdDialogService);
 export { TdDialogService };
 export function DIALOG_PROVIDER_FACTORY(parent, dialog) {
     return parent || new TdDialogService(dialog);
