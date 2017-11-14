@@ -1,6 +1,6 @@
 .td-menu-button {
   margin-left: 0px; }
-  /deep/ [dir='rtl'] .td-menu-button {
+  ::ng-deep [dir='rtl'] .td-menu-button {
     margin-right: 0px;
     margin-left: 6px; }
 

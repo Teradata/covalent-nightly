@@ -41,7 +41,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   margin-right: 5px; }
-  /deep/ [dir='rtl'] .td-expansion-label, /deep/ [dir='rtl']
+  ::ng-deep [dir='rtl'] .td-expansion-label, ::ng-deep [dir='rtl']
   .td-expansion-sublabel {
     margin-left: 5px;
     margin-right: inherit; }

@@ -1549,7 +1549,7 @@ mat-list-item mat-icon,
 
 [mat-icon-button].td-layout-menu-button {
   margin-left: 0px; }
-  /deep/ [dir='rtl'] [mat-icon-button].td-layout-menu-button {
+  ::ng-deep [dir='rtl'] [mat-icon-button].td-layout-menu-button {
     margin-right: 0px;
     margin-left: 6px; }
 

@@ -45,20 +45,20 @@
       left: 8px; }
     .td-notification-count.td-notification-no-count.td-notification-after {
       right: 8px; }
-  /deep/ [dir='rtl'] .td-notification-count.td-notification-before {
+  ::ng-deep [dir='rtl'] .td-notification-count.td-notification-before {
     right: 0px;
     left: auto; }
-  /deep/ [dir='rtl'] .td-notification-count.td-notification-after {
+  ::ng-deep [dir='rtl'] .td-notification-count.td-notification-after {
     left: 0px;
     right: auto; }
-  /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-before {
+  ::ng-deep [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-before {
     right: 8px;
     left: auto; }
-  /deep/ [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-after {
+  ::ng-deep [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-after {
     left: 8px;
     right: auto; }
 
-.td-notification-content, .td-notification-content /deep/ > * {
+.td-notification-content, .td-notification-content ::ng-deep > * {
   line-height: 40px; }
 
 /*# sourceMappingURL=notification-count.component.css.map */

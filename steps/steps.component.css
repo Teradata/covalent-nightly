@@ -29,10 +29,10 @@
           flex: 1;
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
-  /deep/ :not([dir='rtl']) .td-horizontal-line {
+  ::ng-deep :not([dir='rtl']) .td-horizontal-line {
     left: -6px;
     right: -3px; }
-  /deep/ [dir='rtl'] .td-horizontal-line {
+  ::ng-deep [dir='rtl'] .td-horizontal-line {
     left: -3px;
     right: -6px; }
 
@@ -42,10 +42,10 @@
   top: -16px;
   border-left-width: 1px;
   border-left-style: solid; }
-  /deep/ :not([dir='rtl']) .td-vertical-line {
+  ::ng-deep :not([dir='rtl']) .td-vertical-line {
     left: 20px;
     right: auto; }
-  /deep/ [dir='rtl'] .td-vertical-line {
+  ::ng-deep [dir='rtl'] .td-vertical-line {
     left: auto;
     right: 20px; }
 

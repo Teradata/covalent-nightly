@@ -8,7 +8,7 @@
   position: relative;
   top: 24px;
   left: -12px; }
-  /deep/ [dir='rtl'] .td-file-upload-cancel {
+  ::ng-deep [dir='rtl'] .td-file-upload-cancel {
     right: -12px;
     left: 0; }
   .td-file-upload-cancel mat-icon {

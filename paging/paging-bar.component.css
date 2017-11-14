@@ -20,7 +20,7 @@
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end; }
-    :host .td-paging-bar /deep/ > * {
+    :host .td-paging-bar ::ng-deep > * {
       margin: 0 10px; }
     :host .td-paging-bar [mat-icon-button] {
       font-size: 12px;

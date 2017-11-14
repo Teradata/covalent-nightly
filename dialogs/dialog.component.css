@@ -9,7 +9,7 @@
   position: relative;
   top: 16px;
   left: 16px; }
-  /deep/ [dir='rtl'] .td-dialog-actions {
+  ::ng-deep [dir='rtl'] .td-dialog-actions {
     right: 16px;
     left: auto; }
 
@@ -29,13 +29,13 @@
       -webkit-box-flex: 1;
           -ms-flex: 1;
               flex: 1; }
-    :host .td-dialog-actions /deep/ button {
+    :host .td-dialog-actions ::ng-deep button {
       text-transform: uppercase;
       margin-left: 8px;
       padding-left: 8px;
       padding-right: 8px;
       min-width: 64px; }
-      [dir='rtl'] :host .td-dialog-actions /deep/ button {
+      [dir='rtl'] :host .td-dialog-actions ::ng-deep button {
         margin-right: 8px;
         margin-left: inherit; }
 

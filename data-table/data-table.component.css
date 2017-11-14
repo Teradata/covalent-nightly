@@ -35,12 +35,12 @@ table.td-data-table {
     table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox {
       width: 18px;
       height: 18px; }
-      /deep/ table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after, /deep/
+      ::ng-deep table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after, ::ng-deep
       table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after {
         width: 11px !important;
         height: 4px !important; }
-    table.td-data-table td.mat-checkbox-cell mat-checkbox /deep/ .mat-checkbox-inner-container,
-    table.td-data-table th.mat-checkbox-column mat-checkbox /deep/ .mat-checkbox-inner-container {
+    table.td-data-table td.mat-checkbox-cell mat-checkbox ::ng-deep .mat-checkbox-inner-container,
+    table.td-data-table th.mat-checkbox-column mat-checkbox ::ng-deep .mat-checkbox-inner-container {
       width: 18px;
       height: 18px;
       margin: 0; }

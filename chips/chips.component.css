@@ -41,11 +41,11 @@
       -webkit-box-pack: justify;
           -ms-flex-pack: justify;
               justify-content: space-between; }
-  :host /deep/ {
+  :host ::ng-deep {
     /* TODO see if we can make styles more abstract to future proof for contact chips */ }
-    :host /deep/ .mat-form-field-wrapper {
+    :host ::ng-deep .mat-form-field-wrapper {
       padding-bottom: 2px; }
-    :host /deep/ .mat-basic-chip {
+    :host ::ng-deep .mat-basic-chip {
       display: inline-block;
       cursor: default;
       border-radius: 16px;
@@ -54,42 +54,42 @@
               box-sizing: border-box;
       max-width: 100%;
       position: relative; }
-      html[dir=rtl] :host /deep/ .mat-basic-chip {
+      html[dir=rtl] :host ::ng-deep .mat-basic-chip {
         margin: 8px 0 0 8px;
         unicode-bidi: embed; }
-      body[dir=rtl] :host /deep/ .mat-basic-chip {
+      body[dir=rtl] :host ::ng-deep .mat-basic-chip {
         margin: 8px 0 0 8px;
         unicode-bidi: embed; }
-      [dir=rtl] :host /deep/ .mat-basic-chip {
+      [dir=rtl] :host ::ng-deep .mat-basic-chip {
         margin: 8px 0 0 8px;
         unicode-bidi: embed; }
-      :host /deep/ .mat-basic-chip bdo[dir=rtl] {
+      :host ::ng-deep .mat-basic-chip bdo[dir=rtl] {
         direction: rtl;
         unicode-bidi: bidi-override; }
-      :host /deep/ .mat-basic-chip bdo[dir=ltr] {
+      :host ::ng-deep .mat-basic-chip bdo[dir=ltr] {
         direction: ltr;
         unicode-bidi: bidi-override; }
-      :host /deep/ .mat-basic-chip .td-chip {
+      :host ::ng-deep .mat-basic-chip .td-chip {
         min-height: 32px;
         line-height: 32px;
         font-size: 13px;
         padding: 0 0 0 12px; }
-        html[dir=rtl] :host /deep/ .mat-basic-chip .td-chip {
+        html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip {
           padding: 0 12px 0 0;
           unicode-bidi: embed; }
-        body[dir=rtl] :host /deep/ .mat-basic-chip .td-chip {
+        body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip {
           padding: 0 12px 0 0;
           unicode-bidi: embed; }
-        [dir=rtl] :host /deep/ .mat-basic-chip .td-chip {
+        [dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip {
           padding: 0 12px 0 0;
           unicode-bidi: embed; }
-        :host /deep/ .mat-basic-chip .td-chip bdo[dir=rtl] {
+        :host ::ng-deep .mat-basic-chip .td-chip bdo[dir=rtl] {
           direction: rtl;
           unicode-bidi: bidi-override; }
-        :host /deep/ .mat-basic-chip .td-chip bdo[dir=ltr] {
+        :host ::ng-deep .mat-basic-chip .td-chip bdo[dir=ltr] {
           direction: ltr;
           unicode-bidi: bidi-override; }
-        :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] {
+        :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] {
           display: inline-block;
           -webkit-box-ordinal-group: -19;
               -ms-flex-order: -20;
@@ -105,43 +105,43 @@
           width: 32px;
           margin: 0 8px 0 -12px;
           border-radius: 50%; }
-          html[dir=rtl] :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] {
+          html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] {
             margin: 0 -12px 0 8px;
             unicode-bidi: embed; }
-          body[dir=rtl] :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] {
+          body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] {
             margin: 0 -12px 0 8px;
             unicode-bidi: embed; }
-          [dir=rtl] :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] {
+          [dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] {
             margin: 0 -12px 0 8px;
             unicode-bidi: embed; }
-          :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=rtl] {
+          :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=rtl] {
             direction: rtl;
             unicode-bidi: bidi-override; }
-          :host /deep/ .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=ltr] {
+          :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=ltr] {
             direction: ltr;
             unicode-bidi: bidi-override; }
-      :host /deep/ .mat-basic-chip.td-chip-after-pad {
+      :host ::ng-deep .mat-basic-chip.td-chip-after-pad {
         padding: 0 12px 0 0; }
-        html[dir=rtl] :host /deep/ .mat-basic-chip.td-chip-after-pad {
+        html[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad {
           padding: 0 0 0 12px;
           unicode-bidi: embed; }
-        body[dir=rtl] :host /deep/ .mat-basic-chip.td-chip-after-pad {
+        body[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad {
           padding: 0 0 0 12px;
           unicode-bidi: embed; }
-        [dir=rtl] :host /deep/ .mat-basic-chip.td-chip-after-pad {
+        [dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad {
           padding: 0 0 0 12px;
           unicode-bidi: embed; }
-        :host /deep/ .mat-basic-chip.td-chip-after-pad bdo[dir=rtl] {
+        :host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=rtl] {
           direction: rtl;
           unicode-bidi: bidi-override; }
-        :host /deep/ .mat-basic-chip.td-chip-after-pad bdo[dir=ltr] {
+        :host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=ltr] {
           direction: ltr;
           unicode-bidi: bidi-override; }
-      :host /deep/ .mat-basic-chip mat-icon.td-chip-removal {
+      :host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal {
         margin: 0 4px;
         font-size: 21px;
         line-height: 22px; }
-        :host /deep/ .mat-basic-chip mat-icon.td-chip-removal:hover {
+        :host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal:hover {
           cursor: pointer; }
   :host .mat-form-field-underline {
     position: relative;
@@ -173,7 +173,7 @@
         transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
         transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear; }
 
-:host /deep/ mat-form-field .mat-form-field-underline {
+:host ::ng-deep mat-form-field .mat-form-field-underline {
   display: none; }
 
 /*# sourceMappingURL=chips.component.css.map */

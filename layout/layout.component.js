@@ -82,7 +82,7 @@ var TdLayoutComponent = (function () {
     TdLayoutComponent = tslib_1.__decorate([
         Component({
             selector: 'td-layout',
-            styles: [":host { display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } :host /deep/ > mat-sidenav-container > mat-sidenav { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; } /*# sourceMappingURL=layout.component.css.map */ "],
+            styles: [":host { display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0; width: 100%; min-height: 100%; height: 100%; overflow: hidden; } :host ::ng-deep > mat-sidenav-container > mat-sidenav { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; } /*# sourceMappingURL=layout.component.css.map */ "],
             template: "<mat-sidenav-container fullscreen> <mat-sidenav #sidenav class=\"td-layout-sidenav\" [mode]=\"mode\" [opened]=\"opened\" [style.max-width]=\"sidenavWidth\" [style.min-width]=\"sidenavWidth\" [disableClose]=\"disableClose\"> <ng-content select=\"td-navigation-drawer\"></ng-content> <ng-content select=\"[td-sidenav-content]\"></ng-content> </mat-sidenav> <ng-content></ng-content> </mat-sidenav-container> ",
         })
     ], TdLayoutComponent);
