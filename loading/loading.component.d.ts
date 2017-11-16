@@ -28,6 +28,7 @@ export declare class TdLoadingComponent {
     private _mode;
     private _defaultMode;
     private _value;
+    private _circleDiameter;
     /**
      * Flag for animation
      */
@@ -79,6 +80,10 @@ export declare class TdLoadingComponent {
      * Starts out animation and returns an observable for completition event.
      */
     startOutAnimation(): Observable<any>;
+    /**
+     * Calculate the proper diameter for the circle and set it
+     */
+    private _setCircleDiameter();
     /**
      * Returns the host height of the loading component
      */
