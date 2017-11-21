@@ -15,10 +15,6 @@ export declare class TdMessageComponent implements AfterViewInit {
     _childElement: TdMessageContainerDirective;
     _template: TemplateRef<any>;
     /**
-     * Binding host to tdFadeInOut animation
-     */
-    readonly fadeAnimation: boolean;
-    /**
      * Binding host to tdCollapse animation
      */
     readonly collapsedAnimation: boolean;

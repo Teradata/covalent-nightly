@@ -1,7 +1,6 @@
 import * as tslib_1 from "tslib";
 import { Component, Directive, Input, Renderer2, ElementRef, ViewContainerRef, TemplateRef, ViewChild, HostBinding, HostListener, ChangeDetectorRef } from '@angular/core';
 import { TdCollapseAnimation } from '../common/animations/collapse/collapse.animation';
-import { TdFadeInOutAnimation } from '../common/animations/fade/fadeInOut.animation';
 var TdMessageContainerDirective = (function () {
     function TdMessageContainerDirective(viewContainer) {
         this.viewContainer = viewContainer;
@@ -33,16 +32,6 @@ var TdMessageComponent = (function () {
         this.icon = 'info_outline';
         this._renderer.addClass(this._elementRef.nativeElement, 'td-message');
     }
-    Object.defineProperty(TdMessageComponent.prototype, "fadeAnimation", {
-        /**
-         * Binding host to tdFadeInOut animation
-         */
-        get: function () {
-            return this._opened;
-        },
-        enumerable: true,
-        configurable: true
-    });
     Object.defineProperty(TdMessageComponent.prototype, "collapsedAnimation", {
         /**
          * Binding host to tdCollapse animation
@@ -203,11 +192,6 @@ var TdMessageComponent = (function () {
         tslib_1.__metadata("design:type", TemplateRef)
     ], TdMessageComponent.prototype, "_template", void 0);
     tslib_1.__decorate([
-        HostBinding('@tdFadeInOut'),
-        tslib_1.__metadata("design:type", Boolean),
-        tslib_1.__metadata("design:paramtypes", [])
-    ], TdMessageComponent.prototype, "fadeAnimation", null);
-    tslib_1.__decorate([
         HostBinding('@tdCollapse'),
         tslib_1.__metadata("design:type", Boolean),
         tslib_1.__metadata("design:paramtypes", [])
@@ -252,7 +236,6 @@ var TdMessageComponent = (function () {
             styles: [":host { display: block; } :host .td-message-wrapper { padding: 8px 16px; min-height: 52px; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: start; } :host .td-message-wrapper .td-message-icon { margin-right: 16px; } :host .td-message-wrapper .td-message-labels { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } /*# sourceMappingURL=message.component.css.map */ "],
             animations: [
                 TdCollapseAnimation({ duration: 100 }),
-                TdFadeInOutAnimation({ duration: 100 }),
             ],
         }),
         tslib_1.__metadata("design:paramtypes", [Renderer2,
