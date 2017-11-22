@@ -1,8 +1,8 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/animations'), require('@angular/cdk/coercion'), require('@angular/router'), require('rxjs/operators/filter'), require('rxjs/operators/pairwise'), require('@angular/material'), require('@angular/platform-browser'), require('@angular/cdk/portal'), require('@angular/cdk/keycodes'), require('rxjs/observable/timer'), require('rxjs/observable/merge'), require('rxjs/operator/toPromise'), require('rxjs/observable/fromEvent'), require('rxjs/operators/debounceTime'), require('rxjs/Subject'), require('@angular/http'), require('rxjs/Observable'), require('@angular/cdk/bidi'), require('@angular/cdk/scrolling'), require('@angular/cdk/overlay'), require('rxjs/BehaviorSubject'), require('rxjs/operators/skip')) :
-	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/animations', '@angular/cdk/coercion', '@angular/router', 'rxjs/operators/filter', 'rxjs/operators/pairwise', '@angular/material', '@angular/platform-browser', '@angular/cdk/portal', '@angular/cdk/keycodes', 'rxjs/observable/timer', 'rxjs/observable/merge', 'rxjs/operator/toPromise', 'rxjs/observable/fromEvent', 'rxjs/operators/debounceTime', 'rxjs/Subject', '@angular/http', 'rxjs/Observable', '@angular/cdk/bidi', '@angular/cdk/scrolling', '@angular/cdk/overlay', 'rxjs/BehaviorSubject', 'rxjs/operators/skip'], factory) :
-	(factory((global.td = global.td || {}, global.td.core = global.td.core || {}),global.ng.core,global.ng.common,global.ng.forms,global.ng.animations,global.ng.cdk.coercion,global.ng.router,global.Rx.Observable,global.Rx.Observable,global.ng.material,global.ng.platformBrowser,global.ng.cdk.portal,global.ng.cdk.keycodes,global.Rx.Observable,global.Rx.Observable,global.Rx.Observable.prototype,global.Rx.Observable,global.Rx.Observable,global.Rx,global.ng.http,global.Rx,global.ng.cdk.bidi,global.ng.cdk.scrolling,global.ng.cdk.overlay,global.Rx.BehaviorSubject,global.Rx.Observable));
-}(this, (function (exports,_angular_core,_angular_common,_angular_forms,_angular_animations,_angular_cdk_coercion,_angular_router,rxjs_operators_filter,rxjs_operators_pairwise,_angular_material,_angular_platformBrowser,_angular_cdk_portal,_angular_cdk_keycodes,rxjs_observable_timer,rxjs_observable_merge,rxjs_operator_toPromise,rxjs_observable_fromEvent,rxjs_operators_debounceTime,rxjs_Subject,_angular_http,rxjs_Observable,_angular_cdk_bidi,_angular_cdk_scrolling,_angular_cdk_overlay,rxjs_BehaviorSubject,rxjs_operators_skip) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/animations'), require('@angular/cdk/coercion'), require('@angular/router'), require('rxjs/operators/filter'), require('rxjs/operators/pairwise'), require('@angular/material'), require('@angular/platform-browser'), require('@angular/cdk/portal'), require('@angular/cdk/keycodes'), require('rxjs/observable/timer'), require('rxjs/observable/merge'), require('rxjs/operator/toPromise'), require('rxjs/observable/fromEvent'), require('rxjs/operators/debounceTime'), require('rxjs/Subject'), require('rxjs/Observable'), require('@angular/cdk/bidi'), require('@angular/cdk/scrolling'), require('@angular/cdk/overlay'), require('rxjs/BehaviorSubject'), require('rxjs/operators/skip')) :
+	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/animations', '@angular/cdk/coercion', '@angular/router', 'rxjs/operators/filter', 'rxjs/operators/pairwise', '@angular/material', '@angular/platform-browser', '@angular/cdk/portal', '@angular/cdk/keycodes', 'rxjs/observable/timer', 'rxjs/observable/merge', 'rxjs/operator/toPromise', 'rxjs/observable/fromEvent', 'rxjs/operators/debounceTime', 'rxjs/Subject', 'rxjs/Observable', '@angular/cdk/bidi', '@angular/cdk/scrolling', '@angular/cdk/overlay', 'rxjs/BehaviorSubject', 'rxjs/operators/skip'], factory) :
+	(factory((global.td = global.td || {}, global.td.core = global.td.core || {}),global.ng.core,global.ng.common,global.ng.forms,global.ng.animations,global.ng.cdk.coercion,global.ng.router,global.Rx.Observable,global.Rx.Observable,global.ng.material,global.ng.platformBrowser,global.ng.cdk.portal,global.ng.cdk.keycodes,global.Rx.Observable,global.Rx.Observable,global.Rx.Observable.prototype,global.Rx.Observable,global.Rx.Observable,global.Rx,global.Rx,global.ng.cdk.bidi,global.ng.cdk.scrolling,global.ng.cdk.overlay,global.Rx.BehaviorSubject,global.Rx.Observable));
+}(this, (function (exports,_angular_core,_angular_common,_angular_forms,_angular_animations,_angular_cdk_coercion,_angular_router,rxjs_operators_filter,rxjs_operators_pairwise,_angular_material,_angular_platformBrowser,_angular_cdk_portal,_angular_cdk_keycodes,rxjs_observable_timer,rxjs_observable_merge,rxjs_operator_toPromise,rxjs_observable_fromEvent,rxjs_operators_debounceTime,rxjs_Subject,rxjs_Observable,_angular_cdk_bidi,_angular_cdk_scrolling,_angular_cdk_overlay,rxjs_BehaviorSubject,rxjs_operators_skip) { 'use strict';
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
@@ -5534,8 +5534,6 @@ var CovalentFileModule = (function () {
     CovalentFileModule = __decorate([
         _angular_core.NgModule({
             imports: [
-                _angular_http.HttpModule,
-                _angular_http.JsonpModule,
                 _angular_forms.FormsModule,
                 _angular_common.CommonModule,
                 _angular_material.MatIconModule,
@@ -9910,6 +9908,10 @@ var CovalentVirtualScrollModule = (function () {
     ], CovalentVirtualScrollModule);
     return CovalentVirtualScrollModule;
 }());
+
+/**
+ * COMMON
+ */
 
 exports.TdToggleDirective = TdToggleDirective;
 exports.TdFadeDirective = TdFadeDirective;

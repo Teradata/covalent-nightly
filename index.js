@@ -1,3 +1,6 @@
+/**
+ * COMMON
+ */
 export * from './common/common.module';
 export * from './chips/chips.module';
 export * from './data-table/data-table.module';

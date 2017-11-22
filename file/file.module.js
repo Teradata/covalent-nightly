@@ -1,7 +1,6 @@
 import * as tslib_1 from "tslib";
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpModule, JsonpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { PortalModule } from '@angular/cdk/portal';
 import { MatIconModule, MatButtonModule } from '@angular/material';
@@ -28,8 +27,6 @@ var CovalentFileModule = (function () {
     CovalentFileModule = tslib_1.__decorate([
         NgModule({
             imports: [
-                HttpModule,
-                JsonpModule,
                 FormsModule,
                 CommonModule,
                 MatIconModule,
