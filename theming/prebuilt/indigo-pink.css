@@ -298,10 +298,10 @@
 
 .mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill + .mat-form-field-placeholder-wrapper
 .mat-form-field-placeholder {
-  -webkit-transform: translateY(-1.28125em) scale(0.75) perspective(100px) translateZ(0.001px);
-          transform: translateY(-1.28125em) scale(0.75) perspective(100px) translateZ(0.001px);
+  -webkit-transform: translateY(-1.28125em) scale(0.75) perspective(100px) translateZ(0.002px);
+          transform: translateY(-1.28125em) scale(0.75) perspective(100px) translateZ(0.002px);
   -ms-transform: translateY(-1.28125em) scale(0.75);
-  width: 133.33333%; }
+  width: 133.33343%; }
 
 .mat-form-field-placeholder-wrapper {
   top: -0.84375em;
