@@ -28,6 +28,7 @@ export interface ITdDataTableColumn {
 export interface ITdDataTableSelectEvent {
     row: any;
     selected: boolean;
+    index: number;
 }
 export interface ITdDataTableSelectAllEvent {
     rows: any[];
@@ -35,6 +36,7 @@ export interface ITdDataTableSelectAllEvent {
 }
 export interface ITdDataTableRowClickEvent {
     row: any;
+    index: number;
 }
 export interface IInternalColumnWidth {
     value: number;
@@ -282,7 +284,7 @@ export declare class TdDataTableComponent implements ControlValueAccessor, OnIni
      * emits the onRowClickEvent when a row is clicked
      * if clickable is true and selectable is false then select the row
      */
-    handleRowClick(row: any, event: Event): void;
+    handleRowClick(row: any, index: number, event: Event): void;
     /**
      * Method handle for sort click event in column headers.
      */
@@ -307,7 +309,7 @@ export declare class TdDataTableComponent implements ControlValueAccessor, OnIni
     /**
      * Does the actual Row Selection
      */
-    private _doSelection(row);
+    private _doSelection(row, rowIndex);
     /**
      * Calculate all the state of all checkboxes
      */

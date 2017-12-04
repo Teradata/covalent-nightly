@@ -592,7 +592,7 @@ var TdDataTableComponent = (function () {
                     (this._firstSelectedIndex <= currentSelected && this._lastSelectedIndex < this._firstSelectedIndex)) {
                     for (var i = firstIndex; i <= lastIndex; i++) {
                         if (this._firstSelectedIndex !== i) {
-                            this._doSelection(this._data[i]);
+                            this._doSelection(this._data[i], i);
                         }
                     }
                 }
@@ -611,14 +611,14 @@ var TdDataTableComponent = (function () {
                         // we ignore the toggle
                         if ((this._firstCheckboxValue && !rowSelected) ||
                             (!this._firstCheckboxValue && rowSelected)) {
-                            this._doSelection(this._data[i]);
+                            this._doSelection(this._data[i], i);
                         }
                         else if (this._shiftPreviouslyPressed) {
                             // else if the checkbox selected was in the middle of the last selection and the first selection
                             // then we undo the selections
                             if ((currentSelected >= this._firstSelectedIndex && currentSelected <= this._lastSelectedIndex) ||
                                 (currentSelected <= this._firstSelectedIndex && currentSelected >= this._lastSelectedIndex)) {
-                                this._doSelection(this._data[i]);
+                                this._doSelection(this._data[i], i);
                             }
                         }
                     }
@@ -628,7 +628,7 @@ var TdDataTableComponent = (function () {
                 // incase the next click uses shift
             }
             else if (mouseEvent && !mouseEvent.shiftKey) {
-                this._firstCheckboxValue = this._doSelection(row);
+                this._firstCheckboxValue = this._doSelection(row, currentSelected);
                 this._shiftPreviouslyPressed = false;
                 this._firstSelectedIndex = currentSelected;
             }
@@ -658,14 +658,17 @@ var TdDataTableComponent = (function () {
      * emits the onRowClickEvent when a row is clicked
      * if clickable is true and selectable is false then select the row
      */
-    TdDataTableComponent.prototype.handleRowClick = function (row, event) {
+    TdDataTableComponent.prototype.handleRowClick = function (row, index, event) {
         if (this.clickable) {
             // ignoring linting rules here because attribute it actually null or not there
             // can't check for undefined
             var srcElement = event.srcElement || event.currentTarget;
             /* tslint:disable-next-line */
             if (srcElement.getAttribute('stopRowClick') === null) {
-                this.onRowClick.emit({ row: row });
+                this.onRowClick.emit({
+                    row: row,
+                    index: index,
+                });
             }
         }
     };
@@ -692,7 +695,7 @@ var TdDataTableComponent = (function () {
             case SPACE:
                 /** if user presses enter or space, the row should be selected */
                 if (this.selectable) {
-                    this._doSelection(this._data[this.fromRow + index]);
+                    this._doSelection(this._data[this.fromRow + index], this.fromRow + index);
                 }
                 break;
             case UP_ARROW:
@@ -705,7 +708,7 @@ var TdDataTableComponent = (function () {
                 }
                 this.blockEvent(event);
                 if (this.selectable && this.multiple && event.shiftKey && this.fromRow + index >= 0) {
-                    this._doSelection(this._data[this.fromRow + index]);
+                    this._doSelection(this._data[this.fromRow + index], this.fromRow + index);
                 }
                 break;
             case DOWN_ARROW:
@@ -718,7 +721,7 @@ var TdDataTableComponent = (function () {
                 }
                 this.blockEvent(event);
                 if (this.selectable && this.multiple && event.shiftKey && this.fromRow + index < this._data.length) {
-                    this._doSelection(this._data[this.fromRow + index]);
+                    this._doSelection(this._data[this.fromRow + index], this.fromRow + index);
                 }
                 break;
             default:
@@ -757,7 +760,7 @@ var TdDataTableComponent = (function () {
     /**
      * Does the actual Row Selection
      */
-    TdDataTableComponent.prototype._doSelection = function (row) {
+    TdDataTableComponent.prototype._doSelection = function (row, rowIndex) {
         var _this = this;
         var wasSelected = this.isRowSelected(row);
         if (!wasSelected) {
@@ -777,7 +780,7 @@ var TdDataTableComponent = (function () {
             }
         }
         this._calculateCheckboxState();
-        this.onRowSelect.emit({ row: row, selected: !wasSelected });
+        this.onRowSelect.emit({ row: row, index: rowIndex, selected: !wasSelected });
         this.onChange(this._value);
         return !wasSelected;
     };
@@ -1063,7 +1066,7 @@ var TdDataTableComponent = (function () {
             providers: [TD_DATA_TABLE_CONTROL_VALUE_ACCESSOR],
             selector: 'td-data-table',
             styles: [":host { display: block; overflow: hidden; } :host .td-data-table-scrollable { position: relative; overflow: auto; height: calc(100% - 56px); } table.td-data-table { width: auto !important; } table.td-data-table.mat-selectable tbody > tr.td-data-table-row { -webkit-transition: background-color 0.2s; transition: background-color 0.2s; } table.td-data-table.mat-selectable .td-data-table-column:first-child > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable th.td-data-table-column:first-child > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable td.td-data-table-cell:first-child > .td-data-table-column-content-wrapper { width: 18px; min-width: 18px; padding: 0 24px; } table.td-data-table.mat-selectable .td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) > .td-data-table-column-content-wrapper { padding-left: 0px; } [dir='rtl'] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, [dir='rtl'] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, [dir='rtl'] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) > .td-data-table-column-content-wrapper { padding-right: 0px; padding-left: 28px; } table.td-data-table td.mat-checkbox-cell, table.td-data-table th.mat-checkbox-column { min-width: 42px; width: 42px; font-size: 0 !important; } table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox, table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox { width: 18px; height: 18px; } ::ng-deep table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after, ::ng-deep table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after { width: 11px !important; height: 4px !important; } table.td-data-table td.mat-checkbox-cell mat-checkbox ::ng-deep .mat-checkbox-inner-container, table.td-data-table th.mat-checkbox-column mat-checkbox ::ng-deep .mat-checkbox-inner-container { width: 18px; height: 18px; margin: 0; } /*# sourceMappingURL=data-table.component.css.map */ "],
-            template: "<table td-data-table [style.left.px]=\"columnsLeftScroll\" [class.mat-selectable]=\"selectable\"> <tr td-data-table-column-row> <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"selectable\"> <mat-checkbox #checkBoxAll *ngIf=\"multiple\" [disabled]=\"!hasData\" [indeterminate]=\"indeterminate && !allSelected && hasData\" [checked]=\"allSelected && hasData\" (click)=\"blockEvent($event); selectAll(!checkBoxAll.checked)\" (keyup.enter)=\"selectAll(!checkBoxAll.checked)\" (keyup.space)=\"selectAll(!checkBoxAll.checked)\" (keydown.space)=\"blockEvent($event)\"> </mat-checkbox> </th> <th td-data-table-column #columnElement *ngFor=\"let column of columns; let i = index;\" [style.min-width.px]=\"getColumnWidth(i)\" [style.max-width.px]=\"getColumnWidth(i)\" [name]=\"column.name\" [numeric]=\"column.numeric\" [active]=\"(column.sortable || sortable) && column === sortByColumn\" [sortable]=\"column.sortable || (sortable && column.sortable !== false)\" [sortOrder]=\"sortOrderEnum\" [hidden]=\"column.hidden\" (sortChange)=\"handleSort(column)\"> <span [matTooltip]=\"column.tooltip\">{{column.label}}</span> </th> </tr> </table> <div #scrollableDiv class=\"td-data-table-scrollable\" (scroll)=\"handleScroll($event)\"> <div [style.height.px]=\"totalHeight\"></div> <table td-data-table [style.transform]=\"offsetTransform\" [style.position]=\"'absolute'\" [class.mat-selectable]=\"selectable\" [class.mat-clickable]=\"clickable\"> <tr td-data-table-row #dtRow [tabIndex]=\"selectable ? 0 : -1\" [selected]=\"(clickable || selectable) && isRowSelected(row)\" *ngFor=\"let row of virtualData; let rowIndex = index\" (click)=\"handleRowClick(row, $event)\" (keyup)=\"selectable && _rowKeyup($event, row, rowIndex)\" (keydown.space)=\"blockEvent($event)\" (keydown.shift.space)=\"blockEvent($event)\" (keydown.shift)=\"disableTextSelection()\" (keyup.shift)=\"enableTextSelection()\"> <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"selectable\"> <mat-pseudo-checkbox [state]=\"dtRow.selected ? 'checked' : 'unchecked'\" (mousedown)=\"disableTextSelection()\" (mouseup)=\"enableTextSelection()\" stopRowClick (click)=\"select(row, $event, fromRow + rowIndex)\"> </mat-pseudo-checkbox> </td> <td td-data-table-cell [numeric]=\"column.numeric\" [hidden]=\"column.hidden\" *ngFor=\"let column of columns; let i = index\" [style.min-width.px]=\"getColumnWidth(i)\" [style.max-width.px]=\"getColumnWidth(i)\"> <span *ngIf=\"!getTemplateRef(column.name)\">{{column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row)}}</span> <ng-template *ngIf=\"getTemplateRef(column.name)\" [ngTemplateOutlet]=\"getTemplateRef(column.name)\" [ngTemplateOutletContext]=\"{ value: getCellValue(column, row), row: row, column: column.name }\"> </ng-template> </td> </tr> </table> </div> <ng-content></ng-content>",
+            template: "<table td-data-table [style.left.px]=\"columnsLeftScroll\" [class.mat-selectable]=\"selectable\"> <tr td-data-table-column-row> <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"selectable\"> <mat-checkbox #checkBoxAll *ngIf=\"multiple\" [disabled]=\"!hasData\" [indeterminate]=\"indeterminate && !allSelected && hasData\" [checked]=\"allSelected && hasData\" (click)=\"blockEvent($event); selectAll(!checkBoxAll.checked)\" (keyup.enter)=\"selectAll(!checkBoxAll.checked)\" (keyup.space)=\"selectAll(!checkBoxAll.checked)\" (keydown.space)=\"blockEvent($event)\"> </mat-checkbox> </th> <th td-data-table-column #columnElement *ngFor=\"let column of columns; let i = index;\" [style.min-width.px]=\"getColumnWidth(i)\" [style.max-width.px]=\"getColumnWidth(i)\" [name]=\"column.name\" [numeric]=\"column.numeric\" [active]=\"(column.sortable || sortable) && column === sortByColumn\" [sortable]=\"column.sortable || (sortable && column.sortable !== false)\" [sortOrder]=\"sortOrderEnum\" [hidden]=\"column.hidden\" (sortChange)=\"handleSort(column)\"> <span [matTooltip]=\"column.tooltip\">{{column.label}}</span> </th> </tr> </table> <div #scrollableDiv class=\"td-data-table-scrollable\" (scroll)=\"handleScroll($event)\"> <div [style.height.px]=\"totalHeight\"></div> <table td-data-table [style.transform]=\"offsetTransform\" [style.position]=\"'absolute'\" [class.mat-selectable]=\"selectable\" [class.mat-clickable]=\"clickable\"> <tr td-data-table-row #dtRow [tabIndex]=\"selectable ? 0 : -1\" [selected]=\"(clickable || selectable) && isRowSelected(row)\" *ngFor=\"let row of virtualData; let rowIndex = index\" (click)=\"handleRowClick(row, fromRow + rowIndex, $event)\" (keyup)=\"selectable && _rowKeyup($event, row, rowIndex)\" (keydown.space)=\"blockEvent($event)\" (keydown.shift.space)=\"blockEvent($event)\" (keydown.shift)=\"disableTextSelection()\" (keyup.shift)=\"enableTextSelection()\"> <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"selectable\"> <mat-pseudo-checkbox [state]=\"dtRow.selected ? 'checked' : 'unchecked'\" (mousedown)=\"disableTextSelection()\" (mouseup)=\"enableTextSelection()\" stopRowClick (click)=\"select(row, $event, fromRow + rowIndex)\"> </mat-pseudo-checkbox> </td> <td td-data-table-cell [numeric]=\"column.numeric\" [hidden]=\"column.hidden\" *ngFor=\"let column of columns; let i = index\" [style.min-width.px]=\"getColumnWidth(i)\" [style.max-width.px]=\"getColumnWidth(i)\"> <span *ngIf=\"!getTemplateRef(column.name)\">{{column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row)}}</span> <ng-template *ngIf=\"getTemplateRef(column.name)\" [ngTemplateOutlet]=\"getTemplateRef(column.name)\" [ngTemplateOutletContext]=\"{ value: getCellValue(column, row), row: row, column: column.name }\"> </ng-template> </td> </tr> </table> </div> <ng-content></ng-content>",
             changeDetection: ChangeDetectionStrategy.OnPush,
         }),
         tslib_1.__param(0, Optional()), tslib_1.__param(0, Inject(DOCUMENT)),

@@ -41,6 +41,7 @@ var TdDataTableService = (function () {
     TdDataTableService.prototype.sortData = function (data, sortBy, sortOrder) {
         if (sortOrder === void 0) { sortOrder = TdDataTableSortingOrder.Ascending; }
         if (sortBy) {
+            data = Array.from(data); // Change the array reference to trigger OnPush and not mutate original array
             data.sort(function (a, b) {
                 var compA = a[sortBy];
                 var compB = b[sortBy];
