@@ -290,24 +290,32 @@
   padding: 0.4375em 0;
   border-top: 0.84375em solid transparent; }
 
-.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
+.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
+.mat-form-field-can-float .mat-input-server:focus + .mat-form-field-label-wrapper .mat-form-field-label {
   -webkit-transform: translateY(-1.28125em) scale(0.75) perspective(100px) translateZ(0.001px);
           transform: translateY(-1.28125em) scale(0.75) perspective(100px) translateZ(0.001px);
   -ms-transform: translateY(-1.28125em) scale(0.75);
   width: 133.33333%; }
 
-.mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill + .mat-form-field-placeholder-wrapper
-.mat-form-field-placeholder {
-  -webkit-transform: translateY(-1.28125em) scale(0.75) perspective(100px) translateZ(0.002px);
-          transform: translateY(-1.28125em) scale(0.75) perspective(100px) translateZ(0.002px);
-  -ms-transform: translateY(-1.28125em) scale(0.75);
-  width: 133.33343%; }
+.mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill + .mat-form-field-label-wrapper
+.mat-form-field-label {
+  -webkit-transform: translateY(-1.28125em) scale(0.75) perspective(100px) translateZ(0.00101px);
+          transform: translateY(-1.28125em) scale(0.75) perspective(100px) translateZ(0.00101px);
+  -ms-transform: translateY(-1.28124em) scale(0.75);
+  width: 133.33334%; }
 
-.mat-form-field-placeholder-wrapper {
+.mat-form-field-can-float .mat-input-server[label]:not(:label-shown) + .mat-form-field-label-wrapper
+.mat-form-field-label {
+  -webkit-transform: translateY(-1.28125em) scale(0.75) perspective(100px) translateZ(0.00102px);
+          transform: translateY(-1.28125em) scale(0.75) perspective(100px) translateZ(0.00102px);
+  -ms-transform: translateY(-1.28123em) scale(0.75);
+  width: 133.33335%; }
+
+.mat-form-field-label-wrapper {
   top: -0.84375em;
   padding-top: 0.84375em; }
 
-.mat-form-field-placeholder {
+.mat-form-field-label {
   top: 1.28125em; }
 
 .mat-form-field-underline {
@@ -511,7 +519,20 @@ input.mat-input-element {
   text-decoration: none;
   position: relative;
   cursor: pointer;
-  outline: none; }
+  outline: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  max-width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
   .mat-option[disabled] {
     cursor: default; }
   [dir='rtl'] .mat-option {
@@ -534,7 +555,12 @@ input.mat-input-element {
       padding-right: 32px; }
 
 .mat-option-text {
-  display: inline-block; }
+  display: inline-block;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis; }
 
 .mat-option-ripple {
   top: 0;
@@ -950,17 +976,17 @@ input.mat-input-element {
   .mat-expansion-panel-header[aria-disabled='true'] .mat-expansion-panel-header-description {
     color: inherit; }
 
-.mat-form-field-placeholder {
+.mat-form-field-label {
   color: rgba(0, 0, 0, 0.54); }
 
 .mat-hint {
   color: rgba(0, 0, 0, 0.54); }
 
-.mat-focused .mat-form-field-placeholder {
+.mat-focused .mat-form-field-label {
   color: #3f51b5; }
-  .mat-focused .mat-form-field-placeholder.mat-accent {
+  .mat-focused .mat-form-field-label.mat-accent {
     color: #ff4081; }
-  .mat-focused .mat-form-field-placeholder.mat-warn {
+  .mat-focused .mat-form-field-label.mat-warn {
     color: #e53935; }
 
 .mat-focused .mat-form-field-required-marker {
@@ -982,10 +1008,10 @@ input.mat-input-element {
   .mat-form-field-ripple.mat-warn {
     background-color: #e53935; }
 
-.mat-form-field-invalid .mat-form-field-placeholder {
+.mat-form-field-invalid .mat-form-field-label {
   color: #e53935; }
-  .mat-form-field-invalid .mat-form-field-placeholder.mat-accent,
-  .mat-form-field-invalid .mat-form-field-placeholder .mat-form-field-required-marker {
+  .mat-form-field-invalid .mat-form-field-label.mat-accent,
+  .mat-form-field-invalid .mat-form-field-label .mat-form-field-required-marker {
     color: #e53935; }
 
 .mat-form-field-invalid .mat-form-field-ripple {
@@ -1004,6 +1030,24 @@ input.mat-input-element {
   color: #e53935; }
 
 .mat-input-element:disabled {
+  color: rgba(0, 0, 0, 0.42); }
+
+.mat-input-element::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.42); }
+
+.mat-input-element:-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.42); }
+
+.mat-input-element::placeholder {
+  color: rgba(0, 0, 0, 0.42); }
+
+.mat-input-element::-moz-placeholder {
+  color: rgba(0, 0, 0, 0.42); }
+
+.mat-input-element::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.42); }
+
+.mat-input-element:-ms-input-placeholder {
   color: rgba(0, 0, 0, 0.42); }
 
 .mat-list .mat-list-item, .mat-nav-list .mat-list-item, .mat-selection-list .mat-list-item {
@@ -1040,7 +1084,7 @@ input.mat-input-element {
   .mat-menu-item[disabled] {
     color: rgba(0, 0, 0, 0.38); }
 
-.mat-menu-item .mat-icon,
+.mat-menu-item .mat-icon:not([color]),
 .mat-menu-item-submenu-trigger::after {
   color: rgba(0, 0, 0, 0.54); }
 
@@ -1170,6 +1214,9 @@ input.mat-input-element {
 
 .mat-select.mat-select-disabled .mat-select-arrow {
   color: #e53935; }
+
+.mat-select-placeholder {
+  color: rgba(0, 0, 0, 0.42); }
 
 .mat-drawer-container {
   background-color: #fafafa;

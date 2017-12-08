@@ -5954,11 +5954,6 @@ var LayoutToggle = (function () {
         // execute toggleVisibility since the onOpenStart and onCloseStart
         // methods might not be executed always when the element is rendered
         this._toggleVisibility();
-        // Force the view to be toggled again since the animation may not be triggered
-        // properly if its a child route
-        Promise.resolve().then(function () {
-            _this._layout.sidenav.toggle(_this._layout.opened);
-        });
     };
     LayoutToggle.prototype.ngOnDestroy = function () {
         if (this._toggleSubs) {
