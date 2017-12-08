@@ -383,9 +383,12 @@ function TdRotateAnimation(rotateOptions) {
             transform: 'rotate(' + (rotateOptions.degrees || 180) + 'deg)',
         })),
         _angular_animations.transition('0 <=> 1', [
-            _angular_animations.animate((rotateOptions.duration || 250) + 'ms ' +
-                (rotateOptions.delay || 0) + 'ms ' +
-                (rotateOptions.ease || 'ease-in')),
+            _angular_animations.group([
+                _angular_animations.query('@*', _angular_animations.animateChild(), { optional: true }),
+                _angular_animations.animate((rotateOptions.duration || 250) + 'ms ' +
+                    (rotateOptions.delay || 0) + 'ms ' +
+                    (rotateOptions.ease || 'ease-in')),
+            ]),
         ]),
     ]);
 }
@@ -410,22 +413,26 @@ function TdCollapseAnimation(collapseOptions) {
         _angular_animations.state('1', _angular_animations.style({
             height: '0',
             display: 'none',
-            overflow: 'hidden',
         })),
         _angular_animations.state('0', _angular_animations.style({
             height: _angular_animations.AUTO_STYLE,
             display: _angular_animations.AUTO_STYLE,
-            overflow: 'hidden',
         })),
         _angular_animations.transition('0 => 1', [
-            _angular_animations.animate((collapseOptions.duration || 150) + 'ms ' +
-                (collapseOptions.delay || 0) + 'ms ' +
-                (collapseOptions.easeOnClose || 'ease-in')),
+            _angular_animations.group([
+                _angular_animations.query('@*', _angular_animations.animateChild(), { optional: true }),
+                _angular_animations.animate((collapseOptions.duration || 150) + 'ms ' +
+                    (collapseOptions.delay || 0) + 'ms ' +
+                    (collapseOptions.easeOnClose || 'ease-in')),
+            ]),
         ]),
         _angular_animations.transition('1 => 0', [
-            _angular_animations.animate((collapseOptions.duration || 150) + 'ms ' +
-                (collapseOptions.delay || 0) + 'ms ' +
-                (collapseOptions.easeOnOpen || 'ease-out')),
+            _angular_animations.group([
+                _angular_animations.query('@*', _angular_animations.animateChild(), { optional: true }),
+                _angular_animations.animate((collapseOptions.duration || 150) + 'ms ' +
+                    (collapseOptions.delay || 0) + 'ms ' +
+                    (collapseOptions.easeOnOpen || 'ease-out')),
+            ]),
         ]),
     ]);
 }
@@ -455,12 +462,22 @@ function TdFadeInOutAnimation(fadeInOut) {
             opacity: _angular_animations.AUTO_STYLE,
             display: _angular_animations.AUTO_STYLE,
         })),
-        _angular_animations.transition('0 => 1', _angular_animations.animate((fadeInOut.duration || 150) + 'ms ' +
-            (fadeInOut.delay || 0) + 'ms ' +
-            (fadeInOut.easeOnIn || 'ease-in'))),
-        _angular_animations.transition('1 => 0', _angular_animations.animate((fadeInOut.duration || 150) + 'ms ' +
-            (fadeInOut.delay || 0) + 'ms ' +
-            (fadeInOut.easeOnOut || 'ease-out'))),
+        _angular_animations.transition('0 => 1', [
+            _angular_animations.group([
+                _angular_animations.query('@*', _angular_animations.animateChild(), { optional: true }),
+                _angular_animations.animate((fadeInOut.duration || 150) + 'ms ' +
+                    (fadeInOut.delay || 0) + 'ms ' +
+                    (fadeInOut.easeOnIn || 'ease-in')),
+            ]),
+        ]),
+        _angular_animations.transition('1 => 0', [
+            _angular_animations.group([
+                _angular_animations.query('@*', _angular_animations.animateChild(), { optional: true }),
+                _angular_animations.animate((fadeInOut.duration || 150) + 'ms ' +
+                    (fadeInOut.delay || 0) + 'ms ' +
+                    (fadeInOut.easeOnOut || 'ease-out')),
+            ]),
+        ]),
     ]);
 }
 
@@ -484,17 +501,22 @@ function TdBounceAnimation(bounceOptions) {
         _angular_animations.state('1', _angular_animations.style({
             transform: 'translate3d(0, 0, 0)',
         })),
-        _angular_animations.transition('0 <=> 1', _angular_animations.animate((bounceOptions.duration || 500) + 'ms ' + (bounceOptions.delay || 0) + 'ms', _angular_animations.keyframes([
-            _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0 }),
-            _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.2 }),
-            _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -30px, 0)', offset: 0.4 }),
-            _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -30px, 0)', offset: 0.43 }),
-            _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.53 }),
-            _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -15px, 0)', offset: .7 }),
-            _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.8 }),
-            _angular_animations.style({ transform: 'translate3d(0, -4px, 0)', offset: .9 }),
-            _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 1.0 }),
-        ]))),
+        _angular_animations.transition('0 <=> 1', [
+            _angular_animations.group([
+                _angular_animations.query('@*', _angular_animations.animateChild(), { optional: true }),
+                _angular_animations.animate((bounceOptions.duration || 500) + 'ms ' + (bounceOptions.delay || 0) + 'ms', _angular_animations.keyframes([
+                    _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0 }),
+                    _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.2 }),
+                    _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -30px, 0)', offset: 0.4 }),
+                    _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -30px, 0)', offset: 0.43 }),
+                    _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.53 }),
+                    _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -15px, 0)', offset: .7 }),
+                    _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.8 }),
+                    _angular_animations.style({ transform: 'translate3d(0, -4px, 0)', offset: .9 }),
+                    _angular_animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 1.0 }),
+                ])),
+            ]),
+        ]),
     ]);
 }
 
@@ -518,13 +540,18 @@ function TdFlashAnimation(flashOptions) {
         _angular_animations.state('1', _angular_animations.style({
             opacity: 1,
         })),
-        _angular_animations.transition('0 <=> 1', _angular_animations.animate((flashOptions.duration || 500) + 'ms ' + (flashOptions.delay || 0) + 'ms', _angular_animations.keyframes([
-            _angular_animations.style({ opacity: 1, offset: 0 }),
-            _angular_animations.style({ opacity: 0, offset: 0.25 }),
-            _angular_animations.style({ opacity: 1, offset: 0.5 }),
-            _angular_animations.style({ opacity: 0, offset: 0.75 }),
-            _angular_animations.style({ opacity: 1, offset: 1.0 }),
-        ]))),
+        _angular_animations.transition('0 <=> 1', [
+            _angular_animations.group([
+                _angular_animations.query('@*', _angular_animations.animateChild(), { optional: true }),
+                _angular_animations.animate((flashOptions.duration || 500) + 'ms ' + (flashOptions.delay || 0) + 'ms', _angular_animations.keyframes([
+                    _angular_animations.style({ opacity: 1, offset: 0 }),
+                    _angular_animations.style({ opacity: 0, offset: 0.25 }),
+                    _angular_animations.style({ opacity: 1, offset: 0.5 }),
+                    _angular_animations.style({ opacity: 0, offset: 0.75 }),
+                    _angular_animations.style({ opacity: 1, offset: 1.0 }),
+                ])),
+            ]),
+        ]),
     ]);
 }
 
@@ -548,14 +575,19 @@ function TdHeadshakeAnimation(headshakeOptions) {
         _angular_animations.state('1', _angular_animations.style({
             transform: 'translateX(0)',
         })),
-        _angular_animations.transition('0 <=> 1', _angular_animations.animate((headshakeOptions.duration || 500) + 'ms ' + (headshakeOptions.delay || 0) + 'ms', _angular_animations.keyframes([
-            _angular_animations.style({ transform: 'translateX(0)', offset: 0 }),
-            _angular_animations.style({ transform: 'translateX(-6px) rotateY(-9deg)', offset: 0.065 }),
-            _angular_animations.style({ transform: 'translateX(5px) rotateY(7deg)', offset: 0.185 }),
-            _angular_animations.style({ transform: 'translateX(-3px) rotateY(-5deg)', offset: 0.315 }),
-            _angular_animations.style({ transform: 'translateX(2px) rotateY(3deg)', offset: 0.435 }),
-            _angular_animations.style({ transform: 'translateX(0)', offset: 0.50 }),
-        ]))),
+        _angular_animations.transition('0 <=> 1', [
+            _angular_animations.group([
+                _angular_animations.query('@*', _angular_animations.animateChild(), { optional: true }),
+                _angular_animations.animate((headshakeOptions.duration || 500) + 'ms ' + (headshakeOptions.delay || 0) + 'ms', _angular_animations.keyframes([
+                    _angular_animations.style({ transform: 'translateX(0)', offset: 0 }),
+                    _angular_animations.style({ transform: 'translateX(-6px) rotateY(-9deg)', offset: 0.065 }),
+                    _angular_animations.style({ transform: 'translateX(5px) rotateY(7deg)', offset: 0.185 }),
+                    _angular_animations.style({ transform: 'translateX(-3px) rotateY(-5deg)', offset: 0.315 }),
+                    _angular_animations.style({ transform: 'translateX(2px) rotateY(3deg)', offset: 0.435 }),
+                    _angular_animations.style({ transform: 'translateX(0)', offset: 0.50 }),
+                ])),
+            ]),
+        ]),
     ]);
 }
 
@@ -579,17 +611,22 @@ function TdJelloAnimation(jelloOptions) {
         _angular_animations.state('1', _angular_animations.style({
             transform: 'none',
         })),
-        _angular_animations.transition('0 <=> 1', _angular_animations.animate((jelloOptions.duration || 500) + 'ms ' + (jelloOptions.delay || 0) + 'ms', _angular_animations.keyframes([
-            _angular_animations.style({ transform: 'none', offset: 0 }),
-            _angular_animations.style({ transform: 'none', offset: 0.011 }),
-            _angular_animations.style({ transform: 'skewX(-12.5deg) skewY(-12.5deg)', offset: 0.222 }),
-            _angular_animations.style({ transform: 'skewX(6.25deg) skewY(6.25deg)', offset: 0.333 }),
-            _angular_animations.style({ transform: 'skewX(-3.125deg) skewY(-3.125deg)', offset: 0.444 }),
-            _angular_animations.style({ transform: 'skewX(1.5625deg) skewY(1.5625deg)', offset: 0.555 }),
-            _angular_animations.style({ transform: 'skewX(-0.78125deg) skewY(-0.78125deg)', offset: 0.666 }),
-            _angular_animations.style({ transform: 'skewX(0.390625deg) skewY(0.390625deg)', offset: 0.777 }),
-            _angular_animations.style({ transform: 'skewX(-0.1953125deg) skewY(-0.1953125deg)', offset: 0.888 }),
-        ]))),
+        _angular_animations.transition('0 <=> 1', [
+            _angular_animations.group([
+                _angular_animations.query('@*', _angular_animations.animateChild(), { optional: true }),
+                _angular_animations.animate((jelloOptions.duration || 500) + 'ms ' + (jelloOptions.delay || 0) + 'ms', _angular_animations.keyframes([
+                    _angular_animations.style({ transform: 'none', offset: 0 }),
+                    _angular_animations.style({ transform: 'none', offset: 0.011 }),
+                    _angular_animations.style({ transform: 'skewX(-12.5deg) skewY(-12.5deg)', offset: 0.222 }),
+                    _angular_animations.style({ transform: 'skewX(6.25deg) skewY(6.25deg)', offset: 0.333 }),
+                    _angular_animations.style({ transform: 'skewX(-3.125deg) skewY(-3.125deg)', offset: 0.444 }),
+                    _angular_animations.style({ transform: 'skewX(1.5625deg) skewY(1.5625deg)', offset: 0.555 }),
+                    _angular_animations.style({ transform: 'skewX(-0.78125deg) skewY(-0.78125deg)', offset: 0.666 }),
+                    _angular_animations.style({ transform: 'skewX(0.390625deg) skewY(0.390625deg)', offset: 0.777 }),
+                    _angular_animations.style({ transform: 'skewX(-0.1953125deg) skewY(-0.1953125deg)', offset: 0.888 }),
+                ])),
+            ]),
+        ]),
     ]);
 }
 
@@ -613,11 +650,16 @@ function TdPulseAnimation(pulseOptions) {
         _angular_animations.state('1', _angular_animations.style({
             transform: 'scale3d(1, 1, 1)',
         })),
-        _angular_animations.transition('0 <=> 1', _angular_animations.animate((pulseOptions.duration || 500) + 'ms ' + (pulseOptions.delay || 0) + 'ms', _angular_animations.keyframes([
-            _angular_animations.style({ transform: 'scale3d(1, 1, 1)', offset: 0 }),
-            _angular_animations.style({ transform: 'scale3d(1.05, 1.05, 1.05)', offset: 0.5 }),
-            _angular_animations.style({ transform: 'scale3d(1, 1, 1)', offset: 1.0 }),
-        ]))),
+        _angular_animations.transition('0 <=> 1', [
+            _angular_animations.group([
+                _angular_animations.query('@*', _angular_animations.animateChild(), { optional: true }),
+                _angular_animations.animate((pulseOptions.duration || 500) + 'ms ' + (pulseOptions.delay || 0) + 'ms', _angular_animations.keyframes([
+                    _angular_animations.style({ transform: 'scale3d(1, 1, 1)', offset: 0 }),
+                    _angular_animations.style({ transform: 'scale3d(1.05, 1.05, 1.05)', offset: 0.5 }),
+                    _angular_animations.style({ transform: 'scale3d(1, 1, 1)', offset: 1.0 }),
+                ])),
+            ]),
+        ]),
     ]);
 }
 
@@ -1772,9 +1814,9 @@ var IconService = (function () {
         enumerable: true,
         configurable: true
     });
-    IconService.prototype.filter = function (query) {
+    IconService.prototype.filter = function (query$$1) {
         return this.icons.filter(function (el) {
-            return el.toLowerCase().indexOf(query ? query.toLowerCase() : '') > -1;
+            return el.toLowerCase().indexOf(query$$1 ? query$$1.toLowerCase() : '') > -1;
         });
     };
     IconService = __decorate([
@@ -7749,23 +7791,23 @@ var TdMediaService = (function () {
     /**
      * Deregisters a query so its stops being notified or used.
      */
-    TdMediaService.prototype.deregisterQuery = function (query) {
-        if (this._queryMap.get(query.toLowerCase())) {
-            query = this._queryMap.get(query.toLowerCase());
+    TdMediaService.prototype.deregisterQuery = function (query$$1) {
+        if (this._queryMap.get(query$$1.toLowerCase())) {
+            query$$1 = this._queryMap.get(query$$1.toLowerCase());
         }
-        this._querySources[query].unsubscribe();
-        delete this._querySources[query];
-        delete this._queryObservables[query];
+        this._querySources[query$$1].unsubscribe();
+        delete this._querySources[query$$1];
+        delete this._queryObservables[query$$1];
     };
     /**
      * Used to evaluate whether a given media query is true or false given the current device's screen / window size.
      */
-    TdMediaService.prototype.query = function (query) {
-        if (this._queryMap.get(query.toLowerCase())) {
-            query = this._queryMap.get(query.toLowerCase());
+    TdMediaService.prototype.query = function (query$$1) {
+        if (this._queryMap.get(query$$1.toLowerCase())) {
+            query$$1 = this._queryMap.get(query$$1.toLowerCase());
         }
         return this._ngZone.run(function () {
-            return matchMedia(query).matches;
+            return matchMedia(query$$1).matches;
         });
     };
     /**
@@ -7773,15 +7815,15 @@ var TdMediaService = (function () {
      * return if the given media query matches on window resize.
      * Note: don't forget to unsubscribe from [Observable] when finished watching.
      */
-    TdMediaService.prototype.registerQuery = function (query) {
-        if (this._queryMap.get(query.toLowerCase())) {
-            query = this._queryMap.get(query.toLowerCase());
+    TdMediaService.prototype.registerQuery = function (query$$1) {
+        if (this._queryMap.get(query$$1.toLowerCase())) {
+            query$$1 = this._queryMap.get(query$$1.toLowerCase());
         }
-        if (!this._querySources[query]) {
-            this._querySources[query] = new rxjs_BehaviorSubject.BehaviorSubject(matchMedia(query).matches);
-            this._queryObservables[query] = this._querySources[query].asObservable();
+        if (!this._querySources[query$$1]) {
+            this._querySources[query$$1] = new rxjs_BehaviorSubject.BehaviorSubject(matchMedia(query$$1).matches);
+            this._queryObservables[query$$1] = this._querySources[query$$1].asObservable();
         }
-        return this._queryObservables[query];
+        return this._queryObservables[query$$1];
     };
     /**
      * Trigger a match media event on all subscribed observables.
@@ -7791,18 +7833,18 @@ var TdMediaService = (function () {
     };
     TdMediaService.prototype._onResize = function () {
         var _this = this;
-        var _loop_1 = function (query) {
+        var _loop_1 = function (query$$1) {
             this_1._ngZone.run(function () {
-                _this._matchMediaTrigger(query);
+                _this._matchMediaTrigger(query$$1);
             });
         };
         var this_1 = this;
-        for (var query in this._querySources) {
-            _loop_1(query);
+        for (var query$$1 in this._querySources) {
+            _loop_1(query$$1);
         }
     };
-    TdMediaService.prototype._matchMediaTrigger = function (query) {
-        this._querySources[query].next(matchMedia(query).matches);
+    TdMediaService.prototype._matchMediaTrigger = function (query$$1) {
+        this._querySources[query$$1].next(matchMedia(query$$1).matches);
     };
     TdMediaService = __decorate([
         _angular_core.Injectable(),
@@ -7836,11 +7878,11 @@ var TdMediaToggleDirective = (function () {
          * Media query used to evaluate screen/window size.
          * Toggles attributes, classes and styles if media query is matched.
          */
-        set: function (query) {
-            if (!query) {
+        set: function (query$$1) {
+            if (!query$$1) {
                 throw new Error('Query needed for [tdMediaToggle] directive.');
             }
-            this._query = query;
+            this._query = query$$1;
         },
         enumerable: true,
         configurable: true

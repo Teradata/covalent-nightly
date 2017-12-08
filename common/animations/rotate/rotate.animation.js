@@ -1,4 +1,4 @@
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import { trigger, state, style, transition, animate, query, animateChild, group } from '@angular/animations';
 /**
  * Function TdRotateAnimation
  *
@@ -23,9 +23,12 @@ export function TdRotateAnimation(rotateOptions) {
             transform: 'rotate(' + (rotateOptions.degrees || 180) + 'deg)',
         })),
         transition('0 <=> 1', [
-            animate((rotateOptions.duration || 250) + 'ms ' +
-                (rotateOptions.delay || 0) + 'ms ' +
-                (rotateOptions.ease || 'ease-in')),
+            group([
+                query('@*', animateChild(), { optional: true }),
+                animate((rotateOptions.duration || 250) + 'ms ' +
+                    (rotateOptions.delay || 0) + 'ms ' +
+                    (rotateOptions.ease || 'ease-in')),
+            ]),
         ]),
     ]);
 }
