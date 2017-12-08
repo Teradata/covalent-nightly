@@ -1,6 +1,6 @@
 import * as tslib_1 from "tslib";
 import { Component, Input, ViewChild } from '@angular/core';
-import { MatSidenav } from '@angular/material';
+import { MatSidenav } from '@angular/material/sidenav';
 var TdLayoutManageListComponent = (function () {
     function TdLayoutManageListComponent() {
         /**

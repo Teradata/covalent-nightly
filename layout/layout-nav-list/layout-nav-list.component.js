@@ -1,7 +1,7 @@
 import * as tslib_1 from "tslib";
 import { Component, Input, ViewChild, Optional } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatSidenav } from '@angular/material';
+import { MatSidenav } from '@angular/material/sidenav';
 var TdLayoutNavListComponent = (function () {
     function TdLayoutNavListComponent(_router) {
         this._router = _router;

@@ -1,8 +1,8 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/animations'), require('@angular/cdk/coercion'), require('@angular/router'), require('rxjs/operators/filter'), require('rxjs/operators/pairwise'), require('@angular/material'), require('@angular/platform-browser'), require('@angular/cdk/portal'), require('@angular/cdk/keycodes'), require('rxjs/observable/timer'), require('rxjs/observable/merge'), require('rxjs/operator/toPromise'), require('rxjs/observable/fromEvent'), require('rxjs/operators/debounceTime'), require('rxjs/Subject'), require('rxjs/Observable'), require('@angular/cdk/bidi'), require('@angular/cdk/scrolling'), require('@angular/cdk/overlay'), require('rxjs/BehaviorSubject'), require('rxjs/operators/skip')) :
-	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/animations', '@angular/cdk/coercion', '@angular/router', 'rxjs/operators/filter', 'rxjs/operators/pairwise', '@angular/material', '@angular/platform-browser', '@angular/cdk/portal', '@angular/cdk/keycodes', 'rxjs/observable/timer', 'rxjs/observable/merge', 'rxjs/operator/toPromise', 'rxjs/observable/fromEvent', 'rxjs/operators/debounceTime', 'rxjs/Subject', 'rxjs/Observable', '@angular/cdk/bidi', '@angular/cdk/scrolling', '@angular/cdk/overlay', 'rxjs/BehaviorSubject', 'rxjs/operators/skip'], factory) :
-	(factory((global.td = global.td || {}, global.td.core = global.td.core || {}),global.ng.core,global.ng.common,global.ng.forms,global.ng.animations,global.ng.cdk.coercion,global.ng.router,global.Rx.Observable,global.Rx.Observable,global.ng.material,global.ng.platformBrowser,global.ng.cdk.portal,global.ng.cdk.keycodes,global.Rx.Observable,global.Rx.Observable,global.Rx.Observable.prototype,global.Rx.Observable,global.Rx.Observable,global.Rx,global.Rx,global.ng.cdk.bidi,global.ng.cdk.scrolling,global.ng.cdk.overlay,global.Rx.BehaviorSubject,global.Rx.Observable));
-}(this, (function (exports,_angular_core,_angular_common,_angular_forms,_angular_animations,_angular_cdk_coercion,_angular_router,rxjs_operators_filter,rxjs_operators_pairwise,_angular_material,_angular_platformBrowser,_angular_cdk_portal,_angular_cdk_keycodes,rxjs_observable_timer,rxjs_observable_merge,rxjs_operator_toPromise,rxjs_observable_fromEvent,rxjs_operators_debounceTime,rxjs_Subject,rxjs_Observable,_angular_cdk_bidi,_angular_cdk_scrolling,_angular_cdk_overlay,rxjs_BehaviorSubject,rxjs_operators_skip) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/animations'), require('@angular/cdk/coercion'), require('@angular/router'), require('rxjs/operators/filter'), require('rxjs/operators/pairwise'), require('@angular/material/input'), require('@angular/material/icon'), require('@angular/material/autocomplete'), require('@angular/material/chips'), require('@angular/platform-browser'), require('@angular/cdk/portal'), require('@angular/cdk/keycodes'), require('@angular/material/core'), require('rxjs/observable/timer'), require('rxjs/observable/merge'), require('rxjs/operator/toPromise'), require('rxjs/observable/fromEvent'), require('rxjs/operators/debounceTime'), require('@angular/material/checkbox'), require('@angular/material/tooltip'), require('rxjs/Subject'), require('@angular/material/dialog'), require('@angular/material/button'), require('rxjs/Observable'), require('@angular/cdk/bidi'), require('@angular/cdk/scrolling'), require('@angular/material/sidenav'), require('@angular/material/toolbar'), require('rxjs/operators/take'), require('rxjs/Subscription'), require('rxjs/operators/map'), require('rxjs/operators/tap'), require('rxjs/observable/of'), require('@angular/cdk/overlay'), require('@angular/material/progress-bar'), require('@angular/material/progress-spinner'), require('rxjs/BehaviorSubject'), require('rxjs/operators/startWith'), require('rxjs/operators/switchMap'), require('rxjs/operators/skip')) :
+	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/animations', '@angular/cdk/coercion', '@angular/router', 'rxjs/operators/filter', 'rxjs/operators/pairwise', '@angular/material/input', '@angular/material/icon', '@angular/material/autocomplete', '@angular/material/chips', '@angular/platform-browser', '@angular/cdk/portal', '@angular/cdk/keycodes', '@angular/material/core', 'rxjs/observable/timer', 'rxjs/observable/merge', 'rxjs/operator/toPromise', 'rxjs/observable/fromEvent', 'rxjs/operators/debounceTime', '@angular/material/checkbox', '@angular/material/tooltip', 'rxjs/Subject', '@angular/material/dialog', '@angular/material/button', 'rxjs/Observable', '@angular/cdk/bidi', '@angular/cdk/scrolling', '@angular/material/sidenav', '@angular/material/toolbar', 'rxjs/operators/take', 'rxjs/Subscription', 'rxjs/operators/map', 'rxjs/operators/tap', 'rxjs/observable/of', '@angular/cdk/overlay', '@angular/material/progress-bar', '@angular/material/progress-spinner', 'rxjs/BehaviorSubject', 'rxjs/operators/startWith', 'rxjs/operators/switchMap', 'rxjs/operators/skip'], factory) :
+	(factory((global.td = global.td || {}, global.td.core = global.td.core || {}),global.ng.core,global.ng.common,global.ng.forms,global.ng.animations,global.ng.cdk.coercion,global.ng.router,global.Rx.Observable,global.Rx.Observable,global.ng.material.input,global.ng.material.icon,global.ng.material.autocomplete,global.ng.material.chips,global.ng.platformBrowser,global.ng.cdk.portal,global.ng.cdk.keycodes,global.ng.material.core,global.Rx.Observable,global.Rx.Observable,global.Rx.Observable.prototype,global.Rx.Observable,global.Rx.Observable,global.ng.material.checkbox,global.ng.material.tooltip,global.Rx,global.ng.material.dialog,global.ng.material.button,global.Rx,global.ng.cdk.bidi,global.ng.cdk.scrolling,global.ng.material.sidenav,global.ng.material.toolbar,global.Rx.Observable,global.Rx,global.Rx.Observable,global.Rx.Observable,global.Rx.Observable,global.ng.cdk.overlay,global.ng.material['progress-bar'],global.ng.material['progress-spinner'],global.Rx,global.Rx.Observable,global.Rx.Observable,global.Rx.Observable));
+}(this, (function (exports,_angular_core,_angular_common,_angular_forms,_angular_animations,_angular_cdk_coercion,_angular_router,rxjs_operators_filter,rxjs_operators_pairwise,_angular_material_input,_angular_material_icon,_angular_material_autocomplete,_angular_material_chips,_angular_platformBrowser,_angular_cdk_portal,_angular_cdk_keycodes,_angular_material_core,rxjs_observable_timer,rxjs_observable_merge,rxjs_operator_toPromise,rxjs_observable_fromEvent,rxjs_operators_debounceTime,_angular_material_checkbox,_angular_material_tooltip,rxjs_Subject,_angular_material_dialog,_angular_material_button,rxjs_Observable,_angular_cdk_bidi,_angular_cdk_scrolling,_angular_material_sidenav,_angular_material_toolbar,rxjs_operators_take,rxjs_Subscription,rxjs_operators_map,rxjs_operators_tap,rxjs_observable_of,_angular_cdk_overlay,_angular_material_progressBar,_angular_material_progressSpinner,rxjs_BehaviorSubject,rxjs_operators_startWith,rxjs_operators_switchMap,rxjs_operators_skip) { 'use strict';
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
@@ -664,7 +664,7 @@ function TdPulseAnimation(pulseOptions) {
 }
 
 /** Mixin to augment a component or directive with a `disabled` property. */
-function mixinDisabled(base) {
+function mixinDisabled$1(base) {
     return (function (_super) {
         __extends(class_1, _super);
         function class_1() {
@@ -698,7 +698,7 @@ function mixinDisabled(base) {
 }
 
 /** Mixin to augment a component or directive with a `disabled` property. */
-function mixinDisableRipple(base) {
+function mixinDisableRipple$1(base) {
     return (function (_super) {
         __extends(class_1, _super);
         function class_1() {
@@ -1922,7 +1922,7 @@ var TdChipsBase = (function () {
     return TdChipsBase;
 }());
 /* tslint:disable-next-line */
-var _TdChipsMixinBase = mixinDisabled(TdChipsBase);
+var _TdChipsMixinBase = mixinDisabled$1(TdChipsBase);
 var TdChipsComponent = (function (_super) {
     __extends(TdChipsComponent, _super);
     function TdChipsComponent(_elementRef, _renderer, _changeDetectorRef, _document) {
@@ -2612,15 +2612,15 @@ var TdChipsComponent = (function (_super) {
         __metadata("design:type", _angular_core.ElementRef)
     ], TdChipsComponent.prototype, "_nativeInput", void 0);
     __decorate([
-        _angular_core.ViewChild(_angular_material.MatInput),
-        __metadata("design:type", _angular_material.MatInput)
+        _angular_core.ViewChild(_angular_material_input.MatInput),
+        __metadata("design:type", _angular_material_input.MatInput)
     ], TdChipsComponent.prototype, "_inputChild", void 0);
     __decorate([
-        _angular_core.ViewChild(_angular_material.MatAutocompleteTrigger),
-        __metadata("design:type", _angular_material.MatAutocompleteTrigger)
+        _angular_core.ViewChild(_angular_material_autocomplete.MatAutocompleteTrigger),
+        __metadata("design:type", _angular_material_autocomplete.MatAutocompleteTrigger)
     ], TdChipsComponent.prototype, "_autocompleteTrigger", void 0);
     __decorate([
-        _angular_core.ViewChildren(_angular_material.MatChip),
+        _angular_core.ViewChildren(_angular_material_chips.MatChip),
         __metadata("design:type", _angular_core.QueryList)
     ], TdChipsComponent.prototype, "_chipsChildren", void 0);
     __decorate([
@@ -2632,7 +2632,7 @@ var TdChipsComponent = (function (_super) {
         __metadata("design:type", TdAutocompleteOptionDirective)
     ], TdChipsComponent.prototype, "_autocompleteOptionTemplate", void 0);
     __decorate([
-        _angular_core.ViewChildren(_angular_material.MatOption),
+        _angular_core.ViewChildren(_angular_material_core.MatOption),
         __metadata("design:type", _angular_core.QueryList)
     ], TdChipsComponent.prototype, "_options", void 0);
     __decorate([
@@ -2762,10 +2762,10 @@ var CovalentChipsModule = (function () {
             imports: [
                 _angular_forms.ReactiveFormsModule,
                 _angular_common.CommonModule,
-                _angular_material.MatInputModule,
-                _angular_material.MatIconModule,
-                _angular_material.MatChipsModule,
-                _angular_material.MatAutocompleteModule,
+                _angular_material_input.MatInputModule,
+                _angular_material_icon.MatIconModule,
+                _angular_material_chips.MatChipsModule,
+                _angular_material_autocomplete.MatAutocompleteModule,
             ],
             declarations: [
                 TdChipsComponent,
@@ -4286,10 +4286,10 @@ var CovalentDataTableModule = (function () {
         _angular_core.NgModule({
             imports: [
                 _angular_common.CommonModule,
-                _angular_material.MatCheckboxModule,
-                _angular_material.MatTooltipModule,
-                _angular_material.MatIconModule,
-                _angular_material.MatPseudoCheckboxModule,
+                _angular_material_checkbox.MatCheckboxModule,
+                _angular_material_tooltip.MatTooltipModule,
+                _angular_material_icon.MatIconModule,
+                _angular_material_core.MatPseudoCheckboxModule,
             ],
             declarations: [
                 TD_DATA_TABLE,
@@ -4379,7 +4379,7 @@ var TdAlertDialogComponent = (function () {
             template: "<td-dialog> <td-dialog-title *ngIf=\"title\"> {{title}} </td-dialog-title> <td-dialog-content> <span class=\"td-dialog-message\">{{message}}</span> </td-dialog-content> <td-dialog-actions> <button mat-button color=\"accent\" (click)=\"close()\">{{closeButton}}</button> </td-dialog-actions> </td-dialog>",
             styles: ["@media (min-width: 600px) { td-dialog { width: 400px; } } @media (max-width: 599px) { td-dialog { width: 250px; } } /*# sourceMappingURL=alert-dialog.component.css.map */ "],
         }),
-        __metadata("design:paramtypes", [_angular_material.MatDialogRef])
+        __metadata("design:paramtypes", [_angular_material_dialog.MatDialogRef])
     ], TdAlertDialogComponent);
     return TdAlertDialogComponent;
 }());
@@ -4402,7 +4402,7 @@ var TdConfirmDialogComponent = (function () {
             template: "<td-dialog> <td-dialog-title *ngIf=\"title\"> {{title}} </td-dialog-title> <td-dialog-content> <span class=\"td-dialog-message\">{{message}}</span> </td-dialog-content> <td-dialog-actions> <button mat-button #closeBtn  (keydown.arrowright)=\"acceptBtn.focus()\" (click)=\"cancel()\">{{cancelButton}}</button> <button mat-button color=\"accent\" #acceptBtn (keydown.arrowleft)=\"closeBtn.focus()\" (click)=\"accept()\">{{acceptButton}}</button> </td-dialog-actions> </td-dialog>",
             styles: ["@media (min-width: 600px) { td-dialog { width: 400px; } } @media (max-width: 599px) { td-dialog { width: 250px; } } /*# sourceMappingURL=confirm-dialog.component.css.map */ "],
         }),
-        __metadata("design:paramtypes", [_angular_material.MatDialogRef])
+        __metadata("design:paramtypes", [_angular_material_dialog.MatDialogRef])
     ], TdConfirmDialogComponent);
     return TdConfirmDialogComponent;
 }());
@@ -4443,7 +4443,7 @@ var TdPromptDialogComponent = (function () {
             template: "<td-dialog> <td-dialog-title *ngIf=\"title\"> {{title}} </td-dialog-title> <td-dialog-content> <span class=\"td-dialog-message\">{{message}}</span> <form #form=\"ngForm\" novalidate> <div class=\"td-dialog-input-wrapper\"> <mat-form-field class=\"td-dialog-input\"> <input matInput #input (focus)=\"handleInputFocus()\" (keydown.enter)=\"$event.preventDefault(); form.valid && accept()\" [(ngModel)]=\"value\" name=\"value\" required/> </mat-form-field> </div> </form> </td-dialog-content> <td-dialog-actions> <button mat-button #closeBtn  (keydown.arrowright)=\"acceptBtn.focus()\" (click)=\"cancel()\">{{cancelButton}}</button> <button mat-button color=\"accent\" #acceptBtn (keydown.arrowleft)=\"closeBtn.focus()\" [disabled]=\"!form.valid\" (click)=\"accept()\">{{acceptButton}}</button> </td-dialog-actions> </td-dialog>",
             styles: ["@media (min-width: 600px) { td-dialog { width: 400px; } } @media (max-width: 599px) { td-dialog { width: 250px; } } .td-dialog-input-wrapper { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; } .td-dialog-input-wrapper .td-dialog-input { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; -webkit-box-sizing: border-box; box-sizing: border-box; } /*# sourceMappingURL=prompt-dialog.component.css.map */ "],
         }),
-        __metadata("design:paramtypes", [_angular_material.MatDialogRef])
+        __metadata("design:paramtypes", [_angular_material_dialog.MatDialogRef])
     ], TdPromptDialogComponent);
     return TdPromptDialogComponent;
 }());
@@ -4549,14 +4549,14 @@ var TdDialogService = (function () {
         return dialogRef;
     };
     TdDialogService.prototype._createConfig = function (config) {
-        var dialogConfig = new _angular_material.MatDialogConfig();
+        var dialogConfig = new _angular_material_dialog.MatDialogConfig();
         dialogConfig.viewContainerRef = config.viewContainerRef;
         dialogConfig.disableClose = config.disableClose;
         return dialogConfig;
     };
     TdDialogService = __decorate([
         _angular_core.Injectable(),
-        __metadata("design:paramtypes", [_angular_material.MatDialog])
+        __metadata("design:paramtypes", [_angular_material_dialog.MatDialog])
     ], TdDialogService);
     return TdDialogService;
 }());
@@ -4566,7 +4566,7 @@ function DIALOG_PROVIDER_FACTORY(parent, dialog) {
 var DIALOG_PROVIDER = {
     // If there is already service available, use that. Otherwise, provide a new one.
     provide: TdDialogService,
-    deps: [[new _angular_core.Optional(), new _angular_core.SkipSelf(), TdDialogService], _angular_material.MatDialog],
+    deps: [[new _angular_core.Optional(), new _angular_core.SkipSelf(), TdDialogService], _angular_material_dialog.MatDialog],
     useFactory: DIALOG_PROVIDER_FACTORY,
 };
 
@@ -4592,9 +4592,9 @@ var CovalentDialogsModule = (function () {
             imports: [
                 _angular_forms.FormsModule,
                 _angular_common.CommonModule,
-                _angular_material.MatDialogModule,
-                _angular_material.MatInputModule,
-                _angular_material.MatButtonModule,
+                _angular_material_dialog.MatDialogModule,
+                _angular_material_input.MatInputModule,
+                _angular_material_button.MatButtonModule,
             ],
             declarations: [
                 TD_DIALOGS,
@@ -4669,7 +4669,7 @@ var TdExpansionPanelBase = (function () {
     return TdExpansionPanelBase;
 }());
 /* tslint:disable-next-line */
-var _TdExpansionPanelMixinBase = mixinDisableRipple(mixinDisabled(TdExpansionPanelBase));
+var _TdExpansionPanelMixinBase = mixinDisableRipple$1(mixinDisabled$1(TdExpansionPanelBase));
 var TdExpansionPanelComponent = (function (_super) {
     __extends(TdExpansionPanelComponent, _super);
     function TdExpansionPanelComponent(_renderer, _elementRef) {
@@ -4849,8 +4849,8 @@ var CovalentExpansionPanelModule = (function () {
         _angular_core.NgModule({
             imports: [
                 _angular_common.CommonModule,
-                _angular_material.MatRippleModule,
-                _angular_material.MatIconModule,
+                _angular_material_core.MatRippleModule,
+                _angular_material_icon.MatIconModule,
                 _angular_cdk_portal.PortalModule,
             ],
             declarations: [
@@ -4949,7 +4949,7 @@ var TdFileDropBase = (function () {
     return TdFileDropBase;
 }());
 /* tslint:disable-next-line */
-var _TdFileDropMixinBase = mixinDisabled(TdFileDropBase);
+var _TdFileDropMixinBase = mixinDisabled$1(TdFileDropBase);
 var TdFileDropDirective = (function (_super) {
     __extends(TdFileDropDirective, _super);
     function TdFileDropDirective(_renderer, _element) {
@@ -5146,7 +5146,7 @@ var TdFileInputBase = (function () {
     return TdFileInputBase;
 }());
 /* tslint:disable-next-line */
-var _TdFileInputMixinBase = mixinDisabled(TdFileInputBase);
+var _TdFileInputMixinBase = mixinDisabled$1(TdFileInputBase);
 var TdFileInputComponent = (function (_super) {
     __extends(TdFileInputComponent, _super);
     function TdFileInputComponent(_renderer, _changeDetectorRef) {
@@ -5278,7 +5278,7 @@ var TdFileUploadBase = (function () {
     return TdFileUploadBase;
 }());
 /* tslint:disable-next-line */
-var _TdFileUploadMixinBase = mixinDisabled(TdFileUploadBase);
+var _TdFileUploadMixinBase = mixinDisabled$1(TdFileUploadBase);
 var FILE_UPLOAD_CONTROL_VALUE_ACCESSOR = {
     provide: _angular_forms.NG_VALUE_ACCESSOR,
     useExisting: _angular_core.forwardRef(function () { return TdFileUploadComponent; }),
@@ -5582,8 +5582,8 @@ var CovalentFileModule = (function () {
             imports: [
                 _angular_forms.FormsModule,
                 _angular_common.CommonModule,
-                _angular_material.MatIconModule,
-                _angular_material.MatButtonModule,
+                _angular_material_icon.MatIconModule,
+                _angular_material_button.MatButtonModule,
                 _angular_cdk_portal.PortalModule,
             ],
             declarations: [
@@ -5853,8 +5853,8 @@ var CovalentJsonFormatterModule = (function () {
         _angular_core.NgModule({
             imports: [
                 _angular_common.CommonModule,
-                _angular_material.MatTooltipModule,
-                _angular_material.MatIconModule,
+                _angular_material_tooltip.MatTooltipModule,
+                _angular_material_icon.MatIconModule,
             ],
             declarations: [
                 TdJsonFormatterComponent,
@@ -5865,6 +5865,3968 @@ var CovalentJsonFormatterModule = (function () {
         })
     ], CovalentJsonFormatterModule);
     return CovalentJsonFormatterModule;
+}());
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+
+/**
+ * Content of a card, needed as it's used as a selector in the API.
+ * \@docs-private
+ */
+var MatCardContent = (function () {
+    function MatCardContent() {
+    }
+    MatCardContent.decorators = [
+        { type: _angular_core.Directive, args: [{
+                    selector: 'mat-card-content',
+                    host: { 'class': 'mat-card-content' }
+                },] },
+    ];
+    /** @nocollapse */
+    MatCardContent.ctorParameters = function () { return []; };
+    return MatCardContent;
+}());
+/**
+ * Title of a card, needed as it's used as a selector in the API.
+ * \@docs-private
+ */
+var MatCardTitle = (function () {
+    function MatCardTitle() {
+    }
+    MatCardTitle.decorators = [
+        { type: _angular_core.Directive, args: [{
+                    selector: "mat-card-title, [mat-card-title], [matCardTitle]",
+                    host: {
+                        'class': 'mat-card-title'
+                    }
+                },] },
+    ];
+    /** @nocollapse */
+    MatCardTitle.ctorParameters = function () { return []; };
+    return MatCardTitle;
+}());
+/**
+ * Sub-title of a card, needed as it's used as a selector in the API.
+ * \@docs-private
+ */
+var MatCardSubtitle = (function () {
+    function MatCardSubtitle() {
+    }
+    MatCardSubtitle.decorators = [
+        { type: _angular_core.Directive, args: [{
+                    selector: "mat-card-subtitle, [mat-card-subtitle], [matCardSubtitle]",
+                    host: {
+                        'class': 'mat-card-subtitle'
+                    }
+                },] },
+    ];
+    /** @nocollapse */
+    MatCardSubtitle.ctorParameters = function () { return []; };
+    return MatCardSubtitle;
+}());
+/**
+ * Action section of a card, needed as it's used as a selector in the API.
+ * \@docs-private
+ */
+var MatCardActions = (function () {
+    function MatCardActions() {
+        /**
+         * Position of the actions inside the card.
+         */
+        this.align = 'start';
+    }
+    MatCardActions.decorators = [
+        { type: _angular_core.Directive, args: [{
+                    selector: 'mat-card-actions',
+                    exportAs: 'matCardActions',
+                    host: {
+                        'class': 'mat-card-actions',
+                        '[class.mat-card-actions-align-end]': 'align === "end"',
+                    }
+                },] },
+    ];
+    /** @nocollapse */
+    MatCardActions.ctorParameters = function () { return []; };
+    MatCardActions.propDecorators = {
+        "align": [{ type: _angular_core.Input },],
+    };
+    return MatCardActions;
+}());
+/**
+ * Footer of a card, needed as it's used as a selector in the API.
+ * \@docs-private
+ */
+var MatCardFooter = (function () {
+    function MatCardFooter() {
+    }
+    MatCardFooter.decorators = [
+        { type: _angular_core.Directive, args: [{
+                    selector: 'mat-card-footer',
+                    host: { 'class': 'mat-card-footer' }
+                },] },
+    ];
+    /** @nocollapse */
+    MatCardFooter.ctorParameters = function () { return []; };
+    return MatCardFooter;
+}());
+/**
+ * Image used in a card, needed to add the mat- CSS styling.
+ * \@docs-private
+ */
+var MatCardImage = (function () {
+    function MatCardImage() {
+    }
+    MatCardImage.decorators = [
+        { type: _angular_core.Directive, args: [{
+                    selector: '[mat-card-image], [matCardImage]',
+                    host: { 'class': 'mat-card-image' }
+                },] },
+    ];
+    /** @nocollapse */
+    MatCardImage.ctorParameters = function () { return []; };
+    return MatCardImage;
+}());
+/**
+ * Image used in a card, needed to add the mat- CSS styling.
+ * \@docs-private
+ */
+var MatCardSmImage = (function () {
+    function MatCardSmImage() {
+    }
+    MatCardSmImage.decorators = [
+        { type: _angular_core.Directive, args: [{
+                    selector: '[mat-card-sm-image], [matCardImageSmall]',
+                    host: { 'class': 'mat-card-sm-image' }
+                },] },
+    ];
+    /** @nocollapse */
+    MatCardSmImage.ctorParameters = function () { return []; };
+    return MatCardSmImage;
+}());
+/**
+ * Image used in a card, needed to add the mat- CSS styling.
+ * \@docs-private
+ */
+var MatCardMdImage = (function () {
+    function MatCardMdImage() {
+    }
+    MatCardMdImage.decorators = [
+        { type: _angular_core.Directive, args: [{
+                    selector: '[mat-card-md-image], [matCardImageMedium]',
+                    host: { 'class': 'mat-card-md-image' }
+                },] },
+    ];
+    /** @nocollapse */
+    MatCardMdImage.ctorParameters = function () { return []; };
+    return MatCardMdImage;
+}());
+/**
+ * Image used in a card, needed to add the mat- CSS styling.
+ * \@docs-private
+ */
+var MatCardLgImage = (function () {
+    function MatCardLgImage() {
+    }
+    MatCardLgImage.decorators = [
+        { type: _angular_core.Directive, args: [{
+                    selector: '[mat-card-lg-image], [matCardImageLarge]',
+                    host: { 'class': 'mat-card-lg-image' }
+                },] },
+    ];
+    /** @nocollapse */
+    MatCardLgImage.ctorParameters = function () { return []; };
+    return MatCardLgImage;
+}());
+/**
+ * Large image used in a card, needed to add the mat- CSS styling.
+ * \@docs-private
+ */
+var MatCardXlImage = (function () {
+    function MatCardXlImage() {
+    }
+    MatCardXlImage.decorators = [
+        { type: _angular_core.Directive, args: [{
+                    selector: '[mat-card-xl-image], [matCardImageXLarge]',
+                    host: { 'class': 'mat-card-xl-image' }
+                },] },
+    ];
+    /** @nocollapse */
+    MatCardXlImage.ctorParameters = function () { return []; };
+    return MatCardXlImage;
+}());
+/**
+ * Avatar image used in a card, needed to add the mat- CSS styling.
+ * \@docs-private
+ */
+var MatCardAvatar = (function () {
+    function MatCardAvatar() {
+    }
+    MatCardAvatar.decorators = [
+        { type: _angular_core.Directive, args: [{
+                    selector: '[mat-card-avatar], [matCardAvatar]',
+                    host: { 'class': 'mat-card-avatar' }
+                },] },
+    ];
+    /** @nocollapse */
+    MatCardAvatar.ctorParameters = function () { return []; };
+    return MatCardAvatar;
+}());
+/**
+ * A basic content container component that adds the styles of a Material design card.
+ *
+ * While this component can be used alone, it also provides a number
+ * of preset styles for common card sections, including:
+ * - mat-card-title
+ * - mat-card-subtitle
+ * - mat-card-content
+ * - mat-card-actions
+ * - mat-card-footer
+ */
+var MatCard = (function () {
+    function MatCard() {
+    }
+    MatCard.decorators = [
+        { type: _angular_core.Component, args: [{selector: 'mat-card',
+                    exportAs: 'matCard',
+                    template: "<ng-content></ng-content><ng-content select=\"mat-card-footer\"></ng-content>",
+                    styles: [".mat-card{transition:box-shadow 280ms cubic-bezier(.4,0,.2,1);display:block;position:relative;padding:24px;border-radius:2px}.mat-card:not([class*=mat-elevation-z]){box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12)}@media screen and (-ms-high-contrast:active){.mat-card{outline:solid 1px}}.mat-card-flat{box-shadow:none}.mat-card-actions,.mat-card-content,.mat-card-subtitle,.mat-card-title{display:block;margin-bottom:16px}.mat-card-actions{margin-left:-16px;margin-right:-16px;padding:8px 0}.mat-card-actions-align-end{display:flex;justify-content:flex-end}.mat-card-image{width:calc(100% + 48px);margin:0 -24px 16px -24px}.mat-card-xl-image{width:240px;height:240px;margin:-8px}.mat-card-footer{display:block;margin:0 -24px -24px -24px}.mat-card-actions .mat-button,.mat-card-actions .mat-raised-button{margin:0 4px}.mat-card-header{display:flex;flex-direction:row}.mat-card-header-text{margin:0 8px}.mat-card-avatar{height:40px;width:40px;border-radius:50%;flex-shrink:0}.mat-card-lg-image,.mat-card-md-image,.mat-card-sm-image{margin:-8px 0}.mat-card-title-group{display:flex;justify-content:space-between;margin:0 -8px}.mat-card-sm-image{width:80px;height:80px}.mat-card-md-image{width:112px;height:112px}.mat-card-lg-image{width:152px;height:152px}@media (max-width:600px){.mat-card{padding:24px 16px}.mat-card-actions{margin-left:-8px;margin-right:-8px}.mat-card-image{width:calc(100% + 32px);margin:16px -16px}.mat-card-title-group{margin:0}.mat-card-xl-image{margin-left:0;margin-right:0}.mat-card-header{margin:-8px 0 0 0}.mat-card-footer{margin-left:-16px;margin-right:-16px}}.mat-card-content>:first-child,.mat-card>:first-child{margin-top:0}.mat-card-content>:last-child:not(.mat-card-footer),.mat-card>:last-child:not(.mat-card-footer){margin-bottom:0}.mat-card-image:first-child{margin-top:-24px}.mat-card>.mat-card-actions:last-child{margin-bottom:-16px;padding-bottom:0}.mat-card-actions .mat-button:first-child,.mat-card-actions .mat-raised-button:first-child{margin-left:0;margin-right:0}.mat-card-subtitle:not(:first-child),.mat-card-title:not(:first-child){margin-top:-4px}.mat-card-header .mat-card-subtitle:not(:first-child){margin-top:-8px}.mat-card>.mat-card-xl-image:first-child{margin-top:-8px}.mat-card>.mat-card-xl-image:last-child{margin-bottom:-8px}"],
+                    encapsulation: _angular_core.ViewEncapsulation.None,
+                    preserveWhitespaces: false,
+                    changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
+                    host: { 'class': 'mat-card' }
+                },] },
+    ];
+    /** @nocollapse */
+    MatCard.ctorParameters = function () { return []; };
+    return MatCard;
+}());
+/**
+ * Component intended to be used within the `<mat-card>` component. It adds styles for a
+ * preset header section (i.e. a title, subtitle, and avatar layout).
+ * \@docs-private
+ */
+var MatCardHeader = (function () {
+    function MatCardHeader() {
+    }
+    MatCardHeader.decorators = [
+        { type: _angular_core.Component, args: [{selector: 'mat-card-header',
+                    template: "<ng-content select=\"[mat-card-avatar], [matCardAvatar]\"></ng-content><div class=\"mat-card-header-text\"><ng-content select=\"mat-card-title, mat-card-subtitle, [mat-card-title], [mat-card-subtitle]\"></ng-content></div><ng-content></ng-content>",
+                    encapsulation: _angular_core.ViewEncapsulation.None,
+                    preserveWhitespaces: false,
+                    changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
+                    host: { 'class': 'mat-card-header' }
+                },] },
+    ];
+    /** @nocollapse */
+    MatCardHeader.ctorParameters = function () { return []; };
+    return MatCardHeader;
+}());
+/**
+ * Component intended to be used within the <mat-card> component. It adds styles for a preset
+ * layout that groups an image with a title section.
+ * \@docs-private
+ */
+var MatCardTitleGroup = (function () {
+    function MatCardTitleGroup() {
+    }
+    MatCardTitleGroup.decorators = [
+        { type: _angular_core.Component, args: [{selector: 'mat-card-title-group',
+                    template: "<div><ng-content select=\"mat-card-title, mat-card-subtitle, [mat-card-title], [mat-card-subtitle]\"></ng-content></div><ng-content select=\"img\"></ng-content><ng-content></ng-content>",
+                    encapsulation: _angular_core.ViewEncapsulation.None,
+                    preserveWhitespaces: false,
+                    changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
+                    host: { 'class': 'mat-card-title-group' }
+                },] },
+    ];
+    /** @nocollapse */
+    MatCardTitleGroup.ctorParameters = function () { return []; };
+    return MatCardTitleGroup;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+
+var MatCardModule = (function () {
+    function MatCardModule() {
+    }
+    MatCardModule.decorators = [
+        { type: _angular_core.NgModule, args: [{
+                    imports: [_angular_material_core.MatCommonModule],
+                    exports: [
+                        MatCard,
+                        MatCardHeader,
+                        MatCardTitleGroup,
+                        MatCardContent,
+                        MatCardTitle,
+                        MatCardSubtitle,
+                        MatCardActions,
+                        MatCardFooter,
+                        MatCardSmImage,
+                        MatCardMdImage,
+                        MatCardLgImage,
+                        MatCardImage,
+                        MatCardXlImage,
+                        MatCardAvatar,
+                        _angular_material_core.MatCommonModule,
+                    ],
+                    declarations: [
+                        MatCard, MatCardHeader, MatCardTitleGroup, MatCardContent, MatCardTitle, MatCardSubtitle,
+                        MatCardActions, MatCardFooter, MatCardSmImage, MatCardMdImage, MatCardLgImage, MatCardImage,
+                        MatCardXlImage, MatCardAvatar,
+                    ],
+                },] },
+    ];
+    /** @nocollapse */
+    MatCardModule.ctorParameters = function () { return []; };
+    return MatCardModule;
+}());
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+
+// Whether the current platform supports the V8 Break Iterator. The V8 check
+// is necessary to detect all Blink based browsers.
+var hasV8BreakIterator = (typeof (Intl) !== 'undefined' && (/** @type {?} */ (Intl)).v8BreakIterator);
+/**
+ * Service to detect the current platform by comparing the userAgent strings and
+ * checking browser-specific global properties.
+ */
+var Platform = (function () {
+    function Platform() {
+        /**
+         * Whether the Angular application is being rendered in the browser.
+         */
+        this.isBrowser = typeof document === 'object' && !!document;
+        /**
+         * Whether the current browser is Microsoft Edge.
+         */
+        this.EDGE = this.isBrowser && /(edge)/i.test(navigator.userAgent);
+        /**
+         * Whether the current rendering engine is Microsoft Trident.
+         */
+        this.TRIDENT = this.isBrowser && /(msie|trident)/i.test(navigator.userAgent);
+        /**
+         * Whether the current rendering engine is Blink.
+         */
+        this.BLINK = this.isBrowser &&
+            (!!((/** @type {?} */ (window)).chrome || hasV8BreakIterator) && !!CSS && !this.EDGE && !this.TRIDENT);
+        /**
+         * Whether the current rendering engine is WebKit.
+         */
+        this.WEBKIT = this.isBrowser &&
+            /AppleWebKit/i.test(navigator.userAgent) && !this.BLINK && !this.EDGE && !this.TRIDENT;
+        /**
+         * Whether the current platform is Apple iOS.
+         */
+        this.IOS = this.isBrowser && /iPad|iPhone|iPod/.test(navigator.userAgent) &&
+            !(/** @type {?} */ (window)).MSStream;
+        /**
+         * Whether the current browser is Firefox.
+         */
+        this.FIREFOX = this.isBrowser && /(firefox|minefield)/i.test(navigator.userAgent);
+        /**
+         * Whether the current platform is Android.
+         */
+        this.ANDROID = this.isBrowser && /android/i.test(navigator.userAgent) && !this.TRIDENT;
+        /**
+         * Whether the current browser is Safari.
+         */
+        this.SAFARI = this.isBrowser && /safari/i.test(navigator.userAgent) && this.WEBKIT;
+    }
+    Platform.decorators = [
+        { type: _angular_core.Injectable },
+    ];
+    /** @nocollapse */
+    Platform.ctorParameters = function () { return []; };
+    return Platform;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * Cached result of whether the user's browser supports passive event listeners.
+ */
+var supportsPassiveEvents;
+/**
+ * Checks whether the user's browser supports passive event listeners.
+ * See: https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md
+ * @return {?}
+ */
+function supportsPassiveEventListeners() {
+    if (supportsPassiveEvents == null) {
+        try {
+            window.addEventListener('test', /** @type {?} */ ((null)), Object.defineProperty({}, 'passive', {
+                get: function () { return supportsPassiveEvents = true; }
+            }));
+        }
+        finally {
+            supportsPassiveEvents = supportsPassiveEvents || false;
+        }
+    }
+    return supportsPassiveEvents;
+}
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+
+/**
+ * Utility for checking the interactivity of an element, such as whether is is focusable or
+ * tabbable.
+ */
+var InteractivityChecker = (function () {
+    function InteractivityChecker(_platform) {
+        this._platform = _platform;
+    }
+    /**
+     * Gets whether an element is disabled.
+     *
+     * @param element Element to be checked.
+     * @returns Whether the element is disabled.
+     */
+    /**
+     * Gets whether an element is disabled.
+     *
+     * @param {?} element Element to be checked.
+     * @return {?} Whether the element is disabled.
+     */
+    InteractivityChecker.prototype.isDisabled = /**
+     * Gets whether an element is disabled.
+     *
+     * @param {?} element Element to be checked.
+     * @return {?} Whether the element is disabled.
+     */
+    function (element) {
+        // This does not capture some cases, such as a non-form control with a disabled attribute or
+        // a form control inside of a disabled form, but should capture the most common cases.
+        return element.hasAttribute('disabled');
+    };
+    /**
+     * Gets whether an element is visible for the purposes of interactivity.
+     *
+     * This will capture states like `display: none` and `visibility: hidden`, but not things like
+     * being clipped by an `overflow: hidden` parent or being outside the viewport.
+     *
+     * @returns Whether the element is visible.
+     */
+    /**
+     * Gets whether an element is visible for the purposes of interactivity.
+     *
+     * This will capture states like `display: none` and `visibility: hidden`, but not things like
+     * being clipped by an `overflow: hidden` parent or being outside the viewport.
+     *
+     * @param {?} element
+     * @return {?} Whether the element is visible.
+     */
+    InteractivityChecker.prototype.isVisible = /**
+     * Gets whether an element is visible for the purposes of interactivity.
+     *
+     * This will capture states like `display: none` and `visibility: hidden`, but not things like
+     * being clipped by an `overflow: hidden` parent or being outside the viewport.
+     *
+     * @param {?} element
+     * @return {?} Whether the element is visible.
+     */
+    function (element) {
+        return hasGeometry(element) && getComputedStyle(element).visibility === 'visible';
+    };
+    /**
+     * Gets whether an element can be reached via Tab key.
+     * Assumes that the element has already been checked with isFocusable.
+     *
+     * @param element Element to be checked.
+     * @returns Whether the element is tabbable.
+     */
+    /**
+     * Gets whether an element can be reached via Tab key.
+     * Assumes that the element has already been checked with isFocusable.
+     *
+     * @param {?} element Element to be checked.
+     * @return {?} Whether the element is tabbable.
+     */
+    InteractivityChecker.prototype.isTabbable = /**
+     * Gets whether an element can be reached via Tab key.
+     * Assumes that the element has already been checked with isFocusable.
+     *
+     * @param {?} element Element to be checked.
+     * @return {?} Whether the element is tabbable.
+     */
+    function (element) {
+        // Nothing is tabbable on the the server 😎
+        if (!this._platform.isBrowser) {
+            return false;
+        }
+        var /** @type {?} */ frameElement = /** @type {?} */ (getWindow(element).frameElement);
+        if (frameElement) {
+            var /** @type {?} */ frameType = frameElement && frameElement.nodeName.toLowerCase();
+            // Frame elements inherit their tabindex onto all child elements.
+            if (getTabIndexValue(frameElement) === -1) {
+                return false;
+            }
+            // Webkit and Blink consider anything inside of an <object> element as non-tabbable.
+            if ((this._platform.BLINK || this._platform.WEBKIT) && frameType === 'object') {
+                return false;
+            }
+            // Webkit and Blink disable tabbing to an element inside of an invisible frame.
+            if ((this._platform.BLINK || this._platform.WEBKIT) && !this.isVisible(frameElement)) {
+                return false;
+            }
+        }
+        var /** @type {?} */ nodeName = element.nodeName.toLowerCase();
+        var /** @type {?} */ tabIndexValue = getTabIndexValue(element);
+        if (element.hasAttribute('contenteditable')) {
+            return tabIndexValue !== -1;
+        }
+        if (nodeName === 'iframe') {
+            // The frames may be tabbable depending on content, but it's not possibly to reliably
+            // investigate the content of the frames.
+            return false;
+        }
+        if (nodeName === 'audio') {
+            if (!element.hasAttribute('controls')) {
+                // By default an <audio> element without the controls enabled is not tabbable.
+                return false;
+            }
+            else if (this._platform.BLINK) {
+                // In Blink <audio controls> elements are always tabbable.
+                return true;
+            }
+        }
+        if (nodeName === 'video') {
+            if (!element.hasAttribute('controls') && this._platform.TRIDENT) {
+                // In Trident a <video> element without the controls enabled is not tabbable.
+                return false;
+            }
+            else if (this._platform.BLINK || this._platform.FIREFOX) {
+                // In Chrome and Firefox <video controls> elements are always tabbable.
+                return true;
+            }
+        }
+        if (nodeName === 'object' && (this._platform.BLINK || this._platform.WEBKIT)) {
+            // In all Blink and WebKit based browsers <object> elements are never tabbable.
+            return false;
+        }
+        // In iOS the browser only considers some specific elements as tabbable.
+        if (this._platform.WEBKIT && this._platform.IOS && !isPotentiallyTabbableIOS(element)) {
+            return false;
+        }
+        return element.tabIndex >= 0;
+    };
+    /**
+     * Gets whether an element can be focused by the user.
+     *
+     * @param element Element to be checked.
+     * @returns Whether the element is focusable.
+     */
+    /**
+     * Gets whether an element can be focused by the user.
+     *
+     * @param {?} element Element to be checked.
+     * @return {?} Whether the element is focusable.
+     */
+    InteractivityChecker.prototype.isFocusable = /**
+     * Gets whether an element can be focused by the user.
+     *
+     * @param {?} element Element to be checked.
+     * @return {?} Whether the element is focusable.
+     */
+    function (element) {
+        // Perform checks in order of left to most expensive.
+        // Again, naive approach that does not capture many edge cases and browser quirks.
+        return isPotentiallyFocusable(element) && !this.isDisabled(element) && this.isVisible(element);
+    };
+    InteractivityChecker.decorators = [
+        { type: _angular_core.Injectable },
+    ];
+    /** @nocollapse */
+    InteractivityChecker.ctorParameters = function () { return [
+        { type: Platform, },
+    ]; };
+    return InteractivityChecker;
+}());
+/**
+ * Checks whether the specified element has any geometry / rectangles.
+ * @param {?} element
+ * @return {?}
+ */
+function hasGeometry(element) {
+    // Use logic from jQuery to check for an invisible element.
+    // See https://github.com/jquery/jquery/blob/master/src/css/hiddenVisibleSelectors.js#L12
+    return !!(element.offsetWidth || element.offsetHeight ||
+        (typeof element.getClientRects === 'function' && element.getClientRects().length));
+}
+/**
+ * Gets whether an element's
+ * @param {?} element
+ * @return {?}
+ */
+function isNativeFormElement(element) {
+    var /** @type {?} */ nodeName = element.nodeName.toLowerCase();
+    return nodeName === 'input' ||
+        nodeName === 'select' ||
+        nodeName === 'button' ||
+        nodeName === 'textarea';
+}
+/**
+ * Gets whether an element is an <input type="hidden">.
+ * @param {?} element
+ * @return {?}
+ */
+function isHiddenInput(element) {
+    return isInputElement(element) && element.type == 'hidden';
+}
+/**
+ * Gets whether an element is an anchor that has an href attribute.
+ * @param {?} element
+ * @return {?}
+ */
+function isAnchorWithHref(element) {
+    return isAnchorElement(element) && element.hasAttribute('href');
+}
+/**
+ * Gets whether an element is an input element.
+ * @param {?} element
+ * @return {?}
+ */
+function isInputElement(element) {
+    return element.nodeName.toLowerCase() == 'input';
+}
+/**
+ * Gets whether an element is an anchor element.
+ * @param {?} element
+ * @return {?}
+ */
+function isAnchorElement(element) {
+    return element.nodeName.toLowerCase() == 'a';
+}
+/**
+ * Gets whether an element has a valid tabindex.
+ * @param {?} element
+ * @return {?}
+ */
+function hasValidTabIndex(element) {
+    if (!element.hasAttribute('tabindex') || element.tabIndex === undefined) {
+        return false;
+    }
+    var /** @type {?} */ tabIndex = element.getAttribute('tabindex');
+    // IE11 parses tabindex="" as the value "-32768"
+    if (tabIndex == '-32768') {
+        return false;
+    }
+    return !!(tabIndex && !isNaN(parseInt(tabIndex, 10)));
+}
+/**
+ * Returns the parsed tabindex from the element attributes instead of returning the
+ * evaluated tabindex from the browsers defaults.
+ * @param {?} element
+ * @return {?}
+ */
+function getTabIndexValue(element) {
+    if (!hasValidTabIndex(element)) {
+        return null;
+    }
+    // See browser issue in Gecko https://bugzilla.mozilla.org/show_bug.cgi?id=1128054
+    var /** @type {?} */ tabIndex = parseInt(element.getAttribute('tabindex') || '', 10);
+    return isNaN(tabIndex) ? -1 : tabIndex;
+}
+/**
+ * Checks whether the specified element is potentially tabbable on iOS
+ * @param {?} element
+ * @return {?}
+ */
+function isPotentiallyTabbableIOS(element) {
+    var /** @type {?} */ nodeName = element.nodeName.toLowerCase();
+    var /** @type {?} */ inputType = nodeName === 'input' && (/** @type {?} */ (element)).type;
+    return inputType === 'text'
+        || inputType === 'password'
+        || nodeName === 'select'
+        || nodeName === 'textarea';
+}
+/**
+ * Gets whether an element is potentially focusable without taking current visible/disabled state
+ * into account.
+ * @param {?} element
+ * @return {?}
+ */
+function isPotentiallyFocusable(element) {
+    // Inputs are potentially focusable *unless* they're type="hidden".
+    if (isHiddenInput(element)) {
+        return false;
+    }
+    return isNativeFormElement(element) ||
+        isAnchorWithHref(element) ||
+        element.hasAttribute('contenteditable') ||
+        hasValidTabIndex(element);
+}
+/**
+ * Gets the parent window of a DOM node with regards of being inside of an iframe.
+ * @param {?} node
+ * @return {?}
+ */
+function getWindow(node) {
+    return node.ownerDocument.defaultView || window;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+
+/**
+ * Class that allows for trapping focus within a DOM element.
+ *
+ * This class currently uses a relatively simple approach to focus trapping.
+ * It assumes that the tab order is the same as DOM order, which is not necessarily true.
+ * Things like tabIndex > 0, flex `order`, and shadow roots can cause to two to misalign.
+ */
+var FocusTrap = (function () {
+    function FocusTrap(_element, _checker, _ngZone, _document, deferAnchors) {
+        if (deferAnchors === void 0) { deferAnchors = false; }
+        this._element = _element;
+        this._checker = _checker;
+        this._ngZone = _ngZone;
+        this._document = _document;
+        this._enabled = true;
+        if (!deferAnchors) {
+            this.attachAnchors();
+        }
+    }
+    Object.defineProperty(FocusTrap.prototype, "enabled", {
+        /** Whether the focus trap is active. */
+        get: /**
+         * Whether the focus trap is active.
+         * @return {?}
+         */
+        function () { return this._enabled; },
+        set: /**
+         * @param {?} val
+         * @return {?}
+         */
+        function (val) {
+            this._enabled = val;
+            if (this._startAnchor && this._endAnchor) {
+                this._startAnchor.tabIndex = this._endAnchor.tabIndex = this._enabled ? 0 : -1;
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /** Destroys the focus trap by cleaning up the anchors. */
+    /**
+     * Destroys the focus trap by cleaning up the anchors.
+     * @return {?}
+     */
+    FocusTrap.prototype.destroy = /**
+     * Destroys the focus trap by cleaning up the anchors.
+     * @return {?}
+     */
+    function () {
+        if (this._startAnchor && this._startAnchor.parentNode) {
+            this._startAnchor.parentNode.removeChild(this._startAnchor);
+        }
+        if (this._endAnchor && this._endAnchor.parentNode) {
+            this._endAnchor.parentNode.removeChild(this._endAnchor);
+        }
+        this._startAnchor = this._endAnchor = null;
+    };
+    /**
+     * Inserts the anchors into the DOM. This is usually done automatically
+     * in the constructor, but can be deferred for cases like directives with `*ngIf`.
+     */
+    /**
+     * Inserts the anchors into the DOM. This is usually done automatically
+     * in the constructor, but can be deferred for cases like directives with `*ngIf`.
+     * @return {?}
+     */
+    FocusTrap.prototype.attachAnchors = /**
+     * Inserts the anchors into the DOM. This is usually done automatically
+     * in the constructor, but can be deferred for cases like directives with `*ngIf`.
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        if (!this._startAnchor) {
+            this._startAnchor = this._createAnchor();
+        }
+        if (!this._endAnchor) {
+            this._endAnchor = this._createAnchor();
+        }
+        this._ngZone.runOutsideAngular(function () {
+            /** @type {?} */ ((_this._startAnchor)).addEventListener('focus', function () {
+                _this.focusLastTabbableElement();
+            }); /** @type {?} */
+            ((_this._endAnchor)).addEventListener('focus', function () {
+                _this.focusFirstTabbableElement();
+            });
+            if (_this._element.parentNode) {
+                _this._element.parentNode.insertBefore(/** @type {?} */ ((_this._startAnchor)), _this._element);
+                _this._element.parentNode.insertBefore(/** @type {?} */ ((_this._endAnchor)), _this._element.nextSibling);
+            }
+        });
+    };
+    /**
+     * Waits for the zone to stabilize, then either focuses the first element that the
+     * user specified, or the first tabbable element.
+     * @returns Returns a promise that resolves with a boolean, depending
+     * on whether focus was moved successfuly.
+     */
+    /**
+     * Waits for the zone to stabilize, then either focuses the first element that the
+     * user specified, or the first tabbable element.
+     * @return {?} Returns a promise that resolves with a boolean, depending
+     * on whether focus was moved successfuly.
+     */
+    FocusTrap.prototype.focusInitialElementWhenReady = /**
+     * Waits for the zone to stabilize, then either focuses the first element that the
+     * user specified, or the first tabbable element.
+     * @return {?} Returns a promise that resolves with a boolean, depending
+     * on whether focus was moved successfuly.
+     */
+    function () {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this._executeOnStable(function () { return resolve(_this.focusInitialElement()); });
+        });
+    };
+    /**
+     * Waits for the zone to stabilize, then focuses
+     * the first tabbable element within the focus trap region.
+     * @returns Returns a promise that resolves with a boolean, depending
+     * on whether focus was moved successfuly.
+     */
+    /**
+     * Waits for the zone to stabilize, then focuses
+     * the first tabbable element within the focus trap region.
+     * @return {?} Returns a promise that resolves with a boolean, depending
+     * on whether focus was moved successfuly.
+     */
+    FocusTrap.prototype.focusFirstTabbableElementWhenReady = /**
+     * Waits for the zone to stabilize, then focuses
+     * the first tabbable element within the focus trap region.
+     * @return {?} Returns a promise that resolves with a boolean, depending
+     * on whether focus was moved successfuly.
+     */
+    function () {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this._executeOnStable(function () { return resolve(_this.focusFirstTabbableElement()); });
+        });
+    };
+    /**
+     * Waits for the zone to stabilize, then focuses
+     * the last tabbable element within the focus trap region.
+     * @returns Returns a promise that resolves with a boolean, depending
+     * on whether focus was moved successfuly.
+     */
+    /**
+     * Waits for the zone to stabilize, then focuses
+     * the last tabbable element within the focus trap region.
+     * @return {?} Returns a promise that resolves with a boolean, depending
+     * on whether focus was moved successfuly.
+     */
+    FocusTrap.prototype.focusLastTabbableElementWhenReady = /**
+     * Waits for the zone to stabilize, then focuses
+     * the last tabbable element within the focus trap region.
+     * @return {?} Returns a promise that resolves with a boolean, depending
+     * on whether focus was moved successfuly.
+     */
+    function () {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this._executeOnStable(function () { return resolve(_this.focusLastTabbableElement()); });
+        });
+    };
+    /**
+     * Get the specified boundary element of the trapped region.
+     * @param {?} bound The boundary to get (start or end of trapped region).
+     * @return {?} The boundary element.
+     */
+    FocusTrap.prototype._getRegionBoundary = /**
+     * Get the specified boundary element of the trapped region.
+     * @param {?} bound The boundary to get (start or end of trapped region).
+     * @return {?} The boundary element.
+     */
+    function (bound) {
+        // Contains the deprecated version of selector, for temporary backwards comparability.
+        var /** @type {?} */ markers = /** @type {?} */ (this._element.querySelectorAll("[cdk-focus-region-" + bound + "], " +
+            ("[cdkFocusRegion" + bound + "], ") +
+            ("[cdk-focus-" + bound + "]")));
+        for (var /** @type {?} */ i = 0; i < markers.length; i++) {
+            if (markers[i].hasAttribute("cdk-focus-" + bound)) {
+                console.warn("Found use of deprecated attribute 'cdk-focus-" + bound + "'," +
+                    (" use 'cdkFocusRegion" + bound + "' instead."), markers[i]);
+            }
+            else if (markers[i].hasAttribute("cdk-focus-region-" + bound)) {
+                console.warn("Found use of deprecated attribute 'cdk-focus-region-" + bound + "'," +
+                    (" use 'cdkFocusRegion" + bound + "' instead."), markers[i]);
+            }
+        }
+        if (bound == 'start') {
+            return markers.length ? markers[0] : this._getFirstTabbableElement(this._element);
+        }
+        return markers.length ?
+            markers[markers.length - 1] : this._getLastTabbableElement(this._element);
+    };
+    /**
+     * Focuses the element that should be focused when the focus trap is initialized.
+     * @returns Whether focus was moved successfuly.
+     */
+    /**
+     * Focuses the element that should be focused when the focus trap is initialized.
+     * @return {?} Whether focus was moved successfuly.
+     */
+    FocusTrap.prototype.focusInitialElement = /**
+     * Focuses the element that should be focused when the focus trap is initialized.
+     * @return {?} Whether focus was moved successfuly.
+     */
+    function () {
+        // Contains the deprecated version of selector, for temporary backwards comparability.
+        var /** @type {?} */ redirectToElement = /** @type {?} */ (this._element.querySelector("[cdk-focus-initial], " +
+            "[cdkFocusInitial]"));
+        if (this._element.hasAttribute("cdk-focus-initial")) {
+            console.warn("Found use of deprecated attribute 'cdk-focus-initial'," +
+                " use 'cdkFocusInitial' instead.", this._element);
+        }
+        if (redirectToElement) {
+            redirectToElement.focus();
+            return true;
+        }
+        return this.focusFirstTabbableElement();
+    };
+    /**
+     * Focuses the first tabbable element within the focus trap region.
+     * @returns Whether focus was moved successfuly.
+     */
+    /**
+     * Focuses the first tabbable element within the focus trap region.
+     * @return {?} Whether focus was moved successfuly.
+     */
+    FocusTrap.prototype.focusFirstTabbableElement = /**
+     * Focuses the first tabbable element within the focus trap region.
+     * @return {?} Whether focus was moved successfuly.
+     */
+    function () {
+        var /** @type {?} */ redirectToElement = this._getRegionBoundary('start');
+        if (redirectToElement) {
+            redirectToElement.focus();
+        }
+        return !!redirectToElement;
+    };
+    /**
+     * Focuses the last tabbable element within the focus trap region.
+     * @returns Whether focus was moved successfuly.
+     */
+    /**
+     * Focuses the last tabbable element within the focus trap region.
+     * @return {?} Whether focus was moved successfuly.
+     */
+    FocusTrap.prototype.focusLastTabbableElement = /**
+     * Focuses the last tabbable element within the focus trap region.
+     * @return {?} Whether focus was moved successfuly.
+     */
+    function () {
+        var /** @type {?} */ redirectToElement = this._getRegionBoundary('end');
+        if (redirectToElement) {
+            redirectToElement.focus();
+        }
+        return !!redirectToElement;
+    };
+    /**
+     * Get the first tabbable element from a DOM subtree (inclusive).
+     * @param {?} root
+     * @return {?}
+     */
+    FocusTrap.prototype._getFirstTabbableElement = /**
+     * Get the first tabbable element from a DOM subtree (inclusive).
+     * @param {?} root
+     * @return {?}
+     */
+    function (root) {
+        if (this._checker.isFocusable(root) && this._checker.isTabbable(root)) {
+            return root;
+        }
+        // Iterate in DOM order. Note that IE doesn't have `children` for SVG so we fall
+        // back to `childNodes` which includes text nodes, comments etc.
+        var /** @type {?} */ children = root.children || root.childNodes;
+        for (var /** @type {?} */ i = 0; i < children.length; i++) {
+            var /** @type {?} */ tabbableChild = children[i].nodeType === Node.ELEMENT_NODE ?
+                this._getFirstTabbableElement(/** @type {?} */ (children[i])) :
+                null;
+            if (tabbableChild) {
+                return tabbableChild;
+            }
+        }
+        return null;
+    };
+    /**
+     * Get the last tabbable element from a DOM subtree (inclusive).
+     * @param {?} root
+     * @return {?}
+     */
+    FocusTrap.prototype._getLastTabbableElement = /**
+     * Get the last tabbable element from a DOM subtree (inclusive).
+     * @param {?} root
+     * @return {?}
+     */
+    function (root) {
+        if (this._checker.isFocusable(root) && this._checker.isTabbable(root)) {
+            return root;
+        }
+        // Iterate in reverse DOM order.
+        var /** @type {?} */ children = root.children || root.childNodes;
+        for (var /** @type {?} */ i = children.length - 1; i >= 0; i--) {
+            var /** @type {?} */ tabbableChild = children[i].nodeType === Node.ELEMENT_NODE ?
+                this._getLastTabbableElement(/** @type {?} */ (children[i])) :
+                null;
+            if (tabbableChild) {
+                return tabbableChild;
+            }
+        }
+        return null;
+    };
+    /**
+     * Creates an anchor element.
+     * @return {?}
+     */
+    FocusTrap.prototype._createAnchor = /**
+     * Creates an anchor element.
+     * @return {?}
+     */
+    function () {
+        var /** @type {?} */ anchor = this._document.createElement('div');
+        anchor.tabIndex = this._enabled ? 0 : -1;
+        anchor.classList.add('cdk-visually-hidden');
+        anchor.classList.add('cdk-focus-trap-anchor');
+        return anchor;
+    };
+    /**
+     * Executes a function when the zone is stable.
+     * @param {?} fn
+     * @return {?}
+     */
+    FocusTrap.prototype._executeOnStable = /**
+     * Executes a function when the zone is stable.
+     * @param {?} fn
+     * @return {?}
+     */
+    function (fn) {
+        if (this._ngZone.isStable) {
+            fn();
+        }
+        else {
+            this._ngZone.onStable.asObservable().pipe(rxjs_operators_take.take(1)).subscribe(fn);
+        }
+    };
+    return FocusTrap;
+}());
+/**
+ * Factory that allows easy instantiation of focus traps.
+ */
+var FocusTrapFactory = (function () {
+    function FocusTrapFactory(_checker, _ngZone, _document) {
+        this._checker = _checker;
+        this._ngZone = _ngZone;
+        this._document = _document;
+    }
+    /**
+     * Creates a focus-trapped region around the given element.
+     * @param element The element around which focus will be trapped.
+     * @param deferCaptureElements Defers the creation of focus-capturing elements to be done
+     *     manually by the user.
+     * @returns The created focus trap instance.
+     */
+    /**
+     * Creates a focus-trapped region around the given element.
+     * @param {?} element The element around which focus will be trapped.
+     * @param {?=} deferCaptureElements Defers the creation of focus-capturing elements to be done
+     *     manually by the user.
+     * @return {?} The created focus trap instance.
+     */
+    FocusTrapFactory.prototype.create = /**
+     * Creates a focus-trapped region around the given element.
+     * @param {?} element The element around which focus will be trapped.
+     * @param {?=} deferCaptureElements Defers the creation of focus-capturing elements to be done
+     *     manually by the user.
+     * @return {?} The created focus trap instance.
+     */
+    function (element, deferCaptureElements) {
+        if (deferCaptureElements === void 0) { deferCaptureElements = false; }
+        return new FocusTrap(element, this._checker, this._ngZone, this._document, deferCaptureElements);
+    };
+    FocusTrapFactory.decorators = [
+        { type: _angular_core.Injectable },
+    ];
+    /** @nocollapse */
+    FocusTrapFactory.ctorParameters = function () { return [
+        { type: InteractivityChecker, },
+        { type: _angular_core.NgZone, },
+        { type: undefined, decorators: [{ type: _angular_core.Inject, args: [_angular_common.DOCUMENT,] },] },
+    ]; };
+    return FocusTrapFactory;
+}());
+/**
+ * Directive for trapping focus within a region.
+ * \@docs-private
+ * @deprecated
+ */
+var FocusTrapDeprecatedDirective = (function () {
+    function FocusTrapDeprecatedDirective(_elementRef, _focusTrapFactory) {
+        this._elementRef = _elementRef;
+        this._focusTrapFactory = _focusTrapFactory;
+        this.focusTrap = this._focusTrapFactory.create(this._elementRef.nativeElement, true);
+    }
+    Object.defineProperty(FocusTrapDeprecatedDirective.prototype, "disabled", {
+        get: /**
+         * Whether the focus trap is active.
+         * @return {?}
+         */
+        function () { return !this.focusTrap.enabled; },
+        set: /**
+         * @param {?} val
+         * @return {?}
+         */
+        function (val) {
+            this.focusTrap.enabled = !_angular_cdk_coercion.coerceBooleanProperty(val);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * @return {?}
+     */
+    FocusTrapDeprecatedDirective.prototype.ngOnDestroy = /**
+     * @return {?}
+     */
+    function () {
+        this.focusTrap.destroy();
+    };
+    /**
+     * @return {?}
+     */
+    FocusTrapDeprecatedDirective.prototype.ngAfterContentInit = /**
+     * @return {?}
+     */
+    function () {
+        this.focusTrap.attachAnchors();
+    };
+    FocusTrapDeprecatedDirective.decorators = [
+        { type: _angular_core.Directive, args: [{
+                    selector: 'cdk-focus-trap',
+                },] },
+    ];
+    /** @nocollapse */
+    FocusTrapDeprecatedDirective.ctorParameters = function () { return [
+        { type: _angular_core.ElementRef, },
+        { type: FocusTrapFactory, },
+    ]; };
+    FocusTrapDeprecatedDirective.propDecorators = {
+        "disabled": [{ type: _angular_core.Input },],
+    };
+    return FocusTrapDeprecatedDirective;
+}());
+/**
+ * Directive for trapping focus within a region.
+ */
+var CdkTrapFocus = (function () {
+    function CdkTrapFocus(_elementRef, _focusTrapFactory, _document) {
+        this._elementRef = _elementRef;
+        this._focusTrapFactory = _focusTrapFactory;
+        /**
+         * Previously focused element to restore focus to upon destroy when using autoCapture.
+         */
+        this._previouslyFocusedElement = null;
+        this._document = _document;
+        this.focusTrap = this._focusTrapFactory.create(this._elementRef.nativeElement, true);
+    }
+    Object.defineProperty(CdkTrapFocus.prototype, "enabled", {
+        get: /**
+         * Whether the focus trap is active.
+         * @return {?}
+         */
+        function () { return this.focusTrap.enabled; },
+        set: /**
+         * @param {?} value
+         * @return {?}
+         */
+        function (value) { this.focusTrap.enabled = _angular_cdk_coercion.coerceBooleanProperty(value); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(CdkTrapFocus.prototype, "autoCapture", {
+        get: /**
+         * Whether the directive should automatially move focus into the trapped region upon
+         * initialization and return focus to the previous activeElement upon destruction.
+         * @return {?}
+         */
+        function () { return this._autoCapture; },
+        set: /**
+         * @param {?} value
+         * @return {?}
+         */
+        function (value) { this._autoCapture = _angular_cdk_coercion.coerceBooleanProperty(value); },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * @return {?}
+     */
+    CdkTrapFocus.prototype.ngOnDestroy = /**
+     * @return {?}
+     */
+    function () {
+        this.focusTrap.destroy();
+        // If we stored a previously focused element when using autoCapture, return focus to that
+        // element now that the trapped region is being destroyed.
+        if (this._previouslyFocusedElement) {
+            this._previouslyFocusedElement.focus();
+            this._previouslyFocusedElement = null;
+        }
+    };
+    /**
+     * @return {?}
+     */
+    CdkTrapFocus.prototype.ngAfterContentInit = /**
+     * @return {?}
+     */
+    function () {
+        this.focusTrap.attachAnchors();
+        if (this.autoCapture) {
+            this._previouslyFocusedElement = /** @type {?} */ (this._document.activeElement);
+            this.focusTrap.focusInitialElementWhenReady();
+        }
+    };
+    CdkTrapFocus.decorators = [
+        { type: _angular_core.Directive, args: [{
+                    selector: '[cdkTrapFocus]',
+                    exportAs: 'cdkTrapFocus',
+                },] },
+    ];
+    /** @nocollapse */
+    CdkTrapFocus.ctorParameters = function () { return [
+        { type: _angular_core.ElementRef, },
+        { type: FocusTrapFactory, },
+        { type: undefined, decorators: [{ type: _angular_core.Inject, args: [_angular_common.DOCUMENT,] },] },
+    ]; };
+    CdkTrapFocus.propDecorators = {
+        "enabled": [{ type: _angular_core.Input, args: ['cdkTrapFocus',] },],
+        "autoCapture": [{ type: _angular_core.Input, args: ['cdkTrapFocusAutoCapture',] },],
+    };
+    return CdkTrapFocus;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * This interface is for items that can be passed to a ListKeyManager.
+ * @record
+ */
+
+/**
+ * This class manages keyboard events for selectable lists. If you pass it a query list
+ * of items, it will set the active item correctly when arrow events occur.
+ */
+var ListKeyManager = (function () {
+    function ListKeyManager(_items) {
+        this._items = _items;
+        this._activeItemIndex = -1;
+        this._wrap = false;
+        this._letterKeyStream = new rxjs_Subject.Subject();
+        this._typeaheadSubscription = rxjs_Subscription.Subscription.EMPTY;
+        this._pressedLetters = [];
+        /**
+         * Stream that emits any time the TAB key is pressed, so components can react
+         * when focus is shifted off of the list.
+         */
+        this.tabOut = new rxjs_Subject.Subject();
+        /**
+         * Stream that emits whenever the active item of the list manager changes.
+         */
+        this.change = new rxjs_Subject.Subject();
+    }
+    /**
+     * Turns on wrapping mode, which ensures that the active item will wrap to
+     * the other end of list when there are no more items in the given direction.
+     */
+    /**
+     * Turns on wrapping mode, which ensures that the active item will wrap to
+     * the other end of list when there are no more items in the given direction.
+     * @return {?}
+     */
+    ListKeyManager.prototype.withWrap = /**
+     * Turns on wrapping mode, which ensures that the active item will wrap to
+     * the other end of list when there are no more items in the given direction.
+     * @return {?}
+     */
+    function () {
+        this._wrap = true;
+        return this;
+    };
+    /**
+     * Turns on typeahead mode which allows users to set the active item by typing.
+     * @param debounceInterval Time to wait after the last keystroke before setting the active item.
+     */
+    /**
+     * Turns on typeahead mode which allows users to set the active item by typing.
+     * @param {?=} debounceInterval Time to wait after the last keystroke before setting the active item.
+     * @return {?}
+     */
+    ListKeyManager.prototype.withTypeAhead = /**
+     * Turns on typeahead mode which allows users to set the active item by typing.
+     * @param {?=} debounceInterval Time to wait after the last keystroke before setting the active item.
+     * @return {?}
+     */
+    function (debounceInterval) {
+        var _this = this;
+        if (debounceInterval === void 0) { debounceInterval = 200; }
+        if (this._items.length && this._items.some(function (item) { return typeof item.getLabel !== 'function'; })) {
+            throw Error('ListKeyManager items in typeahead mode must implement the `getLabel` method.');
+        }
+        this._typeaheadSubscription.unsubscribe();
+        // Debounce the presses of non-navigational keys, collect the ones that correspond to letters
+        // and convert those letters back into a string. Afterwards find the first item that starts
+        // with that string and select it.
+        this._typeaheadSubscription = this._letterKeyStream.pipe(rxjs_operators_tap.tap(function (keyCode) { return _this._pressedLetters.push(keyCode); }), rxjs_operators_debounceTime.debounceTime(debounceInterval), rxjs_operators_filter.filter(function () { return _this._pressedLetters.length > 0; }), rxjs_operators_map.map(function () { return _this._pressedLetters.join(''); })).subscribe(function (inputString) {
+            var /** @type {?} */ items = _this._items.toArray();
+            // Start at 1 because we want to start searching at the item immediately
+            // following the current active item.
+            for (var /** @type {?} */ i = 1; i < items.length + 1; i++) {
+                var /** @type {?} */ index = (_this._activeItemIndex + i) % items.length;
+                var /** @type {?} */ item = items[index];
+                if (!item.disabled && /** @type {?} */ ((item.getLabel))().toUpperCase().trim().indexOf(inputString) === 0) {
+                    _this.setActiveItem(index);
+                    break;
+                }
+            }
+            _this._pressedLetters = [];
+        });
+        return this;
+    };
+    /**
+     * Sets the active item to the item at the index specified.
+     * @param index The index of the item to be set as active.
+     */
+    /**
+     * Sets the active item to the item at the index specified.
+     * @param {?} index The index of the item to be set as active.
+     * @return {?}
+     */
+    ListKeyManager.prototype.setActiveItem = /**
+     * Sets the active item to the item at the index specified.
+     * @param {?} index The index of the item to be set as active.
+     * @return {?}
+     */
+    function (index) {
+        var /** @type {?} */ previousIndex = this._activeItemIndex;
+        this._activeItemIndex = index;
+        this._activeItem = this._items.toArray()[index];
+        if (this._activeItemIndex !== previousIndex) {
+            this.change.next(index);
+        }
+    };
+    /**
+     * Sets the active item depending on the key event passed in.
+     * @param event Keyboard event to be used for determining which element should be active.
+     */
+    /**
+     * Sets the active item depending on the key event passed in.
+     * @param {?} event Keyboard event to be used for determining which element should be active.
+     * @return {?}
+     */
+    ListKeyManager.prototype.onKeydown = /**
+     * Sets the active item depending on the key event passed in.
+     * @param {?} event Keyboard event to be used for determining which element should be active.
+     * @return {?}
+     */
+    function (event) {
+        switch (event.keyCode) {
+            case _angular_cdk_keycodes.DOWN_ARROW:
+                this.setNextItemActive();
+                break;
+            case _angular_cdk_keycodes.UP_ARROW:
+                this.setPreviousItemActive();
+                break;
+            case _angular_cdk_keycodes.TAB:
+                this.tabOut.next();
+                return;
+            default:
+                var /** @type {?} */ keyCode = event.keyCode;
+                // Attempt to use the `event.key` which also maps it to the user's keyboard language,
+                // otherwise fall back to resolving alphanumeric characters via the keyCode.
+                if (event.key && event.key.length === 1) {
+                    this._letterKeyStream.next(event.key.toLocaleUpperCase());
+                }
+                else if ((keyCode >= _angular_cdk_keycodes.A && keyCode <= _angular_cdk_keycodes.Z) || (keyCode >= _angular_cdk_keycodes.ZERO && keyCode <= _angular_cdk_keycodes.NINE)) {
+                    this._letterKeyStream.next(String.fromCharCode(keyCode));
+                }
+                // Note that we return here, in order to avoid preventing
+                // the default action of non-navigational keys.
+                return;
+        }
+        this._pressedLetters = [];
+        event.preventDefault();
+    };
+    Object.defineProperty(ListKeyManager.prototype, "activeItemIndex", {
+        /** Index of the currently active item. */
+        get: /**
+         * Index of the currently active item.
+         * @return {?}
+         */
+        function () {
+            return this._activeItemIndex;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ListKeyManager.prototype, "activeItem", {
+        /** The active item. */
+        get: /**
+         * The active item.
+         * @return {?}
+         */
+        function () {
+            return this._activeItem;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /** Sets the active item to the first enabled item in the list. */
+    /**
+     * Sets the active item to the first enabled item in the list.
+     * @return {?}
+     */
+    ListKeyManager.prototype.setFirstItemActive = /**
+     * Sets the active item to the first enabled item in the list.
+     * @return {?}
+     */
+    function () {
+        this._setActiveItemByIndex(0, 1);
+    };
+    /** Sets the active item to the last enabled item in the list. */
+    /**
+     * Sets the active item to the last enabled item in the list.
+     * @return {?}
+     */
+    ListKeyManager.prototype.setLastItemActive = /**
+     * Sets the active item to the last enabled item in the list.
+     * @return {?}
+     */
+    function () {
+        this._setActiveItemByIndex(this._items.length - 1, -1);
+    };
+    /** Sets the active item to the next enabled item in the list. */
+    /**
+     * Sets the active item to the next enabled item in the list.
+     * @return {?}
+     */
+    ListKeyManager.prototype.setNextItemActive = /**
+     * Sets the active item to the next enabled item in the list.
+     * @return {?}
+     */
+    function () {
+        this._activeItemIndex < 0 ? this.setFirstItemActive() : this._setActiveItemByDelta(1);
+    };
+    /** Sets the active item to a previous enabled item in the list. */
+    /**
+     * Sets the active item to a previous enabled item in the list.
+     * @return {?}
+     */
+    ListKeyManager.prototype.setPreviousItemActive = /**
+     * Sets the active item to a previous enabled item in the list.
+     * @return {?}
+     */
+    function () {
+        this._activeItemIndex < 0 && this._wrap ? this.setLastItemActive()
+            : this._setActiveItemByDelta(-1);
+    };
+    /**
+     * Allows setting of the activeItemIndex without any other effects.
+     * @param index The new activeItemIndex.
+     */
+    /**
+     * Allows setting of the activeItemIndex without any other effects.
+     * @param {?} index The new activeItemIndex.
+     * @return {?}
+     */
+    ListKeyManager.prototype.updateActiveItemIndex = /**
+     * Allows setting of the activeItemIndex without any other effects.
+     * @param {?} index The new activeItemIndex.
+     * @return {?}
+     */
+    function (index) {
+        this._activeItemIndex = index;
+    };
+    /**
+     * This method sets the active item, given a list of items and the delta between the
+     * currently active item and the new active item. It will calculate differently
+     * depending on whether wrap mode is turned on.
+     * @param {?} delta
+     * @param {?=} items
+     * @return {?}
+     */
+    ListKeyManager.prototype._setActiveItemByDelta = /**
+     * This method sets the active item, given a list of items and the delta between the
+     * currently active item and the new active item. It will calculate differently
+     * depending on whether wrap mode is turned on.
+     * @param {?} delta
+     * @param {?=} items
+     * @return {?}
+     */
+    function (delta, items) {
+        if (items === void 0) { items = this._items.toArray(); }
+        this._wrap ? this._setActiveInWrapMode(delta, items)
+            : this._setActiveInDefaultMode(delta, items);
+    };
+    /**
+     * Sets the active item properly given "wrap" mode. In other words, it will continue to move
+     * down the list until it finds an item that is not disabled, and it will wrap if it
+     * encounters either end of the list.
+     * @param {?} delta
+     * @param {?} items
+     * @return {?}
+     */
+    ListKeyManager.prototype._setActiveInWrapMode = /**
+     * Sets the active item properly given "wrap" mode. In other words, it will continue to move
+     * down the list until it finds an item that is not disabled, and it will wrap if it
+     * encounters either end of the list.
+     * @param {?} delta
+     * @param {?} items
+     * @return {?}
+     */
+    function (delta, items) {
+        // when active item would leave menu, wrap to beginning or end
+        this._activeItemIndex =
+            (this._activeItemIndex + delta + items.length) % items.length;
+        // skip all disabled menu items recursively until an enabled one is reached
+        if (items[this._activeItemIndex].disabled) {
+            this._setActiveInWrapMode(delta, items);
+        }
+        else {
+            this.setActiveItem(this._activeItemIndex);
+        }
+    };
+    /**
+     * Sets the active item properly given the default mode. In other words, it will
+     * continue to move down the list until it finds an item that is not disabled. If
+     * it encounters either end of the list, it will stop and not wrap.
+     * @param {?} delta
+     * @param {?} items
+     * @return {?}
+     */
+    ListKeyManager.prototype._setActiveInDefaultMode = /**
+     * Sets the active item properly given the default mode. In other words, it will
+     * continue to move down the list until it finds an item that is not disabled. If
+     * it encounters either end of the list, it will stop and not wrap.
+     * @param {?} delta
+     * @param {?} items
+     * @return {?}
+     */
+    function (delta, items) {
+        this._setActiveItemByIndex(this._activeItemIndex + delta, delta, items);
+    };
+    /**
+     * Sets the active item to the first enabled item starting at the index specified. If the
+     * item is disabled, it will move in the fallbackDelta direction until it either
+     * finds an enabled item or encounters the end of the list.
+     * @param {?} index
+     * @param {?} fallbackDelta
+     * @param {?=} items
+     * @return {?}
+     */
+    ListKeyManager.prototype._setActiveItemByIndex = /**
+     * Sets the active item to the first enabled item starting at the index specified. If the
+     * item is disabled, it will move in the fallbackDelta direction until it either
+     * finds an enabled item or encounters the end of the list.
+     * @param {?} index
+     * @param {?} fallbackDelta
+     * @param {?=} items
+     * @return {?}
+     */
+    function (index, fallbackDelta, items) {
+        if (items === void 0) { items = this._items.toArray(); }
+        if (!items[index]) {
+            return;
+        }
+        while (items[index].disabled) {
+            index += fallbackDelta;
+            if (!items[index]) {
+                return;
+            }
+        }
+        this.setActiveItem(index);
+    };
+    return ListKeyManager;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * This is the interface for highlightable items (used by the ActiveDescendantKeyManager).
+ * Each item must know how to style itself as active or inactive and whether or not it is
+ * currently disabled.
+ * @record
+ */
+
+var ActiveDescendantKeyManager = (function (_super) {
+    __extends(ActiveDescendantKeyManager, _super);
+    function ActiveDescendantKeyManager() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    /**
+     * This method sets the active item to the item at the specified index.
+     * It also adds active styles to the newly active item and removes active
+     * styles from the previously active item.
+     */
+    /**
+     * This method sets the active item to the item at the specified index.
+     * It also adds active styles to the newly active item and removes active
+     * styles from the previously active item.
+     * @param {?} index
+     * @return {?}
+     */
+    ActiveDescendantKeyManager.prototype.setActiveItem = /**
+     * This method sets the active item to the item at the specified index.
+     * It also adds active styles to the newly active item and removes active
+     * styles from the previously active item.
+     * @param {?} index
+     * @return {?}
+     */
+    function (index) {
+        if (this.activeItem) {
+            this.activeItem.setInactiveStyles();
+        }
+        _super.prototype.setActiveItem.call(this, index);
+        if (this.activeItem) {
+            this.activeItem.setActiveStyles();
+        }
+    };
+    return ActiveDescendantKeyManager;
+}(ListKeyManager));
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * IDs are deliminated by an empty space, as per the spec.
+ */
+var ID_DELIMINATOR = ' ';
+/**
+ * Adds the given ID to the specified ARIA attribute on an element.
+ * Used for attributes such as aria-labelledby, aria-owns, etc.
+ * @param {?} el
+ * @param {?} attr
+ * @param {?} id
+ * @return {?}
+ */
+function addAriaReferencedId(el, attr, id) {
+    var /** @type {?} */ ids = getAriaReferenceIds(el, attr);
+    if (ids.some(function (existingId) { return existingId.trim() == id.trim(); })) {
+        return;
+    }
+    ids.push(id.trim());
+    el.setAttribute(attr, ids.join(ID_DELIMINATOR));
+}
+/**
+ * Removes the given ID from the specified ARIA attribute on an element.
+ * Used for attributes such as aria-labelledby, aria-owns, etc.
+ * @param {?} el
+ * @param {?} attr
+ * @param {?} id
+ * @return {?}
+ */
+function removeAriaReferencedId(el, attr, id) {
+    var /** @type {?} */ ids = getAriaReferenceIds(el, attr);
+    var /** @type {?} */ filteredIds = ids.filter(function (val) { return val != id.trim(); });
+    el.setAttribute(attr, filteredIds.join(ID_DELIMINATOR));
+}
+/**
+ * Gets the list of IDs referenced by the given ARIA attribute on an element.
+ * Used for attributes such as aria-labelledby, aria-owns, etc.
+ * @param {?} el
+ * @param {?} attr
+ * @return {?}
+ */
+function getAriaReferenceIds(el, attr) {
+    // Get string array of all individual ids (whitespace deliminated) in the attribute value
+    return (el.getAttribute(attr) || '').match(/\S+/g) || [];
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+
+/**
+ * Interface used to register message elements and keep a count of how many registrations have
+ * the same message and the reference to the message element used for the `aria-describedby`.
+ * @record
+ */
+
+/**
+ * ID used for the body container where all messages are appended.
+ */
+var MESSAGES_CONTAINER_ID = 'cdk-describedby-message-container';
+/**
+ * ID prefix used for each created message element.
+ */
+var CDK_DESCRIBEDBY_ID_PREFIX = 'cdk-describedby-message';
+/**
+ * Attribute given to each host element that is described by a message element.
+ */
+var CDK_DESCRIBEDBY_HOST_ATTRIBUTE = 'cdk-describedby-host';
+/**
+ * Global incremental identifier for each registered message element.
+ */
+var nextId = 0;
+/**
+ * Global map of all registered message elements that have been placed into the document.
+ */
+var messageRegistry = new Map();
+/**
+ * Container for all registered messages.
+ */
+var messagesContainer = null;
+/**
+ * Utility that creates visually hidden elements with a message content. Useful for elements that
+ * want to use aria-describedby to further describe themselves without adding additional visual
+ * content.
+ * \@docs-private
+ */
+var AriaDescriber = (function () {
+    function AriaDescriber(_document) {
+        this._document = _document;
+    }
+    /**
+     * Adds to the host element an aria-describedby reference to a hidden element that contains
+     * the message. If the same message has already been registered, then it will reuse the created
+     * message element.
+     */
+    /**
+     * Adds to the host element an aria-describedby reference to a hidden element that contains
+     * the message. If the same message has already been registered, then it will reuse the created
+     * message element.
+     * @param {?} hostElement
+     * @param {?} message
+     * @return {?}
+     */
+    AriaDescriber.prototype.describe = /**
+     * Adds to the host element an aria-describedby reference to a hidden element that contains
+     * the message. If the same message has already been registered, then it will reuse the created
+     * message element.
+     * @param {?} hostElement
+     * @param {?} message
+     * @return {?}
+     */
+    function (hostElement, message) {
+        if (!message.trim()) {
+            return;
+        }
+        if (!messageRegistry.has(message)) {
+            this._createMessageElement(message);
+        }
+        if (!this._isElementDescribedByMessage(hostElement, message)) {
+            this._addMessageReference(hostElement, message);
+        }
+    };
+    /** Removes the host element's aria-describedby reference to the message element. */
+    /**
+     * Removes the host element's aria-describedby reference to the message element.
+     * @param {?} hostElement
+     * @param {?} message
+     * @return {?}
+     */
+    AriaDescriber.prototype.removeDescription = /**
+     * Removes the host element's aria-describedby reference to the message element.
+     * @param {?} hostElement
+     * @param {?} message
+     * @return {?}
+     */
+    function (hostElement, message) {
+        if (!message.trim()) {
+            return;
+        }
+        if (this._isElementDescribedByMessage(hostElement, message)) {
+            this._removeMessageReference(hostElement, message);
+        }
+        var /** @type {?} */ registeredMessage = messageRegistry.get(message);
+        if (registeredMessage && registeredMessage.referenceCount === 0) {
+            this._deleteMessageElement(message);
+        }
+        if (messagesContainer && messagesContainer.childNodes.length === 0) {
+            this._deleteMessagesContainer();
+        }
+    };
+    /** Unregisters all created message elements and removes the message container. */
+    /**
+     * Unregisters all created message elements and removes the message container.
+     * @return {?}
+     */
+    AriaDescriber.prototype.ngOnDestroy = /**
+     * Unregisters all created message elements and removes the message container.
+     * @return {?}
+     */
+    function () {
+        var /** @type {?} */ describedElements = this._document.querySelectorAll("[" + CDK_DESCRIBEDBY_HOST_ATTRIBUTE + "]");
+        for (var /** @type {?} */ i = 0; i < describedElements.length; i++) {
+            this._removeCdkDescribedByReferenceIds(describedElements[i]);
+            describedElements[i].removeAttribute(CDK_DESCRIBEDBY_HOST_ATTRIBUTE);
+        }
+        if (messagesContainer) {
+            this._deleteMessagesContainer();
+        }
+        messageRegistry.clear();
+    };
+    /**
+     * Creates a new element in the visually hidden message container element with the message
+     * as its content and adds it to the message registry.
+     * @param {?} message
+     * @return {?}
+     */
+    AriaDescriber.prototype._createMessageElement = /**
+     * Creates a new element in the visually hidden message container element with the message
+     * as its content and adds it to the message registry.
+     * @param {?} message
+     * @return {?}
+     */
+    function (message) {
+        var /** @type {?} */ messageElement = this._document.createElement('div');
+        messageElement.setAttribute('id', CDK_DESCRIBEDBY_ID_PREFIX + "-" + nextId++);
+        messageElement.appendChild(/** @type {?} */ ((this._document.createTextNode(message))));
+        if (!messagesContainer) {
+            this._createMessagesContainer();
+        } /** @type {?} */
+        ((messagesContainer)).appendChild(messageElement);
+        messageRegistry.set(message, { messageElement: messageElement, referenceCount: 0 });
+    };
+    /**
+     * Deletes the message element from the global messages container.
+     * @param {?} message
+     * @return {?}
+     */
+    AriaDescriber.prototype._deleteMessageElement = /**
+     * Deletes the message element from the global messages container.
+     * @param {?} message
+     * @return {?}
+     */
+    function (message) {
+        var /** @type {?} */ registeredMessage = messageRegistry.get(message);
+        var /** @type {?} */ messageElement = registeredMessage && registeredMessage.messageElement;
+        if (messagesContainer && messageElement) {
+            messagesContainer.removeChild(messageElement);
+        }
+        messageRegistry.delete(message);
+    };
+    /**
+     * Creates the global container for all aria-describedby messages.
+     * @return {?}
+     */
+    AriaDescriber.prototype._createMessagesContainer = /**
+     * Creates the global container for all aria-describedby messages.
+     * @return {?}
+     */
+    function () {
+        messagesContainer = this._document.createElement('div');
+        messagesContainer.setAttribute('id', MESSAGES_CONTAINER_ID);
+        messagesContainer.setAttribute('aria-hidden', 'true');
+        messagesContainer.style.display = 'none';
+        this._document.body.appendChild(messagesContainer);
+    };
+    /**
+     * Deletes the global messages container.
+     * @return {?}
+     */
+    AriaDescriber.prototype._deleteMessagesContainer = /**
+     * Deletes the global messages container.
+     * @return {?}
+     */
+    function () {
+        this._document.body.removeChild(/** @type {?} */ ((messagesContainer)));
+        messagesContainer = null;
+    };
+    /**
+     * Removes all cdk-describedby messages that are hosted through the element.
+     * @param {?} element
+     * @return {?}
+     */
+    AriaDescriber.prototype._removeCdkDescribedByReferenceIds = /**
+     * Removes all cdk-describedby messages that are hosted through the element.
+     * @param {?} element
+     * @return {?}
+     */
+    function (element) {
+        // Remove all aria-describedby reference IDs that are prefixed by CDK_DESCRIBEDBY_ID_PREFIX
+        var /** @type {?} */ originalReferenceIds = getAriaReferenceIds(element, 'aria-describedby')
+            .filter(function (id) { return id.indexOf(CDK_DESCRIBEDBY_ID_PREFIX) != 0; });
+        element.setAttribute('aria-describedby', originalReferenceIds.join(' '));
+    };
+    /**
+     * Adds a message reference to the element using aria-describedby and increments the registered
+     * message's reference count.
+     * @param {?} element
+     * @param {?} message
+     * @return {?}
+     */
+    AriaDescriber.prototype._addMessageReference = /**
+     * Adds a message reference to the element using aria-describedby and increments the registered
+     * message's reference count.
+     * @param {?} element
+     * @param {?} message
+     * @return {?}
+     */
+    function (element, message) {
+        var /** @type {?} */ registeredMessage = /** @type {?} */ ((messageRegistry.get(message)));
+        // Add the aria-describedby reference and set the
+        // describedby_host attribute to mark the element.
+        addAriaReferencedId(element, 'aria-describedby', registeredMessage.messageElement.id);
+        element.setAttribute(CDK_DESCRIBEDBY_HOST_ATTRIBUTE, '');
+        registeredMessage.referenceCount++;
+    };
+    /**
+     * Removes a message reference from the element using aria-describedby
+     * and decrements the registered message's reference count.
+     * @param {?} element
+     * @param {?} message
+     * @return {?}
+     */
+    AriaDescriber.prototype._removeMessageReference = /**
+     * Removes a message reference from the element using aria-describedby
+     * and decrements the registered message's reference count.
+     * @param {?} element
+     * @param {?} message
+     * @return {?}
+     */
+    function (element, message) {
+        var /** @type {?} */ registeredMessage = /** @type {?} */ ((messageRegistry.get(message)));
+        registeredMessage.referenceCount--;
+        removeAriaReferencedId(element, 'aria-describedby', registeredMessage.messageElement.id);
+        element.removeAttribute(CDK_DESCRIBEDBY_HOST_ATTRIBUTE);
+    };
+    /**
+     * Returns true if the element has been described by the provided message ID.
+     * @param {?} element
+     * @param {?} message
+     * @return {?}
+     */
+    AriaDescriber.prototype._isElementDescribedByMessage = /**
+     * Returns true if the element has been described by the provided message ID.
+     * @param {?} element
+     * @param {?} message
+     * @return {?}
+     */
+    function (element, message) {
+        var /** @type {?} */ referenceIds = getAriaReferenceIds(element, 'aria-describedby');
+        var /** @type {?} */ registeredMessage = messageRegistry.get(message);
+        var /** @type {?} */ messageId = registeredMessage && registeredMessage.messageElement.id;
+        return !!messageId && referenceIds.indexOf(messageId) != -1;
+    };
+    AriaDescriber.decorators = [
+        { type: _angular_core.Injectable },
+    ];
+    /** @nocollapse */
+    AriaDescriber.ctorParameters = function () { return [
+        { type: undefined, decorators: [{ type: _angular_core.Inject, args: [_angular_common.DOCUMENT,] },] },
+    ]; };
+    return AriaDescriber;
+}());
+/**
+ * \@docs-private
+ * @param {?} parentDispatcher
+ * @param {?} _document
+ * @return {?}
+ */
+function ARIA_DESCRIBER_PROVIDER_FACTORY(parentDispatcher, _document) {
+    return parentDispatcher || new AriaDescriber(_document);
+}
+/**
+ * \@docs-private
+ */
+var ARIA_DESCRIBER_PROVIDER = {
+    // If there is already an AriaDescriber available, use that. Otherwise, provide a new one.
+    provide: AriaDescriber,
+    deps: [
+        [new _angular_core.Optional(), new _angular_core.SkipSelf(), AriaDescriber],
+        /** @type {?} */ (_angular_common.DOCUMENT)
+    ],
+    useFactory: ARIA_DESCRIBER_PROVIDER_FACTORY
+};
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * Screenreaders will often fire fake mousedown events when a focusable element
+ * is activated using the keyboard. We can typically distinguish between these faked
+ * mousedown events and real mousedown events using the "buttons" property. While
+ * real mousedowns will indicate the mouse button that was pressed (e.g. "1" for
+ * the left mouse button), faked mousedowns will usually set the property value to 0.
+ * @param {?} event
+ * @return {?}
+ */
+function isFakeMousedownFromScreenReader(event) {
+    return event.buttons === 0;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * This is the interface for focusable items (used by the FocusKeyManager).
+ * Each item must know how to focus itself, whether or not it is currently disabled
+ * and be able to supply it's label.
+ * @record
+ */
+
+var FocusKeyManager = (function (_super) {
+    __extends(FocusKeyManager, _super);
+    function FocusKeyManager() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    /**
+     * This method sets the active item to the item at the specified index.
+     * It also adds focuses the newly active item.
+     */
+    /**
+     * This method sets the active item to the item at the specified index.
+     * It also adds focuses the newly active item.
+     * @param {?} index
+     * @return {?}
+     */
+    FocusKeyManager.prototype.setActiveItem = /**
+     * This method sets the active item to the item at the specified index.
+     * It also adds focuses the newly active item.
+     * @param {?} index
+     * @return {?}
+     */
+    function (index) {
+        _super.prototype.setActiveItem.call(this, index);
+        if (this.activeItem) {
+            this.activeItem.focus();
+        }
+    };
+    return FocusKeyManager;
+}(ListKeyManager));
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+
+var LIVE_ANNOUNCER_ELEMENT_TOKEN = new _angular_core.InjectionToken('liveAnnouncerElement');
+var LiveAnnouncer = (function () {
+    function LiveAnnouncer(elementToken, _document) {
+        this._document = _document;
+        // We inject the live element as `any` because the constructor signature cannot reference
+        // browser globals (HTMLElement) on non-browser environments, since having a class decorator
+        // causes TypeScript to preserve the constructor signature types.
+        this._liveElement = elementToken || this._createLiveElement();
+    }
+    /**
+     * Announces a message to screenreaders.
+     * @param message Message to be announced to the screenreader
+     * @param politeness The politeness of the announcer element
+     */
+    /**
+     * Announces a message to screenreaders.
+     * @param {?} message Message to be announced to the screenreader
+     * @param {?=} politeness The politeness of the announcer element
+     * @return {?}
+     */
+    LiveAnnouncer.prototype.announce = /**
+     * Announces a message to screenreaders.
+     * @param {?} message Message to be announced to the screenreader
+     * @param {?=} politeness The politeness of the announcer element
+     * @return {?}
+     */
+    function (message, politeness) {
+        var _this = this;
+        if (politeness === void 0) { politeness = 'polite'; }
+        this._liveElement.textContent = '';
+        // TODO: ensure changing the politeness works on all environments we support.
+        this._liveElement.setAttribute('aria-live', politeness);
+        // This 100ms timeout is necessary for some browser + screen-reader combinations:
+        // - Both JAWS and NVDA over IE11 will not announce anything without a non-zero timeout.
+        // - With Chrome and IE11 with NVDA or JAWS, a repeated (identical) message won't be read a
+        //   second time without clearing and then using a non-zero delay.
+        // (using JAWS 17 at time of this writing).
+        setTimeout(function () { return _this._liveElement.textContent = message; }, 100);
+    };
+    /**
+     * @return {?}
+     */
+    LiveAnnouncer.prototype.ngOnDestroy = /**
+     * @return {?}
+     */
+    function () {
+        if (this._liveElement && this._liveElement.parentNode) {
+            this._liveElement.parentNode.removeChild(this._liveElement);
+        }
+    };
+    /**
+     * @return {?}
+     */
+    LiveAnnouncer.prototype._createLiveElement = /**
+     * @return {?}
+     */
+    function () {
+        var /** @type {?} */ liveEl = this._document.createElement('div');
+        liveEl.classList.add('cdk-visually-hidden');
+        liveEl.setAttribute('aria-atomic', 'true');
+        liveEl.setAttribute('aria-live', 'polite');
+        this._document.body.appendChild(liveEl);
+        return liveEl;
+    };
+    LiveAnnouncer.decorators = [
+        { type: _angular_core.Injectable },
+    ];
+    /** @nocollapse */
+    LiveAnnouncer.ctorParameters = function () { return [
+        { type: undefined, decorators: [{ type: _angular_core.Optional }, { type: _angular_core.Inject, args: [LIVE_ANNOUNCER_ELEMENT_TOKEN,] },] },
+        { type: undefined, decorators: [{ type: _angular_core.Inject, args: [_angular_common.DOCUMENT,] },] },
+    ]; };
+    return LiveAnnouncer;
+}());
+/**
+ * \@docs-private
+ * @param {?} parentDispatcher
+ * @param {?} liveElement
+ * @param {?} _document
+ * @return {?}
+ */
+function LIVE_ANNOUNCER_PROVIDER_FACTORY(parentDispatcher, liveElement, _document) {
+    return parentDispatcher || new LiveAnnouncer(liveElement, _document);
+}
+/**
+ * \@docs-private
+ */
+var LIVE_ANNOUNCER_PROVIDER = {
+    // If there is already a LiveAnnouncer available, use that. Otherwise, provide a new one.
+    provide: LiveAnnouncer,
+    deps: [
+        [new _angular_core.Optional(), new _angular_core.SkipSelf(), LiveAnnouncer],
+        [new _angular_core.Optional(), new _angular_core.Inject(LIVE_ANNOUNCER_ELEMENT_TOKEN)],
+        _angular_common.DOCUMENT,
+    ],
+    useFactory: LIVE_ANNOUNCER_PROVIDER_FACTORY
+};
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+
+// This is the value used by AngularJS Material. Through trial and error (on iPhone 6S) they found
+// that a value of around 650ms seems appropriate.
+var TOUCH_BUFFER_MS = 650;
+/**
+ * Monitors mouse and keyboard events to determine the cause of focus events.
+ */
+var FocusMonitor = (function () {
+    function FocusMonitor(_ngZone, _platform) {
+        this._ngZone = _ngZone;
+        this._platform = _platform;
+        /**
+         * The focus origin that the next focus event is a result of.
+         */
+        this._origin = null;
+        /**
+         * Whether the window has just been focused.
+         */
+        this._windowFocused = false;
+        /**
+         * Weak map of elements being monitored to their info.
+         */
+        this._elementInfo = new WeakMap();
+        /**
+         * A map of global objects to lists of current listeners.
+         */
+        this._unregisterGlobalListeners = function () { };
+        /**
+         * The number of elements currently being monitored.
+         */
+        this._monitoredElementCount = 0;
+    }
+    /**
+     * @param {?} element
+     * @param {?} renderer
+     * @param {?=} checkChildren
+     * @return {?}
+     */
+    FocusMonitor.prototype.monitor = /**
+     * @param {?} element
+     * @param {?} renderer
+     * @param {?=} checkChildren
+     * @return {?}
+     */
+    function (element, renderer, checkChildren) {
+        var _this = this;
+        // TODO(mmalerba): clean up after deprecated signature is removed.
+        if (!(renderer instanceof _angular_core.Renderer2)) {
+            checkChildren = renderer;
+        }
+        checkChildren = !!checkChildren;
+        // Do nothing if we're not on the browser platform.
+        if (!this._platform.isBrowser) {
+            return rxjs_observable_of.of(null);
+        }
+        // Check if we're already monitoring this element.
+        if (this._elementInfo.has(element)) {
+            var /** @type {?} */ cachedInfo = this._elementInfo.get(element); /** @type {?} */
+            ((cachedInfo)).checkChildren = checkChildren;
+            return /** @type {?} */ ((cachedInfo)).subject.asObservable();
+        }
+        // Create monitored element info.
+        var /** @type {?} */ info = {
+            unlisten: function () { },
+            checkChildren: checkChildren,
+            subject: new rxjs_Subject.Subject()
+        };
+        this._elementInfo.set(element, info);
+        this._incrementMonitoredElementCount();
+        // Start listening. We need to listen in capture phase since focus events don't bubble.
+        var /** @type {?} */ focusListener = function (event) { return _this._onFocus(event, element); };
+        var /** @type {?} */ blurListener = function (event) { return _this._onBlur(event, element); };
+        this._ngZone.runOutsideAngular(function () {
+            element.addEventListener('focus', focusListener, true);
+            element.addEventListener('blur', blurListener, true);
+        });
+        // Create an unlisten function for later.
+        info.unlisten = function () {
+            element.removeEventListener('focus', focusListener, true);
+            element.removeEventListener('blur', blurListener, true);
+        };
+        return info.subject.asObservable();
+    };
+    /**
+     * Stops monitoring an element and removes all focus classes.
+     * @param element The element to stop monitoring.
+     */
+    /**
+     * Stops monitoring an element and removes all focus classes.
+     * @param {?} element The element to stop monitoring.
+     * @return {?}
+     */
+    FocusMonitor.prototype.stopMonitoring = /**
+     * Stops monitoring an element and removes all focus classes.
+     * @param {?} element The element to stop monitoring.
+     * @return {?}
+     */
+    function (element) {
+        var /** @type {?} */ elementInfo = this._elementInfo.get(element);
+        if (elementInfo) {
+            elementInfo.unlisten();
+            elementInfo.subject.complete();
+            this._setClasses(element);
+            this._elementInfo.delete(element);
+            this._decrementMonitoredElementCount();
+        }
+    };
+    /**
+     * Focuses the element via the specified focus origin.
+     * @param element The element to focus.
+     * @param origin The focus origin.
+     */
+    /**
+     * Focuses the element via the specified focus origin.
+     * @param {?} element The element to focus.
+     * @param {?} origin The focus origin.
+     * @return {?}
+     */
+    FocusMonitor.prototype.focusVia = /**
+     * Focuses the element via the specified focus origin.
+     * @param {?} element The element to focus.
+     * @param {?} origin The focus origin.
+     * @return {?}
+     */
+    function (element, origin) {
+        this._setOriginForCurrentEventQueue(origin);
+        element.focus();
+    };
+    /**
+     * Register necessary event listeners on the document and window.
+     * @return {?}
+     */
+    FocusMonitor.prototype._registerGlobalListeners = /**
+     * Register necessary event listeners on the document and window.
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        // Do nothing if we're not on the browser platform.
+        if (!this._platform.isBrowser) {
+            return;
+        }
+        // On keydown record the origin and clear any touch event that may be in progress.
+        var /** @type {?} */ documentKeydownListener = function () {
+            _this._lastTouchTarget = null;
+            _this._setOriginForCurrentEventQueue('keyboard');
+        };
+        // On mousedown record the origin only if there is not touch target, since a mousedown can
+        // happen as a result of a touch event.
+        var /** @type {?} */ documentMousedownListener = function () {
+            if (!_this._lastTouchTarget) {
+                _this._setOriginForCurrentEventQueue('mouse');
+            }
+        };
+        // When the touchstart event fires the focus event is not yet in the event queue. This means
+        // we can't rely on the trick used above (setting timeout of 0ms). Instead we wait 650ms to
+        // see if a focus happens.
+        var /** @type {?} */ documentTouchstartListener = function (event) {
+            if (_this._touchTimeout != null) {
+                clearTimeout(_this._touchTimeout);
+            }
+            _this._lastTouchTarget = event.target;
+            _this._touchTimeout = setTimeout(function () { return _this._lastTouchTarget = null; }, TOUCH_BUFFER_MS);
+        };
+        // Make a note of when the window regains focus, so we can restore the origin info for the
+        // focused element.
+        var /** @type {?} */ windowFocusListener = function () {
+            _this._windowFocused = true;
+            setTimeout(function () { return _this._windowFocused = false; }, 0);
+        };
+        // Note: we listen to events in the capture phase so we can detect them even if the user stops
+        // propagation.
+        this._ngZone.runOutsideAngular(function () {
+            document.addEventListener('keydown', documentKeydownListener, true);
+            document.addEventListener('mousedown', documentMousedownListener, true);
+            document.addEventListener('touchstart', documentTouchstartListener, supportsPassiveEventListeners() ? (/** @type {?} */ ({ passive: true, capture: true })) : true);
+            window.addEventListener('focus', windowFocusListener);
+        });
+        this._unregisterGlobalListeners = function () {
+            document.removeEventListener('keydown', documentKeydownListener, true);
+            document.removeEventListener('mousedown', documentMousedownListener, true);
+            document.removeEventListener('touchstart', documentTouchstartListener, supportsPassiveEventListeners() ? (/** @type {?} */ ({ passive: true, capture: true })) : true);
+            window.removeEventListener('focus', windowFocusListener);
+        };
+    };
+    /**
+     * @param {?} element
+     * @param {?} className
+     * @param {?} shouldSet
+     * @return {?}
+     */
+    FocusMonitor.prototype._toggleClass = /**
+     * @param {?} element
+     * @param {?} className
+     * @param {?} shouldSet
+     * @return {?}
+     */
+    function (element, className, shouldSet) {
+        if (shouldSet) {
+            element.classList.add(className);
+        }
+        else {
+            element.classList.remove(className);
+        }
+    };
+    /**
+     * Sets the focus classes on the element based on the given focus origin.
+     * @param {?} element The element to update the classes on.
+     * @param {?=} origin The focus origin.
+     * @return {?}
+     */
+    FocusMonitor.prototype._setClasses = /**
+     * Sets the focus classes on the element based on the given focus origin.
+     * @param {?} element The element to update the classes on.
+     * @param {?=} origin The focus origin.
+     * @return {?}
+     */
+    function (element, origin) {
+        var /** @type {?} */ elementInfo = this._elementInfo.get(element);
+        if (elementInfo) {
+            this._toggleClass(element, 'cdk-focused', !!origin);
+            this._toggleClass(element, 'cdk-touch-focused', origin === 'touch');
+            this._toggleClass(element, 'cdk-keyboard-focused', origin === 'keyboard');
+            this._toggleClass(element, 'cdk-mouse-focused', origin === 'mouse');
+            this._toggleClass(element, 'cdk-program-focused', origin === 'program');
+        }
+    };
+    /**
+     * Sets the origin and schedules an async function to clear it at the end of the event queue.
+     * @param {?} origin The origin to set.
+     * @return {?}
+     */
+    FocusMonitor.prototype._setOriginForCurrentEventQueue = /**
+     * Sets the origin and schedules an async function to clear it at the end of the event queue.
+     * @param {?} origin The origin to set.
+     * @return {?}
+     */
+    function (origin) {
+        var _this = this;
+        this._origin = origin;
+        setTimeout(function () { return _this._origin = null; }, 0);
+    };
+    /**
+     * Checks whether the given focus event was caused by a touchstart event.
+     * @param {?} event The focus event to check.
+     * @return {?} Whether the event was caused by a touch.
+     */
+    FocusMonitor.prototype._wasCausedByTouch = /**
+     * Checks whether the given focus event was caused by a touchstart event.
+     * @param {?} event The focus event to check.
+     * @return {?} Whether the event was caused by a touch.
+     */
+    function (event) {
+        // Note(mmalerba): This implementation is not quite perfect, there is a small edge case.
+        // Consider the following dom structure:
+        //
+        // <div #parent tabindex="0" cdkFocusClasses>
+        //   <div #child (click)="#parent.focus()"></div>
+        // </div>
+        //
+        // If the user touches the #child element and the #parent is programmatically focused as a
+        // result, this code will still consider it to have been caused by the touch event and will
+        // apply the cdk-touch-focused class rather than the cdk-program-focused class. This is a
+        // relatively small edge-case that can be worked around by using
+        // focusVia(parentEl, 'program') to focus the parent element.
+        //
+        // If we decide that we absolutely must handle this case correctly, we can do so by listening
+        // for the first focus event after the touchstart, and then the first blur event after that
+        // focus event. When that blur event fires we know that whatever follows is not a result of the
+        // touchstart.
+        var /** @type {?} */ focusTarget = event.target;
+        return this._lastTouchTarget instanceof Node && focusTarget instanceof Node &&
+            (focusTarget === this._lastTouchTarget || focusTarget.contains(this._lastTouchTarget));
+    };
+    /**
+     * Handles focus events on a registered element.
+     * @param {?} event The focus event.
+     * @param {?} element The monitored element.
+     * @return {?}
+     */
+    FocusMonitor.prototype._onFocus = /**
+     * Handles focus events on a registered element.
+     * @param {?} event The focus event.
+     * @param {?} element The monitored element.
+     * @return {?}
+     */
+    function (event, element) {
+        // NOTE(mmalerba): We currently set the classes based on the focus origin of the most recent
+        // focus event affecting the monitored element. If we want to use the origin of the first event
+        // instead we should check for the cdk-focused class here and return if the element already has
+        // it. (This only matters for elements that have includesChildren = true).
+        // If we are not counting child-element-focus as focused, make sure that the event target is the
+        // monitored element itself.
+        var /** @type {?} */ elementInfo = this._elementInfo.get(element);
+        if (!elementInfo || (!elementInfo.checkChildren && element !== event.target)) {
+            return;
+        }
+        // If we couldn't detect a cause for the focus event, it's due to one of three reasons:
+        // 1) The window has just regained focus, in which case we want to restore the focused state of
+        //    the element from before the window blurred.
+        // 2) It was caused by a touch event, in which case we mark the origin as 'touch'.
+        // 3) The element was programmatically focused, in which case we should mark the origin as
+        //    'program'.
+        if (!this._origin) {
+            if (this._windowFocused && this._lastFocusOrigin) {
+                this._origin = this._lastFocusOrigin;
+            }
+            else if (this._wasCausedByTouch(event)) {
+                this._origin = 'touch';
+            }
+            else {
+                this._origin = 'program';
+            }
+        }
+        this._setClasses(element, this._origin);
+        elementInfo.subject.next(this._origin);
+        this._lastFocusOrigin = this._origin;
+        this._origin = null;
+    };
+    /**
+     * Handles blur events on a registered element.
+     * @param event The blur event.
+     * @param element The monitored element.
+     */
+    /**
+     * Handles blur events on a registered element.
+     * @param {?} event The blur event.
+     * @param {?} element The monitored element.
+     * @return {?}
+     */
+    FocusMonitor.prototype._onBlur = /**
+     * Handles blur events on a registered element.
+     * @param {?} event The blur event.
+     * @param {?} element The monitored element.
+     * @return {?}
+     */
+    function (event, element) {
+        // If we are counting child-element-focus as focused, make sure that we aren't just blurring in
+        // order to focus another child of the monitored element.
+        var /** @type {?} */ elementInfo = this._elementInfo.get(element);
+        if (!elementInfo || (elementInfo.checkChildren && event.relatedTarget instanceof Node &&
+            element.contains(event.relatedTarget))) {
+            return;
+        }
+        this._setClasses(element);
+        elementInfo.subject.next(null);
+    };
+    /**
+     * @return {?}
+     */
+    FocusMonitor.prototype._incrementMonitoredElementCount = /**
+     * @return {?}
+     */
+    function () {
+        // Register global listeners when first element is monitored.
+        if (++this._monitoredElementCount == 1) {
+            this._registerGlobalListeners();
+        }
+    };
+    /**
+     * @return {?}
+     */
+    FocusMonitor.prototype._decrementMonitoredElementCount = /**
+     * @return {?}
+     */
+    function () {
+        // Unregister global listeners when last element is unmonitored.
+        if (!--this._monitoredElementCount) {
+            this._unregisterGlobalListeners();
+            this._unregisterGlobalListeners = function () { };
+        }
+    };
+    FocusMonitor.decorators = [
+        { type: _angular_core.Injectable },
+    ];
+    /** @nocollapse */
+    FocusMonitor.ctorParameters = function () { return [
+        { type: _angular_core.NgZone, },
+        { type: Platform, },
+    ]; };
+    return FocusMonitor;
+}());
+/**
+ * \@docs-private
+ * @param {?} parentDispatcher
+ * @param {?} ngZone
+ * @param {?} platform
+ * @return {?}
+ */
+function FOCUS_MONITOR_PROVIDER_FACTORY(parentDispatcher, ngZone, platform) {
+    return parentDispatcher || new FocusMonitor(ngZone, platform);
+}
+/**
+ * \@docs-private
+ */
+var FOCUS_MONITOR_PROVIDER = {
+    // If there is already a FocusMonitor available, use that. Otherwise, provide a new one.
+    provide: FocusMonitor,
+    deps: [[new _angular_core.Optional(), new _angular_core.SkipSelf(), FocusMonitor], _angular_core.NgZone, Platform],
+    useFactory: FOCUS_MONITOR_PROVIDER_FACTORY
+};
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+
+/**
+ * Class to be used to power selecting one or more options from a list.
+ */
+var SelectionModel = (function () {
+    function SelectionModel(_isMulti, initiallySelectedValues, _emitChanges) {
+        if (_isMulti === void 0) { _isMulti = false; }
+        if (_emitChanges === void 0) { _emitChanges = true; }
+        var _this = this;
+        this._isMulti = _isMulti;
+        this._emitChanges = _emitChanges;
+        /**
+         * Currently-selected values.
+         */
+        this._selection = new Set();
+        /**
+         * Keeps track of the deselected options that haven't been emitted by the change event.
+         */
+        this._deselectedToEmit = [];
+        /**
+         * Keeps track of the selected option that haven't been emitted by the change event.
+         */
+        this._selectedToEmit = [];
+        /**
+         * Event emitted when the value has changed.
+         */
+        this.onChange = this._emitChanges ? new rxjs_Subject.Subject() : null;
+        if (initiallySelectedValues) {
+            if (_isMulti) {
+                initiallySelectedValues.forEach(function (value) { return _this._markSelected(value); });
+            }
+            else {
+                this._markSelected(initiallySelectedValues[0]);
+            }
+            // Clear the array in order to avoid firing the change event for preselected values.
+            this._selectedToEmit.length = 0;
+        }
+    }
+    Object.defineProperty(SelectionModel.prototype, "selected", {
+        /** Selected value(s). */
+        get: /**
+         * Selected value(s).
+         * @return {?}
+         */
+        function () {
+            if (!this._selected) {
+                this._selected = Array.from(this._selection.values());
+            }
+            return this._selected;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * Selects a value or an array of values.
+     */
+    /**
+     * Selects a value or an array of values.
+     * @param {...?} values
+     * @return {?}
+     */
+    SelectionModel.prototype.select = /**
+     * Selects a value or an array of values.
+     * @param {...?} values
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        var values = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            values[_i] = arguments[_i];
+        }
+        this._verifyValueAssignment(values);
+        values.forEach(function (value) { return _this._markSelected(value); });
+        this._emitChangeEvent();
+    };
+    /**
+     * Deselects a value or an array of values.
+     */
+    /**
+     * Deselects a value or an array of values.
+     * @param {...?} values
+     * @return {?}
+     */
+    SelectionModel.prototype.deselect = /**
+     * Deselects a value or an array of values.
+     * @param {...?} values
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        var values = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            values[_i] = arguments[_i];
+        }
+        this._verifyValueAssignment(values);
+        values.forEach(function (value) { return _this._unmarkSelected(value); });
+        this._emitChangeEvent();
+    };
+    /**
+     * Toggles a value between selected and deselected.
+     */
+    /**
+     * Toggles a value between selected and deselected.
+     * @param {?} value
+     * @return {?}
+     */
+    SelectionModel.prototype.toggle = /**
+     * Toggles a value between selected and deselected.
+     * @param {?} value
+     * @return {?}
+     */
+    function (value) {
+        this.isSelected(value) ? this.deselect(value) : this.select(value);
+    };
+    /**
+     * Clears all of the selected values.
+     */
+    /**
+     * Clears all of the selected values.
+     * @return {?}
+     */
+    SelectionModel.prototype.clear = /**
+     * Clears all of the selected values.
+     * @return {?}
+     */
+    function () {
+        this._unmarkAll();
+        this._emitChangeEvent();
+    };
+    /**
+     * Determines whether a value is selected.
+     */
+    /**
+     * Determines whether a value is selected.
+     * @param {?} value
+     * @return {?}
+     */
+    SelectionModel.prototype.isSelected = /**
+     * Determines whether a value is selected.
+     * @param {?} value
+     * @return {?}
+     */
+    function (value) {
+        return this._selection.has(value);
+    };
+    /**
+     * Determines whether the model does not have a value.
+     */
+    /**
+     * Determines whether the model does not have a value.
+     * @return {?}
+     */
+    SelectionModel.prototype.isEmpty = /**
+     * Determines whether the model does not have a value.
+     * @return {?}
+     */
+    function () {
+        return this._selection.size === 0;
+    };
+    /**
+     * Determines whether the model has a value.
+     */
+    /**
+     * Determines whether the model has a value.
+     * @return {?}
+     */
+    SelectionModel.prototype.hasValue = /**
+     * Determines whether the model has a value.
+     * @return {?}
+     */
+    function () {
+        return !this.isEmpty();
+    };
+    /**
+     * Sorts the selected values based on a predicate function.
+     */
+    /**
+     * Sorts the selected values based on a predicate function.
+     * @param {?=} predicate
+     * @return {?}
+     */
+    SelectionModel.prototype.sort = /**
+     * Sorts the selected values based on a predicate function.
+     * @param {?=} predicate
+     * @return {?}
+     */
+    function (predicate) {
+        if (this._isMulti && this._selected) {
+            this._selected.sort(predicate);
+        }
+    };
+    /**
+     * Emits a change event and clears the records of selected and deselected values.
+     * @return {?}
+     */
+    SelectionModel.prototype._emitChangeEvent = /**
+     * Emits a change event and clears the records of selected and deselected values.
+     * @return {?}
+     */
+    function () {
+        // Clear the selected values so they can be re-cached.
+        this._selected = null;
+        if (this._selectedToEmit.length || this._deselectedToEmit.length) {
+            var /** @type {?} */ eventData = new SelectionChange(this._selectedToEmit, this._deselectedToEmit);
+            if (this.onChange) {
+                this.onChange.next(eventData);
+            }
+            this._deselectedToEmit = [];
+            this._selectedToEmit = [];
+        }
+    };
+    /**
+     * Selects a value.
+     * @param {?} value
+     * @return {?}
+     */
+    SelectionModel.prototype._markSelected = /**
+     * Selects a value.
+     * @param {?} value
+     * @return {?}
+     */
+    function (value) {
+        if (!this.isSelected(value)) {
+            if (!this._isMulti) {
+                this._unmarkAll();
+            }
+            this._selection.add(value);
+            if (this._emitChanges) {
+                this._selectedToEmit.push(value);
+            }
+        }
+    };
+    /**
+     * Deselects a value.
+     * @param {?} value
+     * @return {?}
+     */
+    SelectionModel.prototype._unmarkSelected = /**
+     * Deselects a value.
+     * @param {?} value
+     * @return {?}
+     */
+    function (value) {
+        if (this.isSelected(value)) {
+            this._selection.delete(value);
+            if (this._emitChanges) {
+                this._deselectedToEmit.push(value);
+            }
+        }
+    };
+    /**
+     * Clears out the selected values.
+     * @return {?}
+     */
+    SelectionModel.prototype._unmarkAll = /**
+     * Clears out the selected values.
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        if (!this.isEmpty()) {
+            this._selection.forEach(function (value) { return _this._unmarkSelected(value); });
+        }
+    };
+    /**
+     * Verifies the value assignment and throws an error if the specified value array is
+     * including multiple values while the selection model is not supporting multiple values.
+     * @param {?} values
+     * @return {?}
+     */
+    SelectionModel.prototype._verifyValueAssignment = /**
+     * Verifies the value assignment and throws an error if the specified value array is
+     * including multiple values while the selection model is not supporting multiple values.
+     * @param {?} values
+     * @return {?}
+     */
+    function (values) {
+        if (values.length > 1 && !this._isMulti) {
+            throw getMultipleValuesInSingleSelectionError();
+        }
+    };
+    return SelectionModel;
+}());
+/**
+ * Describes an event emitted when the value of a MatSelectionModel has changed.
+ * \@docs-private
+ */
+var SelectionChange = (function () {
+    function SelectionChange(added, removed) {
+        this.added = added;
+        this.removed = removed;
+    }
+    return SelectionChange;
+}());
+/**
+ * Returns an error that reports that multiple values are passed into a selection model
+ * with a single value.
+ * @return {?}
+ */
+function getMultipleValuesInSingleSelectionError() {
+    return Error('Cannot pass multiple values into SelectionModel with single-value mode.');
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+
+/**
+ * Class to coordinate unique selection based on name.
+ * Intended to be consumed as an Angular service.
+ * This service is needed because native radio change events are only fired on the item currently
+ * being selected, and we still need to uncheck the previous selection.
+ *
+ * This service does not *store* any IDs and names because they may change at any time, so it is
+ * less error-prone if they are simply passed through when the events occur.
+ */
+var UniqueSelectionDispatcher = (function () {
+    function UniqueSelectionDispatcher() {
+        this._listeners = [];
+    }
+    /**
+     * Notify other items that selection for the given name has been set.
+     * @param id ID of the item.
+     * @param name Name of the item.
+     */
+    /**
+     * Notify other items that selection for the given name has been set.
+     * @param {?} id ID of the item.
+     * @param {?} name Name of the item.
+     * @return {?}
+     */
+    UniqueSelectionDispatcher.prototype.notify = /**
+     * Notify other items that selection for the given name has been set.
+     * @param {?} id ID of the item.
+     * @param {?} name Name of the item.
+     * @return {?}
+     */
+    function (id, name) {
+        for (var _i = 0, _a = this._listeners; _i < _a.length; _i++) {
+            var listener = _a[_i];
+            listener(id, name);
+        }
+    };
+    /**
+     * Listen for future changes to item selection.
+     * @return Function used to deregister listener
+     */
+    /**
+     * Listen for future changes to item selection.
+     * @param {?} listener
+     * @return {?} Function used to deregister listener
+     */
+    UniqueSelectionDispatcher.prototype.listen = /**
+     * Listen for future changes to item selection.
+     * @param {?} listener
+     * @return {?} Function used to deregister listener
+     */
+    function (listener) {
+        var _this = this;
+        this._listeners.push(listener);
+        return function () {
+            _this._listeners = _this._listeners.filter(function (registered) {
+                return listener !== registered;
+            });
+        };
+    };
+    UniqueSelectionDispatcher.decorators = [
+        { type: _angular_core.Injectable },
+    ];
+    /** @nocollapse */
+    UniqueSelectionDispatcher.ctorParameters = function () { return []; };
+    return UniqueSelectionDispatcher;
+}());
+/**
+ * \@docs-private
+ * @param {?} parentDispatcher
+ * @return {?}
+ */
+function UNIQUE_SELECTION_DISPATCHER_PROVIDER_FACTORY(parentDispatcher) {
+    return parentDispatcher || new UniqueSelectionDispatcher();
+}
+/**
+ * \@docs-private
+ */
+var UNIQUE_SELECTION_DISPATCHER_PROVIDER = {
+    // If there is already a dispatcher available, use that. Otherwise, provide a new one.
+    provide: UniqueSelectionDispatcher,
+    deps: [[new _angular_core.Optional(), new _angular_core.SkipSelf(), UniqueSelectionDispatcher]],
+    useFactory: UNIQUE_SELECTION_DISPATCHER_PROVIDER_FACTORY
+};
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * \@docs-private
+ */
+var MatListBase = (function () {
+    function MatListBase() {
+    }
+    return MatListBase;
+}());
+var _MatListMixinBase = _angular_material_core.mixinDisableRipple(MatListBase);
+/**
+ * \@docs-private
+ */
+var MatListItemBase = (function () {
+    function MatListItemBase() {
+    }
+    return MatListItemBase;
+}());
+var _MatListItemMixinBase = _angular_material_core.mixinDisableRipple(MatListItemBase);
+/**
+ * Divider between items within a list.
+ */
+var MatListDivider = (function () {
+    function MatListDivider() {
+    }
+    MatListDivider.decorators = [
+        { type: _angular_core.Directive, args: [{
+                    selector: 'mat-divider',
+                    host: {
+                        'role': 'separator',
+                        'aria-orientation': 'horizontal'
+                    }
+                },] },
+    ];
+    /** @nocollapse */
+    MatListDivider.ctorParameters = function () { return []; };
+    return MatListDivider;
+}());
+/**
+ * A Material Design list component.
+ */
+var MatNavList = (function (_super) {
+    __extends(MatNavList, _super);
+    function MatNavList() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    MatNavList.decorators = [
+        { type: _angular_core.Component, args: [{selector: 'mat-nav-list',
+                    exportAs: 'matNavList',
+                    host: {
+                        'role': 'navigation',
+                        'class': 'mat-nav-list'
+                    },
+                    template: "<ng-content></ng-content>",
+                    styles: [".mat-subheader{display:flex;box-sizing:border-box;padding:16px;align-items:center}.mat-list .mat-subheader,.mat-nav-list .mat-subheader,.mat-selection-list .mat-subheader{margin:0}.mat-list,.mat-nav-list,.mat-selection-list{padding-top:8px;display:block}.mat-list .mat-subheader,.mat-nav-list .mat-subheader,.mat-selection-list .mat-subheader{height:48px;line-height:16px}.mat-list .mat-subheader:first-child,.mat-nav-list .mat-subheader:first-child,.mat-selection-list .mat-subheader:first-child{margin-top:-8px}.mat-list .mat-list-item,.mat-list .mat-list-option,.mat-nav-list .mat-list-item,.mat-nav-list .mat-list-option,.mat-selection-list .mat-list-item,.mat-selection-list .mat-list-option{display:block;height:48px}.mat-list .mat-list-item .mat-list-item-content,.mat-list .mat-list-option .mat-list-item-content,.mat-nav-list .mat-list-item .mat-list-item-content,.mat-nav-list .mat-list-option .mat-list-item-content,.mat-selection-list .mat-list-item .mat-list-item-content,.mat-selection-list .mat-list-option .mat-list-item-content{display:flex;flex-direction:row;align-items:center;box-sizing:border-box;padding:0 16px;position:relative;height:inherit}.mat-list .mat-list-item .mat-list-item-content-reverse,.mat-list .mat-list-option .mat-list-item-content-reverse,.mat-nav-list .mat-list-item .mat-list-item-content-reverse,.mat-nav-list .mat-list-option .mat-list-item-content-reverse,.mat-selection-list .mat-list-item .mat-list-item-content-reverse,.mat-selection-list .mat-list-option .mat-list-item-content-reverse{display:flex;align-items:center;padding:0 16px;flex-direction:row-reverse;justify-content:space-around}.mat-list .mat-list-item .mat-list-item-ripple,.mat-list .mat-list-option .mat-list-item-ripple,.mat-nav-list .mat-list-item .mat-list-item-ripple,.mat-nav-list .mat-list-option .mat-list-item-ripple,.mat-selection-list .mat-list-item .mat-list-item-ripple,.mat-selection-list .mat-list-option .mat-list-item-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-list .mat-list-item.mat-list-item-avatar,.mat-list .mat-list-option.mat-list-item-avatar,.mat-nav-list .mat-list-item.mat-list-item-avatar,.mat-nav-list .mat-list-option.mat-list-item-avatar,.mat-selection-list .mat-list-item.mat-list-item-avatar,.mat-selection-list .mat-list-option.mat-list-item-avatar{height:56px}.mat-list .mat-list-item.mat-2-line,.mat-list .mat-list-option.mat-2-line,.mat-nav-list .mat-list-item.mat-2-line,.mat-nav-list .mat-list-option.mat-2-line,.mat-selection-list .mat-list-item.mat-2-line,.mat-selection-list .mat-list-option.mat-2-line{height:72px}.mat-list .mat-list-item.mat-3-line,.mat-list .mat-list-option.mat-3-line,.mat-nav-list .mat-list-item.mat-3-line,.mat-nav-list .mat-list-option.mat-3-line,.mat-selection-list .mat-list-item.mat-3-line,.mat-selection-list .mat-list-option.mat-3-line{height:88px}.mat-list .mat-list-item.mat-multi-line,.mat-list .mat-list-option.mat-multi-line,.mat-nav-list .mat-list-item.mat-multi-line,.mat-nav-list .mat-list-option.mat-multi-line,.mat-selection-list .mat-list-item.mat-multi-line,.mat-selection-list .mat-list-option.mat-multi-line{height:auto}.mat-list .mat-list-item.mat-multi-line .mat-list-item-content,.mat-list .mat-list-option.mat-multi-line .mat-list-item-content,.mat-nav-list .mat-list-item.mat-multi-line .mat-list-item-content,.mat-nav-list .mat-list-option.mat-multi-line .mat-list-item-content,.mat-selection-list .mat-list-item.mat-multi-line .mat-list-item-content,.mat-selection-list .mat-list-option.mat-multi-line .mat-list-item-content{padding-top:16px;padding-bottom:16px}.mat-list .mat-list-item .mat-list-text,.mat-list .mat-list-option .mat-list-text,.mat-nav-list .mat-list-item .mat-list-text,.mat-nav-list .mat-list-option .mat-list-text,.mat-selection-list .mat-list-item .mat-list-text,.mat-selection-list .mat-list-option .mat-list-text{display:flex;flex-direction:column;width:100%;box-sizing:border-box;overflow:hidden;padding:0 16px}.mat-list .mat-list-item .mat-list-text>*,.mat-list .mat-list-option .mat-list-text>*,.mat-nav-list .mat-list-item .mat-list-text>*,.mat-nav-list .mat-list-option .mat-list-text>*,.mat-selection-list .mat-list-item .mat-list-text>*,.mat-selection-list .mat-list-option .mat-list-text>*{margin:0;padding:0;font-weight:400;font-size:inherit}.mat-list .mat-list-item .mat-list-text:empty,.mat-list .mat-list-option .mat-list-text:empty,.mat-nav-list .mat-list-item .mat-list-text:empty,.mat-nav-list .mat-list-option .mat-list-text:empty,.mat-selection-list .mat-list-item .mat-list-text:empty,.mat-selection-list .mat-list-option .mat-list-text:empty{display:none}.mat-list .mat-list-item .mat-list-text:nth-child(2),.mat-list .mat-list-option .mat-list-text:nth-child(2),.mat-nav-list .mat-list-item .mat-list-text:nth-child(2),.mat-nav-list .mat-list-option .mat-list-text:nth-child(2),.mat-selection-list .mat-list-item .mat-list-text:nth-child(2),.mat-selection-list .mat-list-option .mat-list-text:nth-child(2){padding:0}.mat-list .mat-list-item .mat-list-avatar,.mat-list .mat-list-option .mat-list-avatar,.mat-nav-list .mat-list-item .mat-list-avatar,.mat-nav-list .mat-list-option .mat-list-avatar,.mat-selection-list .mat-list-item .mat-list-avatar,.mat-selection-list .mat-list-option .mat-list-avatar{flex-shrink:0;width:40px;height:40px;border-radius:50%}.mat-list .mat-list-item .mat-list-icon,.mat-list .mat-list-option .mat-list-icon,.mat-nav-list .mat-list-item .mat-list-icon,.mat-nav-list .mat-list-option .mat-list-icon,.mat-selection-list .mat-list-item .mat-list-icon,.mat-selection-list .mat-list-option .mat-list-icon{width:24px;height:24px;font-size:24px;box-sizing:content-box;border-radius:50%;padding:4px}.mat-list[dense],.mat-nav-list[dense],.mat-selection-list[dense]{padding-top:4px;display:block}.mat-list[dense] .mat-subheader,.mat-nav-list[dense] .mat-subheader,.mat-selection-list[dense] .mat-subheader{height:40px;line-height:8px}.mat-list[dense] .mat-subheader:first-child,.mat-nav-list[dense] .mat-subheader:first-child,.mat-selection-list[dense] .mat-subheader:first-child{margin-top:-4px}.mat-list[dense] .mat-list-item,.mat-list[dense] .mat-list-option,.mat-nav-list[dense] .mat-list-item,.mat-nav-list[dense] .mat-list-option,.mat-selection-list[dense] .mat-list-item,.mat-selection-list[dense] .mat-list-option{display:block;height:40px}.mat-list[dense] .mat-list-item .mat-list-item-content,.mat-list[dense] .mat-list-option .mat-list-item-content,.mat-nav-list[dense] .mat-list-item .mat-list-item-content,.mat-nav-list[dense] .mat-list-option .mat-list-item-content,.mat-selection-list[dense] .mat-list-item .mat-list-item-content,.mat-selection-list[dense] .mat-list-option .mat-list-item-content{display:flex;flex-direction:row;align-items:center;box-sizing:border-box;padding:0 16px;position:relative;height:inherit}.mat-list[dense] .mat-list-item .mat-list-item-content-reverse,.mat-list[dense] .mat-list-option .mat-list-item-content-reverse,.mat-nav-list[dense] .mat-list-item .mat-list-item-content-reverse,.mat-nav-list[dense] .mat-list-option .mat-list-item-content-reverse,.mat-selection-list[dense] .mat-list-item .mat-list-item-content-reverse,.mat-selection-list[dense] .mat-list-option .mat-list-item-content-reverse{display:flex;align-items:center;padding:0 16px;flex-direction:row-reverse;justify-content:space-around}.mat-list[dense] .mat-list-item .mat-list-item-ripple,.mat-list[dense] .mat-list-option .mat-list-item-ripple,.mat-nav-list[dense] .mat-list-item .mat-list-item-ripple,.mat-nav-list[dense] .mat-list-option .mat-list-item-ripple,.mat-selection-list[dense] .mat-list-item .mat-list-item-ripple,.mat-selection-list[dense] .mat-list-option .mat-list-item-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-list[dense] .mat-list-item.mat-list-item-avatar,.mat-list[dense] .mat-list-option.mat-list-item-avatar,.mat-nav-list[dense] .mat-list-item.mat-list-item-avatar,.mat-nav-list[dense] .mat-list-option.mat-list-item-avatar,.mat-selection-list[dense] .mat-list-item.mat-list-item-avatar,.mat-selection-list[dense] .mat-list-option.mat-list-item-avatar{height:48px}.mat-list[dense] .mat-list-item.mat-2-line,.mat-list[dense] .mat-list-option.mat-2-line,.mat-nav-list[dense] .mat-list-item.mat-2-line,.mat-nav-list[dense] .mat-list-option.mat-2-line,.mat-selection-list[dense] .mat-list-item.mat-2-line,.mat-selection-list[dense] .mat-list-option.mat-2-line{height:60px}.mat-list[dense] .mat-list-item.mat-3-line,.mat-list[dense] .mat-list-option.mat-3-line,.mat-nav-list[dense] .mat-list-item.mat-3-line,.mat-nav-list[dense] .mat-list-option.mat-3-line,.mat-selection-list[dense] .mat-list-item.mat-3-line,.mat-selection-list[dense] .mat-list-option.mat-3-line{height:76px}.mat-list[dense] .mat-list-item.mat-multi-line,.mat-list[dense] .mat-list-option.mat-multi-line,.mat-nav-list[dense] .mat-list-item.mat-multi-line,.mat-nav-list[dense] .mat-list-option.mat-multi-line,.mat-selection-list[dense] .mat-list-item.mat-multi-line,.mat-selection-list[dense] .mat-list-option.mat-multi-line{height:auto}.mat-list[dense] .mat-list-item.mat-multi-line .mat-list-item-content,.mat-list[dense] .mat-list-option.mat-multi-line .mat-list-item-content,.mat-nav-list[dense] .mat-list-item.mat-multi-line .mat-list-item-content,.mat-nav-list[dense] .mat-list-option.mat-multi-line .mat-list-item-content,.mat-selection-list[dense] .mat-list-item.mat-multi-line .mat-list-item-content,.mat-selection-list[dense] .mat-list-option.mat-multi-line .mat-list-item-content{padding-top:16px;padding-bottom:16px}.mat-list[dense] .mat-list-item .mat-list-text,.mat-list[dense] .mat-list-option .mat-list-text,.mat-nav-list[dense] .mat-list-item .mat-list-text,.mat-nav-list[dense] .mat-list-option .mat-list-text,.mat-selection-list[dense] .mat-list-item .mat-list-text,.mat-selection-list[dense] .mat-list-option .mat-list-text{display:flex;flex-direction:column;width:100%;box-sizing:border-box;overflow:hidden;padding:0 16px}.mat-list[dense] .mat-list-item .mat-list-text>*,.mat-list[dense] .mat-list-option .mat-list-text>*,.mat-nav-list[dense] .mat-list-item .mat-list-text>*,.mat-nav-list[dense] .mat-list-option .mat-list-text>*,.mat-selection-list[dense] .mat-list-item .mat-list-text>*,.mat-selection-list[dense] .mat-list-option .mat-list-text>*{margin:0;padding:0;font-weight:400;font-size:inherit}.mat-list[dense] .mat-list-item .mat-list-text:empty,.mat-list[dense] .mat-list-option .mat-list-text:empty,.mat-nav-list[dense] .mat-list-item .mat-list-text:empty,.mat-nav-list[dense] .mat-list-option .mat-list-text:empty,.mat-selection-list[dense] .mat-list-item .mat-list-text:empty,.mat-selection-list[dense] .mat-list-option .mat-list-text:empty{display:none}.mat-list[dense] .mat-list-item .mat-list-text:nth-child(2),.mat-list[dense] .mat-list-option .mat-list-text:nth-child(2),.mat-nav-list[dense] .mat-list-item .mat-list-text:nth-child(2),.mat-nav-list[dense] .mat-list-option .mat-list-text:nth-child(2),.mat-selection-list[dense] .mat-list-item .mat-list-text:nth-child(2),.mat-selection-list[dense] .mat-list-option .mat-list-text:nth-child(2){padding:0}.mat-list[dense] .mat-list-item .mat-list-avatar,.mat-list[dense] .mat-list-option .mat-list-avatar,.mat-nav-list[dense] .mat-list-item .mat-list-avatar,.mat-nav-list[dense] .mat-list-option .mat-list-avatar,.mat-selection-list[dense] .mat-list-item .mat-list-avatar,.mat-selection-list[dense] .mat-list-option .mat-list-avatar{flex-shrink:0;width:40px;height:40px;border-radius:50%}.mat-list[dense] .mat-list-item .mat-list-icon,.mat-list[dense] .mat-list-option .mat-list-icon,.mat-nav-list[dense] .mat-list-item .mat-list-icon,.mat-nav-list[dense] .mat-list-option .mat-list-icon,.mat-selection-list[dense] .mat-list-item .mat-list-icon,.mat-selection-list[dense] .mat-list-option .mat-list-icon{width:20px;height:20px;font-size:20px;box-sizing:content-box;border-radius:50%;padding:4px}.mat-divider{display:block;border-top-style:solid;border-top-width:1px;margin:0}.mat-nav-list a{text-decoration:none;color:inherit}.mat-nav-list .mat-list-item-content{cursor:pointer}.mat-nav-list .mat-list-item-content.mat-list-item-focus,.mat-nav-list .mat-list-item-content:hover{outline:0}.mat-list-option:not([disabled]){cursor:pointer}"],
+                    inputs: ['disableRipple'],
+                    encapsulation: _angular_core.ViewEncapsulation.None,
+                    preserveWhitespaces: false,
+                    changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
+                },] },
+    ];
+    /** @nocollapse */
+    MatNavList.ctorParameters = function () { return []; };
+    return MatNavList;
+}(_MatListMixinBase));
+var MatList = (function (_super) {
+    __extends(MatList, _super);
+    function MatList() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    MatList.decorators = [
+        { type: _angular_core.Component, args: [{selector: 'mat-list',
+                    exportAs: 'matList',
+                    template: "<ng-content></ng-content>",
+                    host: { 'class': 'mat-list' },
+                    styles: [".mat-subheader{display:flex;box-sizing:border-box;padding:16px;align-items:center}.mat-list .mat-subheader,.mat-nav-list .mat-subheader,.mat-selection-list .mat-subheader{margin:0}.mat-list,.mat-nav-list,.mat-selection-list{padding-top:8px;display:block}.mat-list .mat-subheader,.mat-nav-list .mat-subheader,.mat-selection-list .mat-subheader{height:48px;line-height:16px}.mat-list .mat-subheader:first-child,.mat-nav-list .mat-subheader:first-child,.mat-selection-list .mat-subheader:first-child{margin-top:-8px}.mat-list .mat-list-item,.mat-list .mat-list-option,.mat-nav-list .mat-list-item,.mat-nav-list .mat-list-option,.mat-selection-list .mat-list-item,.mat-selection-list .mat-list-option{display:block;height:48px}.mat-list .mat-list-item .mat-list-item-content,.mat-list .mat-list-option .mat-list-item-content,.mat-nav-list .mat-list-item .mat-list-item-content,.mat-nav-list .mat-list-option .mat-list-item-content,.mat-selection-list .mat-list-item .mat-list-item-content,.mat-selection-list .mat-list-option .mat-list-item-content{display:flex;flex-direction:row;align-items:center;box-sizing:border-box;padding:0 16px;position:relative;height:inherit}.mat-list .mat-list-item .mat-list-item-content-reverse,.mat-list .mat-list-option .mat-list-item-content-reverse,.mat-nav-list .mat-list-item .mat-list-item-content-reverse,.mat-nav-list .mat-list-option .mat-list-item-content-reverse,.mat-selection-list .mat-list-item .mat-list-item-content-reverse,.mat-selection-list .mat-list-option .mat-list-item-content-reverse{display:flex;align-items:center;padding:0 16px;flex-direction:row-reverse;justify-content:space-around}.mat-list .mat-list-item .mat-list-item-ripple,.mat-list .mat-list-option .mat-list-item-ripple,.mat-nav-list .mat-list-item .mat-list-item-ripple,.mat-nav-list .mat-list-option .mat-list-item-ripple,.mat-selection-list .mat-list-item .mat-list-item-ripple,.mat-selection-list .mat-list-option .mat-list-item-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-list .mat-list-item.mat-list-item-avatar,.mat-list .mat-list-option.mat-list-item-avatar,.mat-nav-list .mat-list-item.mat-list-item-avatar,.mat-nav-list .mat-list-option.mat-list-item-avatar,.mat-selection-list .mat-list-item.mat-list-item-avatar,.mat-selection-list .mat-list-option.mat-list-item-avatar{height:56px}.mat-list .mat-list-item.mat-2-line,.mat-list .mat-list-option.mat-2-line,.mat-nav-list .mat-list-item.mat-2-line,.mat-nav-list .mat-list-option.mat-2-line,.mat-selection-list .mat-list-item.mat-2-line,.mat-selection-list .mat-list-option.mat-2-line{height:72px}.mat-list .mat-list-item.mat-3-line,.mat-list .mat-list-option.mat-3-line,.mat-nav-list .mat-list-item.mat-3-line,.mat-nav-list .mat-list-option.mat-3-line,.mat-selection-list .mat-list-item.mat-3-line,.mat-selection-list .mat-list-option.mat-3-line{height:88px}.mat-list .mat-list-item.mat-multi-line,.mat-list .mat-list-option.mat-multi-line,.mat-nav-list .mat-list-item.mat-multi-line,.mat-nav-list .mat-list-option.mat-multi-line,.mat-selection-list .mat-list-item.mat-multi-line,.mat-selection-list .mat-list-option.mat-multi-line{height:auto}.mat-list .mat-list-item.mat-multi-line .mat-list-item-content,.mat-list .mat-list-option.mat-multi-line .mat-list-item-content,.mat-nav-list .mat-list-item.mat-multi-line .mat-list-item-content,.mat-nav-list .mat-list-option.mat-multi-line .mat-list-item-content,.mat-selection-list .mat-list-item.mat-multi-line .mat-list-item-content,.mat-selection-list .mat-list-option.mat-multi-line .mat-list-item-content{padding-top:16px;padding-bottom:16px}.mat-list .mat-list-item .mat-list-text,.mat-list .mat-list-option .mat-list-text,.mat-nav-list .mat-list-item .mat-list-text,.mat-nav-list .mat-list-option .mat-list-text,.mat-selection-list .mat-list-item .mat-list-text,.mat-selection-list .mat-list-option .mat-list-text{display:flex;flex-direction:column;width:100%;box-sizing:border-box;overflow:hidden;padding:0 16px}.mat-list .mat-list-item .mat-list-text>*,.mat-list .mat-list-option .mat-list-text>*,.mat-nav-list .mat-list-item .mat-list-text>*,.mat-nav-list .mat-list-option .mat-list-text>*,.mat-selection-list .mat-list-item .mat-list-text>*,.mat-selection-list .mat-list-option .mat-list-text>*{margin:0;padding:0;font-weight:400;font-size:inherit}.mat-list .mat-list-item .mat-list-text:empty,.mat-list .mat-list-option .mat-list-text:empty,.mat-nav-list .mat-list-item .mat-list-text:empty,.mat-nav-list .mat-list-option .mat-list-text:empty,.mat-selection-list .mat-list-item .mat-list-text:empty,.mat-selection-list .mat-list-option .mat-list-text:empty{display:none}.mat-list .mat-list-item .mat-list-text:nth-child(2),.mat-list .mat-list-option .mat-list-text:nth-child(2),.mat-nav-list .mat-list-item .mat-list-text:nth-child(2),.mat-nav-list .mat-list-option .mat-list-text:nth-child(2),.mat-selection-list .mat-list-item .mat-list-text:nth-child(2),.mat-selection-list .mat-list-option .mat-list-text:nth-child(2){padding:0}.mat-list .mat-list-item .mat-list-avatar,.mat-list .mat-list-option .mat-list-avatar,.mat-nav-list .mat-list-item .mat-list-avatar,.mat-nav-list .mat-list-option .mat-list-avatar,.mat-selection-list .mat-list-item .mat-list-avatar,.mat-selection-list .mat-list-option .mat-list-avatar{flex-shrink:0;width:40px;height:40px;border-radius:50%}.mat-list .mat-list-item .mat-list-icon,.mat-list .mat-list-option .mat-list-icon,.mat-nav-list .mat-list-item .mat-list-icon,.mat-nav-list .mat-list-option .mat-list-icon,.mat-selection-list .mat-list-item .mat-list-icon,.mat-selection-list .mat-list-option .mat-list-icon{width:24px;height:24px;font-size:24px;box-sizing:content-box;border-radius:50%;padding:4px}.mat-list[dense],.mat-nav-list[dense],.mat-selection-list[dense]{padding-top:4px;display:block}.mat-list[dense] .mat-subheader,.mat-nav-list[dense] .mat-subheader,.mat-selection-list[dense] .mat-subheader{height:40px;line-height:8px}.mat-list[dense] .mat-subheader:first-child,.mat-nav-list[dense] .mat-subheader:first-child,.mat-selection-list[dense] .mat-subheader:first-child{margin-top:-4px}.mat-list[dense] .mat-list-item,.mat-list[dense] .mat-list-option,.mat-nav-list[dense] .mat-list-item,.mat-nav-list[dense] .mat-list-option,.mat-selection-list[dense] .mat-list-item,.mat-selection-list[dense] .mat-list-option{display:block;height:40px}.mat-list[dense] .mat-list-item .mat-list-item-content,.mat-list[dense] .mat-list-option .mat-list-item-content,.mat-nav-list[dense] .mat-list-item .mat-list-item-content,.mat-nav-list[dense] .mat-list-option .mat-list-item-content,.mat-selection-list[dense] .mat-list-item .mat-list-item-content,.mat-selection-list[dense] .mat-list-option .mat-list-item-content{display:flex;flex-direction:row;align-items:center;box-sizing:border-box;padding:0 16px;position:relative;height:inherit}.mat-list[dense] .mat-list-item .mat-list-item-content-reverse,.mat-list[dense] .mat-list-option .mat-list-item-content-reverse,.mat-nav-list[dense] .mat-list-item .mat-list-item-content-reverse,.mat-nav-list[dense] .mat-list-option .mat-list-item-content-reverse,.mat-selection-list[dense] .mat-list-item .mat-list-item-content-reverse,.mat-selection-list[dense] .mat-list-option .mat-list-item-content-reverse{display:flex;align-items:center;padding:0 16px;flex-direction:row-reverse;justify-content:space-around}.mat-list[dense] .mat-list-item .mat-list-item-ripple,.mat-list[dense] .mat-list-option .mat-list-item-ripple,.mat-nav-list[dense] .mat-list-item .mat-list-item-ripple,.mat-nav-list[dense] .mat-list-option .mat-list-item-ripple,.mat-selection-list[dense] .mat-list-item .mat-list-item-ripple,.mat-selection-list[dense] .mat-list-option .mat-list-item-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-list[dense] .mat-list-item.mat-list-item-avatar,.mat-list[dense] .mat-list-option.mat-list-item-avatar,.mat-nav-list[dense] .mat-list-item.mat-list-item-avatar,.mat-nav-list[dense] .mat-list-option.mat-list-item-avatar,.mat-selection-list[dense] .mat-list-item.mat-list-item-avatar,.mat-selection-list[dense] .mat-list-option.mat-list-item-avatar{height:48px}.mat-list[dense] .mat-list-item.mat-2-line,.mat-list[dense] .mat-list-option.mat-2-line,.mat-nav-list[dense] .mat-list-item.mat-2-line,.mat-nav-list[dense] .mat-list-option.mat-2-line,.mat-selection-list[dense] .mat-list-item.mat-2-line,.mat-selection-list[dense] .mat-list-option.mat-2-line{height:60px}.mat-list[dense] .mat-list-item.mat-3-line,.mat-list[dense] .mat-list-option.mat-3-line,.mat-nav-list[dense] .mat-list-item.mat-3-line,.mat-nav-list[dense] .mat-list-option.mat-3-line,.mat-selection-list[dense] .mat-list-item.mat-3-line,.mat-selection-list[dense] .mat-list-option.mat-3-line{height:76px}.mat-list[dense] .mat-list-item.mat-multi-line,.mat-list[dense] .mat-list-option.mat-multi-line,.mat-nav-list[dense] .mat-list-item.mat-multi-line,.mat-nav-list[dense] .mat-list-option.mat-multi-line,.mat-selection-list[dense] .mat-list-item.mat-multi-line,.mat-selection-list[dense] .mat-list-option.mat-multi-line{height:auto}.mat-list[dense] .mat-list-item.mat-multi-line .mat-list-item-content,.mat-list[dense] .mat-list-option.mat-multi-line .mat-list-item-content,.mat-nav-list[dense] .mat-list-item.mat-multi-line .mat-list-item-content,.mat-nav-list[dense] .mat-list-option.mat-multi-line .mat-list-item-content,.mat-selection-list[dense] .mat-list-item.mat-multi-line .mat-list-item-content,.mat-selection-list[dense] .mat-list-option.mat-multi-line .mat-list-item-content{padding-top:16px;padding-bottom:16px}.mat-list[dense] .mat-list-item .mat-list-text,.mat-list[dense] .mat-list-option .mat-list-text,.mat-nav-list[dense] .mat-list-item .mat-list-text,.mat-nav-list[dense] .mat-list-option .mat-list-text,.mat-selection-list[dense] .mat-list-item .mat-list-text,.mat-selection-list[dense] .mat-list-option .mat-list-text{display:flex;flex-direction:column;width:100%;box-sizing:border-box;overflow:hidden;padding:0 16px}.mat-list[dense] .mat-list-item .mat-list-text>*,.mat-list[dense] .mat-list-option .mat-list-text>*,.mat-nav-list[dense] .mat-list-item .mat-list-text>*,.mat-nav-list[dense] .mat-list-option .mat-list-text>*,.mat-selection-list[dense] .mat-list-item .mat-list-text>*,.mat-selection-list[dense] .mat-list-option .mat-list-text>*{margin:0;padding:0;font-weight:400;font-size:inherit}.mat-list[dense] .mat-list-item .mat-list-text:empty,.mat-list[dense] .mat-list-option .mat-list-text:empty,.mat-nav-list[dense] .mat-list-item .mat-list-text:empty,.mat-nav-list[dense] .mat-list-option .mat-list-text:empty,.mat-selection-list[dense] .mat-list-item .mat-list-text:empty,.mat-selection-list[dense] .mat-list-option .mat-list-text:empty{display:none}.mat-list[dense] .mat-list-item .mat-list-text:nth-child(2),.mat-list[dense] .mat-list-option .mat-list-text:nth-child(2),.mat-nav-list[dense] .mat-list-item .mat-list-text:nth-child(2),.mat-nav-list[dense] .mat-list-option .mat-list-text:nth-child(2),.mat-selection-list[dense] .mat-list-item .mat-list-text:nth-child(2),.mat-selection-list[dense] .mat-list-option .mat-list-text:nth-child(2){padding:0}.mat-list[dense] .mat-list-item .mat-list-avatar,.mat-list[dense] .mat-list-option .mat-list-avatar,.mat-nav-list[dense] .mat-list-item .mat-list-avatar,.mat-nav-list[dense] .mat-list-option .mat-list-avatar,.mat-selection-list[dense] .mat-list-item .mat-list-avatar,.mat-selection-list[dense] .mat-list-option .mat-list-avatar{flex-shrink:0;width:40px;height:40px;border-radius:50%}.mat-list[dense] .mat-list-item .mat-list-icon,.mat-list[dense] .mat-list-option .mat-list-icon,.mat-nav-list[dense] .mat-list-item .mat-list-icon,.mat-nav-list[dense] .mat-list-option .mat-list-icon,.mat-selection-list[dense] .mat-list-item .mat-list-icon,.mat-selection-list[dense] .mat-list-option .mat-list-icon{width:20px;height:20px;font-size:20px;box-sizing:content-box;border-radius:50%;padding:4px}.mat-divider{display:block;border-top-style:solid;border-top-width:1px;margin:0}.mat-nav-list a{text-decoration:none;color:inherit}.mat-nav-list .mat-list-item-content{cursor:pointer}.mat-nav-list .mat-list-item-content.mat-list-item-focus,.mat-nav-list .mat-list-item-content:hover{outline:0}.mat-list-option:not([disabled]){cursor:pointer}"],
+                    inputs: ['disableRipple'],
+                    encapsulation: _angular_core.ViewEncapsulation.None,
+                    preserveWhitespaces: false,
+                    changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
+                },] },
+    ];
+    /** @nocollapse */
+    MatList.ctorParameters = function () { return []; };
+    return MatList;
+}(_MatListMixinBase));
+/**
+ * Directive whose purpose is to add the mat- CSS styling to this selector.
+ * \@docs-private
+ */
+var MatDividerCssMatStyler = (function () {
+    function MatDividerCssMatStyler() {
+    }
+    MatDividerCssMatStyler.decorators = [
+        { type: _angular_core.Directive, args: [{
+                    selector: 'mat-divider',
+                    host: { 'class': 'mat-divider' }
+                },] },
+    ];
+    /** @nocollapse */
+    MatDividerCssMatStyler.ctorParameters = function () { return []; };
+    return MatDividerCssMatStyler;
+}());
+/**
+ * Directive whose purpose is to add the mat- CSS styling to this selector.
+ * \@docs-private
+ */
+var MatListAvatarCssMatStyler = (function () {
+    function MatListAvatarCssMatStyler() {
+    }
+    MatListAvatarCssMatStyler.decorators = [
+        { type: _angular_core.Directive, args: [{
+                    selector: '[mat-list-avatar], [matListAvatar]',
+                    host: { 'class': 'mat-list-avatar' }
+                },] },
+    ];
+    /** @nocollapse */
+    MatListAvatarCssMatStyler.ctorParameters = function () { return []; };
+    return MatListAvatarCssMatStyler;
+}());
+/**
+ * Directive whose purpose is to add the mat- CSS styling to this selector.
+ * \@docs-private
+ */
+var MatListIconCssMatStyler = (function () {
+    function MatListIconCssMatStyler() {
+    }
+    MatListIconCssMatStyler.decorators = [
+        { type: _angular_core.Directive, args: [{
+                    selector: '[mat-list-icon], [matListIcon]',
+                    host: { 'class': 'mat-list-icon' }
+                },] },
+    ];
+    /** @nocollapse */
+    MatListIconCssMatStyler.ctorParameters = function () { return []; };
+    return MatListIconCssMatStyler;
+}());
+/**
+ * Directive whose purpose is to add the mat- CSS styling to this selector.
+ * \@docs-private
+ */
+var MatListSubheaderCssMatStyler = (function () {
+    function MatListSubheaderCssMatStyler() {
+    }
+    MatListSubheaderCssMatStyler.decorators = [
+        { type: _angular_core.Directive, args: [{
+                    selector: '[mat-subheader], [matSubheader]',
+                    host: { 'class': 'mat-subheader' }
+                },] },
+    ];
+    /** @nocollapse */
+    MatListSubheaderCssMatStyler.ctorParameters = function () { return []; };
+    return MatListSubheaderCssMatStyler;
+}());
+/**
+ * An item within a Material Design list.
+ */
+var MatListItem = (function (_super) {
+    __extends(MatListItem, _super);
+    function MatListItem(_element, _navList) {
+        var _this = _super.call(this) || this;
+        _this._element = _element;
+        _this._navList = _navList;
+        _this._isNavList = false;
+        _this._isNavList = !!_navList;
+        return _this;
+    }
+    Object.defineProperty(MatListItem.prototype, "_hasAvatar", {
+        set: /**
+         * @param {?} avatar
+         * @return {?}
+         */
+        function (avatar) {
+            if (avatar != null) {
+                this._element.nativeElement.classList.add('mat-list-item-avatar');
+            }
+            else {
+                this._element.nativeElement.classList.remove('mat-list-item-avatar');
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * @return {?}
+     */
+    MatListItem.prototype.ngAfterContentInit = /**
+     * @return {?}
+     */
+    function () {
+        this._lineSetter = new _angular_material_core.MatLineSetter(this._lines, this._element);
+    };
+    /** Whether this list item should show a ripple effect when clicked.  */
+    /**
+     * Whether this list item should show a ripple effect when clicked.
+     * @return {?}
+     */
+    MatListItem.prototype._isRippleDisabled = /**
+     * Whether this list item should show a ripple effect when clicked.
+     * @return {?}
+     */
+    function () {
+        return !this._isNavList || this.disableRipple || this._navList.disableRipple;
+    };
+    /**
+     * @return {?}
+     */
+    MatListItem.prototype._handleFocus = /**
+     * @return {?}
+     */
+    function () {
+        this._element.nativeElement.classList.add('mat-list-item-focus');
+    };
+    /**
+     * @return {?}
+     */
+    MatListItem.prototype._handleBlur = /**
+     * @return {?}
+     */
+    function () {
+        this._element.nativeElement.classList.remove('mat-list-item-focus');
+    };
+    /** Retrieves the DOM element of the component host. */
+    /**
+     * Retrieves the DOM element of the component host.
+     * @return {?}
+     */
+    MatListItem.prototype._getHostElement = /**
+     * Retrieves the DOM element of the component host.
+     * @return {?}
+     */
+    function () {
+        return this._element.nativeElement;
+    };
+    MatListItem.decorators = [
+        { type: _angular_core.Component, args: [{selector: 'mat-list-item, a[mat-list-item]',
+                    exportAs: 'matListItem',
+                    host: {
+                        'class': 'mat-list-item',
+                        '(focus)': '_handleFocus()',
+                        '(blur)': '_handleBlur()',
+                    },
+                    inputs: ['disableRipple'],
+                    template: "<div class=\"mat-list-item-content\"><div class=\"mat-list-item-ripple\" mat-ripple [matRippleTrigger]=\"_getHostElement()\" [matRippleDisabled]=\"_isRippleDisabled()\"></div><ng-content select=\"[mat-list-avatar], [mat-list-icon], [matListAvatar], [matListIcon]\"></ng-content><div class=\"mat-list-text\"><ng-content select=\"[mat-line], [matLine]\"></ng-content></div><ng-content></ng-content></div>",
+                    encapsulation: _angular_core.ViewEncapsulation.None,
+                    preserveWhitespaces: false,
+                    changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
+                },] },
+    ];
+    /** @nocollapse */
+    MatListItem.ctorParameters = function () { return [
+        { type: _angular_core.ElementRef, },
+        { type: MatNavList, decorators: [{ type: _angular_core.Optional },] },
+    ]; };
+    MatListItem.propDecorators = {
+        "_lines": [{ type: _angular_core.ContentChildren, args: [_angular_material_core.MatLine,] },],
+        "_hasAvatar": [{ type: _angular_core.ContentChild, args: [MatListAvatarCssMatStyler,] },],
+    };
+    return MatListItem;
+}(_MatListItemMixinBase));
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * \@docs-private
+ */
+var MatSelectionListBase = (function () {
+    function MatSelectionListBase() {
+    }
+    return MatSelectionListBase;
+}());
+var _MatSelectionListMixinBase = _angular_material_core.mixinTabIndex(_angular_material_core.mixinDisableRipple(_angular_material_core.mixinDisabled(MatSelectionListBase)));
+/**
+ * \@docs-private
+ */
+var MatListOptionBase = (function () {
+    function MatListOptionBase() {
+    }
+    return MatListOptionBase;
+}());
+var _MatListOptionMixinBase = _angular_material_core.mixinDisableRipple(MatListOptionBase);
+/**
+ * \@docs-private
+ */
+var MAT_SELECTION_LIST_VALUE_ACCESSOR = {
+    provide: _angular_forms.NG_VALUE_ACCESSOR,
+    useExisting: _angular_core.forwardRef(function () { return MatSelectionList; }),
+    multi: true
+};
+/**
+ * Change event object emitted by MatListOption whenever the selected state changes.
+ * @deprecated Use the `MatSelectionListChange` event on the selection list instead.
+ */
+var MatListOptionChange = (function () {
+    function MatListOptionChange(source, selected) {
+        this.source = source;
+        this.selected = selected;
+    }
+    return MatListOptionChange;
+}());
+/**
+ * Change event that is being fired whenever the selected state of an option changes.
+ */
+var MatSelectionListChange = (function () {
+    function MatSelectionListChange(source, option) {
+        this.source = source;
+        this.option = option;
+    }
+    return MatSelectionListChange;
+}());
+/**
+ * Component for list-options of selection-list. Each list-option can automatically
+ * generate a checkbox and can put current item into the selectionModel of selection-list
+ * if the current item is selected.
+ */
+var MatListOption = (function (_super) {
+    __extends(MatListOption, _super);
+    function MatListOption(_element, _changeDetector, selectionList) {
+        var _this = _super.call(this) || this;
+        _this._element = _element;
+        _this._changeDetector = _changeDetector;
+        _this.selectionList = selectionList;
+        _this._selected = false;
+        _this._disabled = false;
+        /**
+         * Whether the option has focus.
+         */
+        _this._hasFocus = false;
+        /**
+         * Whether the label should appear before or after the checkbox. Defaults to 'after'
+         */
+        _this.checkboxPosition = 'after';
+        /**
+         * Emits a change event whenever the selected state of an option changes.
+         * @deprecated Use the `selectionChange` event on the `<mat-selection-list>` instead.
+         */
+        _this.selectionChange = new _angular_core.EventEmitter();
+        return _this;
+    }
+    Object.defineProperty(MatListOption.prototype, "disabled", {
+        get: /**
+         * Whether the option is disabled.
+         * @return {?}
+         */
+        function () { return (this.selectionList && this.selectionList.disabled) || this._disabled; },
+        set: /**
+         * @param {?} value
+         * @return {?}
+         */
+        function (value) {
+            var /** @type {?} */ newValue = _angular_cdk_coercion.coerceBooleanProperty(value);
+            if (newValue !== this._disabled) {
+                this._disabled = newValue;
+                this._changeDetector.markForCheck();
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(MatListOption.prototype, "selected", {
+        get: /**
+         * Whether the option is selected.
+         * @return {?}
+         */
+        function () { return this.selectionList.selectedOptions.isSelected(this); },
+        set: /**
+         * @param {?} value
+         * @return {?}
+         */
+        function (value) {
+            var /** @type {?} */ isSelected = _angular_cdk_coercion.coerceBooleanProperty(value);
+            if (isSelected !== this._selected) {
+                this._setSelected(isSelected);
+                this.selectionList._reportValueChange();
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * @return {?}
+     */
+    MatListOption.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        if (this.selected) {
+            // List options that are selected at initialization can't be reported properly to the form
+            // control. This is because it takes some time until the selection-list knows about all
+            // available options. Also it can happen that the ControlValueAccessor has an initial value
+            // that should be used instead. Deferring the value change report to the next tick ensures
+            // that the form control value is not being overwritten.
+            Promise.resolve(function () { return _this.selected && _this.selectionList._reportValueChange(); });
+        }
+    };
+    /**
+     * @return {?}
+     */
+    MatListOption.prototype.ngAfterContentInit = /**
+     * @return {?}
+     */
+    function () {
+        this._lineSetter = new _angular_material_core.MatLineSetter(this._lines, this._element);
+    };
+    /**
+     * @return {?}
+     */
+    MatListOption.prototype.ngOnDestroy = /**
+     * @return {?}
+     */
+    function () {
+        this.selectionList._removeOptionFromList(this);
+    };
+    /** Toggles the selection state of the option. */
+    /**
+     * Toggles the selection state of the option.
+     * @return {?}
+     */
+    MatListOption.prototype.toggle = /**
+     * Toggles the selection state of the option.
+     * @return {?}
+     */
+    function () {
+        this.selected = !this.selected;
+    };
+    /** Allows for programmatic focusing of the option. */
+    /**
+     * Allows for programmatic focusing of the option.
+     * @return {?}
+     */
+    MatListOption.prototype.focus = /**
+     * Allows for programmatic focusing of the option.
+     * @return {?}
+     */
+    function () {
+        this._element.nativeElement.focus();
+    };
+    /** Whether this list item should show a ripple effect when clicked.  */
+    /**
+     * Whether this list item should show a ripple effect when clicked.
+     * @return {?}
+     */
+    MatListOption.prototype._isRippleDisabled = /**
+     * Whether this list item should show a ripple effect when clicked.
+     * @return {?}
+     */
+    function () {
+        return this.disabled || this.disableRipple || this.selectionList.disableRipple;
+    };
+    /**
+     * @return {?}
+     */
+    MatListOption.prototype._handleClick = /**
+     * @return {?}
+     */
+    function () {
+        if (!this.disabled) {
+            this.toggle();
+            // Emit a change event if the selected state of the option changed through user interaction.
+            this.selectionList._emitChangeEvent(this);
+            // TODO: the `selectionChange` event on the option is deprecated. Remove that in the future.
+            this._emitDeprecatedChangeEvent();
+        }
+    };
+    /**
+     * @return {?}
+     */
+    MatListOption.prototype._handleFocus = /**
+     * @return {?}
+     */
+    function () {
+        this._hasFocus = true;
+        this.selectionList._setFocusedOption(this);
+    };
+    /**
+     * @return {?}
+     */
+    MatListOption.prototype._handleBlur = /**
+     * @return {?}
+     */
+    function () {
+        this._hasFocus = false;
+        this.selectionList.onTouched();
+    };
+    /** Retrieves the DOM element of the component host. */
+    /**
+     * Retrieves the DOM element of the component host.
+     * @return {?}
+     */
+    MatListOption.prototype._getHostElement = /**
+     * Retrieves the DOM element of the component host.
+     * @return {?}
+     */
+    function () {
+        return this._element.nativeElement;
+    };
+    /** Sets the selected state of the option. */
+    /**
+     * Sets the selected state of the option.
+     * @param {?} selected
+     * @return {?}
+     */
+    MatListOption.prototype._setSelected = /**
+     * Sets the selected state of the option.
+     * @param {?} selected
+     * @return {?}
+     */
+    function (selected) {
+        if (selected === this._selected) {
+            return;
+        }
+        this._selected = selected;
+        if (selected) {
+            this.selectionList.selectedOptions.select(this);
+        }
+        else {
+            this.selectionList.selectedOptions.deselect(this);
+        }
+        this._changeDetector.markForCheck();
+    };
+    /** Emits a selectionChange event for this option. */
+    /**
+     * Emits a selectionChange event for this option.
+     * @return {?}
+     */
+    MatListOption.prototype._emitDeprecatedChangeEvent = /**
+     * Emits a selectionChange event for this option.
+     * @return {?}
+     */
+    function () {
+        // TODO: the `selectionChange` event on the option is deprecated. Remove that in the future.
+        this.selectionChange.emit(new MatListOptionChange(this, this.selected));
+    };
+    MatListOption.decorators = [
+        { type: _angular_core.Component, args: [{selector: 'mat-list-option',
+                    exportAs: 'matListOption',
+                    inputs: ['disableRipple'],
+                    host: {
+                        'role': 'option',
+                        'class': 'mat-list-item mat-list-option',
+                        '(focus)': '_handleFocus()',
+                        '(blur)': '_handleBlur()',
+                        '(click)': '_handleClick()',
+                        'tabindex': '-1',
+                        '[class.mat-list-item-disabled]': 'disabled',
+                        '[class.mat-list-item-focus]': '_hasFocus',
+                        '[attr.aria-selected]': 'selected.toString()',
+                        '[attr.aria-disabled]': 'disabled.toString()',
+                    },
+                    template: "<div class=\"mat-list-item-content\" [class.mat-list-item-content-reverse]=\"checkboxPosition == 'after'\" [class.mat-list-item-disabled]=\"disabled\"><div mat-ripple class=\"mat-list-item-ripple\" [matRippleTrigger]=\"_getHostElement()\" [matRippleDisabled]=\"_isRippleDisabled()\"></div><mat-pseudo-checkbox #autocheckbox [state]=\"selected ? 'checked' : 'unchecked'\" [disabled]=\"disabled\"></mat-pseudo-checkbox><div class=\"mat-list-text\"><ng-content></ng-content></div></div>",
+                    encapsulation: _angular_core.ViewEncapsulation.None,
+                    preserveWhitespaces: false,
+                    changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
+                },] },
+    ];
+    /** @nocollapse */
+    MatListOption.ctorParameters = function () { return [
+        { type: _angular_core.ElementRef, },
+        { type: _angular_core.ChangeDetectorRef, },
+        { type: MatSelectionList, decorators: [{ type: _angular_core.Optional }, { type: _angular_core.Inject, args: [_angular_core.forwardRef(function () { return MatSelectionList; }),] },] },
+    ]; };
+    MatListOption.propDecorators = {
+        "_lines": [{ type: _angular_core.ContentChildren, args: [_angular_material_core.MatLine,] },],
+        "checkboxPosition": [{ type: _angular_core.Input },],
+        "value": [{ type: _angular_core.Input },],
+        "disabled": [{ type: _angular_core.Input },],
+        "selected": [{ type: _angular_core.Input },],
+        "selectionChange": [{ type: _angular_core.Output },],
+    };
+    return MatListOption;
+}(_MatListOptionMixinBase));
+/**
+ * Material Design list component where each item is a selectable option. Behaves as a listbox.
+ */
+var MatSelectionList = (function (_super) {
+    __extends(MatSelectionList, _super);
+    function MatSelectionList(_element, tabIndex) {
+        var _this = _super.call(this) || this;
+        _this._element = _element;
+        /**
+         * Emits a change event whenever the selected state of an option changes.
+         */
+        _this.selectionChange = new _angular_core.EventEmitter();
+        /**
+         * The currently selected options.
+         */
+        _this.selectedOptions = new SelectionModel(true);
+        /**
+         * View to model callback that should be called whenever the selected options change.
+         */
+        _this._onChange = function (_) { };
+        /**
+         * View to model callback that should be called if the list or its options lost focus.
+         */
+        _this.onTouched = function () { };
+        _this.tabIndex = parseInt(tabIndex) || 0;
+        return _this;
+    }
+    /**
+     * @return {?}
+     */
+    MatSelectionList.prototype.ngAfterContentInit = /**
+     * @return {?}
+     */
+    function () {
+        this._keyManager = new FocusKeyManager(this.options).withWrap();
+    };
+    /** Focus the selection-list. */
+    /**
+     * Focus the selection-list.
+     * @return {?}
+     */
+    MatSelectionList.prototype.focus = /**
+     * Focus the selection-list.
+     * @return {?}
+     */
+    function () {
+        this._element.nativeElement.focus();
+    };
+    /** Selects all of the options. */
+    /**
+     * Selects all of the options.
+     * @return {?}
+     */
+    MatSelectionList.prototype.selectAll = /**
+     * Selects all of the options.
+     * @return {?}
+     */
+    function () {
+        this.options.forEach(function (option) { return option._setSelected(true); });
+        this._reportValueChange();
+    };
+    /** Deselects all of the options. */
+    /**
+     * Deselects all of the options.
+     * @return {?}
+     */
+    MatSelectionList.prototype.deselectAll = /**
+     * Deselects all of the options.
+     * @return {?}
+     */
+    function () {
+        this.options.forEach(function (option) { return option._setSelected(false); });
+        this._reportValueChange();
+    };
+    /** Sets the focused option of the selection-list. */
+    /**
+     * Sets the focused option of the selection-list.
+     * @param {?} option
+     * @return {?}
+     */
+    MatSelectionList.prototype._setFocusedOption = /**
+     * Sets the focused option of the selection-list.
+     * @param {?} option
+     * @return {?}
+     */
+    function (option) {
+        this._keyManager.updateActiveItemIndex(this._getOptionIndex(option));
+    };
+    /** Removes an option from the selection list and updates the active item. */
+    /**
+     * Removes an option from the selection list and updates the active item.
+     * @param {?} option
+     * @return {?}
+     */
+    MatSelectionList.prototype._removeOptionFromList = /**
+     * Removes an option from the selection list and updates the active item.
+     * @param {?} option
+     * @return {?}
+     */
+    function (option) {
+        if (option._hasFocus) {
+            var /** @type {?} */ optionIndex = this._getOptionIndex(option);
+            // Check whether the option is the last item
+            if (optionIndex > 0) {
+                this._keyManager.setPreviousItemActive();
+            }
+            else if (optionIndex === 0 && this.options.length > 1) {
+                this._keyManager.setNextItemActive();
+            }
+        }
+    };
+    /** Passes relevant key presses to our key manager. */
+    /**
+     * Passes relevant key presses to our key manager.
+     * @param {?} event
+     * @return {?}
+     */
+    MatSelectionList.prototype._keydown = /**
+     * Passes relevant key presses to our key manager.
+     * @param {?} event
+     * @return {?}
+     */
+    function (event) {
+        switch (event.keyCode) {
+            case _angular_cdk_keycodes.SPACE:
+                this._toggleSelectOnFocusedOption();
+                // Always prevent space from scrolling the page since the list has focus
+                event.preventDefault();
+                break;
+            default:
+                this._keyManager.onKeydown(event);
+        }
+    };
+    /** Reports a value change to the ControlValueAccessor */
+    /**
+     * Reports a value change to the ControlValueAccessor
+     * @return {?}
+     */
+    MatSelectionList.prototype._reportValueChange = /**
+     * Reports a value change to the ControlValueAccessor
+     * @return {?}
+     */
+    function () {
+        if (this.options) {
+            this._onChange(this._getSelectedOptionValues());
+        }
+    };
+    /** Emits a change event if the selected state of an option changed. */
+    /**
+     * Emits a change event if the selected state of an option changed.
+     * @param {?} option
+     * @return {?}
+     */
+    MatSelectionList.prototype._emitChangeEvent = /**
+     * Emits a change event if the selected state of an option changed.
+     * @param {?} option
+     * @return {?}
+     */
+    function (option) {
+        this.selectionChange.emit(new MatSelectionListChange(this, option));
+    };
+    /** Implemented as part of ControlValueAccessor. */
+    /**
+     * Implemented as part of ControlValueAccessor.
+     * @param {?} values
+     * @return {?}
+     */
+    MatSelectionList.prototype.writeValue = /**
+     * Implemented as part of ControlValueAccessor.
+     * @param {?} values
+     * @return {?}
+     */
+    function (values) {
+        if (this.options) {
+            this._setOptionsFromValues(values || []);
+        }
+    };
+    /** Implemented as a part of ControlValueAccessor. */
+    /**
+     * Implemented as a part of ControlValueAccessor.
+     * @param {?} isDisabled
+     * @return {?}
+     */
+    MatSelectionList.prototype.setDisabledState = /**
+     * Implemented as a part of ControlValueAccessor.
+     * @param {?} isDisabled
+     * @return {?}
+     */
+    function (isDisabled) {
+        if (this.options) {
+            this.options.forEach(function (option) { return option.disabled = isDisabled; });
+        }
+    };
+    /** Implemented as part of ControlValueAccessor. */
+    /**
+     * Implemented as part of ControlValueAccessor.
+     * @param {?} fn
+     * @return {?}
+     */
+    MatSelectionList.prototype.registerOnChange = /**
+     * Implemented as part of ControlValueAccessor.
+     * @param {?} fn
+     * @return {?}
+     */
+    function (fn) {
+        this._onChange = fn;
+    };
+    /** Implemented as part of ControlValueAccessor. */
+    /**
+     * Implemented as part of ControlValueAccessor.
+     * @param {?} fn
+     * @return {?}
+     */
+    MatSelectionList.prototype.registerOnTouched = /**
+     * Implemented as part of ControlValueAccessor.
+     * @param {?} fn
+     * @return {?}
+     */
+    function (fn) {
+        this.onTouched = fn;
+    };
+    /**
+     * Returns the option with the specified value.
+     * @param {?} value
+     * @return {?}
+     */
+    MatSelectionList.prototype._getOptionByValue = /**
+     * Returns the option with the specified value.
+     * @param {?} value
+     * @return {?}
+     */
+    function (value) {
+        return this.options.find(function (option) { return option.value === value; });
+    };
+    /**
+     * Sets the selected options based on the specified values.
+     * @param {?} values
+     * @return {?}
+     */
+    MatSelectionList.prototype._setOptionsFromValues = /**
+     * Sets the selected options based on the specified values.
+     * @param {?} values
+     * @return {?}
+     */
+    function (values) {
+        var _this = this;
+        this.options.forEach(function (option) { return option._setSelected(false); });
+        values
+            .map(function (value) { return _this._getOptionByValue(value); })
+            .filter(Boolean)
+            .forEach(function (option) { return /** @type {?} */ ((option))._setSelected(true); });
+    };
+    /**
+     * Returns the values of the selected options.
+     * @return {?}
+     */
+    MatSelectionList.prototype._getSelectedOptionValues = /**
+     * Returns the values of the selected options.
+     * @return {?}
+     */
+    function () {
+        return this.options.filter(function (option) { return option.selected; }).map(function (option) { return option.value; });
+    };
+    /**
+     * Toggles the selected state of the currently focused option.
+     * @return {?}
+     */
+    MatSelectionList.prototype._toggleSelectOnFocusedOption = /**
+     * Toggles the selected state of the currently focused option.
+     * @return {?}
+     */
+    function () {
+        var /** @type {?} */ focusedIndex = this._keyManager.activeItemIndex;
+        if (focusedIndex != null && this._isValidIndex(focusedIndex)) {
+            var /** @type {?} */ focusedOption = this.options.toArray()[focusedIndex];
+            if (focusedOption) {
+                focusedOption.toggle();
+                // Emit a change event because the focused option changed its state through user
+                // interaction.
+                this._emitChangeEvent(focusedOption);
+                // TODO: the `selectionChange` event on the option is deprecated. Remove that in the future.
+                focusedOption._emitDeprecatedChangeEvent();
+            }
+        }
+    };
+    /**
+     * Utility to ensure all indexes are valid.
+     * @param {?} index The index to be checked.
+     * @return {?} True if the index is valid for our list of options.
+     */
+    MatSelectionList.prototype._isValidIndex = /**
+     * Utility to ensure all indexes are valid.
+     * @param {?} index The index to be checked.
+     * @return {?} True if the index is valid for our list of options.
+     */
+    function (index) {
+        return index >= 0 && index < this.options.length;
+    };
+    /**
+     * Returns the index of the specified list option.
+     * @param {?} option
+     * @return {?}
+     */
+    MatSelectionList.prototype._getOptionIndex = /**
+     * Returns the index of the specified list option.
+     * @param {?} option
+     * @return {?}
+     */
+    function (option) {
+        return this.options.toArray().indexOf(option);
+    };
+    MatSelectionList.decorators = [
+        { type: _angular_core.Component, args: [{selector: 'mat-selection-list',
+                    exportAs: 'matSelectionList',
+                    inputs: ['disabled', 'disableRipple', 'tabIndex'],
+                    host: {
+                        'role': 'listbox',
+                        '[tabIndex]': 'tabIndex',
+                        'class': 'mat-selection-list',
+                        '(focus)': 'focus()',
+                        '(blur)': 'onTouched()',
+                        '(keydown)': '_keydown($event)',
+                        '[attr.aria-disabled]': 'disabled.toString()'
+                    },
+                    template: '<ng-content></ng-content>',
+                    styles: [".mat-subheader{display:flex;box-sizing:border-box;padding:16px;align-items:center}.mat-list .mat-subheader,.mat-nav-list .mat-subheader,.mat-selection-list .mat-subheader{margin:0}.mat-list,.mat-nav-list,.mat-selection-list{padding-top:8px;display:block}.mat-list .mat-subheader,.mat-nav-list .mat-subheader,.mat-selection-list .mat-subheader{height:48px;line-height:16px}.mat-list .mat-subheader:first-child,.mat-nav-list .mat-subheader:first-child,.mat-selection-list .mat-subheader:first-child{margin-top:-8px}.mat-list .mat-list-item,.mat-list .mat-list-option,.mat-nav-list .mat-list-item,.mat-nav-list .mat-list-option,.mat-selection-list .mat-list-item,.mat-selection-list .mat-list-option{display:block;height:48px}.mat-list .mat-list-item .mat-list-item-content,.mat-list .mat-list-option .mat-list-item-content,.mat-nav-list .mat-list-item .mat-list-item-content,.mat-nav-list .mat-list-option .mat-list-item-content,.mat-selection-list .mat-list-item .mat-list-item-content,.mat-selection-list .mat-list-option .mat-list-item-content{display:flex;flex-direction:row;align-items:center;box-sizing:border-box;padding:0 16px;position:relative;height:inherit}.mat-list .mat-list-item .mat-list-item-content-reverse,.mat-list .mat-list-option .mat-list-item-content-reverse,.mat-nav-list .mat-list-item .mat-list-item-content-reverse,.mat-nav-list .mat-list-option .mat-list-item-content-reverse,.mat-selection-list .mat-list-item .mat-list-item-content-reverse,.mat-selection-list .mat-list-option .mat-list-item-content-reverse{display:flex;align-items:center;padding:0 16px;flex-direction:row-reverse;justify-content:space-around}.mat-list .mat-list-item .mat-list-item-ripple,.mat-list .mat-list-option .mat-list-item-ripple,.mat-nav-list .mat-list-item .mat-list-item-ripple,.mat-nav-list .mat-list-option .mat-list-item-ripple,.mat-selection-list .mat-list-item .mat-list-item-ripple,.mat-selection-list .mat-list-option .mat-list-item-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-list .mat-list-item.mat-list-item-avatar,.mat-list .mat-list-option.mat-list-item-avatar,.mat-nav-list .mat-list-item.mat-list-item-avatar,.mat-nav-list .mat-list-option.mat-list-item-avatar,.mat-selection-list .mat-list-item.mat-list-item-avatar,.mat-selection-list .mat-list-option.mat-list-item-avatar{height:56px}.mat-list .mat-list-item.mat-2-line,.mat-list .mat-list-option.mat-2-line,.mat-nav-list .mat-list-item.mat-2-line,.mat-nav-list .mat-list-option.mat-2-line,.mat-selection-list .mat-list-item.mat-2-line,.mat-selection-list .mat-list-option.mat-2-line{height:72px}.mat-list .mat-list-item.mat-3-line,.mat-list .mat-list-option.mat-3-line,.mat-nav-list .mat-list-item.mat-3-line,.mat-nav-list .mat-list-option.mat-3-line,.mat-selection-list .mat-list-item.mat-3-line,.mat-selection-list .mat-list-option.mat-3-line{height:88px}.mat-list .mat-list-item.mat-multi-line,.mat-list .mat-list-option.mat-multi-line,.mat-nav-list .mat-list-item.mat-multi-line,.mat-nav-list .mat-list-option.mat-multi-line,.mat-selection-list .mat-list-item.mat-multi-line,.mat-selection-list .mat-list-option.mat-multi-line{height:auto}.mat-list .mat-list-item.mat-multi-line .mat-list-item-content,.mat-list .mat-list-option.mat-multi-line .mat-list-item-content,.mat-nav-list .mat-list-item.mat-multi-line .mat-list-item-content,.mat-nav-list .mat-list-option.mat-multi-line .mat-list-item-content,.mat-selection-list .mat-list-item.mat-multi-line .mat-list-item-content,.mat-selection-list .mat-list-option.mat-multi-line .mat-list-item-content{padding-top:16px;padding-bottom:16px}.mat-list .mat-list-item .mat-list-text,.mat-list .mat-list-option .mat-list-text,.mat-nav-list .mat-list-item .mat-list-text,.mat-nav-list .mat-list-option .mat-list-text,.mat-selection-list .mat-list-item .mat-list-text,.mat-selection-list .mat-list-option .mat-list-text{display:flex;flex-direction:column;width:100%;box-sizing:border-box;overflow:hidden;padding:0 16px}.mat-list .mat-list-item .mat-list-text>*,.mat-list .mat-list-option .mat-list-text>*,.mat-nav-list .mat-list-item .mat-list-text>*,.mat-nav-list .mat-list-option .mat-list-text>*,.mat-selection-list .mat-list-item .mat-list-text>*,.mat-selection-list .mat-list-option .mat-list-text>*{margin:0;padding:0;font-weight:400;font-size:inherit}.mat-list .mat-list-item .mat-list-text:empty,.mat-list .mat-list-option .mat-list-text:empty,.mat-nav-list .mat-list-item .mat-list-text:empty,.mat-nav-list .mat-list-option .mat-list-text:empty,.mat-selection-list .mat-list-item .mat-list-text:empty,.mat-selection-list .mat-list-option .mat-list-text:empty{display:none}.mat-list .mat-list-item .mat-list-text:nth-child(2),.mat-list .mat-list-option .mat-list-text:nth-child(2),.mat-nav-list .mat-list-item .mat-list-text:nth-child(2),.mat-nav-list .mat-list-option .mat-list-text:nth-child(2),.mat-selection-list .mat-list-item .mat-list-text:nth-child(2),.mat-selection-list .mat-list-option .mat-list-text:nth-child(2){padding:0}.mat-list .mat-list-item .mat-list-avatar,.mat-list .mat-list-option .mat-list-avatar,.mat-nav-list .mat-list-item .mat-list-avatar,.mat-nav-list .mat-list-option .mat-list-avatar,.mat-selection-list .mat-list-item .mat-list-avatar,.mat-selection-list .mat-list-option .mat-list-avatar{flex-shrink:0;width:40px;height:40px;border-radius:50%}.mat-list .mat-list-item .mat-list-icon,.mat-list .mat-list-option .mat-list-icon,.mat-nav-list .mat-list-item .mat-list-icon,.mat-nav-list .mat-list-option .mat-list-icon,.mat-selection-list .mat-list-item .mat-list-icon,.mat-selection-list .mat-list-option .mat-list-icon{width:24px;height:24px;font-size:24px;box-sizing:content-box;border-radius:50%;padding:4px}.mat-list[dense],.mat-nav-list[dense],.mat-selection-list[dense]{padding-top:4px;display:block}.mat-list[dense] .mat-subheader,.mat-nav-list[dense] .mat-subheader,.mat-selection-list[dense] .mat-subheader{height:40px;line-height:8px}.mat-list[dense] .mat-subheader:first-child,.mat-nav-list[dense] .mat-subheader:first-child,.mat-selection-list[dense] .mat-subheader:first-child{margin-top:-4px}.mat-list[dense] .mat-list-item,.mat-list[dense] .mat-list-option,.mat-nav-list[dense] .mat-list-item,.mat-nav-list[dense] .mat-list-option,.mat-selection-list[dense] .mat-list-item,.mat-selection-list[dense] .mat-list-option{display:block;height:40px}.mat-list[dense] .mat-list-item .mat-list-item-content,.mat-list[dense] .mat-list-option .mat-list-item-content,.mat-nav-list[dense] .mat-list-item .mat-list-item-content,.mat-nav-list[dense] .mat-list-option .mat-list-item-content,.mat-selection-list[dense] .mat-list-item .mat-list-item-content,.mat-selection-list[dense] .mat-list-option .mat-list-item-content{display:flex;flex-direction:row;align-items:center;box-sizing:border-box;padding:0 16px;position:relative;height:inherit}.mat-list[dense] .mat-list-item .mat-list-item-content-reverse,.mat-list[dense] .mat-list-option .mat-list-item-content-reverse,.mat-nav-list[dense] .mat-list-item .mat-list-item-content-reverse,.mat-nav-list[dense] .mat-list-option .mat-list-item-content-reverse,.mat-selection-list[dense] .mat-list-item .mat-list-item-content-reverse,.mat-selection-list[dense] .mat-list-option .mat-list-item-content-reverse{display:flex;align-items:center;padding:0 16px;flex-direction:row-reverse;justify-content:space-around}.mat-list[dense] .mat-list-item .mat-list-item-ripple,.mat-list[dense] .mat-list-option .mat-list-item-ripple,.mat-nav-list[dense] .mat-list-item .mat-list-item-ripple,.mat-nav-list[dense] .mat-list-option .mat-list-item-ripple,.mat-selection-list[dense] .mat-list-item .mat-list-item-ripple,.mat-selection-list[dense] .mat-list-option .mat-list-item-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-list[dense] .mat-list-item.mat-list-item-avatar,.mat-list[dense] .mat-list-option.mat-list-item-avatar,.mat-nav-list[dense] .mat-list-item.mat-list-item-avatar,.mat-nav-list[dense] .mat-list-option.mat-list-item-avatar,.mat-selection-list[dense] .mat-list-item.mat-list-item-avatar,.mat-selection-list[dense] .mat-list-option.mat-list-item-avatar{height:48px}.mat-list[dense] .mat-list-item.mat-2-line,.mat-list[dense] .mat-list-option.mat-2-line,.mat-nav-list[dense] .mat-list-item.mat-2-line,.mat-nav-list[dense] .mat-list-option.mat-2-line,.mat-selection-list[dense] .mat-list-item.mat-2-line,.mat-selection-list[dense] .mat-list-option.mat-2-line{height:60px}.mat-list[dense] .mat-list-item.mat-3-line,.mat-list[dense] .mat-list-option.mat-3-line,.mat-nav-list[dense] .mat-list-item.mat-3-line,.mat-nav-list[dense] .mat-list-option.mat-3-line,.mat-selection-list[dense] .mat-list-item.mat-3-line,.mat-selection-list[dense] .mat-list-option.mat-3-line{height:76px}.mat-list[dense] .mat-list-item.mat-multi-line,.mat-list[dense] .mat-list-option.mat-multi-line,.mat-nav-list[dense] .mat-list-item.mat-multi-line,.mat-nav-list[dense] .mat-list-option.mat-multi-line,.mat-selection-list[dense] .mat-list-item.mat-multi-line,.mat-selection-list[dense] .mat-list-option.mat-multi-line{height:auto}.mat-list[dense] .mat-list-item.mat-multi-line .mat-list-item-content,.mat-list[dense] .mat-list-option.mat-multi-line .mat-list-item-content,.mat-nav-list[dense] .mat-list-item.mat-multi-line .mat-list-item-content,.mat-nav-list[dense] .mat-list-option.mat-multi-line .mat-list-item-content,.mat-selection-list[dense] .mat-list-item.mat-multi-line .mat-list-item-content,.mat-selection-list[dense] .mat-list-option.mat-multi-line .mat-list-item-content{padding-top:16px;padding-bottom:16px}.mat-list[dense] .mat-list-item .mat-list-text,.mat-list[dense] .mat-list-option .mat-list-text,.mat-nav-list[dense] .mat-list-item .mat-list-text,.mat-nav-list[dense] .mat-list-option .mat-list-text,.mat-selection-list[dense] .mat-list-item .mat-list-text,.mat-selection-list[dense] .mat-list-option .mat-list-text{display:flex;flex-direction:column;width:100%;box-sizing:border-box;overflow:hidden;padding:0 16px}.mat-list[dense] .mat-list-item .mat-list-text>*,.mat-list[dense] .mat-list-option .mat-list-text>*,.mat-nav-list[dense] .mat-list-item .mat-list-text>*,.mat-nav-list[dense] .mat-list-option .mat-list-text>*,.mat-selection-list[dense] .mat-list-item .mat-list-text>*,.mat-selection-list[dense] .mat-list-option .mat-list-text>*{margin:0;padding:0;font-weight:400;font-size:inherit}.mat-list[dense] .mat-list-item .mat-list-text:empty,.mat-list[dense] .mat-list-option .mat-list-text:empty,.mat-nav-list[dense] .mat-list-item .mat-list-text:empty,.mat-nav-list[dense] .mat-list-option .mat-list-text:empty,.mat-selection-list[dense] .mat-list-item .mat-list-text:empty,.mat-selection-list[dense] .mat-list-option .mat-list-text:empty{display:none}.mat-list[dense] .mat-list-item .mat-list-text:nth-child(2),.mat-list[dense] .mat-list-option .mat-list-text:nth-child(2),.mat-nav-list[dense] .mat-list-item .mat-list-text:nth-child(2),.mat-nav-list[dense] .mat-list-option .mat-list-text:nth-child(2),.mat-selection-list[dense] .mat-list-item .mat-list-text:nth-child(2),.mat-selection-list[dense] .mat-list-option .mat-list-text:nth-child(2){padding:0}.mat-list[dense] .mat-list-item .mat-list-avatar,.mat-list[dense] .mat-list-option .mat-list-avatar,.mat-nav-list[dense] .mat-list-item .mat-list-avatar,.mat-nav-list[dense] .mat-list-option .mat-list-avatar,.mat-selection-list[dense] .mat-list-item .mat-list-avatar,.mat-selection-list[dense] .mat-list-option .mat-list-avatar{flex-shrink:0;width:40px;height:40px;border-radius:50%}.mat-list[dense] .mat-list-item .mat-list-icon,.mat-list[dense] .mat-list-option .mat-list-icon,.mat-nav-list[dense] .mat-list-item .mat-list-icon,.mat-nav-list[dense] .mat-list-option .mat-list-icon,.mat-selection-list[dense] .mat-list-item .mat-list-icon,.mat-selection-list[dense] .mat-list-option .mat-list-icon{width:20px;height:20px;font-size:20px;box-sizing:content-box;border-radius:50%;padding:4px}.mat-divider{display:block;border-top-style:solid;border-top-width:1px;margin:0}.mat-nav-list a{text-decoration:none;color:inherit}.mat-nav-list .mat-list-item-content{cursor:pointer}.mat-nav-list .mat-list-item-content.mat-list-item-focus,.mat-nav-list .mat-list-item-content:hover{outline:0}.mat-list-option:not([disabled]){cursor:pointer}"],
+                    encapsulation: _angular_core.ViewEncapsulation.None,
+                    providers: [MAT_SELECTION_LIST_VALUE_ACCESSOR],
+                    preserveWhitespaces: false,
+                    changeDetection: _angular_core.ChangeDetectionStrategy.OnPush
+                },] },
+    ];
+    /** @nocollapse */
+    MatSelectionList.ctorParameters = function () { return [
+        { type: _angular_core.ElementRef, },
+        { type: undefined, decorators: [{ type: _angular_core.Attribute, args: ['tabindex',] },] },
+    ]; };
+    MatSelectionList.propDecorators = {
+        "options": [{ type: _angular_core.ContentChildren, args: [MatListOption,] },],
+        "selectionChange": [{ type: _angular_core.Output },],
+    };
+    return MatSelectionList;
+}(_MatSelectionListMixinBase));
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+
+var MatListModule = (function () {
+    function MatListModule() {
+    }
+    MatListModule.decorators = [
+        { type: _angular_core.NgModule, args: [{
+                    imports: [_angular_material_core.MatLineModule, _angular_material_core.MatRippleModule, _angular_material_core.MatCommonModule, _angular_material_core.MatPseudoCheckboxModule, _angular_common.CommonModule],
+                    exports: [
+                        MatList,
+                        MatNavList,
+                        MatListItem,
+                        MatListDivider,
+                        MatListAvatarCssMatStyler,
+                        _angular_material_core.MatLineModule,
+                        _angular_material_core.MatCommonModule,
+                        MatListIconCssMatStyler,
+                        MatDividerCssMatStyler,
+                        MatListSubheaderCssMatStyler,
+                        _angular_material_core.MatPseudoCheckboxModule,
+                        MatSelectionList,
+                        MatListOption
+                    ],
+                    declarations: [
+                        MatList,
+                        MatNavList,
+                        MatListItem,
+                        MatListDivider,
+                        MatListAvatarCssMatStyler,
+                        MatListIconCssMatStyler,
+                        MatDividerCssMatStyler,
+                        MatListSubheaderCssMatStyler,
+                        MatSelectionList,
+                        MatListOption
+                    ],
+                },] },
+    ];
+    /** @nocollapse */
+    MatListModule.ctorParameters = function () { return []; };
+    return MatListModule;
 }());
 
 var TdLayoutComponent = (function () {
@@ -5930,8 +9892,8 @@ var TdLayoutComponent = (function () {
         return this.sidenav.close();
     };
     __decorate([
-        _angular_core.ViewChild(_angular_material.MatSidenav),
-        __metadata("design:type", _angular_material.MatSidenav)
+        _angular_core.ViewChild(_angular_material_sidenav.MatSidenav),
+        __metadata("design:type", _angular_material_sidenav.MatSidenav)
     ], TdLayoutComponent.prototype, "sidenav", void 0);
     __decorate([
         _angular_core.Input('mode'),
@@ -6271,8 +10233,8 @@ var TdLayoutNavListComponent = (function () {
         return this.sidenav.close();
     };
     __decorate([
-        _angular_core.ViewChild(_angular_material.MatSidenav),
-        __metadata("design:type", _angular_material.MatSidenav)
+        _angular_core.ViewChild(_angular_material_sidenav.MatSidenav),
+        __metadata("design:type", _angular_material_sidenav.MatSidenav)
     ], TdLayoutNavListComponent.prototype, "sidenav", void 0);
     __decorate([
         _angular_core.Input('toolbarTitle'),
@@ -6518,8 +10480,8 @@ var TdLayoutManageListComponent = (function () {
         return this.sidenav.close();
     };
     __decorate([
-        _angular_core.ViewChild(_angular_material.MatSidenav),
-        __metadata("design:type", _angular_material.MatSidenav)
+        _angular_core.ViewChild(_angular_material_sidenav.MatSidenav),
+        __metadata("design:type", _angular_material_sidenav.MatSidenav)
     ], TdLayoutManageListComponent.prototype, "sidenav", void 0);
     __decorate([
         _angular_core.Input('mode'),
@@ -6908,12 +10870,12 @@ var CovalentLayoutModule = (function () {
             imports: [
                 _angular_common.CommonModule,
                 _angular_cdk_scrolling.ScrollDispatchModule,
-                _angular_material.MatSidenavModule,
-                _angular_material.MatToolbarModule,
-                _angular_material.MatButtonModule,
-                _angular_material.MatIconModule,
-                _angular_material.MatCardModule,
-                _angular_material.MatListModule,
+                _angular_material_sidenav.MatSidenavModule,
+                _angular_material_toolbar.MatToolbarModule,
+                _angular_material_button.MatButtonModule,
+                _angular_material_icon.MatIconModule,
+                MatCardModule,
+                MatListModule,
             ],
             declarations: [
                 TD_LAYOUTS,
@@ -7730,8 +11692,8 @@ var CovalentLoadingModule = (function () {
         _angular_core.NgModule({
             imports: [
                 _angular_common.CommonModule,
-                _angular_material.MatProgressBarModule,
-                _angular_material.MatProgressSpinnerModule,
+                _angular_material_progressBar.MatProgressBarModule,
+                _angular_material_progressSpinner.MatProgressSpinnerModule,
                 _angular_cdk_overlay.OverlayModule,
                 _angular_cdk_portal.PortalModule,
             ],
@@ -8023,6 +11985,1214 @@ var CovalentMediaModule = (function () {
     return CovalentMediaModule;
 }());
 
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+
+/**
+ * This animation controls the menu panel's entry and exit from the page.
+ *
+ * When the menu panel is added to the DOM, it scales in and fades in its border.
+ *
+ * When the menu panel is removed from the DOM, it simply fades out after a brief
+ * delay to display the ripple.
+ */
+var transformMenu = _angular_animations.trigger('transformMenu', [
+    _angular_animations.state('void', _angular_animations.style({
+        opacity: 0,
+        // This starts off from 0.01, instead of 0, because there's an issue in the Angular animations
+        // as of 4.2, which causes the animation to be skipped if it starts from 0.
+        transform: 'scale(0.01, 0.01)'
+    })),
+    _angular_animations.state('enter-start', _angular_animations.style({
+        opacity: 1,
+        transform: 'scale(1, 0.5)'
+    })),
+    _angular_animations.state('enter', _angular_animations.style({
+        transform: 'scale(1, 1)'
+    })),
+    _angular_animations.transition('void => enter-start', _angular_animations.animate('100ms linear')),
+    _angular_animations.transition('enter-start => enter', _angular_animations.animate('300ms cubic-bezier(0.25, 0.8, 0.25, 1)')),
+    _angular_animations.transition('* => void', _angular_animations.animate('150ms 50ms linear', _angular_animations.style({ opacity: 0 })))
+]);
+/**
+ * This animation fades in the background color and content of the menu panel
+ * after its containing element is scaled in.
+ */
+var fadeInItems = _angular_animations.trigger('fadeInItems', [
+    _angular_animations.state('showing', _angular_animations.style({ opacity: 1 })),
+    _angular_animations.transition('void => *', [
+        _angular_animations.style({ opacity: 0 }),
+        _angular_animations.animate('400ms 100ms cubic-bezier(0.55, 0, 0.55, 0.2)')
+    ])
+]);
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * Throws an exception for the case when menu trigger doesn't have a valid mat-menu instance
+ * \@docs-private
+ * @return {?}
+ */
+function throwMatMenuMissingError() {
+    throw Error("mat-menu-trigger: must pass in an mat-menu instance.\n\n    Example:\n      <mat-menu #menu=\"matMenu\"></mat-menu>\n      <button [matMenuTriggerFor]=\"menu\"></button>");
+}
+/**
+ * Throws an exception for the case when menu's x-position value isn't valid.
+ * In other words, it doesn't match 'before' or 'after'.
+ * \@docs-private
+ * @return {?}
+ */
+function throwMatMenuInvalidPositionX() {
+    throw Error("x-position value must be either 'before' or after'.\n      Example: <mat-menu x-position=\"before\" #menu=\"matMenu\"></mat-menu>");
+}
+/**
+ * Throws an exception for the case when menu's y-position value isn't valid.
+ * In other words, it doesn't match 'above' or 'below'.
+ * \@docs-private
+ * @return {?}
+ */
+function throwMatMenuInvalidPositionY() {
+    throw Error("y-position value must be either 'above' or below'.\n      Example: <mat-menu y-position=\"above\" #menu=\"matMenu\"></mat-menu>");
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * \@docs-private
+ */
+var MatMenuItemBase = (function () {
+    function MatMenuItemBase() {
+    }
+    return MatMenuItemBase;
+}());
+var _MatMenuItemMixinBase = _angular_material_core.mixinDisableRipple(_angular_material_core.mixinDisabled(MatMenuItemBase));
+/**
+ * This directive is intended to be used inside an mat-menu tag.
+ * It exists mostly to set the role attribute.
+ */
+var MatMenuItem = (function (_super) {
+    __extends(MatMenuItem, _super);
+    function MatMenuItem(_elementRef) {
+        var _this = _super.call(this) || this;
+        _this._elementRef = _elementRef;
+        /**
+         * Stream that emits when the menu item is hovered.
+         */
+        _this._hovered = new rxjs_Subject.Subject();
+        /**
+         * Whether the menu item is highlighted.
+         */
+        _this._highlighted = false;
+        /**
+         * Whether the menu item acts as a trigger for a sub-menu.
+         */
+        _this._triggersSubmenu = false;
+        return _this;
+    }
+    /** Focuses the menu item. */
+    /**
+     * Focuses the menu item.
+     * @return {?}
+     */
+    MatMenuItem.prototype.focus = /**
+     * Focuses the menu item.
+     * @return {?}
+     */
+    function () {
+        this._getHostElement().focus();
+    };
+    /**
+     * @return {?}
+     */
+    MatMenuItem.prototype.ngOnDestroy = /**
+     * @return {?}
+     */
+    function () {
+        this._hovered.complete();
+    };
+    /** Used to set the `tabindex`. */
+    /**
+     * Used to set the `tabindex`.
+     * @return {?}
+     */
+    MatMenuItem.prototype._getTabIndex = /**
+     * Used to set the `tabindex`.
+     * @return {?}
+     */
+    function () {
+        return this.disabled ? '-1' : '0';
+    };
+    /** Returns the host DOM element. */
+    /**
+     * Returns the host DOM element.
+     * @return {?}
+     */
+    MatMenuItem.prototype._getHostElement = /**
+     * Returns the host DOM element.
+     * @return {?}
+     */
+    function () {
+        return this._elementRef.nativeElement;
+    };
+    /** Prevents the default element actions if it is disabled. */
+    /**
+     * Prevents the default element actions if it is disabled.
+     * @param {?} event
+     * @return {?}
+     */
+    MatMenuItem.prototype._checkDisabled = /**
+     * Prevents the default element actions if it is disabled.
+     * @param {?} event
+     * @return {?}
+     */
+    function (event) {
+        if (this.disabled) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    };
+    /** Emits to the hover stream. */
+    /**
+     * Emits to the hover stream.
+     * @return {?}
+     */
+    MatMenuItem.prototype._emitHoverEvent = /**
+     * Emits to the hover stream.
+     * @return {?}
+     */
+    function () {
+        if (!this.disabled) {
+            this._hovered.next(this);
+        }
+    };
+    /** Gets the label to be used when determining whether the option should be focused. */
+    /**
+     * Gets the label to be used when determining whether the option should be focused.
+     * @return {?}
+     */
+    MatMenuItem.prototype.getLabel = /**
+     * Gets the label to be used when determining whether the option should be focused.
+     * @return {?}
+     */
+    function () {
+        var /** @type {?} */ element = this._elementRef.nativeElement;
+        var /** @type {?} */ output = '';
+        if (element.childNodes) {
+            var /** @type {?} */ length_1 = element.childNodes.length;
+            // Go through all the top-level text nodes and extract their text.
+            // We skip anything that's not a text node to prevent the text from
+            // being thrown off by something like an icon.
+            for (var /** @type {?} */ i = 0; i < length_1; i++) {
+                if (element.childNodes[i].nodeType === Node.TEXT_NODE) {
+                    output += element.childNodes[i].textContent;
+                }
+            }
+        }
+        return output.trim();
+    };
+    MatMenuItem.decorators = [
+        { type: _angular_core.Component, args: [{selector: '[mat-menu-item]',
+                    exportAs: 'matMenuItem',
+                    inputs: ['disabled', 'disableRipple'],
+                    host: {
+                        'role': 'menuitem',
+                        'class': 'mat-menu-item',
+                        '[class.mat-menu-item-highlighted]': '_highlighted',
+                        '[class.mat-menu-item-submenu-trigger]': '_triggersSubmenu',
+                        '[attr.tabindex]': '_getTabIndex()',
+                        '[attr.aria-disabled]': 'disabled.toString()',
+                        '[attr.disabled]': 'disabled || null',
+                        '(click)': '_checkDisabled($event)',
+                        '(mouseenter)': '_emitHoverEvent()',
+                    },
+                    changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
+                    encapsulation: _angular_core.ViewEncapsulation.None,
+                    preserveWhitespaces: false,
+                    template: "<ng-content></ng-content><div class=\"mat-menu-ripple\" matRipple [matRippleDisabled]=\"disableRipple || disabled\" [matRippleTrigger]=\"_getHostElement()\"></div>",
+                },] },
+    ];
+    /** @nocollapse */
+    MatMenuItem.ctorParameters = function () { return [
+        { type: _angular_core.ElementRef, },
+    ]; };
+    return MatMenuItem;
+}(_MatMenuItemMixinBase));
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * Default `mat-menu` options that can be overridden.
+ * @record
+ */
+
+/**
+ * Injection token to be used to override the default options for `mat-menu`.
+ */
+var MAT_MENU_DEFAULT_OPTIONS = new _angular_core.InjectionToken('mat-menu-default-options');
+/**
+ * Start elevation for the menu panel.
+ * \@docs-private
+ */
+var MAT_MENU_BASE_ELEVATION = 2;
+var MatMenu = (function () {
+    function MatMenu(_elementRef, _ngZone, _defaultOptions) {
+        this._elementRef = _elementRef;
+        this._ngZone = _ngZone;
+        this._defaultOptions = _defaultOptions;
+        this._xPosition = this._defaultOptions.xPosition;
+        this._yPosition = this._defaultOptions.yPosition;
+        /**
+         * Subscription to tab events on the menu panel
+         */
+        this._tabSubscription = rxjs_Subscription.Subscription.EMPTY;
+        /**
+         * Config object to be passed into the menu's ngClass
+         */
+        this._classList = {};
+        /**
+         * Current state of the panel animation.
+         */
+        this._panelAnimationState = 'void';
+        this._overlapTrigger = this._defaultOptions.overlapTrigger;
+        /**
+         * Event emitted when the menu is closed.
+         */
+        this.closed = new _angular_core.EventEmitter();
+        /**
+         * Event emitted when the menu is closed.
+         * @deprecated Switch to `closed` instead
+         */
+        this.close = this.closed;
+    }
+    Object.defineProperty(MatMenu.prototype, "xPosition", {
+        get: /**
+         * Position of the menu in the X axis.
+         * @return {?}
+         */
+        function () { return this._xPosition; },
+        set: /**
+         * @param {?} value
+         * @return {?}
+         */
+        function (value) {
+            if (value !== 'before' && value !== 'after') {
+                throwMatMenuInvalidPositionX();
+            }
+            this._xPosition = value;
+            this.setPositionClasses();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(MatMenu.prototype, "yPosition", {
+        get: /**
+         * Position of the menu in the Y axis.
+         * @return {?}
+         */
+        function () { return this._yPosition; },
+        set: /**
+         * @param {?} value
+         * @return {?}
+         */
+        function (value) {
+            if (value !== 'above' && value !== 'below') {
+                throwMatMenuInvalidPositionY();
+            }
+            this._yPosition = value;
+            this.setPositionClasses();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(MatMenu.prototype, "overlapTrigger", {
+        get: /**
+         * @return {?}
+         */
+        function () {
+            return this._overlapTrigger;
+        },
+        set: /**
+         * Whether the menu should overlap its trigger.
+         * @param {?} value
+         * @return {?}
+         */
+        function (value) {
+            this._overlapTrigger = _angular_cdk_coercion.coerceBooleanProperty(value);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(MatMenu.prototype, "panelClass", {
+        set: /**
+         * This method takes classes set on the host mat-menu element and applies them on the
+         * menu template that displays in the overlay container.  Otherwise, it's difficult
+         * to style the containing menu from outside the component.
+         * @param {?} classes list of class names
+         * @return {?}
+         */
+        function (classes) {
+            if (classes && classes.length) {
+                this._classList = classes.split(' ').reduce(function (obj, className) {
+                    obj[className] = true;
+                    return obj;
+                }, {});
+                this._elementRef.nativeElement.className = '';
+                this.setPositionClasses();
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(MatMenu.prototype, "classList", {
+        get: /**
+         * @return {?}
+         */
+        function () { return this.panelClass; },
+        set: /**
+         * This method takes classes set on the host mat-menu element and applies them on the
+         * menu template that displays in the overlay container.  Otherwise, it's difficult
+         * to style the containing menu from outside the component.
+         * @deprecated Use `panelClass` instead.
+         * @param {?} classes
+         * @return {?}
+         */
+        function (classes) { this.panelClass = classes; },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * @return {?}
+     */
+    MatMenu.prototype.ngAfterContentInit = /**
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        this._keyManager = new FocusKeyManager(this.items).withWrap().withTypeAhead();
+        this._tabSubscription = this._keyManager.tabOut.subscribe(function () { return _this.close.emit('keydown'); });
+    };
+    /**
+     * @return {?}
+     */
+    MatMenu.prototype.ngOnDestroy = /**
+     * @return {?}
+     */
+    function () {
+        this._tabSubscription.unsubscribe();
+        this.closed.complete();
+    };
+    /** Stream that emits whenever the hovered menu item changes. */
+    /**
+     * Stream that emits whenever the hovered menu item changes.
+     * @return {?}
+     */
+    MatMenu.prototype._hovered = /**
+     * Stream that emits whenever the hovered menu item changes.
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        if (this.items) {
+            return this.items.changes.pipe(rxjs_operators_startWith.startWith(this.items), rxjs_operators_switchMap.switchMap(function (items) { return rxjs_observable_merge.merge.apply(void 0, items.map(function (item) { return item._hovered; })); }));
+        }
+        return this._ngZone.onStable
+            .asObservable()
+            .pipe(rxjs_operators_take.take(1), rxjs_operators_switchMap.switchMap(function () { return _this._hovered(); }));
+    };
+    /** Handle a keyboard event from the menu, delegating to the appropriate action. */
+    /**
+     * Handle a keyboard event from the menu, delegating to the appropriate action.
+     * @param {?} event
+     * @return {?}
+     */
+    MatMenu.prototype._handleKeydown = /**
+     * Handle a keyboard event from the menu, delegating to the appropriate action.
+     * @param {?} event
+     * @return {?}
+     */
+    function (event) {
+        switch (event.keyCode) {
+            case _angular_cdk_keycodes.ESCAPE:
+                this.closed.emit('keydown');
+                event.stopPropagation();
+                break;
+            case _angular_cdk_keycodes.LEFT_ARROW:
+                if (this.parentMenu && this.direction === 'ltr') {
+                    this.closed.emit('keydown');
+                }
+                break;
+            case _angular_cdk_keycodes.RIGHT_ARROW:
+                if (this.parentMenu && this.direction === 'rtl') {
+                    this.closed.emit('keydown');
+                }
+                break;
+            default:
+                this._keyManager.onKeydown(event);
+        }
+    };
+    /**
+     * Focus the first item in the menu. This method is used by the menu trigger
+     * to focus the first item when the menu is opened by the ENTER key.
+     */
+    /**
+     * Focus the first item in the menu. This method is used by the menu trigger
+     * to focus the first item when the menu is opened by the ENTER key.
+     * @return {?}
+     */
+    MatMenu.prototype.focusFirstItem = /**
+     * Focus the first item in the menu. This method is used by the menu trigger
+     * to focus the first item when the menu is opened by the ENTER key.
+     * @return {?}
+     */
+    function () {
+        this._keyManager.setFirstItemActive();
+    };
+    /**
+     * Resets the active item in the menu. This is used when the menu is opened by mouse,
+     * allowing the user to start from the first option when pressing the down arrow.
+     */
+    /**
+     * Resets the active item in the menu. This is used when the menu is opened by mouse,
+     * allowing the user to start from the first option when pressing the down arrow.
+     * @return {?}
+     */
+    MatMenu.prototype.resetActiveItem = /**
+     * Resets the active item in the menu. This is used when the menu is opened by mouse,
+     * allowing the user to start from the first option when pressing the down arrow.
+     * @return {?}
+     */
+    function () {
+        this._keyManager.setActiveItem(-1);
+    };
+    /**
+     * It's necessary to set position-based classes to ensure the menu panel animation
+     * folds out from the correct direction.
+     */
+    /**
+     * It's necessary to set position-based classes to ensure the menu panel animation
+     * folds out from the correct direction.
+     * @param {?=} posX
+     * @param {?=} posY
+     * @return {?}
+     */
+    MatMenu.prototype.setPositionClasses = /**
+     * It's necessary to set position-based classes to ensure the menu panel animation
+     * folds out from the correct direction.
+     * @param {?=} posX
+     * @param {?=} posY
+     * @return {?}
+     */
+    function (posX, posY) {
+        if (posX === void 0) { posX = this.xPosition; }
+        if (posY === void 0) { posY = this.yPosition; }
+        this._classList['mat-menu-before'] = posX === 'before';
+        this._classList['mat-menu-after'] = posX === 'after';
+        this._classList['mat-menu-above'] = posY === 'above';
+        this._classList['mat-menu-below'] = posY === 'below';
+    };
+    /**
+     * Sets the menu panel elevation.
+     * @param depth Number of parent menus that come before the menu.
+     */
+    /**
+     * Sets the menu panel elevation.
+     * @param {?} depth Number of parent menus that come before the menu.
+     * @return {?}
+     */
+    MatMenu.prototype.setElevation = /**
+     * Sets the menu panel elevation.
+     * @param {?} depth Number of parent menus that come before the menu.
+     * @return {?}
+     */
+    function (depth) {
+        // The elevation starts at the base and increases by one for each level.
+        var /** @type {?} */ newElevation = "mat-elevation-z" + (MAT_MENU_BASE_ELEVATION + depth);
+        var /** @type {?} */ customElevation = Object.keys(this._classList).find(function (c) { return c.startsWith('mat-elevation-z'); });
+        if (!customElevation || customElevation === this._previousElevation) {
+            if (this._previousElevation) {
+                this._classList[this._previousElevation] = false;
+            }
+            this._classList[newElevation] = true;
+            this._previousElevation = newElevation;
+        }
+    };
+    /** Starts the enter animation. */
+    /**
+     * Starts the enter animation.
+     * @return {?}
+     */
+    MatMenu.prototype._startAnimation = /**
+     * Starts the enter animation.
+     * @return {?}
+     */
+    function () {
+        this._panelAnimationState = 'enter-start';
+    };
+    /** Resets the panel animation to its initial state. */
+    /**
+     * Resets the panel animation to its initial state.
+     * @return {?}
+     */
+    MatMenu.prototype._resetAnimation = /**
+     * Resets the panel animation to its initial state.
+     * @return {?}
+     */
+    function () {
+        this._panelAnimationState = 'void';
+    };
+    /** Callback that is invoked when the panel animation completes. */
+    /**
+     * Callback that is invoked when the panel animation completes.
+     * @param {?} event
+     * @return {?}
+     */
+    MatMenu.prototype._onAnimationDone = /**
+     * Callback that is invoked when the panel animation completes.
+     * @param {?} event
+     * @return {?}
+     */
+    function (event) {
+        // After the initial expansion is done, trigger the second phase of the enter animation.
+        if (event.toState === 'enter-start') {
+            this._panelAnimationState = 'enter';
+        }
+    };
+    MatMenu.decorators = [
+        { type: _angular_core.Component, args: [{selector: 'mat-menu',
+                    template: "<ng-template><div class=\"mat-menu-panel\" [ngClass]=\"_classList\" (keydown)=\"_handleKeydown($event)\" (click)=\"closed.emit('click')\" [@transformMenu]=\"_panelAnimationState\" (@transformMenu.done)=\"_onAnimationDone($event)\" tabindex=\"-1\" role=\"menu\"><div class=\"mat-menu-content\" [@fadeInItems]=\"'showing'\"><ng-content></ng-content></div></div></ng-template>",
+                    styles: [".mat-menu-panel{min-width:112px;max-width:280px;overflow:auto;-webkit-overflow-scrolling:touch;max-height:calc(100vh - 48px);border-radius:2px;outline:0}.mat-menu-panel:not([class*=mat-elevation-z]){box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12)}.mat-menu-panel.mat-menu-after.mat-menu-below{transform-origin:left top}.mat-menu-panel.mat-menu-after.mat-menu-above{transform-origin:left bottom}.mat-menu-panel.mat-menu-before.mat-menu-below{transform-origin:right top}.mat-menu-panel.mat-menu-before.mat-menu-above{transform-origin:right bottom}[dir=rtl] .mat-menu-panel.mat-menu-after.mat-menu-below{transform-origin:right top}[dir=rtl] .mat-menu-panel.mat-menu-after.mat-menu-above{transform-origin:right bottom}[dir=rtl] .mat-menu-panel.mat-menu-before.mat-menu-below{transform-origin:left top}[dir=rtl] .mat-menu-panel.mat-menu-before.mat-menu-above{transform-origin:left bottom}.mat-menu-panel.ng-animating{pointer-events:none}@media screen and (-ms-high-contrast:active){.mat-menu-panel{outline:solid 1px}}.mat-menu-content{padding-top:8px;padding-bottom:8px}.mat-menu-item{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:0;border:none;-webkit-tap-highlight-color:transparent;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;line-height:48px;height:48px;padding:0 16px;text-align:left;text-decoration:none;position:relative}.mat-menu-item[disabled]{cursor:default}[dir=rtl] .mat-menu-item{text-align:right}.mat-menu-item .mat-icon{margin-right:16px}[dir=rtl] .mat-menu-item .mat-icon{margin-left:16px;margin-right:0}.mat-menu-item .mat-icon{vertical-align:middle}.mat-menu-item-submenu-trigger{padding-right:32px}.mat-menu-item-submenu-trigger::after{width:0;height:0;border-style:solid;border-width:5px 0 5px 5px;border-color:transparent transparent transparent currentColor;content:'';display:inline-block;position:absolute;top:50%;right:16px;transform:translateY(-50%)}[dir=rtl] .mat-menu-item-submenu-trigger{padding-right:8px;padding-left:32px}[dir=rtl] .mat-menu-item-submenu-trigger::after{right:auto;left:16px;transform:rotateY(180deg) translateY(-50%)}button.mat-menu-item{width:100%}.mat-menu-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}"],
+                    changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
+                    encapsulation: _angular_core.ViewEncapsulation.None,
+                    preserveWhitespaces: false,
+                    animations: [
+                        transformMenu,
+                        fadeInItems
+                    ],
+                    exportAs: 'matMenu'
+                },] },
+    ];
+    /** @nocollapse */
+    MatMenu.ctorParameters = function () { return [
+        { type: _angular_core.ElementRef, },
+        { type: _angular_core.NgZone, },
+        { type: undefined, decorators: [{ type: _angular_core.Inject, args: [MAT_MENU_DEFAULT_OPTIONS,] },] },
+    ]; };
+    MatMenu.propDecorators = {
+        "xPosition": [{ type: _angular_core.Input },],
+        "yPosition": [{ type: _angular_core.Input },],
+        "templateRef": [{ type: _angular_core.ViewChild, args: [_angular_core.TemplateRef,] },],
+        "items": [{ type: _angular_core.ContentChildren, args: [MatMenuItem,] },],
+        "overlapTrigger": [{ type: _angular_core.Input },],
+        "panelClass": [{ type: _angular_core.Input, args: ['class',] },],
+        "classList": [{ type: _angular_core.Input },],
+        "closed": [{ type: _angular_core.Output },],
+        "close": [{ type: _angular_core.Output },],
+    };
+    return MatMenu;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+
+/**
+ * Injection token that determines the scroll handling while the menu is open.
+ */
+var MAT_MENU_SCROLL_STRATEGY = new _angular_core.InjectionToken('mat-menu-scroll-strategy');
+/**
+ * \@docs-private
+ * @param {?} overlay
+ * @return {?}
+ */
+function MAT_MENU_SCROLL_STRATEGY_PROVIDER_FACTORY(overlay) {
+    return function () { return overlay.scrollStrategies.reposition(); };
+}
+/**
+ * \@docs-private
+ */
+var MAT_MENU_SCROLL_STRATEGY_PROVIDER = {
+    provide: MAT_MENU_SCROLL_STRATEGY,
+    deps: [_angular_cdk_overlay.Overlay],
+    useFactory: MAT_MENU_SCROLL_STRATEGY_PROVIDER_FACTORY,
+};
+/**
+ * Default top padding of the menu panel.
+ */
+var MENU_PANEL_TOP_PADDING = 8;
+/**
+ * This directive is intended to be used in conjunction with an mat-menu tag.  It is
+ * responsible for toggling the display of the provided menu instance.
+ */
+var MatMenuTrigger = (function () {
+    function MatMenuTrigger(_overlay, _element, _viewContainerRef, _scrollStrategy, _parentMenu, _menuItemInstance, _dir) {
+        this._overlay = _overlay;
+        this._element = _element;
+        this._viewContainerRef = _viewContainerRef;
+        this._scrollStrategy = _scrollStrategy;
+        this._parentMenu = _parentMenu;
+        this._menuItemInstance = _menuItemInstance;
+        this._dir = _dir;
+        this._overlayRef = null;
+        this._menuOpen = false;
+        this._closeSubscription = rxjs_Subscription.Subscription.EMPTY;
+        this._positionSubscription = rxjs_Subscription.Subscription.EMPTY;
+        this._hoverSubscription = rxjs_Subscription.Subscription.EMPTY;
+        this._openedByMouse = false;
+        /**
+         * Event emitted when the associated menu is opened.
+         */
+        this.menuOpened = new _angular_core.EventEmitter();
+        /**
+         * Event emitted when the associated menu is opened.
+         * @deprecated Switch to `menuOpened` instead
+         */
+        this.onMenuOpen = this.menuOpened;
+        /**
+         * Event emitted when the associated menu is closed.
+         */
+        this.menuClosed = new _angular_core.EventEmitter();
+        /**
+         * Event emitted when the associated menu is closed.
+         * @deprecated Switch to `menuClosed` instead
+         */
+        this.onMenuClose = this.menuClosed;
+        if (_menuItemInstance) {
+            _menuItemInstance._triggersSubmenu = this.triggersSubmenu();
+        }
+    }
+    Object.defineProperty(MatMenuTrigger.prototype, "_deprecatedMatMenuTriggerFor", {
+        get: /**
+         * @deprecated
+         * @return {?}
+         */
+        function () {
+            return this.menu;
+        },
+        set: /**
+         * @param {?} v
+         * @return {?}
+         */
+        function (v) {
+            this.menu = v;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * @return {?}
+     */
+    MatMenuTrigger.prototype.ngAfterContentInit = /**
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        this._checkMenu();
+        this.menu.close.subscribe(function (reason) {
+            _this._destroyMenu();
+            // If a click closed the menu, we should close the entire chain of nested menus.
+            if (reason === 'click' && _this._parentMenu) {
+                _this._parentMenu.closed.emit(reason);
+            }
+        });
+        if (this.triggersSubmenu()) {
+            // Subscribe to changes in the hovered item in order to toggle the panel.
+            this._hoverSubscription = this._parentMenu._hovered()
+                .pipe(rxjs_operators_filter.filter(function (active) { return active === _this._menuItemInstance; }))
+                .subscribe(function () {
+                _this._openedByMouse = true;
+                _this.openMenu();
+            });
+        }
+    };
+    /**
+     * @return {?}
+     */
+    MatMenuTrigger.prototype.ngOnDestroy = /**
+     * @return {?}
+     */
+    function () {
+        if (this._overlayRef) {
+            this._overlayRef.dispose();
+            this._overlayRef = null;
+        }
+        this._cleanUpSubscriptions();
+    };
+    Object.defineProperty(MatMenuTrigger.prototype, "menuOpen", {
+        /** Whether the menu is open. */
+        get: /**
+         * Whether the menu is open.
+         * @return {?}
+         */
+        function () {
+            return this._menuOpen;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(MatMenuTrigger.prototype, "dir", {
+        /** The text direction of the containing app. */
+        get: /**
+         * The text direction of the containing app.
+         * @return {?}
+         */
+        function () {
+            return this._dir && this._dir.value === 'rtl' ? 'rtl' : 'ltr';
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /** Whether the menu triggers a sub-menu or a top-level one. */
+    /**
+     * Whether the menu triggers a sub-menu or a top-level one.
+     * @return {?}
+     */
+    MatMenuTrigger.prototype.triggersSubmenu = /**
+     * Whether the menu triggers a sub-menu or a top-level one.
+     * @return {?}
+     */
+    function () {
+        return !!(this._menuItemInstance && this._parentMenu);
+    };
+    /** Toggles the menu between the open and closed states. */
+    /**
+     * Toggles the menu between the open and closed states.
+     * @return {?}
+     */
+    MatMenuTrigger.prototype.toggleMenu = /**
+     * Toggles the menu between the open and closed states.
+     * @return {?}
+     */
+    function () {
+        return this._menuOpen ? this.closeMenu() : this.openMenu();
+    };
+    /** Opens the menu. */
+    /**
+     * Opens the menu.
+     * @return {?}
+     */
+    MatMenuTrigger.prototype.openMenu = /**
+     * Opens the menu.
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        if (!this._menuOpen) {
+            this._createOverlay().attach(this._portal);
+            this._closeSubscription = this._menuClosingActions().subscribe(function () { return _this.closeMenu(); });
+            this._initMenu();
+            if (this.menu instanceof MatMenu) {
+                this.menu._startAnimation();
+            }
+        }
+    };
+    /** Closes the menu. */
+    /**
+     * Closes the menu.
+     * @return {?}
+     */
+    MatMenuTrigger.prototype.closeMenu = /**
+     * Closes the menu.
+     * @return {?}
+     */
+    function () {
+        this.menu.close.emit();
+    };
+    /** Focuses the menu trigger. */
+    /**
+     * Focuses the menu trigger.
+     * @return {?}
+     */
+    MatMenuTrigger.prototype.focus = /**
+     * Focuses the menu trigger.
+     * @return {?}
+     */
+    function () {
+        this._element.nativeElement.focus();
+    };
+    /**
+     * Closes the menu and does the necessary cleanup.
+     * @return {?}
+     */
+    MatMenuTrigger.prototype._destroyMenu = /**
+     * Closes the menu and does the necessary cleanup.
+     * @return {?}
+     */
+    function () {
+        if (this._overlayRef && this.menuOpen) {
+            this._resetMenu();
+            this._closeSubscription.unsubscribe();
+            this._overlayRef.detach();
+            if (this.menu instanceof MatMenu) {
+                this.menu._resetAnimation();
+            }
+        }
+    };
+    /**
+     * This method sets the menu state to open and focuses the first item if
+     * the menu was opened via the keyboard.
+     * @return {?}
+     */
+    MatMenuTrigger.prototype._initMenu = /**
+     * This method sets the menu state to open and focuses the first item if
+     * the menu was opened via the keyboard.
+     * @return {?}
+     */
+    function () {
+        this.menu.parentMenu = this.triggersSubmenu() ? this._parentMenu : undefined;
+        this.menu.direction = this.dir;
+        this._setMenuElevation();
+        this._setIsMenuOpen(true);
+        // If the menu was opened by mouse, we focus the root node, which allows for the keyboard
+        // interactions to work. Otherwise, if the menu was opened by keyboard, we focus the first item.
+        if (this._openedByMouse) {
+            var /** @type {?} */ rootNode = /** @type {?} */ (((this._overlayRef)).overlayElement.firstElementChild);
+            if (rootNode) {
+                this.menu.resetActiveItem();
+                rootNode.focus();
+            }
+        }
+        else {
+            this.menu.focusFirstItem();
+        }
+    };
+    /**
+     * Updates the menu elevation based on the amount of parent menus that it has.
+     * @return {?}
+     */
+    MatMenuTrigger.prototype._setMenuElevation = /**
+     * Updates the menu elevation based on the amount of parent menus that it has.
+     * @return {?}
+     */
+    function () {
+        if (this.menu.setElevation) {
+            var /** @type {?} */ depth = 0;
+            var /** @type {?} */ parentMenu = this.menu.parentMenu;
+            while (parentMenu) {
+                depth++;
+                parentMenu = parentMenu.parentMenu;
+            }
+            this.menu.setElevation(depth);
+        }
+    };
+    /**
+     * This method resets the menu when it's closed, most importantly restoring
+     * focus to the menu trigger if the menu was opened via the keyboard.
+     * @return {?}
+     */
+    MatMenuTrigger.prototype._resetMenu = /**
+     * This method resets the menu when it's closed, most importantly restoring
+     * focus to the menu trigger if the menu was opened via the keyboard.
+     * @return {?}
+     */
+    function () {
+        this._setIsMenuOpen(false);
+        // We should reset focus if the user is navigating using a keyboard or
+        // if we have a top-level trigger which might cause focus to be lost
+        // when clicking on the backdrop.
+        if (!this._openedByMouse || !this.triggersSubmenu()) {
+            this.focus();
+        }
+        this._openedByMouse = false;
+    };
+    /**
+     * @param {?} isOpen
+     * @return {?}
+     */
+    MatMenuTrigger.prototype._setIsMenuOpen = /**
+     * @param {?} isOpen
+     * @return {?}
+     */
+    function (isOpen) {
+        this._menuOpen = isOpen;
+        this._menuOpen ? this.menuOpened.emit() : this.menuClosed.emit();
+        if (this.triggersSubmenu()) {
+            this._menuItemInstance._highlighted = isOpen;
+        }
+    };
+    /**
+     * This method checks that a valid instance of MatMenu has been passed into
+     * matMenuTriggerFor. If not, an exception is thrown.
+     * @return {?}
+     */
+    MatMenuTrigger.prototype._checkMenu = /**
+     * This method checks that a valid instance of MatMenu has been passed into
+     * matMenuTriggerFor. If not, an exception is thrown.
+     * @return {?}
+     */
+    function () {
+        if (!this.menu) {
+            throwMatMenuMissingError();
+        }
+    };
+    /**
+     * This method creates the overlay from the provided menu's template and saves its
+     * OverlayRef so that it can be attached to the DOM when openMenu is called.
+     * @return {?}
+     */
+    MatMenuTrigger.prototype._createOverlay = /**
+     * This method creates the overlay from the provided menu's template and saves its
+     * OverlayRef so that it can be attached to the DOM when openMenu is called.
+     * @return {?}
+     */
+    function () {
+        if (!this._overlayRef) {
+            this._portal = new _angular_cdk_portal.TemplatePortal(this.menu.templateRef, this._viewContainerRef);
+            var /** @type {?} */ config = this._getOverlayConfig();
+            this._subscribeToPositions(/** @type {?} */ (config.positionStrategy));
+            this._overlayRef = this._overlay.create(config);
+        }
+        return this._overlayRef;
+    };
+    /**
+     * This method builds the configuration object needed to create the overlay, the OverlayState.
+     * @return {?} OverlayConfig
+     */
+    MatMenuTrigger.prototype._getOverlayConfig = /**
+     * This method builds the configuration object needed to create the overlay, the OverlayState.
+     * @return {?} OverlayConfig
+     */
+    function () {
+        return new _angular_cdk_overlay.OverlayConfig({
+            positionStrategy: this._getPosition(),
+            hasBackdrop: !this.triggersSubmenu(),
+            backdropClass: 'cdk-overlay-transparent-backdrop',
+            direction: this.dir,
+            scrollStrategy: this._scrollStrategy()
+        });
+    };
+    /**
+     * Listens to changes in the position of the overlay and sets the correct classes
+     * on the menu based on the new position. This ensures the animation origin is always
+     * correct, even if a fallback position is used for the overlay.
+     * @param {?} position
+     * @return {?}
+     */
+    MatMenuTrigger.prototype._subscribeToPositions = /**
+     * Listens to changes in the position of the overlay and sets the correct classes
+     * on the menu based on the new position. This ensures the animation origin is always
+     * correct, even if a fallback position is used for the overlay.
+     * @param {?} position
+     * @return {?}
+     */
+    function (position) {
+        var _this = this;
+        this._positionSubscription = position.onPositionChange.subscribe(function (change) {
+            var /** @type {?} */ posX = change.connectionPair.overlayX === 'start' ? 'after' : 'before';
+            var /** @type {?} */ posY = change.connectionPair.overlayY === 'top' ? 'below' : 'above';
+            _this.menu.setPositionClasses(posX, posY);
+        });
+    };
+    /**
+     * This method builds the position strategy for the overlay, so the menu is properly connected
+     * to the trigger.
+     * @return {?} ConnectedPositionStrategy
+     */
+    MatMenuTrigger.prototype._getPosition = /**
+     * This method builds the position strategy for the overlay, so the menu is properly connected
+     * to the trigger.
+     * @return {?} ConnectedPositionStrategy
+     */
+    function () {
+        var _a = this.menu.xPosition === 'before' ? ['end', 'start'] : ['start', 'end'], originX = _a[0], originFallbackX = _a[1];
+        var _b = this.menu.yPosition === 'above' ? ['bottom', 'top'] : ['top', 'bottom'], overlayY = _b[0], overlayFallbackY = _b[1];
+        var _c = [overlayY, overlayFallbackY], originY = _c[0], originFallbackY = _c[1];
+        var _d = [originX, originFallbackX], overlayX = _d[0], overlayFallbackX = _d[1];
+        var /** @type {?} */ offsetY = 0;
+        if (this.triggersSubmenu()) {
+            // When the menu is a sub-menu, it should always align itself
+            // to the edges of the trigger, instead of overlapping it.
+            overlayFallbackX = originX = this.menu.xPosition === 'before' ? 'start' : 'end';
+            originFallbackX = overlayX = originX === 'end' ? 'start' : 'end';
+            offsetY = overlayY === 'bottom' ? MENU_PANEL_TOP_PADDING : -MENU_PANEL_TOP_PADDING;
+        }
+        else if (!this.menu.overlapTrigger) {
+            originY = overlayY === 'top' ? 'bottom' : 'top';
+            originFallbackY = overlayFallbackY === 'top' ? 'bottom' : 'top';
+        }
+        return this._overlay.position()
+            .connectedTo(this._element, { originX: originX, originY: originY }, { overlayX: overlayX, overlayY: overlayY })
+            .withDirection(this.dir)
+            .withOffsetY(offsetY)
+            .withFallbackPosition({ originX: originFallbackX, originY: originY }, { overlayX: overlayFallbackX, overlayY: overlayY })
+            .withFallbackPosition({ originX: originX, originY: originFallbackY }, { overlayX: overlayX, overlayY: overlayFallbackY }, undefined, -offsetY)
+            .withFallbackPosition({ originX: originFallbackX, originY: originFallbackY }, { overlayX: overlayFallbackX, overlayY: overlayFallbackY }, undefined, -offsetY);
+    };
+    /**
+     * Cleans up the active subscriptions.
+     * @return {?}
+     */
+    MatMenuTrigger.prototype._cleanUpSubscriptions = /**
+     * Cleans up the active subscriptions.
+     * @return {?}
+     */
+    function () {
+        this._closeSubscription.unsubscribe();
+        this._positionSubscription.unsubscribe();
+        this._hoverSubscription.unsubscribe();
+    };
+    /**
+     * Returns a stream that emits whenever an action that should close the menu occurs.
+     * @return {?}
+     */
+    MatMenuTrigger.prototype._menuClosingActions = /**
+     * Returns a stream that emits whenever an action that should close the menu occurs.
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        var /** @type {?} */ backdrop = /** @type {?} */ ((this._overlayRef)).backdropClick();
+        var /** @type {?} */ detachments = /** @type {?} */ ((this._overlayRef)).detachments();
+        var /** @type {?} */ parentClose = this._parentMenu ? this._parentMenu.close : rxjs_observable_of.of();
+        var /** @type {?} */ hover = this._parentMenu ? this._parentMenu._hovered().pipe(rxjs_operators_filter.filter(function (active) { return active !== _this._menuItemInstance; }), rxjs_operators_filter.filter(function () { return _this._menuOpen; })) : rxjs_observable_of.of();
+        return rxjs_observable_merge.merge(backdrop, parentClose, hover, detachments);
+    };
+    /** Handles mouse presses on the trigger. */
+    /**
+     * Handles mouse presses on the trigger.
+     * @param {?} event
+     * @return {?}
+     */
+    MatMenuTrigger.prototype._handleMousedown = /**
+     * Handles mouse presses on the trigger.
+     * @param {?} event
+     * @return {?}
+     */
+    function (event) {
+        if (!isFakeMousedownFromScreenReader(event)) {
+            this._openedByMouse = true;
+            // Since clicking on the trigger won't close the menu if it opens a sub-menu,
+            // we should prevent focus from moving onto it via click to avoid the
+            // highlight from lingering on the menu item.
+            if (this.triggersSubmenu()) {
+                event.preventDefault();
+            }
+        }
+    };
+    /** Handles key presses on the trigger. */
+    /**
+     * Handles key presses on the trigger.
+     * @param {?} event
+     * @return {?}
+     */
+    MatMenuTrigger.prototype._handleKeydown = /**
+     * Handles key presses on the trigger.
+     * @param {?} event
+     * @return {?}
+     */
+    function (event) {
+        var /** @type {?} */ keyCode = event.keyCode;
+        if (this.triggersSubmenu() && ((keyCode === _angular_cdk_keycodes.RIGHT_ARROW && this.dir === 'ltr') ||
+            (keyCode === _angular_cdk_keycodes.LEFT_ARROW && this.dir === 'rtl'))) {
+            this.openMenu();
+        }
+    };
+    /** Handles click events on the trigger. */
+    /**
+     * Handles click events on the trigger.
+     * @param {?} event
+     * @return {?}
+     */
+    MatMenuTrigger.prototype._handleClick = /**
+     * Handles click events on the trigger.
+     * @param {?} event
+     * @return {?}
+     */
+    function (event) {
+        if (this.triggersSubmenu()) {
+            // Stop event propagation to avoid closing the parent menu.
+            event.stopPropagation();
+            this.openMenu();
+        }
+        else {
+            this.toggleMenu();
+        }
+    };
+    MatMenuTrigger.decorators = [
+        { type: _angular_core.Directive, args: [{
+                    selector: "[mat-menu-trigger-for], [matMenuTriggerFor]",
+                    host: {
+                        'aria-haspopup': 'true',
+                        '(mousedown)': '_handleMousedown($event)',
+                        '(keydown)': '_handleKeydown($event)',
+                        '(click)': '_handleClick($event)',
+                    },
+                    exportAs: 'matMenuTrigger'
+                },] },
+    ];
+    /** @nocollapse */
+    MatMenuTrigger.ctorParameters = function () { return [
+        { type: _angular_cdk_overlay.Overlay, },
+        { type: _angular_core.ElementRef, },
+        { type: _angular_core.ViewContainerRef, },
+        { type: undefined, decorators: [{ type: _angular_core.Inject, args: [MAT_MENU_SCROLL_STRATEGY,] },] },
+        { type: MatMenu, decorators: [{ type: _angular_core.Optional },] },
+        { type: MatMenuItem, decorators: [{ type: _angular_core.Optional }, { type: _angular_core.Self },] },
+        { type: _angular_cdk_bidi.Directionality, decorators: [{ type: _angular_core.Optional },] },
+    ]; };
+    MatMenuTrigger.propDecorators = {
+        "_deprecatedMatMenuTriggerFor": [{ type: _angular_core.Input, args: ['mat-menu-trigger-for',] },],
+        "menu": [{ type: _angular_core.Input, args: ['matMenuTriggerFor',] },],
+        "menuOpened": [{ type: _angular_core.Output },],
+        "onMenuOpen": [{ type: _angular_core.Output },],
+        "menuClosed": [{ type: _angular_core.Output },],
+        "onMenuClose": [{ type: _angular_core.Output },],
+    };
+    return MatMenuTrigger;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+
+var ɵ0 = {
+    overlapTrigger: true,
+    xPosition: 'after',
+    yPosition: 'below',
+};
+var MatMenuModule = (function () {
+    function MatMenuModule() {
+    }
+    MatMenuModule.decorators = [
+        { type: _angular_core.NgModule, args: [{
+                    imports: [
+                        _angular_cdk_overlay.OverlayModule,
+                        _angular_common.CommonModule,
+                        _angular_material_core.MatRippleModule,
+                        _angular_material_core.MatCommonModule,
+                    ],
+                    exports: [MatMenu, MatMenuItem, MatMenuTrigger, _angular_material_core.MatCommonModule],
+                    declarations: [MatMenu, MatMenuItem, MatMenuTrigger],
+                    providers: [
+                        MAT_MENU_SCROLL_STRATEGY_PROVIDER,
+                        {
+                            provide: MAT_MENU_DEFAULT_OPTIONS,
+                            useValue: ɵ0,
+                        }
+                    ],
+                },] },
+    ];
+    /** @nocollapse */
+    MatMenuModule.ctorParameters = function () { return []; };
+    return MatMenuModule;
+}());
+
 var TdMenuComponent = (function () {
     function TdMenuComponent() {
     }
@@ -8046,8 +13216,8 @@ var CovalentMenuModule = (function () {
         _angular_core.NgModule({
             imports: [
                 _angular_common.CommonModule,
-                _angular_material.MatMenuModule,
-                _angular_material.MatListModule,
+                MatMenuModule,
+                MatListModule,
             ],
             declarations: [
                 TD_MENU,
@@ -8314,7 +13484,7 @@ var CovalentMessageModule = (function () {
         _angular_core.NgModule({
             imports: [
                 _angular_common.CommonModule,
-                _angular_material.MatIconModule,
+                _angular_material_icon.MatIconModule,
             ],
             declarations: [
                 TD_MESSAGE,
@@ -8810,8 +13980,8 @@ var CovalentPagingModule = (function () {
         _angular_core.NgModule({
             imports: [
                 _angular_common.CommonModule,
-                _angular_material.MatIconModule,
-                _angular_material.MatButtonModule,
+                _angular_material_icon.MatIconModule,
+                _angular_material_button.MatButtonModule,
             ],
             declarations: [
                 TdPagingBarComponent,
@@ -8905,8 +14075,8 @@ var TdSearchInputComponent = (function () {
         this.onSearchDebounce.emit(value);
     };
     __decorate([
-        _angular_core.ViewChild(_angular_material.MatInput),
-        __metadata("design:type", _angular_material.MatInput)
+        _angular_core.ViewChild(_angular_material_input.MatInput),
+        __metadata("design:type", _angular_material_input.MatInput)
     ], TdSearchInputComponent.prototype, "_input", void 0);
     __decorate([
         _angular_core.Input('showUnderline'),
@@ -9136,9 +14306,9 @@ var CovalentSearchModule = (function () {
             imports: [
                 _angular_forms.FormsModule,
                 _angular_common.CommonModule,
-                _angular_material.MatInputModule,
-                _angular_material.MatIconModule,
-                _angular_material.MatButtonModule,
+                _angular_material_input.MatInputModule,
+                _angular_material_icon.MatIconModule,
+                _angular_material_button.MatButtonModule,
             ],
             declarations: [
                 TdSearchInputComponent,
@@ -9203,7 +14373,7 @@ var TdStepBase = (function () {
     return TdStepBase;
 }());
 /* tslint:disable-next-line */
-var _TdStepMixinBase = mixinDisableRipple(mixinDisabled(TdStepBase));
+var _TdStepMixinBase = mixinDisableRipple$1(mixinDisabled$1(TdStepBase));
 var TdStepComponent = (function (_super) {
     __extends(TdStepComponent, _super);
     function TdStepComponent(_viewContainerRef) {
@@ -9540,7 +14710,7 @@ var TdStepHeaderBase = (function () {
     return TdStepHeaderBase;
 }());
 /* tslint:disable-next-line */
-var _TdStepHeaderMixinBase = mixinDisableRipple(mixinDisabled(TdStepHeaderBase));
+var _TdStepHeaderMixinBase = mixinDisableRipple$1(mixinDisabled$1(TdStepHeaderBase));
 var TdStepHeaderComponent = (function (_super) {
     __extends(TdStepHeaderComponent, _super);
     function TdStepHeaderComponent() {
@@ -9677,8 +14847,8 @@ var CovalentStepsModule = (function () {
         _angular_core.NgModule({
             imports: [
                 _angular_common.CommonModule,
-                _angular_material.MatIconModule,
-                _angular_material.MatRippleModule,
+                _angular_material_icon.MatIconModule,
+                _angular_material_core.MatRippleModule,
                 _angular_cdk_portal.PortalModule,
                 _angular_cdk_scrolling.ScrollDispatchModule,
                 CovalentCommonModule,
@@ -9971,8 +15141,8 @@ exports.TdFlashAnimation = TdFlashAnimation;
 exports.TdHeadshakeAnimation = TdHeadshakeAnimation;
 exports.TdJelloAnimation = TdJelloAnimation;
 exports.TdPulseAnimation = TdPulseAnimation;
-exports.mixinDisabled = mixinDisabled;
-exports.mixinDisableRipple = mixinDisableRipple;
+exports.mixinDisabled = mixinDisabled$1;
+exports.mixinDisableRipple = mixinDisableRipple$1;
 exports.CovalentValidators = CovalentValidators;
 exports.CovalentChipsModule = CovalentChipsModule;
 exports.TdChipsComponent = TdChipsComponent;

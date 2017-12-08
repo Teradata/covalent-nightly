@@ -1,6 +1,6 @@
 import * as tslib_1 from "tslib";
 import { Component } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
 var TdAlertDialogComponent = (function () {
     function TdAlertDialogComponent(_dialogRef) {
         this._dialogRef = _dialogRef;

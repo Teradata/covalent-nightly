@@ -2,7 +2,10 @@ import { DoCheck, QueryList, OnInit, ElementRef, TemplateRef, ViewContainerRef, 
 import { EventEmitter } from '@angular/core';
 import { ControlValueAccessor, FormControl } from '@angular/forms';
 import { TemplatePortalDirective } from '@angular/cdk/portal';
-import { MatChip, MatInput, MatOption, MatAutocompleteTrigger } from '@angular/material';
+import { MatChip } from '@angular/material/chips';
+import { MatInput } from '@angular/material/input';
+import { MatOption } from '@angular/material/core';
+import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
 import { ICanDisable } from '../common/common.module';
 export declare class TdChipDirective extends TemplatePortalDirective {
     constructor(templateRef: TemplateRef<any>, viewContainerRef: ViewContainerRef);

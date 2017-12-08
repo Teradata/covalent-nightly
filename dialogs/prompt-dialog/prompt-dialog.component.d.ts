@@ -1,5 +1,5 @@
 import { ElementRef, AfterViewInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
 export declare class TdPromptDialogComponent implements AfterViewInit {
     private _dialogRef;
     title: string;

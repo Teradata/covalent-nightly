@@ -2,7 +2,7 @@ import * as tslib_1 from "tslib";
 import { Component, ViewChild, Input, Output, EventEmitter, Optional } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Dir } from '@angular/cdk/bidi';
-import { MatInput } from '@angular/material';
+import { MatInput } from '@angular/material/input';
 import { debounceTime } from 'rxjs/operators/debounceTime';
 import { skip } from 'rxjs/operators/skip';
 var TdSearchInputComponent = (function () {

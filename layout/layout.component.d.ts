@@ -1,4 +1,4 @@
-import { MatSidenav } from '@angular/material';
+import { MatSidenav } from '@angular/material/sidenav';
 import { ILayoutTogglable } from './layout-toggle.class';
 export declare class TdLayoutComponent implements ILayoutTogglable {
     sidenav: MatSidenav;

@@ -1,7 +1,7 @@
 import * as tslib_1 from "tslib";
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatIconModule } from '@angular/material';
+import { MatIconModule } from '@angular/material/icon';
 import { TdMessageComponent, TdMessageContainerDirective } from './message.component';
 var TD_MESSAGE = [
     TdMessageComponent,

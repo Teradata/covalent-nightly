@@ -1,5 +1,5 @@
 import { Renderer2, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
-import { MatSidenav } from '@angular/material';
+import { MatSidenav } from '@angular/material/sidenav';
 export interface ILayoutTogglable {
     opened: boolean;
     sidenav: MatSidenav;

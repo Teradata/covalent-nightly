@@ -1,6 +1,6 @@
 import { OnInit, EventEmitter } from '@angular/core';
 import { Dir } from '@angular/cdk/bidi';
-import { MatInput } from '@angular/material';
+import { MatInput } from '@angular/material/input';
 export declare class TdSearchInputComponent implements OnInit {
     private _dir;
     _input: MatInput;

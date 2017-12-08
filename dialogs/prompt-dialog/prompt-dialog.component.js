@@ -1,6 +1,6 @@
 import * as tslib_1 from "tslib";
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
 var TdPromptDialogComponent = (function () {
     function TdPromptDialogComponent(_dialogRef) {
         this._dialogRef = _dialogRef;

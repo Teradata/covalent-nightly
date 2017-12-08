@@ -1,4 +1,4 @@
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
 export declare class TdAlertDialogComponent {
     private _dialogRef;
     title: string;

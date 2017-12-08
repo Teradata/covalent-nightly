@@ -1,7 +1,8 @@
 import * as tslib_1 from "tslib";
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatMenuModule, MatListModule } from '@angular/material';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatListModule } from '@angular/material/list';
 import { TdMenuComponent } from './menu.component';
 var TD_MENU = [
     TdMenuComponent,

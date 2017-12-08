@@ -1,7 +1,10 @@
 import * as tslib_1 from "tslib";
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatCheckboxModule, MatTooltipModule, MatIconModule, MatPseudoCheckboxModule } from '@angular/material';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatIconModule } from '@angular/material/icon';
+import { MatPseudoCheckboxModule } from '@angular/material/core';
 import { TdDataTableComponent } from './data-table.component';
 import { TdDataTableColumnComponent } from './data-table-column/data-table-column.component';
 import { TdDataTableCellComponent } from './data-table-cell/data-table-cell.component';
