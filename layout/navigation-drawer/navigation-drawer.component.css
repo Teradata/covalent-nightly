@@ -1,5 +1,8 @@
 :host {
   width: 100%; }
+  :host .td-navigation-drawer-content.ng-animating,
+  :host .td-navigation-drawer-menu-content.ng-animating {
+    overflow: hidden; }
   :host mat-toolbar {
     padding: 16px; }
     :host mat-toolbar.td-toolbar-background {
