@@ -5883,7 +5883,7 @@ var CovalentJsonFormatterModule = (function () {
  * Content of a card, needed as it's used as a selector in the API.
  * \@docs-private
  */
-var MatCardContent = (function () {
+var MatCardContent = /** @class */ (function () {
     function MatCardContent() {
     }
     MatCardContent.decorators = [
@@ -5900,7 +5900,7 @@ var MatCardContent = (function () {
  * Title of a card, needed as it's used as a selector in the API.
  * \@docs-private
  */
-var MatCardTitle = (function () {
+var MatCardTitle = /** @class */ (function () {
     function MatCardTitle() {
     }
     MatCardTitle.decorators = [
@@ -5919,7 +5919,7 @@ var MatCardTitle = (function () {
  * Sub-title of a card, needed as it's used as a selector in the API.
  * \@docs-private
  */
-var MatCardSubtitle = (function () {
+var MatCardSubtitle = /** @class */ (function () {
     function MatCardSubtitle() {
     }
     MatCardSubtitle.decorators = [
@@ -5938,7 +5938,7 @@ var MatCardSubtitle = (function () {
  * Action section of a card, needed as it's used as a selector in the API.
  * \@docs-private
  */
-var MatCardActions = (function () {
+var MatCardActions = /** @class */ (function () {
     function MatCardActions() {
         /**
          * Position of the actions inside the card.
@@ -5966,7 +5966,7 @@ var MatCardActions = (function () {
  * Footer of a card, needed as it's used as a selector in the API.
  * \@docs-private
  */
-var MatCardFooter = (function () {
+var MatCardFooter = /** @class */ (function () {
     function MatCardFooter() {
     }
     MatCardFooter.decorators = [
@@ -5983,7 +5983,7 @@ var MatCardFooter = (function () {
  * Image used in a card, needed to add the mat- CSS styling.
  * \@docs-private
  */
-var MatCardImage = (function () {
+var MatCardImage = /** @class */ (function () {
     function MatCardImage() {
     }
     MatCardImage.decorators = [
@@ -6000,7 +6000,7 @@ var MatCardImage = (function () {
  * Image used in a card, needed to add the mat- CSS styling.
  * \@docs-private
  */
-var MatCardSmImage = (function () {
+var MatCardSmImage = /** @class */ (function () {
     function MatCardSmImage() {
     }
     MatCardSmImage.decorators = [
@@ -6017,7 +6017,7 @@ var MatCardSmImage = (function () {
  * Image used in a card, needed to add the mat- CSS styling.
  * \@docs-private
  */
-var MatCardMdImage = (function () {
+var MatCardMdImage = /** @class */ (function () {
     function MatCardMdImage() {
     }
     MatCardMdImage.decorators = [
@@ -6034,7 +6034,7 @@ var MatCardMdImage = (function () {
  * Image used in a card, needed to add the mat- CSS styling.
  * \@docs-private
  */
-var MatCardLgImage = (function () {
+var MatCardLgImage = /** @class */ (function () {
     function MatCardLgImage() {
     }
     MatCardLgImage.decorators = [
@@ -6051,7 +6051,7 @@ var MatCardLgImage = (function () {
  * Large image used in a card, needed to add the mat- CSS styling.
  * \@docs-private
  */
-var MatCardXlImage = (function () {
+var MatCardXlImage = /** @class */ (function () {
     function MatCardXlImage() {
     }
     MatCardXlImage.decorators = [
@@ -6068,7 +6068,7 @@ var MatCardXlImage = (function () {
  * Avatar image used in a card, needed to add the mat- CSS styling.
  * \@docs-private
  */
-var MatCardAvatar = (function () {
+var MatCardAvatar = /** @class */ (function () {
     function MatCardAvatar() {
     }
     MatCardAvatar.decorators = [
@@ -6092,7 +6092,7 @@ var MatCardAvatar = (function () {
  * - mat-card-actions
  * - mat-card-footer
  */
-var MatCard = (function () {
+var MatCard = /** @class */ (function () {
     function MatCard() {
     }
     MatCard.decorators = [
@@ -6115,7 +6115,7 @@ var MatCard = (function () {
  * preset header section (i.e. a title, subtitle, and avatar layout).
  * \@docs-private
  */
-var MatCardHeader = (function () {
+var MatCardHeader = /** @class */ (function () {
     function MatCardHeader() {
     }
     MatCardHeader.decorators = [
@@ -6136,7 +6136,7 @@ var MatCardHeader = (function () {
  * layout that groups an image with a title section.
  * \@docs-private
  */
-var MatCardTitleGroup = (function () {
+var MatCardTitleGroup = /** @class */ (function () {
     function MatCardTitleGroup() {
     }
     MatCardTitleGroup.decorators = [
@@ -6158,7 +6158,7 @@ var MatCardTitleGroup = (function () {
  * @suppress {checkTypes} checked by tsc
  */
 
-var MatCardModule = (function () {
+var MatCardModule = /** @class */ (function () {
     function MatCardModule() {
     }
     MatCardModule.decorators = [
@@ -6212,7 +6212,7 @@ var hasV8BreakIterator = (typeof (Intl) !== 'undefined' && (/** @type {?} */ (In
  * Service to detect the current platform by comparing the userAgent strings and
  * checking browser-specific global properties.
  */
-var Platform = (function () {
+var Platform = /** @class */ (function () {
     function Platform() {
         /**
          * Whether the Angular application is being rendered in the browser.
@@ -6266,6 +6266,7 @@ var Platform = (function () {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
+
 /**
  * Cached result of whether the user's browser supports passive event listeners.
  */
@@ -6305,7 +6306,7 @@ function supportsPassiveEventListeners() {
  * Utility for checking the interactivity of an element, such as whether is is focusable or
  * tabbable.
  */
-var InteractivityChecker = (function () {
+var InteractivityChecker = /** @class */ (function () {
     function InteractivityChecker(_platform) {
         this._platform = _platform;
     }
@@ -6610,7 +6611,7 @@ function getWindow(node) {
  * It assumes that the tab order is the same as DOM order, which is not necessarily true.
  * Things like tabIndex > 0, flex `order`, and shadow roots can cause to two to misalign.
  */
-var FocusTrap = (function () {
+var FocusTrap = /** @class */ (function () {
     function FocusTrap(_element, _checker, _ngZone, _document, deferAnchors) {
         if (deferAnchors === void 0) { deferAnchors = false; }
         this._element = _element;
@@ -6953,7 +6954,7 @@ var FocusTrap = (function () {
 /**
  * Factory that allows easy instantiation of focus traps.
  */
-var FocusTrapFactory = (function () {
+var FocusTrapFactory = /** @class */ (function () {
     function FocusTrapFactory(_checker, _ngZone, _document) {
         this._checker = _checker;
         this._ngZone = _ngZone;
@@ -7000,7 +7001,7 @@ var FocusTrapFactory = (function () {
  * \@docs-private
  * @deprecated
  */
-var FocusTrapDeprecatedDirective = (function () {
+var FocusTrapDeprecatedDirective = /** @class */ (function () {
     function FocusTrapDeprecatedDirective(_elementRef, _focusTrapFactory) {
         this._elementRef = _elementRef;
         this._focusTrapFactory = _focusTrapFactory;
@@ -7058,7 +7059,7 @@ var FocusTrapDeprecatedDirective = (function () {
 /**
  * Directive for trapping focus within a region.
  */
-var CdkTrapFocus = (function () {
+var CdkTrapFocus = /** @class */ (function () {
     function CdkTrapFocus(_elementRef, _focusTrapFactory, _document) {
         this._elementRef = _elementRef;
         this._focusTrapFactory = _focusTrapFactory;
@@ -7149,6 +7150,7 @@ var CdkTrapFocus = (function () {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
+
 /**
  * This interface is for items that can be passed to a ListKeyManager.
  * @record
@@ -7158,7 +7160,7 @@ var CdkTrapFocus = (function () {
  * This class manages keyboard events for selectable lists. If you pass it a query list
  * of items, it will set the active item correctly when arrow events occur.
  */
-var ListKeyManager = (function () {
+var ListKeyManager = /** @class */ (function () {
     function ListKeyManager(_items) {
         this._items = _items;
         this._activeItemIndex = -1;
@@ -7494,6 +7496,7 @@ var ListKeyManager = (function () {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
+
 /**
  * This is the interface for highlightable items (used by the ActiveDescendantKeyManager).
  * Each item must know how to style itself as active or inactive and whether or not it is
@@ -7501,7 +7504,7 @@ var ListKeyManager = (function () {
  * @record
  */
 
-var ActiveDescendantKeyManager = (function (_super) {
+var ActiveDescendantKeyManager = /** @class */ (function (_super) {
     __extends(ActiveDescendantKeyManager, _super);
     function ActiveDescendantKeyManager() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -7541,6 +7544,7 @@ var ActiveDescendantKeyManager = (function (_super) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
+
 /**
  * IDs are deliminated by an empty space, as per the spec.
  */
@@ -7627,7 +7631,7 @@ var messagesContainer = null;
  * content.
  * \@docs-private
  */
-var AriaDescriber = (function () {
+var AriaDescriber = /** @class */ (function () {
     function AriaDescriber(_document) {
         this._document = _document;
     }
@@ -7889,6 +7893,7 @@ var ARIA_DESCRIBER_PROVIDER = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
+
 /**
  * Screenreaders will often fire fake mousedown events when a focusable element
  * is activated using the keyboard. We can typically distinguish between these faked
@@ -7906,6 +7911,7 @@ function isFakeMousedownFromScreenReader(event) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
+
 /**
  * This is the interface for focusable items (used by the FocusKeyManager).
  * Each item must know how to focus itself, whether or not it is currently disabled
@@ -7913,7 +7919,7 @@ function isFakeMousedownFromScreenReader(event) {
  * @record
  */
 
-var FocusKeyManager = (function (_super) {
+var FocusKeyManager = /** @class */ (function (_super) {
     __extends(FocusKeyManager, _super);
     function FocusKeyManager() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -7949,7 +7955,7 @@ var FocusKeyManager = (function (_super) {
  */
 
 var LIVE_ANNOUNCER_ELEMENT_TOKEN = new _angular_core.InjectionToken('liveAnnouncerElement');
-var LiveAnnouncer = (function () {
+var LiveAnnouncer = /** @class */ (function () {
     function LiveAnnouncer(elementToken, _document) {
         this._document = _document;
         // We inject the live element as `any` because the constructor signature cannot reference
@@ -8057,7 +8063,7 @@ var TOUCH_BUFFER_MS = 650;
 /**
  * Monitors mouse and keyboard events to determine the cause of focus events.
  */
-var FocusMonitor = (function () {
+var FocusMonitor = /** @class */ (function () {
     function FocusMonitor(_ngZone, _platform) {
         this._ngZone = _ngZone;
         this._platform = _platform;
@@ -8467,7 +8473,7 @@ var FOCUS_MONITOR_PROVIDER = {
 /**
  * Class to be used to power selecting one or more options from a list.
  */
-var SelectionModel = (function () {
+var SelectionModel = /** @class */ (function () {
     function SelectionModel(_isMulti, initiallySelectedValues, _emitChanges) {
         if (_isMulti === void 0) { _isMulti = false; }
         if (_emitChanges === void 0) { _emitChanges = true; }
@@ -8751,7 +8757,7 @@ var SelectionModel = (function () {
  * Describes an event emitted when the value of a MatSelectionModel has changed.
  * \@docs-private
  */
-var SelectionChange = (function () {
+var SelectionChange = /** @class */ (function () {
     function SelectionChange(added, removed) {
         this.added = added;
         this.removed = removed;
@@ -8781,7 +8787,7 @@ function getMultipleValuesInSingleSelectionError() {
  * This service does not *store* any IDs and names because they may change at any time, so it is
  * less error-prone if they are simply passed through when the events occur.
  */
-var UniqueSelectionDispatcher = (function () {
+var UniqueSelectionDispatcher = /** @class */ (function () {
     function UniqueSelectionDispatcher() {
         this._listeners = [];
     }
@@ -8867,10 +8873,11 @@ var UNIQUE_SELECTION_DISPATCHER_PROVIDER = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
+
 /**
  * \@docs-private
  */
-var MatListBase = (function () {
+var MatListBase = /** @class */ (function () {
     function MatListBase() {
     }
     return MatListBase;
@@ -8879,7 +8886,7 @@ var _MatListMixinBase = _angular_material_core.mixinDisableRipple(MatListBase);
 /**
  * \@docs-private
  */
-var MatListItemBase = (function () {
+var MatListItemBase = /** @class */ (function () {
     function MatListItemBase() {
     }
     return MatListItemBase;
@@ -8888,7 +8895,7 @@ var _MatListItemMixinBase = _angular_material_core.mixinDisableRipple(MatListIte
 /**
  * Divider between items within a list.
  */
-var MatListDivider = (function () {
+var MatListDivider = /** @class */ (function () {
     function MatListDivider() {
     }
     MatListDivider.decorators = [
@@ -8907,7 +8914,7 @@ var MatListDivider = (function () {
 /**
  * A Material Design list component.
  */
-var MatNavList = (function (_super) {
+var MatNavList = /** @class */ (function (_super) {
     __extends(MatNavList, _super);
     function MatNavList() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -8931,7 +8938,7 @@ var MatNavList = (function (_super) {
     MatNavList.ctorParameters = function () { return []; };
     return MatNavList;
 }(_MatListMixinBase));
-var MatList = (function (_super) {
+var MatList = /** @class */ (function (_super) {
     __extends(MatList, _super);
     function MatList() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -8956,7 +8963,7 @@ var MatList = (function (_super) {
  * Directive whose purpose is to add the mat- CSS styling to this selector.
  * \@docs-private
  */
-var MatDividerCssMatStyler = (function () {
+var MatDividerCssMatStyler = /** @class */ (function () {
     function MatDividerCssMatStyler() {
     }
     MatDividerCssMatStyler.decorators = [
@@ -8973,7 +8980,7 @@ var MatDividerCssMatStyler = (function () {
  * Directive whose purpose is to add the mat- CSS styling to this selector.
  * \@docs-private
  */
-var MatListAvatarCssMatStyler = (function () {
+var MatListAvatarCssMatStyler = /** @class */ (function () {
     function MatListAvatarCssMatStyler() {
     }
     MatListAvatarCssMatStyler.decorators = [
@@ -8990,7 +8997,7 @@ var MatListAvatarCssMatStyler = (function () {
  * Directive whose purpose is to add the mat- CSS styling to this selector.
  * \@docs-private
  */
-var MatListIconCssMatStyler = (function () {
+var MatListIconCssMatStyler = /** @class */ (function () {
     function MatListIconCssMatStyler() {
     }
     MatListIconCssMatStyler.decorators = [
@@ -9007,7 +9014,7 @@ var MatListIconCssMatStyler = (function () {
  * Directive whose purpose is to add the mat- CSS styling to this selector.
  * \@docs-private
  */
-var MatListSubheaderCssMatStyler = (function () {
+var MatListSubheaderCssMatStyler = /** @class */ (function () {
     function MatListSubheaderCssMatStyler() {
     }
     MatListSubheaderCssMatStyler.decorators = [
@@ -9023,7 +9030,7 @@ var MatListSubheaderCssMatStyler = (function () {
 /**
  * An item within a Material Design list.
  */
-var MatListItem = (function (_super) {
+var MatListItem = /** @class */ (function (_super) {
     __extends(MatListItem, _super);
     function MatListItem(_element, _navList) {
         var _this = _super.call(this) || this;
@@ -9131,10 +9138,11 @@ var MatListItem = (function (_super) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
+
 /**
  * \@docs-private
  */
-var MatSelectionListBase = (function () {
+var MatSelectionListBase = /** @class */ (function () {
     function MatSelectionListBase() {
     }
     return MatSelectionListBase;
@@ -9143,7 +9151,7 @@ var _MatSelectionListMixinBase = _angular_material_core.mixinTabIndex(_angular_m
 /**
  * \@docs-private
  */
-var MatListOptionBase = (function () {
+var MatListOptionBase = /** @class */ (function () {
     function MatListOptionBase() {
     }
     return MatListOptionBase;
@@ -9161,7 +9169,7 @@ var MAT_SELECTION_LIST_VALUE_ACCESSOR = {
  * Change event object emitted by MatListOption whenever the selected state changes.
  * @deprecated Use the `MatSelectionListChange` event on the selection list instead.
  */
-var MatListOptionChange = (function () {
+var MatListOptionChange = /** @class */ (function () {
     function MatListOptionChange(source, selected) {
         this.source = source;
         this.selected = selected;
@@ -9171,7 +9179,7 @@ var MatListOptionChange = (function () {
 /**
  * Change event that is being fired whenever the selected state of an option changes.
  */
-var MatSelectionListChange = (function () {
+var MatSelectionListChange = /** @class */ (function () {
     function MatSelectionListChange(source, option) {
         this.source = source;
         this.option = option;
@@ -9183,7 +9191,7 @@ var MatSelectionListChange = (function () {
  * generate a checkbox and can put current item into the selectionModel of selection-list
  * if the current item is selected.
  */
-var MatListOption = (function (_super) {
+var MatListOption = /** @class */ (function (_super) {
     __extends(MatListOption, _super);
     function MatListOption(_element, _changeDetector, selectionList) {
         var _this = _super.call(this) || this;
@@ -9443,7 +9451,7 @@ var MatListOption = (function (_super) {
 /**
  * Material Design list component where each item is a selectable option. Behaves as a listbox.
  */
-var MatSelectionList = (function (_super) {
+var MatSelectionList = /** @class */ (function (_super) {
     __extends(MatSelectionList, _super);
     function MatSelectionList(_element, tabIndex) {
         var _this = _super.call(this) || this;
@@ -9690,7 +9698,7 @@ var MatSelectionList = (function (_super) {
         values
             .map(function (value) { return _this._getOptionByValue(value); })
             .filter(Boolean)
-            .forEach(function (option) { return /** @type {?} */ ((option))._setSelected(true); });
+            .forEach(function (option) { return ((option))._setSelected(true); });
     };
     /**
      * Returns the values of the selected options.
@@ -9789,7 +9797,7 @@ var MatSelectionList = (function (_super) {
  * @suppress {checkTypes} checked by tsc
  */
 
-var MatListModule = (function () {
+var MatListModule = /** @class */ (function () {
     function MatListModule() {
     }
     MatListModule.decorators = [
@@ -12039,6 +12047,7 @@ var fadeInItems = _angular_animations.trigger('fadeInItems', [
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
+
 /**
  * Throws an exception for the case when menu trigger doesn't have a valid mat-menu instance
  * \@docs-private
@@ -12070,10 +12079,11 @@ function throwMatMenuInvalidPositionY() {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
+
 /**
  * \@docs-private
  */
-var MatMenuItemBase = (function () {
+var MatMenuItemBase = /** @class */ (function () {
     function MatMenuItemBase() {
     }
     return MatMenuItemBase;
@@ -12083,7 +12093,7 @@ var _MatMenuItemMixinBase = _angular_material_core.mixinDisableRipple(_angular_m
  * This directive is intended to be used inside an mat-menu tag.
  * It exists mostly to set the role attribute.
  */
-var MatMenuItem = (function (_super) {
+var MatMenuItem = /** @class */ (function (_super) {
     __extends(MatMenuItem, _super);
     function MatMenuItem(_elementRef) {
         var _this = _super.call(this) || this;
@@ -12235,6 +12245,7 @@ var MatMenuItem = (function (_super) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
+
 /**
  * Default `mat-menu` options that can be overridden.
  * @record
@@ -12249,7 +12260,7 @@ var MAT_MENU_DEFAULT_OPTIONS = new _angular_core.InjectionToken('mat-menu-defaul
  * \@docs-private
  */
 var MAT_MENU_BASE_ELEVATION = 2;
-var MatMenu = (function () {
+var MatMenu = /** @class */ (function () {
     function MatMenu(_elementRef, _ngZone, _defaultOptions) {
         this._elementRef = _elementRef;
         this._ngZone = _ngZone;
@@ -12394,6 +12405,7 @@ var MatMenu = (function () {
      */
     function () {
         this._tabSubscription.unsubscribe();
+        this.closed.emit();
         this.closed.complete();
     };
     /** Stream that emits whenever the hovered menu item changes. */
@@ -12639,7 +12651,7 @@ var MENU_PANEL_TOP_PADDING = 8;
  * This directive is intended to be used in conjunction with an mat-menu tag.  It is
  * responsible for toggling the display of the provided menu instance.
  */
-var MatMenuTrigger = (function () {
+var MatMenuTrigger = /** @class */ (function () {
     function MatMenuTrigger(_overlay, _element, _viewContainerRef, _scrollStrategy, _parentMenu, _menuItemInstance, _dir) {
         this._overlay = _overlay;
         this._element = _element;
@@ -12794,7 +12806,9 @@ var MatMenuTrigger = (function () {
         var _this = this;
         if (!this._menuOpen) {
             this._createOverlay().attach(this._portal);
-            this._closeSubscription = this._menuClosingActions().subscribe(function () { return _this.closeMenu(); });
+            this._closeSubscription = this._menuClosingActions().subscribe(function () {
+                _this.menu.close.emit();
+            });
             this._initMenu();
             if (this.menu instanceof MatMenu) {
                 this.menu._startAnimation();
@@ -12836,8 +12850,8 @@ var MatMenuTrigger = (function () {
     function () {
         if (this._overlayRef && this.menuOpen) {
             this._resetMenu();
-            this._closeSubscription.unsubscribe();
             this._overlayRef.detach();
+            this._closeSubscription.unsubscribe();
             if (this.menu instanceof MatMenu) {
                 this.menu._resetAnimation();
             }
@@ -13057,10 +13071,9 @@ var MatMenuTrigger = (function () {
     function () {
         var _this = this;
         var /** @type {?} */ backdrop = /** @type {?} */ ((this._overlayRef)).backdropClick();
-        var /** @type {?} */ detachments = /** @type {?} */ ((this._overlayRef)).detachments();
         var /** @type {?} */ parentClose = this._parentMenu ? this._parentMenu.close : rxjs_observable_of.of();
         var /** @type {?} */ hover = this._parentMenu ? this._parentMenu._hovered().pipe(rxjs_operators_filter.filter(function (active) { return active !== _this._menuItemInstance; }), rxjs_operators_filter.filter(function () { return _this._menuOpen; })) : rxjs_observable_of.of();
-        return rxjs_observable_merge.merge(backdrop, parentClose, hover, detachments);
+        return rxjs_observable_merge.merge(backdrop, parentClose, hover);
     };
     /** Handles mouse presses on the trigger. */
     /**
@@ -13166,7 +13179,7 @@ var ɵ0 = {
     xPosition: 'after',
     yPosition: 'below',
 };
-var MatMenuModule = (function () {
+var MatMenuModule = /** @class */ (function () {
     function MatMenuModule() {
     }
     MatMenuModule.decorators = [

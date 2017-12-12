@@ -1030,7 +1030,7 @@ input.mat-input-element {
   color: #e53935; }
 
 .mat-input-element:disabled {
-  color: rgba(0, 0, 0, 0.42); }
+  color: rgba(0, 0, 0, 0.38); }
 
 .mat-input-element::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.42); }
@@ -1184,15 +1184,20 @@ input.mat-input-element {
 .mat-radio-button.mat-warn .mat-radio-ripple .mat-ripple-element {
   background-color: rgba(229, 57, 53, 0.26); }
 
-.mat-select-disabled .mat-select-value,
-.mat-select-arrow {
-  color: rgba(0, 0, 0, 0.54); }
-
 .mat-select-content, .mat-select-panel-done-animating {
   background: white; }
 
 .mat-select-value {
   color: rgba(0, 0, 0, 0.87); }
+
+.mat-select-placeholder {
+  color: rgba(0, 0, 0, 0.42); }
+
+.mat-select-disabled .mat-select-value {
+  color: rgba(0, 0, 0, 0.38); }
+
+.mat-select-arrow {
+  color: rgba(0, 0, 0, 0.54); }
 
 .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
   background: rgba(0, 0, 0, 0.12); }
@@ -1210,13 +1215,7 @@ input.mat-input-element {
   color: #e53935; }
 
 .mat-form-field .mat-select.mat-select-disabled .mat-select-arrow {
-  color: rgba(0, 0, 0, 0.54); }
-
-.mat-select.mat-select-disabled .mat-select-arrow {
-  color: #e53935; }
-
-.mat-select-placeholder {
-  color: rgba(0, 0, 0, 0.42); }
+  color: rgba(0, 0, 0, 0.38); }
 
 .mat-drawer-container {
   background-color: #fafafa;
