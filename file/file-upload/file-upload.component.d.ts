@@ -1,18 +1,12 @@
 import { EventEmitter, ChangeDetectorRef } from '@angular/core';
-import { ICanDisable } from '../../common/common.module';
+import { ICanDisable, IControlValueAccessor } from '../../common/common.module';
 import { TdFileInputComponent, TdFileInputLabelDirective } from '../file-input/file-input.component';
-import { ControlValueAccessor } from '@angular/forms';
 export declare class TdFileUploadBase {
+    _changeDetectorRef: ChangeDetectorRef;
+    constructor(_changeDetectorRef: ChangeDetectorRef);
 }
-export declare const _TdFileUploadMixinBase: (new (...args: any[]) => ICanDisable) & typeof TdFileUploadBase;
-export declare const FILE_UPLOAD_CONTROL_VALUE_ACCESSOR: any;
-export declare class TdFileUploadComponent extends _TdFileUploadMixinBase implements ControlValueAccessor, ICanDisable {
-    private _changeDetectorRef;
-    /**
-     * Implemented as part of ControlValueAccessor.
-     */
-    private _value;
-    value: FileList | File;
+export declare const _TdFileUploadMixinBase: (new (...args: any[]) => IControlValueAccessor) & (new (...args: any[]) => ICanDisable) & typeof TdFileUploadBase;
+export declare class TdFileUploadComponent extends _TdFileUploadMixinBase implements IControlValueAccessor, ICanDisable {
     private _multiple;
     private _required;
     /**
@@ -86,12 +80,4 @@ export declare class TdFileUploadComponent extends _TdFileUploadMixinBase implem
     cancel(): void;
     /** Method executed when the disabled value changes */
     onDisabledChange(v: boolean): void;
-    /**
-     * Implemented as part of ControlValueAccessor.
-     */
-    writeValue(value: any): void;
-    registerOnChange(fn: any): void;
-    registerOnTouched(fn: any): void;
-    onChange: (_: any) => any;
-    onTouched: () => any;
 }

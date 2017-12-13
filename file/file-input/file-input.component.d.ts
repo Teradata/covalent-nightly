@@ -1,22 +1,16 @@
 import { EventEmitter, ElementRef, Renderer2, TemplateRef, ViewContainerRef, ChangeDetectorRef } from '@angular/core';
 import { TemplatePortalDirective } from '@angular/cdk/portal';
-import { ControlValueAccessor } from '@angular/forms';
-import { ICanDisable } from '../../common/common.module';
-export declare const FILE_INPUT_CONTROL_VALUE_ACCESSOR: any;
+import { ICanDisable, IControlValueAccessor } from '../../common/common.module';
 export declare class TdFileInputLabelDirective extends TemplatePortalDirective {
     constructor(templateRef: TemplateRef<any>, viewContainerRef: ViewContainerRef);
 }
 export declare class TdFileInputBase {
+    _changeDetectorRef: ChangeDetectorRef;
+    constructor(_changeDetectorRef: ChangeDetectorRef);
 }
-export declare const _TdFileInputMixinBase: (new (...args: any[]) => ICanDisable) & typeof TdFileInputBase;
-export declare class TdFileInputComponent extends _TdFileInputMixinBase implements ControlValueAccessor, ICanDisable {
+export declare const _TdFileInputMixinBase: (new (...args: any[]) => IControlValueAccessor) & (new (...args: any[]) => ICanDisable) & typeof TdFileInputBase;
+export declare class TdFileInputComponent extends _TdFileInputMixinBase implements IControlValueAccessor, ICanDisable {
     private _renderer;
-    private _changeDetectorRef;
-    /**
-     * Implemented as part of ControlValueAccessor.
-     */
-    private _value;
-    value: FileList | File;
     private _multiple;
     /** The native `<input type="file"> element */
     _inputElement: ElementRef;
@@ -54,12 +48,4 @@ export declare class TdFileInputComponent extends _TdFileInputMixinBase implemen
     clear(): void;
     /** Method executed when the disabled value changes */
     onDisabledChange(v: boolean): void;
-    /**
-     * Implemented as part of ControlValueAccessor.
-     */
-    writeValue(value: any): void;
-    registerOnChange(fn: any): void;
-    registerOnTouched(fn: any): void;
-    onChange: (_: any) => any;
-    onTouched: () => any;
 }

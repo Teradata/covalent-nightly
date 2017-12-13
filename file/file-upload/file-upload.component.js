@@ -1,34 +1,22 @@
 import * as tslib_1 from "tslib";
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewChild, ContentChild, ChangeDetectorRef, forwardRef } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { mixinDisabled } from '../../common/common.module';
+import { mixinDisabled, mixinControlValueAccessor } from '../../common/common.module';
 import { TdFileInputComponent, TdFileInputLabelDirective } from '../file-input/file-input.component';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-var noop = function () {
-    // empty method
-};
 var TdFileUploadBase = (function () {
-    function TdFileUploadBase() {
+    function TdFileUploadBase(_changeDetectorRef) {
+        this._changeDetectorRef = _changeDetectorRef;
     }
     return TdFileUploadBase;
 }());
 export { TdFileUploadBase };
 /* tslint:disable-next-line */
-export var _TdFileUploadMixinBase = mixinDisabled(TdFileUploadBase);
-export var FILE_UPLOAD_CONTROL_VALUE_ACCESSOR = {
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(function () { return TdFileUploadComponent; }),
-    multi: true,
-};
+export var _TdFileUploadMixinBase = mixinControlValueAccessor(mixinDisabled(TdFileUploadBase));
 var TdFileUploadComponent = (function (_super) {
     tslib_1.__extends(TdFileUploadComponent, _super);
     function TdFileUploadComponent(_changeDetectorRef) {
-        var _this = _super.call(this) || this;
-        _this._changeDetectorRef = _changeDetectorRef;
-        /**
-         * Implemented as part of ControlValueAccessor.
-         */
-        _this._value = undefined;
+        var _this = _super.call(this, _changeDetectorRef) || this;
         _this._multiple = false;
         _this._required = false;
         /**
@@ -63,23 +51,9 @@ var TdFileUploadComponent = (function (_super) {
          * Event emitted when cancel button is clicked.
          */
         _this.onCancel = new EventEmitter();
-        _this.onChange = function (_) { return noop; };
-        _this.onTouched = function () { return noop; };
         return _this;
     }
-    Object.defineProperty(TdFileUploadComponent.prototype, "value", {
-        // get/set accessor (needed for ControlValueAccessor)
-        get: function () { return this._value; },
-        set: function (v) {
-            if (v !== this._value) {
-                this._value = v;
-                this.onChange(v);
-                this._changeDetectorRef.markForCheck();
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
+    TdFileUploadComponent_1 = TdFileUploadComponent;
     Object.defineProperty(TdFileUploadComponent.prototype, "files", {
         /**
          * @deprecated use value property instead
@@ -152,19 +126,6 @@ var TdFileUploadComponent = (function (_super) {
             this.cancel();
         }
     };
-    /**
-     * Implemented as part of ControlValueAccessor.
-     */
-    TdFileUploadComponent.prototype.writeValue = function (value) {
-        this.value = value;
-        this._changeDetectorRef.markForCheck();
-    };
-    TdFileUploadComponent.prototype.registerOnChange = function (fn) {
-        this.onChange = fn;
-    };
-    TdFileUploadComponent.prototype.registerOnTouched = function (fn) {
-        this.onTouched = fn;
-    };
     tslib_1.__decorate([
         ViewChild(TdFileInputComponent),
         tslib_1.__metadata("design:type", TdFileInputComponent)
@@ -211,18 +172,23 @@ var TdFileUploadComponent = (function (_super) {
         Output('cancel'),
         tslib_1.__metadata("design:type", EventEmitter)
     ], TdFileUploadComponent.prototype, "onCancel", void 0);
-    TdFileUploadComponent = tslib_1.__decorate([
+    TdFileUploadComponent = TdFileUploadComponent_1 = tslib_1.__decorate([
         Component({
             changeDetection: ChangeDetectionStrategy.OnPush,
-            providers: [FILE_UPLOAD_CONTROL_VALUE_ACCESSOR],
+            providers: [{
+                    provide: NG_VALUE_ACCESSOR,
+                    useExisting: forwardRef(function () { return TdFileUploadComponent_1; }),
+                    multi: true,
+                }],
             selector: 'td-file-upload',
-            inputs: ['disabled'],
+            inputs: ['disabled', 'value'],
             styles: [".td-file-upload { padding-left: 8px; padding-right: 8px; } .td-file-upload-cancel { height: 24px; width: 24px; position: relative; top: 24px; left: -12px; } ::ng-deep [dir='rtl'] .td-file-upload-cancel { right: -12px; left: 0; } .td-file-upload-cancel mat-icon { border-radius: 12px; vertical-align: baseline; } /** * Class that is added ondragenter by the [TdFileDrop] directive. */ .drop-zone { border-radius: 3px; } .drop-zone * { pointer-events: none; } /*# sourceMappingURL=file-upload.component.css.map */ "],
             template: "<td-file-input *ngIf=\"!value\" [(ngModel)]=\"value\" [multiple]=\"multiple\" [disabled]=\"disabled\" [accept]=\"accept\" [color]=\"defaultColor\" (select)=\"handleSelect($event)\"> <ng-template [cdkPortalHost]=\"inputLabel\" [ngIf]=\"true\"></ng-template> </td-file-input> <div *ngIf=\"value\"> <button #fileUpload class=\"td-file-upload\" mat-raised-button type=\"button\" [color]=\"activeColor\" (keyup.delete)=\"cancel()\" (keyup.backspace)=\"cancel()\" (keyup.escape)=\"cancel()\" (click)=\"uploadPressed()\">  <ng-content></ng-content> </button> <button mat-icon-button type=\"button\" class=\"td-file-upload-cancel\" [color]=\"cancelColor\"             (click)=\"cancel()\"> <mat-icon>cancel</mat-icon> </button> </div>",
         }),
         tslib_1.__metadata("design:paramtypes", [ChangeDetectorRef])
     ], TdFileUploadComponent);
     return TdFileUploadComponent;
+    var TdFileUploadComponent_1;
 }(_TdFileUploadMixinBase));
 export { TdFileUploadComponent };
 //# sourceMappingURL=file-upload.component.js.map

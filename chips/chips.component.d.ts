@@ -1,12 +1,12 @@
 import { DoCheck, QueryList, OnInit, ElementRef, TemplateRef, ViewContainerRef, ChangeDetectorRef, AfterViewInit, OnDestroy, Renderer2 } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import { ControlValueAccessor, FormControl } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { TemplatePortalDirective } from '@angular/cdk/portal';
 import { MatChip } from '@angular/material/chips';
 import { MatInput } from '@angular/material/input';
 import { MatOption } from '@angular/material/core';
 import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
-import { ICanDisable } from '../common/common.module';
+import { ICanDisable, IControlValueAccessor } from '../common/common.module';
 export declare class TdChipDirective extends TemplatePortalDirective {
     constructor(templateRef: TemplateRef<any>, viewContainerRef: ViewContainerRef);
 }
@@ -14,19 +14,16 @@ export declare class TdAutocompleteOptionDirective extends TemplatePortalDirecti
     constructor(templateRef: TemplateRef<any>, viewContainerRef: ViewContainerRef);
 }
 export declare class TdChipsBase {
+    _changeDetectorRef: ChangeDetectorRef;
+    constructor(_changeDetectorRef: ChangeDetectorRef);
 }
-export declare const _TdChipsMixinBase: (new (...args: any[]) => ICanDisable) & typeof TdChipsBase;
-export declare class TdChipsComponent extends _TdChipsMixinBase implements ControlValueAccessor, DoCheck, OnInit, AfterViewInit, OnDestroy, ICanDisable {
+export declare const _TdChipsMixinBase: (new (...args: any[]) => IControlValueAccessor) & (new (...args: any[]) => ICanDisable) & typeof TdChipsBase;
+export declare class TdChipsComponent extends _TdChipsMixinBase implements IControlValueAccessor, DoCheck, OnInit, AfterViewInit, OnDestroy, ICanDisable {
     private _elementRef;
     private _renderer;
-    private _changeDetectorRef;
     private _document;
     private _outsideClickSubs;
     private _isMousedown;
-    /**
-     * Implemented as part of ControlValueAccessor.
-     */
-    private _value;
     private _items;
     private _length;
     private _stacked;
@@ -137,14 +134,10 @@ export declare class TdChipsComponent extends _TdChipsMixinBase implements Contr
      */
     onChipBlur: EventEmitter<any>;
     /**
-     * Implemented as part of ControlValueAccessor.
-     */
-    value: any;
-    /**
      * Hostbinding to set the a11y of the TdChipsComponent depending on its state
      */
     readonly tabIndex: number;
-    constructor(_elementRef: ElementRef, _renderer: Renderer2, _changeDetectorRef: ChangeDetectorRef, _document: any);
+    constructor(_elementRef: ElementRef, _renderer: Renderer2, _document: any, _changeDetectorRef: ChangeDetectorRef);
     /**
      * Listens to host focus event to act on it
      */
@@ -228,14 +221,6 @@ export declare class TdChipsComponent extends _TdChipsMixinBase implements Contr
      * Method to close the autocomplete manually if its not already closed
      */
     _closeAutocomplete(): void;
-    /**
-     * Implemented as part of ControlValueAccessor.
-     */
-    writeValue(value: any): void;
-    registerOnChange(fn: any): void;
-    registerOnTouched(fn: any): void;
-    onChange: (_: any) => any;
-    onTouched: () => any;
     /**
      * Get total of chips
      */

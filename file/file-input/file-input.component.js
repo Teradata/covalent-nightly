@@ -3,15 +3,7 @@ import { Component, Directive, Input, Output, EventEmitter, ChangeDetectionStrat
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { TemplatePortalDirective } from '@angular/cdk/portal';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { mixinDisabled } from '../../common/common.module';
-var noop = function () {
-    // empty method
-};
-export var FILE_INPUT_CONTROL_VALUE_ACCESSOR = {
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(function () { return TdFileInputComponent; }),
-    multi: true,
-};
+import { mixinDisabled, mixinControlValueAccessor } from '../../common/common.module';
 var TdFileInputLabelDirective = (function (_super) {
     tslib_1.__extends(TdFileInputLabelDirective, _super);
     function TdFileInputLabelDirective(templateRef, viewContainerRef) {
@@ -27,23 +19,19 @@ var TdFileInputLabelDirective = (function (_super) {
 }(TemplatePortalDirective));
 export { TdFileInputLabelDirective };
 var TdFileInputBase = (function () {
-    function TdFileInputBase() {
+    function TdFileInputBase(_changeDetectorRef) {
+        this._changeDetectorRef = _changeDetectorRef;
     }
     return TdFileInputBase;
 }());
 export { TdFileInputBase };
 /* tslint:disable-next-line */
-export var _TdFileInputMixinBase = mixinDisabled(TdFileInputBase);
+export var _TdFileInputMixinBase = mixinControlValueAccessor(mixinDisabled(TdFileInputBase));
 var TdFileInputComponent = (function (_super) {
     tslib_1.__extends(TdFileInputComponent, _super);
     function TdFileInputComponent(_renderer, _changeDetectorRef) {
-        var _this = _super.call(this) || this;
+        var _this = _super.call(this, _changeDetectorRef) || this;
         _this._renderer = _renderer;
-        _this._changeDetectorRef = _changeDetectorRef;
-        /**
-         * Implemented as part of ControlValueAccessor.
-         */
-        _this._value = undefined;
         _this._multiple = false;
         /**
          * select?: function
@@ -51,22 +39,9 @@ var TdFileInputComponent = (function (_super) {
          * Emits a [File | FileList] object.
          */
         _this.onSelect = new EventEmitter();
-        _this.onChange = function (_) { return noop; };
-        _this.onTouched = function () { return noop; };
         return _this;
     }
-    Object.defineProperty(TdFileInputComponent.prototype, "value", {
-        // get/set accessor (needed for ControlValueAccessor)
-        get: function () { return this._value; },
-        set: function (v) {
-            if (v !== this._value) {
-                this._value = v;
-                this.onChange(v);
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
+    TdFileInputComponent_1 = TdFileInputComponent;
     Object.defineProperty(TdFileInputComponent.prototype, "inputElement", {
         get: function () {
             return this._inputElement.nativeElement;
@@ -108,19 +83,6 @@ var TdFileInputComponent = (function (_super) {
             this.clear();
         }
     };
-    /**
-     * Implemented as part of ControlValueAccessor.
-     */
-    TdFileInputComponent.prototype.writeValue = function (value) {
-        this.value = value;
-        this._changeDetectorRef.markForCheck();
-    };
-    TdFileInputComponent.prototype.registerOnChange = function (fn) {
-        this.onChange = fn;
-    };
-    TdFileInputComponent.prototype.registerOnTouched = function (fn) {
-        this.onTouched = fn;
-    };
     tslib_1.__decorate([
         ViewChild('fileInput'),
         tslib_1.__metadata("design:type", ElementRef)
@@ -142,18 +104,23 @@ var TdFileInputComponent = (function (_super) {
         Output('select'),
         tslib_1.__metadata("design:type", EventEmitter)
     ], TdFileInputComponent.prototype, "onSelect", void 0);
-    TdFileInputComponent = tslib_1.__decorate([
+    TdFileInputComponent = TdFileInputComponent_1 = tslib_1.__decorate([
         Component({
             changeDetection: ChangeDetectionStrategy.OnPush,
-            providers: [FILE_INPUT_CONTROL_VALUE_ACCESSOR],
+            providers: [{
+                    provide: NG_VALUE_ACCESSOR,
+                    useExisting: forwardRef(function () { return TdFileInputComponent_1; }),
+                    multi: true,
+                }],
             selector: 'td-file-input',
-            inputs: ['disabled'],
+            inputs: ['disabled', 'value'],
             styles: [":host { /** * Class that is added ondragenter by the [TdFileDrop] directive. */ } :host .td-file-input { padding-left: 8px; padding-right: 8px; } :host input.td-file-input-hidden { display: none; } :host .drop-zone { border-radius: 3px; } :host .drop-zone * { pointer-events: none; } /*# sourceMappingURL=file-input.component.css.map */ "],
             template: "<div> <button mat-raised-button class=\"td-file-input\" type=\"button\" [color]=\"color\"  [multiple]=\"multiple\"  [disabled]=\"disabled\" (keyup.enter)=\"fileInput.click()\" (click)=\"fileInput.click()\" (fileDrop)=\"handleSelect($event)\" tdFileDrop> <ng-content></ng-content> </button> <input #fileInput  class=\"td-file-input-hidden\"  type=\"file\" [attr.accept]=\"accept\"                 (fileSelect)=\"handleSelect($event)\" [multiple]=\"multiple\"  [disabled]=\"disabled\" tdFileSelect> </div>",
         }),
         tslib_1.__metadata("design:paramtypes", [Renderer2, ChangeDetectorRef])
     ], TdFileInputComponent);
     return TdFileInputComponent;
+    var TdFileInputComponent_1;
 }(_TdFileInputMixinBase));
 export { TdFileInputComponent };
 //# sourceMappingURL=file-input.component.js.map

@@ -1,10 +1,9 @@
 import { EventEmitter, ChangeDetectorRef, OnDestroy, AfterViewInit, TemplateRef, AfterContentInit, QueryList, ElementRef, OnInit, AfterContentChecked } from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
-import { ControlValueAccessor } from '@angular/forms';
 import { TdDataTableRowComponent } from './data-table-row/data-table-row.component';
 import { ITdDataTableSortChangeEvent, TdDataTableColumnComponent } from './data-table-column/data-table-column.component';
 import { TdDataTableTemplateDirective } from './directives/data-table-template.directive';
-export declare const TD_DATA_TABLE_CONTROL_VALUE_ACCESSOR: any;
+import { IControlValueAccessor } from '../common/common.module';
 export declare enum TdDataTableSortingOrder {
     Ascending,
     Descending,
@@ -45,11 +44,15 @@ export interface IInternalColumnWidth {
     min?: boolean;
     max?: boolean;
 }
-export declare class TdDataTableComponent implements ControlValueAccessor, OnInit, AfterContentInit, AfterContentChecked, AfterViewInit, OnDestroy {
+export declare class TdDataTableBase {
+    _changeDetectorRef: ChangeDetectorRef;
+    constructor(_changeDetectorRef: ChangeDetectorRef);
+}
+export declare const _TdDataTableMixinBase: (new (...args: any[]) => IControlValueAccessor) & typeof TdDataTableBase;
+export declare class TdDataTableComponent extends _TdDataTableMixinBase implements IControlValueAccessor, OnInit, AfterContentInit, AfterContentChecked, AfterViewInit, OnDestroy {
     private _document;
     private _elementRef;
     private _domSanitizer;
-    private _changeDetectorRef;
     /** responsive width calculations */
     private _resizeSubs;
     private _rowsChangedSubs;
@@ -87,12 +90,7 @@ export declare class TdDataTableComponent implements ControlValueAccessor, OnIni
      * Returns the last row to render in the viewport
      */
     readonly toRow: number;
-    /**
-     * Implemented as part of ControlValueAccessor.
-     */
-    private _value;
-    /** Callback registered via registerOnChange (ControlValueAccessor) */
-    private _onChangeCallback;
+    private _valueChangesSubs;
     /** internal attributes */
     private _data;
     private _virtualData;
@@ -130,10 +128,6 @@ export declare class TdDataTableComponent implements ControlValueAccessor, OnIni
      * and at least one is.
      */
     readonly indeterminate: boolean;
-    /**
-     * Implemented as part of ControlValueAccessor.
-     */
-    value: any;
     /**
      * data?: {[key: string]: any}[]
      * Sets the data to be rendered as rows.
@@ -297,14 +291,6 @@ export declare class TdDataTableComponent implements ControlValueAccessor, OnIni
      * Method to prevent the default events
      */
     blockEvent(event: Event): void;
-    /**
-     * Implemented as part of ControlValueAccessor.
-     */
-    writeValue(value: any): void;
-    registerOnChange(fn: any): void;
-    registerOnTouched(fn: any): void;
-    onChange: (_: any) => any;
-    onTouched: () => any;
     private _getNestedValue(name, value);
     /**
      * Does the actual Row Selection

@@ -1,8 +1,8 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/animations'), require('@angular/cdk/coercion'), require('@angular/router'), require('rxjs/operators/filter'), require('rxjs/operators/pairwise'), require('@angular/material/input'), require('@angular/material/icon'), require('@angular/material/autocomplete'), require('@angular/material/chips'), require('@angular/platform-browser'), require('@angular/cdk/portal'), require('@angular/cdk/keycodes'), require('@angular/material/core'), require('rxjs/observable/timer'), require('rxjs/observable/merge'), require('rxjs/operator/toPromise'), require('rxjs/observable/fromEvent'), require('rxjs/operators/debounceTime'), require('@angular/material/checkbox'), require('@angular/material/tooltip'), require('rxjs/Subject'), require('@angular/material/dialog'), require('@angular/material/button'), require('rxjs/Observable'), require('@angular/cdk/bidi'), require('@angular/cdk/scrolling'), require('@angular/material/sidenav'), require('@angular/material/toolbar'), require('rxjs/operators/take'), require('rxjs/Subscription'), require('rxjs/operators/map'), require('rxjs/operators/tap'), require('rxjs/observable/of'), require('@angular/cdk/overlay'), require('@angular/material/progress-bar'), require('@angular/material/progress-spinner'), require('rxjs/BehaviorSubject'), require('rxjs/operators/startWith'), require('rxjs/operators/switchMap'), require('rxjs/operators/skip')) :
-	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/animations', '@angular/cdk/coercion', '@angular/router', 'rxjs/operators/filter', 'rxjs/operators/pairwise', '@angular/material/input', '@angular/material/icon', '@angular/material/autocomplete', '@angular/material/chips', '@angular/platform-browser', '@angular/cdk/portal', '@angular/cdk/keycodes', '@angular/material/core', 'rxjs/observable/timer', 'rxjs/observable/merge', 'rxjs/operator/toPromise', 'rxjs/observable/fromEvent', 'rxjs/operators/debounceTime', '@angular/material/checkbox', '@angular/material/tooltip', 'rxjs/Subject', '@angular/material/dialog', '@angular/material/button', 'rxjs/Observable', '@angular/cdk/bidi', '@angular/cdk/scrolling', '@angular/material/sidenav', '@angular/material/toolbar', 'rxjs/operators/take', 'rxjs/Subscription', 'rxjs/operators/map', 'rxjs/operators/tap', 'rxjs/observable/of', '@angular/cdk/overlay', '@angular/material/progress-bar', '@angular/material/progress-spinner', 'rxjs/BehaviorSubject', 'rxjs/operators/startWith', 'rxjs/operators/switchMap', 'rxjs/operators/skip'], factory) :
-	(factory((global.td = global.td || {}, global.td.core = global.td.core || {}),global.ng.core,global.ng.common,global.ng.forms,global.ng.animations,global.ng.cdk.coercion,global.ng.router,global.Rx.Observable,global.Rx.Observable,global.ng.material.input,global.ng.material.icon,global.ng.material.autocomplete,global.ng.material.chips,global.ng.platformBrowser,global.ng.cdk.portal,global.ng.cdk.keycodes,global.ng.material.core,global.Rx.Observable,global.Rx.Observable,global.Rx.Observable.prototype,global.Rx.Observable,global.Rx.Observable,global.ng.material.checkbox,global.ng.material.tooltip,global.Rx,global.ng.material.dialog,global.ng.material.button,global.Rx,global.ng.cdk.bidi,global.ng.cdk.scrolling,global.ng.material.sidenav,global.ng.material.toolbar,global.Rx.Observable,global.Rx,global.Rx.Observable,global.Rx.Observable,global.Rx.Observable,global.ng.cdk.overlay,global.ng.material['progress-bar'],global.ng.material['progress-spinner'],global.Rx,global.Rx.Observable,global.Rx.Observable,global.Rx.Observable));
-}(this, (function (exports,_angular_core,_angular_common,_angular_forms,_angular_animations,_angular_cdk_coercion,_angular_router,rxjs_operators_filter,rxjs_operators_pairwise,_angular_material_input,_angular_material_icon,_angular_material_autocomplete,_angular_material_chips,_angular_platformBrowser,_angular_cdk_portal,_angular_cdk_keycodes,_angular_material_core,rxjs_observable_timer,rxjs_observable_merge,rxjs_operator_toPromise,rxjs_observable_fromEvent,rxjs_operators_debounceTime,_angular_material_checkbox,_angular_material_tooltip,rxjs_Subject,_angular_material_dialog,_angular_material_button,rxjs_Observable,_angular_cdk_bidi,_angular_cdk_scrolling,_angular_material_sidenav,_angular_material_toolbar,rxjs_operators_take,rxjs_Subscription,rxjs_operators_map,rxjs_operators_tap,rxjs_observable_of,_angular_cdk_overlay,_angular_material_progressBar,_angular_material_progressSpinner,rxjs_BehaviorSubject,rxjs_operators_startWith,rxjs_operators_switchMap,rxjs_operators_skip) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/animations'), require('rxjs/Subject'), require('@angular/cdk/coercion'), require('@angular/router'), require('rxjs/operators/filter'), require('rxjs/operators/pairwise'), require('@angular/material/input'), require('@angular/material/icon'), require('@angular/material/autocomplete'), require('@angular/material/chips'), require('@angular/platform-browser'), require('@angular/cdk/portal'), require('@angular/cdk/keycodes'), require('@angular/material/core'), require('rxjs/observable/timer'), require('rxjs/observable/merge'), require('rxjs/operator/toPromise'), require('rxjs/observable/fromEvent'), require('rxjs/operators/debounceTime'), require('@angular/material/checkbox'), require('@angular/material/tooltip'), require('@angular/material/dialog'), require('@angular/material/button'), require('rxjs/Observable'), require('@angular/cdk/bidi'), require('@angular/cdk/scrolling'), require('@angular/material/sidenav'), require('@angular/material/toolbar'), require('rxjs/operators/take'), require('rxjs/Subscription'), require('rxjs/operators/map'), require('rxjs/operators/tap'), require('rxjs/observable/of'), require('@angular/cdk/overlay'), require('@angular/material/progress-bar'), require('@angular/material/progress-spinner'), require('rxjs/BehaviorSubject'), require('rxjs/operators/startWith'), require('rxjs/operators/switchMap'), require('rxjs/operators/skip')) :
+	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/animations', 'rxjs/Subject', '@angular/cdk/coercion', '@angular/router', 'rxjs/operators/filter', 'rxjs/operators/pairwise', '@angular/material/input', '@angular/material/icon', '@angular/material/autocomplete', '@angular/material/chips', '@angular/platform-browser', '@angular/cdk/portal', '@angular/cdk/keycodes', '@angular/material/core', 'rxjs/observable/timer', 'rxjs/observable/merge', 'rxjs/operator/toPromise', 'rxjs/observable/fromEvent', 'rxjs/operators/debounceTime', '@angular/material/checkbox', '@angular/material/tooltip', '@angular/material/dialog', '@angular/material/button', 'rxjs/Observable', '@angular/cdk/bidi', '@angular/cdk/scrolling', '@angular/material/sidenav', '@angular/material/toolbar', 'rxjs/operators/take', 'rxjs/Subscription', 'rxjs/operators/map', 'rxjs/operators/tap', 'rxjs/observable/of', '@angular/cdk/overlay', '@angular/material/progress-bar', '@angular/material/progress-spinner', 'rxjs/BehaviorSubject', 'rxjs/operators/startWith', 'rxjs/operators/switchMap', 'rxjs/operators/skip'], factory) :
+	(factory((global.td = global.td || {}, global.td.core = global.td.core || {}),global.ng.core,global.ng.common,global.ng.forms,global.ng.animations,global.Rx,global.ng.cdk.coercion,global.ng.router,global.Rx.Observable,global.Rx.Observable,global.ng.material.input,global.ng.material.icon,global.ng.material.autocomplete,global.ng.material.chips,global.ng.platformBrowser,global.ng.cdk.portal,global.ng.cdk.keycodes,global.ng.material.core,global.Rx.Observable,global.Rx.Observable,global.Rx.Observable.prototype,global.Rx.Observable,global.Rx.Observable,global.ng.material.checkbox,global.ng.material.tooltip,global.ng.material.dialog,global.ng.material.button,global.Rx,global.ng.cdk.bidi,global.ng.cdk.scrolling,global.ng.material.sidenav,global.ng.material.toolbar,global.Rx.Observable,global.Rx,global.Rx.Observable,global.Rx.Observable,global.Rx.Observable,global.ng.cdk.overlay,global.ng.material['progress-bar'],global.ng.material['progress-spinner'],global.Rx,global.Rx.Observable,global.Rx.Observable,global.Rx.Observable));
+}(this, (function (exports,_angular_core,_angular_common,_angular_forms,_angular_animations,rxjs_Subject,_angular_cdk_coercion,_angular_router,rxjs_operators_filter,rxjs_operators_pairwise,_angular_material_input,_angular_material_icon,_angular_material_autocomplete,_angular_material_chips,_angular_platformBrowser,_angular_cdk_portal,_angular_cdk_keycodes,_angular_material_core,rxjs_observable_timer,rxjs_observable_merge,rxjs_operator_toPromise,rxjs_observable_fromEvent,rxjs_operators_debounceTime,_angular_material_checkbox,_angular_material_tooltip,_angular_material_dialog,_angular_material_button,rxjs_Observable,_angular_cdk_bidi,_angular_cdk_scrolling,_angular_material_sidenav,_angular_material_toolbar,rxjs_operators_take,rxjs_Subscription,rxjs_operators_map,rxjs_operators_tap,rxjs_observable_of,_angular_cdk_overlay,_angular_material_progressBar,_angular_material_progressSpinner,rxjs_BehaviorSubject,rxjs_operators_startWith,rxjs_operators_switchMap,rxjs_operators_skip) { 'use strict';
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
@@ -661,6 +661,55 @@ function TdPulseAnimation(pulseOptions) {
             ]),
         ]),
     ]);
+}
+
+var noop = function () {
+    // empty method
+};
+/** Mixin to augment a component with ngModel support. */
+function mixinControlValueAccessor(base, initialValue) {
+    return (function (_super) {
+        __extends(class_1, _super);
+        function class_1() {
+            var args = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                args[_i] = arguments[_i];
+            }
+            var _this = _super.apply(this, args) || this;
+            _this._value = initialValue;
+            _this.onChange = function (_) { return noop; };
+            _this.onTouched = function () { return noop; };
+            _this._subjectValueChanges = new rxjs_Subject.Subject();
+            _this.valueChanges = _this._subjectValueChanges.asObservable();
+            return _this;
+        }
+        Object.defineProperty(class_1.prototype, "value", {
+            get: function () {
+                return this._value;
+            },
+            set: function (v) {
+                if (v !== this._value) {
+                    this._value = v;
+                    this.onChange(v);
+                    this._changeDetectorRef.markForCheck();
+                    this._subjectValueChanges.next(v);
+                }
+            },
+            enumerable: true,
+            configurable: true
+        });
+        class_1.prototype.writeValue = function (value) {
+            this.value = value;
+            this._changeDetectorRef.markForCheck();
+        };
+        class_1.prototype.registerOnChange = function (fn) {
+            this.onChange = fn;
+        };
+        class_1.prototype.registerOnTouched = function (fn) {
+            this.onTouched = fn;
+        };
+        return class_1;
+    }(base));
 }
 
 /** Mixin to augment a component or directive with a `disabled` property. */
@@ -1887,9 +1936,6 @@ var CovalentCommonModule = (function () {
     return CovalentCommonModule;
 }());
 
-var noop = function () {
-    // empty method
-};
 var TdChipDirective = (function (_super) {
     __extends(TdChipDirective, _super);
     function TdChipDirective(templateRef, viewContainerRef) {
@@ -1917,25 +1963,21 @@ var TdAutocompleteOptionDirective = (function (_super) {
     return TdAutocompleteOptionDirective;
 }(_angular_cdk_portal.TemplatePortalDirective));
 var TdChipsBase = (function () {
-    function TdChipsBase() {
+    function TdChipsBase(_changeDetectorRef) {
+        this._changeDetectorRef = _changeDetectorRef;
     }
     return TdChipsBase;
 }());
 /* tslint:disable-next-line */
-var _TdChipsMixinBase = mixinDisabled$1(TdChipsBase);
+var _TdChipsMixinBase = mixinControlValueAccessor(mixinDisabled$1(TdChipsBase), []);
 var TdChipsComponent = (function (_super) {
     __extends(TdChipsComponent, _super);
-    function TdChipsComponent(_elementRef, _renderer, _changeDetectorRef, _document) {
-        var _this = _super.call(this) || this;
+    function TdChipsComponent(_elementRef, _renderer, _document, _changeDetectorRef) {
+        var _this = _super.call(this, _changeDetectorRef) || this;
         _this._elementRef = _elementRef;
         _this._renderer = _renderer;
-        _this._changeDetectorRef = _changeDetectorRef;
         _this._document = _document;
         _this._isMousedown = false;
-        /**
-         * Implemented as part of ControlValueAccessor.
-         */
-        _this._value = [];
         _this._length = 0;
         _this._stacked = false;
         _this._requireMatch = false;
@@ -1984,8 +2026,6 @@ var TdChipsComponent = (function (_super) {
          * Sends chip value as event.
          */
         _this.onChipBlur = new _angular_core.EventEmitter();
-        _this.onChange = function (_) { return noop; };
-        _this.onTouched = function () { return noop; };
         _this._renderer.addClass(_this._elementRef.nativeElement, 'mat-' + _this._color);
         return _this;
     }
@@ -2117,21 +2157,6 @@ var TdChipsComponent = (function (_super) {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(TdChipsComponent.prototype, "value", {
-        get: function () { return this._value; },
-        /**
-         * Implemented as part of ControlValueAccessor.
-         */
-        set: function (v) {
-            if (v !== this._value) {
-                this._value = v;
-                this._length = this._value ? this._value.length : 0;
-                this._changeDetectorRef.markForCheck();
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
     Object.defineProperty(TdChipsComponent.prototype, "tabIndex", {
         /**
          * Hostbinding to set the a11y of the TdChipsComponent depending on its state
@@ -2214,9 +2239,9 @@ var TdChipsComponent = (function (_super) {
     };
     TdChipsComponent.prototype.ngDoCheck = function () {
         // Throw onChange event only if array changes size.
-        if (this._value && this._value.length !== this._length) {
-            this._length = this._value.length;
-            this.onChange(this._value);
+        if (this.value && this.value.length !== this._length) {
+            this._length = this.value.length;
+            this.onChange(this.value);
         }
     };
     TdChipsComponent.prototype.ngOnDestroy = function () {
@@ -2286,12 +2311,12 @@ var TdChipsComponent = (function (_super) {
         });
         this.inputControl.setValue('');
         // check if value is already part of the model
-        if (this._value.indexOf(value) > -1) {
+        if (this.value.indexOf(value) > -1) {
             return false;
         }
-        this._value.push(value);
+        this.value.push(value);
         this.onAdd.emit(value);
-        this.onChange(this._value);
+        this.onChange(this.value);
         this._changeDetectorRef.markForCheck();
         return true;
     };
@@ -2300,7 +2325,7 @@ var TdChipsComponent = (function (_super) {
      * returns 'true' if successful, 'false' if it fails.
      */
     TdChipsComponent.prototype.removeChip = function (index) {
-        var removedValues = this._value.splice(index, 1);
+        var removedValues = this.value.splice(index, 1);
         if (removedValues.length === 0) {
             return false;
         }
@@ -2318,7 +2343,7 @@ var TdChipsComponent = (function (_super) {
             this._focusChip(index - 1);
         }
         this.onRemove.emit(removedValues[0]);
-        this.onChange(this._value);
+        this.onChange(this.value);
         this.inputControl.setValue('');
         this._changeDetectorRef.markForCheck();
         return true;
@@ -2493,18 +2518,6 @@ var TdChipsComponent = (function (_super) {
             this._autocompleteTrigger.closePanel();
             this._changeDetectorRef.markForCheck();
         }
-    };
-    /**
-     * Implemented as part of ControlValueAccessor.
-     */
-    TdChipsComponent.prototype.writeValue = function (value) {
-        this.value = value;
-    };
-    TdChipsComponent.prototype.registerOnChange = function (fn) {
-        this.onChange = fn;
-    };
-    TdChipsComponent.prototype.registerOnTouched = function (fn) {
-        this.onTouched = fn;
     };
     Object.defineProperty(TdChipsComponent.prototype, "_totalChips", {
         /**
@@ -2682,11 +2695,6 @@ var TdChipsComponent = (function (_super) {
         __metadata("design:type", _angular_core.EventEmitter)
     ], TdChipsComponent.prototype, "onChipBlur", void 0);
     __decorate([
-        _angular_core.Input(),
-        __metadata("design:type", Object),
-        __metadata("design:paramtypes", [Object])
-    ], TdChipsComponent.prototype, "value", null);
-    __decorate([
         _angular_core.HostBinding('attr.tabindex'),
         __metadata("design:type", Number),
         __metadata("design:paramtypes", [])
@@ -2723,15 +2731,14 @@ var TdChipsComponent = (function (_super) {
                     multi: true,
                 }],
             selector: 'td-chips',
-            inputs: ['disabled'],
+            inputs: ['disabled', 'value'],
             styles: [":host { display: block; padding: 0px 5px 0px 5px; min-height: 48px; } :host .td-chips-wrapper { min-height: 42px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-align: start; -ms-flex-align: start; align-items: flex-start; } :host .td-chips-wrapper.td-chips-stacked .mat-basic-chip { width: 100%; } :host .td-chip, :host .td-chip > .td-chip-content { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; max-width: 100%; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: start; } :host .td-chip.td-chip-stacked, :host .td-chip > .td-chip-content.td-chip-stacked { -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; } :host ::ng-deep { /* TODO see if we can make styles more abstract to future proof for contact chips */ } :host ::ng-deep .mat-form-field-wrapper { padding-bottom: 2px; } :host ::ng-deep .mat-basic-chip { display: inline-block; cursor: default; border-radius: 16px; margin: 8px 8px 0 0; -webkit-box-sizing: border-box; box-sizing: border-box; max-width: 100%; position: relative; } html[dir=rtl] :host ::ng-deep .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } body[dir=rtl] :host ::ng-deep .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } [dir=rtl] :host ::ng-deep .mat-basic-chip { margin: 8px 0 0 8px; unicode-bidi: embed; } :host ::ng-deep .mat-basic-chip bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host ::ng-deep .mat-basic-chip bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host ::ng-deep .mat-basic-chip .td-chip { min-height: 32px; line-height: 32px; font-size: 13px; padding: 0 0 0 12px; } html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip { padding: 0 12px 0 0; unicode-bidi: embed; } body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip { padding: 0 12px 0 0; unicode-bidi: embed; } [dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip { padding: 0 12px 0 0; unicode-bidi: embed; } :host ::ng-deep .mat-basic-chip .td-chip bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host ::ng-deep .mat-basic-chip .td-chip bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] { display: inline-block; -webkit-box-ordinal-group: -19; -ms-flex-order: -20; order: -20; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; text-align: center; height: 32px; width: 32px; margin: 0 8px 0 -12px; border-radius: 50%; } html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] { margin: 0 -12px 0 8px; unicode-bidi: embed; } body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] { margin: 0 -12px 0 8px; unicode-bidi: embed; } [dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] { margin: 0 -12px 0 8px; unicode-bidi: embed; } :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host ::ng-deep .mat-basic-chip.td-chip-after-pad { padding: 0 12px 0 0; } html[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad { padding: 0 0 0 12px; unicode-bidi: embed; } body[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad { padding: 0 0 0 12px; unicode-bidi: embed; } [dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad { padding: 0 0 0 12px; unicode-bidi: embed; } :host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=rtl] { direction: rtl; unicode-bidi: bidi-override; } :host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=ltr] { direction: ltr; unicode-bidi: bidi-override; } :host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal { margin: 0 4px; font-size: 21px; line-height: 22px; } :host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal:hover { cursor: pointer; } :host .mat-form-field-underline { position: relative; height: 1px; width: 100%; bottom: 0; } :host .mat-form-field-underline.mat-disabled { background-position: 0; bottom: -4px; background-color: transparent; } :host .mat-form-field-underline .mat-form-field-ripple { position: absolute; height: 2px; top: 0; width: 100%; -webkit-transform-origin: 50%; transform-origin: 50%; -webkit-transform: scaleX(0.5); transform: scaleX(0.5); visibility: hidden; -webkit-transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); } :host .mat-form-field-underline .mat-form-field-ripple.mat-focused { visibility: visible; -webkit-transform: scaleX(1); transform: scaleX(1); -webkit-transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear; transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear; transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear; } :host ::ng-deep mat-form-field .mat-form-field-underline { display: none; } /*# sourceMappingURL=chips.component.css.map */ "],
             template: "<div class=\"td-chips-wrapper\" [class.td-chips-stacked]=\"stacked\"> <ng-template let-chip let-first=\"first\" let-index=\"index\" ngFor [ngForOf]=\"value\"> <mat-basic-chip [class.td-chip-disabled]=\"disabled\" [class.td-chip-after-pad]=\"!canRemoveChip\" [color]=\"color\" [disabled]=\"true\" (keydown)=\"_chipKeydown($event, index)\" (blur)=\"_handleChipBlur($event, chip)\" (focus)=\"_handleChipFocus($event, chip)\"> <div class=\"td-chip\" [class.td-chip-stacked]=\"stacked\"> <span class=\"td-chip-content\"> <span *ngIf=\"!_chipTemplate?.templateRef\">{{chip}}</span> <ng-template *ngIf=\"_chipTemplate?.templateRef\" [ngTemplateOutlet]=\"_chipTemplate?.templateRef\" [ngTemplateOutletContext]=\"{ chip: chip }\"> </ng-template> </span> <mat-icon *ngIf=\"canRemoveChip\" class=\"td-chip-removal\" (click)=\"_internalClick = removeChip(index)\"> cancel </mat-icon> </div> </mat-basic-chip> </ng-template> <mat-form-field floatPlaceholder=\"never\" [style.width.px]=\"canAddChip ? null : 0\" [style.height.px]=\"canAddChip ? null : 0\" [color]=\"color\"> <input matInput #input [tabIndex]=\"-1\" [matAutocomplete]=\"autocomplete\" [formControl]=\"inputControl\" [placeholder]=\"canAddChip? placeholder : ''\" (keydown)=\"_inputKeydown($event)\" (keyup.enter)=\"_handleAddChip()\" (focus)=\"_handleFocus()\"> </mat-form-field> <mat-autocomplete #autocomplete=\"matAutocomplete\" [displayWith]=\"_removeInputDisplay\" (optionSelected)=\"addChip($event.option.value)\"> <ng-template let-item let-first=\"first\" ngFor [ngForOf]=\"items\"> <mat-option (click)=\"_setInternalClick()\" [value]=\"item\"> <span *ngIf=\"!_autocompleteOptionTemplate?.templateRef\">{{item}}</span> <ng-template *ngIf=\"_autocompleteOptionTemplate?.templateRef\" [ngTemplateOutlet]=\"_autocompleteOptionTemplate?.templateRef\" [ngTemplateOutletContext]=\"{ option: item }\"> </ng-template> </mat-option> </ng-template> </mat-autocomplete> </div> <div *ngIf=\"chipAddition\" class=\"mat-form-field-underline\" [class.mat-disabled]=\"disabled\"> <span class=\"mat-form-field-ripple\" [class.mat-focused]=\"focused\"></span> </div> <ng-content></ng-content>",
             changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
         }),
-        __param(3, _angular_core.Optional()), __param(3, _angular_core.Inject(_angular_platformBrowser.DOCUMENT)),
+        __param(2, _angular_core.Optional()), __param(2, _angular_core.Inject(_angular_platformBrowser.DOCUMENT)),
         __metadata("design:paramtypes", [_angular_core.ElementRef,
-            _angular_core.Renderer2,
-            _angular_core.ChangeDetectorRef, Object])
+            _angular_core.Renderer2, Object, _angular_core.ChangeDetectorRef])
     ], TdChipsComponent);
     return TdChipsComponent;
     var TdChipsComponent_1;
@@ -2864,15 +2871,6 @@ var TdDataTableTemplateDirective = (function (_super) {
     return TdDataTableTemplateDirective;
 }(_angular_cdk_portal.TemplatePortalDirective));
 
-var noop$1 = function () {
-    // empty method
-};
-var TD_DATA_TABLE_CONTROL_VALUE_ACCESSOR = {
-    provide: _angular_forms.NG_VALUE_ACCESSOR,
-    useExisting: _angular_core.forwardRef(function () { return TdDataTableComponent; }),
-    multi: true,
-};
-
 (function (TdDataTableSortingOrder) {
     TdDataTableSortingOrder[TdDataTableSortingOrder["Ascending"] = 'ASC'] = "Ascending";
     TdDataTableSortingOrder[TdDataTableSortingOrder["Descending"] = 'DESC'] = "Descending";
@@ -2885,85 +2883,88 @@ var TD_VIRTUAL_OFFSET = 2;
  * Constant to set default row height if none is provided
  */
 var TD_VIRTUAL_DEFAULT_ROW_HEIGHT = 48;
-var TdDataTableComponent = (function () {
-    function TdDataTableComponent(_document, _elementRef, _domSanitizer, _changeDetectorRef) {
-        this._document = _document;
-        this._elementRef = _elementRef;
-        this._domSanitizer = _domSanitizer;
+var TdDataTableBase = (function () {
+    function TdDataTableBase(_changeDetectorRef) {
         this._changeDetectorRef = _changeDetectorRef;
-        this._hostWidth = 0;
-        this._widths = [];
-        this._onResize = new rxjs_Subject.Subject();
-        this._scrollHorizontalOffset = 0;
-        this._onHorizontalScroll = new rxjs_Subject.Subject();
-        this._onVerticalScroll = new rxjs_Subject.Subject();
+    }
+    return TdDataTableBase;
+}());
+/* tslint:disable-next-line */
+var _TdDataTableMixinBase = mixinControlValueAccessor(TdDataTableBase, []);
+var TdDataTableComponent = (function (_super) {
+    __extends(TdDataTableComponent, _super);
+    function TdDataTableComponent(_document, _elementRef, _domSanitizer, _changeDetectorRef) {
+        var _this = _super.call(this, _changeDetectorRef) || this;
+        _this._document = _document;
+        _this._elementRef = _elementRef;
+        _this._domSanitizer = _domSanitizer;
+        _this._hostWidth = 0;
+        _this._widths = [];
+        _this._onResize = new rxjs_Subject.Subject();
+        _this._scrollHorizontalOffset = 0;
+        _this._onHorizontalScroll = new rxjs_Subject.Subject();
+        _this._onVerticalScroll = new rxjs_Subject.Subject();
         // Array of cached row heights to allow dynamic row heights
-        this._rowHeightCache = [];
+        _this._rowHeightCache = [];
         // Total pseudo height of all the elements
-        this._totalHeight = 0;
+        _this._totalHeight = 0;
         // Total host height for the viewport
-        this._hostHeight = 0;
+        _this._hostHeight = 0;
         // Scrolled vertical pixels
-        this._scrollVerticalOffset = 0;
+        _this._scrollVerticalOffset = 0;
         // Variables that set from and to which rows will be rendered
-        this._fromRow = 0;
-        this._toRow = 0;
-        /**
-         * Implemented as part of ControlValueAccessor.
-         */
-        this._value = [];
-        /** Callback registered via registerOnChange (ControlValueAccessor) */
-        this._onChangeCallback = noop$1;
-        this._selectable = false;
-        this._clickable = false;
-        this._multiple = true;
-        this._allSelected = false;
-        this._indeterminate = false;
+        _this._fromRow = 0;
+        _this._toRow = 0;
+        _this._selectable = false;
+        _this._clickable = false;
+        _this._multiple = true;
+        _this._allSelected = false;
+        _this._indeterminate = false;
         /** sorting */
-        this._sortable = false;
-        this._sortOrder = exports.TdDataTableSortingOrder.Ascending;
+        _this._sortable = false;
+        _this._sortOrder = exports.TdDataTableSortingOrder.Ascending;
         /** shift select */
-        this._shiftPreviouslyPressed = false;
-        this._lastSelectedIndex = -1;
-        this._firstSelectedIndex = -1;
-        this._firstCheckboxValue = false;
+        _this._shiftPreviouslyPressed = false;
+        _this._lastSelectedIndex = -1;
+        _this._firstSelectedIndex = -1;
+        _this._firstCheckboxValue = false;
         /** template fetching support */
-        this._templateMap = new Map();
+        _this._templateMap = new Map();
         /**
          * sortChange?: function
          * Event emitted when the column headers are clicked. [sortable] needs to be enabled.
          * Emits an [ITdDataTableSortChangeEvent] implemented object.
          */
-        this.onSortChange = new _angular_core.EventEmitter();
+        _this.onSortChange = new _angular_core.EventEmitter();
         /**
          * rowSelect?: function
          * Event emitted when a row is selected/deselected. [selectable] needs to be enabled.
          * Emits an [ITdDataTableSelectEvent] implemented object.
          */
-        this.onRowSelect = new _angular_core.EventEmitter();
+        _this.onRowSelect = new _angular_core.EventEmitter();
         /**
          * rowClick?: function
          * Event emitted when a row is clicked.
          * Emits an [ITdDataTableRowClickEvent] implemented object.
          */
-        this.onRowClick = new _angular_core.EventEmitter();
+        _this.onRowClick = new _angular_core.EventEmitter();
         /**
          * selectAll?: function
          * Event emitted when all rows are selected/deselected by the all checkbox. [selectable] needs to be enabled.
          * Emits an [ITdDataTableSelectAllEvent] implemented object.
          */
-        this.onSelectAll = new _angular_core.EventEmitter();
+        _this.onSelectAll = new _angular_core.EventEmitter();
         /**
          * compareWith?: function(row, model): boolean
          * Allows custom comparison between row and model to see if row is selected or not
          * Default comparation is by reference
          */
-        this.compareWith = function (row, model) {
+        _this.compareWith = function (row, model) {
             return row === model;
         };
-        this.onChange = function (_) { return noop$1; };
-        this.onTouched = function () { return noop$1; };
+        return _this;
     }
+    TdDataTableComponent_1 = TdDataTableComponent;
     Object.defineProperty(TdDataTableComponent.prototype, "hostWidth", {
         get: function () {
             // if the checkboxes are rendered, we need to remove their width
@@ -3044,21 +3045,6 @@ var TdDataTableComponent = (function () {
          */
         get: function () {
             return this._indeterminate;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(TdDataTableComponent.prototype, "value", {
-        get: function () { return this._value; },
-        /**
-         * Implemented as part of ControlValueAccessor.
-         */
-        set: function (v) {
-            if (v !== this._value) {
-                this._value = v;
-                this._onChangeCallback(v);
-                this.refresh();
-            }
         },
         enumerable: true,
         configurable: true
@@ -3267,6 +3253,9 @@ var TdDataTableComponent = (function () {
             _this._calculateVirtualRows();
             _this._changeDetectorRef.markForCheck();
         });
+        this._valueChangesSubs = this.valueChanges.subscribe(function (value) {
+            _this.refresh();
+        });
     };
     /**
      * Loads templates and sets them in a map for faster access.
@@ -3325,6 +3314,9 @@ var TdDataTableComponent = (function () {
         if (this._rowsChangedSubs) {
             this._rowsChangedSubs.unsubscribe();
         }
+        if (this._valueChangesSubs) {
+            this._valueChangesSubs.unsubscribe();
+        }
     };
     /**
      * Method that gets executed every time there is a scroll event
@@ -3368,7 +3360,7 @@ var TdDataTableComponent = (function () {
      * Clears model (ngModel) of component by removing all values in array.
      */
     TdDataTableComponent.prototype.clearModel = function () {
-        this._value.splice(0, this._value.length);
+        this.value.splice(0, this.value.length);
     };
     /**
      * Refreshes data table and rerenders [data] and [columns]
@@ -3389,7 +3381,7 @@ var TdDataTableComponent = (function () {
             this._data.forEach(function (row) {
                 // skiping already selected rows
                 if (!_this.isRowSelected(row)) {
-                    _this._value.push(row);
+                    _this.value.push(row);
                     // checking which ones are being toggled
                     toggledRows.push(row);
                 }
@@ -3402,12 +3394,12 @@ var TdDataTableComponent = (function () {
                 // checking which ones are being toggled
                 if (_this.isRowSelected(row)) {
                     toggledRows.push(row);
-                    var modelRow = _this._value.filter(function (val) {
+                    var modelRow = _this.value.filter(function (val) {
                         return _this.compareWith(row, val);
                     })[0];
-                    var index = _this._value.indexOf(modelRow);
+                    var index = _this.value.indexOf(modelRow);
                     if (index > -1) {
-                        _this._value.splice(index, 1);
+                        _this.value.splice(index, 1);
                     }
                 }
             });
@@ -3422,7 +3414,7 @@ var TdDataTableComponent = (function () {
     TdDataTableComponent.prototype.isRowSelected = function (row) {
         var _this = this;
         // compare items by [compareWith] function
-        return this._value ? this._value.filter(function (val) {
+        return this.value ? this.value.filter(function (val) {
             return _this.compareWith(row, val);
         }).length > 0 : false;
     };
@@ -3589,18 +3581,6 @@ var TdDataTableComponent = (function () {
     TdDataTableComponent.prototype.blockEvent = function (event) {
         event.preventDefault();
     };
-    /**
-     * Implemented as part of ControlValueAccessor.
-     */
-    TdDataTableComponent.prototype.writeValue = function (value) {
-        this.value = value;
-    };
-    TdDataTableComponent.prototype.registerOnChange = function (fn) {
-        this.onChange = fn;
-    };
-    TdDataTableComponent.prototype.registerOnTouched = function (fn) {
-        this.onTouched = fn;
-    };
     TdDataTableComponent.prototype._getNestedValue = function (name, value) {
         if (!(value instanceof Object) || !name) {
             return value;
@@ -3623,21 +3603,21 @@ var TdDataTableComponent = (function () {
             if (!this._multiple) {
                 this.clearModel();
             }
-            this._value.push(row);
+            this.value.push(row);
         }
         else {
             // compare items by [compareWith] function
-            row = this._value.filter(function (val) {
+            row = this.value.filter(function (val) {
                 return _this.compareWith(row, val);
             })[0];
-            var index = this._value.indexOf(row);
+            var index = this.value.indexOf(row);
             if (index > -1) {
-                this._value.splice(index, 1);
+                this.value.splice(index, 1);
             }
         }
         this._calculateCheckboxState();
         this.onRowSelect.emit({ row: row, index: rowIndex, selected: !wasSelected });
-        this.onChange(this._value);
+        this.onChange(this.value);
         return !wasSelected;
     };
     /**
@@ -3853,11 +3833,6 @@ var TdDataTableComponent = (function () {
         __metadata("design:type", _angular_core.QueryList)
     ], TdDataTableComponent.prototype, "_rows", void 0);
     __decorate([
-        _angular_core.Input(),
-        __metadata("design:type", Object),
-        __metadata("design:paramtypes", [Object])
-    ], TdDataTableComponent.prototype, "value", null);
-    __decorate([
         _angular_core.Input('data'),
         __metadata("design:type", Array),
         __metadata("design:paramtypes", [Array])
@@ -3917,12 +3892,17 @@ var TdDataTableComponent = (function () {
         _angular_core.Input('compareWith'),
         __metadata("design:type", Function)
     ], TdDataTableComponent.prototype, "compareWith", void 0);
-    TdDataTableComponent = __decorate([
+    TdDataTableComponent = TdDataTableComponent_1 = __decorate([
         _angular_core.Component({
-            providers: [TD_DATA_TABLE_CONTROL_VALUE_ACCESSOR],
+            providers: [{
+                    provide: _angular_forms.NG_VALUE_ACCESSOR,
+                    useExisting: _angular_core.forwardRef(function () { return TdDataTableComponent_1; }),
+                    multi: true,
+                }],
             selector: 'td-data-table',
             styles: [":host { display: block; overflow: hidden; } :host .td-data-table-scrollable { position: relative; overflow: auto; height: calc(100% - 56px); } table.td-data-table { width: auto !important; } table.td-data-table.mat-selectable tbody > tr.td-data-table-row { -webkit-transition: background-color 0.2s; transition: background-color 0.2s; } table.td-data-table.mat-selectable .td-data-table-column:first-child > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable th.td-data-table-column:first-child > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable td.td-data-table-cell:first-child > .td-data-table-column-content-wrapper { width: 18px; min-width: 18px; padding: 0 24px; } table.td-data-table.mat-selectable .td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) > .td-data-table-column-content-wrapper { padding-left: 0px; } [dir='rtl'] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, [dir='rtl'] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, [dir='rtl'] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) > .td-data-table-column-content-wrapper { padding-right: 0px; padding-left: 28px; } table.td-data-table td.mat-checkbox-cell, table.td-data-table th.mat-checkbox-column { min-width: 42px; width: 42px; font-size: 0 !important; } table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox, table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox { width: 18px; height: 18px; } ::ng-deep table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after, ::ng-deep table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after { width: 11px !important; height: 4px !important; } table.td-data-table td.mat-checkbox-cell mat-checkbox ::ng-deep .mat-checkbox-inner-container, table.td-data-table th.mat-checkbox-column mat-checkbox ::ng-deep .mat-checkbox-inner-container { width: 18px; height: 18px; margin: 0; } /*# sourceMappingURL=data-table.component.css.map */ "],
             template: "<table td-data-table [style.left.px]=\"columnsLeftScroll\" [class.mat-selectable]=\"selectable\"> <tr td-data-table-column-row> <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"selectable\"> <mat-checkbox #checkBoxAll *ngIf=\"multiple\" [disabled]=\"!hasData\" [indeterminate]=\"indeterminate && !allSelected && hasData\" [checked]=\"allSelected && hasData\" (click)=\"blockEvent($event); selectAll(!checkBoxAll.checked)\" (keyup.enter)=\"selectAll(!checkBoxAll.checked)\" (keyup.space)=\"selectAll(!checkBoxAll.checked)\" (keydown.space)=\"blockEvent($event)\"> </mat-checkbox> </th> <th td-data-table-column #columnElement *ngFor=\"let column of columns; let i = index;\" [style.min-width.px]=\"getColumnWidth(i)\" [style.max-width.px]=\"getColumnWidth(i)\" [name]=\"column.name\" [numeric]=\"column.numeric\" [active]=\"(column.sortable || sortable) && column === sortByColumn\" [sortable]=\"column.sortable || (sortable && column.sortable !== false)\" [sortOrder]=\"sortOrderEnum\" [hidden]=\"column.hidden\" (sortChange)=\"handleSort(column)\"> <span [matTooltip]=\"column.tooltip\">{{column.label}}</span> </th> </tr> </table> <div #scrollableDiv class=\"td-data-table-scrollable\" (scroll)=\"handleScroll($event)\"> <div [style.height.px]=\"totalHeight\"></div> <table td-data-table [style.transform]=\"offsetTransform\" [style.position]=\"'absolute'\" [class.mat-selectable]=\"selectable\" [class.mat-clickable]=\"clickable\"> <tr td-data-table-row #dtRow [tabIndex]=\"selectable ? 0 : -1\" [selected]=\"(clickable || selectable) && isRowSelected(row)\" *ngFor=\"let row of virtualData; let rowIndex = index\" (click)=\"handleRowClick(row, fromRow + rowIndex, $event)\" (keyup)=\"selectable && _rowKeyup($event, row, rowIndex)\" (keydown.space)=\"blockEvent($event)\" (keydown.shift.space)=\"blockEvent($event)\" (keydown.shift)=\"disableTextSelection()\" (keyup.shift)=\"enableTextSelection()\"> <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"selectable\"> <mat-pseudo-checkbox [state]=\"dtRow.selected ? 'checked' : 'unchecked'\" (mousedown)=\"disableTextSelection()\" (mouseup)=\"enableTextSelection()\" stopRowClick (click)=\"select(row, $event, fromRow + rowIndex)\"> </mat-pseudo-checkbox> </td> <td td-data-table-cell [numeric]=\"column.numeric\" [hidden]=\"column.hidden\" *ngFor=\"let column of columns; let i = index\" [style.min-width.px]=\"getColumnWidth(i)\" [style.max-width.px]=\"getColumnWidth(i)\"> <span *ngIf=\"!getTemplateRef(column.name)\">{{column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row)}}</span> <ng-template *ngIf=\"getTemplateRef(column.name)\" [ngTemplateOutlet]=\"getTemplateRef(column.name)\" [ngTemplateOutletContext]=\"{ value: getCellValue(column, row), row: row, column: column.name }\"> </ng-template> </td> </tr> </table> </div> <ng-content></ng-content>",
+            inputs: ['value'],
             changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
         }),
         __param(0, _angular_core.Optional()), __param(0, _angular_core.Inject(_angular_platformBrowser.DOCUMENT)),
@@ -3931,7 +3911,8 @@ var TdDataTableComponent = (function () {
             _angular_core.ChangeDetectorRef])
     ], TdDataTableComponent);
     return TdDataTableComponent;
-}());
+    var TdDataTableComponent_1;
+}(_TdDataTableMixinBase));
 
 var TdDataTableColumnComponent = (function () {
     function TdDataTableColumnComponent(_elementRef, _renderer) {
@@ -5102,14 +5083,6 @@ var TdFileDropDirective = (function (_super) {
     return TdFileDropDirective;
 }(_TdFileDropMixinBase));
 
-var noop$3 = function () {
-    // empty method
-};
-var FILE_INPUT_CONTROL_VALUE_ACCESSOR = {
-    provide: _angular_forms.NG_VALUE_ACCESSOR,
-    useExisting: _angular_core.forwardRef(function () { return TdFileInputComponent; }),
-    multi: true,
-};
 var TdFileInputLabelDirective = (function (_super) {
     __extends(TdFileInputLabelDirective, _super);
     function TdFileInputLabelDirective(templateRef, viewContainerRef) {
@@ -5124,22 +5097,18 @@ var TdFileInputLabelDirective = (function (_super) {
     return TdFileInputLabelDirective;
 }(_angular_cdk_portal.TemplatePortalDirective));
 var TdFileInputBase = (function () {
-    function TdFileInputBase() {
+    function TdFileInputBase(_changeDetectorRef) {
+        this._changeDetectorRef = _changeDetectorRef;
     }
     return TdFileInputBase;
 }());
 /* tslint:disable-next-line */
-var _TdFileInputMixinBase = mixinDisabled$1(TdFileInputBase);
+var _TdFileInputMixinBase = mixinControlValueAccessor(mixinDisabled$1(TdFileInputBase));
 var TdFileInputComponent = (function (_super) {
     __extends(TdFileInputComponent, _super);
     function TdFileInputComponent(_renderer, _changeDetectorRef) {
-        var _this = _super.call(this) || this;
+        var _this = _super.call(this, _changeDetectorRef) || this;
         _this._renderer = _renderer;
-        _this._changeDetectorRef = _changeDetectorRef;
-        /**
-         * Implemented as part of ControlValueAccessor.
-         */
-        _this._value = undefined;
         _this._multiple = false;
         /**
          * select?: function
@@ -5147,22 +5116,9 @@ var TdFileInputComponent = (function (_super) {
          * Emits a [File | FileList] object.
          */
         _this.onSelect = new _angular_core.EventEmitter();
-        _this.onChange = function (_) { return noop$3; };
-        _this.onTouched = function () { return noop$3; };
         return _this;
     }
-    Object.defineProperty(TdFileInputComponent.prototype, "value", {
-        // get/set accessor (needed for ControlValueAccessor)
-        get: function () { return this._value; },
-        set: function (v) {
-            if (v !== this._value) {
-                this._value = v;
-                this.onChange(v);
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
+    TdFileInputComponent_1 = TdFileInputComponent;
     Object.defineProperty(TdFileInputComponent.prototype, "inputElement", {
         get: function () {
             return this._inputElement.nativeElement;
@@ -5204,19 +5160,6 @@ var TdFileInputComponent = (function (_super) {
             this.clear();
         }
     };
-    /**
-     * Implemented as part of ControlValueAccessor.
-     */
-    TdFileInputComponent.prototype.writeValue = function (value) {
-        this.value = value;
-        this._changeDetectorRef.markForCheck();
-    };
-    TdFileInputComponent.prototype.registerOnChange = function (fn) {
-        this.onChange = fn;
-    };
-    TdFileInputComponent.prototype.registerOnTouched = function (fn) {
-        this.onTouched = fn;
-    };
     __decorate([
         _angular_core.ViewChild('fileInput'),
         __metadata("design:type", _angular_core.ElementRef)
@@ -5238,44 +5181,37 @@ var TdFileInputComponent = (function (_super) {
         _angular_core.Output('select'),
         __metadata("design:type", _angular_core.EventEmitter)
     ], TdFileInputComponent.prototype, "onSelect", void 0);
-    TdFileInputComponent = __decorate([
+    TdFileInputComponent = TdFileInputComponent_1 = __decorate([
         _angular_core.Component({
             changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
-            providers: [FILE_INPUT_CONTROL_VALUE_ACCESSOR],
+            providers: [{
+                    provide: _angular_forms.NG_VALUE_ACCESSOR,
+                    useExisting: _angular_core.forwardRef(function () { return TdFileInputComponent_1; }),
+                    multi: true,
+                }],
             selector: 'td-file-input',
-            inputs: ['disabled'],
+            inputs: ['disabled', 'value'],
             styles: [":host { /** * Class that is added ondragenter by the [TdFileDrop] directive. */ } :host .td-file-input { padding-left: 8px; padding-right: 8px; } :host input.td-file-input-hidden { display: none; } :host .drop-zone { border-radius: 3px; } :host .drop-zone * { pointer-events: none; } /*# sourceMappingURL=file-input.component.css.map */ "],
             template: "<div> <button mat-raised-button class=\"td-file-input\" type=\"button\" [color]=\"color\"  [multiple]=\"multiple\"  [disabled]=\"disabled\" (keyup.enter)=\"fileInput.click()\" (click)=\"fileInput.click()\" (fileDrop)=\"handleSelect($event)\" tdFileDrop> <ng-content></ng-content> </button> <input #fileInput  class=\"td-file-input-hidden\"  type=\"file\" [attr.accept]=\"accept\"                 (fileSelect)=\"handleSelect($event)\" [multiple]=\"multiple\"  [disabled]=\"disabled\" tdFileSelect> </div>",
         }),
         __metadata("design:paramtypes", [_angular_core.Renderer2, _angular_core.ChangeDetectorRef])
     ], TdFileInputComponent);
     return TdFileInputComponent;
+    var TdFileInputComponent_1;
 }(_TdFileInputMixinBase));
 
-var noop$2 = function () {
-    // empty method
-};
 var TdFileUploadBase = (function () {
-    function TdFileUploadBase() {
+    function TdFileUploadBase(_changeDetectorRef) {
+        this._changeDetectorRef = _changeDetectorRef;
     }
     return TdFileUploadBase;
 }());
 /* tslint:disable-next-line */
-var _TdFileUploadMixinBase = mixinDisabled$1(TdFileUploadBase);
-var FILE_UPLOAD_CONTROL_VALUE_ACCESSOR = {
-    provide: _angular_forms.NG_VALUE_ACCESSOR,
-    useExisting: _angular_core.forwardRef(function () { return TdFileUploadComponent; }),
-    multi: true,
-};
+var _TdFileUploadMixinBase = mixinControlValueAccessor(mixinDisabled$1(TdFileUploadBase));
 var TdFileUploadComponent = (function (_super) {
     __extends(TdFileUploadComponent, _super);
     function TdFileUploadComponent(_changeDetectorRef) {
-        var _this = _super.call(this) || this;
-        _this._changeDetectorRef = _changeDetectorRef;
-        /**
-         * Implemented as part of ControlValueAccessor.
-         */
-        _this._value = undefined;
+        var _this = _super.call(this, _changeDetectorRef) || this;
         _this._multiple = false;
         _this._required = false;
         /**
@@ -5310,23 +5246,9 @@ var TdFileUploadComponent = (function (_super) {
          * Event emitted when cancel button is clicked.
          */
         _this.onCancel = new _angular_core.EventEmitter();
-        _this.onChange = function (_) { return noop$2; };
-        _this.onTouched = function () { return noop$2; };
         return _this;
     }
-    Object.defineProperty(TdFileUploadComponent.prototype, "value", {
-        // get/set accessor (needed for ControlValueAccessor)
-        get: function () { return this._value; },
-        set: function (v) {
-            if (v !== this._value) {
-                this._value = v;
-                this.onChange(v);
-                this._changeDetectorRef.markForCheck();
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
+    TdFileUploadComponent_1 = TdFileUploadComponent;
     Object.defineProperty(TdFileUploadComponent.prototype, "files", {
         /**
          * @deprecated use value property instead
@@ -5399,19 +5321,6 @@ var TdFileUploadComponent = (function (_super) {
             this.cancel();
         }
     };
-    /**
-     * Implemented as part of ControlValueAccessor.
-     */
-    TdFileUploadComponent.prototype.writeValue = function (value) {
-        this.value = value;
-        this._changeDetectorRef.markForCheck();
-    };
-    TdFileUploadComponent.prototype.registerOnChange = function (fn) {
-        this.onChange = fn;
-    };
-    TdFileUploadComponent.prototype.registerOnTouched = function (fn) {
-        this.onTouched = fn;
-    };
     __decorate([
         _angular_core.ViewChild(TdFileInputComponent),
         __metadata("design:type", TdFileInputComponent)
@@ -5458,18 +5367,23 @@ var TdFileUploadComponent = (function (_super) {
         _angular_core.Output('cancel'),
         __metadata("design:type", _angular_core.EventEmitter)
     ], TdFileUploadComponent.prototype, "onCancel", void 0);
-    TdFileUploadComponent = __decorate([
+    TdFileUploadComponent = TdFileUploadComponent_1 = __decorate([
         _angular_core.Component({
             changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
-            providers: [FILE_UPLOAD_CONTROL_VALUE_ACCESSOR],
+            providers: [{
+                    provide: _angular_forms.NG_VALUE_ACCESSOR,
+                    useExisting: _angular_core.forwardRef(function () { return TdFileUploadComponent_1; }),
+                    multi: true,
+                }],
             selector: 'td-file-upload',
-            inputs: ['disabled'],
+            inputs: ['disabled', 'value'],
             styles: [".td-file-upload { padding-left: 8px; padding-right: 8px; } .td-file-upload-cancel { height: 24px; width: 24px; position: relative; top: 24px; left: -12px; } ::ng-deep [dir='rtl'] .td-file-upload-cancel { right: -12px; left: 0; } .td-file-upload-cancel mat-icon { border-radius: 12px; vertical-align: baseline; } /** * Class that is added ondragenter by the [TdFileDrop] directive. */ .drop-zone { border-radius: 3px; } .drop-zone * { pointer-events: none; } /*# sourceMappingURL=file-upload.component.css.map */ "],
             template: "<td-file-input *ngIf=\"!value\" [(ngModel)]=\"value\" [multiple]=\"multiple\" [disabled]=\"disabled\" [accept]=\"accept\" [color]=\"defaultColor\" (select)=\"handleSelect($event)\"> <ng-template [cdkPortalHost]=\"inputLabel\" [ngIf]=\"true\"></ng-template> </td-file-input> <div *ngIf=\"value\"> <button #fileUpload class=\"td-file-upload\" mat-raised-button type=\"button\" [color]=\"activeColor\" (keyup.delete)=\"cancel()\" (keyup.backspace)=\"cancel()\" (keyup.escape)=\"cancel()\" (click)=\"uploadPressed()\">  <ng-content></ng-content> </button> <button mat-icon-button type=\"button\" class=\"td-file-upload-cancel\" [color]=\"cancelColor\"             (click)=\"cancel()\"> <mat-icon>cancel</mat-icon> </button> </div>",
         }),
         __metadata("design:paramtypes", [_angular_core.ChangeDetectorRef])
     ], TdFileUploadComponent);
     return TdFileUploadComponent;
+    var TdFileUploadComponent_1;
 }(_TdFileUploadMixinBase));
 
 var TdFileService = (function () {
@@ -15139,6 +15053,7 @@ exports.TdFlashAnimation = TdFlashAnimation;
 exports.TdHeadshakeAnimation = TdHeadshakeAnimation;
 exports.TdJelloAnimation = TdJelloAnimation;
 exports.TdPulseAnimation = TdPulseAnimation;
+exports.mixinControlValueAccessor = mixinControlValueAccessor;
 exports.mixinDisabled = mixinDisabled$1;
 exports.mixinDisableRipple = mixinDisableRipple$1;
 exports.CovalentValidators = CovalentValidators;

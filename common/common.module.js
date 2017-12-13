@@ -25,6 +25,7 @@ export { TdPulseAnimation } from './animations/pulse/pulse.animation';
 /**
  * BEHAVIORS
  */
+export { mixinControlValueAccessor } from './behaviors/control-value-accesor.mixin';
 export { mixinDisabled } from './behaviors/disabled.mixin';
 export { mixinDisableRipple } from './behaviors/disable-ripple.mixin';
 /**
