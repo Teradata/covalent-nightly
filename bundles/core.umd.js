@@ -9925,23 +9925,25 @@ var TdLayoutComponent = (function () {
     return TdLayoutComponent;
 }());
 
-var LayoutToggle = (function () {
-    function LayoutToggle(_layout, _renderer, _elementRef) {
-        this._layout = _layout;
-        this._renderer = _renderer;
-        this._elementRef = _elementRef;
-        this._initialized = false;
-        this._disabled = false;
-        this._hideWhenOpened = false;
-        this._renderer.addClass(this._elementRef.nativeElement, 'td-layout-menu-button');
+var LayoutToggleBase = (function () {
+    function LayoutToggleBase() {
     }
-    Object.defineProperty(LayoutToggle.prototype, "disabled", {
-        set: function (disabled) {
-            this._disabled = disabled;
-        },
-        enumerable: true,
-        configurable: true
-    });
+    return LayoutToggleBase;
+}());
+/* tslint:disable-next-line */
+var _TdLayoutToggleMixinBase = mixinDisabled$1(LayoutToggleBase);
+var LayoutToggle = (function (_super) {
+    __extends(LayoutToggle, _super);
+    function LayoutToggle(_layout, _renderer, _elementRef) {
+        var _this = _super.call(this) || this;
+        _this._layout = _layout;
+        _this._renderer = _renderer;
+        _this._elementRef = _elementRef;
+        _this._initialized = false;
+        _this._hideWhenOpened = false;
+        _this._renderer.addClass(_this._elementRef.nativeElement, 'td-layout-menu-button');
+        return _this;
+    }
     Object.defineProperty(LayoutToggle.prototype, "hideWhenOpened", {
         /**
          * hideWhenOpened?: boolean
@@ -9978,7 +9980,7 @@ var LayoutToggle = (function () {
      */
     LayoutToggle.prototype.clickListener = function (event) {
         event.preventDefault();
-        if (!this._disabled) {
+        if (!this.disabled) {
             this.onClick();
         }
     };
@@ -10002,7 +10004,7 @@ var LayoutToggle = (function () {
         __metadata("design:returntype", void 0)
     ], LayoutToggle.prototype, "clickListener", null);
     return LayoutToggle;
-}());
+}(_TdLayoutToggleMixinBase));
 
 var TdLayoutToggleDirective = (function (_super) {
     __extends(TdLayoutToggleDirective, _super);

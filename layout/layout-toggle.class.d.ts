@@ -1,5 +1,6 @@
 import { Renderer2, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { ICanDisable } from '../common/common.module';
 export interface ILayoutTogglable {
     opened: boolean;
     sidenav: MatSidenav;
@@ -7,15 +8,16 @@ export interface ILayoutTogglable {
     open(): Promise<void>;
     close(): Promise<void>;
 }
-export declare abstract class LayoutToggle implements AfterViewInit, OnDestroy {
+export declare class LayoutToggleBase {
+}
+export declare const _TdLayoutToggleMixinBase: (new (...args: any[]) => ICanDisable) & typeof LayoutToggleBase;
+export declare abstract class LayoutToggle extends _TdLayoutToggleMixinBase implements AfterViewInit, OnDestroy, ICanDisable {
     protected _layout: ILayoutTogglable;
     private _renderer;
     private _elementRef;
     private _toggleSubs;
     private _initialized;
-    private _disabled;
     private _hideWhenOpened;
-    disabled: boolean;
     /**
      * hideWhenOpened?: boolean
      * When this is set to true, the host will be hidden when
