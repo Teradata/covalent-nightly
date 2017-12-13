@@ -9,10 +9,6 @@ export declare const _TdFileUploadMixinBase: (new (...args: any[]) => IControlVa
 export declare class TdFileUploadComponent extends _TdFileUploadMixinBase implements IControlValueAccessor, ICanDisable {
     private _multiple;
     private _required;
-    /**
-     * @deprecated use value property instead
-     */
-    readonly files: FileList | File;
     fileInput: TdFileInputComponent;
     inputLabel: TdFileInputLabelDirective;
     /**

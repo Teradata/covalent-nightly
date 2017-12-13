@@ -5249,16 +5249,6 @@ var TdFileUploadComponent = (function (_super) {
         return _this;
     }
     TdFileUploadComponent_1 = TdFileUploadComponent;
-    Object.defineProperty(TdFileUploadComponent.prototype, "files", {
-        /**
-         * @deprecated use value property instead
-         */
-        get: function () {
-            return this.value;
-        },
-        enumerable: true,
-        configurable: true
-    });
     Object.defineProperty(TdFileUploadComponent.prototype, "multiple", {
         get: function () {
             return this._multiple;
