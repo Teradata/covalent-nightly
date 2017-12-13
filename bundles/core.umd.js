@@ -2045,18 +2045,6 @@ var TdChipsComponent = (function (_super) {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(TdChipsComponent.prototype, "readOnly", {
-        /**
-         * @deprecated 1.0.0@beta.6
-         * readOnly?: boolean
-         * Disables the chips input and chip removal icon.
-         */
-        set: function (readOnly) {
-            this.disabled = readOnly;
-        },
-        enumerable: true,
-        configurable: true
-    });
     Object.defineProperty(TdChipsComponent.prototype, "chipAddition", {
         get: function () {
             return this._chipAddition;
@@ -2650,11 +2638,6 @@ var TdChipsComponent = (function (_super) {
         __metadata("design:type", Boolean),
         __metadata("design:paramtypes", [Boolean])
     ], TdChipsComponent.prototype, "requireMatch", null);
-    __decorate([
-        _angular_core.Input('readOnly'),
-        __metadata("design:type", Boolean),
-        __metadata("design:paramtypes", [Boolean])
-    ], TdChipsComponent.prototype, "readOnly", null);
     __decorate([
         _angular_core.Input('chipAddition'),
         __metadata("design:type", Boolean),
