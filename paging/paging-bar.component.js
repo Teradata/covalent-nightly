@@ -1,10 +1,11 @@
 import * as tslib_1 from "tslib";
-import { Component, Input, Output, EventEmitter, Optional } from '@angular/core';
+import { Component, Input, Output, EventEmitter, Optional, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { coerceNumberProperty } from '@angular/cdk/coercion';
 import { Dir } from '@angular/cdk/bidi';
 var TdPagingBarComponent = (function () {
-    function TdPagingBarComponent(_dir) {
+    function TdPagingBarComponent(_dir, _changeDetectorRef) {
         this._dir = _dir;
+        this._changeDetectorRef = _changeDetectorRef;
         this._pageSize = 50;
         this._total = 0;
         this._page = 1;
@@ -45,6 +46,7 @@ var TdPagingBarComponent = (function () {
         set: function (pageLinkCount) {
             this._pageLinkCount = coerceNumberProperty(pageLinkCount);
             this._calculatePageLinks();
+            this._changeDetectorRef.markForCheck();
         },
         enumerable: true,
         configurable: true
@@ -63,6 +65,7 @@ var TdPagingBarComponent = (function () {
             if (this._initialized) {
                 this._handleOnChange();
             }
+            this._changeDetectorRef.markForCheck();
         },
         enumerable: true,
         configurable: true
@@ -79,6 +82,7 @@ var TdPagingBarComponent = (function () {
             this._total = coerceNumberProperty(total);
             this._calculateRows();
             this._calculatePageLinks();
+            this._changeDetectorRef.markForCheck();
         },
         enumerable: true,
         configurable: true
@@ -142,6 +146,7 @@ var TdPagingBarComponent = (function () {
         this._calculateRows();
         this._calculatePageLinks();
         this._initialized = true;
+        this._changeDetectorRef.markForCheck();
     };
     /**
      * navigateToPage?: function
@@ -252,6 +257,7 @@ var TdPagingBarComponent = (function () {
             fromRow: this._fromRow,
             toRow: this._toRow,
         };
+        this._changeDetectorRef.markForCheck();
         this.onChange.emit(event);
     };
     tslib_1.__decorate([
@@ -283,12 +289,14 @@ var TdPagingBarComponent = (function () {
     ], TdPagingBarComponent.prototype, "onChange", void 0);
     TdPagingBarComponent = tslib_1.__decorate([
         Component({
+            changeDetection: ChangeDetectionStrategy.OnPush,
             selector: 'td-paging-bar',
             template: "<div class=\"td-paging-bar\" (change)=\"$event.stopPropagation()\" > <ng-content></ng-content> <div class=\"td-paging-bar-navigation\"> <button mat-icon-button class=\"td-paging-bar-first-page\" type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMinPage()\" (click)=\"firstPage()\"> <mat-icon>{{ isRTL ? 'skip_next' : 'skip_previous' }}</mat-icon> </button> <button mat-icon-button class=\"td-paging-bar-prev-page\" type=\"button\" [disabled]=\"isMinPage()\" (click)=\"prevPage()\"> <mat-icon>{{ isRTL ? 'navigate_next' : 'navigate_before' }}</mat-icon> </button> <ng-template *ngIf=\"pageLinkCount > 0\" let-link let-index=\"index\" ngFor [ngForOf]=\"pageLinks\"> <button class=\"td-paging-bar-link-page\" mat-icon-button type=\"button\" [color]=\"page === link ? 'accent' : ''\" (click)=\"navigateToPage(link)\">{{link}}</button> </ng-template> <button mat-icon-button class=\"td-paging-bar-next-page\" type=\"button\" [disabled]=\"isMaxPage()\" (click)=\"nextPage()\"> <mat-icon>{{ isRTL ? 'navigate_before' : 'navigate_next' }}</mat-icon> </button> <button mat-icon-button class=\"td-paging-bar-last-page\" type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMaxPage()\" (click)=\"lastPage()\"> <mat-icon>{{ isRTL ? 'skip_previous' : 'skip_next' }}</mat-icon> </button> </div> </div>",
             styles: [":host { display: block; } :host .td-paging-bar { height: 48px; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; } :host .td-paging-bar ::ng-deep > * { margin: 0 10px; } :host .td-paging-bar [mat-icon-button] { font-size: 12px; font-weight: normal; } /*# sourceMappingURL=paging-bar.component.css.map */ "],
         }),
         tslib_1.__param(0, Optional()),
-        tslib_1.__metadata("design:paramtypes", [Dir])
+        tslib_1.__metadata("design:paramtypes", [Dir,
+            ChangeDetectorRef])
     ], TdPagingBarComponent);
     return TdPagingBarComponent;
 }());

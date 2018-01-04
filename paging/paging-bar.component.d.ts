@@ -1,4 +1,4 @@
-import { EventEmitter, OnInit } from '@angular/core';
+import { EventEmitter, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Dir } from '@angular/cdk/bidi';
 export interface IPageChangeEvent {
     page: number;
@@ -10,6 +10,7 @@ export interface IPageChangeEvent {
 }
 export declare class TdPagingBarComponent implements OnInit {
     private _dir;
+    private _changeDetectorRef;
     private _pageSize;
     private _total;
     private _page;
@@ -72,7 +73,7 @@ export declare class TdPagingBarComponent implements OnInit {
      */
     onChange: EventEmitter<IPageChangeEvent>;
     readonly isRTL: boolean;
-    constructor(_dir: Dir);
+    constructor(_dir: Dir, _changeDetectorRef: ChangeDetectorRef);
     ngOnInit(): void;
     /**
      * navigateToPage?: function

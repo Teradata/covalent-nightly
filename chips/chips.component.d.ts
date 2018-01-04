@@ -29,6 +29,7 @@ export declare class TdChipsComponent extends _TdChipsMixinBase implements ICont
     private _stacked;
     private _requireMatch;
     private _color;
+    private _inputPosition;
     private _chipAddition;
     private _chipRemoval;
     private _focused;
@@ -60,6 +61,12 @@ export declare class TdChipsComponent extends _TdChipsMixinBase implements ICont
      * Defaults to false.
      */
     stacked: boolean;
+    /**
+     * inputPosition?: 'before' | 'after'
+     * Set input position before or after the chips.
+     * Defaults to 'after'.
+     */
+    inputPosition: 'before' | 'after';
     /**
      * requireMatch?: boolean
      * Blocks custom inputs and only allows selections from the autocomplete list.

@@ -1,10 +1,15 @@
-import { OnInit, EventEmitter } from '@angular/core';
+import { OnInit, EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { Dir } from '@angular/cdk/bidi';
 import { MatInput } from '@angular/material/input';
-export declare class TdSearchInputComponent implements OnInit {
+import { IControlValueAccessor } from '../../common/common.module';
+export declare class TdSearchInputBase {
+    _changeDetectorRef: ChangeDetectorRef;
+    constructor(_changeDetectorRef: ChangeDetectorRef);
+}
+export declare const _TdSearchInputMixinBase: (new (...args: any[]) => IControlValueAccessor) & typeof TdSearchInputBase;
+export declare class TdSearchInputComponent extends _TdSearchInputMixinBase implements IControlValueAccessor, OnInit {
     private _dir;
     _input: MatInput;
-    value: string;
     /**
      * showUnderline?: boolean
      * Sets if the input underline should be visible. Defaults to 'false'.
@@ -47,7 +52,7 @@ export declare class TdSearchInputComponent implements OnInit {
      */
     onBlur: EventEmitter<void>;
     readonly isRTL: boolean;
-    constructor(_dir: Dir);
+    constructor(_dir: Dir, _changeDetectorRef: ChangeDetectorRef);
     ngOnInit(): void;
     /**
      * Method to focus to underlying input.

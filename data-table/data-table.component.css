@@ -20,11 +20,11 @@ table.td-data-table {
   table.td-data-table.mat-selectable .td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper,
   table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper,
   table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) > .td-data-table-column-content-wrapper {
-    padding-left: 0px; }
+    padding-left: 0; }
   [dir='rtl'] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, [dir='rtl']
   table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, [dir='rtl']
   table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) > .td-data-table-column-content-wrapper {
-    padding-right: 0px;
+    padding-right: 0;
     padding-left: 28px; }
   table.td-data-table td.mat-checkbox-cell,
   table.td-data-table th.mat-checkbox-column {

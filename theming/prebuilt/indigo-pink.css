@@ -953,6 +953,12 @@ input.mat-input-element {
   background: white;
   color: rgba(0, 0, 0, 0.87); }
 
+.mat-divider {
+  border-top-color: rgba(0, 0, 0, 0.12); }
+
+.mat-divider-vertical {
+  border-right-color: rgba(0, 0, 0, 0.12); }
+
 .mat-expansion-panel {
   background: white;
   color: rgba(0, 0, 0, 0.87); }
@@ -1061,9 +1067,6 @@ input.mat-input-element {
 
 .mat-list-item-disabled {
   background-color: #eeeeee; }
-
-.mat-divider {
-  border-top-color: rgba(0, 0, 0, 0.12); }
 
 .mat-nav-list .mat-list-item {
   outline: none; }
@@ -1610,9 +1613,9 @@ mat-list-item mat-icon,
   background-color: #e0e0e0; }
 
 [mat-icon-button].td-layout-menu-button {
-  margin-left: 0px; }
+  margin-left: 0; }
   ::ng-deep [dir='rtl'] [mat-icon-button].td-layout-menu-button {
-    margin-right: 0px;
+    margin-right: 0;
     margin-left: 6px; }
 
 td-layout-nav mat-toolbar,
@@ -1767,6 +1770,12 @@ td-file-input {
 
 .td-dialog-message {
   color: rgba(0, 0, 0, 0.54); }
+
+.td-json-formatter-wrapper .function::after,
+.td-json-formatter-wrapper .date::after,
+.td-json-formatter-wrapper .td-object-name::after,
+.td-json-formatter-wrapper .td-array-length::after {
+  content: '\200E'; }
 
 .td-json-formatter-wrapper .td-key.td-key-node:focus, .td-json-formatter-wrapper .td-key.td-key-node:hover {
   background-color: rgba(0, 0, 0, 0.04); }

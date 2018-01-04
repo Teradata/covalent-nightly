@@ -58,11 +58,11 @@
   .td-step-header .td-triangle, ::ng-deep :not([dir='rtl'])
   .td-step-header .td-complete {
     margin-left: 8px;
-    margin-right: 0px; }
+    margin-right: 0; }
   ::ng-deep [dir='rtl'] .td-step-header .td-circle, ::ng-deep [dir='rtl']
   .td-step-header .td-triangle, ::ng-deep [dir='rtl']
   .td-step-header .td-complete {
-    margin-left: 0px;
+    margin-left: 0;
     margin-right: 8px; }
   .td-step-header .td-circle,
   .td-step-header .td-complete {

@@ -1,69 +1,74 @@
 import * as tslib_1 from "tslib";
-import { Component, ViewChild, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ViewChild, Input, Output, EventEmitter, ChangeDetectionStrategy, ChangeDetectorRef, forwardRef } from '@angular/core';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { trigger, state, style, transition, animate, AUTO_STYLE } from '@angular/animations';
 import { TdSearchInputComponent } from '../search-input/search-input.component';
-var TdSearchBoxComponent = (function () {
-    function TdSearchBoxComponent() {
-        this._searchVisible = false;
+import { mixinControlValueAccessor } from '../../common/common.module';
+var TdSearchBoxBase = (function () {
+    function TdSearchBoxBase(_changeDetectorRef) {
+        this._changeDetectorRef = _changeDetectorRef;
+    }
+    return TdSearchBoxBase;
+}());
+export { TdSearchBoxBase };
+/* tslint:disable-next-line */
+export var _TdSearchBoxMixinBase = mixinControlValueAccessor(TdSearchBoxBase);
+var TdSearchBoxComponent = (function (_super) {
+    tslib_1.__extends(TdSearchBoxComponent, _super);
+    function TdSearchBoxComponent(_changeDetectorRef) {
+        var _this = _super.call(this, _changeDetectorRef) || this;
+        _this._searchVisible = false;
         /**
          * backIcon?: string
          * The icon used to close the search toggle, only shown when [alwaysVisible] is false.
          * Defaults to 'search' icon.
          */
-        this.backIcon = 'search';
+        _this.backIcon = 'search';
         /**
          * searchIcon?: string
          * The icon used to open/focus the search toggle.
          * Defaults to 'search' icon.
          */
-        this.searchIcon = 'search';
+        _this.searchIcon = 'search';
         /**
          * clearIcon?: string
          * The icon used to clear the search input.
          * Defaults to 'cancel' icon.
          */
-        this.clearIcon = 'cancel';
+        _this.clearIcon = 'cancel';
         /**
          * showUnderline?: boolean
          * Sets if the input underline should be visible. Defaults to 'false'.
          */
-        this.showUnderline = false;
+        _this.showUnderline = false;
         /**
          * debounce?: number
          * Debounce timeout between keypresses. Defaults to 400.
          */
-        this.debounce = 400;
+        _this.debounce = 400;
         /**
          * alwaysVisible?: boolean
          * Sets if the input should always be visible. Defaults to 'false'.
          */
-        this.alwaysVisible = false;
+        _this.alwaysVisible = false;
         /**
          * searchDebounce: function($event)
          * Event emitted after the [debounce] timeout.
          */
-        this.onSearchDebounce = new EventEmitter();
+        _this.onSearchDebounce = new EventEmitter();
         /**
          * search: function($event)
          * Event emitted after the key enter has been pressed.
          */
-        this.onSearch = new EventEmitter();
+        _this.onSearch = new EventEmitter();
         /**
          * clear: function()
          * Event emitted after the clear icon has been clicked.
          */
-        this.onClear = new EventEmitter();
+        _this.onClear = new EventEmitter();
+        return _this;
     }
-    Object.defineProperty(TdSearchBoxComponent.prototype, "value", {
-        get: function () {
-            return this._searchInput.value;
-        },
-        set: function (value) {
-            this._searchInput.value = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
+    TdSearchBoxComponent_1 = TdSearchBoxComponent;
     Object.defineProperty(TdSearchBoxComponent.prototype, "searchVisible", {
         get: function () {
             return this._searchVisible;
@@ -82,6 +87,7 @@ var TdSearchBoxComponent = (function () {
     };
     TdSearchBoxComponent.prototype.toggleVisibility = function () {
         this._searchVisible = !this._searchVisible;
+        this._changeDetectorRef.markForCheck();
     };
     TdSearchBoxComponent.prototype.handleSearchDebounce = function (value) {
         this.onSearchDebounce.emit(value);
@@ -136,11 +142,18 @@ var TdSearchBoxComponent = (function () {
         Output('clear'),
         tslib_1.__metadata("design:type", EventEmitter)
     ], TdSearchBoxComponent.prototype, "onClear", void 0);
-    TdSearchBoxComponent = tslib_1.__decorate([
+    TdSearchBoxComponent = TdSearchBoxComponent_1 = tslib_1.__decorate([
         Component({
+            providers: [{
+                    provide: NG_VALUE_ACCESSOR,
+                    useExisting: forwardRef(function () { return TdSearchBoxComponent_1; }),
+                    multi: true,
+                }],
             selector: 'td-search-box',
-            template: "<div class=\"td-search-box\"> <button mat-icon-button type=\"button\" class=\"td-search-icon\" (click)=\"searchClicked()\"> <mat-icon *ngIf=\"searchVisible && !alwaysVisible\">{{backIcon}}</mat-icon> <mat-icon *ngIf=\"!searchVisible || alwaysVisible\">{{searchIcon}}</mat-icon> </button> <td-search-input #searchInput [@inputState]=\"alwaysVisible || searchVisible\" [debounce]=\"debounce\" [showUnderline]=\"showUnderline\" [placeholder]=\"placeholder\" [clearIcon]=\"clearIcon\" (searchDebounce)=\"handleSearchDebounce($event)\" (search)=\"handleSearch($event)\" (clear)=\"handleClear(); toggleVisibility()\"> </td-search-input> </div>",
-            styles: [":host { display: block; } .td-search-box { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; } .td-search-box .td-search-icon { -webkit-box-flex: 0; -ms-flex: 0 0 auto; flex: 0 0 auto; } .td-search-box td-search-input { margin-left: 12px; } ::ng-deep [dir='rtl'] .td-search-box td-search-input { margin-right: 12px; margin-left: 0px !important; } /*# sourceMappingURL=search-box.component.css.map */ "],
+            template: "<div class=\"td-search-box\"> <button mat-icon-button type=\"button\" class=\"td-search-icon\" (click)=\"searchClicked()\"> <mat-icon *ngIf=\"searchVisible && !alwaysVisible\">{{backIcon}}</mat-icon> <mat-icon *ngIf=\"!searchVisible || alwaysVisible\">{{searchIcon}}</mat-icon> </button> <td-search-input #searchInput [@inputState]=\"alwaysVisible || searchVisible\" [debounce]=\"debounce\" [(ngModel)]=\"value\" [showUnderline]=\"showUnderline\" [placeholder]=\"placeholder\" [clearIcon]=\"clearIcon\" (searchDebounce)=\"handleSearchDebounce($event)\" (search)=\"handleSearch($event)\" (clear)=\"handleClear(); toggleVisibility()\"> </td-search-input> </div>",
+            styles: [":host { display: block; } .td-search-box { -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: center; align-content: center; max-width: 100%; -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; } .td-search-box .td-search-icon { -webkit-box-flex: 0; -ms-flex: 0 0 auto; flex: 0 0 auto; } .td-search-box td-search-input { margin-left: 12px; } ::ng-deep [dir='rtl'] .td-search-box td-search-input { margin-right: 12px; margin-left: 0 !important; } /*# sourceMappingURL=search-box.component.css.map */ "],
+            changeDetection: ChangeDetectionStrategy.OnPush,
+            inputs: ['value'],
             animations: [
                 trigger('inputState', [
                     state('0', style({
@@ -155,9 +168,11 @@ var TdSearchBoxComponent = (function () {
                     transition('1 => 0', animate('200ms ease-out')),
                 ]),
             ],
-        })
+        }),
+        tslib_1.__metadata("design:paramtypes", [ChangeDetectorRef])
     ], TdSearchBoxComponent);
     return TdSearchBoxComponent;
-}());
+    var TdSearchBoxComponent_1;
+}(_TdSearchBoxMixinBase));
 export { TdSearchBoxComponent };
 //# sourceMappingURL=search-box.component.js.map

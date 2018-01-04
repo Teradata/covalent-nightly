@@ -28,6 +28,6 @@
     margin-left: 12px; }
     ::ng-deep [dir='rtl'] .td-search-box td-search-input {
       margin-right: 12px;
-      margin-left: 0px !important; }
+      margin-left: 0 !important; }
 
 /*# sourceMappingURL=search-box.component.css.map */

@@ -18,7 +18,7 @@
     direction: ltr;
     unicode-bidi: bidi-override; }
   :host > .td-data-table-cell-content-wrapper {
-    padding: 0 28px 0 28px;
+    padding: 0 28px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     display: -webkit-box;

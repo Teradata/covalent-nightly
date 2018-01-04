@@ -13,7 +13,7 @@ var TdAlertDialogComponent = (function () {
         Component({
             selector: 'td-alert-dialog',
             template: "<td-dialog> <td-dialog-title *ngIf=\"title\"> {{title}} </td-dialog-title> <td-dialog-content> <span class=\"td-dialog-message\">{{message}}</span> </td-dialog-content> <td-dialog-actions> <button mat-button color=\"accent\" (click)=\"close()\">{{closeButton}}</button> </td-dialog-actions> </td-dialog>",
-            styles: ["@media (min-width: 600px) { td-dialog { width: 400px; } } @media (max-width: 599px) { td-dialog { width: 250px; } } /*# sourceMappingURL=alert-dialog.component.css.map */ "],
+            styles: [".td-dialog-message { word-break: break-word; } /*# sourceMappingURL=alert-dialog.component.css.map */ "],
         }),
         tslib_1.__metadata("design:paramtypes", [MatDialogRef])
     ], TdAlertDialogComponent);

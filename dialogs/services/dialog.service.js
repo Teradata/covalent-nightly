@@ -106,8 +106,8 @@ var TdDialogService = (function () {
     };
     TdDialogService.prototype._createConfig = function (config) {
         var dialogConfig = new MatDialogConfig();
-        dialogConfig.viewContainerRef = config.viewContainerRef;
-        dialogConfig.disableClose = config.disableClose;
+        dialogConfig.width = '400px';
+        Object.assign(dialogConfig, config);
         return dialogConfig;
     };
     TdDialogService = tslib_1.__decorate([

@@ -19,21 +19,21 @@
   .td-notification-count.td-notification-center-x {
     margin-left: auto;
     margin-right: auto;
-    left: 0px;
-    right: 0px; }
+    left: 0;
+    right: 0; }
   .td-notification-count.td-notification-center-y {
     margin-top: auto;
     margin-bottom: auto;
-    top: 0px;
-    bottom: 0px; }
+    top: 0;
+    bottom: 0; }
   .td-notification-count.td-notification-top {
-    top: 0px; }
+    top: 0; }
   .td-notification-count.td-notification-bottom {
-    bottom: 0px; }
+    bottom: 0; }
   .td-notification-count.td-notification-before {
-    left: 0px; }
+    left: 0; }
   .td-notification-count.td-notification-after {
-    right: 0px; }
+    right: 0; }
   .td-notification-count.td-notification-no-count {
     width: 8px;
     height: 8px; }
@@ -46,10 +46,10 @@
     .td-notification-count.td-notification-no-count.td-notification-after {
       right: 8px; }
   ::ng-deep [dir='rtl'] .td-notification-count.td-notification-before {
-    right: 0px;
+    right: 0;
     left: auto; }
   ::ng-deep [dir='rtl'] .td-notification-count.td-notification-after {
-    left: 0px;
+    left: 0;
     right: auto; }
   ::ng-deep [dir='rtl'] .td-notification-count.td-notification-no-count.td-notification-before {
     right: 8px;

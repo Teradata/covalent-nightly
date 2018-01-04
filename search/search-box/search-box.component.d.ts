@@ -1,9 +1,14 @@
-import { EventEmitter } from '@angular/core';
+import { EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { TdSearchInputComponent } from '../search-input/search-input.component';
-export declare class TdSearchBoxComponent {
+import { IControlValueAccessor } from '../../common/common.module';
+export declare class TdSearchBoxBase {
+    _changeDetectorRef: ChangeDetectorRef;
+    constructor(_changeDetectorRef: ChangeDetectorRef);
+}
+export declare const _TdSearchBoxMixinBase: (new (...args: any[]) => IControlValueAccessor) & typeof TdSearchBoxBase;
+export declare class TdSearchBoxComponent extends _TdSearchBoxMixinBase implements IControlValueAccessor {
     private _searchVisible;
     _searchInput: TdSearchInputComponent;
-    value: any;
     readonly searchVisible: boolean;
     /**
      * backIcon?: string
@@ -58,6 +63,7 @@ export declare class TdSearchBoxComponent {
      * Event emitted after the clear icon has been clicked.
      */
     onClear: EventEmitter<void>;
+    constructor(_changeDetectorRef: ChangeDetectorRef);
     /**
      * Method executed when the search icon is clicked.
      */

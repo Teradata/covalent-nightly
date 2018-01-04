@@ -21,11 +21,15 @@
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: start; }
-    :host .td-message-wrapper .td-message-icon {
-      margin-right: 16px; }
     :host .td-message-wrapper .td-message-labels {
       -webkit-box-flex: 1;
           -ms-flex: 1;
               flex: 1; }
+
+.td-message-icon {
+  margin-right: 16px; }
+  ::ng-deep [dir='rtl'] .td-message-icon {
+    margin-left: 16px;
+    margin-right: 0; }
 
 /*# sourceMappingURL=message.component.css.map */

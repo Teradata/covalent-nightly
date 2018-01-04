@@ -1,6 +1,6 @@
 :host {
   display: block;
-  padding: 0px 5px 0px 5px;
+  padding: 0 5px;
   min-height: 48px; }
   :host .td-chips-wrapper {
     min-height: 42px;
@@ -16,8 +16,13 @@
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start; }
-    :host .td-chips-wrapper.td-chips-stacked .mat-basic-chip {
+    :host .td-chips-wrapper.td-chips-stacked .mat-basic-chip,
+    :host .td-chips-wrapper.td-chips-stacked .td-chips-form-field {
       width: 100%; }
+    :host .td-chips-wrapper.td-chips-input-before-position .td-chips-form-field {
+      -webkit-box-ordinal-group: 0;
+          -ms-flex-order: -1;
+              order: -1; }
   :host .td-chip, :host .td-chip > .td-chip-content {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
@@ -143,6 +148,12 @@
         line-height: 22px; }
         :host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal:hover {
           cursor: pointer; }
+    :host ::ng-deep .td-chips-stacked .mat-basic-chip {
+      margin: 4px 0; }
+      :host ::ng-deep .td-chips-stacked .mat-basic-chip:first-of-type {
+        margin: 8px 0 4px; }
+      :host ::ng-deep .td-chips-stacked .mat-basic-chip:last-of-type {
+        margin: 4px 0 8px; }
   :host .mat-form-field-underline {
     position: relative;
     height: 1px;
@@ -172,8 +183,7 @@
         transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear;
         transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
         transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear; }
-
-:host ::ng-deep mat-form-field .mat-form-field-underline {
-  display: none; }
+  :host ::ng-deep mat-form-field .mat-form-field-underline {
+    display: none; }
 
 /*# sourceMappingURL=chips.component.css.map */

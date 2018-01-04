@@ -5,7 +5,7 @@
   vertical-align: middle;
   text-align: left; }
   :host > .td-data-table-heading {
-    padding: 0 28px 0 28px; }
+    padding: 0 28px; }
   :host:first-child > .td-data-table-heading {
     padding-left: 24px;
     padding-right: initial; }
@@ -82,7 +82,9 @@
       -webkit-transition: -webkit-transform 0.25s;
       transition: -webkit-transform 0.25s;
       transition: transform 0.25s;
-      transition: transform 0.25s, -webkit-transform 0.25s; }
+      transition: transform 0.25s, -webkit-transform 0.25s;
+      position: absolute;
+      top: 0; }
       :host mat-icon.td-data-table-sort-icon.mat-asc {
         -webkit-transform: rotate(0deg);
                 transform: rotate(0deg); }
@@ -116,9 +118,6 @@
   :host .td-data-table-heading {
     display: inline-block;
     position: relative; }
-  :host mat-icon.td-data-table-sort-icon {
-    position: absolute;
-    top: 0px; }
   :host.mat-numeric {
     text-align: right; }
     html[dir=rtl] :host.mat-numeric {

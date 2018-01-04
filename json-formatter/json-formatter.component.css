@@ -47,7 +47,7 @@
       padding-right: 5px;
       padding-left: 0; }
     .td-json-formatter-wrapper .value .td-empty {
-      opacity: .5;
+      opacity: 0.5;
       text-decoration: line-through; }
     .td-json-formatter-wrapper .value .string {
       word-break: break-word; }
