@@ -10937,6 +10937,16 @@ var TdLoadingComponent = (function () {
         enumerable: true,
         configurable: true
     });
+    TdLoadingComponent.prototype.ngDoCheck = function () {
+        // When overlay is used and the host width has a value greater than 1px
+        // set the circle diameter when possible incase the loading component was rendered in a hidden state
+        if (this.isOverlay() && this._hostHeight() > 1) {
+            if (this.animation) {
+                this._setCircleDiameter();
+                this._changeDetectorRef.markForCheck();
+            }
+        }
+    };
     TdLoadingComponent.prototype.getHeight = function () {
         // Ignore height if style is `overlay` or `fullscreen`.
         // Add height if child elements have a height and style is `none`, else return default height.

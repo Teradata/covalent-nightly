@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, ElementRef } from '@angular/core';
+import { ChangeDetectorRef, ElementRef, DoCheck } from '@angular/core';
 import { AnimationEvent } from '@angular/animations';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { Observable } from 'rxjs/Observable';
@@ -20,7 +20,7 @@ export declare enum LoadingStyle {
     None,
 }
 export declare const TD_CIRCLE_DIAMETER: number;
-export declare class TdLoadingComponent {
+export declare class TdLoadingComponent implements DoCheck {
     private _elementRef;
     private _changeDetectorRef;
     private _animationIn;
@@ -62,6 +62,7 @@ export declare class TdLoadingComponent {
      */
     color: 'primary' | 'accent' | 'warn';
     constructor(_elementRef: ElementRef, _changeDetectorRef: ChangeDetectorRef);
+    ngDoCheck(): void;
     getHeight(): string;
     getCircleDiameter(): number;
     getCircleStrokeWidth(): number;
