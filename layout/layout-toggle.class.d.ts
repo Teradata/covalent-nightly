@@ -1,6 +1,6 @@
 import { Renderer2, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { ICanDisable } from '../common/common.module';
+import { ICanDisable } from '@covalent/core/common';
 export interface ILayoutTogglable {
     opened: boolean;
     sidenav: MatSidenav;

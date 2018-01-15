@@ -1,6 +1,6 @@
 import { EventEmitter, ElementRef, Renderer2, TemplateRef, ViewContainerRef, ChangeDetectorRef } from '@angular/core';
 import { TemplatePortalDirective } from '@angular/cdk/portal';
-import { ICanDisable, IControlValueAccessor } from '../../common/common.module';
+import { ICanDisable, IControlValueAccessor } from '@covalent/core/common';
 export declare class TdFileInputLabelDirective extends TemplatePortalDirective {
     constructor(templateRef: TemplateRef<any>, viewContainerRef: ViewContainerRef);
 }

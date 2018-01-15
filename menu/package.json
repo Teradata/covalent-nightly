@@ -1,0 +1,8 @@
+{
+  "main": "../bundles/covalent-core-menu.umd.js",
+  "module": "../esm5/covalent-core-menu.js",
+  "es2015": "../esm2015/covalent-core-menu.js",
+  "typings": "covalent-core-menu.d.ts",
+  "metadata": "covalent-core-menu.metadata.json",
+  "name": "@covalent/core/menu"
+}

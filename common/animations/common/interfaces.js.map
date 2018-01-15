@@ -1,1 +1,0 @@
-{"version":3,"file":"interfaces.js","sourceRoot":"","sources":["../../../../../../src/platform/core/common/animations/common/interfaces.ts"],"names":[],"mappings":"","sourcesContent":["export interface IAnimationOptions {\n  anchor?: string;\n  duration?: number;\n  delay?: number;\n }\n"]}

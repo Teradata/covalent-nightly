@@ -1,6 +1,6 @@
 import { EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { TdSearchInputComponent } from '../search-input/search-input.component';
-import { IControlValueAccessor } from '../../common/common.module';
+import { IControlValueAccessor } from '@covalent/core/common';
 export declare class TdSearchBoxBase {
     _changeDetectorRef: ChangeDetectorRef;
     constructor(_changeDetectorRef: ChangeDetectorRef);

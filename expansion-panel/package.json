@@ -1,0 +1,8 @@
+{
+  "main": "../bundles/covalent-core-expansion-panel.umd.js",
+  "module": "../esm5/covalent-core-expansion-panel.js",
+  "es2015": "../esm2015/covalent-core-expansion-panel.js",
+  "typings": "covalent-core-expansion-panel.d.ts",
+  "metadata": "covalent-core-expansion-panel.metadata.json",
+  "name": "@covalent/core/expansion-panel"
+}

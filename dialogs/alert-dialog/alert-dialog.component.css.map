@@ -1,1 +1,0 @@
-{"version":3,"sources":["platform/core/dialogs/alert-dialog/alert-dialog.component.scss"],"names":[],"mappings":"AAAA;EACE,uBAAsB,EACvB","file":"platform/core/dialogs/alert-dialog/alert-dialog.component.css","sourcesContent":[".td-dialog-message {\n  word-break: break-word;\n}\n"],"sourceRoot":"/source/"}

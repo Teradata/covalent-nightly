@@ -1,0 +1,8 @@
+{
+  "main": "../bundles/covalent-core-paging.umd.js",
+  "module": "../esm5/covalent-core-paging.js",
+  "es2015": "../esm2015/covalent-core-paging.js",
+  "typings": "covalent-core-paging.d.ts",
+  "metadata": "covalent-core-paging.metadata.json",
+  "name": "@covalent/core/paging"
+}

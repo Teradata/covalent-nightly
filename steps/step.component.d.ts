@@ -1,7 +1,7 @@
 import { TemplateRef, ViewContainerRef, OnInit } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { TemplatePortalDirective, TemplatePortal } from '@angular/cdk/portal';
-import { ICanDisable, ICanDisableRipple } from '../common/common.module';
+import { ICanDisable, ICanDisableRipple } from '@covalent/core/common';
 export declare enum StepState {
     None,
     Required,

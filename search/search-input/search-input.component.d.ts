@@ -1,7 +1,7 @@
 import { OnInit, EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { Dir } from '@angular/cdk/bidi';
 import { MatInput } from '@angular/material/input';
-import { IControlValueAccessor } from '../../common/common.module';
+import { IControlValueAccessor } from '@covalent/core/common';
 export declare class TdSearchInputBase {
     _changeDetectorRef: ChangeDetectorRef;
     constructor(_changeDetectorRef: ChangeDetectorRef);

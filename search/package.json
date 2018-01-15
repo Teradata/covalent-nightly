@@ -1,0 +1,8 @@
+{
+  "main": "../bundles/covalent-core-search.umd.js",
+  "module": "../esm5/covalent-core-search.js",
+  "es2015": "../esm2015/covalent-core-search.js",
+  "typings": "covalent-core-search.d.ts",
+  "metadata": "covalent-core-search.metadata.json",
+  "name": "@covalent/core/search"
+}

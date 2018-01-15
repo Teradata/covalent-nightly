@@ -6,7 +6,7 @@ import { MatChip } from '@angular/material/chips';
 import { MatInput } from '@angular/material/input';
 import { MatOption } from '@angular/material/core';
 import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
-import { ICanDisable, IControlValueAccessor } from '../common/common.module';
+import { ICanDisable, IControlValueAccessor } from '@covalent/core/common';
 export declare class TdChipDirective extends TemplatePortalDirective {
     constructor(templateRef: TemplateRef<any>, viewContainerRef: ViewContainerRef);
 }

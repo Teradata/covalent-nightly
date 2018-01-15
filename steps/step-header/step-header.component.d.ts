@@ -1,4 +1,4 @@
-import { ICanDisable, ICanDisableRipple } from '../../common/common.module';
+import { ICanDisable, ICanDisableRipple } from '@covalent/core/common';
 import { StepState } from '../step.component';
 export declare class TdStepHeaderBase {
 }

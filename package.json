@@ -2,9 +2,6 @@
   "name": "@covalent/core",
   "version": "1.0.0-rc.2",
   "description": "Teradata UI Platform built on Angular Material",
-  "main": "./bundles/core.umd.js",
-  "module": "./index.js",
-  "typings": "./index.d.ts",
   "keywords": [
     "angular",
     "material",
@@ -13,8 +10,7 @@
     "covalent",
     "reusable"
   ],
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/teradata/covalent.git"
@@ -43,5 +39,10 @@
     "@angular/router": "^5.0.0",
     "@angular/cdk": "^5.0.0",
     "@angular/material": "^5.0.0"
-  }
+  },
+  "main": "bundles/covalent-core.umd.js",
+  "module": "esm5/covalent-core.js",
+  "es2015": "esm2015/covalent-core.js",
+  "typings": "covalent-core.d.ts",
+  "metadata": "covalent-core.metadata.json"
 }

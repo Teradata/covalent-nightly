@@ -1,0 +1,8 @@
+{
+  "main": "../bundles/covalent-core-message.umd.js",
+  "module": "../esm5/covalent-core-message.js",
+  "es2015": "../esm2015/covalent-core-message.js",
+  "typings": "covalent-core-message.d.ts",
+  "metadata": "covalent-core-message.metadata.json",
+  "name": "@covalent/core/message"
+}

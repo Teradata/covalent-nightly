@@ -1,0 +1,8 @@
+{
+  "main": "../bundles/covalent-core-notifications.umd.js",
+  "module": "../esm5/covalent-core-notifications.js",
+  "es2015": "../esm2015/covalent-core-notifications.js",
+  "typings": "covalent-core-notifications.d.ts",
+  "metadata": "covalent-core-notifications.metadata.json",
+  "name": "@covalent/core/notifications"
+}

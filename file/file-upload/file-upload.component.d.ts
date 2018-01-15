@@ -1,5 +1,5 @@
 import { EventEmitter, ChangeDetectorRef } from '@angular/core';
-import { ICanDisable, IControlValueAccessor } from '../../common/common.module';
+import { ICanDisable, IControlValueAccessor } from '@covalent/core/common';
 import { TdFileInputComponent, TdFileInputLabelDirective } from '../file-input/file-input.component';
 export declare class TdFileUploadBase {
     _changeDetectorRef: ChangeDetectorRef;

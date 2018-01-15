@@ -3,7 +3,7 @@ import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { TdDataTableRowComponent } from './data-table-row/data-table-row.component';
 import { ITdDataTableSortChangeEvent, TdDataTableColumnComponent } from './data-table-column/data-table-column.component';
 import { TdDataTableTemplateDirective } from './directives/data-table-template.directive';
-import { IControlValueAccessor } from '../common/common.module';
+import { IControlValueAccessor } from '@covalent/core/common';
 export declare enum TdDataTableSortingOrder {
     Ascending,
     Descending,

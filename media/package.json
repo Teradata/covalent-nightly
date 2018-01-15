@@ -1,0 +1,8 @@
+{
+  "main": "../bundles/covalent-core-media.umd.js",
+  "module": "../esm5/covalent-core-media.js",
+  "es2015": "../esm2015/covalent-core-media.js",
+  "typings": "covalent-core-media.d.ts",
+  "metadata": "covalent-core-media.metadata.json",
+  "name": "@covalent/core/media"
+}
