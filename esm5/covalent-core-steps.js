@@ -614,7 +614,6 @@ TdStepBodyComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-// Steps
 var TD_STEPS = [
     TdStepsComponent,
     TdStepComponent,

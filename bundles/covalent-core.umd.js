@@ -2399,26 +2399,15 @@ IconService.ctorParameters = function () { return []; };
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-/**
- * ANIMATIONS
- */
-// Directives
 var TD_ANIMATIONS = [
     TdToggleDirective,
     TdFadeDirective,
 ];
-/**
- * FORMS
- */
-// Form Directives
 var TD_FORMS = [
     TdAutoTrimDirective,
 ];
 // Validators
 var TD_VALIDATORS = [];
-/**
- * PIPES
- */
 var TD_PIPES = [
     TdTimeAgoPipe,
     TdTimeDifferencePipe,
@@ -2426,9 +2415,6 @@ var TD_PIPES = [
     TdDigitsPipe,
     TdTruncatePipe,
 ];
-/**
- * Services
- */
 var CovalentCommonModule$1 = (function () {
     function CovalentCommonModule$1() {
     }
@@ -10417,6 +10403,7 @@ var TdSearchInputComponent = (function (_super) {
         this.onSearch.emit(this.value);
     };
     /**
+     * Method to clear the underlying input.
      * @return {?}
      */
     TdSearchInputComponent.prototype.clearSearch = function () {
@@ -11264,7 +11251,6 @@ TdStepBodyComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-// Steps
 var TD_STEPS = [
     TdStepsComponent,
     TdStepComponent,

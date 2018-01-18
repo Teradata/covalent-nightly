@@ -129,6 +129,7 @@ var TdSearchInputComponent = (function (_super) {
         this.onSearch.emit(this.value);
     };
     /**
+     * Method to clear the underlying input.
      * @return {?}
      */
     TdSearchInputComponent.prototype.clearSearch = function () {

@@ -1429,26 +1429,15 @@ IconService.ctorParameters = () => [];
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-/**
- * ANIMATIONS
- */
-// Directives
 const TD_ANIMATIONS = [
     TdToggleDirective,
     TdFadeDirective,
 ];
-/**
- * FORMS
- */
-// Form Directives
 const TD_FORMS = [
     TdAutoTrimDirective,
 ];
 // Validators
 const TD_VALIDATORS = [];
-/**
- * PIPES
- */
 const TD_PIPES = [
     TdTimeAgoPipe,
     TdTimeDifferencePipe,
@@ -1456,9 +1445,6 @@ const TD_PIPES = [
     TdDigitsPipe,
     TdTruncatePipe,
 ];
-/**
- * Services
- */
 class CovalentCommonModule {
 }
 CovalentCommonModule.decorators = [

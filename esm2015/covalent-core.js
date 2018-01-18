@@ -2410,26 +2410,15 @@ IconService.ctorParameters = () => [];
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-/**
- * ANIMATIONS
- */
-// Directives
 const TD_ANIMATIONS = [
     TdToggleDirective,
     TdFadeDirective,
 ];
-/**
- * FORMS
- */
-// Form Directives
 const TD_FORMS = [
     TdAutoTrimDirective,
 ];
 // Validators
 const TD_VALIDATORS = [];
-/**
- * PIPES
- */
 const TD_PIPES = [
     TdTimeAgoPipe,
     TdTimeDifferencePipe,
@@ -2437,9 +2426,6 @@ const TD_PIPES = [
     TdDigitsPipe,
     TdTruncatePipe,
 ];
-/**
- * Services
- */
 class CovalentCommonModule$1 {
 }
 CovalentCommonModule$1.decorators = [
@@ -11714,6 +11700,7 @@ class TdSearchInputComponent extends _TdSearchInputMixinBase {
         this.onSearch.emit(this.value);
     }
     /**
+     * Method to clear the underlying input.
      * @return {?}
      */
     clearSearch() {
@@ -12851,7 +12838,6 @@ TdStepBodyComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-// Steps
 const TD_STEPS = [
     TdStepsComponent,
     TdStepComponent,

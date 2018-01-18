@@ -117,6 +117,7 @@ class TdSearchInputComponent extends _TdSearchInputMixinBase {
         this.onSearch.emit(this.value);
     }
     /**
+     * Method to clear the underlying input.
      * @return {?}
      */
     clearSearch() {

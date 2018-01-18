@@ -61,6 +61,9 @@ export declare class TdSearchInputComponent extends _TdSearchInputMixinBase impl
     handleBlur(): void;
     stopPropagation(event: Event): void;
     handleSearch(event: Event): void;
+    /**
+     * Method to clear the underlying input.
+     */
     clearSearch(): void;
     private _searchTermChanged(value);
 }

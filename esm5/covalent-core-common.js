@@ -1501,26 +1501,15 @@ IconService.ctorParameters = function () { return []; };
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-/**
- * ANIMATIONS
- */
-// Directives
 var TD_ANIMATIONS = [
     TdToggleDirective,
     TdFadeDirective,
 ];
-/**
- * FORMS
- */
-// Form Directives
 var TD_FORMS = [
     TdAutoTrimDirective,
 ];
 // Validators
 var TD_VALIDATORS = [];
-/**
- * PIPES
- */
 var TD_PIPES = [
     TdTimeAgoPipe,
     TdTimeDifferencePipe,
@@ -1528,9 +1517,6 @@ var TD_PIPES = [
     TdDigitsPipe,
     TdTruncatePipe,
 ];
-/**
- * Services
- */
 var CovalentCommonModule = (function () {
     function CovalentCommonModule() {
     }
