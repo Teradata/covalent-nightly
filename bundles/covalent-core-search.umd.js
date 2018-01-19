@@ -18,7 +18,7 @@ var __extends = (this && this.__extends) || (function () {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdSearchInputBase = (function () {
+var TdSearchInputBase = /** @class */ (function () {
     /**
      * @param {?} _changeDetectorRef
      */
@@ -29,7 +29,7 @@ var TdSearchInputBase = (function () {
 }());
 /* tslint:disable-next-line */
 var _TdSearchInputMixinBase = common$1.mixinControlValueAccessor(TdSearchInputBase);
-var TdSearchInputComponent = (function (_super) {
+var TdSearchInputComponent = /** @class */ (function (_super) {
     __extends(TdSearchInputComponent, _super);
     /**
      * @param {?} _dir
@@ -198,7 +198,7 @@ TdSearchInputComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdSearchBoxBase = (function () {
+var TdSearchBoxBase = /** @class */ (function () {
     /**
      * @param {?} _changeDetectorRef
      */
@@ -209,7 +209,7 @@ var TdSearchBoxBase = (function () {
 }());
 /* tslint:disable-next-line */
 var _TdSearchBoxMixinBase = common$1.mixinControlValueAccessor(TdSearchBoxBase);
-var TdSearchBoxComponent = (function (_super) {
+var TdSearchBoxComponent = /** @class */ (function (_super) {
     __extends(TdSearchBoxComponent, _super);
     /**
      * @param {?} _changeDetectorRef
@@ -365,7 +365,7 @@ TdSearchBoxComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var CovalentSearchModule = (function () {
+var CovalentSearchModule = /** @class */ (function () {
     function CovalentSearchModule() {
     }
     return CovalentSearchModule;

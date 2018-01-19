@@ -38,7 +38,7 @@ var __spread = (this && this.__spread) || function () {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdToggleDirective = (function () {
+var TdToggleDirective = /** @class */ (function () {
     /**
      * @param {?} _renderer
      * @param {?} _element
@@ -198,7 +198,7 @@ TdToggleDirective.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdFadeDirective = (function () {
+var TdFadeDirective = /** @class */ (function () {
     /**
      * @param {?} _renderer
      * @param {?} _element
@@ -364,7 +364,7 @@ TdFadeDirective.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdAutoTrimDirective = (function () {
+var TdAutoTrimDirective = /** @class */ (function () {
     /**
      * @param {?} _model
      */
@@ -399,7 +399,7 @@ TdAutoTrimDirective.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdTimeAgoPipe = (function () {
+var TdTimeAgoPipe = /** @class */ (function () {
     function TdTimeAgoPipe() {
     }
     /**
@@ -479,7 +479,7 @@ TdTimeAgoPipe.ctorParameters = function () { return []; };
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdTimeDifferencePipe = (function () {
+var TdTimeDifferencePipe = /** @class */ (function () {
     function TdTimeDifferencePipe() {
     }
     /**
@@ -533,7 +533,7 @@ TdTimeDifferencePipe.ctorParameters = function () { return []; };
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdBytesPipe = (function () {
+var TdBytesPipe = /** @class */ (function () {
     function TdBytesPipe() {
     }
     /**
@@ -572,7 +572,7 @@ TdBytesPipe.ctorParameters = function () { return []; };
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdDigitsPipe = (function () {
+var TdDigitsPipe = /** @class */ (function () {
     /**
      * @param {?=} _locale
      */
@@ -619,7 +619,7 @@ TdDigitsPipe.ctorParameters = function () { return [
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdTruncatePipe = (function () {
+var TdTruncatePipe = /** @class */ (function () {
     function TdTruncatePipe() {
     }
     /**
@@ -654,7 +654,7 @@ TdTruncatePipe.ctorParameters = function () { return []; };
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var RouterPathService = (function () {
+var RouterPathService = /** @class */ (function () {
     /**
      * @param {?} _router
      */
@@ -688,7 +688,7 @@ RouterPathService.ctorParameters = function () { return [
  * Copyright (C) 2016-2017 by Teradata Corporation. All rights reserved.
  * TERADATA CORPORATION CONFIDENTIAL AND TRADE SECRET
  */
-var IconService = (function () {
+var IconService = /** @class */ (function () {
     function IconService() {
         this._icons = [
             'access_alarm',
@@ -1514,7 +1514,7 @@ var TD_PIPES = [
     TdDigitsPipe,
     TdTruncatePipe,
 ];
-var CovalentCommonModule = (function () {
+var CovalentCommonModule = /** @class */ (function () {
     function CovalentCommonModule() {
     }
     return CovalentCommonModule;
@@ -1921,7 +1921,7 @@ var noop = function () {
  * @return {?}
  */
 function mixinControlValueAccessor(base, initialValue) {
-    return (function (_super) {
+    return /** @class */ (function (_super) {
         __extends(class_1, _super);
         /**
          * @param {...?} args
@@ -2001,7 +2001,7 @@ function mixinControlValueAccessor(base, initialValue) {
  * @return {?}
  */
 function mixinDisabled(base) {
-    return (function (_super) {
+    return /** @class */ (function (_super) {
         __extends(class_2, _super);
         /**
          * @param {...?} args
@@ -2061,7 +2061,7 @@ function mixinDisabled(base) {
  * @return {?}
  */
 function mixinDisableRipple(base) {
-    return (function (_super) {
+    return /** @class */ (function (_super) {
         __extends(class_3, _super);
         /**
          * @param {...?} args
@@ -2110,7 +2110,7 @@ function mixinDisableRipple(base) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var CovalentValidators = (function () {
+var CovalentValidators = /** @class */ (function () {
     function CovalentValidators() {
     }
     /**

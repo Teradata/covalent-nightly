@@ -6,8 +6,8 @@ export interface IStepChangeEvent {
     prevStep: TdStepComponent;
 }
 export declare enum StepMode {
-    Vertical,
-    Horizontal,
+    Vertical = "vertical",
+    Horizontal = "horizontal",
 }
 export declare class TdStepsComponent implements OnDestroy, AfterContentInit {
     private _subcriptions;

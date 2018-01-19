@@ -1,7 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
 
 /**
  * @fileoverview added by tsickle
@@ -107,7 +107,7 @@ CovalentMenuModule.decorators = [
                 imports: [
                     CommonModule,
                     MatMenuModule,
-                    MatListModule,
+                    MatDividerModule,
                 ],
                 declarations: [
                     TD_MENU,

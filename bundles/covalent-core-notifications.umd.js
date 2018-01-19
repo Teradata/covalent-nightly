@@ -8,19 +8,19 @@
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-/** @enum {?} */
+/** @enum {string} */
 var TdNotificationCountPositionY = {
-    Top: /** @type {?} */ ('top'),
-    Bottom: /** @type {?} */ ('bottom'),
-    Center: /** @type {?} */ ('center'),
+    Top: 'top',
+    Bottom: 'bottom',
+    Center: 'center',
 };
-/** @enum {?} */
+/** @enum {string} */
 var TdNotificationCountPositionX = {
-    Before: /** @type {?} */ ('before'),
-    After: /** @type {?} */ ('after'),
-    Center: /** @type {?} */ ('center'),
+    Before: 'before',
+    After: 'after',
+    Center: 'center',
 };
-var TdNotificationCountComponent = (function () {
+var TdNotificationCountComponent = /** @class */ (function () {
     function TdNotificationCountComponent() {
         this._notifications = 0;
         /**
@@ -180,7 +180,7 @@ TdNotificationCountComponent.propDecorators = {
 var TD_NOTIFICATIONS = [
     TdNotificationCountComponent,
 ];
-var CovalentNotificationsModule = (function () {
+var CovalentNotificationsModule = /** @class */ (function () {
     function CovalentNotificationsModule() {
     }
     return CovalentNotificationsModule;

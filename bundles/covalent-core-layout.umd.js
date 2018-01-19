@@ -1,8 +1,8 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/cdk/scrolling'), require('@angular/material/sidenav'), require('@angular/material/toolbar'), require('@angular/material/button'), require('@angular/material/icon'), require('@angular/material/card'), require('@angular/material/list'), require('@covalent/core/common'), require('@angular/router'), require('@angular/platform-browser')) :
-	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/cdk/scrolling', '@angular/material/sidenav', '@angular/material/toolbar', '@angular/material/button', '@angular/material/icon', '@angular/material/card', '@angular/material/list', '@covalent/core/common', '@angular/router', '@angular/platform-browser'], factory) :
-	(factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.layout = {}),global.ng.core,global.ng.common,global.ng.cdk.scrolling,global.ng.material.sidenav,global.ng.material.toolbar,global.ng.material.button,global.ng.material.icon,global.ng.material.card,global.ng.material.list,global.covalent.core.common,global.ng.router,global.ng.platformBrowser));
-}(this, (function (exports,core,common,scrolling,sidenav,toolbar,button,icon,card,list,common$1,router,platformBrowser) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/cdk/scrolling'), require('@angular/material/sidenav'), require('@angular/material/toolbar'), require('@angular/material/button'), require('@angular/material/icon'), require('@angular/material/card'), require('@angular/material/divider'), require('@covalent/core/common'), require('@angular/router'), require('@angular/platform-browser')) :
+	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/cdk/scrolling', '@angular/material/sidenav', '@angular/material/toolbar', '@angular/material/button', '@angular/material/icon', '@angular/material/card', '@angular/material/divider', '@covalent/core/common', '@angular/router', '@angular/platform-browser'], factory) :
+	(factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.layout = {}),global.ng.core,global.ng.common,global.ng.cdk.scrolling,global.ng.material.sidenav,global.ng.material.toolbar,global.ng.material.button,global.ng.material.icon,global.ng.material.card,global.ng.material.divider,global.covalent.core.common,global.ng.router,global.ng.platformBrowser));
+}(this, (function (exports,core,common,scrolling,sidenav,toolbar,button,icon,card,divider,common$1,router,platformBrowser) { 'use strict';
 
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -18,7 +18,7 @@ var __extends = (this && this.__extends) || (function () {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutComponent = (function () {
+var TdLayoutComponent = /** @class */ (function () {
     function TdLayoutComponent() {
         /**
          * mode?: 'side', 'push' or 'over'
@@ -108,7 +108,7 @@ TdLayoutComponent.propDecorators = {
 /**
  * @record
  */
-var LayoutToggleBase = (function () {
+var LayoutToggleBase = /** @class */ (function () {
     function LayoutToggleBase() {
     }
     return LayoutToggleBase;
@@ -118,7 +118,7 @@ var _TdLayoutToggleMixinBase = common$1.mixinDisabled(LayoutToggleBase);
 /**
  * @abstract
  */
-var LayoutToggle = (function (_super) {
+var LayoutToggle = /** @class */ (function (_super) {
     __extends(LayoutToggle, _super);
     /**
      * @param {?} _layout
@@ -206,7 +206,7 @@ LayoutToggle.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutToggleDirective = (function (_super) {
+var TdLayoutToggleDirective = /** @class */ (function (_super) {
     __extends(TdLayoutToggleDirective, _super);
     /**
      * @param {?} layout
@@ -249,7 +249,7 @@ TdLayoutToggleDirective.ctorParameters = function () { return [
 TdLayoutToggleDirective.propDecorators = {
     "tdLayoutToggle": [{ type: core.Input, args: ['tdLayoutToggle',] },],
 };
-var TdLayoutCloseDirective = (function (_super) {
+var TdLayoutCloseDirective = /** @class */ (function (_super) {
     __extends(TdLayoutCloseDirective, _super);
     /**
      * @param {?} layout
@@ -292,7 +292,7 @@ TdLayoutCloseDirective.ctorParameters = function () { return [
 TdLayoutCloseDirective.propDecorators = {
     "tdLayoutClose": [{ type: core.Input, args: ['tdLayoutClose',] },],
 };
-var TdLayoutOpenDirective = (function (_super) {
+var TdLayoutOpenDirective = /** @class */ (function (_super) {
     __extends(TdLayoutOpenDirective, _super);
     /**
      * @param {?} layout
@@ -339,7 +339,7 @@ TdLayoutOpenDirective.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutNavComponent = (function () {
+var TdLayoutNavComponent = /** @class */ (function () {
     /**
      * @param {?} _router
      */
@@ -396,7 +396,7 @@ TdLayoutNavComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutNavListComponent = (function () {
+var TdLayoutNavListComponent = /** @class */ (function () {
     /**
      * @param {?} _router
      */
@@ -519,7 +519,7 @@ TdLayoutNavListComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutNavListToggleDirective = (function (_super) {
+var TdLayoutNavListToggleDirective = /** @class */ (function (_super) {
     __extends(TdLayoutNavListToggleDirective, _super);
     /**
      * @param {?} layout
@@ -562,7 +562,7 @@ TdLayoutNavListToggleDirective.ctorParameters = function () { return [
 TdLayoutNavListToggleDirective.propDecorators = {
     "tdLayoutNavListToggle": [{ type: core.Input, args: ['tdLayoutNavListToggle',] },],
 };
-var TdLayoutNavListCloseDirective = (function (_super) {
+var TdLayoutNavListCloseDirective = /** @class */ (function (_super) {
     __extends(TdLayoutNavListCloseDirective, _super);
     /**
      * @param {?} layout
@@ -605,7 +605,7 @@ TdLayoutNavListCloseDirective.ctorParameters = function () { return [
 TdLayoutNavListCloseDirective.propDecorators = {
     "tdLayoutNavListClose": [{ type: core.Input, args: ['tdLayoutNavListClose',] },],
 };
-var TdLayoutNavListOpenDirective = (function (_super) {
+var TdLayoutNavListOpenDirective = /** @class */ (function (_super) {
     __extends(TdLayoutNavListOpenDirective, _super);
     /**
      * @param {?} layout
@@ -652,7 +652,7 @@ TdLayoutNavListOpenDirective.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutCardOverComponent = (function () {
+var TdLayoutCardOverComponent = /** @class */ (function () {
     function TdLayoutCardOverComponent() {
         /**
          * cardWidth?: string
@@ -690,7 +690,7 @@ TdLayoutCardOverComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutManageListComponent = (function () {
+var TdLayoutManageListComponent = /** @class */ (function () {
     function TdLayoutManageListComponent() {
         /**
          * mode?: 'side', 'push' or 'over'
@@ -777,7 +777,7 @@ TdLayoutManageListComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutManageListToggleDirective = (function (_super) {
+var TdLayoutManageListToggleDirective = /** @class */ (function (_super) {
     __extends(TdLayoutManageListToggleDirective, _super);
     /**
      * @param {?} layout
@@ -820,7 +820,7 @@ TdLayoutManageListToggleDirective.ctorParameters = function () { return [
 TdLayoutManageListToggleDirective.propDecorators = {
     "tdLayoutManageListToggle": [{ type: core.Input, args: ['tdLayoutManageListToggle',] },],
 };
-var TdLayoutManageListCloseDirective = (function (_super) {
+var TdLayoutManageListCloseDirective = /** @class */ (function (_super) {
     __extends(TdLayoutManageListCloseDirective, _super);
     /**
      * @param {?} layout
@@ -863,7 +863,7 @@ TdLayoutManageListCloseDirective.ctorParameters = function () { return [
 TdLayoutManageListCloseDirective.propDecorators = {
     "tdLayoutManageListClose": [{ type: core.Input, args: ['tdLayoutManageListClose',] },],
 };
-var TdLayoutManageListOpenDirective = (function (_super) {
+var TdLayoutManageListOpenDirective = /** @class */ (function (_super) {
     __extends(TdLayoutManageListOpenDirective, _super);
     /**
      * @param {?} layout
@@ -910,7 +910,7 @@ TdLayoutManageListOpenDirective.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutFooterComponent = (function () {
+var TdLayoutFooterComponent = /** @class */ (function () {
     /**
      * @param {?} _renderer
      * @param {?} _elementRef
@@ -966,7 +966,7 @@ TdLayoutFooterComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdNavigationDrawerMenuDirective = (function () {
+var TdNavigationDrawerMenuDirective = /** @class */ (function () {
     function TdNavigationDrawerMenuDirective() {
     }
     return TdNavigationDrawerMenuDirective;
@@ -978,7 +978,7 @@ TdNavigationDrawerMenuDirective.decorators = [
 ];
 /** @nocollapse */
 TdNavigationDrawerMenuDirective.ctorParameters = function () { return []; };
-var TdNavigationDrawerToolbarDirective = (function () {
+var TdNavigationDrawerToolbarDirective = /** @class */ (function () {
     function TdNavigationDrawerToolbarDirective() {
     }
     return TdNavigationDrawerToolbarDirective;
@@ -990,7 +990,7 @@ TdNavigationDrawerToolbarDirective.decorators = [
 ];
 /** @nocollapse */
 TdNavigationDrawerToolbarDirective.ctorParameters = function () { return []; };
-var TdNavigationDrawerComponent = (function () {
+var TdNavigationDrawerComponent = /** @class */ (function () {
     /**
      * @param {?} _layout
      * @param {?} _router
@@ -1196,7 +1196,7 @@ var TD_LAYOUTS = [
     TdNavigationDrawerMenuDirective,
     TdNavigationDrawerToolbarDirective,
 ];
-var CovalentLayoutModule = (function () {
+var CovalentLayoutModule = /** @class */ (function () {
     function CovalentLayoutModule() {
     }
     return CovalentLayoutModule;
@@ -1211,7 +1211,7 @@ CovalentLayoutModule.decorators = [
                     button.MatButtonModule,
                     icon.MatIconModule,
                     card.MatCardModule,
-                    list.MatListModule,
+                    divider.MatDividerModule,
                 ],
                 declarations: [
                     TD_LAYOUTS,

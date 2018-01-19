@@ -40,13 +40,13 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-/** @enum {?} */
+/** @enum {string} */
 var StepState = {
-    None: /** @type {?} */ ('none'),
-    Required: /** @type {?} */ ('required'),
-    Complete: /** @type {?} */ ('complete'),
+    None: 'none',
+    Required: 'required',
+    Complete: 'complete',
 };
-var TdStepLabelDirective = (function (_super) {
+var TdStepLabelDirective = /** @class */ (function (_super) {
     __extends(TdStepLabelDirective, _super);
     /**
      * @param {?} templateRef
@@ -67,7 +67,7 @@ TdStepLabelDirective.ctorParameters = function () { return [
     { type: TemplateRef, },
     { type: ViewContainerRef, },
 ]; };
-var TdStepActionsDirective = (function (_super) {
+var TdStepActionsDirective = /** @class */ (function (_super) {
     __extends(TdStepActionsDirective, _super);
     /**
      * @param {?} templateRef
@@ -88,7 +88,7 @@ TdStepActionsDirective.ctorParameters = function () { return [
     { type: TemplateRef, },
     { type: ViewContainerRef, },
 ]; };
-var TdStepSummaryDirective = (function (_super) {
+var TdStepSummaryDirective = /** @class */ (function (_super) {
     __extends(TdStepSummaryDirective, _super);
     /**
      * @param {?} templateRef
@@ -109,14 +109,14 @@ TdStepSummaryDirective.ctorParameters = function () { return [
     { type: TemplateRef, },
     { type: ViewContainerRef, },
 ]; };
-var TdStepBase = (function () {
+var TdStepBase = /** @class */ (function () {
     function TdStepBase() {
     }
     return TdStepBase;
 }());
 /* tslint:disable-next-line */
 var _TdStepMixinBase = mixinDisableRipple(mixinDisabled(TdStepBase));
-var TdStepComponent = (function (_super) {
+var TdStepComponent = /** @class */ (function (_super) {
     __extends(TdStepComponent, _super);
     /**
      * @param {?} _viewContainerRef
@@ -312,12 +312,12 @@ TdStepComponent.propDecorators = {
 /**
  * @record
  */
-/** @enum {?} */
+/** @enum {string} */
 var StepMode = {
-    Vertical: /** @type {?} */ ('vertical'),
-    Horizontal: /** @type {?} */ ('horizontal'),
+    Vertical: 'vertical',
+    Horizontal: 'horizontal',
 };
-var TdStepsComponent = (function () {
+var TdStepsComponent = /** @class */ (function () {
     function TdStepsComponent() {
         this._mode = StepMode.Vertical;
         /**
@@ -486,14 +486,14 @@ TdStepsComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdStepHeaderBase = (function () {
+var TdStepHeaderBase = /** @class */ (function () {
     function TdStepHeaderBase() {
     }
     return TdStepHeaderBase;
 }());
 /* tslint:disable-next-line */
 var _TdStepHeaderMixinBase = mixinDisableRipple(mixinDisabled(TdStepHeaderBase));
-var TdStepHeaderComponent = (function (_super) {
+var TdStepHeaderComponent = /** @class */ (function (_super) {
     __extends(TdStepHeaderComponent, _super);
     function TdStepHeaderComponent() {
         var _this = _super.apply(this, __spread(arguments)) || this;
@@ -540,7 +540,7 @@ TdStepHeaderComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdStepBodyComponent = (function () {
+var TdStepBodyComponent = /** @class */ (function () {
     function TdStepBodyComponent() {
         /**
          * state?: StepState or ['none' | 'required' | 'complete']
@@ -623,7 +623,7 @@ var TD_STEPS = [
     TdStepActionsDirective,
     TdStepSummaryDirective,
 ];
-var CovalentStepsModule = (function () {
+var CovalentStepsModule = /** @class */ (function () {
     function CovalentStepsModule() {
     }
     return CovalentStepsModule;

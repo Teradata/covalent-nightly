@@ -16,7 +16,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
-import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
 import { TdCollapseAnimation, mixinDisabled } from '@covalent/core/common';
 import { Router } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -24,7 +24,7 @@ import { DomSanitizer } from '@angular/platform-browser';
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutComponent = (function () {
+var TdLayoutComponent = /** @class */ (function () {
     function TdLayoutComponent() {
         /**
          * mode?: 'side', 'push' or 'over'
@@ -114,7 +114,7 @@ TdLayoutComponent.propDecorators = {
 /**
  * @record
  */
-var LayoutToggleBase = (function () {
+var LayoutToggleBase = /** @class */ (function () {
     function LayoutToggleBase() {
     }
     return LayoutToggleBase;
@@ -124,7 +124,7 @@ var _TdLayoutToggleMixinBase = mixinDisabled(LayoutToggleBase);
 /**
  * @abstract
  */
-var LayoutToggle = (function (_super) {
+var LayoutToggle = /** @class */ (function (_super) {
     __extends(LayoutToggle, _super);
     /**
      * @param {?} _layout
@@ -212,7 +212,7 @@ LayoutToggle.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutToggleDirective = (function (_super) {
+var TdLayoutToggleDirective = /** @class */ (function (_super) {
     __extends(TdLayoutToggleDirective, _super);
     /**
      * @param {?} layout
@@ -255,7 +255,7 @@ TdLayoutToggleDirective.ctorParameters = function () { return [
 TdLayoutToggleDirective.propDecorators = {
     "tdLayoutToggle": [{ type: Input, args: ['tdLayoutToggle',] },],
 };
-var TdLayoutCloseDirective = (function (_super) {
+var TdLayoutCloseDirective = /** @class */ (function (_super) {
     __extends(TdLayoutCloseDirective, _super);
     /**
      * @param {?} layout
@@ -298,7 +298,7 @@ TdLayoutCloseDirective.ctorParameters = function () { return [
 TdLayoutCloseDirective.propDecorators = {
     "tdLayoutClose": [{ type: Input, args: ['tdLayoutClose',] },],
 };
-var TdLayoutOpenDirective = (function (_super) {
+var TdLayoutOpenDirective = /** @class */ (function (_super) {
     __extends(TdLayoutOpenDirective, _super);
     /**
      * @param {?} layout
@@ -345,7 +345,7 @@ TdLayoutOpenDirective.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutNavComponent = (function () {
+var TdLayoutNavComponent = /** @class */ (function () {
     /**
      * @param {?} _router
      */
@@ -402,7 +402,7 @@ TdLayoutNavComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutNavListComponent = (function () {
+var TdLayoutNavListComponent = /** @class */ (function () {
     /**
      * @param {?} _router
      */
@@ -525,7 +525,7 @@ TdLayoutNavListComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutNavListToggleDirective = (function (_super) {
+var TdLayoutNavListToggleDirective = /** @class */ (function (_super) {
     __extends(TdLayoutNavListToggleDirective, _super);
     /**
      * @param {?} layout
@@ -568,7 +568,7 @@ TdLayoutNavListToggleDirective.ctorParameters = function () { return [
 TdLayoutNavListToggleDirective.propDecorators = {
     "tdLayoutNavListToggle": [{ type: Input, args: ['tdLayoutNavListToggle',] },],
 };
-var TdLayoutNavListCloseDirective = (function (_super) {
+var TdLayoutNavListCloseDirective = /** @class */ (function (_super) {
     __extends(TdLayoutNavListCloseDirective, _super);
     /**
      * @param {?} layout
@@ -611,7 +611,7 @@ TdLayoutNavListCloseDirective.ctorParameters = function () { return [
 TdLayoutNavListCloseDirective.propDecorators = {
     "tdLayoutNavListClose": [{ type: Input, args: ['tdLayoutNavListClose',] },],
 };
-var TdLayoutNavListOpenDirective = (function (_super) {
+var TdLayoutNavListOpenDirective = /** @class */ (function (_super) {
     __extends(TdLayoutNavListOpenDirective, _super);
     /**
      * @param {?} layout
@@ -658,7 +658,7 @@ TdLayoutNavListOpenDirective.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutCardOverComponent = (function () {
+var TdLayoutCardOverComponent = /** @class */ (function () {
     function TdLayoutCardOverComponent() {
         /**
          * cardWidth?: string
@@ -696,7 +696,7 @@ TdLayoutCardOverComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutManageListComponent = (function () {
+var TdLayoutManageListComponent = /** @class */ (function () {
     function TdLayoutManageListComponent() {
         /**
          * mode?: 'side', 'push' or 'over'
@@ -783,7 +783,7 @@ TdLayoutManageListComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutManageListToggleDirective = (function (_super) {
+var TdLayoutManageListToggleDirective = /** @class */ (function (_super) {
     __extends(TdLayoutManageListToggleDirective, _super);
     /**
      * @param {?} layout
@@ -826,7 +826,7 @@ TdLayoutManageListToggleDirective.ctorParameters = function () { return [
 TdLayoutManageListToggleDirective.propDecorators = {
     "tdLayoutManageListToggle": [{ type: Input, args: ['tdLayoutManageListToggle',] },],
 };
-var TdLayoutManageListCloseDirective = (function (_super) {
+var TdLayoutManageListCloseDirective = /** @class */ (function (_super) {
     __extends(TdLayoutManageListCloseDirective, _super);
     /**
      * @param {?} layout
@@ -869,7 +869,7 @@ TdLayoutManageListCloseDirective.ctorParameters = function () { return [
 TdLayoutManageListCloseDirective.propDecorators = {
     "tdLayoutManageListClose": [{ type: Input, args: ['tdLayoutManageListClose',] },],
 };
-var TdLayoutManageListOpenDirective = (function (_super) {
+var TdLayoutManageListOpenDirective = /** @class */ (function (_super) {
     __extends(TdLayoutManageListOpenDirective, _super);
     /**
      * @param {?} layout
@@ -916,7 +916,7 @@ TdLayoutManageListOpenDirective.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutFooterComponent = (function () {
+var TdLayoutFooterComponent = /** @class */ (function () {
     /**
      * @param {?} _renderer
      * @param {?} _elementRef
@@ -972,7 +972,7 @@ TdLayoutFooterComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdNavigationDrawerMenuDirective = (function () {
+var TdNavigationDrawerMenuDirective = /** @class */ (function () {
     function TdNavigationDrawerMenuDirective() {
     }
     return TdNavigationDrawerMenuDirective;
@@ -984,7 +984,7 @@ TdNavigationDrawerMenuDirective.decorators = [
 ];
 /** @nocollapse */
 TdNavigationDrawerMenuDirective.ctorParameters = function () { return []; };
-var TdNavigationDrawerToolbarDirective = (function () {
+var TdNavigationDrawerToolbarDirective = /** @class */ (function () {
     function TdNavigationDrawerToolbarDirective() {
     }
     return TdNavigationDrawerToolbarDirective;
@@ -996,7 +996,7 @@ TdNavigationDrawerToolbarDirective.decorators = [
 ];
 /** @nocollapse */
 TdNavigationDrawerToolbarDirective.ctorParameters = function () { return []; };
-var TdNavigationDrawerComponent = (function () {
+var TdNavigationDrawerComponent = /** @class */ (function () {
     /**
      * @param {?} _layout
      * @param {?} _router
@@ -1202,7 +1202,7 @@ var TD_LAYOUTS = [
     TdNavigationDrawerMenuDirective,
     TdNavigationDrawerToolbarDirective,
 ];
-var CovalentLayoutModule = (function () {
+var CovalentLayoutModule = /** @class */ (function () {
     function CovalentLayoutModule() {
     }
     return CovalentLayoutModule;
@@ -1217,7 +1217,7 @@ CovalentLayoutModule.decorators = [
                     MatButtonModule,
                     MatIconModule,
                     MatCardModule,
-                    MatListModule,
+                    MatDividerModule,
                 ],
                 declarations: [
                     TD_LAYOUTS,

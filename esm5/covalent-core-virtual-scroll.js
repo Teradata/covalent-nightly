@@ -16,7 +16,7 @@ import { DomSanitizer } from '@angular/platform-browser';
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdVirtualScrollRowDirective = (function (_super) {
+var TdVirtualScrollRowDirective = /** @class */ (function (_super) {
     __extends(TdVirtualScrollRowDirective, _super);
     /**
      * @param {?} templateRef
@@ -40,7 +40,7 @@ TdVirtualScrollRowDirective.ctorParameters = function () { return [
  * @suppress {checkTypes} checked by tsc
  */
 var TD_VIRTUAL_OFFSET = 2;
-var TdVirtualScrollContainerComponent = (function () {
+var TdVirtualScrollContainerComponent = /** @class */ (function () {
     /**
      * @param {?} _elementRef
      * @param {?} _domSanitizer
@@ -303,7 +303,7 @@ var TD_VIRTUAL_SCROLL = [
     TdVirtualScrollRowDirective,
     TdVirtualScrollContainerComponent,
 ];
-var CovalentVirtualScrollModule = (function () {
+var CovalentVirtualScrollModule = /** @class */ (function () {
     function CovalentVirtualScrollModule() {
     }
     return CovalentVirtualScrollModule;

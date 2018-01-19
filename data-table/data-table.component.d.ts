@@ -5,8 +5,8 @@ import { ITdDataTableSortChangeEvent, TdDataTableColumnComponent } from './data-
 import { TdDataTableTemplateDirective } from './directives/data-table-template.directive';
 import { IControlValueAccessor } from '@covalent/core/common';
 export declare enum TdDataTableSortingOrder {
-    Ascending,
-    Descending,
+    Ascending = "ASC",
+    Descending = "DESC",
 }
 export interface ITdDataTableColumnWidth {
     min?: number;

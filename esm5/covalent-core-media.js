@@ -6,7 +6,7 @@ import { fromEvent as fromEvent$1 } from 'rxjs/observable/fromEvent';
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdMediaService = (function () {
+var TdMediaService = /** @class */ (function () {
     /**
      * @param {?} _ngZone
      */
@@ -143,7 +143,7 @@ var MEDIA_PROVIDER = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdMediaToggleDirective = (function () {
+var TdMediaToggleDirective = /** @class */ (function () {
     /**
      * @param {?} _renderer
      * @param {?} _elementRef
@@ -308,7 +308,7 @@ TdMediaToggleDirective.propDecorators = {
 var TD_MEDIA = [
     TdMediaToggleDirective,
 ];
-var CovalentMediaModule = (function () {
+var CovalentMediaModule = /** @class */ (function () {
     function CovalentMediaModule() {
     }
     return CovalentMediaModule;

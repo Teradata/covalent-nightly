@@ -93,6 +93,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
         this._focused = false;
         this._tabIndex = 0;
         this._internalClick = false;
+        this._internalActivateOption = false;
         /**
          * FormControl for the matInput element.
          */
@@ -564,8 +565,9 @@ class TdChipsComponent extends _TdChipsMixinBase {
                          */
                 if (this.requireMatch) {
                     let /** @type {?} */ length = this._options.length;
-                    if (length > 0 && this._options.toArray()[0].active) {
+                    if (length > 1 && this._options.toArray()[0].active && this._internalActivateOption) {
                         this._options.toArray()[0].setInactiveStyles();
+                        this._internalActivateOption = false;
                         // prevent default window scrolling
                         event.preventDefault();
                     }
@@ -744,6 +746,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
                     });
                     // set the first one as active
                     this._options.toArray()[0].setActiveStyles();
+                    this._internalActivateOption = true;
                     this._changeDetectorRef.markForCheck();
                 }
             });
@@ -961,10 +964,12 @@ TdChipsComponent.decorators = [
       -webkit-transform: scaleX(0.5);
               transform: scaleX(0.5);
       visibility: hidden;
+      opacity: 0;
       -webkit-transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
       transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); }
       :host .mat-form-field-underline .mat-form-field-ripple.mat-focused {
         visibility: visible;
+        opacity: 1;
         -webkit-transform: scaleX(1);
                 transform: scaleX(1);
         -webkit-transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear;
@@ -981,7 +986,6 @@ TdChipsComponent.decorators = [
     <mat-basic-chip [class.td-chip-disabled]="disabled"
                    [class.td-chip-after-pad]="!canRemoveChip"
                    [color]="color"
-                   [disabled]="true"
                    (keydown)="_chipKeydown($event, index)"
                    (blur)="_handleChipBlur($event, chip)"
                    (focus)="_handleChipFocus($event, chip)">

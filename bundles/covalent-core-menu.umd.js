@@ -1,14 +1,14 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/material/menu'), require('@angular/material/list')) :
-	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/material/menu', '@angular/material/list'], factory) :
-	(factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.menu = {}),global.ng.core,global.ng.common,global.ng.material.menu,global.ng.material.list));
-}(this, (function (exports,core,common,menu,list) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/material/menu'), require('@angular/material/divider')) :
+	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/material/menu', '@angular/material/divider'], factory) :
+	(factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.menu = {}),global.ng.core,global.ng.common,global.ng.material.menu,global.ng.material.divider));
+}(this, (function (exports,core,common,menu,divider) { 'use strict';
 
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdMenuComponent = (function () {
+var TdMenuComponent = /** @class */ (function () {
     function TdMenuComponent() {
     }
     return TdMenuComponent;
@@ -29,7 +29,7 @@ TdMenuComponent.ctorParameters = function () { return []; };
 var TD_MENU = [
     TdMenuComponent,
 ];
-var CovalentMenuModule = (function () {
+var CovalentMenuModule = /** @class */ (function () {
     function CovalentMenuModule() {
     }
     return CovalentMenuModule;
@@ -39,7 +39,7 @@ CovalentMenuModule.decorators = [
                 imports: [
                     common.CommonModule,
                     menu.MatMenuModule,
-                    list.MatListModule,
+                    divider.MatDividerModule,
                 ],
                 declarations: [
                     TD_MENU,

@@ -6,7 +6,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
-import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
 import { TdCollapseAnimation, mixinDisabled } from '@covalent/core/common';
 import { Router } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -1594,7 +1594,7 @@ CovalentLayoutModule.decorators = [
                     MatButtonModule,
                     MatIconModule,
                     MatCardModule,
-                    MatListModule,
+                    MatDividerModule,
                 ],
                 declarations: [
                     TD_LAYOUTS,

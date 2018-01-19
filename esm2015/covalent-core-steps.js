@@ -11,11 +11,11 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-/** @enum {?} */
+/** @enum {string} */
 const StepState = {
-    None: /** @type {?} */ ('none'),
-    Required: /** @type {?} */ ('required'),
-    Complete: /** @type {?} */ ('complete'),
+    None: 'none',
+    Required: 'required',
+    Complete: 'complete',
 };
 class TdStepLabelDirective extends TemplatePortalDirective {
     /**
@@ -263,10 +263,10 @@ TdStepComponent.propDecorators = {
  * @record
  */
 
-/** @enum {?} */
+/** @enum {string} */
 const StepMode = {
-    Vertical: /** @type {?} */ ('vertical'),
-    Horizontal: /** @type {?} */ ('horizontal'),
+    Vertical: 'vertical',
+    Horizontal: 'horizontal',
 };
 class TdStepsComponent {
     constructor() {

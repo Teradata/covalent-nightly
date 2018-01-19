@@ -20,29 +20,29 @@ import { TdFadeInOutAnimation } from '@covalent/core/common';
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-/** @enum {?} */
+/** @enum {string} */
 var LoadingType = {
-    Circular: /** @type {?} */ ('circular'),
-    Linear: /** @type {?} */ ('linear'),
+    Circular: 'circular',
+    Linear: 'linear',
 };
-/** @enum {?} */
+/** @enum {string} */
 var LoadingMode = {
-    Determinate: /** @type {?} */ ('determinate'),
-    Indeterminate: /** @type {?} */ ('indeterminate'),
+    Determinate: 'determinate',
+    Indeterminate: 'indeterminate',
 };
-/** @enum {?} */
+/** @enum {string} */
 var LoadingStrategy = {
-    Overlay: /** @type {?} */ ('overlay'),
-    Replace: /** @type {?} */ ('replace'),
+    Overlay: 'overlay',
+    Replace: 'replace',
 };
-/** @enum {?} */
+/** @enum {string} */
 var LoadingStyle = {
-    FullScreen: /** @type {?} */ ('fullscreen'),
-    Overlay: /** @type {?} */ ('overlay'),
-    None: /** @type {?} */ ('none'),
+    FullScreen: 'fullscreen',
+    Overlay: 'overlay',
+    None: 'none',
 };
 var TD_CIRCLE_DIAMETER = 100;
-var TdLoadingComponent = (function () {
+var TdLoadingComponent = /** @class */ (function () {
     /**
      * @param {?} _elementRef
      * @param {?} _changeDetectorRef
@@ -299,7 +299,7 @@ TdLoadingComponent.ctorParameters = function () { return [
 /**
  * NOTE: \@internal usage only.
  */
-var TdLoadingFactory = (function () {
+var TdLoadingFactory = /** @class */ (function () {
     /**
      * @param {?} _componentFactoryResolver
      * @param {?} _overlay
@@ -517,7 +517,7 @@ var LOADING_FACTORY_PROVIDER = {
 /**
  * @record
  */
-var TdLoadingConfig = (function () {
+var TdLoadingConfig = /** @class */ (function () {
     /**
      * @param {?} config
      */
@@ -535,7 +535,7 @@ var TdLoadingConfig = (function () {
 /**
  * @record
  */
-var TdLoadingDirectiveConfig = (function (_super) {
+var TdLoadingDirectiveConfig = /** @class */ (function (_super) {
     __extends(TdLoadingDirectiveConfig, _super);
     /**
      * @param {?} config
@@ -547,7 +547,7 @@ var TdLoadingDirectiveConfig = (function (_super) {
     }
     return TdLoadingDirectiveConfig;
 }(TdLoadingConfig));
-var TdLoadingService = (function () {
+var TdLoadingService = /** @class */ (function () {
     /**
      * @param {?} _loadingFactory
      */
@@ -780,7 +780,7 @@ var LOADING_PROVIDER = {
 /**
  * Context class for variable reference
  */
-var TdLoadingContext = (function () {
+var TdLoadingContext = /** @class */ (function () {
     function TdLoadingContext() {
         this.$implicit = undefined;
         this.tdLoading = undefined;
@@ -789,7 +789,7 @@ var TdLoadingContext = (function () {
 }());
 // Constant for generation of the id for the next component
 var TD_LOADING_NEXT_ID = 0;
-var TdLoadingDirective = (function () {
+var TdLoadingDirective = /** @class */ (function () {
     /**
      * @param {?} _viewContainerRef
      * @param {?} _templateRef
@@ -978,7 +978,7 @@ var TD_LOADING = [
 var TD_LOADING_ENTRY_COMPONENTS = [
     TdLoadingComponent,
 ];
-var CovalentLoadingModule = (function () {
+var CovalentLoadingModule = /** @class */ (function () {
     function CovalentLoadingModule() {
     }
     return CovalentLoadingModule;

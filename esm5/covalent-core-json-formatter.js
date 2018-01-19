@@ -8,7 +8,7 @@ import { TdCollapseAnimation } from '@covalent/core/common';
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdJsonFormatterComponent = (function () {
+var TdJsonFormatterComponent = /** @class */ (function () {
     /**
      * @param {?} _changeDetectorRef
      * @param {?} _dir
@@ -295,7 +295,7 @@ TdJsonFormatterComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var CovalentJsonFormatterModule = (function () {
+var CovalentJsonFormatterModule = /** @class */ (function () {
     function CovalentJsonFormatterModule() {
     }
     return CovalentJsonFormatterModule;

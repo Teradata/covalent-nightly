@@ -8,7 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdDialogTitleDirective = (function () {
+var TdDialogTitleDirective = /** @class */ (function () {
     function TdDialogTitleDirective() {
     }
     return TdDialogTitleDirective;
@@ -18,7 +18,7 @@ TdDialogTitleDirective.decorators = [
 ];
 /** @nocollapse */
 TdDialogTitleDirective.ctorParameters = function () { return []; };
-var TdDialogContentDirective = (function () {
+var TdDialogContentDirective = /** @class */ (function () {
     function TdDialogContentDirective() {
     }
     return TdDialogContentDirective;
@@ -28,7 +28,7 @@ TdDialogContentDirective.decorators = [
 ];
 /** @nocollapse */
 TdDialogContentDirective.ctorParameters = function () { return []; };
-var TdDialogActionsDirective = (function () {
+var TdDialogActionsDirective = /** @class */ (function () {
     function TdDialogActionsDirective() {
     }
     return TdDialogActionsDirective;
@@ -38,7 +38,7 @@ TdDialogActionsDirective.decorators = [
 ];
 /** @nocollapse */
 TdDialogActionsDirective.ctorParameters = function () { return []; };
-var TdDialogComponent = (function () {
+var TdDialogComponent = /** @class */ (function () {
     function TdDialogComponent() {
     }
     /**
@@ -75,7 +75,7 @@ TdDialogComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdAlertDialogComponent = (function () {
+var TdAlertDialogComponent = /** @class */ (function () {
     /**
      * @param {?} _dialogRef
      */
@@ -106,7 +106,7 @@ TdAlertDialogComponent.ctorParameters = function () { return [
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdConfirmDialogComponent = (function () {
+var TdConfirmDialogComponent = /** @class */ (function () {
     /**
      * @param {?} _dialogRef
      */
@@ -144,7 +144,7 @@ TdConfirmDialogComponent.ctorParameters = function () { return [
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdPromptDialogComponent = (function () {
+var TdPromptDialogComponent = /** @class */ (function () {
     /**
      * @param {?} _dialogRef
      */
@@ -215,7 +215,7 @@ TdPromptDialogComponent.propDecorators = {
 /**
  * @record
  */
-var TdDialogService = (function () {
+var TdDialogService = /** @class */ (function () {
     /**
      * @param {?} _dialogService
      */
@@ -380,7 +380,7 @@ var TD_DIALOGS_ENTRY_COMPONENTS = [
     TdConfirmDialogComponent,
     TdPromptDialogComponent,
 ];
-var CovalentDialogsModule = (function () {
+var CovalentDialogsModule = /** @class */ (function () {
     function CovalentDialogsModule() {
     }
     return CovalentDialogsModule;

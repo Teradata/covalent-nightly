@@ -11,7 +11,7 @@
 /**
  * @record
  */
-var TdPagingBarComponent = (function () {
+var TdPagingBarComponent = /** @class */ (function () {
     /**
      * @param {?} _dir
      * @param {?} _changeDetectorRef
@@ -342,7 +342,7 @@ TdPagingBarComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var CovalentPagingModule = (function () {
+var CovalentPagingModule = /** @class */ (function () {
     function CovalentPagingModule() {
     }
     return CovalentPagingModule;

@@ -3,9 +3,9 @@ import { EventEmitter } from '@angular/core';
 import { TemplatePortalDirective, TemplatePortal } from '@angular/cdk/portal';
 import { ICanDisable, ICanDisableRipple } from '@covalent/core/common';
 export declare enum StepState {
-    None,
-    Required,
-    Complete,
+    None = "none",
+    Required = "required",
+    Complete = "complete",
 }
 export declare class TdStepLabelDirective extends TemplatePortalDirective {
     constructor(templateRef: TemplateRef<any>, viewContainerRef: ViewContainerRef);

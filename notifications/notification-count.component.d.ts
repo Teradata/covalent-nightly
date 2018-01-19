@@ -1,13 +1,13 @@
 import { ElementRef, AfterContentInit } from '@angular/core';
 export declare enum TdNotificationCountPositionY {
-    Top,
-    Bottom,
-    Center,
+    Top = "top",
+    Bottom = "bottom",
+    Center = "center",
 }
 export declare enum TdNotificationCountPositionX {
-    Before,
-    After,
-    Center,
+    Before = "before",
+    After = "after",
+    Center = "center",
 }
 export declare class TdNotificationCountComponent implements AfterContentInit {
     private _notifications;

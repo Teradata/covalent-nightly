@@ -8,7 +8,7 @@
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdMessageContainerDirective = (function () {
+var TdMessageContainerDirective = /** @class */ (function () {
     /**
      * @param {?} viewContainer
      */
@@ -26,7 +26,7 @@ TdMessageContainerDirective.decorators = [
 TdMessageContainerDirective.ctorParameters = function () { return [
     { type: core.ViewContainerRef, },
 ]; };
-var TdMessageComponent = (function () {
+var TdMessageComponent = /** @class */ (function () {
     /**
      * @param {?} _renderer
      * @param {?} _changeDetectorRef
@@ -258,7 +258,7 @@ var TD_MESSAGE = [
     TdMessageComponent,
     TdMessageContainerDirective,
 ];
-var CovalentMessageModule = (function () {
+var CovalentMessageModule = /** @class */ (function () {
     function CovalentMessageModule() {
     }
     return CovalentMessageModule;

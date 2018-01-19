@@ -160,10 +160,10 @@ TdDataTableTemplateDirective.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-/** @enum {?} */
+/** @enum {string} */
 const TdDataTableSortingOrder = {
-    Ascending: /** @type {?} */ ('ASC'),
-    Descending: /** @type {?} */ ('DESC'),
+    Ascending: 'ASC',
+    Descending: 'DESC',
 };
 /**
  * @record

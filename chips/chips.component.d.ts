@@ -35,6 +35,7 @@ export declare class TdChipsComponent extends _TdChipsMixinBase implements ICont
     private _focused;
     private _tabIndex;
     _internalClick: boolean;
+    _internalActivateOption: boolean;
     _nativeInput: ElementRef;
     _inputChild: MatInput;
     _autocompleteTrigger: MatAutocompleteTrigger;

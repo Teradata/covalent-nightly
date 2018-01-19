@@ -31,7 +31,7 @@ import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
-import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
 import { Overlay, OverlayConfig, OverlayModule } from '@angular/cdk/overlay';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -742,17 +742,17 @@ CovalentVirtualScrollModule.ctorParameters = () => [];
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-/** @enum {?} */
+/** @enum {string} */
 const TdNotificationCountPositionY = {
-    Top: /** @type {?} */ ('top'),
-    Bottom: /** @type {?} */ ('bottom'),
-    Center: /** @type {?} */ ('center'),
+    Top: 'top',
+    Bottom: 'bottom',
+    Center: 'center',
 };
-/** @enum {?} */
+/** @enum {string} */
 const TdNotificationCountPositionX = {
-    Before: /** @type {?} */ ('before'),
-    After: /** @type {?} */ ('after'),
-    Center: /** @type {?} */ ('center'),
+    Before: 'before',
+    After: 'after',
+    Center: 'center',
 };
 class TdNotificationCountComponent {
     constructor() {
@@ -3434,6 +3434,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
         this._focused = false;
         this._tabIndex = 0;
         this._internalClick = false;
+        this._internalActivateOption = false;
         /**
          * FormControl for the matInput element.
          */
@@ -3905,8 +3906,9 @@ class TdChipsComponent extends _TdChipsMixinBase {
                          */
                 if (this.requireMatch) {
                     let /** @type {?} */ length = this._options.length;
-                    if (length > 0 && this._options.toArray()[0].active) {
+                    if (length > 1 && this._options.toArray()[0].active && this._internalActivateOption) {
                         this._options.toArray()[0].setInactiveStyles();
+                        this._internalActivateOption = false;
                         // prevent default window scrolling
                         event.preventDefault();
                     }
@@ -4085,6 +4087,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
                     });
                     // set the first one as active
                     this._options.toArray()[0].setActiveStyles();
+                    this._internalActivateOption = true;
                     this._changeDetectorRef.markForCheck();
                 }
             });
@@ -4302,10 +4305,12 @@ TdChipsComponent.decorators = [
       -webkit-transform: scaleX(0.5);
               transform: scaleX(0.5);
       visibility: hidden;
+      opacity: 0;
       -webkit-transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
       transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); }
       :host .mat-form-field-underline .mat-form-field-ripple.mat-focused {
         visibility: visible;
+        opacity: 1;
         -webkit-transform: scaleX(1);
                 transform: scaleX(1);
         -webkit-transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear;
@@ -4322,7 +4327,6 @@ TdChipsComponent.decorators = [
     <mat-basic-chip [class.td-chip-disabled]="disabled"
                    [class.td-chip-after-pad]="!canRemoveChip"
                    [color]="color"
-                   [disabled]="true"
                    (keydown)="_chipKeydown($event, index)"
                    (blur)="_handleChipBlur($event, chip)"
                    (focus)="_handleChipFocus($event, chip)">
@@ -4604,10 +4608,10 @@ TdDataTableTemplateDirective.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-/** @enum {?} */
+/** @enum {string} */
 const TdDataTableSortingOrder = {
-    Ascending: /** @type {?} */ ('ASC'),
-    Descending: /** @type {?} */ ('DESC'),
+    Ascending: 'ASC',
+    Descending: 'DESC',
 };
 /**
  * @record
@@ -10101,7 +10105,7 @@ CovalentLayoutModule.decorators = [
                     MatButtonModule,
                     MatIconModule,
                     MatCardModule,
-                    MatListModule,
+                    MatDividerModule,
                 ],
                 declarations: [
                     TD_LAYOUTS,
@@ -10128,26 +10132,26 @@ CovalentLayoutModule.ctorParameters = () => [];
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-/** @enum {?} */
+/** @enum {string} */
 const LoadingType = {
-    Circular: /** @type {?} */ ('circular'),
-    Linear: /** @type {?} */ ('linear'),
+    Circular: 'circular',
+    Linear: 'linear',
 };
-/** @enum {?} */
+/** @enum {string} */
 const LoadingMode = {
-    Determinate: /** @type {?} */ ('determinate'),
-    Indeterminate: /** @type {?} */ ('indeterminate'),
+    Determinate: 'determinate',
+    Indeterminate: 'indeterminate',
 };
-/** @enum {?} */
+/** @enum {string} */
 const LoadingStrategy = {
-    Overlay: /** @type {?} */ ('overlay'),
-    Replace: /** @type {?} */ ('replace'),
+    Overlay: 'overlay',
+    Replace: 'replace',
 };
-/** @enum {?} */
+/** @enum {string} */
 const LoadingStyle = {
-    FullScreen: /** @type {?} */ ('fullscreen'),
-    Overlay: /** @type {?} */ ('overlay'),
-    None: /** @type {?} */ ('none'),
+    FullScreen: 'fullscreen',
+    Overlay: 'overlay',
+    None: 'none',
 };
 const TD_CIRCLE_DIAMETER = 100;
 class TdLoadingComponent {
@@ -11570,7 +11574,7 @@ CovalentMenuModule.decorators = [
                 imports: [
                     CommonModule,
                     MatMenuModule,
-                    MatListModule,
+                    MatDividerModule,
                 ],
                 declarations: [
                     TD_MENU,
@@ -12064,11 +12068,11 @@ CovalentSearchModule.ctorParameters = () => [];
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-/** @enum {?} */
+/** @enum {string} */
 const StepState = {
-    None: /** @type {?} */ ('none'),
-    Required: /** @type {?} */ ('required'),
-    Complete: /** @type {?} */ ('complete'),
+    None: 'none',
+    Required: 'required',
+    Complete: 'complete',
 };
 class TdStepLabelDirective extends TemplatePortalDirective {
     /**
@@ -12316,10 +12320,10 @@ TdStepComponent.propDecorators = {
  * @record
  */
 
-/** @enum {?} */
+/** @enum {string} */
 const StepMode = {
-    Vertical: /** @type {?} */ ('vertical'),
-    Horizontal: /** @type {?} */ ('horizontal'),
+    Vertical: 'vertical',
+    Horizontal: 'horizontal',
 };
 class TdStepsComponent {
     constructor() {

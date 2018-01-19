@@ -28,7 +28,7 @@ var __values = (this && this.__values) || function (o) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdDataTableColumnRowComponent = (function () {
+var TdDataTableColumnRowComponent = /** @class */ (function () {
     /**
      * @param {?} _elementRef
      * @param {?} _renderer
@@ -53,7 +53,7 @@ TdDataTableColumnRowComponent.ctorParameters = function () { return [
     { type: core.ElementRef, },
     { type: core.Renderer2, },
 ]; };
-var TdDataTableRowComponent = (function () {
+var TdDataTableRowComponent = /** @class */ (function () {
     /**
      * @param {?} _elementRef
      * @param {?} _renderer
@@ -137,7 +137,7 @@ TdDataTableRowComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdDataTableTemplateDirective = (function (_super) {
+var TdDataTableTemplateDirective = /** @class */ (function (_super) {
     __extends(TdDataTableTemplateDirective, _super);
     /**
      * @param {?} templateRef
@@ -163,10 +163,10 @@ TdDataTableTemplateDirective.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-/** @enum {?} */
+/** @enum {string} */
 var TdDataTableSortingOrder = {
-    Ascending: /** @type {?} */ ('ASC'),
-    Descending: /** @type {?} */ ('DESC'),
+    Ascending: 'ASC',
+    Descending: 'DESC',
 };
 /**
  * @record
@@ -194,7 +194,7 @@ var TD_VIRTUAL_OFFSET = 2;
  * Constant to set default row height if none is provided
  */
 var TD_VIRTUAL_DEFAULT_ROW_HEIGHT = 48;
-var TdDataTableBase = (function () {
+var TdDataTableBase = /** @class */ (function () {
     /**
      * @param {?} _changeDetectorRef
      */
@@ -205,7 +205,7 @@ var TdDataTableBase = (function () {
 }());
 /* tslint:disable-next-line */
 var _TdDataTableMixinBase = common$1.mixinControlValueAccessor(TdDataTableBase, []);
-var TdDataTableComponent = (function (_super) {
+var TdDataTableComponent = /** @class */ (function (_super) {
     __extends(TdDataTableComponent, _super);
     /**
      * @param {?} _document
@@ -1169,7 +1169,7 @@ var TdDataTableComponent = (function (_super) {
                 // if it has a fixed width, then we just set it
             }
             else if (typeof this.columns[index].width === 'number') {
-                this._widths[index].value = (this.columns[index].width);
+                this._widths[index].value = /** @type {?} */ (this.columns[index].width);
                 skipMinWidthProjection = this._widths[index].limit = true;
             }
         }
@@ -1307,7 +1307,7 @@ TdDataTableComponent.propDecorators = {
 /**
  * @record
  */
-var TdDataTableColumnComponent = (function () {
+var TdDataTableColumnComponent = /** @class */ (function () {
     /**
      * @param {?} _elementRef
      * @param {?} _renderer
@@ -1473,7 +1473,7 @@ TdDataTableColumnComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdDataTableCellComponent = (function () {
+var TdDataTableCellComponent = /** @class */ (function () {
     /**
      * @param {?} _elementRef
      * @param {?} _renderer
@@ -1522,7 +1522,7 @@ TdDataTableCellComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdDataTableTableComponent = (function () {
+var TdDataTableTableComponent = /** @class */ (function () {
     /**
      * @param {?} _elementRef
      * @param {?} _renderer
@@ -1551,7 +1551,7 @@ TdDataTableTableComponent.ctorParameters = function () { return [
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdDataTableService = (function () {
+var TdDataTableService = /** @class */ (function () {
     function TdDataTableService() {
     }
     /**
@@ -1672,7 +1672,7 @@ var TD_DATA_TABLE = [
     TdDataTableColumnRowComponent,
     TdDataTableTableComponent,
 ];
-var CovalentDataTableModule = (function () {
+var CovalentDataTableModule = /** @class */ (function () {
     function CovalentDataTableModule() {
     }
     return CovalentDataTableModule;

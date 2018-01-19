@@ -1,8 +1,8 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/material/icon'), require('@angular/material/button'), require('@angular/cdk/coercion'), require('@angular/cdk/bidi'), require('@angular/cdk/portal'), require('@angular/platform-browser'), require('@angular/forms'), require('@angular/animations'), require('@angular/router'), require('rxjs/operators/filter'), require('rxjs/operators/pairwise'), require('rxjs/Subject'), require('@covalent/core/common'), require('@angular/material/input'), require('@angular/material/autocomplete'), require('@angular/material/chips'), require('@angular/cdk/keycodes'), require('@angular/material/core'), require('rxjs/observable/timer'), require('rxjs/observable/merge'), require('rxjs/operator/toPromise'), require('rxjs/observable/fromEvent'), require('rxjs/operators/debounceTime'), require('@angular/material/checkbox'), require('@angular/material/tooltip'), require('@angular/material/dialog'), require('rxjs/Observable'), require('@angular/cdk/scrolling'), require('@angular/material/sidenav'), require('@angular/material/toolbar'), require('@angular/material/card'), require('@angular/material/list'), require('@angular/cdk/overlay'), require('@angular/material/progress-bar'), require('@angular/material/progress-spinner'), require('rxjs/BehaviorSubject'), require('@angular/material/menu'), require('rxjs/operators/skip')) :
-	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/material/icon', '@angular/material/button', '@angular/cdk/coercion', '@angular/cdk/bidi', '@angular/cdk/portal', '@angular/platform-browser', '@angular/forms', '@angular/animations', '@angular/router', 'rxjs/operators/filter', 'rxjs/operators/pairwise', 'rxjs/Subject', '@covalent/core/common', '@angular/material/input', '@angular/material/autocomplete', '@angular/material/chips', '@angular/cdk/keycodes', '@angular/material/core', 'rxjs/observable/timer', 'rxjs/observable/merge', 'rxjs/operator/toPromise', 'rxjs/observable/fromEvent', 'rxjs/operators/debounceTime', '@angular/material/checkbox', '@angular/material/tooltip', '@angular/material/dialog', 'rxjs/Observable', '@angular/cdk/scrolling', '@angular/material/sidenav', '@angular/material/toolbar', '@angular/material/card', '@angular/material/list', '@angular/cdk/overlay', '@angular/material/progress-bar', '@angular/material/progress-spinner', 'rxjs/BehaviorSubject', '@angular/material/menu', 'rxjs/operators/skip'], factory) :
-	(factory((global.covalent = global.covalent || {}, global.covalent.core = {}),global.ng.core,global.ng.common,global.ng.material.icon,global.ng.material.button,global.ng.cdk.coercion,global.ng.cdk.bidi,global.ng.cdk.portal,global.ng.platformBrowser,global.ng.forms,global.ng.animations,global.ng.router,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.Rx,global.covalent.core.common,global.ng.material.input,global.ng.material.autocomplete,global.ng.material.chips,global.ng.cdk.keycodes,global.ng.material.core,global.Rx.Observable,global.Rx.Observable,global.Rx.Observable.prototype,global.Rx.Observable,global.Rx.Observable.prototype,global.ng.material.checkbox,global.ng.material.tooltip,global.ng.material.dialog,global.Rx,global.ng.cdk.scrolling,global.ng.material.sidenav,global.ng.material.toolbar,global.ng.material.card,global.ng.material.list,global.ng.cdk.overlay,global.ng.material['progress-bar'],global.ng.material['progress-spinner'],global.Rx,global.ng.material.menu,global.Rx.Observable.prototype));
-}(this, (function (exports,core,common,icon,button,coercion,bidi,portal,platformBrowser,forms,animations,router,filter,pairwise,Subject,common$1,input,autocomplete,chips,keycodes,core$1,timer,merge,toPromise,fromEvent,debounceTime,checkbox,tooltip,dialog,Observable,scrolling,sidenav,toolbar,card,list,overlay,progressBar,progressSpinner,BehaviorSubject,menu,skip) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/material/icon'), require('@angular/material/button'), require('@angular/cdk/coercion'), require('@angular/cdk/bidi'), require('@angular/cdk/portal'), require('@angular/platform-browser'), require('@angular/forms'), require('@angular/animations'), require('@angular/router'), require('rxjs/operators/filter'), require('rxjs/operators/pairwise'), require('rxjs/Subject'), require('@covalent/core/common'), require('@angular/material/input'), require('@angular/material/autocomplete'), require('@angular/material/chips'), require('@angular/cdk/keycodes'), require('@angular/material/core'), require('rxjs/observable/timer'), require('rxjs/observable/merge'), require('rxjs/operator/toPromise'), require('rxjs/observable/fromEvent'), require('rxjs/operators/debounceTime'), require('@angular/material/checkbox'), require('@angular/material/tooltip'), require('@angular/material/dialog'), require('rxjs/Observable'), require('@angular/cdk/scrolling'), require('@angular/material/sidenav'), require('@angular/material/toolbar'), require('@angular/material/card'), require('@angular/material/divider'), require('@angular/cdk/overlay'), require('@angular/material/progress-bar'), require('@angular/material/progress-spinner'), require('rxjs/BehaviorSubject'), require('@angular/material/menu'), require('rxjs/operators/skip')) :
+	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/material/icon', '@angular/material/button', '@angular/cdk/coercion', '@angular/cdk/bidi', '@angular/cdk/portal', '@angular/platform-browser', '@angular/forms', '@angular/animations', '@angular/router', 'rxjs/operators/filter', 'rxjs/operators/pairwise', 'rxjs/Subject', '@covalent/core/common', '@angular/material/input', '@angular/material/autocomplete', '@angular/material/chips', '@angular/cdk/keycodes', '@angular/material/core', 'rxjs/observable/timer', 'rxjs/observable/merge', 'rxjs/operator/toPromise', 'rxjs/observable/fromEvent', 'rxjs/operators/debounceTime', '@angular/material/checkbox', '@angular/material/tooltip', '@angular/material/dialog', 'rxjs/Observable', '@angular/cdk/scrolling', '@angular/material/sidenav', '@angular/material/toolbar', '@angular/material/card', '@angular/material/divider', '@angular/cdk/overlay', '@angular/material/progress-bar', '@angular/material/progress-spinner', 'rxjs/BehaviorSubject', '@angular/material/menu', 'rxjs/operators/skip'], factory) :
+	(factory((global.covalent = global.covalent || {}, global.covalent.core = {}),global.ng.core,global.ng.common,global.ng.material.icon,global.ng.material.button,global.ng.cdk.coercion,global.ng.cdk.bidi,global.ng.cdk.portal,global.ng.platformBrowser,global.ng.forms,global.ng.animations,global.ng.router,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.Rx,global.covalent.core.common,global.ng.material.input,global.ng.material.autocomplete,global.ng.material.chips,global.ng.cdk.keycodes,global.ng.material.core,global.Rx.Observable,global.Rx.Observable,global.Rx.Observable.prototype,global.Rx.Observable,global.Rx.Observable.prototype,global.ng.material.checkbox,global.ng.material.tooltip,global.ng.material.dialog,global.Rx,global.ng.cdk.scrolling,global.ng.material.sidenav,global.ng.material.toolbar,global.ng.material.card,global.ng.material.divider,global.ng.cdk.overlay,global.ng.material['progress-bar'],global.ng.material['progress-spinner'],global.Rx,global.ng.material.menu,global.Rx.Observable.prototype));
+}(this, (function (exports,core,common,icon,button,coercion,bidi,portal,platformBrowser,forms,animations,router,filter,pairwise,Subject,common$1,input,autocomplete,chips,keycodes,core$1,timer,merge,toPromise,fromEvent,debounceTime,checkbox,tooltip,dialog,Observable,scrolling,sidenav,toolbar,card,divider,overlay,progressBar,progressSpinner,BehaviorSubject,menu,skip) { 'use strict';
 
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -51,7 +51,7 @@ var __values = (this && this.__values) || function (o) {
 /**
  * @record
  */
-var TdPagingBarComponent = (function () {
+var TdPagingBarComponent = /** @class */ (function () {
     /**
      * @param {?} _dir
      * @param {?} _changeDetectorRef
@@ -382,7 +382,7 @@ TdPagingBarComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var CovalentPagingModule = (function () {
+var CovalentPagingModule = /** @class */ (function () {
     function CovalentPagingModule() {
     }
     return CovalentPagingModule;
@@ -416,7 +416,7 @@ CovalentPagingModule.ctorParameters = function () { return []; };
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdVirtualScrollRowDirective = (function (_super) {
+var TdVirtualScrollRowDirective = /** @class */ (function (_super) {
     __extends(TdVirtualScrollRowDirective, _super);
     /**
      * @param {?} templateRef
@@ -440,7 +440,7 @@ TdVirtualScrollRowDirective.ctorParameters = function () { return [
  * @suppress {checkTypes} checked by tsc
  */
 var TD_VIRTUAL_OFFSET = 2;
-var TdVirtualScrollContainerComponent = (function () {
+var TdVirtualScrollContainerComponent = /** @class */ (function () {
     /**
      * @param {?} _elementRef
      * @param {?} _domSanitizer
@@ -703,7 +703,7 @@ var TD_VIRTUAL_SCROLL = [
     TdVirtualScrollRowDirective,
     TdVirtualScrollContainerComponent,
 ];
-var CovalentVirtualScrollModule = (function () {
+var CovalentVirtualScrollModule = /** @class */ (function () {
     function CovalentVirtualScrollModule() {
     }
     return CovalentVirtualScrollModule;
@@ -735,19 +735,19 @@ CovalentVirtualScrollModule.ctorParameters = function () { return []; };
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-/** @enum {?} */
+/** @enum {string} */
 var TdNotificationCountPositionY = {
-    Top: /** @type {?} */ ('top'),
-    Bottom: /** @type {?} */ ('bottom'),
-    Center: /** @type {?} */ ('center'),
+    Top: 'top',
+    Bottom: 'bottom',
+    Center: 'center',
 };
-/** @enum {?} */
+/** @enum {string} */
 var TdNotificationCountPositionX = {
-    Before: /** @type {?} */ ('before'),
-    After: /** @type {?} */ ('after'),
-    Center: /** @type {?} */ ('center'),
+    Before: 'before',
+    After: 'after',
+    Center: 'center',
 };
-var TdNotificationCountComponent = (function () {
+var TdNotificationCountComponent = /** @class */ (function () {
     function TdNotificationCountComponent() {
         this._notifications = 0;
         /**
@@ -907,7 +907,7 @@ TdNotificationCountComponent.propDecorators = {
 var TD_NOTIFICATIONS = [
     TdNotificationCountComponent,
 ];
-var CovalentNotificationsModule = (function () {
+var CovalentNotificationsModule = /** @class */ (function () {
     function CovalentNotificationsModule() {
     }
     return CovalentNotificationsModule;
@@ -939,7 +939,7 @@ CovalentNotificationsModule.ctorParameters = function () { return []; };
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdToggleDirective = (function () {
+var TdToggleDirective = /** @class */ (function () {
     /**
      * @param {?} _renderer
      * @param {?} _element
@@ -1099,7 +1099,7 @@ TdToggleDirective.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdFadeDirective = (function () {
+var TdFadeDirective = /** @class */ (function () {
     /**
      * @param {?} _renderer
      * @param {?} _element
@@ -1265,7 +1265,7 @@ TdFadeDirective.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdAutoTrimDirective = (function () {
+var TdAutoTrimDirective = /** @class */ (function () {
     /**
      * @param {?} _model
      */
@@ -1300,7 +1300,7 @@ TdAutoTrimDirective.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdTimeAgoPipe = (function () {
+var TdTimeAgoPipe = /** @class */ (function () {
     function TdTimeAgoPipe() {
     }
     /**
@@ -1380,7 +1380,7 @@ TdTimeAgoPipe.ctorParameters = function () { return []; };
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdTimeDifferencePipe = (function () {
+var TdTimeDifferencePipe = /** @class */ (function () {
     function TdTimeDifferencePipe() {
     }
     /**
@@ -1434,7 +1434,7 @@ TdTimeDifferencePipe.ctorParameters = function () { return []; };
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdBytesPipe = (function () {
+var TdBytesPipe = /** @class */ (function () {
     function TdBytesPipe() {
     }
     /**
@@ -1473,7 +1473,7 @@ TdBytesPipe.ctorParameters = function () { return []; };
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdDigitsPipe = (function () {
+var TdDigitsPipe = /** @class */ (function () {
     /**
      * @param {?=} _locale
      */
@@ -1520,7 +1520,7 @@ TdDigitsPipe.ctorParameters = function () { return [
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdTruncatePipe = (function () {
+var TdTruncatePipe = /** @class */ (function () {
     function TdTruncatePipe() {
     }
     /**
@@ -1555,7 +1555,7 @@ TdTruncatePipe.ctorParameters = function () { return []; };
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var RouterPathService = (function () {
+var RouterPathService = /** @class */ (function () {
     /**
      * @param {?} _router
      */
@@ -1589,7 +1589,7 @@ RouterPathService.ctorParameters = function () { return [
  * Copyright (C) 2016-2017 by Teradata Corporation. All rights reserved.
  * TERADATA CORPORATION CONFIDENTIAL AND TRADE SECRET
  */
-var IconService = (function () {
+var IconService = /** @class */ (function () {
     function IconService() {
         this._icons = [
             'access_alarm',
@@ -2415,7 +2415,7 @@ var TD_PIPES = [
     TdDigitsPipe,
     TdTruncatePipe,
 ];
-var CovalentCommonModule$1 = (function () {
+var CovalentCommonModule$1 = /** @class */ (function () {
     function CovalentCommonModule$1() {
     }
     return CovalentCommonModule$1;
@@ -2822,7 +2822,7 @@ var noop = function () {
  * @return {?}
  */
 function mixinControlValueAccessor$1(base, initialValue) {
-    return (function (_super) {
+    return /** @class */ (function (_super) {
         __extends(class_1, _super);
         /**
          * @param {...?} args
@@ -2902,7 +2902,7 @@ function mixinControlValueAccessor$1(base, initialValue) {
  * @return {?}
  */
 function mixinDisabled$1(base) {
-    return (function (_super) {
+    return /** @class */ (function (_super) {
         __extends(class_2, _super);
         /**
          * @param {...?} args
@@ -2962,7 +2962,7 @@ function mixinDisabled$1(base) {
  * @return {?}
  */
 function mixinDisableRipple$1(base) {
-    return (function (_super) {
+    return /** @class */ (function (_super) {
         __extends(class_3, _super);
         /**
          * @param {...?} args
@@ -3011,7 +3011,7 @@ function mixinDisableRipple$1(base) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var CovalentValidators = (function () {
+var CovalentValidators = /** @class */ (function () {
     function CovalentValidators() {
     }
     /**
@@ -3069,7 +3069,7 @@ var CovalentValidators = (function () {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdMessageContainerDirective = (function () {
+var TdMessageContainerDirective = /** @class */ (function () {
     /**
      * @param {?} viewContainer
      */
@@ -3087,7 +3087,7 @@ TdMessageContainerDirective.decorators = [
 TdMessageContainerDirective.ctorParameters = function () { return [
     { type: core.ViewContainerRef, },
 ]; };
-var TdMessageComponent = (function () {
+var TdMessageComponent = /** @class */ (function () {
     /**
      * @param {?} _renderer
      * @param {?} _changeDetectorRef
@@ -3319,7 +3319,7 @@ var TD_MESSAGE = [
     TdMessageComponent,
     TdMessageContainerDirective,
 ];
-var CovalentMessageModule = (function () {
+var CovalentMessageModule = /** @class */ (function () {
     function CovalentMessageModule() {
     }
     return CovalentMessageModule;
@@ -3352,7 +3352,7 @@ CovalentMessageModule.ctorParameters = function () { return []; };
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdChipDirective = (function (_super) {
+var TdChipDirective = /** @class */ (function (_super) {
     __extends(TdChipDirective, _super);
     /**
      * @param {?} templateRef
@@ -3373,7 +3373,7 @@ TdChipDirective.ctorParameters = function () { return [
     { type: core.TemplateRef, },
     { type: core.ViewContainerRef, },
 ]; };
-var TdAutocompleteOptionDirective = (function (_super) {
+var TdAutocompleteOptionDirective = /** @class */ (function (_super) {
     __extends(TdAutocompleteOptionDirective, _super);
     /**
      * @param {?} templateRef
@@ -3394,7 +3394,7 @@ TdAutocompleteOptionDirective.ctorParameters = function () { return [
     { type: core.TemplateRef, },
     { type: core.ViewContainerRef, },
 ]; };
-var TdChipsBase = (function () {
+var TdChipsBase = /** @class */ (function () {
     /**
      * @param {?} _changeDetectorRef
      */
@@ -3405,7 +3405,7 @@ var TdChipsBase = (function () {
 }());
 /* tslint:disable-next-line */
 var _TdChipsMixinBase = common$1.mixinControlValueAccessor(common$1.mixinDisabled(TdChipsBase), []);
-var TdChipsComponent = (function (_super) {
+var TdChipsComponent = /** @class */ (function (_super) {
     __extends(TdChipsComponent, _super);
     /**
      * @param {?} _elementRef
@@ -3429,6 +3429,7 @@ var TdChipsComponent = (function (_super) {
         _this._focused = false;
         _this._tabIndex = 0;
         _this._internalClick = false;
+        _this._internalActivateOption = false;
         /**
          * FormControl for the matInput element.
          */
@@ -3949,8 +3950,9 @@ var TdChipsComponent = (function (_super) {
                          */
                 if (this.requireMatch) {
                     var /** @type {?} */ length = this._options.length;
-                    if (length > 0 && this._options.toArray()[0].active) {
+                    if (length > 1 && this._options.toArray()[0].active && this._internalActivateOption) {
                         this._options.toArray()[0].setInactiveStyles();
+                        this._internalActivateOption = false;
                         // prevent default window scrolling
                         event.preventDefault();
                     }
@@ -4134,6 +4136,7 @@ var TdChipsComponent = (function (_super) {
                     });
                     // set the first one as active
                     _this._options.toArray()[0].setActiveStyles();
+                    _this._internalActivateOption = true;
                     _this._changeDetectorRef.markForCheck();
                 }
             });
@@ -4178,8 +4181,8 @@ TdChipsComponent.decorators = [
                     }],
                 selector: 'td-chips',
                 inputs: ['disabled', 'value'],
-                styles: [":host {\n  display: block;\n  padding: 0 5px;\n  min-height: 48px; }\n  :host .td-chips-wrapper {\n    min-height: 42px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: row;\n            flex-direction: row;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    -webkit-box-align: start;\n        -ms-flex-align: start;\n            align-items: flex-start; }\n    :host .td-chips-wrapper.td-chips-stacked .mat-basic-chip,\n    :host .td-chips-wrapper.td-chips-stacked .td-chips-form-field {\n      width: 100%; }\n    :host .td-chips-wrapper.td-chips-input-before-position .td-chips-form-field {\n      -webkit-box-ordinal-group: 0;\n          -ms-flex-order: -1;\n              order: -1; }\n  :host .td-chip, :host .td-chip > .td-chip-content {\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: row;\n            flex-direction: row;\n    max-width: 100%;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -ms-flex-line-pack: center;\n        align-content: center;\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: start; }\n    :host .td-chip.td-chip-stacked, :host .td-chip > .td-chip-content.td-chip-stacked {\n      -webkit-box-pack: justify;\n          -ms-flex-pack: justify;\n              justify-content: space-between; }\n  :host ::ng-deep {\n    /* TODO see if we can make styles more abstract to future proof for contact chips */ }\n    :host ::ng-deep .mat-form-field-wrapper {\n      padding-bottom: 2px; }\n    :host ::ng-deep .mat-basic-chip {\n      display: inline-block;\n      cursor: default;\n      border-radius: 16px;\n      margin: 8px 8px 0 0;\n      -webkit-box-sizing: border-box;\n              box-sizing: border-box;\n      max-width: 100%;\n      position: relative; }\n      html[dir=rtl] :host ::ng-deep .mat-basic-chip {\n        margin: 8px 0 0 8px;\n        unicode-bidi: embed; }\n      body[dir=rtl] :host ::ng-deep .mat-basic-chip {\n        margin: 8px 0 0 8px;\n        unicode-bidi: embed; }\n      [dir=rtl] :host ::ng-deep .mat-basic-chip {\n        margin: 8px 0 0 8px;\n        unicode-bidi: embed; }\n      :host ::ng-deep .mat-basic-chip bdo[dir=rtl] {\n        direction: rtl;\n        unicode-bidi: bidi-override; }\n      :host ::ng-deep .mat-basic-chip bdo[dir=ltr] {\n        direction: ltr;\n        unicode-bidi: bidi-override; }\n      :host ::ng-deep .mat-basic-chip .td-chip {\n        min-height: 32px;\n        line-height: 32px;\n        font-size: 13px;\n        padding: 0 0 0 12px; }\n        html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip {\n          padding: 0 12px 0 0;\n          unicode-bidi: embed; }\n        body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip {\n          padding: 0 12px 0 0;\n          unicode-bidi: embed; }\n        [dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip {\n          padding: 0 12px 0 0;\n          unicode-bidi: embed; }\n        :host ::ng-deep .mat-basic-chip .td-chip bdo[dir=rtl] {\n          direction: rtl;\n          unicode-bidi: bidi-override; }\n        :host ::ng-deep .mat-basic-chip .td-chip bdo[dir=ltr] {\n          direction: ltr;\n          unicode-bidi: bidi-override; }\n        :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] {\n          display: inline-block;\n          -webkit-box-ordinal-group: -19;\n              -ms-flex-order: -20;\n                  order: -20;\n          -webkit-box-pack: center;\n              -ms-flex-pack: center;\n                  justify-content: center;\n          -webkit-box-align: center;\n              -ms-flex-align: center;\n                  align-items: center;\n          text-align: center;\n          height: 32px;\n          width: 32px;\n          margin: 0 8px 0 -12px;\n          border-radius: 50%; }\n          html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] {\n            margin: 0 -12px 0 8px;\n            unicode-bidi: embed; }\n          body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] {\n            margin: 0 -12px 0 8px;\n            unicode-bidi: embed; }\n          [dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] {\n            margin: 0 -12px 0 8px;\n            unicode-bidi: embed; }\n          :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=rtl] {\n            direction: rtl;\n            unicode-bidi: bidi-override; }\n          :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=ltr] {\n            direction: ltr;\n            unicode-bidi: bidi-override; }\n      :host ::ng-deep .mat-basic-chip.td-chip-after-pad {\n        padding: 0 12px 0 0; }\n        html[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad {\n          padding: 0 0 0 12px;\n          unicode-bidi: embed; }\n        body[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad {\n          padding: 0 0 0 12px;\n          unicode-bidi: embed; }\n        [dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad {\n          padding: 0 0 0 12px;\n          unicode-bidi: embed; }\n        :host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=rtl] {\n          direction: rtl;\n          unicode-bidi: bidi-override; }\n        :host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=ltr] {\n          direction: ltr;\n          unicode-bidi: bidi-override; }\n      :host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal {\n        margin: 0 4px;\n        font-size: 21px;\n        line-height: 22px; }\n        :host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal:hover {\n          cursor: pointer; }\n    :host ::ng-deep .td-chips-stacked .mat-basic-chip {\n      margin: 4px 0; }\n      :host ::ng-deep .td-chips-stacked .mat-basic-chip:first-of-type {\n        margin: 8px 0 4px; }\n      :host ::ng-deep .td-chips-stacked .mat-basic-chip:last-of-type {\n        margin: 4px 0 8px; }\n  :host .mat-form-field-underline {\n    position: relative;\n    height: 1px;\n    width: 100%;\n    bottom: 0; }\n    :host .mat-form-field-underline.mat-disabled {\n      background-position: 0;\n      bottom: -4px;\n      background-color: transparent; }\n    :host .mat-form-field-underline .mat-form-field-ripple {\n      position: absolute;\n      height: 2px;\n      top: 0;\n      width: 100%;\n      -webkit-transform-origin: 50%;\n              transform-origin: 50%;\n      -webkit-transform: scaleX(0.5);\n              transform: scaleX(0.5);\n      visibility: hidden;\n      -webkit-transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);\n      transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); }\n      :host .mat-form-field-underline .mat-form-field-ripple.mat-focused {\n        visibility: visible;\n        -webkit-transform: scaleX(1);\n                transform: scaleX(1);\n        -webkit-transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear;\n        transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear;\n        transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);\n        transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear; }\n  :host ::ng-deep mat-form-field .mat-form-field-underline {\n    display: none; }\n"],
-                template: "<div class=\"td-chips-wrapper\"\n     [class.td-chips-stacked]=\"stacked\"\n     [class.td-chips-input-before-position]=\"inputPosition === 'before'\">\n  <ng-template let-chip let-first=\"first\" let-index=\"index\" ngFor [ngForOf]=\"value\">\n    <mat-basic-chip [class.td-chip-disabled]=\"disabled\"\n                   [class.td-chip-after-pad]=\"!canRemoveChip\"\n                   [color]=\"color\"\n                   [disabled]=\"true\"\n                   (keydown)=\"_chipKeydown($event, index)\"\n                   (blur)=\"_handleChipBlur($event, chip)\"\n                   (focus)=\"_handleChipFocus($event, chip)\">\n      <div class=\"td-chip\" [class.td-chip-stacked]=\"stacked\">\n        <span class=\"td-chip-content\">\n          <span *ngIf=\"!_chipTemplate?.templateRef\">{{chip}}</span>\n          <ng-template\n            *ngIf=\"_chipTemplate?.templateRef\"\n            [ngTemplateOutlet]=\"_chipTemplate?.templateRef\"\n            [ngTemplateOutletContext]=\"{ chip: chip }\">\n          </ng-template>\n        </span>\n        <mat-icon *ngIf=\"canRemoveChip\" class=\"td-chip-removal\" (click)=\"_internalClick = removeChip(index)\">\n          cancel\n        </mat-icon>\n      </div>\n    </mat-basic-chip>\n  </ng-template>\n  <mat-form-field floatPlaceholder=\"never\"\n                  class=\"td-chips-form-field\"\n                  [style.width.px]=\"canAddChip ? null : 0\"\n                  [style.height.px]=\"canAddChip ? null : 0\"\n                  [color]=\"color\">\n    <input matInput\n            #input\n            [tabIndex]=\"-1\"\n            [matAutocomplete]=\"autocomplete\"\n            [formControl]=\"inputControl\"\n            [placeholder]=\"canAddChip? placeholder : ''\"\n            (keydown)=\"_inputKeydown($event)\"\n            (keyup.enter)=\"_handleAddChip()\"\n            (focus)=\"_handleFocus()\">\n  </mat-form-field>\n  <mat-autocomplete #autocomplete=\"matAutocomplete\"\n                   [displayWith]=\"_removeInputDisplay\"\n                   (optionSelected)=\"addChip($event.option.value)\">\n    <ng-template let-item let-first=\"first\" ngFor [ngForOf]=\"items\">\n      <mat-option (click)=\"_setInternalClick()\" [value]=\"item\">\n        <span *ngIf=\"!_autocompleteOptionTemplate?.templateRef\">{{item}}</span>\n        <ng-template\n          *ngIf=\"_autocompleteOptionTemplate?.templateRef\"\n          [ngTemplateOutlet]=\"_autocompleteOptionTemplate?.templateRef\"\n          [ngTemplateOutletContext]=\"{ option: item }\">\n        </ng-template>\n      </mat-option>\n    </ng-template>\n  </mat-autocomplete>\n</div>\n<div *ngIf=\"chipAddition\" class=\"mat-form-field-underline\"\n      [class.mat-disabled]=\"disabled\">\n  <span class=\"mat-form-field-ripple\"\n        [class.mat-focused]=\"focused\"></span>\n</div>\n<ng-content></ng-content>",
+                styles: [":host {\n  display: block;\n  padding: 0 5px;\n  min-height: 48px; }\n  :host .td-chips-wrapper {\n    min-height: 42px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: row;\n            flex-direction: row;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    -webkit-box-align: start;\n        -ms-flex-align: start;\n            align-items: flex-start; }\n    :host .td-chips-wrapper.td-chips-stacked .mat-basic-chip,\n    :host .td-chips-wrapper.td-chips-stacked .td-chips-form-field {\n      width: 100%; }\n    :host .td-chips-wrapper.td-chips-input-before-position .td-chips-form-field {\n      -webkit-box-ordinal-group: 0;\n          -ms-flex-order: -1;\n              order: -1; }\n  :host .td-chip, :host .td-chip > .td-chip-content {\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: row;\n            flex-direction: row;\n    max-width: 100%;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -ms-flex-line-pack: center;\n        align-content: center;\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: start; }\n    :host .td-chip.td-chip-stacked, :host .td-chip > .td-chip-content.td-chip-stacked {\n      -webkit-box-pack: justify;\n          -ms-flex-pack: justify;\n              justify-content: space-between; }\n  :host ::ng-deep {\n    /* TODO see if we can make styles more abstract to future proof for contact chips */ }\n    :host ::ng-deep .mat-form-field-wrapper {\n      padding-bottom: 2px; }\n    :host ::ng-deep .mat-basic-chip {\n      display: inline-block;\n      cursor: default;\n      border-radius: 16px;\n      margin: 8px 8px 0 0;\n      -webkit-box-sizing: border-box;\n              box-sizing: border-box;\n      max-width: 100%;\n      position: relative; }\n      html[dir=rtl] :host ::ng-deep .mat-basic-chip {\n        margin: 8px 0 0 8px;\n        unicode-bidi: embed; }\n      body[dir=rtl] :host ::ng-deep .mat-basic-chip {\n        margin: 8px 0 0 8px;\n        unicode-bidi: embed; }\n      [dir=rtl] :host ::ng-deep .mat-basic-chip {\n        margin: 8px 0 0 8px;\n        unicode-bidi: embed; }\n      :host ::ng-deep .mat-basic-chip bdo[dir=rtl] {\n        direction: rtl;\n        unicode-bidi: bidi-override; }\n      :host ::ng-deep .mat-basic-chip bdo[dir=ltr] {\n        direction: ltr;\n        unicode-bidi: bidi-override; }\n      :host ::ng-deep .mat-basic-chip .td-chip {\n        min-height: 32px;\n        line-height: 32px;\n        font-size: 13px;\n        padding: 0 0 0 12px; }\n        html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip {\n          padding: 0 12px 0 0;\n          unicode-bidi: embed; }\n        body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip {\n          padding: 0 12px 0 0;\n          unicode-bidi: embed; }\n        [dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip {\n          padding: 0 12px 0 0;\n          unicode-bidi: embed; }\n        :host ::ng-deep .mat-basic-chip .td-chip bdo[dir=rtl] {\n          direction: rtl;\n          unicode-bidi: bidi-override; }\n        :host ::ng-deep .mat-basic-chip .td-chip bdo[dir=ltr] {\n          direction: ltr;\n          unicode-bidi: bidi-override; }\n        :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] {\n          display: inline-block;\n          -webkit-box-ordinal-group: -19;\n              -ms-flex-order: -20;\n                  order: -20;\n          -webkit-box-pack: center;\n              -ms-flex-pack: center;\n                  justify-content: center;\n          -webkit-box-align: center;\n              -ms-flex-align: center;\n                  align-items: center;\n          text-align: center;\n          height: 32px;\n          width: 32px;\n          margin: 0 8px 0 -12px;\n          border-radius: 50%; }\n          html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] {\n            margin: 0 -12px 0 8px;\n            unicode-bidi: embed; }\n          body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] {\n            margin: 0 -12px 0 8px;\n            unicode-bidi: embed; }\n          [dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] {\n            margin: 0 -12px 0 8px;\n            unicode-bidi: embed; }\n          :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=rtl] {\n            direction: rtl;\n            unicode-bidi: bidi-override; }\n          :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=ltr] {\n            direction: ltr;\n            unicode-bidi: bidi-override; }\n      :host ::ng-deep .mat-basic-chip.td-chip-after-pad {\n        padding: 0 12px 0 0; }\n        html[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad {\n          padding: 0 0 0 12px;\n          unicode-bidi: embed; }\n        body[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad {\n          padding: 0 0 0 12px;\n          unicode-bidi: embed; }\n        [dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad {\n          padding: 0 0 0 12px;\n          unicode-bidi: embed; }\n        :host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=rtl] {\n          direction: rtl;\n          unicode-bidi: bidi-override; }\n        :host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=ltr] {\n          direction: ltr;\n          unicode-bidi: bidi-override; }\n      :host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal {\n        margin: 0 4px;\n        font-size: 21px;\n        line-height: 22px; }\n        :host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal:hover {\n          cursor: pointer; }\n    :host ::ng-deep .td-chips-stacked .mat-basic-chip {\n      margin: 4px 0; }\n      :host ::ng-deep .td-chips-stacked .mat-basic-chip:first-of-type {\n        margin: 8px 0 4px; }\n      :host ::ng-deep .td-chips-stacked .mat-basic-chip:last-of-type {\n        margin: 4px 0 8px; }\n  :host .mat-form-field-underline {\n    position: relative;\n    height: 1px;\n    width: 100%;\n    bottom: 0; }\n    :host .mat-form-field-underline.mat-disabled {\n      background-position: 0;\n      bottom: -4px;\n      background-color: transparent; }\n    :host .mat-form-field-underline .mat-form-field-ripple {\n      position: absolute;\n      height: 2px;\n      top: 0;\n      width: 100%;\n      -webkit-transform-origin: 50%;\n              transform-origin: 50%;\n      -webkit-transform: scaleX(0.5);\n              transform: scaleX(0.5);\n      visibility: hidden;\n      opacity: 0;\n      -webkit-transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);\n      transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); }\n      :host .mat-form-field-underline .mat-form-field-ripple.mat-focused {\n        visibility: visible;\n        opacity: 1;\n        -webkit-transform: scaleX(1);\n                transform: scaleX(1);\n        -webkit-transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear;\n        transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear;\n        transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);\n        transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear; }\n  :host ::ng-deep mat-form-field .mat-form-field-underline {\n    display: none; }\n"],
+                template: "<div class=\"td-chips-wrapper\"\n     [class.td-chips-stacked]=\"stacked\"\n     [class.td-chips-input-before-position]=\"inputPosition === 'before'\">\n  <ng-template let-chip let-first=\"first\" let-index=\"index\" ngFor [ngForOf]=\"value\">\n    <mat-basic-chip [class.td-chip-disabled]=\"disabled\"\n                   [class.td-chip-after-pad]=\"!canRemoveChip\"\n                   [color]=\"color\"\n                   (keydown)=\"_chipKeydown($event, index)\"\n                   (blur)=\"_handleChipBlur($event, chip)\"\n                   (focus)=\"_handleChipFocus($event, chip)\">\n      <div class=\"td-chip\" [class.td-chip-stacked]=\"stacked\">\n        <span class=\"td-chip-content\">\n          <span *ngIf=\"!_chipTemplate?.templateRef\">{{chip}}</span>\n          <ng-template\n            *ngIf=\"_chipTemplate?.templateRef\"\n            [ngTemplateOutlet]=\"_chipTemplate?.templateRef\"\n            [ngTemplateOutletContext]=\"{ chip: chip }\">\n          </ng-template>\n        </span>\n        <mat-icon *ngIf=\"canRemoveChip\" class=\"td-chip-removal\" (click)=\"_internalClick = removeChip(index)\">\n          cancel\n        </mat-icon>\n      </div>\n    </mat-basic-chip>\n  </ng-template>\n  <mat-form-field floatPlaceholder=\"never\"\n                  class=\"td-chips-form-field\"\n                  [style.width.px]=\"canAddChip ? null : 0\"\n                  [style.height.px]=\"canAddChip ? null : 0\"\n                  [color]=\"color\">\n    <input matInput\n            #input\n            [tabIndex]=\"-1\"\n            [matAutocomplete]=\"autocomplete\"\n            [formControl]=\"inputControl\"\n            [placeholder]=\"canAddChip? placeholder : ''\"\n            (keydown)=\"_inputKeydown($event)\"\n            (keyup.enter)=\"_handleAddChip()\"\n            (focus)=\"_handleFocus()\">\n  </mat-form-field>\n  <mat-autocomplete #autocomplete=\"matAutocomplete\"\n                   [displayWith]=\"_removeInputDisplay\"\n                   (optionSelected)=\"addChip($event.option.value)\">\n    <ng-template let-item let-first=\"first\" ngFor [ngForOf]=\"items\">\n      <mat-option (click)=\"_setInternalClick()\" [value]=\"item\">\n        <span *ngIf=\"!_autocompleteOptionTemplate?.templateRef\">{{item}}</span>\n        <ng-template\n          *ngIf=\"_autocompleteOptionTemplate?.templateRef\"\n          [ngTemplateOutlet]=\"_autocompleteOptionTemplate?.templateRef\"\n          [ngTemplateOutletContext]=\"{ option: item }\">\n        </ng-template>\n      </mat-option>\n    </ng-template>\n  </mat-autocomplete>\n</div>\n<div *ngIf=\"chipAddition\" class=\"mat-form-field-underline\"\n      [class.mat-disabled]=\"disabled\">\n  <span class=\"mat-form-field-ripple\"\n        [class.mat-focused]=\"focused\"></span>\n</div>\n<ng-content></ng-content>",
                 changeDetection: core.ChangeDetectionStrategy.OnPush,
             },] },
 ];
@@ -4222,7 +4225,7 @@ TdChipsComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var CovalentChipsModule = (function () {
+var CovalentChipsModule = /** @class */ (function () {
     function CovalentChipsModule() {
     }
     return CovalentChipsModule;
@@ -4263,7 +4266,7 @@ CovalentChipsModule.ctorParameters = function () { return []; };
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdDataTableColumnRowComponent = (function () {
+var TdDataTableColumnRowComponent = /** @class */ (function () {
     /**
      * @param {?} _elementRef
      * @param {?} _renderer
@@ -4288,7 +4291,7 @@ TdDataTableColumnRowComponent.ctorParameters = function () { return [
     { type: core.ElementRef, },
     { type: core.Renderer2, },
 ]; };
-var TdDataTableRowComponent = (function () {
+var TdDataTableRowComponent = /** @class */ (function () {
     /**
      * @param {?} _elementRef
      * @param {?} _renderer
@@ -4372,7 +4375,7 @@ TdDataTableRowComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdDataTableTemplateDirective = (function (_super) {
+var TdDataTableTemplateDirective = /** @class */ (function (_super) {
     __extends(TdDataTableTemplateDirective, _super);
     /**
      * @param {?} templateRef
@@ -4398,10 +4401,10 @@ TdDataTableTemplateDirective.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-/** @enum {?} */
+/** @enum {string} */
 var TdDataTableSortingOrder = {
-    Ascending: /** @type {?} */ ('ASC'),
-    Descending: /** @type {?} */ ('DESC'),
+    Ascending: 'ASC',
+    Descending: 'DESC',
 };
 /**
  * @record
@@ -4429,7 +4432,7 @@ var TD_VIRTUAL_OFFSET$1 = 2;
  * Constant to set default row height if none is provided
  */
 var TD_VIRTUAL_DEFAULT_ROW_HEIGHT = 48;
-var TdDataTableBase = (function () {
+var TdDataTableBase = /** @class */ (function () {
     /**
      * @param {?} _changeDetectorRef
      */
@@ -4440,7 +4443,7 @@ var TdDataTableBase = (function () {
 }());
 /* tslint:disable-next-line */
 var _TdDataTableMixinBase = common$1.mixinControlValueAccessor(TdDataTableBase, []);
-var TdDataTableComponent = (function (_super) {
+var TdDataTableComponent = /** @class */ (function (_super) {
     __extends(TdDataTableComponent, _super);
     /**
      * @param {?} _document
@@ -5404,7 +5407,7 @@ var TdDataTableComponent = (function (_super) {
                 // if it has a fixed width, then we just set it
             }
             else if (typeof this.columns[index].width === 'number') {
-                this._widths[index].value = (this.columns[index].width);
+                this._widths[index].value = /** @type {?} */ (this.columns[index].width);
                 skipMinWidthProjection = this._widths[index].limit = true;
             }
         }
@@ -5542,7 +5545,7 @@ TdDataTableComponent.propDecorators = {
 /**
  * @record
  */
-var TdDataTableColumnComponent = (function () {
+var TdDataTableColumnComponent = /** @class */ (function () {
     /**
      * @param {?} _elementRef
      * @param {?} _renderer
@@ -5708,7 +5711,7 @@ TdDataTableColumnComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdDataTableCellComponent = (function () {
+var TdDataTableCellComponent = /** @class */ (function () {
     /**
      * @param {?} _elementRef
      * @param {?} _renderer
@@ -5757,7 +5760,7 @@ TdDataTableCellComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdDataTableTableComponent = (function () {
+var TdDataTableTableComponent = /** @class */ (function () {
     /**
      * @param {?} _elementRef
      * @param {?} _renderer
@@ -5786,7 +5789,7 @@ TdDataTableTableComponent.ctorParameters = function () { return [
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdDataTableService = (function () {
+var TdDataTableService = /** @class */ (function () {
     function TdDataTableService() {
     }
     /**
@@ -5907,7 +5910,7 @@ var TD_DATA_TABLE = [
     TdDataTableColumnRowComponent,
     TdDataTableTableComponent,
 ];
-var CovalentDataTableModule = (function () {
+var CovalentDataTableModule = /** @class */ (function () {
     function CovalentDataTableModule() {
     }
     return CovalentDataTableModule;
@@ -5946,7 +5949,7 @@ CovalentDataTableModule.ctorParameters = function () { return []; };
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdDialogTitleDirective = (function () {
+var TdDialogTitleDirective = /** @class */ (function () {
     function TdDialogTitleDirective() {
     }
     return TdDialogTitleDirective;
@@ -5956,7 +5959,7 @@ TdDialogTitleDirective.decorators = [
 ];
 /** @nocollapse */
 TdDialogTitleDirective.ctorParameters = function () { return []; };
-var TdDialogContentDirective = (function () {
+var TdDialogContentDirective = /** @class */ (function () {
     function TdDialogContentDirective() {
     }
     return TdDialogContentDirective;
@@ -5966,7 +5969,7 @@ TdDialogContentDirective.decorators = [
 ];
 /** @nocollapse */
 TdDialogContentDirective.ctorParameters = function () { return []; };
-var TdDialogActionsDirective = (function () {
+var TdDialogActionsDirective = /** @class */ (function () {
     function TdDialogActionsDirective() {
     }
     return TdDialogActionsDirective;
@@ -5976,7 +5979,7 @@ TdDialogActionsDirective.decorators = [
 ];
 /** @nocollapse */
 TdDialogActionsDirective.ctorParameters = function () { return []; };
-var TdDialogComponent = (function () {
+var TdDialogComponent = /** @class */ (function () {
     function TdDialogComponent() {
     }
     /**
@@ -6013,7 +6016,7 @@ TdDialogComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdAlertDialogComponent = (function () {
+var TdAlertDialogComponent = /** @class */ (function () {
     /**
      * @param {?} _dialogRef
      */
@@ -6044,7 +6047,7 @@ TdAlertDialogComponent.ctorParameters = function () { return [
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdConfirmDialogComponent = (function () {
+var TdConfirmDialogComponent = /** @class */ (function () {
     /**
      * @param {?} _dialogRef
      */
@@ -6082,7 +6085,7 @@ TdConfirmDialogComponent.ctorParameters = function () { return [
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdPromptDialogComponent = (function () {
+var TdPromptDialogComponent = /** @class */ (function () {
     /**
      * @param {?} _dialogRef
      */
@@ -6153,7 +6156,7 @@ TdPromptDialogComponent.propDecorators = {
 /**
  * @record
  */
-var TdDialogService = (function () {
+var TdDialogService = /** @class */ (function () {
     /**
      * @param {?} _dialogService
      */
@@ -6318,7 +6321,7 @@ var TD_DIALOGS_ENTRY_COMPONENTS = [
     TdConfirmDialogComponent,
     TdPromptDialogComponent,
 ];
-var CovalentDialogsModule = (function () {
+var CovalentDialogsModule = /** @class */ (function () {
     function CovalentDialogsModule() {
     }
     return CovalentDialogsModule;
@@ -6360,7 +6363,7 @@ CovalentDialogsModule.ctorParameters = function () { return []; };
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdExpansionPanelHeaderDirective = (function (_super) {
+var TdExpansionPanelHeaderDirective = /** @class */ (function (_super) {
     __extends(TdExpansionPanelHeaderDirective, _super);
     /**
      * @param {?} templateRef
@@ -6381,7 +6384,7 @@ TdExpansionPanelHeaderDirective.ctorParameters = function () { return [
     { type: core.TemplateRef, },
     { type: core.ViewContainerRef, },
 ]; };
-var TdExpansionPanelLabelDirective = (function (_super) {
+var TdExpansionPanelLabelDirective = /** @class */ (function (_super) {
     __extends(TdExpansionPanelLabelDirective, _super);
     /**
      * @param {?} templateRef
@@ -6402,7 +6405,7 @@ TdExpansionPanelLabelDirective.ctorParameters = function () { return [
     { type: core.TemplateRef, },
     { type: core.ViewContainerRef, },
 ]; };
-var TdExpansionPanelSublabelDirective = (function (_super) {
+var TdExpansionPanelSublabelDirective = /** @class */ (function (_super) {
     __extends(TdExpansionPanelSublabelDirective, _super);
     /**
      * @param {?} templateRef
@@ -6423,7 +6426,7 @@ TdExpansionPanelSublabelDirective.ctorParameters = function () { return [
     { type: core.TemplateRef, },
     { type: core.ViewContainerRef, },
 ]; };
-var TdExpansionPanelSummaryComponent = (function () {
+var TdExpansionPanelSummaryComponent = /** @class */ (function () {
     function TdExpansionPanelSummaryComponent() {
     }
     return TdExpansionPanelSummaryComponent;
@@ -6436,14 +6439,14 @@ TdExpansionPanelSummaryComponent.decorators = [
 ];
 /** @nocollapse */
 TdExpansionPanelSummaryComponent.ctorParameters = function () { return []; };
-var TdExpansionPanelBase = (function () {
+var TdExpansionPanelBase = /** @class */ (function () {
     function TdExpansionPanelBase() {
     }
     return TdExpansionPanelBase;
 }());
 /* tslint:disable-next-line */
 var _TdExpansionPanelMixinBase = common$1.mixinDisableRipple(common$1.mixinDisabled(TdExpansionPanelBase));
-var TdExpansionPanelComponent = (function (_super) {
+var TdExpansionPanelComponent = /** @class */ (function (_super) {
     __extends(TdExpansionPanelComponent, _super);
     /**
      * @param {?} _renderer
@@ -6597,7 +6600,7 @@ TdExpansionPanelComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdExpansionPanelGroupComponent = (function () {
+var TdExpansionPanelGroupComponent = /** @class */ (function () {
     /**
      * @param {?} _renderer
      * @param {?} _elementRef
@@ -6633,7 +6636,7 @@ var TD_EXPANSION_PANEL = [
     TdExpansionPanelSublabelDirective,
     TdExpansionPanelSummaryComponent,
 ];
-var CovalentExpansionPanelModule = (function () {
+var CovalentExpansionPanelModule = /** @class */ (function () {
     function CovalentExpansionPanelModule() {
     }
     return CovalentExpansionPanelModule;
@@ -6668,7 +6671,7 @@ CovalentExpansionPanelModule.ctorParameters = function () { return []; };
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdFileSelectDirective = (function () {
+var TdFileSelectDirective = /** @class */ (function () {
     /**
      * @param {?} model
      */
@@ -6746,14 +6749,14 @@ TdFileSelectDirective.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdFileDropBase = (function () {
+var TdFileDropBase = /** @class */ (function () {
     function TdFileDropBase() {
     }
     return TdFileDropBase;
 }());
 /* tslint:disable-next-line */
 var _TdFileDropMixinBase = common$1.mixinDisabled(TdFileDropBase);
-var TdFileDropDirective = (function (_super) {
+var TdFileDropDirective = /** @class */ (function (_super) {
     __extends(TdFileDropDirective, _super);
     /**
      * @param {?} _renderer
@@ -6918,7 +6921,7 @@ TdFileDropDirective.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdFileInputLabelDirective = (function (_super) {
+var TdFileInputLabelDirective = /** @class */ (function (_super) {
     __extends(TdFileInputLabelDirective, _super);
     /**
      * @param {?} templateRef
@@ -6939,7 +6942,7 @@ TdFileInputLabelDirective.ctorParameters = function () { return [
     { type: core.TemplateRef, },
     { type: core.ViewContainerRef, },
 ]; };
-var TdFileInputBase = (function () {
+var TdFileInputBase = /** @class */ (function () {
     /**
      * @param {?} _changeDetectorRef
      */
@@ -6950,7 +6953,7 @@ var TdFileInputBase = (function () {
 }());
 /* tslint:disable-next-line */
 var _TdFileInputMixinBase = common$1.mixinControlValueAccessor(common$1.mixinDisabled(TdFileInputBase));
-var TdFileInputComponent = (function (_super) {
+var TdFileInputComponent = /** @class */ (function (_super) {
     __extends(TdFileInputComponent, _super);
     /**
      * @param {?} _renderer
@@ -7056,7 +7059,7 @@ TdFileInputComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdFileUploadBase = (function () {
+var TdFileUploadBase = /** @class */ (function () {
     /**
      * @param {?} _changeDetectorRef
      */
@@ -7067,7 +7070,7 @@ var TdFileUploadBase = (function () {
 }());
 /* tslint:disable-next-line */
 var _TdFileUploadMixinBase = common$1.mixinControlValueAccessor(common$1.mixinDisabled(TdFileUploadBase));
-var TdFileUploadComponent = (function (_super) {
+var TdFileUploadComponent = /** @class */ (function (_super) {
     __extends(TdFileUploadComponent, _super);
     /**
      * @param {?} _changeDetectorRef
@@ -7230,7 +7233,7 @@ TdFileUploadComponent.propDecorators = {
 /**
  * @record
  */
-var TdFileService = (function () {
+var TdFileService = /** @class */ (function () {
     function TdFileService() {
         this._progressSubject = new Subject.Subject();
         this._progressObservable = this._progressSubject.asObservable();
@@ -7322,7 +7325,7 @@ var TD_FILE = [
     TdFileInputComponent,
     TdFileInputLabelDirective,
 ];
-var CovalentFileModule = (function () {
+var CovalentFileModule = /** @class */ (function () {
     function CovalentFileModule() {
     }
     return CovalentFileModule;
@@ -7361,7 +7364,7 @@ CovalentFileModule.ctorParameters = function () { return []; };
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdJsonFormatterComponent = (function () {
+var TdJsonFormatterComponent = /** @class */ (function () {
     /**
      * @param {?} _changeDetectorRef
      * @param {?} _dir
@@ -7648,7 +7651,7 @@ TdJsonFormatterComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var CovalentJsonFormatterModule = (function () {
+var CovalentJsonFormatterModule = /** @class */ (function () {
     function CovalentJsonFormatterModule() {
     }
     return CovalentJsonFormatterModule;
@@ -7682,7 +7685,7 @@ CovalentJsonFormatterModule.ctorParameters = function () { return []; };
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutComponent = (function () {
+var TdLayoutComponent = /** @class */ (function () {
     function TdLayoutComponent() {
         /**
          * mode?: 'side', 'push' or 'over'
@@ -7772,7 +7775,7 @@ TdLayoutComponent.propDecorators = {
 /**
  * @record
  */
-var LayoutToggleBase = (function () {
+var LayoutToggleBase = /** @class */ (function () {
     function LayoutToggleBase() {
     }
     return LayoutToggleBase;
@@ -7782,7 +7785,7 @@ var _TdLayoutToggleMixinBase = common$1.mixinDisabled(LayoutToggleBase);
 /**
  * @abstract
  */
-var LayoutToggle = (function (_super) {
+var LayoutToggle = /** @class */ (function (_super) {
     __extends(LayoutToggle, _super);
     /**
      * @param {?} _layout
@@ -7870,7 +7873,7 @@ LayoutToggle.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutToggleDirective = (function (_super) {
+var TdLayoutToggleDirective = /** @class */ (function (_super) {
     __extends(TdLayoutToggleDirective, _super);
     /**
      * @param {?} layout
@@ -7913,7 +7916,7 @@ TdLayoutToggleDirective.ctorParameters = function () { return [
 TdLayoutToggleDirective.propDecorators = {
     "tdLayoutToggle": [{ type: core.Input, args: ['tdLayoutToggle',] },],
 };
-var TdLayoutCloseDirective = (function (_super) {
+var TdLayoutCloseDirective = /** @class */ (function (_super) {
     __extends(TdLayoutCloseDirective, _super);
     /**
      * @param {?} layout
@@ -7956,7 +7959,7 @@ TdLayoutCloseDirective.ctorParameters = function () { return [
 TdLayoutCloseDirective.propDecorators = {
     "tdLayoutClose": [{ type: core.Input, args: ['tdLayoutClose',] },],
 };
-var TdLayoutOpenDirective = (function (_super) {
+var TdLayoutOpenDirective = /** @class */ (function (_super) {
     __extends(TdLayoutOpenDirective, _super);
     /**
      * @param {?} layout
@@ -8003,7 +8006,7 @@ TdLayoutOpenDirective.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutNavComponent = (function () {
+var TdLayoutNavComponent = /** @class */ (function () {
     /**
      * @param {?} _router
      */
@@ -8060,7 +8063,7 @@ TdLayoutNavComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutNavListComponent = (function () {
+var TdLayoutNavListComponent = /** @class */ (function () {
     /**
      * @param {?} _router
      */
@@ -8183,7 +8186,7 @@ TdLayoutNavListComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutNavListToggleDirective = (function (_super) {
+var TdLayoutNavListToggleDirective = /** @class */ (function (_super) {
     __extends(TdLayoutNavListToggleDirective, _super);
     /**
      * @param {?} layout
@@ -8226,7 +8229,7 @@ TdLayoutNavListToggleDirective.ctorParameters = function () { return [
 TdLayoutNavListToggleDirective.propDecorators = {
     "tdLayoutNavListToggle": [{ type: core.Input, args: ['tdLayoutNavListToggle',] },],
 };
-var TdLayoutNavListCloseDirective = (function (_super) {
+var TdLayoutNavListCloseDirective = /** @class */ (function (_super) {
     __extends(TdLayoutNavListCloseDirective, _super);
     /**
      * @param {?} layout
@@ -8269,7 +8272,7 @@ TdLayoutNavListCloseDirective.ctorParameters = function () { return [
 TdLayoutNavListCloseDirective.propDecorators = {
     "tdLayoutNavListClose": [{ type: core.Input, args: ['tdLayoutNavListClose',] },],
 };
-var TdLayoutNavListOpenDirective = (function (_super) {
+var TdLayoutNavListOpenDirective = /** @class */ (function (_super) {
     __extends(TdLayoutNavListOpenDirective, _super);
     /**
      * @param {?} layout
@@ -8316,7 +8319,7 @@ TdLayoutNavListOpenDirective.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutCardOverComponent = (function () {
+var TdLayoutCardOverComponent = /** @class */ (function () {
     function TdLayoutCardOverComponent() {
         /**
          * cardWidth?: string
@@ -8354,7 +8357,7 @@ TdLayoutCardOverComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutManageListComponent = (function () {
+var TdLayoutManageListComponent = /** @class */ (function () {
     function TdLayoutManageListComponent() {
         /**
          * mode?: 'side', 'push' or 'over'
@@ -8441,7 +8444,7 @@ TdLayoutManageListComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutManageListToggleDirective = (function (_super) {
+var TdLayoutManageListToggleDirective = /** @class */ (function (_super) {
     __extends(TdLayoutManageListToggleDirective, _super);
     /**
      * @param {?} layout
@@ -8484,7 +8487,7 @@ TdLayoutManageListToggleDirective.ctorParameters = function () { return [
 TdLayoutManageListToggleDirective.propDecorators = {
     "tdLayoutManageListToggle": [{ type: core.Input, args: ['tdLayoutManageListToggle',] },],
 };
-var TdLayoutManageListCloseDirective = (function (_super) {
+var TdLayoutManageListCloseDirective = /** @class */ (function (_super) {
     __extends(TdLayoutManageListCloseDirective, _super);
     /**
      * @param {?} layout
@@ -8527,7 +8530,7 @@ TdLayoutManageListCloseDirective.ctorParameters = function () { return [
 TdLayoutManageListCloseDirective.propDecorators = {
     "tdLayoutManageListClose": [{ type: core.Input, args: ['tdLayoutManageListClose',] },],
 };
-var TdLayoutManageListOpenDirective = (function (_super) {
+var TdLayoutManageListOpenDirective = /** @class */ (function (_super) {
     __extends(TdLayoutManageListOpenDirective, _super);
     /**
      * @param {?} layout
@@ -8574,7 +8577,7 @@ TdLayoutManageListOpenDirective.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdLayoutFooterComponent = (function () {
+var TdLayoutFooterComponent = /** @class */ (function () {
     /**
      * @param {?} _renderer
      * @param {?} _elementRef
@@ -8630,7 +8633,7 @@ TdLayoutFooterComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdNavigationDrawerMenuDirective = (function () {
+var TdNavigationDrawerMenuDirective = /** @class */ (function () {
     function TdNavigationDrawerMenuDirective() {
     }
     return TdNavigationDrawerMenuDirective;
@@ -8642,7 +8645,7 @@ TdNavigationDrawerMenuDirective.decorators = [
 ];
 /** @nocollapse */
 TdNavigationDrawerMenuDirective.ctorParameters = function () { return []; };
-var TdNavigationDrawerToolbarDirective = (function () {
+var TdNavigationDrawerToolbarDirective = /** @class */ (function () {
     function TdNavigationDrawerToolbarDirective() {
     }
     return TdNavigationDrawerToolbarDirective;
@@ -8654,7 +8657,7 @@ TdNavigationDrawerToolbarDirective.decorators = [
 ];
 /** @nocollapse */
 TdNavigationDrawerToolbarDirective.ctorParameters = function () { return []; };
-var TdNavigationDrawerComponent = (function () {
+var TdNavigationDrawerComponent = /** @class */ (function () {
     /**
      * @param {?} _layout
      * @param {?} _router
@@ -8860,7 +8863,7 @@ var TD_LAYOUTS = [
     TdNavigationDrawerMenuDirective,
     TdNavigationDrawerToolbarDirective,
 ];
-var CovalentLayoutModule = (function () {
+var CovalentLayoutModule = /** @class */ (function () {
     function CovalentLayoutModule() {
     }
     return CovalentLayoutModule;
@@ -8875,7 +8878,7 @@ CovalentLayoutModule.decorators = [
                     button.MatButtonModule,
                     icon.MatIconModule,
                     card.MatCardModule,
-                    list.MatListModule,
+                    divider.MatDividerModule,
                 ],
                 declarations: [
                     TD_LAYOUTS,
@@ -8899,29 +8902,29 @@ CovalentLayoutModule.ctorParameters = function () { return []; };
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-/** @enum {?} */
+/** @enum {string} */
 var LoadingType = {
-    Circular: /** @type {?} */ ('circular'),
-    Linear: /** @type {?} */ ('linear'),
+    Circular: 'circular',
+    Linear: 'linear',
 };
-/** @enum {?} */
+/** @enum {string} */
 var LoadingMode = {
-    Determinate: /** @type {?} */ ('determinate'),
-    Indeterminate: /** @type {?} */ ('indeterminate'),
+    Determinate: 'determinate',
+    Indeterminate: 'indeterminate',
 };
-/** @enum {?} */
+/** @enum {string} */
 var LoadingStrategy = {
-    Overlay: /** @type {?} */ ('overlay'),
-    Replace: /** @type {?} */ ('replace'),
+    Overlay: 'overlay',
+    Replace: 'replace',
 };
-/** @enum {?} */
+/** @enum {string} */
 var LoadingStyle = {
-    FullScreen: /** @type {?} */ ('fullscreen'),
-    Overlay: /** @type {?} */ ('overlay'),
-    None: /** @type {?} */ ('none'),
+    FullScreen: 'fullscreen',
+    Overlay: 'overlay',
+    None: 'none',
 };
 var TD_CIRCLE_DIAMETER = 100;
-var TdLoadingComponent = (function () {
+var TdLoadingComponent = /** @class */ (function () {
     /**
      * @param {?} _elementRef
      * @param {?} _changeDetectorRef
@@ -9178,7 +9181,7 @@ TdLoadingComponent.ctorParameters = function () { return [
 /**
  * NOTE: \@internal usage only.
  */
-var TdLoadingFactory = (function () {
+var TdLoadingFactory = /** @class */ (function () {
     /**
      * @param {?} _componentFactoryResolver
      * @param {?} _overlay
@@ -9396,7 +9399,7 @@ var LOADING_FACTORY_PROVIDER = {
 /**
  * @record
  */
-var TdLoadingConfig = (function () {
+var TdLoadingConfig = /** @class */ (function () {
     /**
      * @param {?} config
      */
@@ -9414,7 +9417,7 @@ var TdLoadingConfig = (function () {
 /**
  * @record
  */
-var TdLoadingDirectiveConfig = (function (_super) {
+var TdLoadingDirectiveConfig = /** @class */ (function (_super) {
     __extends(TdLoadingDirectiveConfig, _super);
     /**
      * @param {?} config
@@ -9426,7 +9429,7 @@ var TdLoadingDirectiveConfig = (function (_super) {
     }
     return TdLoadingDirectiveConfig;
 }(TdLoadingConfig));
-var TdLoadingService = (function () {
+var TdLoadingService = /** @class */ (function () {
     /**
      * @param {?} _loadingFactory
      */
@@ -9659,7 +9662,7 @@ var LOADING_PROVIDER = {
 /**
  * Context class for variable reference
  */
-var TdLoadingContext = (function () {
+var TdLoadingContext = /** @class */ (function () {
     function TdLoadingContext() {
         this.$implicit = undefined;
         this.tdLoading = undefined;
@@ -9668,7 +9671,7 @@ var TdLoadingContext = (function () {
 }());
 // Constant for generation of the id for the next component
 var TD_LOADING_NEXT_ID = 0;
-var TdLoadingDirective = (function () {
+var TdLoadingDirective = /** @class */ (function () {
     /**
      * @param {?} _viewContainerRef
      * @param {?} _templateRef
@@ -9857,7 +9860,7 @@ var TD_LOADING = [
 var TD_LOADING_ENTRY_COMPONENTS = [
     TdLoadingComponent,
 ];
-var CovalentLoadingModule = (function () {
+var CovalentLoadingModule = /** @class */ (function () {
     function CovalentLoadingModule() {
     }
     return CovalentLoadingModule;
@@ -9900,7 +9903,7 @@ CovalentLoadingModule.ctorParameters = function () { return []; };
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdMediaService = (function () {
+var TdMediaService = /** @class */ (function () {
     /**
      * @param {?} _ngZone
      */
@@ -10037,7 +10040,7 @@ var MEDIA_PROVIDER = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdMediaToggleDirective = (function () {
+var TdMediaToggleDirective = /** @class */ (function () {
     /**
      * @param {?} _renderer
      * @param {?} _elementRef
@@ -10202,7 +10205,7 @@ TdMediaToggleDirective.propDecorators = {
 var TD_MEDIA = [
     TdMediaToggleDirective,
 ];
-var CovalentMediaModule = (function () {
+var CovalentMediaModule = /** @class */ (function () {
     function CovalentMediaModule() {
     }
     return CovalentMediaModule;
@@ -10237,7 +10240,7 @@ CovalentMediaModule.ctorParameters = function () { return []; };
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdMenuComponent = (function () {
+var TdMenuComponent = /** @class */ (function () {
     function TdMenuComponent() {
     }
     return TdMenuComponent;
@@ -10258,7 +10261,7 @@ TdMenuComponent.ctorParameters = function () { return []; };
 var TD_MENU = [
     TdMenuComponent,
 ];
-var CovalentMenuModule = (function () {
+var CovalentMenuModule = /** @class */ (function () {
     function CovalentMenuModule() {
     }
     return CovalentMenuModule;
@@ -10268,7 +10271,7 @@ CovalentMenuModule.decorators = [
                 imports: [
                     common.CommonModule,
                     menu.MatMenuModule,
-                    list.MatListModule,
+                    divider.MatDividerModule,
                 ],
                 declarations: [
                     TD_MENU,
@@ -10292,7 +10295,7 @@ CovalentMenuModule.ctorParameters = function () { return []; };
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdSearchInputBase = (function () {
+var TdSearchInputBase = /** @class */ (function () {
     /**
      * @param {?} _changeDetectorRef
      */
@@ -10303,7 +10306,7 @@ var TdSearchInputBase = (function () {
 }());
 /* tslint:disable-next-line */
 var _TdSearchInputMixinBase = common$1.mixinControlValueAccessor(TdSearchInputBase);
-var TdSearchInputComponent = (function (_super) {
+var TdSearchInputComponent = /** @class */ (function (_super) {
     __extends(TdSearchInputComponent, _super);
     /**
      * @param {?} _dir
@@ -10472,7 +10475,7 @@ TdSearchInputComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdSearchBoxBase = (function () {
+var TdSearchBoxBase = /** @class */ (function () {
     /**
      * @param {?} _changeDetectorRef
      */
@@ -10483,7 +10486,7 @@ var TdSearchBoxBase = (function () {
 }());
 /* tslint:disable-next-line */
 var _TdSearchBoxMixinBase = common$1.mixinControlValueAccessor(TdSearchBoxBase);
-var TdSearchBoxComponent = (function (_super) {
+var TdSearchBoxComponent = /** @class */ (function (_super) {
     __extends(TdSearchBoxComponent, _super);
     /**
      * @param {?} _changeDetectorRef
@@ -10639,7 +10642,7 @@ TdSearchBoxComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var CovalentSearchModule = (function () {
+var CovalentSearchModule = /** @class */ (function () {
     function CovalentSearchModule() {
     }
     return CovalentSearchModule;
@@ -10677,13 +10680,13 @@ CovalentSearchModule.ctorParameters = function () { return []; };
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-/** @enum {?} */
+/** @enum {string} */
 var StepState = {
-    None: /** @type {?} */ ('none'),
-    Required: /** @type {?} */ ('required'),
-    Complete: /** @type {?} */ ('complete'),
+    None: 'none',
+    Required: 'required',
+    Complete: 'complete',
 };
-var TdStepLabelDirective = (function (_super) {
+var TdStepLabelDirective = /** @class */ (function (_super) {
     __extends(TdStepLabelDirective, _super);
     /**
      * @param {?} templateRef
@@ -10704,7 +10707,7 @@ TdStepLabelDirective.ctorParameters = function () { return [
     { type: core.TemplateRef, },
     { type: core.ViewContainerRef, },
 ]; };
-var TdStepActionsDirective = (function (_super) {
+var TdStepActionsDirective = /** @class */ (function (_super) {
     __extends(TdStepActionsDirective, _super);
     /**
      * @param {?} templateRef
@@ -10725,7 +10728,7 @@ TdStepActionsDirective.ctorParameters = function () { return [
     { type: core.TemplateRef, },
     { type: core.ViewContainerRef, },
 ]; };
-var TdStepSummaryDirective = (function (_super) {
+var TdStepSummaryDirective = /** @class */ (function (_super) {
     __extends(TdStepSummaryDirective, _super);
     /**
      * @param {?} templateRef
@@ -10746,14 +10749,14 @@ TdStepSummaryDirective.ctorParameters = function () { return [
     { type: core.TemplateRef, },
     { type: core.ViewContainerRef, },
 ]; };
-var TdStepBase = (function () {
+var TdStepBase = /** @class */ (function () {
     function TdStepBase() {
     }
     return TdStepBase;
 }());
 /* tslint:disable-next-line */
 var _TdStepMixinBase = common$1.mixinDisableRipple(common$1.mixinDisabled(TdStepBase));
-var TdStepComponent = (function (_super) {
+var TdStepComponent = /** @class */ (function (_super) {
     __extends(TdStepComponent, _super);
     /**
      * @param {?} _viewContainerRef
@@ -10949,12 +10952,12 @@ TdStepComponent.propDecorators = {
 /**
  * @record
  */
-/** @enum {?} */
+/** @enum {string} */
 var StepMode = {
-    Vertical: /** @type {?} */ ('vertical'),
-    Horizontal: /** @type {?} */ ('horizontal'),
+    Vertical: 'vertical',
+    Horizontal: 'horizontal',
 };
-var TdStepsComponent = (function () {
+var TdStepsComponent = /** @class */ (function () {
     function TdStepsComponent() {
         this._mode = StepMode.Vertical;
         /**
@@ -11123,14 +11126,14 @@ TdStepsComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdStepHeaderBase = (function () {
+var TdStepHeaderBase = /** @class */ (function () {
     function TdStepHeaderBase() {
     }
     return TdStepHeaderBase;
 }());
 /* tslint:disable-next-line */
 var _TdStepHeaderMixinBase = common$1.mixinDisableRipple(common$1.mixinDisabled(TdStepHeaderBase));
-var TdStepHeaderComponent = (function (_super) {
+var TdStepHeaderComponent = /** @class */ (function (_super) {
     __extends(TdStepHeaderComponent, _super);
     function TdStepHeaderComponent() {
         var _this = _super.apply(this, __spread(arguments)) || this;
@@ -11177,7 +11180,7 @@ TdStepHeaderComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdStepBodyComponent = (function () {
+var TdStepBodyComponent = /** @class */ (function () {
     function TdStepBodyComponent() {
         /**
          * state?: StepState or ['none' | 'required' | 'complete']
@@ -11260,7 +11263,7 @@ var TD_STEPS = [
     TdStepActionsDirective,
     TdStepSummaryDirective,
 ];
-var CovalentStepsModule = (function () {
+var CovalentStepsModule = /** @class */ (function () {
     function CovalentStepsModule() {
     }
     return CovalentStepsModule;

@@ -1,12 +1,12 @@
 import { Component, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdMenuComponent = (function () {
+var TdMenuComponent = /** @class */ (function () {
     function TdMenuComponent() {
     }
     return TdMenuComponent;
@@ -27,7 +27,7 @@ TdMenuComponent.ctorParameters = function () { return []; };
 var TD_MENU = [
     TdMenuComponent,
 ];
-var CovalentMenuModule = (function () {
+var CovalentMenuModule = /** @class */ (function () {
     function CovalentMenuModule() {
     }
     return CovalentMenuModule;
@@ -37,7 +37,7 @@ CovalentMenuModule.decorators = [
                 imports: [
                     CommonModule,
                     MatMenuModule,
-                    MatListModule,
+                    MatDividerModule,
                 ],
                 declarations: [
                     TD_MENU,

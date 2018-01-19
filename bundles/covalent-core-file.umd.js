@@ -18,7 +18,7 @@ var __extends = (this && this.__extends) || (function () {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdFileSelectDirective = (function () {
+var TdFileSelectDirective = /** @class */ (function () {
     /**
      * @param {?} model
      */
@@ -96,14 +96,14 @@ TdFileSelectDirective.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdFileDropBase = (function () {
+var TdFileDropBase = /** @class */ (function () {
     function TdFileDropBase() {
     }
     return TdFileDropBase;
 }());
 /* tslint:disable-next-line */
 var _TdFileDropMixinBase = common$1.mixinDisabled(TdFileDropBase);
-var TdFileDropDirective = (function (_super) {
+var TdFileDropDirective = /** @class */ (function (_super) {
     __extends(TdFileDropDirective, _super);
     /**
      * @param {?} _renderer
@@ -268,7 +268,7 @@ TdFileDropDirective.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdFileInputLabelDirective = (function (_super) {
+var TdFileInputLabelDirective = /** @class */ (function (_super) {
     __extends(TdFileInputLabelDirective, _super);
     /**
      * @param {?} templateRef
@@ -289,7 +289,7 @@ TdFileInputLabelDirective.ctorParameters = function () { return [
     { type: core.TemplateRef, },
     { type: core.ViewContainerRef, },
 ]; };
-var TdFileInputBase = (function () {
+var TdFileInputBase = /** @class */ (function () {
     /**
      * @param {?} _changeDetectorRef
      */
@@ -300,7 +300,7 @@ var TdFileInputBase = (function () {
 }());
 /* tslint:disable-next-line */
 var _TdFileInputMixinBase = common$1.mixinControlValueAccessor(common$1.mixinDisabled(TdFileInputBase));
-var TdFileInputComponent = (function (_super) {
+var TdFileInputComponent = /** @class */ (function (_super) {
     __extends(TdFileInputComponent, _super);
     /**
      * @param {?} _renderer
@@ -406,7 +406,7 @@ TdFileInputComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdFileUploadBase = (function () {
+var TdFileUploadBase = /** @class */ (function () {
     /**
      * @param {?} _changeDetectorRef
      */
@@ -417,7 +417,7 @@ var TdFileUploadBase = (function () {
 }());
 /* tslint:disable-next-line */
 var _TdFileUploadMixinBase = common$1.mixinControlValueAccessor(common$1.mixinDisabled(TdFileUploadBase));
-var TdFileUploadComponent = (function (_super) {
+var TdFileUploadComponent = /** @class */ (function (_super) {
     __extends(TdFileUploadComponent, _super);
     /**
      * @param {?} _changeDetectorRef
@@ -580,7 +580,7 @@ TdFileUploadComponent.propDecorators = {
 /**
  * @record
  */
-var TdFileService = (function () {
+var TdFileService = /** @class */ (function () {
     function TdFileService() {
         this._progressSubject = new Subject.Subject();
         this._progressObservable = this._progressSubject.asObservable();
@@ -672,7 +672,7 @@ var TD_FILE = [
     TdFileInputComponent,
     TdFileInputLabelDirective,
 ];
-var CovalentFileModule = (function () {
+var CovalentFileModule = /** @class */ (function () {
     function CovalentFileModule() {
     }
     return CovalentFileModule;

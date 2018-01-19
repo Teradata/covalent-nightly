@@ -18,7 +18,7 @@ var __extends = (this && this.__extends) || (function () {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdExpansionPanelHeaderDirective = (function (_super) {
+var TdExpansionPanelHeaderDirective = /** @class */ (function (_super) {
     __extends(TdExpansionPanelHeaderDirective, _super);
     /**
      * @param {?} templateRef
@@ -39,7 +39,7 @@ TdExpansionPanelHeaderDirective.ctorParameters = function () { return [
     { type: core.TemplateRef, },
     { type: core.ViewContainerRef, },
 ]; };
-var TdExpansionPanelLabelDirective = (function (_super) {
+var TdExpansionPanelLabelDirective = /** @class */ (function (_super) {
     __extends(TdExpansionPanelLabelDirective, _super);
     /**
      * @param {?} templateRef
@@ -60,7 +60,7 @@ TdExpansionPanelLabelDirective.ctorParameters = function () { return [
     { type: core.TemplateRef, },
     { type: core.ViewContainerRef, },
 ]; };
-var TdExpansionPanelSublabelDirective = (function (_super) {
+var TdExpansionPanelSublabelDirective = /** @class */ (function (_super) {
     __extends(TdExpansionPanelSublabelDirective, _super);
     /**
      * @param {?} templateRef
@@ -81,7 +81,7 @@ TdExpansionPanelSublabelDirective.ctorParameters = function () { return [
     { type: core.TemplateRef, },
     { type: core.ViewContainerRef, },
 ]; };
-var TdExpansionPanelSummaryComponent = (function () {
+var TdExpansionPanelSummaryComponent = /** @class */ (function () {
     function TdExpansionPanelSummaryComponent() {
     }
     return TdExpansionPanelSummaryComponent;
@@ -94,14 +94,14 @@ TdExpansionPanelSummaryComponent.decorators = [
 ];
 /** @nocollapse */
 TdExpansionPanelSummaryComponent.ctorParameters = function () { return []; };
-var TdExpansionPanelBase = (function () {
+var TdExpansionPanelBase = /** @class */ (function () {
     function TdExpansionPanelBase() {
     }
     return TdExpansionPanelBase;
 }());
 /* tslint:disable-next-line */
 var _TdExpansionPanelMixinBase = common$1.mixinDisableRipple(common$1.mixinDisabled(TdExpansionPanelBase));
-var TdExpansionPanelComponent = (function (_super) {
+var TdExpansionPanelComponent = /** @class */ (function (_super) {
     __extends(TdExpansionPanelComponent, _super);
     /**
      * @param {?} _renderer
@@ -255,7 +255,7 @@ TdExpansionPanelComponent.propDecorators = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var TdExpansionPanelGroupComponent = (function () {
+var TdExpansionPanelGroupComponent = /** @class */ (function () {
     /**
      * @param {?} _renderer
      * @param {?} _elementRef
@@ -291,7 +291,7 @@ var TD_EXPANSION_PANEL = [
     TdExpansionPanelSublabelDirective,
     TdExpansionPanelSummaryComponent,
 ];
-var CovalentExpansionPanelModule = (function () {
+var CovalentExpansionPanelModule = /** @class */ (function () {
     function CovalentExpansionPanelModule() {
     }
     return CovalentExpansionPanelModule;

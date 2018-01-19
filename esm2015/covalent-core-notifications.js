@@ -5,17 +5,17 @@ import { CommonModule } from '@angular/common';
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-/** @enum {?} */
+/** @enum {string} */
 const TdNotificationCountPositionY = {
-    Top: /** @type {?} */ ('top'),
-    Bottom: /** @type {?} */ ('bottom'),
-    Center: /** @type {?} */ ('center'),
+    Top: 'top',
+    Bottom: 'bottom',
+    Center: 'center',
 };
-/** @enum {?} */
+/** @enum {string} */
 const TdNotificationCountPositionX = {
-    Before: /** @type {?} */ ('before'),
-    After: /** @type {?} */ ('after'),
-    Center: /** @type {?} */ ('center'),
+    Before: 'before',
+    After: 'after',
+    Center: 'center',
 };
 class TdNotificationCountComponent {
     constructor() {

@@ -11,26 +11,26 @@ import { TdFadeInOutAnimation } from '@covalent/core/common';
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-/** @enum {?} */
+/** @enum {string} */
 const LoadingType = {
-    Circular: /** @type {?} */ ('circular'),
-    Linear: /** @type {?} */ ('linear'),
+    Circular: 'circular',
+    Linear: 'linear',
 };
-/** @enum {?} */
+/** @enum {string} */
 const LoadingMode = {
-    Determinate: /** @type {?} */ ('determinate'),
-    Indeterminate: /** @type {?} */ ('indeterminate'),
+    Determinate: 'determinate',
+    Indeterminate: 'indeterminate',
 };
-/** @enum {?} */
+/** @enum {string} */
 const LoadingStrategy = {
-    Overlay: /** @type {?} */ ('overlay'),
-    Replace: /** @type {?} */ ('replace'),
+    Overlay: 'overlay',
+    Replace: 'replace',
 };
-/** @enum {?} */
+/** @enum {string} */
 const LoadingStyle = {
-    FullScreen: /** @type {?} */ ('fullscreen'),
-    Overlay: /** @type {?} */ ('overlay'),
-    None: /** @type {?} */ ('none'),
+    FullScreen: 'fullscreen',
+    Overlay: 'overlay',
+    None: 'none',
 };
 const TD_CIRCLE_DIAMETER = 100;
 class TdLoadingComponent {

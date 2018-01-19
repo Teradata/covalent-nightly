@@ -3,21 +3,21 @@ import { AnimationEvent } from '@angular/animations';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { Observable } from 'rxjs/Observable';
 export declare enum LoadingType {
-    Circular,
-    Linear,
+    Circular = "circular",
+    Linear = "linear",
 }
 export declare enum LoadingMode {
-    Determinate,
-    Indeterminate,
+    Determinate = "determinate",
+    Indeterminate = "indeterminate",
 }
 export declare enum LoadingStrategy {
-    Overlay,
-    Replace,
+    Overlay = "overlay",
+    Replace = "replace",
 }
 export declare enum LoadingStyle {
-    FullScreen,
-    Overlay,
-    None,
+    FullScreen = "fullscreen",
+    Overlay = "overlay",
+    None = "none",
 }
 export declare const TD_CIRCLE_DIAMETER: number;
 export declare class TdLoadingComponent implements DoCheck {
