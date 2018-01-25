@@ -358,6 +358,8 @@ html .mat-card {
   html .mat-card .mat-card-actions:last-child {
     margin-bottom: 0;
     padding-bottom: 8px; }
+  html .mat-card .mat-divider.relative {
+    position: relative; }
 
 html[dir='rtl'] .mat-card-title-group .mat-card-image:last-child,
 html[dir='rtl'] .mat-card-title-group .mat-card-lg-image:last-child,
