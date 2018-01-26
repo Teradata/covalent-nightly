@@ -11444,6 +11444,8 @@ exports.TdStepBodyComponent = TdStepBodyComponent;
 exports.TdStepHeaderBase = TdStepHeaderBase;
 exports._TdStepHeaderMixinBase = _TdStepHeaderMixinBase;
 exports.TdStepHeaderComponent = TdStepHeaderComponent;
+exports.ɵb = IconService;
+exports.ɵa = RouterPathService;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
