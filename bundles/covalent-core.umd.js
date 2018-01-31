@@ -10371,9 +10371,7 @@ var TdSearchInputComponent = /** @class */ (function (_super) {
      */
     TdSearchInputComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this._input.ngControl.valueChanges.pipe(skip.skip(1), // skip first change when value is set to undefined
-        // skip first change when value is set to undefined
-        debounceTime.debounceTime(this.debounce)).subscribe(function (value) {
+        this._input.ngControl.valueChanges.pipe(debounceTime.debounceTime(this.debounce), skip.skip(1)).subscribe(function (value) {
             _this._searchTermChanged(value);
         });
     };
