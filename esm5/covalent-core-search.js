@@ -1,24 +1,15 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, NgModule, Optional, Output, ViewChild, forwardRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
+import * as tslib_1 from "tslib";
+import { Component, ViewChild, Input, Output, EventEmitter, Optional, ChangeDetectionStrategy, ChangeDetectorRef, forwardRef, NgModule } from '@angular/core';
+import { trigger, state, style, transition, animate, AUTO_STYLE } from '@angular/animations';
+import { NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
+import { Dir } from '@angular/cdk/bidi';
 import { MatInput, MatInputModule } from '@angular/material/input';
+import { debounceTime } from 'rxjs/operators/debounceTime';
+import { skip } from 'rxjs/operators/skip';
+import { mixinControlValueAccessor } from '@covalent/core/common';
+import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { AUTO_STYLE, animate, state, style, transition, trigger } from '@angular/animations';
-import { Dir } from '@angular/cdk/bidi';
-import { debounceTime as debounceTime$1 } from 'rxjs/operators/debounceTime';
-import { skip as skip$1 } from 'rxjs/operators/skip';
-import { mixinControlValueAccessor } from '@covalent/core/common';
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
@@ -35,7 +26,7 @@ var TdSearchInputBase = /** @class */ (function () {
 /* tslint:disable-next-line */
 var _TdSearchInputMixinBase = mixinControlValueAccessor(TdSearchInputBase);
 var TdSearchInputComponent = /** @class */ (function (_super) {
-    __extends(TdSearchInputComponent, _super);
+    tslib_1.__extends(TdSearchInputComponent, _super);
     /**
      * @param {?} _dir
      * @param {?} _changeDetectorRef
@@ -99,7 +90,7 @@ var TdSearchInputComponent = /** @class */ (function (_super) {
      */
     TdSearchInputComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this._input.ngControl.valueChanges.pipe(debounceTime$1(this.debounce), skip$1(1)).subscribe(function (value) {
+        this._input.ngControl.valueChanges.pipe(debounceTime(this.debounce), skip(1)).subscribe(function (value) {
             _this._searchTermChanged(value);
         });
     };
@@ -158,7 +149,7 @@ TdSearchInputComponent.decorators = [
                     }],
                 selector: 'td-search-input',
                 template: "<div class=\"td-search-input\">\n  <mat-form-field class=\"td-search-input-field\"\n                  [class.mat-hide-underline]=\"!showUnderline\"\n                  floatPlaceholder=\"never\">\n    <input matInput\n            #searchElement\n            type=\"search\"\n            [(ngModel)]=\"value\"\n            [placeholder]=\"placeholder\"\n            (blur)=\"handleBlur()\"\n            (search)=\"stopPropagation($event)\"\n            (keyup.enter)=\"handleSearch($event)\"/>\n  </mat-form-field>\n  <button mat-icon-button\n          class=\"td-search-input-clear\"\n          type=\"button\"\n          [@searchState]=\"(searchElement.value ?  'show' : (isRTL ? 'hide-left' : 'hide-right'))\"\n          (click)=\"clearSearch()\">\n    <mat-icon>{{clearIcon}}</mat-icon>\n  </button>\n</div>",
-                styles: [".td-search-input {\n  overflow-x: hidden;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -ms-flex-line-pack: center;\n      align-content: center;\n  max-width: 100%;\n  -webkit-box-pack: end;\n      -ms-flex-pack: end;\n          justify-content: flex-end; }\n  .td-search-input .td-search-input-field {\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1; }\n  .td-search-input ::ng-deep mat-form-field.mat-hide-underline .mat-form-field-underline {\n    display: none; }\n  .td-search-input .td-search-input-clear {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto; }\n"],
+                styles: [".td-search-input{\n  overflow-x:hidden;\n  -webkit-box-sizing:border-box;\n          box-sizing:border-box;\n  display:-webkit-box;\n  display:-ms-flexbox;\n  display:flex;\n  -webkit-box-orient:horizontal;\n  -webkit-box-direction:normal;\n      -ms-flex-direction:row;\n          flex-direction:row;\n  -webkit-box-align:center;\n      -ms-flex-align:center;\n          align-items:center;\n  -ms-flex-line-pack:center;\n      align-content:center;\n  max-width:100%;\n  -webkit-box-pack:end;\n      -ms-flex-pack:end;\n          justify-content:flex-end; }\n  .td-search-input .td-search-input-field{\n    -webkit-box-flex:1;\n        -ms-flex:1;\n            flex:1; }\n  .td-search-input ::ng-deep mat-form-field.mat-hide-underline .mat-form-field-underline{\n    display:none; }\n  .td-search-input .td-search-input-clear{\n    -webkit-box-flex:0;\n        -ms-flex:0 0 auto;\n            flex:0 0 auto; }\n"],
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 inputs: ['value'],
                 animations: [
@@ -213,7 +204,7 @@ var TdSearchBoxBase = /** @class */ (function () {
 /* tslint:disable-next-line */
 var _TdSearchBoxMixinBase = mixinControlValueAccessor(TdSearchBoxBase);
 var TdSearchBoxComponent = /** @class */ (function (_super) {
-    __extends(TdSearchBoxComponent, _super);
+    tslib_1.__extends(TdSearchBoxComponent, _super);
     /**
      * @param {?} _changeDetectorRef
      */
@@ -328,7 +319,7 @@ TdSearchBoxComponent.decorators = [
                     }],
                 selector: 'td-search-box',
                 template: "<div class=\"td-search-box\">\n  <button mat-icon-button type=\"button\" class=\"td-search-icon\" (click)=\"searchClicked()\">\n    <mat-icon *ngIf=\"searchVisible && !alwaysVisible\">{{backIcon}}</mat-icon>\n    <mat-icon *ngIf=\"!searchVisible || alwaysVisible\">{{searchIcon}}</mat-icon>\n  </button>\n  <td-search-input #searchInput\n                   [@inputState]=\"alwaysVisible || searchVisible\"\n                   [debounce]=\"debounce\"\n                   [(ngModel)]=\"value\"\n                   [showUnderline]=\"showUnderline\"\n                   [placeholder]=\"placeholder\"\n                   [clearIcon]=\"clearIcon\"\n                   (searchDebounce)=\"handleSearchDebounce($event)\"\n                   (search)=\"handleSearch($event)\"\n                   (clear)=\"handleClear(); toggleVisibility()\">\n  </td-search-input>\n</div>",
-                styles: [":host {\n  display: block; }\n\n.td-search-box {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -ms-flex-line-pack: center;\n      align-content: center;\n  max-width: 100%;\n  -webkit-box-pack: end;\n      -ms-flex-pack: end;\n          justify-content: flex-end; }\n  .td-search-box .td-search-icon {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto; }\n  .td-search-box td-search-input {\n    margin-left: 12px; }\n    ::ng-deep [dir='rtl'] .td-search-box td-search-input {\n      margin-right: 12px;\n      margin-left: 0 !important; }\n"],
+                styles: [":host{\n  display:block; }\n.td-search-box{\n  -webkit-box-sizing:border-box;\n          box-sizing:border-box;\n  display:-webkit-box;\n  display:-ms-flexbox;\n  display:flex;\n  -webkit-box-orient:horizontal;\n  -webkit-box-direction:normal;\n      -ms-flex-direction:row;\n          flex-direction:row;\n  -webkit-box-align:center;\n      -ms-flex-align:center;\n          align-items:center;\n  -ms-flex-line-pack:center;\n      align-content:center;\n  max-width:100%;\n  -webkit-box-pack:end;\n      -ms-flex-pack:end;\n          justify-content:flex-end; }\n  .td-search-box .td-search-icon{\n    -webkit-box-flex:0;\n        -ms-flex:0 0 auto;\n            flex:0 0 auto; }\n  .td-search-box td-search-input{\n    margin-left:12px; }\n    ::ng-deep [dir='rtl'] .td-search-box td-search-input{\n      margin-right:12px;\n      margin-left:0 !important; }\n"],
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 inputs: ['value'],
                 animations: [

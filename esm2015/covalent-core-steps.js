@@ -1,11 +1,11 @@
-import { Component, ContentChild, ContentChildren, Directive, ElementRef, EventEmitter, Input, NgModule, Output, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, Directive, Input, Output, TemplateRef, ViewChild, ViewContainerRef, ContentChild, EventEmitter, ContentChildren, ElementRef, NgModule } from '@angular/core';
+import { TemplatePortalDirective, TemplatePortal, PortalModule } from '@angular/cdk/portal';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { mixinDisabled, mixinDisableRipple, TdCollapseAnimation, CovalentCommonModule } from '@covalent/core/common';
 import { CommonModule } from '@angular/common';
-import { PortalModule, TemplatePortal, TemplatePortalDirective } from '@angular/cdk/portal';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { MatIconModule } from '@angular/material/icon';
 import { MatRippleModule } from '@angular/material/core';
-import { CovalentCommonModule, TdCollapseAnimation, mixinDisableRipple, mixinDisabled } from '@covalent/core/common';
-import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 /**
  * @fileoverview added by tsickle
@@ -409,55 +409,51 @@ TdStepsComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-steps',
                 styles: [`.td-line-wrapper,
-.td-step {
-  position: relative; }
-
-.td-steps-header {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row; }
-
-.td-line-wrapper {
-  width: 24px;
-  min-height: 1px; }
-
-.td-horizontal-line {
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  height: 1px;
-  position: relative;
-  top: 36px;
-  min-width: 15px;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box; }
-  ::ng-deep :not([dir='rtl']) .td-horizontal-line {
-    left: -6px;
-    right: -3px; }
-  ::ng-deep [dir='rtl'] .td-horizontal-line {
-    left: -3px;
-    right: -6px; }
-
-.td-vertical-line {
-  position: absolute;
-  bottom: -16px;
-  top: -16px;
-  border-left-width: 1px;
-  border-left-style: solid; }
-  ::ng-deep :not([dir='rtl']) .td-vertical-line {
-    left: 20px;
-    right: auto; }
-  ::ng-deep [dir='rtl'] .td-vertical-line {
-    left: auto;
-    right: 20px; }
+.td-step{
+  position:relative; }
+.td-steps-header{
+  -webkit-box-sizing:border-box;
+          box-sizing:border-box;
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-orient:horizontal;
+  -webkit-box-direction:normal;
+      -ms-flex-direction:row;
+          flex-direction:row; }
+.td-line-wrapper{
+  width:24px;
+  min-height:1px; }
+.td-horizontal-line{
+  border-bottom-width:1px;
+  border-bottom-style:solid;
+  height:1px;
+  position:relative;
+  top:36px;
+  min-width:15px;
+  -webkit-box-flex:1;
+      -ms-flex:1;
+          flex:1;
+  -webkit-box-sizing:border-box;
+          box-sizing:border-box; }
+  ::ng-deep :not([dir='rtl']) .td-horizontal-line{
+    left:-6px;
+    right:-3px; }
+  ::ng-deep [dir='rtl'] .td-horizontal-line{
+    left:-3px;
+    right:-6px; }
+.td-vertical-line{
+  position:absolute;
+  bottom:-16px;
+  top:-16px;
+  border-left-width:1px;
+  border-left-style:solid; }
+  ::ng-deep :not([dir='rtl']) .td-vertical-line{
+    left:20px;
+    right:auto; }
+  ::ng-deep [dir='rtl'] .td-vertical-line{
+    left:auto;
+    right:20px; }
 `],
                 template: `<div *ngIf="isHorizontal()" class="td-steps-header">
   <ng-template let-step let-index="index" let-last="last" ngFor [ngForOf]="steps">
@@ -466,7 +462,7 @@ TdStepsComponent.decorators = [
                     [number]="index + 1"
                     [active]="step.active"
                     [disableRipple]="step.disableRipple"
-                    [disabled]="step.disabled" 
+                    [disabled]="step.disabled"
                     [state]="step.state"
                     (click)="step.open()">
       <ng-template td-step-header-label [cdkPortalHost]="step.stepLabel"></ng-template>
@@ -480,7 +476,7 @@ TdStepsComponent.decorators = [
   <td-step-header class="td-step-vertical-header"
                   (keydown.enter)="step.toggle()"
                   [number]="index + 1"
-                  [active]="step.active" 
+                  [active]="step.active"
                   [disabled]="step.disabled"
                   [disableRipple]="step.disableRipple"
                   [state]="step.state"
@@ -549,84 +545,84 @@ TdStepHeaderComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-step-header',
                 inputs: ['disabled', 'disableRipple'],
-                styles: [`.td-step-header {
-  position: relative;
-  outline: none;
-  height: 72px;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  max-width: 100%; }
-  .td-step-header:hover:not(.mat-disabled) {
-    cursor: pointer; }
-  .td-step-header mat-icon.td-edit-icon {
-    margin: 0 8px; }
-  .td-step-header mat-icon.mat-warn {
-    font-size: 24px;
-    height: 24px;
-    width: 24px; }
-  .td-step-header mat-icon.mat-complete {
-    position: relative;
-    left: -2px;
-    top: 2px;
-    font-size: 28px;
-    height: 24px;
-    width: 24px; }
-  .td-step-header .td-circle {
-    height: 24px;
-    width: 24px;
-    line-height: 24px;
-    border-radius: 99%;
-    text-align: center;
-    -webkit-box-flex: 0;
-        -ms-flex: none;
-            flex: none; }
-    .td-step-header .td-circle mat-icon {
-      margin-top: 2px;
-      font-weight: bold; }
-  .td-step-header .td-triangle > mat-icon {
-    font-size: 25px; }
-  .td-step-header .td-complete {
-    font-size: 0; }
+                styles: [`.td-step-header{
+  position:relative;
+  outline:none;
+  height:72px;
+  -webkit-box-orient:horizontal;
+  -webkit-box-direction:normal;
+      -ms-flex-direction:row;
+          flex-direction:row;
+  -webkit-box-sizing:border-box;
+          box-sizing:border-box;
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-flex:1;
+      -ms-flex:1;
+          flex:1;
+  -webkit-box-pack:start;
+      -ms-flex-pack:start;
+          justify-content:start;
+  -webkit-box-align:center;
+      -ms-flex-align:center;
+          align-items:center;
+  -ms-flex-line-pack:center;
+      align-content:center;
+  max-width:100%; }
+  .td-step-header:hover:not(.mat-disabled){
+    cursor:pointer; }
+  .td-step-header mat-icon.td-edit-icon{
+    margin:0 8px; }
+  .td-step-header mat-icon.mat-warn{
+    font-size:24px;
+    height:24px;
+    width:24px; }
+  .td-step-header mat-icon.mat-complete{
+    position:relative;
+    left:-2px;
+    top:2px;
+    font-size:28px;
+    height:24px;
+    width:24px; }
+  .td-step-header .td-circle{
+    height:24px;
+    width:24px;
+    line-height:24px;
+    border-radius:99%;
+    text-align:center;
+    -webkit-box-flex:0;
+        -ms-flex:none;
+            flex:none; }
+    .td-step-header .td-circle mat-icon{
+      margin-top:2px;
+      font-weight:bold; }
+  .td-step-header .td-triangle > mat-icon{
+    font-size:25px; }
+  .td-step-header .td-complete{
+    font-size:0; }
   ::ng-deep :not([dir='rtl']) .td-step-header .td-circle, ::ng-deep :not([dir='rtl'])
   .td-step-header .td-triangle, ::ng-deep :not([dir='rtl'])
-  .td-step-header .td-complete {
-    margin-left: 8px;
-    margin-right: 0; }
+  .td-step-header .td-complete{
+    margin-left:8px;
+    margin-right:0; }
   ::ng-deep [dir='rtl'] .td-step-header .td-circle, ::ng-deep [dir='rtl']
   .td-step-header .td-triangle, ::ng-deep [dir='rtl']
-  .td-step-header .td-complete {
-    margin-left: 0;
-    margin-right: 8px; }
+  .td-step-header .td-complete{
+    margin-left:0;
+    margin-right:8px; }
   .td-step-header .td-circle,
-  .td-step-header .td-complete {
-    font-size: 14px; }
-  .td-step-header .td-step-label-wrapper {
-    padding-left: 8px;
-    padding-right: 8px; }
-  .td-step-header .td-step-header-separator {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box; }
+  .td-step-header .td-complete{
+    font-size:14px; }
+  .td-step-header .td-step-label-wrapper{
+    padding-left:8px;
+    padding-right:8px; }
+  .td-step-header .td-step-header-separator{
+    -webkit-box-flex:1;
+        -ms-flex:1;
+            flex:1;
+    -webkit-box-sizing:border-box;
+            box-sizing:border-box; }
 `],
                 template: `<div class="td-step-header"
       [class.mat-disabled]="disabled"
@@ -715,38 +711,38 @@ class TdStepBodyComponent {
 TdStepBodyComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-step-body',
-                styles: [`:host {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row; }
-  :host .td-step-body {
-    overflow-x: hidden;
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box; }
+                styles: [`:host{
+  -webkit-box-sizing:border-box;
+          box-sizing:border-box;
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-orient:horizontal;
+  -webkit-box-direction:normal;
+      -ms-flex-direction:row;
+          flex-direction:row; }
+  :host .td-step-body{
+    overflow-x:hidden;
+    -webkit-box-flex:1;
+        -ms-flex:1;
+            flex:1;
+    -webkit-box-sizing:border-box;
+            box-sizing:border-box; }
     :host .td-step-body .td-step-summary.ng-animating,
-    :host .td-step-body .td-step-content-wrapper.ng-animating {
-      overflow: hidden; }
-    :host .td-step-body .td-step-content {
-      overflow-x: auto; }
-    :host .td-step-body .td-step-actions {
-      -webkit-box-sizing: border-box;
-              box-sizing: border-box;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-          -ms-flex-direction: row;
-              flex-direction: row; }
+    :host .td-step-body .td-step-content-wrapper.ng-animating{
+      overflow:hidden; }
+    :host .td-step-body .td-step-content{
+      overflow-x:auto; }
+    :host .td-step-body .td-step-actions{
+      -webkit-box-sizing:border-box;
+              box-sizing:border-box;
+      display:-webkit-box;
+      display:-ms-flexbox;
+      display:flex;
+      -webkit-box-orient:horizontal;
+      -webkit-box-direction:normal;
+          -ms-flex-direction:row;
+              flex-direction:row; }
 `],
                 template: `<ng-content></ng-content>
 <div class="td-step-body">

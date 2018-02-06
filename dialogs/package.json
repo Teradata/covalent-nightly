@@ -4,5 +4,8 @@
   "es2015": "../esm2015/covalent-core-dialogs.js",
   "typings": "covalent-core-dialogs.d.ts",
   "metadata": "covalent-core-dialogs.metadata.json",
+  "dependencies": {
+    "tslib": "^1.7.1"
+  },
   "name": "@covalent/core/dialogs"
 }

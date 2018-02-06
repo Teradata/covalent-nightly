@@ -1,10 +1,10 @@
-import { Component, ContentChild, Directive, ElementRef, EventEmitter, Input, NgModule, Output, Renderer2, TemplateRef, ViewContainerRef } from '@angular/core';
+import { Component, Directive, Input, Output, TemplateRef, ViewContainerRef, ContentChild, ElementRef, Renderer2, EventEmitter, NgModule } from '@angular/core';
+import { TemplatePortalDirective, PortalModule } from '@angular/cdk/portal';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { TdCollapseAnimation, mixinDisabled, mixinDisableRipple, TdRotateAnimation } from '@covalent/core/common';
 import { CommonModule } from '@angular/common';
-import { PortalModule, TemplatePortalDirective } from '@angular/cdk/portal';
 import { MatRippleModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
-import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { TdCollapseAnimation, TdRotateAnimation, mixinDisableRipple, mixinDisabled } from '@covalent/core/common';
 
 /**
  * @fileoverview added by tsickle
@@ -200,56 +200,55 @@ class TdExpansionPanelComponent extends _TdExpansionPanelMixinBase {
 TdExpansionPanelComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-expansion-panel',
-                styles: [`:host {
-  display: block; }
-  :host .td-expansion-panel-header {
-    position: relative;
-    outline: none; }
-    :host .td-expansion-panel-header:focus:not(.mat-disabled), :host .td-expansion-panel-header:hover:not(.mat-disabled) {
-      cursor: pointer; }
-    :host .td-expansion-panel-header .td-expansion-panel-header-content {
-      height: 48px;
-      padding: 0 24px;
-      -webkit-box-sizing: border-box;
-              box-sizing: border-box;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-          -ms-flex-direction: row;
-              flex-direction: row;
-      -webkit-box-flex: 1;
-          -ms-flex: 1;
-              flex: 1;
-      -webkit-box-pack: start;
-          -ms-flex-pack: start;
-              justify-content: start;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
-      -ms-flex-line-pack: center;
-          align-content: center;
-      max-width: 100%; }
+                styles: [`:host{
+  display:block; }
+  :host .td-expansion-panel-header{
+    position:relative;
+    outline:none; }
+    :host .td-expansion-panel-header:focus:not(.mat-disabled), :host .td-expansion-panel-header:hover:not(.mat-disabled){
+      cursor:pointer; }
+    :host .td-expansion-panel-header .td-expansion-panel-header-content{
+      height:48px;
+      padding:0 24px;
+      -webkit-box-sizing:border-box;
+              box-sizing:border-box;
+      display:-webkit-box;
+      display:-ms-flexbox;
+      display:flex;
+      -webkit-box-orient:horizontal;
+      -webkit-box-direction:normal;
+          -ms-flex-direction:row;
+              flex-direction:row;
+      -webkit-box-flex:1;
+          -ms-flex:1;
+              flex:1;
+      -webkit-box-pack:start;
+          -ms-flex-pack:start;
+              justify-content:start;
+      -webkit-box-align:center;
+          -ms-flex-align:center;
+              align-items:center;
+      -ms-flex-line-pack:center;
+          align-content:center;
+      max-width:100%; }
       :host .td-expansion-panel-header .td-expansion-panel-header-content .td-expansion-label,
-      :host .td-expansion-panel-header .td-expansion-panel-header-content .td-expansion-sublabel {
-        -webkit-box-flex: 1;
-            -ms-flex: 1;
-                flex: 1; }
+      :host .td-expansion-panel-header .td-expansion-panel-header-content .td-expansion-sublabel{
+        -webkit-box-flex:1;
+            -ms-flex:1;
+                flex:1; }
   :host .td-expansion-content.ng-animating,
-  :host .td-expansion-summary.ng-animating {
-    overflow: hidden; }
-
+  :host .td-expansion-summary.ng-animating{
+    overflow:hidden; }
 .td-expansion-label,
-.td-expansion-sublabel {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-right: 16px; }
+.td-expansion-sublabel{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  margin-right:16px; }
   ::ng-deep [dir='rtl'] .td-expansion-label, ::ng-deep [dir='rtl']
-  .td-expansion-sublabel {
-    margin-left: 16px;
-    margin-right: inherit; }
+  .td-expansion-sublabel{
+    margin-left:16px;
+    margin-right:inherit; }
 `],
                 template: `<div class="td-expansion-panel-header"
       [class.mat-disabled]="disabled"

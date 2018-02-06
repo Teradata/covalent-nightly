@@ -1,19 +1,31 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/cdk/portal'), require('@angular/material/icon'), require('@angular/material/button'), require('@angular/cdk/coercion'), require('@covalent/core/common'), require('rxjs/Observable'), require('rxjs/Subject')) :
-	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/cdk/portal', '@angular/material/icon', '@angular/material/button', '@angular/cdk/coercion', '@covalent/core/common', 'rxjs/Observable', 'rxjs/Subject'], factory) :
-	(factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.file = {}),global.ng.core,global.ng.common,global.ng.forms,global.ng.cdk.portal,global.ng.material.icon,global.ng.material.button,global.ng.cdk.coercion,global.covalent.core.common,global.Rx,global.Rx));
-}(this, (function (exports,core,common,forms,portal,icon,button,coercion,common$1,Observable,Subject) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/cdk/coercion'), require('@angular/forms'), require('@covalent/core/common'), require('@angular/cdk/portal'), require('rxjs/Observable'), require('rxjs/Subject'), require('@angular/common'), require('@angular/material/icon'), require('@angular/material/button')) :
+	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/cdk/coercion', '@angular/forms', '@covalent/core/common', '@angular/cdk/portal', 'rxjs/Observable', 'rxjs/Subject', '@angular/common', '@angular/material/icon', '@angular/material/button'], factory) :
+	(factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.file = {}),global.ng.core,global.ng.cdk.coercion,global.ng.forms,global.covalent.core.common,global.ng.cdk.portal,global.Rx,global.Rx,global.ng.common,global.ng.material.icon,global.ng.material.button));
+}(this, (function (exports,core,coercion,forms,common,portal,Observable,Subject,common$1,icon,button) { 'use strict';
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at http://www.apache.org/licenses/LICENSE-2.0
+THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
+See the Apache Version 2.0 License for specific language governing permissions
+and limitations under the License.
+***************************************************************************** */
+/* global Reflect, Promise */
+var extendStatics = Object.setPrototypeOf ||
+    ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+    function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+function __extends(d, b) {
+    extendStatics(d, b);
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+}
+
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
@@ -102,7 +114,7 @@ var TdFileDropBase = /** @class */ (function () {
     return TdFileDropBase;
 }());
 /* tslint:disable-next-line */
-var _TdFileDropMixinBase = common$1.mixinDisabled(TdFileDropBase);
+var _TdFileDropMixinBase = common.mixinDisabled(TdFileDropBase);
 var TdFileDropDirective = /** @class */ (function (_super) {
     __extends(TdFileDropDirective, _super);
     /**
@@ -299,7 +311,7 @@ var TdFileInputBase = /** @class */ (function () {
     return TdFileInputBase;
 }());
 /* tslint:disable-next-line */
-var _TdFileInputMixinBase = common$1.mixinControlValueAccessor(common$1.mixinDisabled(TdFileInputBase));
+var _TdFileInputMixinBase = common.mixinControlValueAccessor(common.mixinDisabled(TdFileInputBase));
 var TdFileInputComponent = /** @class */ (function (_super) {
     __extends(TdFileInputComponent, _super);
     /**
@@ -386,8 +398,8 @@ TdFileInputComponent.decorators = [
                     }],
                 selector: 'td-file-input',
                 inputs: ['disabled', 'value'],
-                styles: [":host {\n  /**\n  * Class that is added ondragenter by the [TdFileDrop] directive.\n  */ }\n  :host .td-file-input {\n    padding-left: 8px;\n    padding-right: 8px; }\n  :host input.td-file-input-hidden {\n    display: none; }\n  :host .drop-zone {\n    border-radius: 3px; }\n    :host .drop-zone * {\n      pointer-events: none; }\n"],
-                template: "<div>\n  <button mat-raised-button\n          class=\"td-file-input\"\n          type=\"button\"\n          [color]=\"color\" \n          [multiple]=\"multiple\" \n          [disabled]=\"disabled\"\n          (keyup.enter)=\"fileInput.click()\"\n          (click)=\"fileInput.click()\"\n          (fileDrop)=\"handleSelect($event)\"\n          tdFileDrop>\n    <ng-content></ng-content>\n  </button>\n  <input #fileInput \n          class=\"td-file-input-hidden\" \n          type=\"file\"\n          [attr.accept]=\"accept\"                \n          (fileSelect)=\"handleSelect($event)\"\n          [multiple]=\"multiple\" \n          [disabled]=\"disabled\"\n          tdFileSelect>\n</div>",
+                styles: [":host{ }\n  :host .td-file-input{\n    padding-left:8px;\n    padding-right:8px; }\n  :host input.td-file-input-hidden{\n    display:none; }\n  :host .drop-zone{\n    border-radius:3px; }\n    :host .drop-zone *{\n      pointer-events:none; }\n"],
+                template: "<div>\n  <button mat-raised-button\n          class=\"td-file-input\"\n          type=\"button\"\n          [color]=\"color\"\n          [multiple]=\"multiple\"\n          [disabled]=\"disabled\"\n          (keyup.enter)=\"fileInput.click()\"\n          (click)=\"fileInput.click()\"\n          (fileDrop)=\"handleSelect($event)\"\n          tdFileDrop>\n    <ng-content></ng-content>\n  </button>\n  <input #fileInput\n          class=\"td-file-input-hidden\"\n          type=\"file\"\n          [attr.accept]=\"accept\"\n          (fileSelect)=\"handleSelect($event)\"\n          [multiple]=\"multiple\"\n          [disabled]=\"disabled\"\n          tdFileSelect>\n</div>",
             },] },
 ];
 /** @nocollapse */
@@ -416,7 +428,7 @@ var TdFileUploadBase = /** @class */ (function () {
     return TdFileUploadBase;
 }());
 /* tslint:disable-next-line */
-var _TdFileUploadMixinBase = common$1.mixinControlValueAccessor(common$1.mixinDisabled(TdFileUploadBase));
+var _TdFileUploadMixinBase = common.mixinControlValueAccessor(common.mixinDisabled(TdFileUploadBase));
 var TdFileUploadComponent = /** @class */ (function (_super) {
     __extends(TdFileUploadComponent, _super);
     /**
@@ -552,8 +564,8 @@ TdFileUploadComponent.decorators = [
                     }],
                 selector: 'td-file-upload',
                 inputs: ['disabled', 'value'],
-                styles: [".td-file-upload {\n  padding-left: 8px;\n  padding-right: 8px; }\n\n.td-file-upload-cancel {\n  height: 24px;\n  width: 24px;\n  position: relative;\n  top: 24px;\n  left: -12px; }\n  ::ng-deep [dir='rtl'] .td-file-upload-cancel {\n    right: -12px;\n    left: 0; }\n  .td-file-upload-cancel mat-icon {\n    border-radius: 12px;\n    vertical-align: baseline; }\n\n/**\n* Class that is added ondragenter by the [TdFileDrop] directive.\n*/\n.drop-zone {\n  border-radius: 3px; }\n  .drop-zone * {\n    pointer-events: none; }\n"],
-                template: "<td-file-input *ngIf=\"!value\"\n               [(ngModel)]=\"value\"\n               [multiple]=\"multiple\"\n               [disabled]=\"disabled\"\n               [accept]=\"accept\"\n               [color]=\"defaultColor\"\n               (select)=\"handleSelect($event)\">\n  <ng-template [cdkPortalHost]=\"inputLabel\" [ngIf]=\"true\"></ng-template>\n</td-file-input>\n<div *ngIf=\"value\">\n  <button #fileUpload\n          class=\"td-file-upload\"\n          mat-raised-button\n          type=\"button\"\n          [color]=\"activeColor\"\n          (keyup.delete)=\"cancel()\"\n          (keyup.backspace)=\"cancel()\"\n          (keyup.escape)=\"cancel()\"\n          (click)=\"uploadPressed()\"> \n    <ng-content></ng-content>\n  </button>\n  <button mat-icon-button\n          type=\"button\"\n          class=\"td-file-upload-cancel\"\n          [color]=\"cancelColor\"            \n          (click)=\"cancel()\">\n    <mat-icon>cancel</mat-icon>\n  </button>\n</div>",
+                styles: [".td-file-upload{\n  padding-left:8px;\n  padding-right:8px; }\n.td-file-upload-cancel{\n  height:24px;\n  width:24px;\n  position:relative;\n  top:24px;\n  left:-12px; }\n  ::ng-deep [dir='rtl'] .td-file-upload-cancel{\n    right:-12px;\n    left:0; }\n  .td-file-upload-cancel mat-icon{\n    border-radius:12px;\n    vertical-align:baseline; }\n.drop-zone{\n  border-radius:3px; }\n  .drop-zone *{\n    pointer-events:none; }\n"],
+                template: "<td-file-input *ngIf=\"!value\"\n               [(ngModel)]=\"value\"\n               [multiple]=\"multiple\"\n               [disabled]=\"disabled\"\n               [accept]=\"accept\"\n               [color]=\"defaultColor\"\n               (select)=\"handleSelect($event)\">\n  <ng-template [cdkPortalHost]=\"inputLabel\" [ngIf]=\"true\"></ng-template>\n</td-file-input>\n<div *ngIf=\"value\">\n  <button #fileUpload\n          class=\"td-file-upload\"\n          mat-raised-button\n          type=\"button\"\n          [color]=\"activeColor\"\n          (keyup.delete)=\"cancel()\"\n          (keyup.backspace)=\"cancel()\"\n          (keyup.escape)=\"cancel()\"\n          (click)=\"uploadPressed()\">\n    <ng-content></ng-content>\n  </button>\n  <button mat-icon-button\n          type=\"button\"\n          class=\"td-file-upload-cancel\"\n          [color]=\"cancelColor\"\n          (click)=\"cancel()\">\n    <mat-icon>cancel</mat-icon>\n  </button>\n</div>",
             },] },
 ];
 /** @nocollapse */
@@ -681,7 +693,7 @@ CovalentFileModule.decorators = [
     { type: core.NgModule, args: [{
                 imports: [
                     forms.FormsModule,
-                    common.CommonModule,
+                    common$1.CommonModule,
                     icon.MatIconModule,
                     button.MatButtonModule,
                     portal.PortalModule,

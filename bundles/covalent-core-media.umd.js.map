@@ -2,9 +2,9 @@
   "version": 3,
   "file": "covalent-core-media.umd.js",
   "sources": [
-    "ng://@covalent/core/media/media/media.module.ts",
-    "ng://@covalent/core/media/media/directives/media-toggle.directive.ts",
-    "ng://@covalent/core/media/media/services/media.service.ts"
+    "ng://@covalent/core/media/out/media.module.ts",
+    "ng://@covalent/core/media/out/directives/media-toggle.directive.ts",
+    "ng://@covalent/core/media/out/services/media.service.ts"
   ],
   "sourcesContent": [
     "import { Type } from '@angular/core';\nimport { NgModule, ModuleWithProviders } from '@angular/core';\n\nimport { CommonModule } from '@angular/common';\n\nimport { MEDIA_PROVIDER } from './services/media.service';\nimport { TdMediaToggleDirective } from './directives/media-toggle.directive';\n\nconst TD_MEDIA: Type<any>[] = [\n  TdMediaToggleDirective,\n];\n\n@NgModule({\n  imports: [\n    CommonModule,\n  ],\n  declarations: [\n    TD_MEDIA,\n  ],\n  exports: [\n    TD_MEDIA,\n  ],\n  providers: [\n    MEDIA_PROVIDER,\n  ],\n})\nexport class CovalentMediaModule {\n\n}\n",

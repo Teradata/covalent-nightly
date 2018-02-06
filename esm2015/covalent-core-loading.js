@@ -1,11 +1,11 @@
-import { ChangeDetectorRef, Component, ComponentFactoryResolver, Directive, ElementRef, Injectable, Injector, Input, NgModule, Optional, SkipSelf, TemplateRef, ViewContainerRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ComponentPortal, PortalModule, TemplatePortal } from '@angular/cdk/portal';
+import { Component, ChangeDetectorRef, ElementRef, Injectable, ComponentFactoryResolver, SkipSelf, Optional, Injector, Directive, Input, ViewContainerRef, TemplateRef, NgModule } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+import { TdFadeInOutAnimation } from '@covalent/core/common';
+import { TemplatePortal, ComponentPortal, PortalModule } from '@angular/cdk/portal';
 import { Overlay, OverlayConfig, OverlayModule } from '@angular/cdk/overlay';
+import { CommonModule } from '@angular/common';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { Subject as Subject$1 } from 'rxjs/Subject';
-import { TdFadeInOutAnimation } from '@covalent/core/common';
 
 /**
  * @fileoverview added by tsickle
@@ -41,8 +41,8 @@ class TdLoadingComponent {
     constructor(_elementRef, _changeDetectorRef) {
         this._elementRef = _elementRef;
         this._changeDetectorRef = _changeDetectorRef;
-        this._animationIn = new Subject$1();
-        this._animationOut = new Subject$1();
+        this._animationIn = new Subject();
+        this._animationOut = new Subject();
         this._mode = LoadingMode.Indeterminate;
         this._defaultMode = LoadingMode.Indeterminate;
         this._value = 0;
@@ -256,65 +256,65 @@ class TdLoadingComponent {
 TdLoadingComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-loading',
-                styles: [`.td-loading-wrapper {
-  position: relative;
-  display: block; }
-  .td-loading-wrapper.td-fullscreen {
-    position: inherit; }
-  .td-loading-wrapper .td-loading {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -ms-flex-line-pack: center;
-        align-content: center;
-    max-width: 100%;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1; }
-  .td-loading-wrapper.td-overlay .td-loading {
-    position: absolute;
-    margin: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000; }
-    .td-loading-wrapper.td-overlay .td-loading mat-progress-bar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0; }
-  .td-loading-wrapper.td-overlay-circular .td-loading {
-    bottom: 0; }
+                styles: [`.td-loading-wrapper{
+  position:relative;
+  display:block; }
+  .td-loading-wrapper.td-fullscreen{
+    position:inherit; }
+  .td-loading-wrapper .td-loading{
+    -webkit-box-sizing:border-box;
+            box-sizing:border-box;
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-orient:horizontal;
+    -webkit-box-direction:normal;
+        -ms-flex-direction:row;
+            flex-direction:row;
+    -webkit-box-align:center;
+        -ms-flex-align:center;
+            align-items:center;
+    -ms-flex-line-pack:center;
+        align-content:center;
+    max-width:100%;
+    -webkit-box-pack:center;
+        -ms-flex-pack:center;
+            justify-content:center;
+    -webkit-box-flex:1;
+        -ms-flex:1;
+            flex:1; }
+  .td-loading-wrapper.td-overlay .td-loading{
+    position:absolute;
+    margin:0;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000; }
+    .td-loading-wrapper.td-overlay .td-loading mat-progress-bar{
+      position:absolute;
+      top:0;
+      left:0;
+      right:0; }
+  .td-loading-wrapper.td-overlay-circular .td-loading{
+    bottom:0; }
 `],
                 template: `<div class="td-loading-wrapper"
     [style.min-height]="getHeight()"
     [class.td-overlay-circular]="(isOverlay() || isFullScreen()) && !isLinear()"
-    [class.td-overlay]="isOverlay() || isFullScreen()" 
+    [class.td-overlay]="isOverlay() || isFullScreen()"
     [class.td-fullscreen]="isFullScreen()">
   <div [@tdFadeInOut]="animation"
      (@tdFadeInOut.done)="animationComplete($event)"
      [style.min-height]="getHeight()"
      class="td-loading">
-    <mat-progress-spinner *ngIf="isCircular()" 
+    <mat-progress-spinner *ngIf="isCircular()"
                         [mode]="mode"
-                        [value]="value" 
-                        [color]="color" 
+                        [value]="value"
+                        [color]="color"
                         [diameter]="getCircleDiameter()"
                         [strokeWidth]="getCircleStrokeWidth()">
     </mat-progress-spinner>
-    <mat-progress-bar *ngIf="isLinear()" 
+    <mat-progress-bar *ngIf="isLinear()"
                      [mode]="mode"
                      [value]="value"
                      [color]="color">
@@ -502,7 +502,7 @@ class TdLoadingFactory {
      * @return {?}
      */
     _initializeContext() {
-        let /** @type {?} */ subject = new Subject$1();
+        let /** @type {?} */ subject = new Subject();
         return {
             observable: subject.asObservable(),
             subject: subject,
@@ -548,8 +548,8 @@ TdLoadingFactory.ctorParameters = () => [
  * @param {?} injector
  * @return {?}
  */
-function LOADING_FACTORY_PROVIDER_FACTORY(parent, componentFactoryResolver, overlay$$1, injector) {
-    return parent || new TdLoadingFactory(componentFactoryResolver, overlay$$1, injector);
+function LOADING_FACTORY_PROVIDER_FACTORY(parent, componentFactoryResolver, overlay, injector) {
+    return parent || new TdLoadingFactory(componentFactoryResolver, overlay, injector);
 }
 const LOADING_FACTORY_PROVIDER = {
     // If there is already a service available, use that. Otherwise, provide a new one.

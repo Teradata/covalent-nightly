@@ -1,15 +1,15 @@
-import { Component, ContentChildren, Directive, ElementRef, HostListener, Inject, Input, NgModule, Optional, Renderer2, SecurityContext, ViewChild, forwardRef } from '@angular/core';
+import { Component, Input, ViewChild, HostListener, Directive, Renderer2, ElementRef, Inject, forwardRef, Optional, ContentChildren, SecurityContext, NgModule } from '@angular/core';
+import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
+import { mixinDisabled, TdCollapseAnimation } from '@covalent/core/common';
+import { Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
-import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
-import { TdCollapseAnimation, mixinDisabled } from '@covalent/core/common';
-import { Router } from '@angular/router';
-import { DomSanitizer } from '@angular/platform-browser';
 
 /**
  * @fileoverview added by tsickle
@@ -81,23 +81,23 @@ class TdLayoutComponent {
 TdLayoutComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-layout',
-                styles: [`:host {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 0;
-  width: 100%;
-  min-height: 100%;
-  height: 100%;
-  overflow: hidden; }
-  :host ::ng-deep > mat-sidenav-container > mat-sidenav {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column; }
+                styles: [`:host{
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  margin:0;
+  width:100%;
+  min-height:100%;
+  height:100%;
+  overflow:hidden; }
+  :host ::ng-deep > mat-sidenav-container > mat-sidenav{
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-orient:vertical;
+    -webkit-box-direction:normal;
+        -ms-flex-direction:column;
+            flex-direction:column; }
 `],
                 template: `<mat-sidenav-container fullscreen>
   <mat-sidenav #sidenav
@@ -369,70 +369,69 @@ class TdLayoutNavComponent {
 TdLayoutNavComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-layout-nav',
-                styles: [`.td-menu-button {
-  margin-left: 0; }
-  ::ng-deep [dir='rtl'] .td-menu-button {
-    margin-right: 0;
-    margin-left: 6px; }
-
-:host {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 0;
-  width: 100%;
-  min-height: 100%;
-  height: 100%;
-  overflow: hidden; }
-  :host .td-layout-nav-wrapper {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin: 0;
-    width: 100%;
-    min-height: 100%;
-    height: 100%; }
-    :host .td-layout-nav-wrapper .td-layout-nav-toolbar-content {
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-          -ms-flex-direction: row;
-              flex-direction: row;
-      -webkit-box-sizing: border-box;
-              box-sizing: border-box;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
-      -ms-flex-line-pack: center;
-          align-content: center;
-      max-width: 100%;
-      -webkit-box-pack: start;
-          -ms-flex-pack: start;
-              justify-content: start; }
-    :host .td-layout-nav-wrapper .td-layout-nav-content {
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-          -ms-flex-direction: column;
-              flex-direction: column;
-      -webkit-box-sizing: border-box;
-              box-sizing: border-box;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-flex: 1;
-          -ms-flex: 1;
-              flex: 1;
-      position: relative;
-      overflow: auto;
-      -webkit-overflow-scrolling: touch; }
+                styles: [`.td-menu-button{
+  margin-left:0; }
+  ::ng-deep [dir='rtl'] .td-menu-button{
+    margin-right:0;
+    margin-left:6px; }
+:host{
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  margin:0;
+  width:100%;
+  min-height:100%;
+  height:100%;
+  overflow:hidden; }
+  :host .td-layout-nav-wrapper{
+    -webkit-box-orient:vertical;
+    -webkit-box-direction:normal;
+        -ms-flex-direction:column;
+            flex-direction:column;
+    -webkit-box-sizing:border-box;
+            box-sizing:border-box;
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    margin:0;
+    width:100%;
+    min-height:100%;
+    height:100%; }
+    :host .td-layout-nav-wrapper .td-layout-nav-toolbar-content{
+      -webkit-box-orient:horizontal;
+      -webkit-box-direction:normal;
+          -ms-flex-direction:row;
+              flex-direction:row;
+      -webkit-box-sizing:border-box;
+              box-sizing:border-box;
+      display:-webkit-box;
+      display:-ms-flexbox;
+      display:flex;
+      -webkit-box-align:center;
+          -ms-flex-align:center;
+              align-items:center;
+      -ms-flex-line-pack:center;
+          align-content:center;
+      max-width:100%;
+      -webkit-box-pack:start;
+          -ms-flex-pack:start;
+              justify-content:start; }
+    :host .td-layout-nav-wrapper .td-layout-nav-content{
+      -webkit-box-orient:vertical;
+      -webkit-box-direction:normal;
+          -ms-flex-direction:column;
+              flex-direction:column;
+      -webkit-box-sizing:border-box;
+              box-sizing:border-box;
+      display:-webkit-box;
+      display:-ms-flexbox;
+      display:flex;
+      -webkit-box-flex:1;
+          -ms-flex:1;
+              flex:1;
+      position:relative;
+      overflow:auto;
+      -webkit-overflow-scrolling:touch; }
 `],
                 template: `<div class="td-layout-nav-wrapper">
   <mat-toolbar [color]="color">
@@ -562,118 +561,116 @@ class TdLayoutNavListComponent {
 TdLayoutNavListComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-layout-nav-list',
-                styles: [`:host {
-  margin: 0;
-  width: 100%;
-  min-height: 100%;
-  height: 100%;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1; }
-  :host .td-layout-nav-list-wrapper {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    position: relative;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch; }
-    :host .td-layout-nav-list-wrapper .td-layout-nav-list-toolbar-content {
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-          -ms-flex-direction: row;
-              flex-direction: row;
-      -webkit-box-sizing: border-box;
-              box-sizing: border-box;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
-      -ms-flex-line-pack: center;
-          align-content: center;
-      max-width: 100%;
-      -webkit-box-pack: start;
-          -ms-flex-pack: start;
-              justify-content: start; }
-    :host .td-layout-nav-list-wrapper .td-layout-nav-list-content {
-      text-align: start;
-      -webkit-box-flex: 1;
-          -ms-flex: 1;
-              flex: 1;
-      display: block;
-      position: relative;
-      overflow: auto;
-      -webkit-overflow-scrolling: touch; }
-    :host .td-layout-nav-list-wrapper .td-layout-nav-list-main {
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-          -ms-flex-direction: column;
-              flex-direction: column;
-      -webkit-box-sizing: border-box;
-              box-sizing: border-box;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      margin: 0;
-      width: 100%;
-      min-height: 100%;
-      height: 100%;
-      position: relative;
-      overflow: auto; }
-      :host .td-layout-nav-list-wrapper .td-layout-nav-list-main .td-layout-nav-list-content {
-        display: block;
-        position: relative;
-        overflow: auto;
-        -webkit-overflow-scrolling: touch;
-        -webkit-box-flex: 1;
-            -ms-flex: 1;
-                flex: 1; }
-    :host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list {
-      -webkit-box-flex: 1;
-          -ms-flex: 1;
-              flex: 1; }
-      :host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list > mat-sidenav.mat-drawer-opened, :host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list > mat-sidenav.mat-drawer-opening, :host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list > mat-sidenav.mat-drawer-closed, :host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list > mat-sidenav.mat-drawer-closing {
-        -webkit-box-shadow: none;
-                box-shadow: none; }
-
-:host ::ng-deep mat-sidenav-container.td-layout-nav-list {
-  /* Ensure the left sidenav is a flex column & 100% height */ }
-  :host ::ng-deep mat-sidenav-container.td-layout-nav-list > .mat-drawer-content {
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1; }
-  :host ::ng-deep mat-sidenav-container.td-layout-nav-list > mat-sidenav {
-    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column; }
+                styles: [`:host{
+  margin:0;
+  width:100%;
+  min-height:100%;
+  height:100%;
+  overflow:hidden;
+  -webkit-box-orient:vertical;
+  -webkit-box-direction:normal;
+      -ms-flex-direction:column;
+          flex-direction:column;
+  -webkit-box-sizing:border-box;
+          box-sizing:border-box;
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-flex:1;
+      -ms-flex:1;
+          flex:1; }
+  :host .td-layout-nav-list-wrapper{
+    -webkit-box-orient:vertical;
+    -webkit-box-direction:normal;
+        -ms-flex-direction:column;
+            flex-direction:column;
+    -webkit-box-sizing:border-box;
+            box-sizing:border-box;
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-flex:1;
+        -ms-flex:1;
+            flex:1;
+    position:relative;
+    overflow:auto;
+    -webkit-overflow-scrolling:touch; }
+    :host .td-layout-nav-list-wrapper .td-layout-nav-list-toolbar-content{
+      -webkit-box-orient:horizontal;
+      -webkit-box-direction:normal;
+          -ms-flex-direction:row;
+              flex-direction:row;
+      -webkit-box-sizing:border-box;
+              box-sizing:border-box;
+      display:-webkit-box;
+      display:-ms-flexbox;
+      display:flex;
+      -webkit-box-align:center;
+          -ms-flex-align:center;
+              align-items:center;
+      -ms-flex-line-pack:center;
+          align-content:center;
+      max-width:100%;
+      -webkit-box-pack:start;
+          -ms-flex-pack:start;
+              justify-content:start; }
+    :host .td-layout-nav-list-wrapper .td-layout-nav-list-content{
+      text-align:start;
+      -webkit-box-flex:1;
+          -ms-flex:1;
+              flex:1;
+      display:block;
+      position:relative;
+      overflow:auto;
+      -webkit-overflow-scrolling:touch; }
+    :host .td-layout-nav-list-wrapper .td-layout-nav-list-main{
+      -webkit-box-orient:vertical;
+      -webkit-box-direction:normal;
+          -ms-flex-direction:column;
+              flex-direction:column;
+      -webkit-box-sizing:border-box;
+              box-sizing:border-box;
+      display:-webkit-box;
+      display:-ms-flexbox;
+      display:flex;
+      margin:0;
+      width:100%;
+      min-height:100%;
+      height:100%;
+      position:relative;
+      overflow:auto; }
+      :host .td-layout-nav-list-wrapper .td-layout-nav-list-main .td-layout-nav-list-content{
+        display:block;
+        position:relative;
+        overflow:auto;
+        -webkit-overflow-scrolling:touch;
+        -webkit-box-flex:1;
+            -ms-flex:1;
+                flex:1; }
+    :host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list{
+      -webkit-box-flex:1;
+          -ms-flex:1;
+              flex:1; }
+      :host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list > mat-sidenav.mat-drawer-opened, :host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list > mat-sidenav.mat-drawer-opening, :host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list > mat-sidenav.mat-drawer-closed, :host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list > mat-sidenav.mat-drawer-closing{
+        -webkit-box-shadow:none;
+                box-shadow:none; }
+:host ::ng-deep mat-sidenav-container.td-layout-nav-list{ }
+  :host ::ng-deep mat-sidenav-container.td-layout-nav-list > .mat-drawer-content{
+    -webkit-box-flex:1;
+        -ms-flex-positive:1;
+            flex-grow:1; }
+  :host ::ng-deep mat-sidenav-container.td-layout-nav-list > mat-sidenav{
+    -webkit-box-shadow:0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+            box-shadow:0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+    -webkit-box-sizing:border-box;
+            box-sizing:border-box;
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-orient:vertical;
+    -webkit-box-direction:normal;
+        -ms-flex-direction:column;
+            flex-direction:column; }
 `],
                 template: `<div class="td-layout-nav-list-wrapper">
   <mat-sidenav-container fullscreen class="td-layout-nav-list">
@@ -871,49 +868,48 @@ class TdLayoutCardOverComponent {
 TdLayoutCardOverComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-layout-card-over',
-                styles: [`:host {
-  position: relative;
-  display: block;
-  z-index: 2;
-  width: 100%;
-  min-height: 100%;
-  height: 100%; }
-  :host [td-after-card] {
-    display: block; }
-
-.td-layout-card-over-wrapper {
-  margin: -64px;
-  margin-left: 0;
-  margin-right: 0;
-  width: 100%;
-  min-height: 100%;
-  height: 100%; }
-  @media (min-width: 600px) {
-    .td-layout-card-over-wrapper {
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-          -ms-flex-direction: row;
-              flex-direction: row;
-      -webkit-box-sizing: border-box;
-              box-sizing: border-box;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: start;
-          -ms-flex-align: start;
-              align-items: flex-start;
-      -ms-flex-line-pack: start;
-          align-content: flex-start;
-      -webkit-box-pack: center;
-          -ms-flex-pack: center;
-              justify-content: center; }
-      .td-layout-card-over-wrapper .td-layout-card-over {
-        max-height: 100%;
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box; } }
-  @media (max-width: 599px) {
-    .td-layout-card-over-wrapper .td-layout-card-over {
-      max-width: 100% !important; } }
+                styles: [`:host{
+  position:relative;
+  display:block;
+  z-index:2;
+  width:100%;
+  min-height:100%;
+  height:100%; }
+  :host [td-after-card]{
+    display:block; }
+.td-layout-card-over-wrapper{
+  margin:-64px;
+  margin-left:0;
+  margin-right:0;
+  width:100%;
+  min-height:100%;
+  height:100%; }
+  @media (min-width: 600px){
+    .td-layout-card-over-wrapper{
+      -webkit-box-orient:horizontal;
+      -webkit-box-direction:normal;
+          -ms-flex-direction:row;
+              flex-direction:row;
+      -webkit-box-sizing:border-box;
+              box-sizing:border-box;
+      display:-webkit-box;
+      display:-ms-flexbox;
+      display:flex;
+      -webkit-box-align:start;
+          -ms-flex-align:start;
+              align-items:flex-start;
+      -ms-flex-line-pack:start;
+          align-content:flex-start;
+      -webkit-box-pack:center;
+          -ms-flex-pack:center;
+              justify-content:center; }
+      .td-layout-card-over-wrapper .td-layout-card-over{
+        max-height:100%;
+        -webkit-box-sizing:border-box;
+                box-sizing:border-box; } }
+  @media (max-width: 599px){
+    .td-layout-card-over-wrapper .td-layout-card-over{
+      max-width:100% !important; } }
 `],
                 template: `<mat-toolbar [color]="color">
 </mat-toolbar>
@@ -1014,80 +1010,76 @@ class TdLayoutManageListComponent {
 TdLayoutManageListComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-layout-manage-list',
-                styles: [`:host {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 0;
-  width: 100%;
-  min-height: 100%;
-  height: 100%;
-  overflow: hidden; }
-  :host mat-sidenav-container.td-layout-manage-list {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1; }
-    :host mat-sidenav-container.td-layout-manage-list > mat-sidenav.mat-drawer-opened, :host mat-sidenav-container.td-layout-manage-list > mat-sidenav.mat-drawer-opening, :host mat-sidenav-container.td-layout-manage-list > mat-sidenav.mat-drawer-closed, :host mat-sidenav-container.td-layout-manage-list > mat-sidenav.mat-drawer-closing {
-      -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
-              box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2); }
-  :host .td-layout-manage-list-sidenav {
-    text-align: start;
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    display: block;
-    position: relative;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch; }
-  :host .td-layout-manage-list-main {
-    margin: 0;
-    width: 100%;
-    min-height: 100%;
-    height: 100%;
-    position: relative;
-    overflow: auto;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex; }
-    :host .td-layout-manage-list-main .td-layout-manage-list-content {
-      display: block;
-      position: relative;
-      overflow: auto;
-      -webkit-overflow-scrolling: touch;
-      -webkit-box-flex: 1;
-          -ms-flex: 1;
-              flex: 1; }
-
-:host ::ng-deep mat-sidenav-container.td-layout-manage-list {
-  /* Ensure the left sidenav is a flex column & 100% height */ }
-  :host ::ng-deep mat-sidenav-container.td-layout-manage-list > .mat-drawer-content {
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1; }
-  :host ::ng-deep mat-sidenav-container.td-layout-manage-list > mat-sidenav {
-    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column; }
-
-:host ::ng-deep mat-nav-list a[mat-list-item] .mat-list-item-content {
-  font-size: 14px; }
-
-:host ::ng-deep .mat-toolbar {
-  font-weight: 400; }
+                styles: [`:host{
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  margin:0;
+  width:100%;
+  min-height:100%;
+  height:100%;
+  overflow:hidden; }
+  :host mat-sidenav-container.td-layout-manage-list{
+    -webkit-box-flex:1;
+        -ms-flex:1;
+            flex:1; }
+    :host mat-sidenav-container.td-layout-manage-list > mat-sidenav.mat-drawer-opened, :host mat-sidenav-container.td-layout-manage-list > mat-sidenav.mat-drawer-opening, :host mat-sidenav-container.td-layout-manage-list > mat-sidenav.mat-drawer-closed, :host mat-sidenav-container.td-layout-manage-list > mat-sidenav.mat-drawer-closing{
+      -webkit-box-shadow:0 1px 3px 0 rgba(0, 0, 0, 0.2);
+              box-shadow:0 1px 3px 0 rgba(0, 0, 0, 0.2); }
+  :host .td-layout-manage-list-sidenav{
+    text-align:start;
+    -webkit-box-flex:1;
+        -ms-flex:1;
+            flex:1;
+    display:block;
+    position:relative;
+    overflow:auto;
+    -webkit-overflow-scrolling:touch; }
+  :host .td-layout-manage-list-main{
+    margin:0;
+    width:100%;
+    min-height:100%;
+    height:100%;
+    position:relative;
+    overflow:auto;
+    -webkit-box-orient:vertical;
+    -webkit-box-direction:normal;
+        -ms-flex-direction:column;
+            flex-direction:column;
+    -webkit-box-sizing:border-box;
+            box-sizing:border-box;
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex; }
+    :host .td-layout-manage-list-main .td-layout-manage-list-content{
+      display:block;
+      position:relative;
+      overflow:auto;
+      -webkit-overflow-scrolling:touch;
+      -webkit-box-flex:1;
+          -ms-flex:1;
+              flex:1; }
+:host ::ng-deep mat-sidenav-container.td-layout-manage-list{ }
+  :host ::ng-deep mat-sidenav-container.td-layout-manage-list > .mat-drawer-content{
+    -webkit-box-flex:1;
+        -ms-flex-positive:1;
+            flex-grow:1; }
+  :host ::ng-deep mat-sidenav-container.td-layout-manage-list > mat-sidenav{
+    -webkit-box-shadow:0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+            box-shadow:0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+    -webkit-box-sizing:border-box;
+            box-sizing:border-box;
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-orient:vertical;
+    -webkit-box-direction:normal;
+        -ms-flex-direction:column;
+            flex-direction:column; }
+:host ::ng-deep mat-nav-list a[mat-list-item] .mat-list-item-content{
+  font-size:14px; }
+:host ::ng-deep .mat-toolbar{
+  font-weight:400; }
 `],
                 template: `<mat-sidenav-container fullscreen class="td-layout-manage-list">
   <mat-sidenav #sidenav
@@ -1277,9 +1269,9 @@ TdLayoutFooterComponent.decorators = [
     { type: Component, args: [{
                 /* tslint:disable-next-line */
                 selector: 'td-layout-footer,td-layout-footer-inner',
-                styles: [`:host {
-  display: block;
-  padding: 10px 16px; }
+                styles: [`:host{
+  display:block;
+  padding:10px 16px; }
 `],
                 template: `<ng-content></ng-content>
 `,
@@ -1445,62 +1437,62 @@ class TdNavigationDrawerComponent {
 TdNavigationDrawerComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-navigation-drawer',
-                styles: [`:host {
-  width: 100%; }
+                styles: [`:host{
+  width:100%; }
   :host .td-navigation-drawer-content.ng-animating,
-  :host .td-navigation-drawer-menu-content.ng-animating {
-    overflow: hidden; }
-  :host mat-toolbar {
-    padding: 16px; }
-    :host mat-toolbar.td-toolbar-background {
-      background-repeat: no-repeat;
-      background-size: cover; }
-    :host mat-toolbar.td-nagivation-drawer-toolbar {
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-          -ms-flex-direction: column;
-              flex-direction: column;
-      height: auto !important;
-      display: block !important; }
-    :host mat-toolbar .td-navigation-drawer-toolbar-content {
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-          -ms-flex-direction: row;
-              flex-direction: row;
-      -webkit-box-sizing: border-box;
-              box-sizing: border-box;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
-      -ms-flex-line-pack: center;
-          align-content: center;
-      max-width: 100%;
-      -webkit-box-pack: start;
-          -ms-flex-pack: start;
-              justify-content: start; }
-    :host mat-toolbar .td-navigation-drawer-menu-toggle {
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-          -ms-flex-direction: row;
-              flex-direction: row;
-      -webkit-box-sizing: border-box;
-              box-sizing: border-box;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex; }
-      :host mat-toolbar .td-navigation-drawer-menu-toggle .td-navigation-drawer-label {
-        -webkit-box-flex: 1;
-            -ms-flex: 1;
-                flex: 1; }
-      :host mat-toolbar .td-navigation-drawer-menu-toggle .td-navigation-drawer-menu-button {
-        height: 24px;
-        line-height: 24px;
-        width: 24px; }
-  :host > div {
-    overflow: hidden; }
+  :host .td-navigation-drawer-menu-content.ng-animating{
+    overflow:hidden; }
+  :host mat-toolbar{
+    padding:16px; }
+    :host mat-toolbar.td-toolbar-background{
+      background-repeat:no-repeat;
+      background-size:cover; }
+    :host mat-toolbar.td-nagivation-drawer-toolbar{
+      -webkit-box-orient:vertical;
+      -webkit-box-direction:normal;
+          -ms-flex-direction:column;
+              flex-direction:column;
+      height:auto !important;
+      display:block !important; }
+    :host mat-toolbar .td-navigation-drawer-toolbar-content{
+      -webkit-box-orient:horizontal;
+      -webkit-box-direction:normal;
+          -ms-flex-direction:row;
+              flex-direction:row;
+      -webkit-box-sizing:border-box;
+              box-sizing:border-box;
+      display:-webkit-box;
+      display:-ms-flexbox;
+      display:flex;
+      -webkit-box-align:center;
+          -ms-flex-align:center;
+              align-items:center;
+      -ms-flex-line-pack:center;
+          align-content:center;
+      max-width:100%;
+      -webkit-box-pack:start;
+          -ms-flex-pack:start;
+              justify-content:start; }
+    :host mat-toolbar .td-navigation-drawer-menu-toggle{
+      -webkit-box-orient:horizontal;
+      -webkit-box-direction:normal;
+          -ms-flex-direction:row;
+              flex-direction:row;
+      -webkit-box-sizing:border-box;
+              box-sizing:border-box;
+      display:-webkit-box;
+      display:-ms-flexbox;
+      display:flex; }
+      :host mat-toolbar .td-navigation-drawer-menu-toggle .td-navigation-drawer-label{
+        -webkit-box-flex:1;
+            -ms-flex:1;
+                flex:1; }
+      :host mat-toolbar .td-navigation-drawer-menu-toggle .td-navigation-drawer-menu-button{
+        height:24px;
+        line-height:24px;
+        width:24px; }
+  :host > div{
+    overflow:hidden; }
 `],
                 template: `<mat-toolbar [color]="color"
              [style.background-image]="backgroundImage"

@@ -4,5 +4,8 @@
   "es2015": "../esm2015/covalent-core-search.js",
   "typings": "covalent-core-search.d.ts",
   "metadata": "covalent-core-search.metadata.json",
+  "dependencies": {
+    "tslib": "^1.7.1"
+  },
   "name": "@covalent/core/search"
 }

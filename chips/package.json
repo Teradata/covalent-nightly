@@ -4,5 +4,8 @@
   "es2015": "../esm2015/covalent-core-chips.js",
   "typings": "covalent-core-chips.d.ts",
   "metadata": "covalent-core-chips.metadata.json",
+  "dependencies": {
+    "tslib": "^1.7.1"
+  },
   "name": "@covalent/core/chips"
 }

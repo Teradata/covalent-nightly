@@ -1,7 +1,7 @@
-import { ChangeDetectorRef, Component, Directive, ElementRef, HostBinding, HostListener, Input, NgModule, Renderer2, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, Directive, Input, Renderer2, ElementRef, ViewContainerRef, TemplateRef, ViewChild, HostBinding, HostListener, ChangeDetectorRef, NgModule } from '@angular/core';
+import { TdCollapseAnimation } from '@covalent/core/common';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { TdCollapseAnimation } from '@covalent/core/common';
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
@@ -224,7 +224,7 @@ TdMessageComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-message',
                 template: "<div tdMessageContainer></div>\n<ng-template>\n  <div class=\"td-message-wrapper\">\n    <mat-icon class=\"td-message-icon\">{{icon}}</mat-icon>\n    <div class=\"td-message-labels\">\n      <div *ngIf=\"label\" class=\"td-message-label\">{{label}}</div>\n      <div *ngIf=\"sublabel\" class=\"td-message-sublabel\">{{sublabel}}</div>\n    </div>\n    <ng-content select=\"[td-message-actions]\"></ng-content>\n  </div>\n</ng-template>",
-                styles: [":host {\n  display: block; }\n  :host .td-message-wrapper {\n    padding: 8px 16px;\n    min-height: 52px;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -ms-flex-line-pack: center;\n        align-content: center;\n    max-width: 100%;\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: start; }\n    :host .td-message-wrapper .td-message-labels {\n      -webkit-box-flex: 1;\n          -ms-flex: 1;\n              flex: 1; }\n\n.td-message-icon {\n  margin-right: 16px; }\n  ::ng-deep [dir='rtl'] .td-message-icon {\n    margin-left: 16px;\n    margin-right: 0; }\n"],
+                styles: [":host{\n  display:block; }\n  :host .td-message-wrapper{\n    padding:8px 16px;\n    min-height:52px;\n    -webkit-box-sizing:border-box;\n            box-sizing:border-box;\n    display:-webkit-box;\n    display:-ms-flexbox;\n    display:flex;\n    -webkit-box-orient:horizontal;\n    -webkit-box-direction:normal;\n        -ms-flex-direction:row;\n            flex-direction:row;\n    -webkit-box-align:center;\n        -ms-flex-align:center;\n            align-items:center;\n    -ms-flex-line-pack:center;\n        align-content:center;\n    max-width:100%;\n    -webkit-box-pack:start;\n        -ms-flex-pack:start;\n            justify-content:start; }\n    :host .td-message-wrapper .td-message-labels{\n      -webkit-box-flex:1;\n          -ms-flex:1;\n              flex:1; }\n.td-message-icon{\n  margin-right:16px; }\n  ::ng-deep [dir='rtl'] .td-message-icon{\n    margin-left:16px;\n    margin-right:0; }\n"],
                 animations: [
                     TdCollapseAnimation({ duration: 100 }),
                 ],

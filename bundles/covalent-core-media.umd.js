@@ -1,8 +1,8 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('rxjs/BehaviorSubject'), require('rxjs/observable/fromEvent')) :
-	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', 'rxjs/BehaviorSubject', 'rxjs/observable/fromEvent'], factory) :
-	(factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.media = {}),global.ng.core,global.ng.common,global.Rx,global.Rx.Observable));
-}(this, (function (exports,core,common,BehaviorSubject,fromEvent) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('rxjs/BehaviorSubject'), require('rxjs/observable/fromEvent'), require('@angular/common')) :
+	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', 'rxjs/BehaviorSubject', 'rxjs/observable/fromEvent', '@angular/common'], factory) :
+	(factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.media = {}),global.ng.core,global.Rx,global.Rx.Observable,global.ng.common));
+}(this, (function (exports,core,BehaviorSubject,fromEvent,common) { 'use strict';
 
 /**
  * @fileoverview added by tsickle

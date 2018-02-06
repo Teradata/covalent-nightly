@@ -1,7 +1,7 @@
-import { Directive, ElementRef, Injectable, Input, NgModule, NgZone, Optional, Renderer2, SkipSelf } from '@angular/core';
+import { Injectable, NgZone, SkipSelf, Optional, Directive, ElementRef, Input, Renderer2, NgModule } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { fromEvent } from 'rxjs/observable/fromEvent';
 import { CommonModule } from '@angular/common';
-import { BehaviorSubject as BehaviorSubject$1 } from 'rxjs/BehaviorSubject';
-import { fromEvent as fromEvent$1 } from 'rxjs/observable/fromEvent';
 
 /**
  * @fileoverview added by tsickle
@@ -32,7 +32,7 @@ class TdMediaService {
         this._resizing = false;
         // we make sure that the resize checking happend outside of angular since it happens often
         this._globalSubscription = this._ngZone.runOutsideAngular(() => {
-            return fromEvent$1(window, 'resize').subscribe(() => {
+            return fromEvent(window, 'resize').subscribe(() => {
                 // way to prevent the resize event from triggering the match media if there is already one event running already.
                 if (!this._resizing) {
                     this._resizing = true;
@@ -82,7 +82,7 @@ class TdMediaService {
             query = this._queryMap.get(query.toLowerCase());
         }
         if (!this._querySources[query]) {
-            this._querySources[query] = new BehaviorSubject$1(matchMedia(query).matches);
+            this._querySources[query] = new BehaviorSubject(matchMedia(query).matches);
             this._queryObservables[query] = this._querySources[query].asObservable();
         }
         return this._queryObservables[query];

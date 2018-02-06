@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, NgModule, Optional } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, ChangeDetectorRef, Optional, NgModule } from '@angular/core';
+import { Dir } from '@angular/cdk/bidi';
+import { TdCollapseAnimation } from '@covalent/core/common';
 import { CommonModule } from '@angular/common';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
-import { Dir } from '@angular/cdk/bidi';
-import { TdCollapseAnimation } from '@covalent/core/common';
 
 /**
  * @fileoverview added by tsickle
@@ -249,61 +249,60 @@ TdJsonFormatterComponent.decorators = [
     { type: Component, args: [{
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 selector: 'td-json-formatter',
-                styles: [`:host {
-  display: block; }
-
-.td-json-formatter-wrapper {
-  padding-top: 2px;
-  padding-bottom: 2px; }
-  .td-json-formatter-wrapper .td-key {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -ms-flex-line-pack: center;
-        align-content: center;
-    max-width: 100%;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: start; }
-    .td-json-formatter-wrapper .td-key.td-key-node:hover {
-      cursor: pointer; }
-  .td-json-formatter-wrapper .td-object-children.ng-animating {
-    overflow: hidden; }
+                styles: [`:host{
+  display:block; }
+.td-json-formatter-wrapper{
+  padding-top:2px;
+  padding-bottom:2px; }
+  .td-json-formatter-wrapper .td-key{
+    -webkit-box-sizing:border-box;
+            box-sizing:border-box;
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-orient:horizontal;
+    -webkit-box-direction:normal;
+        -ms-flex-direction:row;
+            flex-direction:row;
+    -webkit-box-align:center;
+        -ms-flex-align:center;
+            align-items:center;
+    -ms-flex-line-pack:center;
+        align-content:center;
+    max-width:100%;
+    -webkit-box-pack:start;
+        -ms-flex-pack:start;
+            justify-content:start; }
+    .td-json-formatter-wrapper .td-key.td-key-node:hover{
+      cursor:pointer; }
+  .td-json-formatter-wrapper .td-object-children.ng-animating{
+    overflow:hidden; }
   .td-json-formatter-wrapper .td-object-children .td-key,
-  .td-json-formatter-wrapper .td-object-children .td-object-children {
-    padding-left: 24px; }
+  .td-json-formatter-wrapper .td-object-children .td-object-children{
+    padding-left:24px; }
     ::ng-deep [dir='rtl'] .td-json-formatter-wrapper .td-object-children .td-key, ::ng-deep [dir='rtl']
-    .td-json-formatter-wrapper .td-object-children .td-object-children {
-      padding-right: 24px;
-      padding-left: 0; }
+    .td-json-formatter-wrapper .td-object-children .td-object-children{
+      padding-right:24px;
+      padding-left:0; }
     .td-json-formatter-wrapper .td-object-children .td-key.td-key-leaf,
-    .td-json-formatter-wrapper .td-object-children .td-object-children.td-key-leaf {
-      padding-left: 48px; }
+    .td-json-formatter-wrapper .td-object-children .td-object-children.td-key-leaf{
+      padding-left:48px; }
       ::ng-deep [dir='rtl'] .td-json-formatter-wrapper .td-object-children .td-key.td-key-leaf, ::ng-deep [dir='rtl']
-      .td-json-formatter-wrapper .td-object-children .td-object-children.td-key-leaf {
-        padding-right: 48px;
-        padding-left: 0; }
-  .td-json-formatter-wrapper .value {
-    margin-left: 5px; }
-    ::ng-deep [dir='rtl'] .td-json-formatter-wrapper .value {
-      padding-right: 5px;
-      padding-left: 0; }
-    .td-json-formatter-wrapper .value .td-empty {
-      opacity: 0.5;
-      text-decoration: line-through; }
-    .td-json-formatter-wrapper .value .string {
-      word-break: break-word; }
-    .td-json-formatter-wrapper .value .date {
-      word-break: break-word; }
+      .td-json-formatter-wrapper .td-object-children .td-object-children.td-key-leaf{
+        padding-right:48px;
+        padding-left:0; }
+  .td-json-formatter-wrapper .value{
+    margin-left:5px; }
+    ::ng-deep [dir='rtl'] .td-json-formatter-wrapper .value{
+      padding-right:5px;
+      padding-left:0; }
+    .td-json-formatter-wrapper .value .td-empty{
+      opacity:0.5;
+      text-decoration:line-through; }
+    .td-json-formatter-wrapper .value .string{
+      word-break:break-word; }
+    .td-json-formatter-wrapper .value .date{
+      word-break:break-word; }
 `],
                 template: `<div class="td-json-formatter-wrapper">
   <a class="td-key"

@@ -1,21 +1,12 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-import { ChangeDetectorRef, Component, ComponentFactoryResolver, Directive, ElementRef, Injectable, Injector, Input, NgModule, Optional, SkipSelf, TemplateRef, ViewContainerRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ComponentPortal, PortalModule, TemplatePortal } from '@angular/cdk/portal';
+import * as tslib_1 from "tslib";
+import { Component, ChangeDetectorRef, ElementRef, Injectable, ComponentFactoryResolver, SkipSelf, Optional, Injector, Directive, Input, ViewContainerRef, TemplateRef, NgModule } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+import { TdFadeInOutAnimation } from '@covalent/core/common';
+import { TemplatePortal, ComponentPortal, PortalModule } from '@angular/cdk/portal';
 import { Overlay, OverlayConfig, OverlayModule } from '@angular/cdk/overlay';
+import { CommonModule } from '@angular/common';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { Subject as Subject$1 } from 'rxjs/Subject';
-import { TdFadeInOutAnimation } from '@covalent/core/common';
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
@@ -50,8 +41,8 @@ var TdLoadingComponent = /** @class */ (function () {
     function TdLoadingComponent(_elementRef, _changeDetectorRef) {
         this._elementRef = _elementRef;
         this._changeDetectorRef = _changeDetectorRef;
-        this._animationIn = new Subject$1();
-        this._animationOut = new Subject$1();
+        this._animationIn = new Subject();
+        this._animationOut = new Subject();
         this._mode = LoadingMode.Indeterminate;
         this._defaultMode = LoadingMode.Indeterminate;
         this._value = 0;
@@ -274,8 +265,8 @@ var TdLoadingComponent = /** @class */ (function () {
 TdLoadingComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-loading',
-                styles: [".td-loading-wrapper {\n  position: relative;\n  display: block; }\n  .td-loading-wrapper.td-fullscreen {\n    position: inherit; }\n  .td-loading-wrapper .td-loading {\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -ms-flex-line-pack: center;\n        align-content: center;\n    max-width: 100%;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1; }\n  .td-loading-wrapper.td-overlay .td-loading {\n    position: absolute;\n    margin: 0;\n    top: 0;\n    left: 0;\n    right: 0;\n    z-index: 1000; }\n    .td-loading-wrapper.td-overlay .td-loading mat-progress-bar {\n      position: absolute;\n      top: 0;\n      left: 0;\n      right: 0; }\n  .td-loading-wrapper.td-overlay-circular .td-loading {\n    bottom: 0; }\n"],
-                template: "<div class=\"td-loading-wrapper\"\n    [style.min-height]=\"getHeight()\"\n    [class.td-overlay-circular]=\"(isOverlay() || isFullScreen()) && !isLinear()\"\n    [class.td-overlay]=\"isOverlay() || isFullScreen()\" \n    [class.td-fullscreen]=\"isFullScreen()\">\n  <div [@tdFadeInOut]=\"animation\"\n     (@tdFadeInOut.done)=\"animationComplete($event)\"\n     [style.min-height]=\"getHeight()\"\n     class=\"td-loading\">\n    <mat-progress-spinner *ngIf=\"isCircular()\" \n                        [mode]=\"mode\"\n                        [value]=\"value\" \n                        [color]=\"color\" \n                        [diameter]=\"getCircleDiameter()\"\n                        [strokeWidth]=\"getCircleStrokeWidth()\">\n    </mat-progress-spinner>\n    <mat-progress-bar *ngIf=\"isLinear()\" \n                     [mode]=\"mode\"\n                     [value]=\"value\"\n                     [color]=\"color\">\n    </mat-progress-bar>\n  </div>\n  <ng-template [cdkPortalHost]=\"content\"></ng-template>\n</div>",
+                styles: [".td-loading-wrapper{\n  position:relative;\n  display:block; }\n  .td-loading-wrapper.td-fullscreen{\n    position:inherit; }\n  .td-loading-wrapper .td-loading{\n    -webkit-box-sizing:border-box;\n            box-sizing:border-box;\n    display:-webkit-box;\n    display:-ms-flexbox;\n    display:flex;\n    -webkit-box-orient:horizontal;\n    -webkit-box-direction:normal;\n        -ms-flex-direction:row;\n            flex-direction:row;\n    -webkit-box-align:center;\n        -ms-flex-align:center;\n            align-items:center;\n    -ms-flex-line-pack:center;\n        align-content:center;\n    max-width:100%;\n    -webkit-box-pack:center;\n        -ms-flex-pack:center;\n            justify-content:center;\n    -webkit-box-flex:1;\n        -ms-flex:1;\n            flex:1; }\n  .td-loading-wrapper.td-overlay .td-loading{\n    position:absolute;\n    margin:0;\n    top:0;\n    left:0;\n    right:0;\n    z-index:1000; }\n    .td-loading-wrapper.td-overlay .td-loading mat-progress-bar{\n      position:absolute;\n      top:0;\n      left:0;\n      right:0; }\n  .td-loading-wrapper.td-overlay-circular .td-loading{\n    bottom:0; }\n"],
+                template: "<div class=\"td-loading-wrapper\"\n    [style.min-height]=\"getHeight()\"\n    [class.td-overlay-circular]=\"(isOverlay() || isFullScreen()) && !isLinear()\"\n    [class.td-overlay]=\"isOverlay() || isFullScreen()\"\n    [class.td-fullscreen]=\"isFullScreen()\">\n  <div [@tdFadeInOut]=\"animation\"\n     (@tdFadeInOut.done)=\"animationComplete($event)\"\n     [style.min-height]=\"getHeight()\"\n     class=\"td-loading\">\n    <mat-progress-spinner *ngIf=\"isCircular()\"\n                        [mode]=\"mode\"\n                        [value]=\"value\"\n                        [color]=\"color\"\n                        [diameter]=\"getCircleDiameter()\"\n                        [strokeWidth]=\"getCircleStrokeWidth()\">\n    </mat-progress-spinner>\n    <mat-progress-bar *ngIf=\"isLinear()\"\n                     [mode]=\"mode\"\n                     [value]=\"value\"\n                     [color]=\"color\">\n    </mat-progress-bar>\n  </div>\n  <ng-template [cdkPortalHost]=\"content\"></ng-template>\n</div>",
                 animations: [
                     TdFadeInOutAnimation(),
                 ],
@@ -454,7 +445,7 @@ var TdLoadingFactory = /** @class */ (function () {
      * @return {?}
      */
     TdLoadingFactory.prototype._initializeContext = function () {
-        var /** @type {?} */ subject = new Subject$1();
+        var /** @type {?} */ subject = new Subject();
         return {
             observable: subject.asObservable(),
             subject: subject,
@@ -501,8 +492,8 @@ TdLoadingFactory.ctorParameters = function () { return [
  * @param {?} injector
  * @return {?}
  */
-function LOADING_FACTORY_PROVIDER_FACTORY(parent, componentFactoryResolver, overlay$$1, injector) {
-    return parent || new TdLoadingFactory(componentFactoryResolver, overlay$$1, injector);
+function LOADING_FACTORY_PROVIDER_FACTORY(parent, componentFactoryResolver, overlay, injector) {
+    return parent || new TdLoadingFactory(componentFactoryResolver, overlay, injector);
 }
 var LOADING_FACTORY_PROVIDER = {
     // If there is already a service available, use that. Otherwise, provide a new one.
@@ -536,7 +527,7 @@ var TdLoadingConfig = /** @class */ (function () {
  * @record
  */
 var TdLoadingDirectiveConfig = /** @class */ (function (_super) {
-    __extends(TdLoadingDirectiveConfig, _super);
+    tslib_1.__extends(TdLoadingDirectiveConfig, _super);
     /**
      * @param {?} config
      */

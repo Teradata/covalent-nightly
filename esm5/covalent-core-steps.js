@@ -1,41 +1,12 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __read = (this && this.__read) || function (o, n) {
-    var m = typeof Symbol === "function" && o[Symbol.iterator];
-    if (!m) return o;
-    var i = m.call(o), r, ar = [], e;
-    try {
-        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
-    }
-    catch (error) { e = { error: error }; }
-    finally {
-        try {
-            if (r && !r.done && (m = i["return"])) m.call(i);
-        }
-        finally { if (e) throw e.error; }
-    }
-    return ar;
-};
-var __spread = (this && this.__spread) || function () {
-    for (var ar = [], i = 0; i < arguments.length; i++) ar = ar.concat(__read(arguments[i]));
-    return ar;
-};
-import { Component, ContentChild, ContentChildren, Directive, ElementRef, EventEmitter, Input, NgModule, Output, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
+import * as tslib_1 from "tslib";
+import { Component, Directive, Input, Output, TemplateRef, ViewChild, ViewContainerRef, ContentChild, EventEmitter, ContentChildren, ElementRef, NgModule } from '@angular/core';
+import { TemplatePortalDirective, TemplatePortal, PortalModule } from '@angular/cdk/portal';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { mixinDisabled, mixinDisableRipple, TdCollapseAnimation, CovalentCommonModule } from '@covalent/core/common';
 import { CommonModule } from '@angular/common';
-import { PortalModule, TemplatePortal, TemplatePortalDirective } from '@angular/cdk/portal';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { MatIconModule } from '@angular/material/icon';
 import { MatRippleModule } from '@angular/material/core';
-import { CovalentCommonModule, TdCollapseAnimation, mixinDisableRipple, mixinDisabled } from '@covalent/core/common';
-import { coerceBooleanProperty } from '@angular/cdk/coercion';
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
@@ -47,7 +18,7 @@ var StepState = {
     Complete: 'complete',
 };
 var TdStepLabelDirective = /** @class */ (function (_super) {
-    __extends(TdStepLabelDirective, _super);
+    tslib_1.__extends(TdStepLabelDirective, _super);
     /**
      * @param {?} templateRef
      * @param {?} viewContainerRef
@@ -68,7 +39,7 @@ TdStepLabelDirective.ctorParameters = function () { return [
     { type: ViewContainerRef, },
 ]; };
 var TdStepActionsDirective = /** @class */ (function (_super) {
-    __extends(TdStepActionsDirective, _super);
+    tslib_1.__extends(TdStepActionsDirective, _super);
     /**
      * @param {?} templateRef
      * @param {?} viewContainerRef
@@ -89,7 +60,7 @@ TdStepActionsDirective.ctorParameters = function () { return [
     { type: ViewContainerRef, },
 ]; };
 var TdStepSummaryDirective = /** @class */ (function (_super) {
-    __extends(TdStepSummaryDirective, _super);
+    tslib_1.__extends(TdStepSummaryDirective, _super);
     /**
      * @param {?} templateRef
      * @param {?} viewContainerRef
@@ -117,7 +88,7 @@ var TdStepBase = /** @class */ (function () {
 /* tslint:disable-next-line */
 var _TdStepMixinBase = mixinDisableRipple(mixinDisabled(TdStepBase));
 var TdStepComponent = /** @class */ (function (_super) {
-    __extends(TdStepComponent, _super);
+    tslib_1.__extends(TdStepComponent, _super);
     /**
      * @param {?} _viewContainerRef
      */
@@ -471,8 +442,8 @@ var TdStepsComponent = /** @class */ (function () {
 TdStepsComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-steps',
-                styles: [".td-line-wrapper,\n.td-step {\n  position: relative; }\n\n.td-steps-header {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row; }\n\n.td-line-wrapper {\n  width: 24px;\n  min-height: 1px; }\n\n.td-horizontal-line {\n  border-bottom-width: 1px;\n  border-bottom-style: solid;\n  height: 1px;\n  position: relative;\n  top: 36px;\n  min-width: 15px;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box; }\n  ::ng-deep :not([dir='rtl']) .td-horizontal-line {\n    left: -6px;\n    right: -3px; }\n  ::ng-deep [dir='rtl'] .td-horizontal-line {\n    left: -3px;\n    right: -6px; }\n\n.td-vertical-line {\n  position: absolute;\n  bottom: -16px;\n  top: -16px;\n  border-left-width: 1px;\n  border-left-style: solid; }\n  ::ng-deep :not([dir='rtl']) .td-vertical-line {\n    left: 20px;\n    right: auto; }\n  ::ng-deep [dir='rtl'] .td-vertical-line {\n    left: auto;\n    right: 20px; }\n"],
-                template: "<div *ngIf=\"isHorizontal()\" class=\"td-steps-header\">\n  <ng-template let-step let-index=\"index\" let-last=\"last\" ngFor [ngForOf]=\"steps\">\n    <td-step-header class=\"td-step-horizontal-header\"\n                    (keydown.enter)=\"step.open()\"\n                    [number]=\"index + 1\"\n                    [active]=\"step.active\"\n                    [disableRipple]=\"step.disableRipple\"\n                    [disabled]=\"step.disabled\" \n                    [state]=\"step.state\"\n                    (click)=\"step.open()\">\n      <ng-template td-step-header-label [cdkPortalHost]=\"step.stepLabel\"></ng-template>\n      <ng-template td-step-header-label [ngIf]=\"!step.stepLabel\">{{step.label}}</ng-template>\n      <ng-template td-step-header-sublabel [ngIf]=\"true\">{{step.sublabel | truncate:30}}</ng-template>\n    </td-step-header>\n    <span *ngIf=\"!last\" class=\"td-horizontal-line\"></span>\n  </ng-template>\n</div>\n<div *ngFor=\"let step of steps; let index = index; let last = last\" class=\"td-step\">\n  <td-step-header class=\"td-step-vertical-header\"\n                  (keydown.enter)=\"step.toggle()\"\n                  [number]=\"index + 1\"\n                  [active]=\"step.active\" \n                  [disabled]=\"step.disabled\"\n                  [disableRipple]=\"step.disableRipple\"\n                  [state]=\"step.state\"\n                  (click)=\"step.toggle()\"\n                  *ngIf=\"isVertical()\">\n    <ng-template td-step-header-label [cdkPortalHost]=\"step.stepLabel\"></ng-template>\n    <ng-template td-step-header-label [ngIf]=\"!step.stepLabel\">{{step.label}}</ng-template>\n    <ng-template td-step-header-sublabel [ngIf]=\"true\">{{step.sublabel}}</ng-template>\n  </td-step-header>\n  <ng-template [ngIf]=\"isVertical() || step.active || (!areStepsActive() && prevStep === step)\">\n    <td-step-body [active]=\"step.active\" [state]=\"step.state\">\n      <div *ngIf=\"isVertical()\" class=\"td-line-wrapper\">\n        <div *ngIf=\"!last\" class=\"td-vertical-line\"></div>\n      </div>\n      <ng-template td-step-body-content [cdkPortalHost]=\"step.stepContent\"></ng-template>\n      <ng-template td-step-body-actions [cdkPortalHost]=\"step.stepActions\"></ng-template>\n      <ng-template td-step-body-summary [cdkPortalHost]=\"step.stepSummary\"></ng-template>\n    </td-step-body>\n  </ng-template>\n</div>\n",
+                styles: [".td-line-wrapper,\n.td-step{\n  position:relative; }\n.td-steps-header{\n  -webkit-box-sizing:border-box;\n          box-sizing:border-box;\n  display:-webkit-box;\n  display:-ms-flexbox;\n  display:flex;\n  -webkit-box-orient:horizontal;\n  -webkit-box-direction:normal;\n      -ms-flex-direction:row;\n          flex-direction:row; }\n.td-line-wrapper{\n  width:24px;\n  min-height:1px; }\n.td-horizontal-line{\n  border-bottom-width:1px;\n  border-bottom-style:solid;\n  height:1px;\n  position:relative;\n  top:36px;\n  min-width:15px;\n  -webkit-box-flex:1;\n      -ms-flex:1;\n          flex:1;\n  -webkit-box-sizing:border-box;\n          box-sizing:border-box; }\n  ::ng-deep :not([dir='rtl']) .td-horizontal-line{\n    left:-6px;\n    right:-3px; }\n  ::ng-deep [dir='rtl'] .td-horizontal-line{\n    left:-3px;\n    right:-6px; }\n.td-vertical-line{\n  position:absolute;\n  bottom:-16px;\n  top:-16px;\n  border-left-width:1px;\n  border-left-style:solid; }\n  ::ng-deep :not([dir='rtl']) .td-vertical-line{\n    left:20px;\n    right:auto; }\n  ::ng-deep [dir='rtl'] .td-vertical-line{\n    left:auto;\n    right:20px; }\n"],
+                template: "<div *ngIf=\"isHorizontal()\" class=\"td-steps-header\">\n  <ng-template let-step let-index=\"index\" let-last=\"last\" ngFor [ngForOf]=\"steps\">\n    <td-step-header class=\"td-step-horizontal-header\"\n                    (keydown.enter)=\"step.open()\"\n                    [number]=\"index + 1\"\n                    [active]=\"step.active\"\n                    [disableRipple]=\"step.disableRipple\"\n                    [disabled]=\"step.disabled\"\n                    [state]=\"step.state\"\n                    (click)=\"step.open()\">\n      <ng-template td-step-header-label [cdkPortalHost]=\"step.stepLabel\"></ng-template>\n      <ng-template td-step-header-label [ngIf]=\"!step.stepLabel\">{{step.label}}</ng-template>\n      <ng-template td-step-header-sublabel [ngIf]=\"true\">{{step.sublabel | truncate:30}}</ng-template>\n    </td-step-header>\n    <span *ngIf=\"!last\" class=\"td-horizontal-line\"></span>\n  </ng-template>\n</div>\n<div *ngFor=\"let step of steps; let index = index; let last = last\" class=\"td-step\">\n  <td-step-header class=\"td-step-vertical-header\"\n                  (keydown.enter)=\"step.toggle()\"\n                  [number]=\"index + 1\"\n                  [active]=\"step.active\"\n                  [disabled]=\"step.disabled\"\n                  [disableRipple]=\"step.disableRipple\"\n                  [state]=\"step.state\"\n                  (click)=\"step.toggle()\"\n                  *ngIf=\"isVertical()\">\n    <ng-template td-step-header-label [cdkPortalHost]=\"step.stepLabel\"></ng-template>\n    <ng-template td-step-header-label [ngIf]=\"!step.stepLabel\">{{step.label}}</ng-template>\n    <ng-template td-step-header-sublabel [ngIf]=\"true\">{{step.sublabel}}</ng-template>\n  </td-step-header>\n  <ng-template [ngIf]=\"isVertical() || step.active || (!areStepsActive() && prevStep === step)\">\n    <td-step-body [active]=\"step.active\" [state]=\"step.state\">\n      <div *ngIf=\"isVertical()\" class=\"td-line-wrapper\">\n        <div *ngIf=\"!last\" class=\"td-vertical-line\"></div>\n      </div>\n      <ng-template td-step-body-content [cdkPortalHost]=\"step.stepContent\"></ng-template>\n      <ng-template td-step-body-actions [cdkPortalHost]=\"step.stepActions\"></ng-template>\n      <ng-template td-step-body-summary [cdkPortalHost]=\"step.stepSummary\"></ng-template>\n    </td-step-body>\n  </ng-template>\n</div>\n",
             },] },
 ];
 /** @nocollapse */
@@ -494,9 +465,9 @@ var TdStepHeaderBase = /** @class */ (function () {
 /* tslint:disable-next-line */
 var _TdStepHeaderMixinBase = mixinDisableRipple(mixinDisabled(TdStepHeaderBase));
 var TdStepHeaderComponent = /** @class */ (function (_super) {
-    __extends(TdStepHeaderComponent, _super);
+    tslib_1.__extends(TdStepHeaderComponent, _super);
     function TdStepHeaderComponent() {
-        var _this = _super.apply(this, __spread(arguments)) || this;
+        var _this = _super.apply(this, tslib_1.__spread(arguments)) || this;
         /**
          * state?: StepState or ['none' | 'required' | 'complete']
          * Sets styles for state of header.
@@ -525,7 +496,7 @@ TdStepHeaderComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-step-header',
                 inputs: ['disabled', 'disableRipple'],
-                styles: [".td-step-header {\n  position: relative;\n  outline: none;\n  height: 72px;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: start;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -ms-flex-line-pack: center;\n      align-content: center;\n  max-width: 100%; }\n  .td-step-header:hover:not(.mat-disabled) {\n    cursor: pointer; }\n  .td-step-header mat-icon.td-edit-icon {\n    margin: 0 8px; }\n  .td-step-header mat-icon.mat-warn {\n    font-size: 24px;\n    height: 24px;\n    width: 24px; }\n  .td-step-header mat-icon.mat-complete {\n    position: relative;\n    left: -2px;\n    top: 2px;\n    font-size: 28px;\n    height: 24px;\n    width: 24px; }\n  .td-step-header .td-circle {\n    height: 24px;\n    width: 24px;\n    line-height: 24px;\n    border-radius: 99%;\n    text-align: center;\n    -webkit-box-flex: 0;\n        -ms-flex: none;\n            flex: none; }\n    .td-step-header .td-circle mat-icon {\n      margin-top: 2px;\n      font-weight: bold; }\n  .td-step-header .td-triangle > mat-icon {\n    font-size: 25px; }\n  .td-step-header .td-complete {\n    font-size: 0; }\n  ::ng-deep :not([dir='rtl']) .td-step-header .td-circle, ::ng-deep :not([dir='rtl'])\n  .td-step-header .td-triangle, ::ng-deep :not([dir='rtl'])\n  .td-step-header .td-complete {\n    margin-left: 8px;\n    margin-right: 0; }\n  ::ng-deep [dir='rtl'] .td-step-header .td-circle, ::ng-deep [dir='rtl']\n  .td-step-header .td-triangle, ::ng-deep [dir='rtl']\n  .td-step-header .td-complete {\n    margin-left: 0;\n    margin-right: 8px; }\n  .td-step-header .td-circle,\n  .td-step-header .td-complete {\n    font-size: 14px; }\n  .td-step-header .td-step-label-wrapper {\n    padding-left: 8px;\n    padding-right: 8px; }\n  .td-step-header .td-step-header-separator {\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box; }\n"],
+                styles: [".td-step-header{\n  position:relative;\n  outline:none;\n  height:72px;\n  -webkit-box-orient:horizontal;\n  -webkit-box-direction:normal;\n      -ms-flex-direction:row;\n          flex-direction:row;\n  -webkit-box-sizing:border-box;\n          box-sizing:border-box;\n  display:-webkit-box;\n  display:-ms-flexbox;\n  display:flex;\n  -webkit-box-flex:1;\n      -ms-flex:1;\n          flex:1;\n  -webkit-box-pack:start;\n      -ms-flex-pack:start;\n          justify-content:start;\n  -webkit-box-align:center;\n      -ms-flex-align:center;\n          align-items:center;\n  -ms-flex-line-pack:center;\n      align-content:center;\n  max-width:100%; }\n  .td-step-header:hover:not(.mat-disabled){\n    cursor:pointer; }\n  .td-step-header mat-icon.td-edit-icon{\n    margin:0 8px; }\n  .td-step-header mat-icon.mat-warn{\n    font-size:24px;\n    height:24px;\n    width:24px; }\n  .td-step-header mat-icon.mat-complete{\n    position:relative;\n    left:-2px;\n    top:2px;\n    font-size:28px;\n    height:24px;\n    width:24px; }\n  .td-step-header .td-circle{\n    height:24px;\n    width:24px;\n    line-height:24px;\n    border-radius:99%;\n    text-align:center;\n    -webkit-box-flex:0;\n        -ms-flex:none;\n            flex:none; }\n    .td-step-header .td-circle mat-icon{\n      margin-top:2px;\n      font-weight:bold; }\n  .td-step-header .td-triangle > mat-icon{\n    font-size:25px; }\n  .td-step-header .td-complete{\n    font-size:0; }\n  ::ng-deep :not([dir='rtl']) .td-step-header .td-circle, ::ng-deep :not([dir='rtl'])\n  .td-step-header .td-triangle, ::ng-deep :not([dir='rtl'])\n  .td-step-header .td-complete{\n    margin-left:8px;\n    margin-right:0; }\n  ::ng-deep [dir='rtl'] .td-step-header .td-circle, ::ng-deep [dir='rtl']\n  .td-step-header .td-triangle, ::ng-deep [dir='rtl']\n  .td-step-header .td-complete{\n    margin-left:0;\n    margin-right:8px; }\n  .td-step-header .td-circle,\n  .td-step-header .td-complete{\n    font-size:14px; }\n  .td-step-header .td-step-label-wrapper{\n    padding-left:8px;\n    padding-right:8px; }\n  .td-step-header .td-step-header-separator{\n    -webkit-box-flex:1;\n        -ms-flex:1;\n            flex:1;\n    -webkit-box-sizing:border-box;\n            box-sizing:border-box; }\n"],
                 template: "<div class=\"td-step-header\"\n      [class.mat-disabled]=\"disabled\"\n      matRipple\n      [matRippleDisabled]=\"disabled || disableRipple\"\n      [tabIndex]=\"disabled ? -1 : 0\">\n  <div class=\"td-circle\"\n      [class.mat-inactive]=\"(!active && !isComplete()) || disabled\"\n      [class.mat-active]=\"active && !disabled\"\n      *ngIf=\"!isRequired() && !isComplete()\">\n    <span *ngIf=\"(active || !isComplete())\">{{number || ''}}</span>\n  </div>\n  <div class=\"td-complete\" *ngIf=\"isComplete()\">\n    <mat-icon class=\"mat-complete\">check_circle</mat-icon>\n  </div>\n  <div class=\"td-triangle\"\n      [class.bg-muted]=\"disabled\"\n      *ngIf=\"isRequired()\">\n    <mat-icon class=\"mat-warn\">warning</mat-icon>\n  </div>\n  <div class=\"td-step-label-wrapper\"\n        [class.mat-inactive]=\"(!active && !isComplete()) || disabled\"\n        [class.mat-warn]=\"isRequired() && !disabled\">\n    <div class=\"td-step-label\">\n      <ng-content select=\"[td-step-header-label]\"></ng-content>\n    </div>\n    <div class=\"td-step-sublabel\">\n      <ng-content select=\"[td-step-header-sublabel]\"></ng-content>\n    </div>\n  </div>\n  <span class=\"td-step-header-separator\"></span>\n  <mat-icon class=\"td-edit-icon\" *ngIf=\"isComplete() && !active && !disabled\">mode_edit</mat-icon>\n</div>",
             },] },
 ];
@@ -594,7 +565,7 @@ var TdStepBodyComponent = /** @class */ (function () {
 TdStepBodyComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-step-body',
-                styles: [":host {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row; }\n  :host .td-step-body {\n    overflow-x: hidden;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box; }\n    :host .td-step-body .td-step-summary.ng-animating,\n    :host .td-step-body .td-step-content-wrapper.ng-animating {\n      overflow: hidden; }\n    :host .td-step-body .td-step-content {\n      overflow-x: auto; }\n    :host .td-step-body .td-step-actions {\n      -webkit-box-sizing: border-box;\n              box-sizing: border-box;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: horizontal;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: row;\n              flex-direction: row; }\n"],
+                styles: [":host{\n  -webkit-box-sizing:border-box;\n          box-sizing:border-box;\n  display:-webkit-box;\n  display:-ms-flexbox;\n  display:flex;\n  -webkit-box-orient:horizontal;\n  -webkit-box-direction:normal;\n      -ms-flex-direction:row;\n          flex-direction:row; }\n  :host .td-step-body{\n    overflow-x:hidden;\n    -webkit-box-flex:1;\n        -ms-flex:1;\n            flex:1;\n    -webkit-box-sizing:border-box;\n            box-sizing:border-box; }\n    :host .td-step-body .td-step-summary.ng-animating,\n    :host .td-step-body .td-step-content-wrapper.ng-animating{\n      overflow:hidden; }\n    :host .td-step-body .td-step-content{\n      overflow-x:auto; }\n    :host .td-step-body .td-step-actions{\n      -webkit-box-sizing:border-box;\n              box-sizing:border-box;\n      display:-webkit-box;\n      display:-ms-flexbox;\n      display:flex;\n      -webkit-box-orient:horizontal;\n      -webkit-box-direction:normal;\n          -ms-flex-direction:row;\n              flex-direction:row; }\n"],
                 template: "<ng-content></ng-content>\n<div class=\"td-step-body\">\n  <div class=\"td-step-content-wrapper\"\n       [@tdCollapse]=\"!active\">\n    <div #contentRef cdkScrollable [class.td-step-content]=\"hasContent\">\n      <ng-content select=\"[td-step-body-content]\"></ng-content>\n    </div>\n    <div #actionsRef\n         [class.td-step-actions]=\"hasActions\">\n      <ng-content select=\"[td-step-body-actions]\"></ng-content>\n    </div>\n  </div>\n  <div #summaryRef\n       [@tdCollapse]=\"active || !isComplete()\"\n       [class.td-step-summary]=\"hasSummary\">\n    <ng-content select=\"[td-step-body-summary]\"></ng-content>\n  </div>\n</div>",
                 animations: [
                     TdCollapseAnimation(),

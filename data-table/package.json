@@ -4,5 +4,8 @@
   "es2015": "../esm2015/covalent-core-data-table.js",
   "typings": "covalent-core-data-table.d.ts",
   "metadata": "covalent-core-data-table.metadata.json",
+  "dependencies": {
+    "tslib": "^1.7.1"
+  },
   "name": "@covalent/core/data-table"
 }

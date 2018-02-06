@@ -1,8 +1,8 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/material/icon'), require('@covalent/core/common')) :
-	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/material/icon', '@covalent/core/common'], factory) :
-	(factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.message = {}),global.ng.core,global.ng.common,global.ng.material.icon,global.covalent.core.common));
-}(this, (function (exports,core,common,icon,common$1) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@covalent/core/common'), require('@angular/common'), require('@angular/material/icon')) :
+	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@covalent/core/common', '@angular/common', '@angular/material/icon'], factory) :
+	(factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.message = {}),global.ng.core,global.covalent.core.common,global.ng.common,global.ng.material.icon));
+}(this, (function (exports,core,common,common$1,icon) { 'use strict';
 
 /**
  * @fileoverview added by tsickle
@@ -226,9 +226,9 @@ TdMessageComponent.decorators = [
     { type: core.Component, args: [{
                 selector: 'td-message',
                 template: "<div tdMessageContainer></div>\n<ng-template>\n  <div class=\"td-message-wrapper\">\n    <mat-icon class=\"td-message-icon\">{{icon}}</mat-icon>\n    <div class=\"td-message-labels\">\n      <div *ngIf=\"label\" class=\"td-message-label\">{{label}}</div>\n      <div *ngIf=\"sublabel\" class=\"td-message-sublabel\">{{sublabel}}</div>\n    </div>\n    <ng-content select=\"[td-message-actions]\"></ng-content>\n  </div>\n</ng-template>",
-                styles: [":host {\n  display: block; }\n  :host .td-message-wrapper {\n    padding: 8px 16px;\n    min-height: 52px;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -ms-flex-line-pack: center;\n        align-content: center;\n    max-width: 100%;\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: start; }\n    :host .td-message-wrapper .td-message-labels {\n      -webkit-box-flex: 1;\n          -ms-flex: 1;\n              flex: 1; }\n\n.td-message-icon {\n  margin-right: 16px; }\n  ::ng-deep [dir='rtl'] .td-message-icon {\n    margin-left: 16px;\n    margin-right: 0; }\n"],
+                styles: [":host{\n  display:block; }\n  :host .td-message-wrapper{\n    padding:8px 16px;\n    min-height:52px;\n    -webkit-box-sizing:border-box;\n            box-sizing:border-box;\n    display:-webkit-box;\n    display:-ms-flexbox;\n    display:flex;\n    -webkit-box-orient:horizontal;\n    -webkit-box-direction:normal;\n        -ms-flex-direction:row;\n            flex-direction:row;\n    -webkit-box-align:center;\n        -ms-flex-align:center;\n            align-items:center;\n    -ms-flex-line-pack:center;\n        align-content:center;\n    max-width:100%;\n    -webkit-box-pack:start;\n        -ms-flex-pack:start;\n            justify-content:start; }\n    :host .td-message-wrapper .td-message-labels{\n      -webkit-box-flex:1;\n          -ms-flex:1;\n              flex:1; }\n.td-message-icon{\n  margin-right:16px; }\n  ::ng-deep [dir='rtl'] .td-message-icon{\n    margin-left:16px;\n    margin-right:0; }\n"],
                 animations: [
-                    common$1.TdCollapseAnimation({ duration: 100 }),
+                    common.TdCollapseAnimation({ duration: 100 }),
                 ],
             },] },
 ];
@@ -266,7 +266,7 @@ var CovalentMessageModule = /** @class */ (function () {
 CovalentMessageModule.decorators = [
     { type: core.NgModule, args: [{
                 imports: [
-                    common.CommonModule,
+                    common$1.CommonModule,
                     icon.MatIconModule,
                 ],
                 declarations: [

@@ -4,5 +4,8 @@
   "es2015": "../esm2015/covalent-core-notifications.js",
   "typings": "covalent-core-notifications.d.ts",
   "metadata": "covalent-core-notifications.metadata.json",
+  "dependencies": {
+    "tslib": "^1.7.1"
+  },
   "name": "@covalent/core/notifications"
 }

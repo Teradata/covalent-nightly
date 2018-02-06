@@ -1,13 +1,13 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChild, Directive, ElementRef, EventEmitter, Host, HostBinding, HostListener, Injectable, Input, NgModule, Optional, Output, Renderer2, TemplateRef, ViewChild, ViewContainerRef, forwardRef } from '@angular/core';
+import { Directive, Input, Output, EventEmitter, HostListener, HostBinding, Host, Optional, ElementRef, Renderer2, Component, ChangeDetectionStrategy, ViewChild, TemplateRef, ViewContainerRef, ChangeDetectorRef, forwardRef, ContentChild, Injectable, NgModule } from '@angular/core';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { NgModel, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
+import { mixinDisabled, mixinControlValueAccessor } from '@covalent/core/common';
+import { TemplatePortalDirective, PortalModule } from '@angular/cdk/portal';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 import { CommonModule } from '@angular/common';
-import { FormsModule, NG_VALUE_ACCESSOR, NgModel } from '@angular/forms';
-import { PortalModule, TemplatePortalDirective } from '@angular/cdk/portal';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { mixinControlValueAccessor, mixinDisabled } from '@covalent/core/common';
-import { Observable as Observable$1 } from 'rxjs/Observable';
-import { Subject as Subject$1 } from 'rxjs/Subject';
 
 /**
  * @fileoverview added by tsickle
@@ -342,26 +342,23 @@ TdFileInputComponent.decorators = [
                     }],
                 selector: 'td-file-input',
                 inputs: ['disabled', 'value'],
-                styles: [`:host {
-  /**
-  * Class that is added ondragenter by the [TdFileDrop] directive.
-  */ }
-  :host .td-file-input {
-    padding-left: 8px;
-    padding-right: 8px; }
-  :host input.td-file-input-hidden {
-    display: none; }
-  :host .drop-zone {
-    border-radius: 3px; }
-    :host .drop-zone * {
-      pointer-events: none; }
+                styles: [`:host{ }
+  :host .td-file-input{
+    padding-left:8px;
+    padding-right:8px; }
+  :host input.td-file-input-hidden{
+    display:none; }
+  :host .drop-zone{
+    border-radius:3px; }
+    :host .drop-zone *{
+      pointer-events:none; }
 `],
                 template: `<div>
   <button mat-raised-button
           class="td-file-input"
           type="button"
-          [color]="color" 
-          [multiple]="multiple" 
+          [color]="color"
+          [multiple]="multiple"
           [disabled]="disabled"
           (keyup.enter)="fileInput.click()"
           (click)="fileInput.click()"
@@ -369,12 +366,12 @@ TdFileInputComponent.decorators = [
           tdFileDrop>
     <ng-content></ng-content>
   </button>
-  <input #fileInput 
-          class="td-file-input-hidden" 
+  <input #fileInput
+          class="td-file-input-hidden"
           type="file"
-          [attr.accept]="accept"                
+          [attr.accept]="accept"
           (fileSelect)="handleSelect($event)"
-          [multiple]="multiple" 
+          [multiple]="multiple"
           [disabled]="disabled"
           tdFileSelect>
 </div>`,
@@ -531,30 +528,25 @@ TdFileUploadComponent.decorators = [
                     }],
                 selector: 'td-file-upload',
                 inputs: ['disabled', 'value'],
-                styles: [`.td-file-upload {
-  padding-left: 8px;
-  padding-right: 8px; }
-
-.td-file-upload-cancel {
-  height: 24px;
-  width: 24px;
-  position: relative;
-  top: 24px;
-  left: -12px; }
-  ::ng-deep [dir='rtl'] .td-file-upload-cancel {
-    right: -12px;
-    left: 0; }
-  .td-file-upload-cancel mat-icon {
-    border-radius: 12px;
-    vertical-align: baseline; }
-
-/**
-* Class that is added ondragenter by the [TdFileDrop] directive.
-*/
-.drop-zone {
-  border-radius: 3px; }
-  .drop-zone * {
-    pointer-events: none; }
+                styles: [`.td-file-upload{
+  padding-left:8px;
+  padding-right:8px; }
+.td-file-upload-cancel{
+  height:24px;
+  width:24px;
+  position:relative;
+  top:24px;
+  left:-12px; }
+  ::ng-deep [dir='rtl'] .td-file-upload-cancel{
+    right:-12px;
+    left:0; }
+  .td-file-upload-cancel mat-icon{
+    border-radius:12px;
+    vertical-align:baseline; }
+.drop-zone{
+  border-radius:3px; }
+  .drop-zone *{
+    pointer-events:none; }
 `],
                 template: `<td-file-input *ngIf="!value"
                [(ngModel)]="value"
@@ -574,13 +566,13 @@ TdFileUploadComponent.decorators = [
           (keyup.delete)="cancel()"
           (keyup.backspace)="cancel()"
           (keyup.escape)="cancel()"
-          (click)="uploadPressed()"> 
+          (click)="uploadPressed()">
     <ng-content></ng-content>
   </button>
   <button mat-icon-button
           type="button"
           class="td-file-upload-cancel"
-          [color]="cancelColor"            
+          [color]="cancelColor"
           (click)="cancel()">
     <mat-icon>cancel</mat-icon>
   </button>
@@ -615,7 +607,7 @@ TdFileUploadComponent.propDecorators = {
 
 class TdFileService {
     constructor() {
-        this._progressSubject = new Subject$1();
+        this._progressSubject = new Subject();
         this._progressObservable = this._progressSubject.asObservable();
     }
     /**
@@ -642,7 +634,7 @@ class TdFileService {
      * @return {?}
      */
     upload(options) {
-        return new Observable$1((subscriber) => {
+        return new Observable((subscriber) => {
             let /** @type {?} */ xhr = new XMLHttpRequest();
             let /** @type {?} */ formData = new FormData();
             if (options.file !== undefined) {

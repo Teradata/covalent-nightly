@@ -1,11 +1,11 @@
-import { ChangeDetectorRef, Directive, ElementRef, EventEmitter, Host, HostBinding, HostListener, Inject, Injectable, Input, LOCALE_ID, NgModule, Optional, Output, Pipe, Renderer2 } from '@angular/core';
-import { CommonModule, DecimalPipe } from '@angular/common';
-import { FormsModule, NgModel, Validators } from '@angular/forms';
-import { AUTO_STYLE, AnimationBuilder, animate, animateChild, animation, group, keyframes, query, state, style, transition, trigger } from '@angular/animations';
+import { Directive, ElementRef, Input, HostBinding, Renderer2, ChangeDetectorRef, Output, EventEmitter, HostListener, Host, Optional, Pipe, Inject, LOCALE_ID, Injectable, NgModule } from '@angular/core';
+import { animate, AnimationBuilder, AUTO_STYLE, style, animation, trigger, state, transition, query, animateChild, group, keyframes } from '@angular/animations';
+import { NgModel, FormsModule, Validators } from '@angular/forms';
+import { DecimalPipe, CommonModule } from '@angular/common';
 import { Router, RoutesRecognized } from '@angular/router';
-import { filter as filter$1 } from 'rxjs/operators/filter';
-import { pairwise as pairwise$1 } from 'rxjs/operators/pairwise';
-import { Subject as Subject$1 } from 'rxjs/Subject';
+import { filter } from 'rxjs/operators/filter';
+import { pairwise } from 'rxjs/operators/pairwise';
+import { Subject } from 'rxjs/Subject';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 /**
@@ -595,7 +595,7 @@ class RouterPathService {
      */
     constructor(_router) {
         this._router = _router;
-        this._router.events.pipe(filter$1((e) => e instanceof RoutesRecognized), pairwise$1()).subscribe((e) => {
+        this._router.events.pipe(filter((e) => e instanceof RoutesRecognized), pairwise()).subscribe((e) => {
             RouterPathService._previousRoute = e[0].urlAfterRedirects;
         });
     }
@@ -1864,7 +1864,7 @@ function mixinControlValueAccessor(base, initialValue) {
             this._value = initialValue;
             this.onChange = (_) => noop;
             this.onTouched = () => noop;
-            this._subjectValueChanges = new Subject$1();
+            this._subjectValueChanges = new Subject();
             this.valueChanges = this._subjectValueChanges.asObservable();
         }
         /**

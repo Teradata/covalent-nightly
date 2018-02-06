@@ -4,5 +4,8 @@
   "es2015": "../esm2015/covalent-core-expansion-panel.js",
   "typings": "covalent-core-expansion-panel.d.ts",
   "metadata": "covalent-core-expansion-panel.metadata.json",
+  "dependencies": {
+    "tslib": "^1.7.1"
+  },
   "name": "@covalent/core/expansion-panel"
 }

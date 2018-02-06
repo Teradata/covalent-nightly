@@ -4,5 +4,8 @@
   "es2015": "../esm2015/covalent-core-menu.js",
   "typings": "covalent-core-menu.d.ts",
   "metadata": "covalent-core-menu.metadata.json",
+  "dependencies": {
+    "tslib": "^1.7.1"
+  },
   "name": "@covalent/core/menu"
 }

@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChild, Directive, ElementRef, HostListener, Input, NgModule, Renderer2, TemplateRef, ViewChildren, ViewContainerRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Directive, TemplateRef, ViewContainerRef, Component, Input, ContentChild, ChangeDetectionStrategy, ChangeDetectorRef, ViewChildren, ElementRef, HostListener, Renderer2, NgModule } from '@angular/core';
 import { TemplatePortalDirective } from '@angular/cdk/portal';
 import { DomSanitizer } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 /**
  * @fileoverview added by tsickle
@@ -235,12 +235,12 @@ class TdVirtualScrollContainerComponent {
 TdVirtualScrollContainerComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-virtual-scroll-container',
-                styles: [`:host {
-  display: block;
-  height: 100%;
-  width: 100%;
-  overflow: auto;
-  position: relative; }
+                styles: [`:host{
+  display:block;
+  height:100%;
+  width:100%;
+  overflow:auto;
+  position:relative; }
 `],
                 template: `<div [style.height.px]="totalHeight"></div>
 <div [style.transform]="offsetTransform"

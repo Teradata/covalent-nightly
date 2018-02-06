@@ -1,41 +1,12 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __read = (this && this.__read) || function (o, n) {
-    var m = typeof Symbol === "function" && o[Symbol.iterator];
-    if (!m) return o;
-    var i = m.call(o), r, ar = [], e;
-    try {
-        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
-    }
-    catch (error) { e = { error: error }; }
-    finally {
-        try {
-            if (r && !r.done && (m = i["return"])) m.call(i);
-        }
-        finally { if (e) throw e.error; }
-    }
-    return ar;
-};
-var __spread = (this && this.__spread) || function () {
-    for (var ar = [], i = 0; i < arguments.length; i++) ar = ar.concat(__read(arguments[i]));
-    return ar;
-};
-import { ChangeDetectorRef, Directive, ElementRef, EventEmitter, Host, HostBinding, HostListener, Inject, Injectable, Input, LOCALE_ID, NgModule, Optional, Output, Pipe, Renderer2 } from '@angular/core';
-import { CommonModule, DecimalPipe } from '@angular/common';
-import { FormsModule, NgModel, Validators } from '@angular/forms';
-import { AUTO_STYLE, AnimationBuilder, animate, animateChild, animation, group, keyframes, query, state, style, transition, trigger } from '@angular/animations';
+import * as tslib_1 from "tslib";
+import { Directive, ElementRef, Input, HostBinding, Renderer2, ChangeDetectorRef, Output, EventEmitter, HostListener, Host, Optional, Pipe, Inject, LOCALE_ID, Injectable, NgModule } from '@angular/core';
+import { animate, AnimationBuilder, AUTO_STYLE, style, animation, trigger, state, transition, query, animateChild, group, keyframes } from '@angular/animations';
+import { NgModel, FormsModule, Validators } from '@angular/forms';
+import { DecimalPipe, CommonModule } from '@angular/common';
 import { Router, RoutesRecognized } from '@angular/router';
-import { filter as filter$1 } from 'rxjs/operators/filter';
-import { pairwise as pairwise$1 } from 'rxjs/operators/pairwise';
-import { Subject as Subject$1 } from 'rxjs/Subject';
+import { filter } from 'rxjs/operators/filter';
+import { pairwise } from 'rxjs/operators/pairwise';
+import { Subject } from 'rxjs/Subject';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 /**
  * @fileoverview added by tsickle
@@ -663,7 +634,7 @@ var RouterPathService = /** @class */ (function () {
      */
     function RouterPathService(_router) {
         this._router = _router;
-        this._router.events.pipe(filter$1(function (e) { return e instanceof RoutesRecognized; }), pairwise$1()).subscribe(function (e) {
+        this._router.events.pipe(filter(function (e) { return e instanceof RoutesRecognized; }), pairwise()).subscribe(function (e) {
             RouterPathService._previousRoute = e[0].urlAfterRedirects;
         });
     }
@@ -1925,7 +1896,7 @@ var noop = function () {
  */
 function mixinControlValueAccessor(base, initialValue) {
     return /** @class */ (function (_super) {
-        __extends(class_1, _super);
+        tslib_1.__extends(class_1, _super);
         /**
          * @param {...?} args
          */
@@ -1934,11 +1905,11 @@ function mixinControlValueAccessor(base, initialValue) {
             for (var _i = 0; _i < arguments.length; _i++) {
                 args[_i] = arguments[_i];
             }
-            var _this = _super.apply(this, __spread(args)) || this;
+            var _this = _super.apply(this, tslib_1.__spread(args)) || this;
             _this._value = initialValue;
             _this.onChange = function (_) { return noop; };
             _this.onTouched = function () { return noop; };
-            _this._subjectValueChanges = new Subject$1();
+            _this._subjectValueChanges = new Subject();
             _this.valueChanges = _this._subjectValueChanges.asObservable();
             return _this;
         }
@@ -2005,7 +1976,7 @@ function mixinControlValueAccessor(base, initialValue) {
  */
 function mixinDisabled(base) {
     return /** @class */ (function (_super) {
-        __extends(class_2, _super);
+        tslib_1.__extends(class_2, _super);
         /**
          * @param {...?} args
          */
@@ -2014,7 +1985,7 @@ function mixinDisabled(base) {
             for (var _i = 0; _i < arguments.length; _i++) {
                 args[_i] = arguments[_i];
             }
-            var _this = _super.apply(this, __spread(args)) || this;
+            var _this = _super.apply(this, tslib_1.__spread(args)) || this;
             _this._disabled = false;
             return _this;
         }
@@ -2065,7 +2036,7 @@ function mixinDisabled(base) {
  */
 function mixinDisableRipple(base) {
     return /** @class */ (function (_super) {
-        __extends(class_3, _super);
+        tslib_1.__extends(class_3, _super);
         /**
          * @param {...?} args
          */
@@ -2074,7 +2045,7 @@ function mixinDisableRipple(base) {
             for (var _i = 0; _i < arguments.length; _i++) {
                 args[_i] = arguments[_i];
             }
-            var _this = _super.apply(this, __spread(args)) || this;
+            var _this = _super.apply(this, tslib_1.__spread(args)) || this;
             _this._disableRipple = false;
             return _this;
         }

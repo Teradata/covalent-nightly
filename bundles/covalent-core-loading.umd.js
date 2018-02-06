@@ -1,19 +1,31 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/cdk/portal'), require('@angular/cdk/overlay'), require('@angular/material/progress-bar'), require('@angular/material/progress-spinner'), require('rxjs/Subject'), require('@covalent/core/common')) :
-	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common', '@angular/cdk/portal', '@angular/cdk/overlay', '@angular/material/progress-bar', '@angular/material/progress-spinner', 'rxjs/Subject', '@covalent/core/common'], factory) :
-	(factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.loading = {}),global.ng.core,global.ng.common,global.ng.cdk.portal,global.ng.cdk.overlay,global.ng.material['progress-bar'],global.ng.material['progress-spinner'],global.Rx,global.covalent.core.common));
-}(this, (function (exports,core,common,portal,overlay,progressBar,progressSpinner,Subject,common$1) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('rxjs/Subject'), require('@covalent/core/common'), require('@angular/cdk/portal'), require('@angular/cdk/overlay'), require('@angular/common'), require('@angular/material/progress-bar'), require('@angular/material/progress-spinner')) :
+	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', 'rxjs/Subject', '@covalent/core/common', '@angular/cdk/portal', '@angular/cdk/overlay', '@angular/common', '@angular/material/progress-bar', '@angular/material/progress-spinner'], factory) :
+	(factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.loading = {}),global.ng.core,global.Rx,global.covalent.core.common,global.ng.cdk.portal,global.ng.cdk.overlay,global.ng.common,global.ng.material['progress-bar'],global.ng.material['progress-spinner']));
+}(this, (function (exports,core,Subject,common,portal,overlay,common$1,progressBar,progressSpinner) { 'use strict';
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at http://www.apache.org/licenses/LICENSE-2.0
+THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
+See the Apache Version 2.0 License for specific language governing permissions
+and limitations under the License.
+***************************************************************************** */
+/* global Reflect, Promise */
+var extendStatics = Object.setPrototypeOf ||
+    ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+    function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+function __extends(d, b) {
+    extendStatics(d, b);
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+}
+
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
@@ -272,10 +284,10 @@ var TdLoadingComponent = /** @class */ (function () {
 TdLoadingComponent.decorators = [
     { type: core.Component, args: [{
                 selector: 'td-loading',
-                styles: [".td-loading-wrapper {\n  position: relative;\n  display: block; }\n  .td-loading-wrapper.td-fullscreen {\n    position: inherit; }\n  .td-loading-wrapper .td-loading {\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -ms-flex-line-pack: center;\n        align-content: center;\n    max-width: 100%;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1; }\n  .td-loading-wrapper.td-overlay .td-loading {\n    position: absolute;\n    margin: 0;\n    top: 0;\n    left: 0;\n    right: 0;\n    z-index: 1000; }\n    .td-loading-wrapper.td-overlay .td-loading mat-progress-bar {\n      position: absolute;\n      top: 0;\n      left: 0;\n      right: 0; }\n  .td-loading-wrapper.td-overlay-circular .td-loading {\n    bottom: 0; }\n"],
-                template: "<div class=\"td-loading-wrapper\"\n    [style.min-height]=\"getHeight()\"\n    [class.td-overlay-circular]=\"(isOverlay() || isFullScreen()) && !isLinear()\"\n    [class.td-overlay]=\"isOverlay() || isFullScreen()\" \n    [class.td-fullscreen]=\"isFullScreen()\">\n  <div [@tdFadeInOut]=\"animation\"\n     (@tdFadeInOut.done)=\"animationComplete($event)\"\n     [style.min-height]=\"getHeight()\"\n     class=\"td-loading\">\n    <mat-progress-spinner *ngIf=\"isCircular()\" \n                        [mode]=\"mode\"\n                        [value]=\"value\" \n                        [color]=\"color\" \n                        [diameter]=\"getCircleDiameter()\"\n                        [strokeWidth]=\"getCircleStrokeWidth()\">\n    </mat-progress-spinner>\n    <mat-progress-bar *ngIf=\"isLinear()\" \n                     [mode]=\"mode\"\n                     [value]=\"value\"\n                     [color]=\"color\">\n    </mat-progress-bar>\n  </div>\n  <ng-template [cdkPortalHost]=\"content\"></ng-template>\n</div>",
+                styles: [".td-loading-wrapper{\n  position:relative;\n  display:block; }\n  .td-loading-wrapper.td-fullscreen{\n    position:inherit; }\n  .td-loading-wrapper .td-loading{\n    -webkit-box-sizing:border-box;\n            box-sizing:border-box;\n    display:-webkit-box;\n    display:-ms-flexbox;\n    display:flex;\n    -webkit-box-orient:horizontal;\n    -webkit-box-direction:normal;\n        -ms-flex-direction:row;\n            flex-direction:row;\n    -webkit-box-align:center;\n        -ms-flex-align:center;\n            align-items:center;\n    -ms-flex-line-pack:center;\n        align-content:center;\n    max-width:100%;\n    -webkit-box-pack:center;\n        -ms-flex-pack:center;\n            justify-content:center;\n    -webkit-box-flex:1;\n        -ms-flex:1;\n            flex:1; }\n  .td-loading-wrapper.td-overlay .td-loading{\n    position:absolute;\n    margin:0;\n    top:0;\n    left:0;\n    right:0;\n    z-index:1000; }\n    .td-loading-wrapper.td-overlay .td-loading mat-progress-bar{\n      position:absolute;\n      top:0;\n      left:0;\n      right:0; }\n  .td-loading-wrapper.td-overlay-circular .td-loading{\n    bottom:0; }\n"],
+                template: "<div class=\"td-loading-wrapper\"\n    [style.min-height]=\"getHeight()\"\n    [class.td-overlay-circular]=\"(isOverlay() || isFullScreen()) && !isLinear()\"\n    [class.td-overlay]=\"isOverlay() || isFullScreen()\"\n    [class.td-fullscreen]=\"isFullScreen()\">\n  <div [@tdFadeInOut]=\"animation\"\n     (@tdFadeInOut.done)=\"animationComplete($event)\"\n     [style.min-height]=\"getHeight()\"\n     class=\"td-loading\">\n    <mat-progress-spinner *ngIf=\"isCircular()\"\n                        [mode]=\"mode\"\n                        [value]=\"value\"\n                        [color]=\"color\"\n                        [diameter]=\"getCircleDiameter()\"\n                        [strokeWidth]=\"getCircleStrokeWidth()\">\n    </mat-progress-spinner>\n    <mat-progress-bar *ngIf=\"isLinear()\"\n                     [mode]=\"mode\"\n                     [value]=\"value\"\n                     [color]=\"color\">\n    </mat-progress-bar>\n  </div>\n  <ng-template [cdkPortalHost]=\"content\"></ng-template>\n</div>",
                 animations: [
-                    common$1.TdFadeInOutAnimation(),
+                    common.TdFadeInOutAnimation(),
                 ],
             },] },
 ];
@@ -984,7 +996,7 @@ var CovalentLoadingModule = /** @class */ (function () {
 CovalentLoadingModule.decorators = [
     { type: core.NgModule, args: [{
                 imports: [
-                    common.CommonModule,
+                    common$1.CommonModule,
                     progressBar.MatProgressBarModule,
                     progressSpinner.MatProgressSpinnerModule,
                     overlay.OverlayModule,

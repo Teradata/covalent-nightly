@@ -1,14 +1,14 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, NgModule, Optional, Output, ViewChild, forwardRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, ViewChild, Input, Output, EventEmitter, Optional, ChangeDetectionStrategy, ChangeDetectorRef, forwardRef, NgModule } from '@angular/core';
+import { trigger, state, style, transition, animate, AUTO_STYLE } from '@angular/animations';
+import { NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
+import { Dir } from '@angular/cdk/bidi';
 import { MatInput, MatInputModule } from '@angular/material/input';
+import { debounceTime } from 'rxjs/operators/debounceTime';
+import { skip } from 'rxjs/operators/skip';
+import { mixinControlValueAccessor } from '@covalent/core/common';
+import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { AUTO_STYLE, animate, state, style, transition, trigger } from '@angular/animations';
-import { Dir } from '@angular/cdk/bidi';
-import { debounceTime as debounceTime$1 } from 'rxjs/operators/debounceTime';
-import { skip as skip$1 } from 'rxjs/operators/skip';
-import { mixinControlValueAccessor } from '@covalent/core/common';
 
 /**
  * @fileoverview added by tsickle
@@ -82,7 +82,7 @@ class TdSearchInputComponent extends _TdSearchInputMixinBase {
      * @return {?}
      */
     ngOnInit() {
-        this._input.ngControl.valueChanges.pipe(debounceTime$1(this.debounce), skip$1(1)).subscribe((value) => {
+        this._input.ngControl.valueChanges.pipe(debounceTime(this.debounce), skip(1)).subscribe((value) => {
             this._searchTermChanged(value);
         });
     }
@@ -160,36 +160,36 @@ TdSearchInputComponent.decorators = [
     <mat-icon>{{clearIcon}}</mat-icon>
   </button>
 </div>`,
-                styles: [`.td-search-input {
-  overflow-x: hidden;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  max-width: 100%;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end; }
-  .td-search-input .td-search-input-field {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1; }
-  .td-search-input ::ng-deep mat-form-field.mat-hide-underline .mat-form-field-underline {
-    display: none; }
-  .td-search-input .td-search-input-clear {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 auto;
-            flex: 0 0 auto; }
+                styles: [`.td-search-input{
+  overflow-x:hidden;
+  -webkit-box-sizing:border-box;
+          box-sizing:border-box;
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-orient:horizontal;
+  -webkit-box-direction:normal;
+      -ms-flex-direction:row;
+          flex-direction:row;
+  -webkit-box-align:center;
+      -ms-flex-align:center;
+          align-items:center;
+  -ms-flex-line-pack:center;
+      align-content:center;
+  max-width:100%;
+  -webkit-box-pack:end;
+      -ms-flex-pack:end;
+          justify-content:flex-end; }
+  .td-search-input .td-search-input-field{
+    -webkit-box-flex:1;
+        -ms-flex:1;
+            flex:1; }
+  .td-search-input ::ng-deep mat-form-field.mat-hide-underline .mat-form-field-underline{
+    display:none; }
+  .td-search-input .td-search-input-clear{
+    -webkit-box-flex:0;
+        -ms-flex:0 0 auto;
+            flex:0 0 auto; }
 `],
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 inputs: ['value'],
@@ -369,37 +369,36 @@ TdSearchBoxComponent.decorators = [
                    (clear)="handleClear(); toggleVisibility()">
   </td-search-input>
 </div>`,
-                styles: [`:host {
-  display: block; }
-
-.td-search-box {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  max-width: 100%;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end; }
-  .td-search-box .td-search-icon {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 auto;
-            flex: 0 0 auto; }
-  .td-search-box td-search-input {
-    margin-left: 12px; }
-    ::ng-deep [dir='rtl'] .td-search-box td-search-input {
-      margin-right: 12px;
-      margin-left: 0 !important; }
+                styles: [`:host{
+  display:block; }
+.td-search-box{
+  -webkit-box-sizing:border-box;
+          box-sizing:border-box;
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-orient:horizontal;
+  -webkit-box-direction:normal;
+      -ms-flex-direction:row;
+          flex-direction:row;
+  -webkit-box-align:center;
+      -ms-flex-align:center;
+          align-items:center;
+  -ms-flex-line-pack:center;
+      align-content:center;
+  max-width:100%;
+  -webkit-box-pack:end;
+      -ms-flex-pack:end;
+          justify-content:flex-end; }
+  .td-search-box .td-search-icon{
+    -webkit-box-flex:0;
+        -ms-flex:0 0 auto;
+            flex:0 0 auto; }
+  .td-search-box td-search-input{
+    margin-left:12px; }
+    ::ng-deep [dir='rtl'] .td-search-box td-search-input{
+      margin-right:12px;
+      margin-left:0 !important; }
 `],
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 inputs: ['value'],

@@ -4,5 +4,8 @@
   "es2015": "../esm2015/covalent-core-json-formatter.js",
   "typings": "covalent-core-json-formatter.d.ts",
   "metadata": "covalent-core-json-formatter.metadata.json",
+  "dependencies": {
+    "tslib": "^1.7.1"
+  },
   "name": "@covalent/core/json-formatter"
 }

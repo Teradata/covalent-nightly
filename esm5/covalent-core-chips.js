@@ -1,38 +1,29 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChild, Directive, ElementRef, EventEmitter, HostBinding, HostListener, Inject, Input, NgModule, Optional, Output, Renderer2, TemplateRef, ViewChild, ViewChildren, ViewContainerRef, forwardRef } from '@angular/core';
-import { FormControl, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { MatInput, MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-import { MatAutocompleteModule, MatAutocompleteTrigger } from '@angular/material/autocomplete';
-import { MatChip, MatChipsModule } from '@angular/material/chips';
+import * as tslib_1 from "tslib";
+import { Component, Input, Output, forwardRef, ViewChild, ViewChildren, HostListener, ElementRef, Optional, Inject, Directive, TemplateRef, ViewContainerRef, ContentChild, ChangeDetectionStrategy, ChangeDetectorRef, HostBinding, Renderer2, EventEmitter, NgModule } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
+import { NG_VALUE_ACCESSOR, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { TemplatePortalDirective } from '@angular/cdk/portal';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { BACKSPACE, DELETE, DOWN_ARROW, ESCAPE, LEFT_ARROW, RIGHT_ARROW, TAB, UP_ARROW } from '@angular/cdk/keycodes';
+import { UP_ARROW, DOWN_ARROW, ESCAPE, LEFT_ARROW, RIGHT_ARROW, DELETE, BACKSPACE, TAB } from '@angular/cdk/keycodes';
+import { MatChip, MatChipsModule } from '@angular/material/chips';
+import { MatInput, MatInputModule } from '@angular/material/input';
 import { MatOption } from '@angular/material/core';
-import { timer as timer$1 } from 'rxjs/observable/timer';
-import { merge as merge$1 } from 'rxjs/observable/merge';
-import { toPromise as toPromise$1 } from 'rxjs/operator/toPromise';
-import { fromEvent as fromEvent$1 } from 'rxjs/observable/fromEvent';
-import { filter as filter$1 } from 'rxjs/operators/filter';
-import { debounceTime as debounceTime$1 } from 'rxjs/operators/debounceTime';
-import { mixinControlValueAccessor, mixinDisabled } from '@covalent/core/common';
+import { MatAutocompleteTrigger, MatAutocompleteModule } from '@angular/material/autocomplete';
+import { timer } from 'rxjs/observable/timer';
+import { merge } from 'rxjs/observable/merge';
+import { toPromise } from 'rxjs/operator/toPromise';
+import { fromEvent } from 'rxjs/observable/fromEvent';
+import { filter } from 'rxjs/operators/filter';
+import { debounceTime } from 'rxjs/operators/debounceTime';
+import { mixinDisabled, mixinControlValueAccessor } from '@covalent/core/common';
+import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
 var TdChipDirective = /** @class */ (function (_super) {
-    __extends(TdChipDirective, _super);
+    tslib_1.__extends(TdChipDirective, _super);
     /**
      * @param {?} templateRef
      * @param {?} viewContainerRef
@@ -53,7 +44,7 @@ TdChipDirective.ctorParameters = function () { return [
     { type: ViewContainerRef, },
 ]; };
 var TdAutocompleteOptionDirective = /** @class */ (function (_super) {
-    __extends(TdAutocompleteOptionDirective, _super);
+    tslib_1.__extends(TdAutocompleteOptionDirective, _super);
     /**
      * @param {?} templateRef
      * @param {?} viewContainerRef
@@ -85,7 +76,7 @@ var TdChipsBase = /** @class */ (function () {
 /* tslint:disable-next-line */
 var _TdChipsMixinBase = mixinControlValueAccessor(mixinDisabled(TdChipsBase), []);
 var TdChipsComponent = /** @class */ (function (_super) {
-    __extends(TdChipsComponent, _super);
+    tslib_1.__extends(TdChipsComponent, _super);
     /**
      * @param {?} _elementRef
      * @param {?} _renderer
@@ -363,7 +354,7 @@ var TdChipsComponent = /** @class */ (function (_super) {
         var _this = this;
         // sets a flag to know if there was a mousedown and then it returns it back to false
         this._isMousedown = true;
-        toPromise$1.call(timer$1()).then(function () {
+        toPromise.call(timer()).then(function () {
             _this._isMousedown = false;
         });
     };
@@ -392,7 +383,7 @@ var TdChipsComponent = /** @class */ (function (_super) {
         switch (event.keyCode) {
             case TAB:
                 // if tabing out, then unfocus the component
-                toPromise$1.call(timer$1()).then(function () {
+                toPromise.call(timer()).then(function () {
                     _this.removeFocusedState();
                 });
                 break;
@@ -414,7 +405,7 @@ var TdChipsComponent = /** @class */ (function (_super) {
      */
     TdChipsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.inputControl.valueChanges.pipe(debounceTime$1(this.debounce)).subscribe(function (value) {
+        this.inputControl.valueChanges.pipe(debounceTime(this.debounce)).subscribe(function (value) {
             _this.onInputChange.emit(value ? value : '');
         });
         this._changeDetectorRef.markForCheck();
@@ -509,7 +500,7 @@ var TdChipsComponent = /** @class */ (function (_super) {
              * to rerender the next list and at the correct spot
              */
         this._closeAutocomplete();
-        toPromise$1.call(timer$1(this.debounce)).then(function () {
+        toPromise.call(timer(this.debounce)).then(function () {
             _this.setFocusedState();
             _this._setFirstOptionActive();
             _this._openAutocomplete();
@@ -753,8 +744,8 @@ var TdChipsComponent = /** @class */ (function (_super) {
          * @return {?}
          */
         get: function () {
-            var /** @type {?} */ chips$$1 = this._chipsChildren.toArray();
-            return chips$$1.length;
+            var /** @type {?} */ chips = this._chipsChildren.toArray();
+            return chips.length;
         },
         enumerable: true,
         configurable: true
@@ -807,7 +798,7 @@ var TdChipsComponent = /** @class */ (function (_super) {
         var _this = this;
         if (this.requireMatch) {
             // need to use a timer here to wait until the autocomplete has been opened (end of queue)
-            toPromise$1.call(timer$1()).then(function () {
+            toPromise.call(timer()).then(function () {
                 if (_this.focused && _this._options && _this._options.length > 0) {
                     // clean up of previously active options
                     _this._options.toArray().forEach(function (option) {
@@ -830,7 +821,7 @@ var TdChipsComponent = /** @class */ (function (_super) {
     TdChipsComponent.prototype._watchOutsideClick = function () {
         var _this = this;
         if (this._document) {
-            merge$1(fromEvent$1(this._document, 'click'), fromEvent$1(this._document, 'touchend')).pipe(filter$1(function (event) {
+            merge(fromEvent(this._document, 'click'), fromEvent(this._document, 'touchend')).pipe(filter(function (event) {
                 var /** @type {?} */ clickTarget = (event.target);
                 setTimeout(function () {
                     _this._internalClick = false;
@@ -860,7 +851,7 @@ TdChipsComponent.decorators = [
                     }],
                 selector: 'td-chips',
                 inputs: ['disabled', 'value'],
-                styles: [":host {\n  display: block;\n  padding: 0 5px;\n  min-height: 48px; }\n  :host .td-chips-wrapper {\n    min-height: 42px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: row;\n            flex-direction: row;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    -webkit-box-align: start;\n        -ms-flex-align: start;\n            align-items: flex-start; }\n    :host .td-chips-wrapper.td-chips-stacked .mat-basic-chip,\n    :host .td-chips-wrapper.td-chips-stacked .td-chips-form-field {\n      width: 100%; }\n    :host .td-chips-wrapper.td-chips-input-before-position .td-chips-form-field {\n      -webkit-box-ordinal-group: 0;\n          -ms-flex-order: -1;\n              order: -1; }\n  :host .td-chip, :host .td-chip > .td-chip-content {\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: row;\n            flex-direction: row;\n    max-width: 100%;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -ms-flex-line-pack: center;\n        align-content: center;\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: start; }\n    :host .td-chip.td-chip-stacked, :host .td-chip > .td-chip-content.td-chip-stacked {\n      -webkit-box-pack: justify;\n          -ms-flex-pack: justify;\n              justify-content: space-between; }\n  :host ::ng-deep {\n    /* TODO see if we can make styles more abstract to future proof for contact chips */ }\n    :host ::ng-deep .mat-form-field-wrapper {\n      padding-bottom: 2px; }\n    :host ::ng-deep .mat-basic-chip {\n      display: inline-block;\n      cursor: default;\n      border-radius: 16px;\n      margin: 8px 8px 0 0;\n      -webkit-box-sizing: border-box;\n              box-sizing: border-box;\n      max-width: 100%;\n      position: relative; }\n      html[dir=rtl] :host ::ng-deep .mat-basic-chip {\n        margin: 8px 0 0 8px;\n        unicode-bidi: embed; }\n      body[dir=rtl] :host ::ng-deep .mat-basic-chip {\n        margin: 8px 0 0 8px;\n        unicode-bidi: embed; }\n      [dir=rtl] :host ::ng-deep .mat-basic-chip {\n        margin: 8px 0 0 8px;\n        unicode-bidi: embed; }\n      :host ::ng-deep .mat-basic-chip bdo[dir=rtl] {\n        direction: rtl;\n        unicode-bidi: bidi-override; }\n      :host ::ng-deep .mat-basic-chip bdo[dir=ltr] {\n        direction: ltr;\n        unicode-bidi: bidi-override; }\n      :host ::ng-deep .mat-basic-chip .td-chip {\n        min-height: 32px;\n        line-height: 32px;\n        font-size: 13px;\n        padding: 0 0 0 12px; }\n        html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip {\n          padding: 0 12px 0 0;\n          unicode-bidi: embed; }\n        body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip {\n          padding: 0 12px 0 0;\n          unicode-bidi: embed; }\n        [dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip {\n          padding: 0 12px 0 0;\n          unicode-bidi: embed; }\n        :host ::ng-deep .mat-basic-chip .td-chip bdo[dir=rtl] {\n          direction: rtl;\n          unicode-bidi: bidi-override; }\n        :host ::ng-deep .mat-basic-chip .td-chip bdo[dir=ltr] {\n          direction: ltr;\n          unicode-bidi: bidi-override; }\n        :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] {\n          display: inline-block;\n          -webkit-box-ordinal-group: -19;\n              -ms-flex-order: -20;\n                  order: -20;\n          -webkit-box-pack: center;\n              -ms-flex-pack: center;\n                  justify-content: center;\n          -webkit-box-align: center;\n              -ms-flex-align: center;\n                  align-items: center;\n          text-align: center;\n          height: 32px;\n          width: 32px;\n          margin: 0 8px 0 -12px;\n          border-radius: 50%; }\n          html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] {\n            margin: 0 -12px 0 8px;\n            unicode-bidi: embed; }\n          body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] {\n            margin: 0 -12px 0 8px;\n            unicode-bidi: embed; }\n          [dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] {\n            margin: 0 -12px 0 8px;\n            unicode-bidi: embed; }\n          :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=rtl] {\n            direction: rtl;\n            unicode-bidi: bidi-override; }\n          :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=ltr] {\n            direction: ltr;\n            unicode-bidi: bidi-override; }\n      :host ::ng-deep .mat-basic-chip.td-chip-after-pad {\n        padding: 0 12px 0 0; }\n        html[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad {\n          padding: 0 0 0 12px;\n          unicode-bidi: embed; }\n        body[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad {\n          padding: 0 0 0 12px;\n          unicode-bidi: embed; }\n        [dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad {\n          padding: 0 0 0 12px;\n          unicode-bidi: embed; }\n        :host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=rtl] {\n          direction: rtl;\n          unicode-bidi: bidi-override; }\n        :host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=ltr] {\n          direction: ltr;\n          unicode-bidi: bidi-override; }\n      :host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal {\n        margin: 0 4px;\n        font-size: 21px;\n        line-height: 22px; }\n        :host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal:hover {\n          cursor: pointer; }\n    :host ::ng-deep .td-chips-stacked .mat-basic-chip {\n      margin: 4px 0; }\n      :host ::ng-deep .td-chips-stacked .mat-basic-chip:first-of-type {\n        margin: 8px 0 4px; }\n      :host ::ng-deep .td-chips-stacked .mat-basic-chip:last-of-type {\n        margin: 4px 0 8px; }\n  :host .mat-form-field-underline {\n    position: relative;\n    height: 1px;\n    width: 100%;\n    bottom: 0; }\n    :host .mat-form-field-underline.mat-disabled {\n      background-position: 0;\n      bottom: -4px;\n      background-color: transparent; }\n    :host .mat-form-field-underline .mat-form-field-ripple {\n      position: absolute;\n      height: 2px;\n      top: 0;\n      width: 100%;\n      -webkit-transform-origin: 50%;\n              transform-origin: 50%;\n      -webkit-transform: scaleX(0.5);\n              transform: scaleX(0.5);\n      visibility: hidden;\n      opacity: 0;\n      -webkit-transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);\n      transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); }\n      :host .mat-form-field-underline .mat-form-field-ripple.mat-focused {\n        visibility: visible;\n        opacity: 1;\n        -webkit-transform: scaleX(1);\n                transform: scaleX(1);\n        -webkit-transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear;\n        transition: background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear;\n        transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);\n        transition: transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear; }\n  :host ::ng-deep mat-form-field .mat-form-field-underline {\n    display: none; }\n"],
+                styles: [":host{\n  display:block;\n  padding:0 5px;\n  min-height:48px; }\n  :host .td-chips-wrapper{\n    min-height:42px;\n    display:-webkit-box;\n    display:-ms-flexbox;\n    display:flex;\n    -webkit-box-orient:horizontal;\n    -webkit-box-direction:normal;\n        -ms-flex-direction:row;\n            flex-direction:row;\n    -ms-flex-wrap:wrap;\n        flex-wrap:wrap;\n    -webkit-box-align:start;\n        -ms-flex-align:start;\n            align-items:flex-start; }\n    :host .td-chips-wrapper.td-chips-stacked .mat-basic-chip,\n    :host .td-chips-wrapper.td-chips-stacked .td-chips-form-field{\n      width:100%; }\n    :host .td-chips-wrapper.td-chips-input-before-position .td-chips-form-field{\n      -webkit-box-ordinal-group:0;\n          -ms-flex-order:-1;\n              order:-1; }\n  :host .td-chip, :host .td-chip > .td-chip-content{\n    -webkit-box-sizing:border-box;\n            box-sizing:border-box;\n    display:-webkit-box;\n    display:-ms-flexbox;\n    display:flex;\n    -webkit-box-orient:horizontal;\n    -webkit-box-direction:normal;\n        -ms-flex-direction:row;\n            flex-direction:row;\n    max-width:100%;\n    -webkit-box-align:center;\n        -ms-flex-align:center;\n            align-items:center;\n    -ms-flex-line-pack:center;\n        align-content:center;\n    -webkit-box-pack:start;\n        -ms-flex-pack:start;\n            justify-content:start; }\n    :host .td-chip.td-chip-stacked, :host .td-chip > .td-chip-content.td-chip-stacked{\n      -webkit-box-pack:justify;\n          -ms-flex-pack:justify;\n              justify-content:space-between; }\n  :host ::ng-deep{ }\n    :host ::ng-deep .mat-form-field-wrapper{\n      padding-bottom:2px; }\n    :host ::ng-deep .mat-basic-chip{\n      display:inline-block;\n      cursor:default;\n      border-radius:16px;\n      margin:8px 8px 0 0;\n      -webkit-box-sizing:border-box;\n              box-sizing:border-box;\n      max-width:100%;\n      position:relative; }\n      html[dir=rtl] :host ::ng-deep .mat-basic-chip{\n        margin:8px 0 0 8px;\n        unicode-bidi:embed; }\n      body[dir=rtl] :host ::ng-deep .mat-basic-chip{\n        margin:8px 0 0 8px;\n        unicode-bidi:embed; }\n      [dir=rtl] :host ::ng-deep .mat-basic-chip{\n        margin:8px 0 0 8px;\n        unicode-bidi:embed; }\n      :host ::ng-deep .mat-basic-chip bdo[dir=rtl]{\n        direction:rtl;\n        unicode-bidi:bidi-override; }\n      :host ::ng-deep .mat-basic-chip bdo[dir=ltr]{\n        direction:ltr;\n        unicode-bidi:bidi-override; }\n      :host ::ng-deep .mat-basic-chip .td-chip{\n        min-height:32px;\n        line-height:32px;\n        font-size:13px;\n        padding:0 0 0 12px; }\n        html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{\n          padding:0 12px 0 0;\n          unicode-bidi:embed; }\n        body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{\n          padding:0 12px 0 0;\n          unicode-bidi:embed; }\n        [dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{\n          padding:0 12px 0 0;\n          unicode-bidi:embed; }\n        :host ::ng-deep .mat-basic-chip .td-chip bdo[dir=rtl]{\n          direction:rtl;\n          unicode-bidi:bidi-override; }\n        :host ::ng-deep .mat-basic-chip .td-chip bdo[dir=ltr]{\n          direction:ltr;\n          unicode-bidi:bidi-override; }\n        :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{\n          display:inline-block;\n          -webkit-box-ordinal-group:-19;\n              -ms-flex-order:-20;\n                  order:-20;\n          -webkit-box-pack:center;\n              -ms-flex-pack:center;\n                  justify-content:center;\n          -webkit-box-align:center;\n              -ms-flex-align:center;\n                  align-items:center;\n          text-align:center;\n          height:32px;\n          width:32px;\n          margin:0 8px 0 -12px;\n          border-radius:50%; }\n          html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{\n            margin:0 -12px 0 8px;\n            unicode-bidi:embed; }\n          body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{\n            margin:0 -12px 0 8px;\n            unicode-bidi:embed; }\n          [dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{\n            margin:0 -12px 0 8px;\n            unicode-bidi:embed; }\n          :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=rtl]{\n            direction:rtl;\n            unicode-bidi:bidi-override; }\n          :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=ltr]{\n            direction:ltr;\n            unicode-bidi:bidi-override; }\n      :host ::ng-deep .mat-basic-chip.td-chip-after-pad{\n        padding:0 12px 0 0; }\n        html[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{\n          padding:0 0 0 12px;\n          unicode-bidi:embed; }\n        body[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{\n          padding:0 0 0 12px;\n          unicode-bidi:embed; }\n        [dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{\n          padding:0 0 0 12px;\n          unicode-bidi:embed; }\n        :host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=rtl]{\n          direction:rtl;\n          unicode-bidi:bidi-override; }\n        :host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=ltr]{\n          direction:ltr;\n          unicode-bidi:bidi-override; }\n      :host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal{\n        margin:0 4px;\n        font-size:21px;\n        line-height:22px; }\n        :host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal:hover{\n          cursor:pointer; }\n    :host ::ng-deep .td-chips-stacked .mat-basic-chip{\n      margin:4px 0; }\n      :host ::ng-deep .td-chips-stacked .mat-basic-chip:first-of-type{\n        margin:8px 0 4px; }\n      :host ::ng-deep .td-chips-stacked .mat-basic-chip:last-of-type{\n        margin:4px 0 8px; }\n  :host .mat-form-field-underline{\n    position:relative;\n    height:1px;\n    width:100%;\n    bottom:0; }\n    :host .mat-form-field-underline.mat-disabled{\n      background-position:0;\n      bottom:-4px;\n      background-color:transparent; }\n    :host .mat-form-field-underline .mat-form-field-ripple{\n      position:absolute;\n      height:2px;\n      top:0;\n      width:100%;\n      -webkit-transform-origin:50%;\n              transform-origin:50%;\n      -webkit-transform:scaleX(0.5);\n              transform:scaleX(0.5);\n      visibility:hidden;\n      opacity:0;\n      -webkit-transition:background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);\n      transition:background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2); }\n      :host .mat-form-field-underline .mat-form-field-ripple.mat-focused{\n        visibility:visible;\n        opacity:1;\n        -webkit-transform:scaleX(1);\n                transform:scaleX(1);\n        -webkit-transition:background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear;\n        transition:background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear;\n        transition:transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);\n        transition:transform 150ms linear, background-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 150ms linear; }\n  :host ::ng-deep mat-form-field .mat-form-field-underline{\n    display:none; }\n"],
                 template: "<div class=\"td-chips-wrapper\"\n     [class.td-chips-stacked]=\"stacked\"\n     [class.td-chips-input-before-position]=\"inputPosition === 'before'\">\n  <ng-template let-chip let-first=\"first\" let-index=\"index\" ngFor [ngForOf]=\"value\">\n    <mat-basic-chip [class.td-chip-disabled]=\"disabled\"\n                   [class.td-chip-after-pad]=\"!canRemoveChip\"\n                   [color]=\"color\"\n                   (keydown)=\"_chipKeydown($event, index)\"\n                   (blur)=\"_handleChipBlur($event, chip)\"\n                   (focus)=\"_handleChipFocus($event, chip)\">\n      <div class=\"td-chip\" [class.td-chip-stacked]=\"stacked\">\n        <span class=\"td-chip-content\">\n          <span *ngIf=\"!_chipTemplate?.templateRef\">{{chip}}</span>\n          <ng-template\n            *ngIf=\"_chipTemplate?.templateRef\"\n            [ngTemplateOutlet]=\"_chipTemplate?.templateRef\"\n            [ngTemplateOutletContext]=\"{ chip: chip }\">\n          </ng-template>\n        </span>\n        <mat-icon *ngIf=\"canRemoveChip\" class=\"td-chip-removal\" (click)=\"_internalClick = removeChip(index)\">\n          cancel\n        </mat-icon>\n      </div>\n    </mat-basic-chip>\n  </ng-template>\n  <mat-form-field floatPlaceholder=\"never\"\n                  class=\"td-chips-form-field\"\n                  [style.width.px]=\"canAddChip ? null : 0\"\n                  [style.height.px]=\"canAddChip ? null : 0\"\n                  [color]=\"color\">\n    <input matInput\n            #input\n            [tabIndex]=\"-1\"\n            [matAutocomplete]=\"autocomplete\"\n            [formControl]=\"inputControl\"\n            [placeholder]=\"canAddChip? placeholder : ''\"\n            (keydown)=\"_inputKeydown($event)\"\n            (keyup.enter)=\"_handleAddChip()\"\n            (focus)=\"_handleFocus()\">\n  </mat-form-field>\n  <mat-autocomplete #autocomplete=\"matAutocomplete\"\n                   [displayWith]=\"_removeInputDisplay\"\n                   (optionSelected)=\"addChip($event.option.value)\">\n    <ng-template let-item let-first=\"first\" ngFor [ngForOf]=\"items\">\n      <mat-option (click)=\"_setInternalClick()\" [value]=\"item\">\n        <span *ngIf=\"!_autocompleteOptionTemplate?.templateRef\">{{item}}</span>\n        <ng-template\n          *ngIf=\"_autocompleteOptionTemplate?.templateRef\"\n          [ngTemplateOutlet]=\"_autocompleteOptionTemplate?.templateRef\"\n          [ngTemplateOutletContext]=\"{ option: item }\">\n        </ng-template>\n      </mat-option>\n    </ng-template>\n  </mat-autocomplete>\n</div>\n<div *ngIf=\"chipAddition\" class=\"mat-form-field-underline\"\n      [class.mat-disabled]=\"disabled\">\n  <span class=\"mat-form-field-ripple\"\n        [class.mat-focused]=\"focused\"></span>\n</div>\n<ng-content></ng-content>",
                 changeDetection: ChangeDetectionStrategy.OnPush,
             },] },

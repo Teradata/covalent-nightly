@@ -4,5 +4,8 @@
   "es2015": "../esm2015/covalent-core-paging.js",
   "typings": "covalent-core-paging.d.ts",
   "metadata": "covalent-core-paging.metadata.json",
+  "dependencies": {
+    "tslib": "^1.7.1"
+  },
   "name": "@covalent/core/paging"
 }

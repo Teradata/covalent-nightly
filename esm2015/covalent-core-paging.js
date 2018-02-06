@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, NgModule, Optional, Output } from '@angular/core';
+import { Component, Input, Output, EventEmitter, Optional, ChangeDetectorRef, ChangeDetectionStrategy, NgModule } from '@angular/core';
+import { coerceNumberProperty } from '@angular/cdk/coercion';
+import { Dir } from '@angular/cdk/bidi';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { coerceNumberProperty } from '@angular/cdk/coercion';
-import { Dir } from '@angular/cdk/bidi';
 
 /**
  * @fileoverview added by tsickle
@@ -310,33 +310,33 @@ TdPagingBarComponent.decorators = [
     </button>
   </div>
 </div>`,
-                styles: [`:host {
-  display: block; }
-  :host .td-paging-bar {
-    height: 48px;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -ms-flex-line-pack: center;
-        align-content: center;
-    max-width: 100%;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end; }
-    :host .td-paging-bar ::ng-deep > * {
-      margin: 0 10px; }
-    :host .td-paging-bar [mat-icon-button] {
-      font-size: 12px;
-      font-weight: normal; }
+                styles: [`:host{
+  display:block; }
+  :host .td-paging-bar{
+    height:48px;
+    -webkit-box-sizing:border-box;
+            box-sizing:border-box;
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-orient:horizontal;
+    -webkit-box-direction:normal;
+        -ms-flex-direction:row;
+            flex-direction:row;
+    -webkit-box-align:center;
+        -ms-flex-align:center;
+            align-items:center;
+    -ms-flex-line-pack:center;
+        align-content:center;
+    max-width:100%;
+    -webkit-box-pack:end;
+        -ms-flex-pack:end;
+            justify-content:flex-end; }
+    :host .td-paging-bar ::ng-deep > *{
+      margin:0 10px; }
+    :host .td-paging-bar [mat-icon-button]{
+      font-size:12px;
+      font-weight:normal; }
 `],
             },] },
 ];

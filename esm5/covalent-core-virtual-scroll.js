@@ -1,23 +1,14 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChild, Directive, ElementRef, HostListener, Input, NgModule, Renderer2, TemplateRef, ViewChildren, ViewContainerRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import * as tslib_1 from "tslib";
+import { Directive, TemplateRef, ViewContainerRef, Component, Input, ContentChild, ChangeDetectionStrategy, ChangeDetectorRef, ViewChildren, ElementRef, HostListener, Renderer2, NgModule } from '@angular/core';
 import { TemplatePortalDirective } from '@angular/cdk/portal';
 import { DomSanitizer } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
 var TdVirtualScrollRowDirective = /** @class */ (function (_super) {
-    __extends(TdVirtualScrollRowDirective, _super);
+    tslib_1.__extends(TdVirtualScrollRowDirective, _super);
     /**
      * @param {?} templateRef
      * @param {?} viewContainerRef
@@ -276,7 +267,7 @@ var TdVirtualScrollContainerComponent = /** @class */ (function () {
 TdVirtualScrollContainerComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-virtual-scroll-container',
-                styles: [":host {\n  display: block;\n  height: 100%;\n  width: 100%;\n  overflow: auto;\n  position: relative; }\n"],
+                styles: [":host{\n  display:block;\n  height:100%;\n  width:100%;\n  overflow:auto;\n  position:relative; }\n"],
                 template: "<div [style.height.px]=\"totalHeight\"></div>\n<div [style.transform]=\"offsetTransform\"\n      [style.position]=\"'absolute'\"\n      [style.width.%]=\"100\">\n  <ng-template let-row\n                let-index=\"index\"\n                ngFor\n                [ngForOf]=\"virtualData\"\n                [ngForTrackBy]=\"trackBy\">\n    <div #rowElement\n         [style.width.%]=\"100\">\n      <ng-template *ngIf=\"_rowTemplate\"\n                  [ngTemplateOutlet]=\"_rowTemplate.templateRef\"\n                  [ngTemplateOutletContext]=\"{row: row,\n                                      index: (fromRow + index),\n                                      first: (fromRow + index) === 0,\n                                      last: (fromRow + index) === (data.length - 1),\n                                      odd: ((fromRow + index + 1) % 2) === 1,\n                                      even: ((fromRow + index + 1) % 2) === 0}\">\n      </ng-template>\n    </div>\n  </ng-template>\n</div>",
                 changeDetection: ChangeDetectionStrategy.OnPush,
             },] },
