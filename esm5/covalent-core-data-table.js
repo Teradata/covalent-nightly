@@ -1190,13 +1190,13 @@ var TdDataTableComponent = /** @class */ (function (_super) {
             var /** @type {?} */ rowHeightSum_1 = 0;
             // loop through all rows to see if we have their height cached
             // and sum them all to calculate the total height
-            this._data.forEach(function (d, index) {
+            this._data.forEach(function (d, i) {
                 // iterate through all rows at first and assume all
                 // rows are the same height as the first one
-                if (!_this._rowHeightCache[index]) {
-                    _this._rowHeightCache[index] = _this._rowHeightCache[0] || TD_VIRTUAL_DEFAULT_ROW_HEIGHT;
+                if (!_this._rowHeightCache[i]) {
+                    _this._rowHeightCache[i] = _this._rowHeightCache[0] || TD_VIRTUAL_DEFAULT_ROW_HEIGHT;
                 }
-                rowHeightSum_1 += _this._rowHeightCache[index];
+                rowHeightSum_1 += _this._rowHeightCache[i];
                 // check how many rows have been scrolled
                 if (_this._scrollVerticalOffset - rowHeightSum_1 > 0) {
                     scrolledRows++;
