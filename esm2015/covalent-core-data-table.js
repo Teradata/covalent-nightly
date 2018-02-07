@@ -124,7 +124,7 @@ TdDataTableRowComponent.ctorParameters = () => [
 ];
 TdDataTableRowComponent.propDecorators = {
     "selected": [{ type: Input, args: ['selected',] },],
-    "clickListener": [{ type: HostListener, args: ['click', ['$event'],] },],
+    "clickListener": [{ type: HostListener, args: ['click',] },],
 };
 
 /**
@@ -1686,7 +1686,7 @@ TdDataTableColumnComponent.propDecorators = {
     "bingSortable": [{ type: HostBinding, args: ['class.mat-sortable',] },],
     "bindActive": [{ type: HostBinding, args: ['class.mat-active',] },],
     "bindNumeric": [{ type: HostBinding, args: ['class.mat-numeric',] },],
-    "handleClick": [{ type: HostListener, args: ['click', ['event'],] },],
+    "handleClick": [{ type: HostListener, args: ['click',] },],
 };
 
 /**

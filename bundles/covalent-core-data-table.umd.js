@@ -151,7 +151,7 @@ TdDataTableRowComponent.ctorParameters = function () { return [
 ]; };
 TdDataTableRowComponent.propDecorators = {
     "selected": [{ type: core.Input, args: ['selected',] },],
-    "clickListener": [{ type: core.HostListener, args: ['click', ['$event'],] },],
+    "clickListener": [{ type: core.HostListener, args: ['click',] },],
 };
 /**
  * @fileoverview added by tsickle
@@ -1487,7 +1487,7 @@ TdDataTableColumnComponent.propDecorators = {
     "bingSortable": [{ type: core.HostBinding, args: ['class.mat-sortable',] },],
     "bindActive": [{ type: core.HostBinding, args: ['class.mat-active',] },],
     "bindNumeric": [{ type: core.HostBinding, args: ['class.mat-numeric',] },],
-    "handleClick": [{ type: core.HostListener, args: ['click', ['event'],] },],
+    "handleClick": [{ type: core.HostListener, args: ['click',] },],
 };
 /**
  * @fileoverview added by tsickle

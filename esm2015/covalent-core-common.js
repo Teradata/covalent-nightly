@@ -348,7 +348,7 @@ TdAutoTrimDirective.propDecorators = {
 class TdTimeAgoPipe {
     /**
      * @param {?} time
-     * @param {?} reference
+     * @param {?=} reference
      * @return {?}
      */
     transform(time, reference) {
@@ -426,7 +426,7 @@ TdTimeAgoPipe.ctorParameters = () => [];
 class TdTimeDifferencePipe {
     /**
      * @param {?} start
-     * @param {?} end
+     * @param {?=} end
      * @return {?}
      */
     transform(start, end) {

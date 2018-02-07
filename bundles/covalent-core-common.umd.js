@@ -426,7 +426,7 @@ var TdTimeAgoPipe = /** @class */ (function () {
     }
     /**
      * @param {?} time
-     * @param {?} reference
+     * @param {?=} reference
      * @return {?}
      */
     TdTimeAgoPipe.prototype.transform = function (time, reference) {
@@ -506,7 +506,7 @@ var TdTimeDifferencePipe = /** @class */ (function () {
     }
     /**
      * @param {?} start
-     * @param {?} end
+     * @param {?=} end
      * @return {?}
      */
     TdTimeDifferencePipe.prototype.transform = function (start, end) {

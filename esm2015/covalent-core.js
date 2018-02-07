@@ -1327,7 +1327,7 @@ TdAutoTrimDirective.propDecorators = {
 class TdTimeAgoPipe {
     /**
      * @param {?} time
-     * @param {?} reference
+     * @param {?=} reference
      * @return {?}
      */
     transform(time, reference) {
@@ -1405,7 +1405,7 @@ TdTimeAgoPipe.ctorParameters = () => [];
 class TdTimeDifferencePipe {
     /**
      * @param {?} start
-     * @param {?} end
+     * @param {?=} end
      * @return {?}
      */
     transform(start, end) {
@@ -4568,7 +4568,7 @@ TdDataTableRowComponent.ctorParameters = () => [
 ];
 TdDataTableRowComponent.propDecorators = {
     "selected": [{ type: Input, args: ['selected',] },],
-    "clickListener": [{ type: HostListener, args: ['click', ['$event'],] },],
+    "clickListener": [{ type: HostListener, args: ['click',] },],
 };
 
 /**
@@ -6130,7 +6130,7 @@ TdDataTableColumnComponent.propDecorators = {
     "bingSortable": [{ type: HostBinding, args: ['class.mat-sortable',] },],
     "bindActive": [{ type: HostBinding, args: ['class.mat-active',] },],
     "bindNumeric": [{ type: HostBinding, args: ['class.mat-numeric',] },],
-    "handleClick": [{ type: HostListener, args: ['click', ['event'],] },],
+    "handleClick": [{ type: HostListener, args: ['click',] },],
 };
 
 /**
