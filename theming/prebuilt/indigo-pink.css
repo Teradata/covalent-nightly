@@ -521,6 +521,8 @@ input.mat-input-element {
 .cdk-overlay-container {
   position: fixed;
   z-index: 1000; }
+  .cdk-overlay-container:empty {
+    display: none; }
 
 .cdk-global-overlay-wrapper {
   display: -webkit-box;
@@ -999,15 +1001,10 @@ input.mat-input-element {
 .mat-list-item-disabled {
   background-color: #eeeeee; }
 
-.mat-nav-list .mat-list-item {
-  outline: none; }
-  .mat-nav-list .mat-list-item:hover, .mat-nav-list .mat-list-item.mat-list-item-focus {
-    background: rgba(0, 0, 0, 0.04); }
-
-.mat-list-option {
-  outline: none; }
-  .mat-list-option:hover, .mat-list-option.mat-list-item-focus {
-    background: rgba(0, 0, 0, 0.04); }
+.mat-list-option:hover, .mat-list-option.mat-list-item-focus,
+.mat-nav-list .mat-list-item:hover,
+.mat-nav-list .mat-list-item.mat-list-item-focus {
+  background: rgba(0, 0, 0, 0.04); }
 
 .mat-menu-panel {
   background: white; }
