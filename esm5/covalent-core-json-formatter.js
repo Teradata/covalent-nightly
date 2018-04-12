@@ -4,15 +4,8 @@ import { TdCollapseAnimation } from '@covalent/core/common';
 import { CommonModule } from '@angular/common';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
+
 var TdJsonFormatterComponent = /** @class */ (function () {
-    /**
-     * @param {?} _changeDetectorRef
-     * @param {?} _dir
-     */
     function TdJsonFormatterComponent(_changeDetectorRef, _dir) {
         this._changeDetectorRef = _changeDetectorRef;
         this._dir = _dir;
@@ -20,18 +13,9 @@ var TdJsonFormatterComponent = /** @class */ (function () {
         this._levelsOpen = 0;
     }
     Object.defineProperty(TdJsonFormatterComponent.prototype, "levelsOpen", {
-        /**
-         * @return {?}
-         */
         get: function () {
             return this._levelsOpen;
         },
-        /**
-         * levelsOpen?: number
-         * Levels opened by default when JS object is formatted and rendered.
-         * @param {?} levelsOpen
-         * @return {?}
-         */
         set: function (levelsOpen) {
             if (!Number.isInteger(levelsOpen)) {
                 throw new Error('[levelsOpen] needs to be an integer.');
@@ -43,9 +27,6 @@ var TdJsonFormatterComponent = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(TdJsonFormatterComponent.prototype, "open", {
-        /**
-         * @return {?}
-         */
         get: function () {
             return this._open;
         },
@@ -53,19 +34,10 @@ var TdJsonFormatterComponent = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(TdJsonFormatterComponent.prototype, "key", {
-        /**
-         * @return {?}
-         */
         get: function () {
-            var /** @type {?} */ elipsis = this._key && this._key.length > TdJsonFormatterComponent.KEY_MAX_LENGTH ? '…' : '';
+            var elipsis = this._key && this._key.length > TdJsonFormatterComponent.KEY_MAX_LENGTH ? '…' : '';
             return this._key ? this._key.substring(0, TdJsonFormatterComponent.KEY_MAX_LENGTH) + elipsis : this._key;
         },
-        /**
-         * key?: string
-         * Tag to be displayed next to formatted object.
-         * @param {?} key
-         * @return {?}
-         */
         set: function (key) {
             this._key = key;
         },
@@ -73,18 +45,9 @@ var TdJsonFormatterComponent = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(TdJsonFormatterComponent.prototype, "data", {
-        /**
-         * @return {?}
-         */
         get: function () {
             return this._data;
         },
-        /**
-         * data: any
-         * JS object to be formatted.
-         * @param {?} data
-         * @return {?}
-         */
         set: function (data) {
             this._data = data;
             this.parseChildren();
@@ -93,9 +56,6 @@ var TdJsonFormatterComponent = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(TdJsonFormatterComponent.prototype, "children", {
-        /**
-         * @return {?}
-         */
         get: function () {
             return this._children;
         },
@@ -103,9 +63,6 @@ var TdJsonFormatterComponent = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(TdJsonFormatterComponent.prototype, "isRTL", {
-        /**
-         * @return {?}
-         */
         get: function () {
             if (this._dir) {
                 return this._dir.dir === 'rtl';
@@ -115,45 +72,23 @@ var TdJsonFormatterComponent = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    /**
-     * Refreshes json-formatter and rerenders [data]
-     * @return {?}
-     */
     TdJsonFormatterComponent.prototype.refresh = function () {
         this._changeDetectorRef.markForCheck();
     };
-    /**
-     * Toggles collapse/expanded state of component.
-     * @return {?}
-     */
     TdJsonFormatterComponent.prototype.toggle = function () {
         this._open = !this._open;
     };
-    /**
-     * @return {?}
-     */
     TdJsonFormatterComponent.prototype.isObject = function () {
         return this.getType(this._data) === 'object';
     };
-    /**
-     * @return {?}
-     */
     TdJsonFormatterComponent.prototype.isArray = function () {
         return Array.isArray(this._data);
     };
-    /**
-     * @return {?}
-     */
     TdJsonFormatterComponent.prototype.hasChildren = function () {
         return this._children && this._children.length > 0;
     };
-    /**
-     * Gets parsed value depending on value type.
-     * @param {?} value
-     * @return {?}
-     */
     TdJsonFormatterComponent.prototype.getValue = function (value) {
-        var /** @type {?} */ type = this.getType(value);
+        var type = this.getType(value);
         if (type === 'undefined' || (type === 'null')) {
             return type;
         }
@@ -164,7 +99,6 @@ var TdJsonFormatterComponent = /** @class */ (function () {
             value = '"' + value + '"';
         }
         else if (type === 'function') {
-            // Remove content of the function
             return value.toString()
                 .replace(/[\r\n]/g, '')
                 .replace(/\{.*\}/, '') + '{…}';
@@ -174,12 +108,6 @@ var TdJsonFormatterComponent = /** @class */ (function () {
         }
         return value;
     };
-    /**
-     * Gets type of object.
-     * returns 'null' if object is null and 'date' if value is object and can be parsed to a date.
-     * @param {?} object
-     * @return {?}
-     */
     TdJsonFormatterComponent.prototype.getType = function (object) {
         if (typeof object === 'object') {
             if (!object) {
@@ -188,7 +116,7 @@ var TdJsonFormatterComponent = /** @class */ (function () {
             if (Array.isArray(object)) {
                 return 'object';
             }
-            var /** @type {?} */ date = new Date(object);
+            var date = new Date(object);
             if (Object.prototype.toString.call(date) === '[object Date]') {
                 if (!Number.isNaN(date.getTime())) {
                     return 'date';
@@ -197,18 +125,13 @@ var TdJsonFormatterComponent = /** @class */ (function () {
         }
         return typeof object;
     };
-    /**
-     * Generates string representation depending if its an object or function.
-     * see: http://stackoverflow.com/a/332429
-     * @return {?}
-     */
     TdJsonFormatterComponent.prototype.getObjectName = function () {
-        var /** @type {?} */ object = this._data;
+        var object = this._data;
         if (this.isObject() && !object.constructor) {
             return 'Object';
         }
-        var /** @type {?} */ funcNameRegex = /function (.{1,})\(/;
-        var /** @type {?} */ results = (funcNameRegex).exec((object).constructor.toString());
+        var funcNameRegex = /function (.{1,})\(/;
+        var results = (funcNameRegex).exec((object).constructor.toString());
         if (results && results.length > 1) {
             return results[1];
         }
@@ -216,17 +139,13 @@ var TdJsonFormatterComponent = /** @class */ (function () {
             return '';
         }
     };
-    /**
-     * Creates preview of nodes children to render in tooltip depending if its an array or an object.
-     * @return {?}
-     */
     TdJsonFormatterComponent.prototype.getPreview = function () {
         var _this = this;
-        var /** @type {?} */ previewData;
-        var /** @type {?} */ startChar = '{ ';
-        var /** @type {?} */ endChar = ' }';
+        var previewData;
+        var startChar = '{ ';
+        var endChar = ' }';
         if (this.isArray()) {
-            var /** @type {?} */ previewArray = this._data.slice(0, TdJsonFormatterComponent.PREVIEW_LIMIT);
+            var previewArray = this._data.slice(0, TdJsonFormatterComponent.PREVIEW_LIMIT);
             previewData = previewArray.map(function (obj) {
                 return _this.getValue(obj);
             });
@@ -234,54 +153,41 @@ var TdJsonFormatterComponent = /** @class */ (function () {
             endChar = ']';
         }
         else {
-            var /** @type {?} */ previewKeys = this._children.slice(0, TdJsonFormatterComponent.PREVIEW_LIMIT);
+            var previewKeys = this._children.slice(0, TdJsonFormatterComponent.PREVIEW_LIMIT);
             previewData = previewKeys.map(function (key) {
                 return key + ': ' + _this.getValue(_this._data[key]);
             });
         }
-        var /** @type {?} */ previewString = previewData.join(', ');
-        var /** @type {?} */ ellipsis = previewData.length >= TdJsonFormatterComponent.PREVIEW_LIMIT ||
+        var previewString = previewData.join(', ');
+        var ellipsis = previewData.length >= TdJsonFormatterComponent.PREVIEW_LIMIT ||
             previewString.length > TdJsonFormatterComponent.PREVIEW_STRING_MAX_LENGTH ? '…' : '';
         return startChar + previewString.substring(0, TdJsonFormatterComponent.PREVIEW_STRING_MAX_LENGTH) +
             ellipsis + endChar;
     };
-    /**
-     * @return {?}
-     */
     TdJsonFormatterComponent.prototype.parseChildren = function () {
         if (this.isObject()) {
             this._children = [];
-            for (var /** @type {?} */ key in this._data) {
+            for (var key in this._data) {
                 this._children.push(key);
             }
         }
     };
     return TdJsonFormatterComponent;
 }());
-/**
- * Max length for property names. Any names bigger than this get trunctated.
- */
 TdJsonFormatterComponent.KEY_MAX_LENGTH = 30;
-/**
- * Max length for preview string. Any names bigger than this get trunctated.
- */
 TdJsonFormatterComponent.PREVIEW_STRING_MAX_LENGTH = 80;
-/**
- * Max tooltip preview elements.
- */
 TdJsonFormatterComponent.PREVIEW_LIMIT = 5;
 TdJsonFormatterComponent.decorators = [
     { type: Component, args: [{
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 selector: 'td-json-formatter',
-                styles: [":host{\n  display:block; }\n.td-json-formatter-wrapper{\n  padding-top:2px;\n  padding-bottom:2px; }\n  .td-json-formatter-wrapper .td-key{\n    -webkit-box-sizing:border-box;\n            box-sizing:border-box;\n    display:-webkit-box;\n    display:-ms-flexbox;\n    display:flex;\n    -webkit-box-orient:horizontal;\n    -webkit-box-direction:normal;\n        -ms-flex-direction:row;\n            flex-direction:row;\n    -webkit-box-align:center;\n        -ms-flex-align:center;\n            align-items:center;\n    -ms-flex-line-pack:center;\n        align-content:center;\n    max-width:100%;\n    -webkit-box-pack:start;\n        -ms-flex-pack:start;\n            justify-content:start; }\n    .td-json-formatter-wrapper .td-key.td-key-node:hover{\n      cursor:pointer; }\n  .td-json-formatter-wrapper .td-object-children.ng-animating{\n    overflow:hidden; }\n  .td-json-formatter-wrapper .td-object-children .td-key,\n  .td-json-formatter-wrapper .td-object-children .td-object-children{\n    padding-left:24px; }\n    ::ng-deep [dir='rtl'] .td-json-formatter-wrapper .td-object-children .td-key, ::ng-deep [dir='rtl']\n    .td-json-formatter-wrapper .td-object-children .td-object-children{\n      padding-right:24px;\n      padding-left:0; }\n    .td-json-formatter-wrapper .td-object-children .td-key.td-key-leaf,\n    .td-json-formatter-wrapper .td-object-children .td-object-children.td-key-leaf{\n      padding-left:48px; }\n      ::ng-deep [dir='rtl'] .td-json-formatter-wrapper .td-object-children .td-key.td-key-leaf, ::ng-deep [dir='rtl']\n      .td-json-formatter-wrapper .td-object-children .td-object-children.td-key-leaf{\n        padding-right:48px;\n        padding-left:0; }\n  .td-json-formatter-wrapper .value{\n    margin-left:5px; }\n    ::ng-deep [dir='rtl'] .td-json-formatter-wrapper .value{\n      padding-right:5px;\n      padding-left:0; }\n    .td-json-formatter-wrapper .value .td-empty{\n      opacity:0.5;\n      text-decoration:line-through; }\n    .td-json-formatter-wrapper .value .string{\n      word-break:break-word; }\n    .td-json-formatter-wrapper .value .date{\n      word-break:break-word; }\n"],
+                styles: [":host{display:block}.td-json-formatter-wrapper{padding-top:2px;padding-bottom:2px}.td-json-formatter-wrapper .td-key{-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:start}.td-json-formatter-wrapper .td-key.td-key-node:hover{cursor:pointer}.td-json-formatter-wrapper .td-object-children.ng-animating{overflow:hidden}.td-json-formatter-wrapper .td-object-children .td-key,.td-json-formatter-wrapper .td-object-children .td-object-children{padding-left:24px}::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-key,::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-object-children{padding-right:24px;padding-left:0}.td-json-formatter-wrapper .td-object-children .td-key.td-key-leaf,.td-json-formatter-wrapper .td-object-children .td-object-children.td-key-leaf{padding-left:48px}::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-key.td-key-leaf,::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-object-children.td-key-leaf{padding-right:48px;padding-left:0}.td-json-formatter-wrapper .value{margin-left:5px}::ng-deep [dir=rtl] .td-json-formatter-wrapper .value{padding-right:5px;padding-left:0}.td-json-formatter-wrapper .value .td-empty{opacity:.5;text-decoration:line-through}.td-json-formatter-wrapper .value .date,.td-json-formatter-wrapper .value .string{word-break:break-word}"],
                 template: "<div class=\"td-json-formatter-wrapper\">\n  <a class=\"td-key\"\n     [class.td-key-node]=\"hasChildren()\"\n     [class.td-key-leaf]=\"!hasChildren()\"\n     [tabIndex]=\"isObject()? 0 : -1\"\n     (keydown.enter)=\"toggle()\"\n     (click)=\"toggle()\">\n    <mat-icon class=\"td-node-icon\" *ngIf=\"hasChildren()\">{{open? 'keyboard_arrow_down' : (isRTL ? 'keyboard_arrow_left' : 'keyboard_arrow_right')}}</mat-icon>\n    <span *ngIf=\"key\" class=\"key\">{{key}}:</span>\n    <span class=\"value\">\n      <span [class.td-empty]=\"!hasChildren()\" *ngIf=\"isObject()\" [matTooltip]=\"getPreview()\" matTooltipPosition=\"after\">\n        <span class=\"td-object-name\">{{getObjectName()}}</span>\n        <span class=\"td-array-length\" *ngIf=\"isArray()\">[{{data.length}}]</span>\n      </span>\n      <span *ngIf=\"!isObject()\" [class]=\"getType(data)\">{{getValue(data)}}</span>\n    </span>\n  </a>\n  <div class=\"td-object-children\" [@tdCollapse]=\"!(hasChildren() && open)\">\n    <ng-template let-key ngFor [ngForOf]=\"children\">\n      <td-json-formatter [key]=\"key\" [data]=\"data[key]\" [levelsOpen]=\"levelsOpen - 1\"></td-json-formatter>\n    </ng-template>\n  </div>\n</div>",
                 animations: [
                     TdCollapseAnimation(),
                 ],
             },] },
 ];
-/** @nocollapse */
 TdJsonFormatterComponent.ctorParameters = function () { return [
     { type: ChangeDetectorRef, },
     { type: Dir, decorators: [{ type: Optional },] },
@@ -291,10 +197,6 @@ TdJsonFormatterComponent.propDecorators = {
     "key": [{ type: Input, args: ['key',] },],
     "data": [{ type: Input, args: ['data',] },],
 };
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
 var CovalentJsonFormatterModule = /** @class */ (function () {
     function CovalentJsonFormatterModule() {
     }
@@ -315,22 +217,7 @@ CovalentJsonFormatterModule.decorators = [
                 ],
             },] },
 ];
-/** @nocollapse */
 CovalentJsonFormatterModule.ctorParameters = function () { return []; };
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * Generated bundle index. Do not edit.
- */
+
 export { CovalentJsonFormatterModule, TdJsonFormatterComponent };
 //# sourceMappingURL=covalent-core-json-formatter.js.map

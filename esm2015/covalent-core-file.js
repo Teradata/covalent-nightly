@@ -342,23 +342,13 @@ TdFileInputComponent.decorators = [
                     }],
                 selector: 'td-file-input',
                 inputs: ['disabled', 'value'],
-                styles: [`:host{ }
-  :host .td-file-input{
-    padding-left:8px;
-    padding-right:8px; }
-  :host input.td-file-input-hidden{
-    display:none; }
-  :host .drop-zone{
-    border-radius:3px; }
-    :host .drop-zone *{
-      pointer-events:none; }
-`],
+                styles: [`:host .td-file-input{padding-left:8px;padding-right:8px}:host input.td-file-input-hidden{display:none}:host .drop-zone{border-radius:3px}:host .drop-zone *{pointer-events:none}`],
                 template: `<div>
   <button mat-raised-button
           class="td-file-input"
           type="button"
-          [color]="color"
-          [multiple]="multiple"
+          [color]="color" 
+          [multiple]="multiple" 
           [disabled]="disabled"
           (keyup.enter)="fileInput.click()"
           (click)="fileInput.click()"
@@ -366,12 +356,12 @@ TdFileInputComponent.decorators = [
           tdFileDrop>
     <ng-content></ng-content>
   </button>
-  <input #fileInput
-          class="td-file-input-hidden"
+  <input #fileInput 
+          class="td-file-input-hidden" 
           type="file"
-          [attr.accept]="accept"
+          [attr.accept]="accept"                
           (fileSelect)="handleSelect($event)"
-          [multiple]="multiple"
+          [multiple]="multiple" 
           [disabled]="disabled"
           tdFileSelect>
 </div>`,
@@ -528,26 +518,7 @@ TdFileUploadComponent.decorators = [
                     }],
                 selector: 'td-file-upload',
                 inputs: ['disabled', 'value'],
-                styles: [`.td-file-upload{
-  padding-left:8px;
-  padding-right:8px; }
-.td-file-upload-cancel{
-  height:24px;
-  width:24px;
-  position:relative;
-  top:24px;
-  left:-12px; }
-  ::ng-deep [dir='rtl'] .td-file-upload-cancel{
-    right:-12px;
-    left:0; }
-  .td-file-upload-cancel mat-icon{
-    border-radius:12px;
-    vertical-align:baseline; }
-.drop-zone{
-  border-radius:3px; }
-  .drop-zone *{
-    pointer-events:none; }
-`],
+                styles: [`.td-file-upload{padding-left:8px;padding-right:8px}.td-file-upload-cancel{height:24px;width:24px;position:relative;top:24px;left:-12px}::ng-deep [dir=rtl] .td-file-upload-cancel{right:-12px;left:0}.td-file-upload-cancel mat-icon{border-radius:12px;vertical-align:baseline}.drop-zone{border-radius:3px}.drop-zone *{pointer-events:none}`],
                 template: `<td-file-input *ngIf="!value"
                [(ngModel)]="value"
                [multiple]="multiple"
@@ -566,13 +537,13 @@ TdFileUploadComponent.decorators = [
           (keyup.delete)="cancel()"
           (keyup.backspace)="cancel()"
           (keyup.escape)="cancel()"
-          (click)="uploadPressed()">
+          (click)="uploadPressed()"> 
     <ng-content></ng-content>
   </button>
   <button mat-icon-button
           type="button"
           class="td-file-upload-cancel"
-          [color]="cancelColor"
+          [color]="cancelColor"            
           (click)="cancel()">
     <mat-icon>cancel</mat-icon>
   </button>

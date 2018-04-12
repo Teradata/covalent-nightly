@@ -61,44 +61,7 @@ TdDialogComponent.decorators = [
     <ng-content select="td-dialog-actions"></ng-content>
   </div>
 </div>`,
-                styles: [`.td-dialog-title{
-  margin-top:0;
-  margin-bottom:20px; }
-.td-dialog-content{
-  margin-bottom:16px; }
-.td-dialog-actions{
-  position:relative;
-  top:16px;
-  left:16px; }
-  ::ng-deep [dir='rtl'] .td-dialog-actions{
-    right:16px;
-    left:auto; }
-:host{
-  display:block; }
-  :host .td-dialog-actions{
-    -webkit-box-orient:horizontal;
-    -webkit-box-direction:normal;
-        -ms-flex-direction:row;
-            flex-direction:row;
-    -webkit-box-sizing:border-box;
-            box-sizing:border-box;
-    display:-webkit-box;
-    display:-ms-flexbox;
-    display:flex; }
-    :host .td-dialog-actions .td-dialog-spacer{
-      -webkit-box-flex:1;
-          -ms-flex:1;
-              flex:1; }
-    :host .td-dialog-actions ::ng-deep button{
-      text-transform:uppercase;
-      margin-left:8px;
-      padding-left:8px;
-      padding-right:8px;
-      min-width:64px; }
-      [dir='rtl'] :host .td-dialog-actions ::ng-deep button{
-        margin-right:8px;
-        margin-left:inherit; }
-`],
+                styles: [`.td-dialog-title{margin-top:0;margin-bottom:20px}.td-dialog-content{margin-bottom:16px}.td-dialog-actions{position:relative;top:16px;left:16px}::ng-deep [dir=rtl] .td-dialog-actions{right:16px;left:auto}:host{display:block}:host .td-dialog-actions{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex}:host .td-dialog-actions .td-dialog-spacer{-webkit-box-flex:1;-ms-flex:1;flex:1}:host .td-dialog-actions ::ng-deep button{text-transform:uppercase;margin-left:8px;padding-left:8px;padding-right:8px;min-width:64px}[dir=rtl] :host .td-dialog-actions ::ng-deep button{margin-right:8px;margin-left:inherit}`],
             },] },
 ];
 /** @nocollapse */
@@ -142,9 +105,7 @@ TdAlertDialogComponent.decorators = [
     <button mat-button color="accent" (click)="close()">{{closeButton}}</button>
   </td-dialog-actions>
 </td-dialog>`,
-                styles: [`.td-dialog-message{
-  word-break:break-word; }
-`],
+                styles: [`.td-dialog-message{word-break:break-word}`],
             },] },
 ];
 /** @nocollapse */
@@ -190,7 +151,7 @@ TdConfirmDialogComponent.decorators = [
   </td-dialog-content>
   <td-dialog-actions>
     <button mat-button
-            #closeBtn
+            #closeBtn 
             (keydown.arrowright)="acceptBtn.focus()"
             (click)="cancel()">{{cancelButton}}</button>
     <button mat-button
@@ -200,9 +161,7 @@ TdConfirmDialogComponent.decorators = [
             (click)="accept()">{{acceptButton}}</button>
   </td-dialog-actions>
 </td-dialog>`,
-                styles: [`.td-dialog-message{
-  word-break:break-word; }
-`],
+                styles: [`.td-dialog-message{word-break:break-word}`],
             },] },
 ];
 /** @nocollapse */
@@ -278,7 +237,7 @@ TdPromptDialogComponent.decorators = [
   </td-dialog-content>
   <td-dialog-actions>
     <button mat-button
-            #closeBtn
+            #closeBtn 
             (keydown.arrowright)="acceptBtn.focus()"
             (click)="cancel()">{{cancelButton}}</button>
     <button mat-button
@@ -289,25 +248,7 @@ TdPromptDialogComponent.decorators = [
             (click)="accept()">{{acceptButton}}</button>
   </td-dialog-actions>
 </td-dialog>`,
-                styles: [`.td-dialog-input-wrapper{
-  -webkit-box-orient:horizontal;
-  -webkit-box-direction:normal;
-      -ms-flex-direction:row;
-          flex-direction:row;
-  -webkit-box-sizing:border-box;
-          box-sizing:border-box;
-  display:-webkit-box;
-  display:-ms-flexbox;
-  display:flex; }
-  .td-dialog-input-wrapper .td-dialog-input{
-    -webkit-box-flex:1;
-        -ms-flex:1;
-            flex:1;
-    -webkit-box-sizing:border-box;
-            box-sizing:border-box; }
-.td-dialog-message{
-  word-break:break-word; }
-`],
+                styles: [`.td-dialog-input-wrapper{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex}.td-dialog-input-wrapper .td-dialog-input{-webkit-box-flex:1;-ms-flex:1;flex:1;-webkit-box-sizing:border-box;box-sizing:border-box}.td-dialog-message{word-break:break-word}`],
             },] },
 ];
 /** @nocollapse */

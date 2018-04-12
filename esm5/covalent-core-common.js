@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __extends, __spread } from 'tslib';
 import { Directive, ElementRef, Input, HostBinding, Renderer2, ChangeDetectorRef, Output, EventEmitter, HostListener, Host, Optional, Pipe, Inject, LOCALE_ID, Injectable, NgModule } from '@angular/core';
 import { animate, AnimationBuilder, AUTO_STYLE, style, animation, trigger, state, transition, query, animateChild, group, keyframes } from '@angular/animations';
 import { NgModel, FormsModule, Validators } from '@angular/forms';
@@ -8,38 +8,18 @@ import { filter } from 'rxjs/operators/filter';
 import { pairwise } from 'rxjs/operators/pairwise';
 import { Subject } from 'rxjs/Subject';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
+
 var TdToggleDirective = /** @class */ (function () {
-    /**
-     * @param {?} _renderer
-     * @param {?} _element
-     * @param {?} _changeDetectorRef
-     * @param {?} _animationBuilder
-     */
     function TdToggleDirective(_renderer, _element, _changeDetectorRef, _animationBuilder) {
         this._renderer = _renderer;
         this._element = _element;
         this._changeDetectorRef = _changeDetectorRef;
         this._animationBuilder = _animationBuilder;
-        /**
-         * duration?: number
-         * Sets duration of toggle animation in milliseconds.
-         * Defaults to 150 ms.
-         */
         this.duration = 150;
         this._defaultDisplay = this._element.nativeElement.style.display;
         this._defaultOverflow = this._element.nativeElement.style.overflow;
     }
     Object.defineProperty(TdToggleDirective.prototype, "state", {
-        /**
-         * tdToggle: boolean
-         * Toggles element, hides if its 'true', shows if its 'false'.
-         * @param {?} state
-         * @return {?}
-         */
         set: function (state$$1) {
             this._state = state$$1;
             if (state$$1) {
@@ -61,10 +41,6 @@ var TdToggleDirective = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(TdToggleDirective.prototype, "ariaExpandedBinding", {
-        /**
-         * Binds native 'aria-expanded' attribute.
-         * @return {?}
-         */
         get: function () {
             return !this._state;
         },
@@ -72,21 +48,12 @@ var TdToggleDirective = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(TdToggleDirective.prototype, "ariaHiddenBinding", {
-        /**
-         * Binds native 'aria-hidden' attribute.
-         * @return {?}
-         */
         get: function () {
             return this._state;
         },
         enumerable: true,
         configurable: true
     });
-    /**
-     * Hides element: sets "display:[default]" so animation is shown,
-     * starts animation and adds "display:'none'" style at the end.
-     * @return {?}
-     */
     TdToggleDirective.prototype.hide = function () {
         var _this = this;
         this._animationHidePlayer = this._animationBuilder.build(animation([
@@ -103,11 +70,6 @@ var TdToggleDirective = /** @class */ (function () {
         });
         this._animationHidePlayer.play();
     };
-    /**
-     * Shows element: sets "display:[default]" so animation is shown,
-     * starts animation and adds "overflow:[default]" style again at the end.
-     * @return {?}
-     */
     TdToggleDirective.prototype.show = function () {
         var _this = this;
         this._renderer.setStyle(this._element.nativeElement, 'display', this._defaultDisplay);
@@ -125,9 +87,6 @@ var TdToggleDirective = /** @class */ (function () {
         });
         this._animationShowPlayer.play();
     };
-    /**
-     * @return {?}
-     */
     TdToggleDirective.prototype._onHideDone = function () {
         if (this._animationHidePlayer) {
             this._animationHidePlayer.destroy();
@@ -137,9 +96,6 @@ var TdToggleDirective = /** @class */ (function () {
             this._changeDetectorRef.markForCheck();
         }
     };
-    /**
-     * @return {?}
-     */
     TdToggleDirective.prototype._onShowDone = function () {
         if (this._animationShowPlayer) {
             this._animationShowPlayer.destroy();
@@ -155,7 +111,6 @@ TdToggleDirective.decorators = [
                 selector: '[tdToggle]',
             },] },
 ];
-/** @nocollapse */
 TdToggleDirective.ctorParameters = function () { return [
     { type: Renderer2, },
     { type: ElementRef, },
@@ -168,47 +123,18 @@ TdToggleDirective.propDecorators = {
     "ariaExpandedBinding": [{ type: HostBinding, args: ['attr.aria-expanded',] },],
     "ariaHiddenBinding": [{ type: HostBinding, args: ['attr.aria-hidden',] },],
 };
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
 var TdFadeDirective = /** @class */ (function () {
-    /**
-     * @param {?} _renderer
-     * @param {?} _element
-     * @param {?} _changeDetectorRef
-     * @param {?} _animationBuilder
-     */
     function TdFadeDirective(_renderer, _element, _changeDetectorRef, _animationBuilder) {
         this._renderer = _renderer;
         this._element = _element;
         this._changeDetectorRef = _changeDetectorRef;
         this._animationBuilder = _animationBuilder;
-        /**
-         * duration?: number
-         * Sets duration of fade animation in milliseconds.
-         * Defaults to 150 ms.
-         */
         this.duration = 150;
-        /**
-         * fadeIn?: function
-         * Method to be executed when fadeIn animation ends.
-         */
         this.onFadeIn = new EventEmitter();
-        /**
-         * fadeOut?: function
-         * Method to be executed when fadeOut animation ends.
-         */
         this.onFadeOut = new EventEmitter();
         this._defaultDisplay = this._element.nativeElement.style.display;
     }
     Object.defineProperty(TdFadeDirective.prototype, "state", {
-        /**
-         * tdFade: boolean
-         * Fades element, FadesOut if its 'true', FadesIn if its 'false'.
-         * @param {?} state
-         * @return {?}
-         */
         set: function (state$$1) {
             this._state = state$$1;
             if (state$$1) {
@@ -230,10 +156,6 @@ var TdFadeDirective = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(TdFadeDirective.prototype, "ariaExpandedBinding", {
-        /**
-         * Binds native 'aria-expanded' attribute.
-         * @return {?}
-         */
         get: function () {
             return !this._state;
         },
@@ -241,20 +163,12 @@ var TdFadeDirective = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(TdFadeDirective.prototype, "ariaHiddenBinding", {
-        /**
-         * Binds native 'aria-hidden' attribute.
-         * @return {?}
-         */
         get: function () {
             return this._state;
         },
         enumerable: true,
         configurable: true
     });
-    /**
-     * Hides element: starts animation and adds "display:'none'" style at the end.
-     * @return {?}
-     */
     TdFadeDirective.prototype.hide = function () {
         var _this = this;
         this._animationFadeInPlayer = this._animationBuilder.build(animation([
@@ -269,10 +183,6 @@ var TdFadeDirective = /** @class */ (function () {
         });
         this._animationFadeInPlayer.play();
     };
-    /**
-     * Shows element: sets "display:[default]" so animation is shown.
-     * @return {?}
-     */
     TdFadeDirective.prototype.show = function () {
         var _this = this;
         this._renderer.setStyle(this._element.nativeElement, 'display', this._defaultDisplay);
@@ -289,9 +199,6 @@ var TdFadeDirective = /** @class */ (function () {
         });
         this._animationFadeOutPlayer.play();
     };
-    /**
-     * @return {?}
-     */
     TdFadeDirective.prototype._onFadeInDone = function () {
         if (this._animationFadeInPlayer) {
             this._animationFadeInPlayer.destroy();
@@ -301,9 +208,6 @@ var TdFadeDirective = /** @class */ (function () {
             this.onFadeIn.emit();
         }
     };
-    /**
-     * @return {?}
-     */
     TdFadeDirective.prototype._onFadeOutDone = function () {
         if (this._animationFadeOutPlayer) {
             this._animationFadeOutPlayer.destroy();
@@ -319,7 +223,6 @@ TdFadeDirective.decorators = [
                 selector: '[tdFade]',
             },] },
 ];
-/** @nocollapse */
 TdFadeDirective.ctorParameters = function () { return [
     { type: Renderer2, },
     { type: ElementRef, },
@@ -334,22 +237,10 @@ TdFadeDirective.propDecorators = {
     "ariaExpandedBinding": [{ type: HostBinding, args: ['attr.aria-expanded',] },],
     "ariaHiddenBinding": [{ type: HostBinding, args: ['attr.aria-hidden',] },],
 };
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
 var TdAutoTrimDirective = /** @class */ (function () {
-    /**
-     * @param {?} _model
-     */
     function TdAutoTrimDirective(_model) {
         this._model = _model;
     }
-    /**
-     * Listens to host's (blur) event and trims value.
-     * @param {?} event
-     * @return {?}
-     */
     TdAutoTrimDirective.prototype.onBlur = function (event) {
         if (this._model && this._model.value && typeof (this._model.value) === 'string') {
             this._model.update.emit(this._model.value.trim());
@@ -362,44 +253,29 @@ TdAutoTrimDirective.decorators = [
                 selector: '[tdAutoTrim]',
             },] },
 ];
-/** @nocollapse */
 TdAutoTrimDirective.ctorParameters = function () { return [
     { type: NgModel, decorators: [{ type: Optional }, { type: Host },] },
 ]; };
 TdAutoTrimDirective.propDecorators = {
     "onBlur": [{ type: HostListener, args: ['blur', ['$event'],] },],
 };
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
 var TdTimeAgoPipe = /** @class */ (function () {
     function TdTimeAgoPipe() {
     }
-    /**
-     * @param {?} time
-     * @param {?=} reference
-     * @return {?}
-     */
     TdTimeAgoPipe.prototype.transform = function (time, reference) {
-        // Convert time to date object if not already
         time = new Date(time);
-        var /** @type {?} */ ref = new Date(reference);
-        // If not a valid timestamp, return 'Invalid Date'
+        var ref = new Date(reference);
         if (!time.getTime()) {
             return 'Invalid Date';
         }
-        // For unit testing, we need to be able to declare a static start time
-        // for calculations, or else speed of tests can bork.
-        var /** @type {?} */ startTime = isNaN(ref.getTime()) ? Date.now() : ref.getTime();
-        var /** @type {?} */ diff = Math.floor((startTime - time.getTime()) / 1000);
+        var startTime = isNaN(ref.getTime()) ? Date.now() : ref.getTime();
+        var diff = Math.floor((startTime - time.getTime()) / 1000);
         if (diff < 2) {
             return '1 second ago';
         }
         if (diff < 60) {
             return Math.floor(diff) + ' seconds ago';
         }
-        // Minutes
         diff = diff / 60;
         if (diff < 2) {
             return '1 minute ago';
@@ -407,7 +283,6 @@ var TdTimeAgoPipe = /** @class */ (function () {
         if (diff < 60) {
             return Math.floor(diff) + ' minutes ago';
         }
-        // Hours
         diff = diff / 60;
         if (diff < 2) {
             return '1 hour ago';
@@ -415,7 +290,6 @@ var TdTimeAgoPipe = /** @class */ (function () {
         if (diff < 24) {
             return Math.floor(diff) + ' hours ago';
         }
-        // Days
         diff = diff / 24;
         if (diff < 2) {
             return '1 day ago';
@@ -423,7 +297,6 @@ var TdTimeAgoPipe = /** @class */ (function () {
         if (diff < 30) {
             return Math.floor(diff) + ' days ago';
         }
-        // Months
         diff = diff / 30;
         if (diff < 2) {
             return '1 month ago';
@@ -431,7 +304,6 @@ var TdTimeAgoPipe = /** @class */ (function () {
         if (diff < 12) {
             return Math.floor(diff) + ' months ago';
         }
-        // Years
         diff = diff / 12;
         if (diff < 2) {
             return '1 year ago';
@@ -447,23 +319,13 @@ TdTimeAgoPipe.decorators = [
                 name: 'timeAgo',
             },] },
 ];
-/** @nocollapse */
 TdTimeAgoPipe.ctorParameters = function () { return []; };
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
 var TdTimeDifferencePipe = /** @class */ (function () {
     function TdTimeDifferencePipe() {
     }
-    /**
-     * @param {?} start
-     * @param {?=} end
-     * @return {?}
-     */
     TdTimeDifferencePipe.prototype.transform = function (start, end) {
-        var /** @type {?} */ startTime = new Date(start);
-        var /** @type {?} */ endTime;
+        var startTime = new Date(start);
+        var endTime;
         if (end !== undefined) {
             endTime = new Date(end);
         }
@@ -473,16 +335,16 @@ var TdTimeDifferencePipe = /** @class */ (function () {
         if (!startTime.getTime() || !endTime.getTime()) {
             return 'Invalid Date';
         }
-        var /** @type {?} */ diff = Math.floor((endTime.getTime() - startTime.getTime()) / 1000);
-        var /** @type {?} */ days = Math.floor(diff / (60 * 60 * 24));
+        var diff = Math.floor((endTime.getTime() - startTime.getTime()) / 1000);
+        var days = Math.floor(diff / (60 * 60 * 24));
         diff = diff - (days * (60 * 60 * 24));
-        var /** @type {?} */ hours = Math.floor(diff / (60 * 60));
+        var hours = Math.floor(diff / (60 * 60));
         diff = diff - (hours * (60 * 60));
-        var /** @type {?} */ minutes = Math.floor(diff / (60));
+        var minutes = Math.floor(diff / (60));
         diff -= minutes * (60);
-        var /** @type {?} */ seconds = diff;
-        var /** @type {?} */ pad = '00';
-        var /** @type {?} */ daysFormatted = '';
+        var seconds = diff;
+        var pad = '00';
+        var daysFormatted = '';
         if (days > 0 && days < 2) {
             daysFormatted = ' day - ';
         }
@@ -501,33 +363,21 @@ TdTimeDifferencePipe.decorators = [
                 name: 'timeDifference',
             },] },
 ];
-/** @nocollapse */
 TdTimeDifferencePipe.ctorParameters = function () { return []; };
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
 var TdBytesPipe = /** @class */ (function () {
     function TdBytesPipe() {
     }
-    /**
-     * @param {?} bytes
-     * @param {?=} precision
-     * @return {?}
-     */
     TdBytesPipe.prototype.transform = function (bytes, precision) {
         if (precision === void 0) { precision = 2; }
         if (bytes === 0) {
             return '0 B';
         }
         else if (isNaN(parseInt(bytes, 10))) {
-            /* If not a valid number, return 'Invalid Number' */
             return 'Invalid Number';
         }
-        var /** @type {?} */ k = 1024;
-        var /** @type {?} */ sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-        var /** @type {?} */ i = Math.floor(Math.log(bytes) / Math.log(k));
-        // if less than 1
+        var k = 1024;
+        var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+        var i = Math.floor(Math.log(bytes) / Math.log(k));
         if (i < 0) {
             return 'Invalid Number';
         }
@@ -540,42 +390,28 @@ TdBytesPipe.decorators = [
                 name: 'bytes',
             },] },
 ];
-/** @nocollapse */
 TdBytesPipe.ctorParameters = function () { return []; };
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
 var TdDigitsPipe = /** @class */ (function () {
-    /**
-     * @param {?=} _locale
-     */
     function TdDigitsPipe(_locale) {
         if (_locale === void 0) { _locale = 'en'; }
         this._locale = _locale;
         this._decimalPipe = new DecimalPipe(this._locale);
     }
-    /**
-     * @param {?} digits
-     * @param {?=} precision
-     * @return {?}
-     */
     TdDigitsPipe.prototype.transform = function (digits, precision) {
         if (precision === void 0) { precision = 1; }
         if (digits === 0) {
             return '0';
         }
         else if (isNaN(parseInt(digits, 10))) {
-            /* If not a valid number, return the value */
             return digits;
         }
         else if (digits < 1) {
             return this._decimalPipe.transform(digits.toFixed(precision));
         }
-        var /** @type {?} */ k = 1000;
-        var /** @type {?} */ sizes = ['', 'K', 'M', 'B', 'T', 'Q'];
-        var /** @type {?} */ i = Math.floor(Math.log(digits) / Math.log(k));
-        var /** @type {?} */ size = sizes[i];
+        var k = 1000;
+        var sizes = ['', 'K', 'M', 'B', 'T', 'Q'];
+        var i = Math.floor(Math.log(digits) / Math.log(k));
+        var size = sizes[i];
         return this._decimalPipe.transform(parseFloat((digits / Math.pow(k, i)).toFixed(precision))) + (size ? ' ' + size : '');
     };
     return TdDigitsPipe;
@@ -585,28 +421,17 @@ TdDigitsPipe.decorators = [
                 name: 'digits',
             },] },
 ];
-/** @nocollapse */
 TdDigitsPipe.ctorParameters = function () { return [
     { type: undefined, decorators: [{ type: Inject, args: [LOCALE_ID,] },] },
 ]; };
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
 var TdTruncatePipe = /** @class */ (function () {
     function TdTruncatePipe() {
     }
-    /**
-     * @param {?} text
-     * @param {?} length
-     * @return {?}
-     */
     TdTruncatePipe.prototype.transform = function (text, length) {
         if (typeof text !== 'string') {
             return '';
         }
-        // Truncate
-        var /** @type {?} */ truncated = text.substr(0, length);
+        var truncated = text.substr(0, length);
         if (text.length > length) {
             if (truncated.lastIndexOf(' ') > 0) {
                 truncated = truncated.trim();
@@ -622,25 +447,14 @@ TdTruncatePipe.decorators = [
                 name: 'truncate',
             },] },
 ];
-/** @nocollapse */
 TdTruncatePipe.ctorParameters = function () { return []; };
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
 var RouterPathService = /** @class */ (function () {
-    /**
-     * @param {?} _router
-     */
     function RouterPathService(_router) {
         this._router = _router;
         this._router.events.pipe(filter(function (e) { return e instanceof RoutesRecognized; }), pairwise()).subscribe(function (e) {
             RouterPathService._previousRoute = e[0].urlAfterRedirects;
         });
     }
-    /**
-     * @return {?}
-     */
     RouterPathService.prototype.getPreviousRoute = function () {
         return RouterPathService._previousRoute;
     };
@@ -650,18 +464,9 @@ RouterPathService._previousRoute = '/';
 RouterPathService.decorators = [
     { type: Injectable },
 ];
-/** @nocollapse */
 RouterPathService.ctorParameters = function () { return [
     { type: Router, },
 ]; };
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/*
- * Copyright (C) 2016-2017 by Teradata Corporation. All rights reserved.
- * TERADATA CORPORATION CONFIDENTIAL AND TRADE SECRET
- */
 var IconService = /** @class */ (function () {
     function IconService() {
         this._icons = [
@@ -1443,19 +1248,12 @@ var IconService = /** @class */ (function () {
         ];
     }
     Object.defineProperty(IconService.prototype, "icons", {
-        /**
-         * @return {?}
-         */
         get: function () {
             return this._icons;
         },
         enumerable: true,
         configurable: true
     });
-    /**
-     * @param {?} query
-     * @return {?}
-     */
     IconService.prototype.filter = function (query$$1) {
         return this.icons.filter(function (el) {
             return el.toLowerCase().indexOf(query$$1 ? query$$1.toLowerCase() : '') > -1;
@@ -1466,12 +1264,7 @@ var IconService = /** @class */ (function () {
 IconService.decorators = [
     { type: Injectable },
 ];
-/** @nocollapse */
 IconService.ctorParameters = function () { return []; };
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
 var TD_ANIMATIONS = [
     TdToggleDirective,
     TdFadeDirective,
@@ -1479,7 +1272,6 @@ var TD_ANIMATIONS = [
 var TD_FORMS = [
     TdAutoTrimDirective,
 ];
-// Validators
 var TD_VALIDATORS = [];
 var TD_PIPES = [
     TdTimeAgoPipe,
@@ -1519,31 +1311,7 @@ CovalentCommonModule.decorators = [
                 ],
             },] },
 ];
-/** @nocollapse */
 CovalentCommonModule.ctorParameters = function () { return []; };
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * @record
- */
-/**
- * Function TdRotateAnimation
- *
- * params:
- * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation. Defaults to tdRotate.
- * * duration: Duration the animation will run in milliseconds. Defaults to 250 ms.
- * * delay: Delay before the animation will run in milliseconds. Defaults to 0 ms.
- * * degrees: Degrees of rotation that the dom object will animation. A negative value will cause the animation to initially rotate counter-clockwise.
- * * ease: Animation accelerates and decelerates when rotation. Defaults to ease-in.
- *
- * Returns an [AnimationTriggerMetadata] object with states for a boolean trigger based rotation animation.
- *
- * usage: [\@myAnchorName]="true|false"
- * @param {?=} rotateOptions
- * @return {?}
- */
 function TdRotateAnimation(rotateOptions) {
     if (rotateOptions === void 0) { rotateOptions = {}; }
     return trigger(rotateOptions.anchor || 'tdRotate', [
@@ -1563,29 +1331,6 @@ function TdRotateAnimation(rotateOptions) {
         ]),
     ]);
 }
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * @record
- */
-/**
- * Function TdCollapseAnimation
- *
- * params:
- * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation. Defaults to tdCollapse.
- * * duration: Duration the animation will run in milliseconds. Defaults to 150 ms.
- * * delay: Delay before the animation will run in milliseconds. Defaults to 0 ms.
- * * easeOnClose: Animation accelerates and decelerates when closing. Defaults to ease-in.
- * * easeOnOpen: Animation accelerates and decelerates when opening. Defaults to ease-out.
- *
- * Returns an [AnimationTriggerMetadata] object with states for a collapse/expand animation.
- *
- * usage: [\@tdCollapse]="true|false"
- * @param {?=} collapseOptions
- * @return {?}
- */
 function TdCollapseAnimation(collapseOptions) {
     if (collapseOptions === void 0) { collapseOptions = {}; }
     return trigger(collapseOptions.anchor || 'tdCollapse', [
@@ -1615,29 +1360,6 @@ function TdCollapseAnimation(collapseOptions) {
         ]),
     ]);
 }
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * @record
- */
-/**
- * Function TdFadeInOutAnimation
- *
- * params:
- * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation. Defaults to tdFadeInOut
- * * duration: Duration the animation will run in milliseconds. Defaults to 150 ms.
- * * delay: Delay before the animation will run in milliseconds. Defaults to 0 ms.
- * * easeOnIn: Animation accelerates and decelerates when fading in. Defaults to ease-in.
- * * easeOnOut: Animation accelerates and decelerates when fading out. Defaults to ease-out.
- *
- * Returns an [AnimationTriggerMetadata] object with states for a fading animation.
- *
- * usage: [\@tdFadeInOut]="true|false"
- * @param {?=} fadeInOut
- * @return {?}
- */
 function TdFadeInOutAnimation(fadeInOut) {
     if (fadeInOut === void 0) { fadeInOut = {}; }
     return trigger((fadeInOut.anchor || 'tdFadeInOut'), [
@@ -1667,23 +1389,6 @@ function TdFadeInOutAnimation(fadeInOut) {
         ]),
     ]);
 }
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * Function TdBounceAnimation
- *
- * params:
- * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation.
- * * duration: Duration the animation will run in milliseconds. Defaults to 500 ms.
- *
- * Returns an [AnimationTriggerMetadata] object with states for a boolean trigger based bounce animation.
- *
- * usage: [\@myAnchorName]="true|false"
- * @param {?=} bounceOptions
- * @return {?}
- */
 function TdBounceAnimation(bounceOptions) {
     if (bounceOptions === void 0) { bounceOptions = {}; }
     return trigger(bounceOptions.anchor || 'tdBounce', [
@@ -1711,23 +1416,6 @@ function TdBounceAnimation(bounceOptions) {
         ]),
     ]);
 }
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * Function TdFlashAnimation
- *
- * params:
- * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation.
- * * duration: Duration the animation will run in milliseconds. Defaults to 500 ms.
- *
- * Returns an [AnimationTriggerMetadata] object with states for a boolean trigger based flash animation.
- *
- * usage: [\@myAnchorName]="true|false"
- * @param {?=} flashOptions
- * @return {?}
- */
 function TdFlashAnimation(flashOptions) {
     if (flashOptions === void 0) { flashOptions = {}; }
     return trigger(flashOptions.anchor || 'tdFlash', [
@@ -1751,23 +1439,6 @@ function TdFlashAnimation(flashOptions) {
         ]),
     ]);
 }
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * Function TdHeadshakeAnimation
- *
- * params:
- * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation.
- * * duration: Duration the animation will run in milliseconds. Defaults to 500 ms.
- *
- * Returns an [AnimationTriggerMetadata] object with states for a boolean trigger based headshake animation.
- *
- * usage: [\@myAnchorName]="true|false"
- * @param {?=} headshakeOptions
- * @return {?}
- */
 function TdHeadshakeAnimation(headshakeOptions) {
     if (headshakeOptions === void 0) { headshakeOptions = {}; }
     return trigger(headshakeOptions.anchor || 'tdHeadshake', [
@@ -1792,23 +1463,6 @@ function TdHeadshakeAnimation(headshakeOptions) {
         ]),
     ]);
 }
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * Function TdJelloAnimation
- *
- * params:
- * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation.
- * * duration: Duration the animation will run in milliseconds. Defaults to 500 ms.
- *
- * Returns an [AnimationTriggerMetadata] object with states for a boolean trigger based jello animation.
- *
- * usage: [\@myAnchorName]="true|false"
- * @param {?=} jelloOptions
- * @return {?}
- */
 function TdJelloAnimation(jelloOptions) {
     if (jelloOptions === void 0) { jelloOptions = {}; }
     return trigger(jelloOptions.anchor || 'tdJello', [
@@ -1836,23 +1490,6 @@ function TdJelloAnimation(jelloOptions) {
         ]),
     ]);
 }
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * Function TdPulseAnimation
- *
- * params:
- * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation.
- * * duration: Duration the animation will run in milliseconds. Defaults to 500 ms.
- *
- * Returns an [AnimationTriggerMetadata] object with states for a boolean trigger based pulse animation.
- *
- * usage: [\@myAnchorName]="true|false"
- * @param {?=} pulseOptions
- * @return {?}
- */
 function TdPulseAnimation(pulseOptions) {
     if (pulseOptions === void 0) { pulseOptions = {}; }
     return trigger(pulseOptions.anchor || 'tdPulse', [
@@ -1874,38 +1511,17 @@ function TdPulseAnimation(pulseOptions) {
         ]),
     ]);
 }
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
 var noop = function () {
-    // empty method
 };
-/**
- * @record
- */
-/**
- * @record
- */
-/**
- * Mixin to augment a component with ngModel support.
- * @template T
- * @param {?} base
- * @param {?=} initialValue
- * @return {?}
- */
 function mixinControlValueAccessor(base, initialValue) {
     return /** @class */ (function (_super) {
-        tslib_1.__extends(class_1, _super);
-        /**
-         * @param {...?} args
-         */
+        __extends(class_1, _super);
         function class_1() {
             var args = [];
             for (var _i = 0; _i < arguments.length; _i++) {
                 args[_i] = arguments[_i];
             }
-            var _this = _super.apply(this, tslib_1.__spread(args)) || this;
+            var _this = _super.apply(this, __spread(args)) || this;
             _this._value = initialValue;
             _this.onChange = function (_) { return noop; };
             _this.onTouched = function () { return noop; };
@@ -1914,16 +1530,9 @@ function mixinControlValueAccessor(base, initialValue) {
             return _this;
         }
         Object.defineProperty(class_1.prototype, "value", {
-            /**
-             * @return {?}
-             */
             get: function () {
                 return this._value;
             },
-            /**
-             * @param {?} v
-             * @return {?}
-             */
             set: function (v) {
                 if (v !== this._value) {
                     this._value = v;
@@ -1935,73 +1544,37 @@ function mixinControlValueAccessor(base, initialValue) {
             enumerable: true,
             configurable: true
         });
-        /**
-         * @param {?} value
-         * @return {?}
-         */
         class_1.prototype.writeValue = function (value) {
             this.value = value;
             this._changeDetectorRef.markForCheck();
         };
-        /**
-         * @param {?} fn
-         * @return {?}
-         */
         class_1.prototype.registerOnChange = function (fn) {
             this.onChange = fn;
         };
-        /**
-         * @param {?} fn
-         * @return {?}
-         */
         class_1.prototype.registerOnTouched = function (fn) {
             this.onTouched = fn;
         };
         return class_1;
     }(base));
 }
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * Interface to implement when applying the disabled mixin
- * @record
- */
-/**
- * Mixin to augment a component or directive with a `disabled` property.
- * @template T
- * @param {?} base
- * @return {?}
- */
 function mixinDisabled(base) {
     return /** @class */ (function (_super) {
-        tslib_1.__extends(class_2, _super);
-        /**
-         * @param {...?} args
-         */
+        __extends(class_2, _super);
         function class_2() {
             var args = [];
             for (var _i = 0; _i < arguments.length; _i++) {
                 args[_i] = arguments[_i];
             }
-            var _this = _super.apply(this, tslib_1.__spread(args)) || this;
+            var _this = _super.apply(this, __spread(args)) || this;
             _this._disabled = false;
             return _this;
         }
         Object.defineProperty(class_2.prototype, "disabled", {
-            /**
-             * @return {?}
-             */
             get: function () {
                 return this._disabled;
             },
-            /**
-             * @param {?} value
-             * @return {?}
-             */
             set: function (value) {
-                var /** @type {?} */ newValue = coerceBooleanProperty(value);
+                var newValue = coerceBooleanProperty(value);
                 if (this._disabled !== newValue) {
                     this._disabled = newValue;
                     this.onDisabledChange(this._disabled);
@@ -2010,58 +1583,29 @@ function mixinDisabled(base) {
             enumerable: true,
             configurable: true
         });
-        /**
-         * @param {?} v
-         * @return {?}
-         */
         class_2.prototype.onDisabledChange = function (v) {
-            /** NOT IMPLEMENTED, this needs to be overriden by subclasses if needed */
         };
         return class_2;
     }(base));
 }
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * Interface to implement when applying the disabled mixin
- * @record
- */
-/**
- * Mixin to augment a component or directive with a `disabled` property.
- * @template T
- * @param {?} base
- * @return {?}
- */
 function mixinDisableRipple(base) {
     return /** @class */ (function (_super) {
-        tslib_1.__extends(class_3, _super);
-        /**
-         * @param {...?} args
-         */
+        __extends(class_3, _super);
         function class_3() {
             var args = [];
             for (var _i = 0; _i < arguments.length; _i++) {
                 args[_i] = arguments[_i];
             }
-            var _this = _super.apply(this, tslib_1.__spread(args)) || this;
+            var _this = _super.apply(this, __spread(args)) || this;
             _this._disableRipple = false;
             return _this;
         }
         Object.defineProperty(class_3.prototype, "disableRipple", {
-            /**
-             * @return {?}
-             */
             get: function () {
                 return this._disableRipple;
             },
-            /**
-             * @param {?} value
-             * @return {?}
-             */
             set: function (value) {
-                var /** @type {?} */ newValue = coerceBooleanProperty(value);
+                var newValue = coerceBooleanProperty(value);
                 if (this._disableRipple !== newValue) {
                     this._disableRipple = newValue;
                     this.onDisableRippleChange(this._disableRipple);
@@ -2070,59 +1614,38 @@ function mixinDisableRipple(base) {
             enumerable: true,
             configurable: true
         });
-        /**
-         * @param {?} v
-         * @return {?}
-         */
         class_3.prototype.onDisableRippleChange = function (v) {
-            /** NOT IMPLEMENTED, this needs to be overriden by subclasses if needed */
         };
         return class_3;
     }(base));
 }
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
 var CovalentValidators = /** @class */ (function () {
     function CovalentValidators() {
     }
-    /**
-     * @param {?} minValue
-     * @return {?}
-     */
     CovalentValidators.min = function (minValue) {
-        var /** @type {?} */ func = function (c) {
+        var func = function (c) {
             if (!!Validators.required(c) || (!minValue && minValue !== 0)) {
                 return undefined;
             }
-            var /** @type {?} */ v = c.value;
+            var v = c.value;
             return v < minValue ?
                 { min: { minValue: minValue, actualValue: v } } :
                 undefined;
         };
         return func;
     };
-    /**
-     * @param {?} maxValue
-     * @return {?}
-     */
     CovalentValidators.max = function (maxValue) {
-        var /** @type {?} */ func = function (c) {
+        var func = function (c) {
             if (!!Validators.required(c) || (!maxValue && maxValue !== 0)) {
                 return undefined;
             }
-            var /** @type {?} */ v = c.value;
+            var v = c.value;
             return v > maxValue ?
                 { max: { maxValue: maxValue, actualValue: v } } :
                 undefined;
         };
         return func;
     };
-    /**
-     * @param {?} c
-     * @return {?}
-     */
     CovalentValidators.numberRequired = function (c) {
         return (Number.isNaN(c.value)) ?
             { required: true } :
@@ -2130,20 +1653,6 @@ var CovalentValidators = /** @class */ (function () {
     };
     return CovalentValidators;
 }());
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * Generated bundle index. Do not edit.
- */
+
 export { CovalentCommonModule, TdToggleDirective, TdFadeDirective, TdRotateAnimation, TdCollapseAnimation, TdFadeInOutAnimation, TdBounceAnimation, TdFlashAnimation, TdHeadshakeAnimation, TdJelloAnimation, TdPulseAnimation, mixinControlValueAccessor, mixinDisabled, mixinDisableRipple, TdAutoTrimDirective, CovalentValidators, TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTruncatePipe, IconService as ɵb, RouterPathService as ɵa };
 //# sourceMappingURL=covalent-core-common.js.map

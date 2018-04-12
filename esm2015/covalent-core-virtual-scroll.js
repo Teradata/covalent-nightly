@@ -235,13 +235,7 @@ class TdVirtualScrollContainerComponent {
 TdVirtualScrollContainerComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-virtual-scroll-container',
-                styles: [`:host{
-  display:block;
-  height:100%;
-  width:100%;
-  overflow:auto;
-  position:relative; }
-`],
+                styles: [`:host{display:block;height:100%;width:100%;overflow:auto;position:relative}`],
                 template: `<div [style.height.px]="totalHeight"></div>
 <div [style.transform]="offsetTransform"
       [style.position]="'absolute'"

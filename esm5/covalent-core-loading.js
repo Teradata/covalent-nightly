@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __extends } from 'tslib';
 import { Component, ChangeDetectorRef, ElementRef, Injectable, ComponentFactoryResolver, SkipSelf, Optional, Injector, Directive, Input, ViewContainerRef, TemplateRef, NgModule } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { TdFadeInOutAnimation } from '@covalent/core/common';
@@ -7,26 +7,19 @@ import { Overlay, OverlayConfig, OverlayModule } from '@angular/cdk/overlay';
 import { CommonModule } from '@angular/common';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/** @enum {string} */
+
 var LoadingType = {
     Circular: 'circular',
     Linear: 'linear',
 };
-/** @enum {string} */
 var LoadingMode = {
     Determinate: 'determinate',
     Indeterminate: 'indeterminate',
 };
-/** @enum {string} */
 var LoadingStrategy = {
     Overlay: 'overlay',
     Replace: 'replace',
 };
-/** @enum {string} */
 var LoadingStyle = {
     FullScreen: 'fullscreen',
     Overlay: 'overlay',
@@ -34,10 +27,6 @@ var LoadingStyle = {
 };
 var TD_CIRCLE_DIAMETER = 100;
 var TdLoadingComponent = /** @class */ (function () {
-    /**
-     * @param {?} _elementRef
-     * @param {?} _changeDetectorRef
-     */
     function TdLoadingComponent(_elementRef, _changeDetectorRef) {
         this._elementRef = _elementRef;
         this._changeDetectorRef = _changeDetectorRef;
@@ -47,34 +36,15 @@ var TdLoadingComponent = /** @class */ (function () {
         this._defaultMode = LoadingMode.Indeterminate;
         this._value = 0;
         this._circleDiameter = TD_CIRCLE_DIAMETER;
-        /**
-         * Flag for animation
-         */
         this.animation = false;
         this.style = LoadingStyle.None;
-        /**
-         * type: LoadingType
-         * Sets type of [TdLoadingComponent] rendered.
-         */
         this.type = LoadingType.Circular;
-        /**
-         * color: primary' | 'accent' | 'warn'
-         * Sets theme color of [TdLoadingComponent] rendered.
-         */
         this.color = 'primary';
     }
     Object.defineProperty(TdLoadingComponent.prototype, "mode", {
-        /**
-         * @return {?}
-         */
         get: function () {
             return this._mode;
         },
-        /**
-         * Sets mode of [TdLoadingComponent] to LoadingMode.Determinate or LoadingMode.Indeterminate
-         * @param {?} mode
-         * @return {?}
-         */
         set: function (mode) {
             this._defaultMode = mode;
         },
@@ -82,31 +52,17 @@ var TdLoadingComponent = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(TdLoadingComponent.prototype, "value", {
-        /**
-         * @return {?}
-         */
         get: function () {
             return this._value;
         },
-        /**
-         * Sets value of [TdLoadingComponent] if mode is 'LoadingMode.Determinate'
-         * @param {?} value
-         * @return {?}
-         */
         set: function (value) {
             this._value = value;
-            // Check for changes for `OnPush` change detection
             this._changeDetectorRef.markForCheck();
         },
         enumerable: true,
         configurable: true
     });
-    /**
-     * @return {?}
-     */
     TdLoadingComponent.prototype.ngDoCheck = function () {
-        // When overlay is used and the host width has a value greater than 1px
-        // set the circle diameter when possible incase the loading component was rendered in a hidden state
         if (this.isOverlay() && this._hostHeight() > 1) {
             if (this.animation) {
                 this._setCircleDiameter();
@@ -114,12 +70,7 @@ var TdLoadingComponent = /** @class */ (function () {
             }
         }
     };
-    /**
-     * @return {?}
-     */
     TdLoadingComponent.prototype.getHeight = function () {
-        // Ignore height if style is `overlay` or `fullscreen`.
-        // Add height if child elements have a height and style is `none`, else return default height.
         if (this.isOverlay() || this.isFullScreen()) {
             return undefined;
         }
@@ -127,50 +78,26 @@ var TdLoadingComponent = /** @class */ (function () {
             return this.height ? this.height + "px" : '150px';
         }
     };
-    /**
-     * @return {?}
-     */
     TdLoadingComponent.prototype.getCircleDiameter = function () {
         return this._circleDiameter;
     };
-    /**
-     * @return {?}
-     */
     TdLoadingComponent.prototype.getCircleStrokeWidth = function () {
-        // we calculate the stroke width by setting it as 10% of its diameter
-        var /** @type {?} */ strokeWidth = this.getCircleDiameter() / 10;
+        var strokeWidth = this.getCircleDiameter() / 10;
         return Math.abs(strokeWidth);
     };
-    /**
-     * @return {?}
-     */
     TdLoadingComponent.prototype.isCircular = function () {
         return this.type === LoadingType.Circular;
     };
-    /**
-     * @return {?}
-     */
     TdLoadingComponent.prototype.isLinear = function () {
         return this.type === LoadingType.Linear;
     };
-    /**
-     * @return {?}
-     */
     TdLoadingComponent.prototype.isFullScreen = function () {
         return this.style === LoadingStyle.FullScreen;
     };
-    /**
-     * @return {?}
-     */
     TdLoadingComponent.prototype.isOverlay = function () {
         return this.style === LoadingStyle.Overlay;
     };
-    /**
-     * @param {?} event
-     * @return {?}
-     */
     TdLoadingComponent.prototype.animationComplete = function (event) {
-        // Check to see if its "in" or "out" animation to execute the proper callback
         if (!event.fromState) {
             this.inAnimationCompleted();
         }
@@ -178,71 +105,35 @@ var TdLoadingComponent = /** @class */ (function () {
             this.outAnimationCompleted();
         }
     };
-    /**
-     * @return {?}
-     */
     TdLoadingComponent.prototype.inAnimationCompleted = function () {
         this._animationIn.next(undefined);
     };
-    /**
-     * @return {?}
-     */
     TdLoadingComponent.prototype.outAnimationCompleted = function () {
-        /* little hack to reset the loader value and animation before removing it from DOM
-            * else, the loader will appear with prev value when its registered again
-            * and will do an animation going prev value to 0.
-            */
         this.value = 0;
-        // Check for changes for `OnPush` change detection
         this._changeDetectorRef.markForCheck();
         this._animationOut.next(undefined);
     };
-    /**
-     * Starts in animation and returns an observable for completition event.
-     * @return {?}
-     */
     TdLoadingComponent.prototype.startInAnimation = function () {
-        /* need to switch back to the selected mode, so we have saved it in another variable
-            *  and then recover it. (issue with protractor)
-            */
         this._mode = this._defaultMode;
-        // Set values before the animations starts
         this._setCircleDiameter();
-        // Check for changes for `OnPush` change detection
         this.animation = true;
         this._changeDetectorRef.markForCheck();
         return this._animationIn.asObservable();
     };
-    /**
-     * Starts out animation and returns an observable for completition event.
-     * @return {?}
-     */
     TdLoadingComponent.prototype.startOutAnimation = function () {
         this.animation = false;
-        /* need to switch back and forth from determinate/indeterminate so the setInterval()
-            * inside mat-progress-spinner stops and protractor doesnt timeout waiting to sync.
-            */
         this._mode = LoadingMode.Determinate;
-        // Check for changes for `OnPush` change detection
         this._changeDetectorRef.markForCheck();
         return this._animationOut.asObservable();
     };
-    /**
-     * Calculate the proper diameter for the circle and set it
-     * @return {?}
-     */
     TdLoadingComponent.prototype._setCircleDiameter = function () {
-        // we set a default diameter of 100 since this is the default in material
-        var /** @type {?} */ diameter = TD_CIRCLE_DIAMETER;
-        // if height is provided, then we take that as diameter
+        var diameter = TD_CIRCLE_DIAMETER;
         if (this.height) {
             diameter = this.height;
-            // else if its not provided, then we take the host height
         }
         else if (this.height === undefined) {
             diameter = this._hostHeight();
         }
-        // if the diameter is over TD_CIRCLE_DIAMETER, we set TD_CIRCLE_DIAMETER
         if (!!diameter && diameter <= TD_CIRCLE_DIAMETER) {
             this._circleDiameter = Math.floor(diameter);
         }
@@ -250,10 +141,6 @@ var TdLoadingComponent = /** @class */ (function () {
             this._circleDiameter = TD_CIRCLE_DIAMETER;
         }
     };
-    /**
-     * Returns the host height of the loading component
-     * @return {?}
-     */
     TdLoadingComponent.prototype._hostHeight = function () {
         if ((this._elementRef.nativeElement)) {
             return ((this._elementRef.nativeElement)).getBoundingClientRect().height;
@@ -265,57 +152,30 @@ var TdLoadingComponent = /** @class */ (function () {
 TdLoadingComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-loading',
-                styles: [".td-loading-wrapper{\n  position:relative;\n  display:block; }\n  .td-loading-wrapper.td-fullscreen{\n    position:inherit; }\n  .td-loading-wrapper .td-loading{\n    -webkit-box-sizing:border-box;\n            box-sizing:border-box;\n    display:-webkit-box;\n    display:-ms-flexbox;\n    display:flex;\n    -webkit-box-orient:horizontal;\n    -webkit-box-direction:normal;\n        -ms-flex-direction:row;\n            flex-direction:row;\n    -webkit-box-align:center;\n        -ms-flex-align:center;\n            align-items:center;\n    -ms-flex-line-pack:center;\n        align-content:center;\n    max-width:100%;\n    -webkit-box-pack:center;\n        -ms-flex-pack:center;\n            justify-content:center;\n    -webkit-box-flex:1;\n        -ms-flex:1;\n            flex:1; }\n  .td-loading-wrapper.td-overlay .td-loading{\n    position:absolute;\n    margin:0;\n    top:0;\n    left:0;\n    right:0;\n    z-index:1000; }\n    .td-loading-wrapper.td-overlay .td-loading mat-progress-bar{\n      position:absolute;\n      top:0;\n      left:0;\n      right:0; }\n  .td-loading-wrapper.td-overlay-circular .td-loading{\n    bottom:0; }\n"],
-                template: "<div class=\"td-loading-wrapper\"\n    [style.min-height]=\"getHeight()\"\n    [class.td-overlay-circular]=\"(isOverlay() || isFullScreen()) && !isLinear()\"\n    [class.td-overlay]=\"isOverlay() || isFullScreen()\"\n    [class.td-fullscreen]=\"isFullScreen()\">\n  <div [@tdFadeInOut]=\"animation\"\n     (@tdFadeInOut.done)=\"animationComplete($event)\"\n     [style.min-height]=\"getHeight()\"\n     class=\"td-loading\">\n    <mat-progress-spinner *ngIf=\"isCircular()\"\n                        [mode]=\"mode\"\n                        [value]=\"value\"\n                        [color]=\"color\"\n                        [diameter]=\"getCircleDiameter()\"\n                        [strokeWidth]=\"getCircleStrokeWidth()\">\n    </mat-progress-spinner>\n    <mat-progress-bar *ngIf=\"isLinear()\"\n                     [mode]=\"mode\"\n                     [value]=\"value\"\n                     [color]=\"color\">\n    </mat-progress-bar>\n  </div>\n  <ng-template [cdkPortalHost]=\"content\"></ng-template>\n</div>",
+                styles: [".td-loading-wrapper{position:relative;display:block}.td-loading-wrapper.td-fullscreen{position:inherit}.td-loading-wrapper .td-loading{-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-flex:1;-ms-flex:1;flex:1}.td-loading-wrapper.td-overlay .td-loading{position:absolute;margin:0;top:0;left:0;right:0;z-index:1000}.td-loading-wrapper.td-overlay .td-loading mat-progress-bar{position:absolute;top:0;left:0;right:0}.td-loading-wrapper.td-overlay-circular .td-loading{bottom:0}"],
+                template: "<div class=\"td-loading-wrapper\"\n    [style.min-height]=\"getHeight()\"\n    [class.td-overlay-circular]=\"(isOverlay() || isFullScreen()) && !isLinear()\"\n    [class.td-overlay]=\"isOverlay() || isFullScreen()\" \n    [class.td-fullscreen]=\"isFullScreen()\">\n  <div [@tdFadeInOut]=\"animation\"\n     (@tdFadeInOut.done)=\"animationComplete($event)\"\n     [style.min-height]=\"getHeight()\"\n     class=\"td-loading\">\n    <mat-progress-spinner *ngIf=\"isCircular()\" \n                        [mode]=\"mode\"\n                        [value]=\"value\" \n                        [color]=\"color\" \n                        [diameter]=\"getCircleDiameter()\"\n                        [strokeWidth]=\"getCircleStrokeWidth()\">\n    </mat-progress-spinner>\n    <mat-progress-bar *ngIf=\"isLinear()\" \n                     [mode]=\"mode\"\n                     [value]=\"value\"\n                     [color]=\"color\">\n    </mat-progress-bar>\n  </div>\n  <ng-template [cdkPortalHost]=\"content\"></ng-template>\n</div>",
                 animations: [
                     TdFadeInOutAnimation(),
                 ],
             },] },
 ];
-/** @nocollapse */
 TdLoadingComponent.ctorParameters = function () { return [
     { type: ElementRef, },
     { type: ChangeDetectorRef, },
 ]; };
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * @record
- */
-/**
- * @record
- */
-/**
- * NOTE: \@internal usage only.
- */
 var TdLoadingFactory = /** @class */ (function () {
-    /**
-     * @param {?} _componentFactoryResolver
-     * @param {?} _overlay
-     * @param {?} _injector
-     */
     function TdLoadingFactory(_componentFactoryResolver, _overlay, _injector) {
         this._componentFactoryResolver = _componentFactoryResolver;
         this._overlay = _overlay;
         this._injector = _injector;
     }
-    /**
-     * Uses material `Overlay` services to create a DOM element and attach the loading component
-     * into it. Leveraging the state and configuration from it.
-     *
-     * Saves a reference in context to be called when registering/resolving the loading element.
-     * @param {?} options
-     * @return {?}
-     */
     TdLoadingFactory.prototype.createFullScreenComponent = function (options) {
         var _this = this;
         ((options)).height = undefined;
         ((options)).style = LoadingStyle.FullScreen;
-        var /** @type {?} */ loadingRef = this._initializeContext();
-        var /** @type {?} */ loading = false;
-        var /** @type {?} */ overlayRef;
+        var loadingRef = this._initializeContext();
+        var loading = false;
+        var overlayRef;
         loadingRef.observable
             .subscribe(function (registered) {
             if (registered > 0 && !loading) {
@@ -328,7 +188,7 @@ var TdLoadingFactory = /** @class */ (function () {
             }
             else if (registered <= 0 && loading) {
                 loading = false;
-                var /** @type {?} */ subs_1 = loadingRef.componentRef.instance.startOutAnimation().subscribe(function () {
+                var subs_1 = loadingRef.componentRef.instance.startOutAnimation().subscribe(function () {
                     subs_1.unsubscribe();
                     loadingRef.componentRef.destroy();
                     overlayRef.detach();
@@ -338,22 +198,11 @@ var TdLoadingFactory = /** @class */ (function () {
         });
         return loadingRef;
     };
-    /**
-     * Creates a loading component dynamically and attaches it into the given viewContainerRef.
-     * Leverages TemplatePortals from material to inject the template inside of it so it fits
-     * perfectly when overlaying it.
-     *
-     * Saves a reference in context to be called when registering/resolving the loading element.
-     * @param {?} options
-     * @param {?} viewContainerRef
-     * @param {?} templateRef
-     * @return {?}
-     */
     TdLoadingFactory.prototype.createOverlayComponent = function (options, viewContainerRef, templateRef) {
         ((options)).height = undefined;
         ((options)).style = LoadingStyle.Overlay;
-        var /** @type {?} */ loadingRef = this._createComponent(options);
-        var /** @type {?} */ loading = false;
+        var loadingRef = this._createComponent(options);
+        var loading = false;
         loadingRef.componentRef.instance.content = new TemplatePortal(templateRef, viewContainerRef);
         viewContainerRef.clear();
         viewContainerRef.insert(loadingRef.componentRef.hostView, 0);
@@ -370,30 +219,19 @@ var TdLoadingFactory = /** @class */ (function () {
         });
         return loadingRef;
     };
-    /**
-     * Creates a loading component dynamically and attaches it into the given viewContainerRef.
-     * Replaces the template with the loading component depending if it was registered or resolved.
-     *
-     * Saves a reference in context to be called when registering/resolving the loading element.
-     * @param {?} options
-     * @param {?} viewContainerRef
-     * @param {?} templateRef
-     * @param {?} context
-     * @return {?}
-     */
     TdLoadingFactory.prototype.createReplaceComponent = function (options, viewContainerRef, templateRef, context) {
-        var /** @type {?} */ nativeElement = (templateRef.elementRef.nativeElement);
+        var nativeElement = (templateRef.elementRef.nativeElement);
         ((options)).height = nativeElement.nextElementSibling ?
             nativeElement.nextElementSibling.scrollHeight : undefined;
         ((options)).style = LoadingStyle.None;
-        var /** @type {?} */ loadingRef = this._createComponent(options);
-        var /** @type {?} */ loading = false;
+        var loadingRef = this._createComponent(options);
+        var loading = false;
         viewContainerRef.createEmbeddedView(templateRef, context);
         loadingRef.observable
             .subscribe(function (registered) {
             if (registered > 0 && !loading) {
                 loading = true;
-                var /** @type {?} */ index = viewContainerRef.indexOf(loadingRef.componentRef.hostView);
+                var index = viewContainerRef.indexOf(loadingRef.componentRef.hostView);
                 if (index < 0) {
                     viewContainerRef.clear();
                     viewContainerRef.insert(loadingRef.componentRef.hostView, 0);
@@ -402,15 +240,10 @@ var TdLoadingFactory = /** @class */ (function () {
             }
             else if (registered <= 0 && loading) {
                 loading = false;
-                var /** @type {?} */ subs_2 = loadingRef.componentRef.instance.startOutAnimation().subscribe(function () {
+                var subs_2 = loadingRef.componentRef.instance.startOutAnimation().subscribe(function () {
                     subs_2.unsubscribe();
-                    // passing context so when the template is re-attached, we can keep the reference of the variables
-                    var /** @type {?} */ cdr = viewContainerRef.createEmbeddedView(templateRef, context);
+                    var cdr = viewContainerRef.createEmbeddedView(templateRef, context);
                     viewContainerRef.detach(viewContainerRef.indexOf(loadingRef.componentRef.hostView));
-                    /**
-                               * Need to call "markForCheck" and "detectChanges" on attached template, so its detected by parent component when attached
-                               * with "OnPush" change detection
-                               */
                     cdr.detectChanges();
                     cdr.markForCheck();
                 });
@@ -418,34 +251,21 @@ var TdLoadingFactory = /** @class */ (function () {
         });
         return loadingRef;
     };
-    /**
-     * Creates a fullscreen overlay for the loading usage.
-     * @return {?}
-     */
     TdLoadingFactory.prototype._createOverlay = function () {
-        var /** @type {?} */ state = new OverlayConfig();
+        var state = new OverlayConfig();
         state.hasBackdrop = false;
         state.positionStrategy = this._overlay.position().global().centerHorizontally().centerVertically();
         return this._overlay.create(state);
     };
-    /**
-     * Creates a generic component dynamically waiting to be attached to a viewContainerRef.
-     * @param {?} options
-     * @return {?}
-     */
     TdLoadingFactory.prototype._createComponent = function (options) {
-        var /** @type {?} */ compRef = this._initializeContext();
+        var compRef = this._initializeContext();
         compRef.componentRef = this._componentFactoryResolver
             .resolveComponentFactory(TdLoadingComponent).create(this._injector);
         this._mapOptions(options, compRef.componentRef.instance);
         return compRef;
     };
-    /**
-     * Initialize context for loading component.
-     * @return {?}
-     */
     TdLoadingFactory.prototype._initializeContext = function () {
-        var /** @type {?} */ subject = new Subject();
+        var subject = new Subject();
         return {
             observable: subject.asObservable(),
             subject: subject,
@@ -453,12 +273,6 @@ var TdLoadingFactory = /** @class */ (function () {
             times: 0,
         };
     };
-    /**
-     * Maps configuration to the loading component instance.
-     * @param {?} options
-     * @param {?} instance
-     * @return {?}
-     */
     TdLoadingFactory.prototype._mapOptions = function (options, instance) {
         instance.style = options.style;
         if (options.type !== undefined) {
@@ -479,39 +293,20 @@ var TdLoadingFactory = /** @class */ (function () {
 TdLoadingFactory.decorators = [
     { type: Injectable },
 ];
-/** @nocollapse */
 TdLoadingFactory.ctorParameters = function () { return [
     { type: ComponentFactoryResolver, },
     { type: Overlay, },
     { type: Injector, },
 ]; };
-/**
- * @param {?} parent
- * @param {?} componentFactoryResolver
- * @param {?} overlay
- * @param {?} injector
- * @return {?}
- */
 function LOADING_FACTORY_PROVIDER_FACTORY(parent, componentFactoryResolver, overlay, injector) {
     return parent || new TdLoadingFactory(componentFactoryResolver, overlay, injector);
 }
 var LOADING_FACTORY_PROVIDER = {
-    // If there is already a service available, use that. Otherwise, provide a new one.
     provide: TdLoadingFactory,
     deps: [[new Optional(), new SkipSelf(), TdLoadingFactory], ComponentFactoryResolver, Overlay, Injector],
     useFactory: LOADING_FACTORY_PROVIDER_FACTORY,
 };
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * @record
- */
 var TdLoadingConfig = /** @class */ (function () {
-    /**
-     * @param {?} config
-     */
     function TdLoadingConfig(config) {
         this.name = config.name;
         if (!this.name) {
@@ -523,14 +318,8 @@ var TdLoadingConfig = /** @class */ (function () {
     }
     return TdLoadingConfig;
 }());
-/**
- * @record
- */
 var TdLoadingDirectiveConfig = /** @class */ (function (_super) {
-    tslib_1.__extends(TdLoadingDirectiveConfig, _super);
-    /**
-     * @param {?} config
-     */
+    __extends(TdLoadingDirectiveConfig, _super);
     function TdLoadingDirectiveConfig(config) {
         var _this = _super.call(this, config) || this;
         _this.strategy = config.strategy ? config.strategy : LoadingStrategy.Replace;
@@ -539,9 +328,6 @@ var TdLoadingDirectiveConfig = /** @class */ (function (_super) {
     return TdLoadingDirectiveConfig;
 }(TdLoadingConfig));
 var TdLoadingService = /** @class */ (function () {
-    /**
-     * @param {?} _loadingFactory
-     */
     function TdLoadingService(_loadingFactory) {
         this._loadingFactory = _loadingFactory;
         this._context = {};
@@ -550,24 +336,8 @@ var TdLoadingService = /** @class */ (function () {
             name: 'td-loading-main',
         });
     }
-    /**
-     * params:
-     * - config: ILoadingDirectiveConfig
-     * - viewContainerRef: ViewContainerRef
-     * - templateRef: TemplateRef<Object>
-     *
-     * Creates an replace loading mask and attaches it to the viewContainerRef.
-     * Replaces the templateRef with the mask when a request is registered on it.
-     *
-     * NOTE: \@internal usage only.
-     * @param {?} config
-     * @param {?} viewContainerRef
-     * @param {?} templateRef
-     * @param {?} context
-     * @return {?}
-     */
     TdLoadingService.prototype.createComponent = function (config, viewContainerRef, templateRef, context) {
-        var /** @type {?} */ directiveConfig = new TdLoadingDirectiveConfig(config);
+        var directiveConfig = new TdLoadingDirectiveConfig(config);
         if (this._context[directiveConfig.name]) {
             throw Error("Name duplication: [TdLoading] directive has a name conflict with " + directiveConfig.name + ".");
         }
@@ -579,28 +349,11 @@ var TdLoadingService = /** @class */ (function () {
         }
         return this._context[directiveConfig.name];
     };
-    /**
-     * params:
-     * - config: ITdLoadingConfig
-     *
-     * Creates a fullscreen loading mask and attaches it to the DOM with the given configuration.
-     * Only displayed when the mask has a request registered on it.
-     * @param {?} config
-     * @return {?}
-     */
     TdLoadingService.prototype.create = function (config) {
-        var /** @type {?} */ fullscreenConfig = new TdLoadingConfig(config);
+        var fullscreenConfig = new TdLoadingConfig(config);
         this.removeComponent(fullscreenConfig.name);
         this._context[fullscreenConfig.name] = this._loadingFactory.createFullScreenComponent(fullscreenConfig);
     };
-    /**
-     * params:
-     * - name: string
-     *
-     * Removes `loading` component from service context.
-     * @param {?} name
-     * @return {?}
-     */
     TdLoadingService.prototype.removeComponent = function (name) {
         if (this._context[name]) {
             this._context[name].subject.unsubscribe();
@@ -611,27 +364,10 @@ var TdLoadingService = /** @class */ (function () {
             delete this._context[name];
         }
     };
-    /**
-     * params:
-     * - name: string
-     * - registers?: number
-     * returns: true if successful
-     *
-     * Resolves a request for the loading mask referenced by the name parameter.
-     * Can optionally pass registers argument to set a number of register calls.
-     *
-     * If no paramemeters are used, then default main mask will be used.
-     *
-     * e.g. loadingService.register()
-     * @param {?=} name
-     * @param {?=} registers
-     * @return {?}
-     */
     TdLoadingService.prototype.register = function (name, registers) {
         var _this = this;
         if (name === void 0) { name = 'td-loading-main'; }
         if (registers === void 0) { registers = 1; }
-        // try registering into the service if the loading component has been instanciated or if it exists.
         if (this._context[name]) {
             registers = registers < 1 ? 1 : registers;
             this._context[name].times += registers;
@@ -639,45 +375,25 @@ var TdLoadingService = /** @class */ (function () {
             return true;
         }
         else {
-            // if it doesnt exist, set a timeout so its registered after change detection happens
-            // this in case "register" occured on the `ngOnInit` lifehook cycle.
             if (!this._timeouts[name]) {
                 this._timeouts[name] = setTimeout(function () {
                     _this.register(name, registers);
                 });
             }
             else {
-                // if it timeout occured and still doesnt exist, it means the tiemout wasnt needed so we clear it.
                 this._clearTimeout(name);
             }
         }
         return false;
     };
-    /**
-     * params:
-     * - name: string
-     * - resolves?: number
-     * returns: true if successful
-     *
-     * Resolves a request for the loading mask referenced by the name parameter.
-     * Can optionally pass resolves argument to set a number of resolve calls.
-     *
-     * If no paramemeters are used, then default main mask will be used.
-     *
-     * e.g. loadingService.resolve()
-     * @param {?=} name
-     * @param {?=} resolves
-     * @return {?}
-     */
     TdLoadingService.prototype.resolve = function (name, resolves) {
         if (name === void 0) { name = 'td-loading-main'; }
         if (resolves === void 0) { resolves = 1; }
-        // clear timeout if the loading component is "resolved" before its "registered"
         this._clearTimeout(name);
         if (this._context[name]) {
             resolves = resolves < 1 ? 1 : resolves;
             if (this._context[name].times > 0) {
-                var /** @type {?} */ times = this._context[name].times;
+                var times = this._context[name].times;
                 times -= resolves;
                 this._context[name].times = times < 0 ? 0 : times;
             }
@@ -686,22 +402,8 @@ var TdLoadingService = /** @class */ (function () {
         }
         return false;
     };
-    /**
-     * params:
-     * - name: string
-     * returns: true if successful
-     *
-     * Resolves all request for the loading mask referenced by the name parameter.
-     *
-     * If no paramemeters are used, then default main mask will be used.
-     *
-     * e.g. loadingService.resolveAll()
-     * @param {?=} name
-     * @return {?}
-     */
     TdLoadingService.prototype.resolveAll = function (name) {
         if (name === void 0) { name = 'td-loading-main'; }
-        // clear timeout if the loading component is "resolved" before its "registered"
         this._clearTimeout(name);
         if (this._context[name]) {
             this._context[name].times = 0;
@@ -710,21 +412,9 @@ var TdLoadingService = /** @class */ (function () {
         }
         return false;
     };
-    /**
-     * params:
-     * - name: string
-     * - value: number
-     * returns: true if successful
-     *
-     * Set value on a loading mask referenced by the name parameter.
-     * Usage only available if its mode is 'determinate' and if loading is showing.
-     * @param {?} name
-     * @param {?} value
-     * @return {?}
-     */
     TdLoadingService.prototype.setValue = function (name, value) {
         if (this._context[name]) {
-            var /** @type {?} */ instance = this._context[name].componentRef.instance;
+            var instance = this._context[name].componentRef.instance;
             if (instance.mode === LoadingMode.Determinate && instance.animation) {
                 instance.value = value;
                 return true;
@@ -732,11 +422,6 @@ var TdLoadingService = /** @class */ (function () {
         }
         return false;
     };
-    /**
-     * Clears timeout linked to the name.
-     * @param {?} name Name of the loading component to be cleared
-     * @return {?}
-     */
     TdLoadingService.prototype._clearTimeout = function (name) {
         clearTimeout(this._timeouts[name]);
         delete this._timeouts[name];
@@ -746,31 +431,17 @@ var TdLoadingService = /** @class */ (function () {
 TdLoadingService.decorators = [
     { type: Injectable },
 ];
-/** @nocollapse */
 TdLoadingService.ctorParameters = function () { return [
     { type: TdLoadingFactory, },
 ]; };
-/**
- * @param {?} parent
- * @param {?} loadingFactory
- * @return {?}
- */
 function LOADING_PROVIDER_FACTORY(parent, loadingFactory) {
     return parent || new TdLoadingService(loadingFactory);
 }
 var LOADING_PROVIDER = {
-    // If there is already a service available, use that. Otherwise, provide a new one.
     provide: TdLoadingService,
     deps: [[new Optional(), new SkipSelf(), TdLoadingService], TdLoadingFactory],
     useFactory: LOADING_PROVIDER_FACTORY,
 };
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * Context class for variable reference
- */
 var TdLoadingContext = /** @class */ (function () {
     function TdLoadingContext() {
         this.$implicit = undefined;
@@ -778,32 +449,16 @@ var TdLoadingContext = /** @class */ (function () {
     }
     return TdLoadingContext;
 }());
-// Constant for generation of the id for the next component
 var TD_LOADING_NEXT_ID = 0;
 var TdLoadingDirective = /** @class */ (function () {
-    /**
-     * @param {?} _viewContainerRef
-     * @param {?} _templateRef
-     * @param {?} _loadingService
-     */
     function TdLoadingDirective(_viewContainerRef, _templateRef, _loadingService) {
         this._viewContainerRef = _viewContainerRef;
         this._templateRef = _templateRef;
         this._loadingService = _loadingService;
         this._context = new TdLoadingContext();
-        /**
-         * tdLoadingColor?: "primary" | "accent" | "warn"
-         * Sets the theme color of the loading component. Defaults to "primary"
-         */
         this.color = 'primary';
     }
     Object.defineProperty(TdLoadingDirective.prototype, "name", {
-        /**
-         * tdLoading: string
-         * Name reference of the loading mask, used to register/resolve requests to the mask.
-         * @param {?} name
-         * @return {?}
-         */
         set: function (name) {
             if (!this._name) {
                 if (name) {
@@ -815,14 +470,6 @@ var TdLoadingDirective = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(TdLoadingDirective.prototype, "until", {
-        /**
-         * tdLoadingUntil?: any
-         * If its null, undefined or false it will be used to register requests to the mask.
-         * Else if its any value that can be resolved as true, it will resolve the mask.
-         * [name] is optional when using [until], but can still be used to register/resolve it manually.
-         * @param {?} until
-         * @return {?}
-         */
         set: function (until) {
             if (!this._name) {
                 this._name = 'td-loading-until-' + TD_LOADING_NEXT_ID++;
@@ -839,13 +486,6 @@ var TdLoadingDirective = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(TdLoadingDirective.prototype, "type", {
-        /**
-         * tdLoadingType?: LoadingType or ['linear' | 'circular']
-         * Sets the type of loading mask depending on value.
-         * Defaults to [LoadingType.Circular | 'circular'].
-         * @param {?} type
-         * @return {?}
-         */
         set: function (type) {
             switch (type) {
                 case LoadingType.Linear:
@@ -860,13 +500,6 @@ var TdLoadingDirective = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(TdLoadingDirective.prototype, "mode", {
-        /**
-         * tdLoadingMode?: LoadingMode or ['determinate' | 'indeterminate']
-         * Sets the mode of loading mask depending on value.
-         * Defaults to [LoadingMode.Indeterminate | 'indeterminate'].
-         * @param {?} mode
-         * @return {?}
-         */
         set: function (mode) {
             switch (mode) {
                 case LoadingMode.Determinate:
@@ -881,13 +514,6 @@ var TdLoadingDirective = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(TdLoadingDirective.prototype, "strategy", {
-        /**
-         * tdLoadingStrategy?: LoadingStrategy or ['replace' | 'overlay']
-         * Sets the strategy of loading mask depending on value.
-         * Defaults to [LoadingMode.Replace | 'replace'].
-         * @param {?} stategy
-         * @return {?}
-         */
         set: function (stategy) {
             switch (stategy) {
                 case LoadingStrategy.Overlay:
@@ -901,32 +527,17 @@ var TdLoadingDirective = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    /**
-     * Registers component in the DOM, so it will be available when calling resolve/register.
-     * @return {?}
-     */
     TdLoadingDirective.prototype.ngOnInit = function () {
         this._registerComponent();
     };
-    /**
-     * Remove component when directive is destroyed.
-     * @return {?}
-     */
     TdLoadingDirective.prototype.ngOnDestroy = function () {
         this._loadingService.removeComponent(this._name);
         this._loadingRef = undefined;
     };
-    /**
-     * Creates [TdLoadingComponent] and attaches it to this directive's [ViewContainerRef].
-     * Passes this directive's [TemplateRef] to modify DOM depending on loading `strategy`.
-     * @return {?}
-     */
     TdLoadingDirective.prototype._registerComponent = function () {
         if (!this._name) {
             throw new Error('Name is needed to register loading directive');
         }
-        // Check if `TdLoadingComponent` has been created before trying to add one again.
-        // There is a weird edge case when using `[routerLinkActive]` that calls the `ngOnInit` twice in a row
         if (!this._loadingRef) {
             this._loadingRef = this._loadingService.createComponent({
                 name: this._name,
@@ -944,7 +555,6 @@ TdLoadingDirective.decorators = [
                 selector: '[tdLoading]',
             },] },
 ];
-/** @nocollapse */
 TdLoadingDirective.ctorParameters = function () { return [
     { type: ViewContainerRef, },
     { type: TemplateRef, },
@@ -958,10 +568,6 @@ TdLoadingDirective.propDecorators = {
     "strategy": [{ type: Input, args: ['tdLoadingStrategy',] },],
     "color": [{ type: Input, args: ['tdLoadingColor',] },],
 };
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
 var TD_LOADING = [
     TdLoadingComponent,
     TdLoadingDirective,
@@ -998,22 +604,7 @@ CovalentLoadingModule.decorators = [
                 ],
             },] },
 ];
-/** @nocollapse */
 CovalentLoadingModule.ctorParameters = function () { return []; };
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * Generated bundle index. Do not edit.
- */
+
 export { CovalentLoadingModule, LoadingType, LoadingMode, LoadingStrategy, LoadingStyle, TD_CIRCLE_DIAMETER, TdLoadingComponent, TdLoadingContext, TdLoadingDirective, TdLoadingConfig, TdLoadingDirectiveConfig, TdLoadingService, LOADING_PROVIDER_FACTORY, LOADING_PROVIDER, TdLoadingFactory, LOADING_FACTORY_PROVIDER_FACTORY, LOADING_FACTORY_PROVIDER };
 //# sourceMappingURL=covalent-core-loading.js.map

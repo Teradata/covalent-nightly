@@ -1,18 +1,11 @@
-import * as tslib_1 from "tslib";
+import { __extends } from 'tslib';
 import { Directive, TemplateRef, ViewContainerRef, Component, Input, ContentChild, ChangeDetectionStrategy, ChangeDetectorRef, ViewChildren, ElementRef, HostListener, Renderer2, NgModule } from '@angular/core';
 import { TemplatePortalDirective } from '@angular/cdk/portal';
 import { DomSanitizer } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
+
 var TdVirtualScrollRowDirective = /** @class */ (function (_super) {
-    tslib_1.__extends(TdVirtualScrollRowDirective, _super);
-    /**
-     * @param {?} templateRef
-     * @param {?} viewContainerRef
-     */
+    __extends(TdVirtualScrollRowDirective, _super);
     function TdVirtualScrollRowDirective(templateRef, viewContainerRef) {
         return _super.call(this, templateRef, viewContainerRef) || this;
     }
@@ -21,23 +14,12 @@ var TdVirtualScrollRowDirective = /** @class */ (function (_super) {
 TdVirtualScrollRowDirective.decorators = [
     { type: Directive, args: [{ selector: '[tdVirtualScrollRow]' },] },
 ];
-/** @nocollapse */
 TdVirtualScrollRowDirective.ctorParameters = function () { return [
     { type: TemplateRef, },
     { type: ViewContainerRef, },
 ]; };
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
 var TD_VIRTUAL_OFFSET = 2;
 var TdVirtualScrollContainerComponent = /** @class */ (function () {
-    /**
-     * @param {?} _elementRef
-     * @param {?} _domSanitizer
-     * @param {?} _renderer
-     * @param {?} _changeDetectorRef
-     */
     function TdVirtualScrollContainerComponent(_elementRef, _domSanitizer, _renderer, _changeDetectorRef) {
         this._elementRef = _elementRef;
         this._domSanitizer = _domSanitizer;
@@ -49,28 +31,14 @@ var TdVirtualScrollContainerComponent = /** @class */ (function () {
         this._scrollVerticalOffset = 0;
         this._fromRow = 0;
         this._toRow = 0;
-        /**
-         * trackBy?: TrackByFunction
-         * This accepts the same trackBy function [ngFor] does.
-         * https://angular.io/api/core/TrackByFunction
-         */
         this.trackBy = function (index, item) {
             return item;
         };
     }
     Object.defineProperty(TdVirtualScrollContainerComponent.prototype, "data", {
-        /**
-         * @return {?}
-         */
         get: function () {
             return this._data;
         },
-        /**
-         * data: any[]
-         * List of items to virtually iterate on.
-         * @param {?} data
-         * @return {?}
-         */
         set: function (data) {
             this._data = data;
             if (this._initialized) {
@@ -82,9 +50,6 @@ var TdVirtualScrollContainerComponent = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(TdVirtualScrollContainerComponent.prototype, "virtualData", {
-        /**
-         * @return {?}
-         */
         get: function () {
             return this._virtualData;
         },
@@ -92,9 +57,6 @@ var TdVirtualScrollContainerComponent = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(TdVirtualScrollContainerComponent.prototype, "rowHeight", {
-        /**
-         * @return {?}
-         */
         get: function () {
             if (this._rows && this._rows.toArray()[0]) {
                 return this._rows.toArray()[0].nativeElement.getBoundingClientRect().height;
@@ -105,9 +67,6 @@ var TdVirtualScrollContainerComponent = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(TdVirtualScrollContainerComponent.prototype, "totalHeight", {
-        /**
-         * @return {?}
-         */
         get: function () {
             return this._totalHeight;
         },
@@ -115,9 +74,6 @@ var TdVirtualScrollContainerComponent = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(TdVirtualScrollContainerComponent.prototype, "fromRow", {
-        /**
-         * @return {?}
-         */
         get: function () {
             return this._fromRow;
         },
@@ -125,9 +81,6 @@ var TdVirtualScrollContainerComponent = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(TdVirtualScrollContainerComponent.prototype, "toRow", {
-        /**
-         * @return {?}
-         */
         get: function () {
             return this._toRow;
         },
@@ -135,18 +88,12 @@ var TdVirtualScrollContainerComponent = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(TdVirtualScrollContainerComponent.prototype, "offsetTransform", {
-        /**
-         * @return {?}
-         */
         get: function () {
             return this._offsetTransform;
         },
         enumerable: true,
         configurable: true
     });
-    /**
-     * @return {?}
-     */
     TdVirtualScrollContainerComponent.prototype.ngAfterViewInit = function () {
         var _this = this;
         this._rowChangeSubs = this._rows.changes.subscribe(function () {
@@ -155,11 +102,8 @@ var TdVirtualScrollContainerComponent = /** @class */ (function () {
         this._initialized = true;
         this._calculateVirtualRows();
     };
-    /**
-     * @return {?}
-     */
     TdVirtualScrollContainerComponent.prototype.ngAfterViewChecked = function () {
-        var /** @type {?} */ newHostHeight = this._elementRef.nativeElement.getBoundingClientRect().height;
+        var newHostHeight = this._elementRef.nativeElement.getBoundingClientRect().height;
         if (this._hostHeight !== newHostHeight) {
             this._hostHeight = newHostHeight;
             if (this._initialized) {
@@ -167,22 +111,15 @@ var TdVirtualScrollContainerComponent = /** @class */ (function () {
             }
         }
     };
-    /**
-     * @return {?}
-     */
     TdVirtualScrollContainerComponent.prototype.ngOnDestroy = function () {
         if (this._rowChangeSubs) {
             this._rowChangeSubs.unsubscribe();
         }
     };
-    /**
-     * @param {?} event
-     * @return {?}
-     */
     TdVirtualScrollContainerComponent.prototype.handleScroll = function (event) {
-        var /** @type {?} */ element = ((event.target));
+        var element = ((event.target));
         if (element) {
-            var /** @type {?} */ verticalScroll = element.scrollTop;
+            var verticalScroll = element.scrollTop;
             if (this._scrollVerticalOffset !== verticalScroll) {
                 this._scrollVerticalOffset = verticalScroll;
                 if (this._initialized) {
@@ -191,50 +128,29 @@ var TdVirtualScrollContainerComponent = /** @class */ (function () {
             }
         }
     };
-    /**
-     * Method to refresh and recalculate the virtual rows
-     * e.g. after changing the [data] content
-     * @return {?}
-     */
     TdVirtualScrollContainerComponent.prototype.refresh = function () {
         this._calculateVirtualRows();
     };
-    /**
-     * Method to scroll to a specific row of the list.
-     * @param {?} row
-     * @return {?}
-     */
     TdVirtualScrollContainerComponent.prototype.scrollTo = function (row) {
         this._elementRef.nativeElement.scrollTop = row * this.rowHeight;
         this._changeDetectorRef.markForCheck();
     };
-    /**
-     * Method to scroll to the start of the list.
-     * @return {?}
-     */
     TdVirtualScrollContainerComponent.prototype.scrollToStart = function () {
         this.scrollTo(0);
         this._changeDetectorRef.markForCheck();
     };
-    /**
-     * Method to scroll to the end of the list.
-     * @return {?}
-     */
     TdVirtualScrollContainerComponent.prototype.scrollToEnd = function () {
         this.scrollTo(this.totalHeight / this.rowHeight);
         this._changeDetectorRef.markForCheck();
     };
-    /**
-     * @return {?}
-     */
     TdVirtualScrollContainerComponent.prototype._calculateVirtualRows = function () {
         var _this = this;
         if (this._data) {
             this._totalHeight = this._data.length * this.rowHeight;
-            var /** @type {?} */ fromRow = Math.floor((this._scrollVerticalOffset / this.rowHeight)) - TD_VIRTUAL_OFFSET;
+            var fromRow = Math.floor((this._scrollVerticalOffset / this.rowHeight)) - TD_VIRTUAL_OFFSET;
             this._fromRow = fromRow > 0 ? fromRow : 0;
-            var /** @type {?} */ range = Math.floor((this._hostHeight / this.rowHeight)) + (TD_VIRTUAL_OFFSET * 2);
-            var /** @type {?} */ toRow = range + this.fromRow;
+            var range = Math.floor((this._hostHeight / this.rowHeight)) + (TD_VIRTUAL_OFFSET * 2);
+            var toRow = range + this.fromRow;
             if (isFinite(toRow) && toRow > this._data.length) {
                 toRow = this._data.length;
             }
@@ -248,7 +164,7 @@ var TdVirtualScrollContainerComponent = /** @class */ (function () {
             this._fromRow = 0;
             this._toRow = 0;
         }
-        var /** @type {?} */ offset = 0;
+        var offset = 0;
         if (this._scrollVerticalOffset > (TD_VIRTUAL_OFFSET * this.rowHeight)) {
             offset = this.fromRow * this.rowHeight;
         }
@@ -256,8 +172,6 @@ var TdVirtualScrollContainerComponent = /** @class */ (function () {
         if (this._data) {
             this._virtualData = this.data.slice(this.fromRow, this.toRow);
         }
-        // mark for check at the end of the queue so we are sure
-        // that the changes will be marked
         Promise.resolve().then(function () {
             _this._changeDetectorRef.markForCheck();
         });
@@ -267,12 +181,11 @@ var TdVirtualScrollContainerComponent = /** @class */ (function () {
 TdVirtualScrollContainerComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-virtual-scroll-container',
-                styles: [":host{\n  display:block;\n  height:100%;\n  width:100%;\n  overflow:auto;\n  position:relative; }\n"],
+                styles: [":host{display:block;height:100%;width:100%;overflow:auto;position:relative}"],
                 template: "<div [style.height.px]=\"totalHeight\"></div>\n<div [style.transform]=\"offsetTransform\"\n      [style.position]=\"'absolute'\"\n      [style.width.%]=\"100\">\n  <ng-template let-row\n                let-index=\"index\"\n                ngFor\n                [ngForOf]=\"virtualData\"\n                [ngForTrackBy]=\"trackBy\">\n    <div #rowElement\n         [style.width.%]=\"100\">\n      <ng-template *ngIf=\"_rowTemplate\"\n                  [ngTemplateOutlet]=\"_rowTemplate.templateRef\"\n                  [ngTemplateOutletContext]=\"{row: row,\n                                      index: (fromRow + index),\n                                      first: (fromRow + index) === 0,\n                                      last: (fromRow + index) === (data.length - 1),\n                                      odd: ((fromRow + index + 1) % 2) === 1,\n                                      even: ((fromRow + index + 1) % 2) === 0}\">\n      </ng-template>\n    </div>\n  </ng-template>\n</div>",
                 changeDetection: ChangeDetectionStrategy.OnPush,
             },] },
 ];
-/** @nocollapse */
 TdVirtualScrollContainerComponent.ctorParameters = function () { return [
     { type: ElementRef, },
     { type: DomSanitizer, },
@@ -286,10 +199,6 @@ TdVirtualScrollContainerComponent.propDecorators = {
     "trackBy": [{ type: Input, args: ['trackBy',] },],
     "handleScroll": [{ type: HostListener, args: ['scroll', ['$event'],] },],
 };
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
 var TD_VIRTUAL_SCROLL = [
     TdVirtualScrollRowDirective,
     TdVirtualScrollContainerComponent,
@@ -312,22 +221,7 @@ CovalentVirtualScrollModule.decorators = [
                 ],
             },] },
 ];
-/** @nocollapse */
 CovalentVirtualScrollModule.ctorParameters = function () { return []; };
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * Generated bundle index. Do not edit.
- */
+
 export { CovalentVirtualScrollModule, TdVirtualScrollContainerComponent, TdVirtualScrollRowDirective };
 //# sourceMappingURL=covalent-core-virtual-scroll.js.map

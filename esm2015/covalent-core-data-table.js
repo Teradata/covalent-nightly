@@ -32,14 +32,7 @@ TdDataTableColumnRowComponent.decorators = [
     { type: Component, args: [{
                 /* tslint:disable-next-line */
                 selector: 'tr[td-data-table-column-row]',
-                styles: [`:host{
-  border-bottom-style:solid;
-  border-bottom-width:1px; }
-:host.td-data-table-row{
-  height:48px; }
-:host.td-data-table-column-row{
-  height:56px; }
-`],
+                styles: [`:host{border-bottom-style:solid;border-bottom-width:1px}:host.td-data-table-row{height:48px}:host.td-data-table-column-row{height:56px}`],
                 template: `<ng-content></ng-content>`,
             },] },
 ];
@@ -106,14 +99,7 @@ TdDataTableRowComponent.decorators = [
     { type: Component, args: [{
                 /* tslint:disable-next-line */
                 selector: 'tr[td-data-table-row]',
-                styles: [`:host{
-  border-bottom-style:solid;
-  border-bottom-width:1px; }
-:host.td-data-table-row{
-  height:48px; }
-:host.td-data-table-column-row{
-  height:56px; }
-`],
+                styles: [`:host{border-bottom-style:solid;border-bottom-width:1px}:host.td-data-table-row{height:48px}:host.td-data-table-column-row{height:56px}`],
                 template: `<ng-content></ng-content>`,
             },] },
 ];
@@ -1161,52 +1147,7 @@ TdDataTableComponent.decorators = [
                         multi: true,
                     }],
                 selector: 'td-data-table',
-                styles: [`:host{
-  display:block;
-  overflow:hidden; }
-  :host .td-data-table-scrollable{
-    position:relative;
-    overflow:auto;
-    height:calc(100% - 56px); }
-table.td-data-table{
-  width:auto !important; }
-  table.td-data-table.mat-selectable tbody > tr.td-data-table-row{
-    -webkit-transition:background-color 0.2s;
-    transition:background-color 0.2s; }
-  table.td-data-table.mat-selectable .td-data-table-column:first-child > .td-data-table-column-content-wrapper,
-  table.td-data-table.mat-selectable th.td-data-table-column:first-child > .td-data-table-column-content-wrapper,
-  table.td-data-table.mat-selectable td.td-data-table-cell:first-child > .td-data-table-column-content-wrapper{
-    width:18px;
-    min-width:18px;
-    padding:0 24px; }
-  table.td-data-table.mat-selectable .td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper,
-  table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper,
-  table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) > .td-data-table-column-content-wrapper{
-    padding-left:0; }
-  [dir='rtl'] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, [dir='rtl']
-  table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2) > .td-data-table-column-content-wrapper, [dir='rtl']
-  table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2) > .td-data-table-column-content-wrapper{
-    padding-right:0;
-    padding-left:28px; }
-  table.td-data-table td.mat-checkbox-cell,
-  table.td-data-table th.mat-checkbox-column{
-    min-width:42px;
-    width:42px;
-    font-size:0 !important; }
-    table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox,
-    table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox{
-      width:18px;
-      height:18px; }
-      ::ng-deep table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after, ::ng-deep
-      table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after{
-        width:11px !important;
-        height:4px !important; }
-    table.td-data-table td.mat-checkbox-cell mat-checkbox ::ng-deep .mat-checkbox-inner-container,
-    table.td-data-table th.mat-checkbox-column mat-checkbox ::ng-deep .mat-checkbox-inner-container{
-      width:18px;
-      height:18px;
-      margin:0; }
-`],
+                styles: [`:host{display:block;overflow:hidden}:host .td-data-table-scrollable{position:relative;overflow:auto;height:calc(100% - 56px)}table.td-data-table{width:auto!important}table.td-data-table.mat-selectable tbody>tr.td-data-table-row{-webkit-transition:background-color .2s;transition:background-color .2s}table.td-data-table.mat-selectable .td-data-table-column:first-child>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable td.td-data-table-cell:first-child>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable th.td-data-table-column:first-child>.td-data-table-column-content-wrapper{width:18px;min-width:18px;padding:0 24px}table.td-data-table.mat-selectable .td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2)>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper{padding-left:0}[dir=rtl] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper,[dir=rtl] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2)>.td-data-table-column-content-wrapper,[dir=rtl] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper{padding-right:0;padding-left:28px}table.td-data-table td.mat-checkbox-cell,table.td-data-table th.mat-checkbox-column{min-width:42px;width:42px;font-size:0!important}table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox,table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox{width:18px;height:18px}::ng-deep table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after,::ng-deep table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after{width:11px!important;height:4px!important}table.td-data-table td.mat-checkbox-cell mat-checkbox ::ng-deep .mat-checkbox-inner-container,table.td-data-table th.mat-checkbox-column mat-checkbox ::ng-deep .mat-checkbox-inner-container{width:18px;height:18px;margin:0}`],
                 template: `<table td-data-table
         [style.left.px]="columnsLeftScroll"
         [class.mat-selectable]="selectable">
@@ -1443,213 +1384,10 @@ TdDataTableColumnComponent.decorators = [
     { type: Component, args: [{
                 /* tslint:disable-next-line */
                 selector: 'th[td-data-table-column]',
-                styles: [`:host{
-  white-space:nowrap;
-  position:relative;
-  padding:0;
-  vertical-align:middle;
-  text-align:left; }
-  :host > .td-data-table-heading{
-    padding:0 28px; }
-  :host:first-child > .td-data-table-heading{
-    padding-left:24px;
-    padding-right:initial; }
-    html[dir=rtl] :host:first-child > .td-data-table-heading{
-      padding-left:initial;
-      unicode-bidi:embed; }
-    body[dir=rtl] :host:first-child > .td-data-table-heading{
-      padding-left:initial;
-      unicode-bidi:embed; }
-    [dir=rtl] :host:first-child > .td-data-table-heading{
-      padding-left:initial;
-      unicode-bidi:embed; }
-    :host:first-child > .td-data-table-heading bdo[dir=rtl]{
-      direction:rtl;
-      unicode-bidi:bidi-override; }
-    :host:first-child > .td-data-table-heading bdo[dir=ltr]{
-      direction:ltr;
-      unicode-bidi:bidi-override; }
-    html[dir=rtl] :host:first-child > .td-data-table-heading{
-      padding-right:24px;
-      unicode-bidi:embed; }
-    body[dir=rtl] :host:first-child > .td-data-table-heading{
-      padding-right:24px;
-      unicode-bidi:embed; }
-    [dir=rtl] :host:first-child > .td-data-table-heading{
-      padding-right:24px;
-      unicode-bidi:embed; }
-    :host:first-child > .td-data-table-heading bdo[dir=rtl]{
-      direction:rtl;
-      unicode-bidi:bidi-override; }
-    :host:first-child > .td-data-table-heading bdo[dir=ltr]{
-      direction:ltr;
-      unicode-bidi:bidi-override; }
-  :host:last-child > .td-data-table-heading{
-    padding-left:28px;
-    padding-right:24px; }
-    html[dir=rtl] :host:last-child > .td-data-table-heading{
-      padding-left:24px;
-      unicode-bidi:embed; }
-    body[dir=rtl] :host:last-child > .td-data-table-heading{
-      padding-left:24px;
-      unicode-bidi:embed; }
-    [dir=rtl] :host:last-child > .td-data-table-heading{
-      padding-left:24px;
-      unicode-bidi:embed; }
-    :host:last-child > .td-data-table-heading bdo[dir=rtl]{
-      direction:rtl;
-      unicode-bidi:bidi-override; }
-    :host:last-child > .td-data-table-heading bdo[dir=ltr]{
-      direction:ltr;
-      unicode-bidi:bidi-override; }
-    html[dir=rtl] :host:last-child > .td-data-table-heading{
-      padding-right:28px;
-      unicode-bidi:embed; }
-    body[dir=rtl] :host:last-child > .td-data-table-heading{
-      padding-right:28px;
-      unicode-bidi:embed; }
-    [dir=rtl] :host:last-child > .td-data-table-heading{
-      padding-right:28px;
-      unicode-bidi:embed; }
-    :host:last-child > .td-data-table-heading bdo[dir=rtl]{
-      direction:rtl;
-      unicode-bidi:bidi-override; }
-    :host:last-child > .td-data-table-heading bdo[dir=ltr]{
-      direction:ltr;
-      unicode-bidi:bidi-override; }
-  :host mat-icon{
-    height:16px;
-    width:16px;
-    font-size:16px !important;
-    line-height:16px !important; }
-    :host mat-icon.td-data-table-sort-icon{
-      opacity:0;
-      -webkit-transition:-webkit-transform 0.25s;
-      transition:-webkit-transform 0.25s;
-      transition:transform 0.25s;
-      transition:transform 0.25s, -webkit-transform 0.25s;
-      position:absolute;
-      top:0; }
-      :host mat-icon.td-data-table-sort-icon.mat-asc{
-        -webkit-transform:rotate(0deg);
-                transform:rotate(0deg); }
-      :host mat-icon.td-data-table-sort-icon.mat-desc{
-        -webkit-transform:rotate(180deg);
-                transform:rotate(180deg); }
-  :host:hover.mat-sortable mat-icon.td-data-table-sort-icon,
-  :host.mat-active.mat-sortable mat-icon.td-data-table-sort-icon{
-    opacity:1; }
-  html[dir=rtl] :host{
-    text-align:right;
-    unicode-bidi:embed; }
-  body[dir=rtl] :host{
-    text-align:right;
-    unicode-bidi:embed; }
-  [dir=rtl] :host{
-    text-align:right;
-    unicode-bidi:embed; }
-  :host bdo[dir=rtl]{
-    direction:rtl;
-    unicode-bidi:bidi-override; }
-  :host bdo[dir=ltr]{
-    direction:ltr;
-    unicode-bidi:bidi-override; }
-  :host > *{
-    vertical-align:middle; }
-  :host.mat-clickable{
-    cursor:pointer; }
-    :host.mat-clickable:focus{
-      outline:none; }
-  :host .td-data-table-heading{
-    display:inline-block;
-    position:relative; }
-  :host.mat-numeric{
-    text-align:right; }
-    html[dir=rtl] :host.mat-numeric{
-      text-align:left;
-      unicode-bidi:embed; }
-    body[dir=rtl] :host.mat-numeric{
-      text-align:left;
-      unicode-bidi:embed; }
-    [dir=rtl] :host.mat-numeric{
-      text-align:left;
-      unicode-bidi:embed; }
-    :host.mat-numeric bdo[dir=rtl]{
-      direction:rtl;
-      unicode-bidi:bidi-override; }
-    :host.mat-numeric bdo[dir=ltr]{
-      direction:ltr;
-      unicode-bidi:bidi-override; }
-    :host.mat-numeric mat-icon.td-data-table-sort-icon{
-      margin-left:-22px;
-      margin-right:initial; }
-      html[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{
-        margin-left:initial;
-        unicode-bidi:embed; }
-      body[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{
-        margin-left:initial;
-        unicode-bidi:embed; }
-      [dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{
-        margin-left:initial;
-        unicode-bidi:embed; }
-      :host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=rtl]{
-        direction:rtl;
-        unicode-bidi:bidi-override; }
-      :host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=ltr]{
-        direction:ltr;
-        unicode-bidi:bidi-override; }
-      html[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{
-        margin-right:-22px;
-        unicode-bidi:embed; }
-      body[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{
-        margin-right:-22px;
-        unicode-bidi:embed; }
-      [dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{
-        margin-right:-22px;
-        unicode-bidi:embed; }
-      :host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=rtl]{
-        direction:rtl;
-        unicode-bidi:bidi-override; }
-      :host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=ltr]{
-        direction:ltr;
-        unicode-bidi:bidi-override; }
-  :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{
-    margin-left:6px;
-    margin-right:initial; }
-    html[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{
-      margin-left:initial;
-      unicode-bidi:embed; }
-    body[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{
-      margin-left:initial;
-      unicode-bidi:embed; }
-    [dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{
-      margin-left:initial;
-      unicode-bidi:embed; }
-    :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=rtl]{
-      direction:rtl;
-      unicode-bidi:bidi-override; }
-    :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=ltr]{
-      direction:ltr;
-      unicode-bidi:bidi-override; }
-    html[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{
-      margin-right:6px;
-      unicode-bidi:embed; }
-    body[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{
-      margin-right:6px;
-      unicode-bidi:embed; }
-    [dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{
-      margin-right:6px;
-      unicode-bidi:embed; }
-    :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=rtl]{
-      direction:rtl;
-      unicode-bidi:bidi-override; }
-    :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=ltr]{
-      direction:ltr;
-      unicode-bidi:bidi-override; }
-`],
+                styles: [`:host{white-space:nowrap;position:relative;padding:0;vertical-align:middle;text-align:left}:host>.td-data-table-heading{padding:0 28px}:host:first-child>.td-data-table-heading{padding-left:24px;padding-right:initial}html[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}body[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}:host:first-child>.td-data-table-heading bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:first-child>.td-data-table-heading bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:last-child>.td-data-table-heading{padding-left:28px;padding-right:24px}html[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}body[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}:host:last-child>.td-data-table-heading bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:last-child>.td-data-table-heading bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host mat-icon{height:16px;width:16px;font-size:16px!important;line-height:16px!important}:host mat-icon.td-data-table-sort-icon{opacity:0;-webkit-transition:-webkit-transform .25s;transition:-webkit-transform .25s;transition:transform .25s;transition:transform .25s,-webkit-transform .25s;position:absolute;top:0}:host mat-icon.td-data-table-sort-icon.mat-asc{-webkit-transform:rotate(0);transform:rotate(0)}:host mat-icon.td-data-table-sort-icon.mat-desc{-webkit-transform:rotate(180deg);transform:rotate(180deg)}:host.mat-active.mat-sortable mat-icon.td-data-table-sort-icon,:host:hover.mat-sortable mat-icon.td-data-table-sort-icon{opacity:1}html[dir=rtl] :host{text-align:right;unicode-bidi:embed}body[dir=rtl] :host{text-align:right;unicode-bidi:embed}[dir=rtl] :host{text-align:right;unicode-bidi:embed}:host bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host>*{vertical-align:middle}:host.mat-clickable{cursor:pointer}:host.mat-clickable:focus{outline:0}:host .td-data-table-heading{display:inline-block;position:relative}:host.mat-numeric{text-align:right}html[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}:host.mat-numeric bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:-22px;margin-right:initial}html[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}:host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:6px;margin-right:initial}html[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}body[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}`],
                 template: `<span #columnContent class="td-data-table-heading">
-  <mat-icon
-    class="td-data-table-sort-icon"
+  <mat-icon 
+    class="td-data-table-sort-icon" 
     *ngIf="sortable && numeric"
     [class.mat-asc]="(!(active) || isAscending())"
     [class.mat-desc]="(active && isDescending())">
@@ -1658,8 +1396,8 @@ TdDataTableColumnComponent.decorators = [
   <span>
     <ng-content></ng-content>
   </span>
-  <mat-icon
-    class="td-data-table-sort-icon"
+  <mat-icon 
+    class="td-data-table-sort-icon" 
     *ngIf="sortable && !numeric"
     [class.mat-asc]="(!(active) || isAscending())"
     [class.mat-desc]="(active && isDescending())">
@@ -1720,139 +1458,7 @@ TdDataTableCellComponent.decorators = [
     { type: Component, args: [{
                 /* tslint:disable-next-line */
                 selector: 'td[td-data-table-cell]',
-                styles: [`:host{
-  vertical-align:middle;
-  text-align:left;
-  padding:0; }
-  html[dir=rtl] :host{
-    text-align:right;
-    unicode-bidi:embed; }
-  body[dir=rtl] :host{
-    text-align:right;
-    unicode-bidi:embed; }
-  [dir=rtl] :host{
-    text-align:right;
-    unicode-bidi:embed; }
-  :host bdo[dir=rtl]{
-    direction:rtl;
-    unicode-bidi:bidi-override; }
-  :host bdo[dir=ltr]{
-    direction:ltr;
-    unicode-bidi:bidi-override; }
-  :host > .td-data-table-cell-content-wrapper{
-    padding:0 28px;
-    -webkit-box-sizing:border-box;
-            box-sizing:border-box;
-    display:-webkit-box;
-    display:-ms-flexbox;
-    display:flex;
-    -webkit-box-orient:horizontal;
-    -webkit-box-direction:normal;
-        -ms-flex-direction:row;
-            flex-direction:row;
-    -webkit-box-align:center;
-        -ms-flex-align:center;
-            align-items:center;
-    -ms-flex-line-pack:center;
-        align-content:center;
-    max-width:100%;
-    -webkit-box-pack:start;
-        -ms-flex-pack:start;
-            justify-content:start; }
-    :host > .td-data-table-cell-content-wrapper.td-data-table-cell-numeric{
-      -webkit-box-pack:end;
-          -ms-flex-pack:end;
-              justify-content:flex-end; }
-  :host:first-child > .td-data-table-cell-content-wrapper{
-    padding-left:24px;
-    padding-right:initial; }
-    html[dir=rtl] :host:first-child > .td-data-table-cell-content-wrapper{
-      padding-left:initial;
-      unicode-bidi:embed; }
-    body[dir=rtl] :host:first-child > .td-data-table-cell-content-wrapper{
-      padding-left:initial;
-      unicode-bidi:embed; }
-    [dir=rtl] :host:first-child > .td-data-table-cell-content-wrapper{
-      padding-left:initial;
-      unicode-bidi:embed; }
-    :host:first-child > .td-data-table-cell-content-wrapper bdo[dir=rtl]{
-      direction:rtl;
-      unicode-bidi:bidi-override; }
-    :host:first-child > .td-data-table-cell-content-wrapper bdo[dir=ltr]{
-      direction:ltr;
-      unicode-bidi:bidi-override; }
-    html[dir=rtl] :host:first-child > .td-data-table-cell-content-wrapper{
-      padding-right:24px;
-      unicode-bidi:embed; }
-    body[dir=rtl] :host:first-child > .td-data-table-cell-content-wrapper{
-      padding-right:24px;
-      unicode-bidi:embed; }
-    [dir=rtl] :host:first-child > .td-data-table-cell-content-wrapper{
-      padding-right:24px;
-      unicode-bidi:embed; }
-    :host:first-child > .td-data-table-cell-content-wrapper bdo[dir=rtl]{
-      direction:rtl;
-      unicode-bidi:bidi-override; }
-    :host:first-child > .td-data-table-cell-content-wrapper bdo[dir=ltr]{
-      direction:ltr;
-      unicode-bidi:bidi-override; }
-  :host:last-child > .td-data-table-cell-content-wrapper{
-    padding-left:28px;
-    padding-right:24px; }
-    html[dir=rtl] :host:last-child > .td-data-table-cell-content-wrapper{
-      padding-left:24px;
-      unicode-bidi:embed; }
-    body[dir=rtl] :host:last-child > .td-data-table-cell-content-wrapper{
-      padding-left:24px;
-      unicode-bidi:embed; }
-    [dir=rtl] :host:last-child > .td-data-table-cell-content-wrapper{
-      padding-left:24px;
-      unicode-bidi:embed; }
-    :host:last-child > .td-data-table-cell-content-wrapper bdo[dir=rtl]{
-      direction:rtl;
-      unicode-bidi:bidi-override; }
-    :host:last-child > .td-data-table-cell-content-wrapper bdo[dir=ltr]{
-      direction:ltr;
-      unicode-bidi:bidi-override; }
-    html[dir=rtl] :host:last-child > .td-data-table-cell-content-wrapper{
-      padding-right:28px;
-      unicode-bidi:embed; }
-    body[dir=rtl] :host:last-child > .td-data-table-cell-content-wrapper{
-      padding-right:28px;
-      unicode-bidi:embed; }
-    [dir=rtl] :host:last-child > .td-data-table-cell-content-wrapper{
-      padding-right:28px;
-      unicode-bidi:embed; }
-    :host:last-child > .td-data-table-cell-content-wrapper bdo[dir=rtl]{
-      direction:rtl;
-      unicode-bidi:bidi-override; }
-    :host:last-child > .td-data-table-cell-content-wrapper bdo[dir=ltr]{
-      direction:ltr;
-      unicode-bidi:bidi-override; }
-  :host > *{
-    vertical-align:middle; }
-  :host.mat-clickable{
-    cursor:pointer; }
-    :host.mat-clickable:focus{
-      outline:none; }
-  :host.mat-numeric{
-    text-align:right; }
-    html[dir=rtl] :host.mat-numeric{
-      text-align:left;
-      unicode-bidi:embed; }
-    body[dir=rtl] :host.mat-numeric{
-      text-align:left;
-      unicode-bidi:embed; }
-    [dir=rtl] :host.mat-numeric{
-      text-align:left;
-      unicode-bidi:embed; }
-    :host.mat-numeric bdo[dir=rtl]{
-      direction:rtl;
-      unicode-bidi:bidi-override; }
-    :host.mat-numeric bdo[dir=ltr]{
-      direction:ltr;
-      unicode-bidi:bidi-override; }
-`],
+                styles: [`:host{vertical-align:middle;text-align:left;padding:0}html[dir=rtl] :host{text-align:right;unicode-bidi:embed}body[dir=rtl] :host{text-align:right;unicode-bidi:embed}[dir=rtl] :host{text-align:right;unicode-bidi:embed}:host bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host>.td-data-table-cell-content-wrapper{padding:0 28px;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:start}:host>.td-data-table-cell-content-wrapper.td-data-table-cell-numeric{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}:host:first-child>.td-data-table-cell-content-wrapper{padding-left:24px;padding-right:initial}html[dir=rtl] :host:first-child>.td-data-table-cell-content-wrapper{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}body[dir=rtl] :host:first-child>.td-data-table-cell-content-wrapper{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}[dir=rtl] :host:first-child>.td-data-table-cell-content-wrapper{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}:host:first-child>.td-data-table-cell-content-wrapper bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:first-child>.td-data-table-cell-content-wrapper bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:last-child>.td-data-table-cell-content-wrapper{padding-left:28px;padding-right:24px}html[dir=rtl] :host:last-child>.td-data-table-cell-content-wrapper{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}body[dir=rtl] :host:last-child>.td-data-table-cell-content-wrapper{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}[dir=rtl] :host:last-child>.td-data-table-cell-content-wrapper{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}:host:last-child>.td-data-table-cell-content-wrapper bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:last-child>.td-data-table-cell-content-wrapper bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host>*{vertical-align:middle}:host.mat-clickable{cursor:pointer}:host.mat-clickable:focus{outline:0}:host.mat-numeric{text-align:right}html[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}:host.mat-numeric bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}`],
                 template: `<div class="td-data-table-cell-content-wrapper"
      [class.td-data-table-cell-numeric]="numeric">
   <ng-content></ng-content>
@@ -1888,13 +1494,7 @@ TdDataTableTableComponent.decorators = [
     { type: Component, args: [{
                 /* tslint:disable-next-line */
                 selector: 'table[td-data-table]',
-                styles: [`:host{
-  width:100%;
-  position:relative;
-  border-spacing:0;
-  overflow:hidden;
-  border-collapse:collapse; }
-`],
+                styles: [`:host{width:100%;position:relative;border-spacing:0;overflow:hidden;border-collapse:collapse}`],
                 template: `<ng-content></ng-content>`,
             },] },
 ];
