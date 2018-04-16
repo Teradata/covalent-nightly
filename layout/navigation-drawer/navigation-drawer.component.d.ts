@@ -1,6 +1,7 @@
 import { OnInit, OnDestroy, QueryList } from '@angular/core';
 import { Router } from '@angular/router';
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser';
+import { MatDrawerToggleResult } from '@angular/material/sidenav';
 import { TdLayoutComponent } from '../layout.component';
 export declare class TdNavigationDrawerMenuDirective {
 }
@@ -93,13 +94,13 @@ export declare class TdNavigationDrawerComponent implements OnInit, OnDestroy {
     /**
      * Proxy toggle method to access sidenav from outside (from td-layout template).
      */
-    toggle(): Promise<void>;
+    toggle(): Promise<MatDrawerToggleResult>;
     /**
      * Proxy open method to access sidenav from outside (from td-layout template).
      */
-    open(): Promise<void>;
+    open(): Promise<MatDrawerToggleResult>;
     /**
      * Proxy close method to access sidenav from outside (from td-layout template).
      */
-    close(): Promise<void>;
+    close(): Promise<MatDrawerToggleResult>;
 }

@@ -1,8 +1,8 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/cdk/portal'), require('@angular/platform-browser'), require('@angular/forms'), require('@angular/cdk/coercion'), require('@angular/cdk/keycodes'), require('rxjs/Subject'), require('rxjs/operators/debounceTime'), require('@covalent/core/common'), require('@angular/common'), require('@angular/material/checkbox'), require('@angular/material/tooltip'), require('@angular/material/icon'), require('@angular/material/core')) :
-	typeof define === 'function' && define.amd ? define('@covalent/core/data-table', ['exports', '@angular/core', '@angular/cdk/portal', '@angular/platform-browser', '@angular/forms', '@angular/cdk/coercion', '@angular/cdk/keycodes', 'rxjs/Subject', 'rxjs/operators/debounceTime', '@covalent/core/common', '@angular/common', '@angular/material/checkbox', '@angular/material/tooltip', '@angular/material/icon', '@angular/material/core'], factory) :
-	(factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core['data-table'] = {}),global.ng.core,global.ng.cdk.portal,global.ng.platformBrowser,global.ng.forms,global.ng.cdk.coercion,global.ng.cdk.keycodes,global.Rx,global.Rx.Observable.prototype,global.covalent.core.common,global.ng.common,global.ng.material.checkbox,global.ng.material.tooltip,global.ng.material.icon,global.ng.material.core));
-}(this, (function (exports,core,portal,platformBrowser,forms,coercion,keycodes,Subject,debounceTime,common,common$1,checkbox,tooltip,icon,core$1) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/cdk/portal'), require('@angular/platform-browser'), require('@angular/forms'), require('@angular/cdk/coercion'), require('@angular/cdk/keycodes'), require('rxjs'), require('rxjs/operators'), require('@covalent/core/common'), require('@angular/common'), require('@angular/material/checkbox'), require('@angular/material/tooltip'), require('@angular/material/icon'), require('@angular/material/core')) :
+	typeof define === 'function' && define.amd ? define('@covalent/core/data-table', ['exports', '@angular/core', '@angular/cdk/portal', '@angular/platform-browser', '@angular/forms', '@angular/cdk/coercion', '@angular/cdk/keycodes', 'rxjs', 'rxjs/operators', '@covalent/core/common', '@angular/common', '@angular/material/checkbox', '@angular/material/tooltip', '@angular/material/icon', '@angular/material/core'], factory) :
+	(factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core['data-table'] = {}),global.ng.core,global.ng.cdk.portal,global.ng.platformBrowser,global.ng.forms,global.ng.cdk.coercion,global.ng.cdk.keycodes,global.rxjs,global.Rx.Observable.prototype,global.covalent.core.common,global.ng.common,global.ng.material.checkbox,global.ng.material.tooltip,global.ng.material.icon,global.ng.material.core));
+}(this, (function (exports,core,portal,platformBrowser,forms,coercion,keycodes,rxjs,operators,common,common$1,checkbox,tooltip,icon,core$1) { 'use strict';
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
@@ -159,10 +159,10 @@ var TdDataTableComponent = /** @class */ (function (_super) {
         _this._domSanitizer = _domSanitizer;
         _this._hostWidth = 0;
         _this._widths = [];
-        _this._onResize = new Subject.Subject();
+        _this._onResize = new rxjs.Subject();
         _this._scrollHorizontalOffset = 0;
-        _this._onHorizontalScroll = new Subject.Subject();
-        _this._onVerticalScroll = new Subject.Subject();
+        _this._onHorizontalScroll = new rxjs.Subject();
+        _this._onVerticalScroll = new rxjs.Subject();
         _this._rowHeightCache = [];
         _this._totalHeight = 0;
         _this._hostHeight = 0;
@@ -435,7 +435,7 @@ var TdDataTableComponent = /** @class */ (function (_super) {
     };
     TdDataTableComponent.prototype.ngAfterViewInit = function () {
         var _this = this;
-        this._rowsChangedSubs = this._rows.changes.pipe(debounceTime.debounceTime(0)).subscribe(function () {
+        this._rowsChangedSubs = this._rows.changes.pipe(operators.debounceTime(0)).subscribe(function () {
             _this._onResize.next();
         });
         this._calculateVirtualRows();

@@ -1,8 +1,7 @@
 import { ComponentFactoryResolver, Provider } from '@angular/core';
 import { Injector, ComponentRef, ViewContainerRef, TemplateRef } from '@angular/core';
 import { Overlay } from '@angular/cdk/overlay';
-import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs/Observable';
+import { Observable, Subject } from 'rxjs';
 import { TdLoadingContext } from '../directives/loading.directive';
 import { LoadingStyle } from '../loading.component';
 import { ITdLoadingConfig } from './loading.service';

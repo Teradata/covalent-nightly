@@ -3,8 +3,7 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { NgModel, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
 import { mixinDisabled, mixinControlValueAccessor } from '@covalent/core/common';
 import { TemplatePortalDirective, PortalModule } from '@angular/cdk/portal';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
+import { Observable, Subject } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -526,7 +525,7 @@ TdFileUploadComponent.decorators = [
                [accept]="accept"
                [color]="defaultColor"
                (select)="handleSelect($event)">
-  <ng-template [cdkPortalHost]="inputLabel" [ngIf]="true"></ng-template>
+  <ng-template [cdkPortalOutlet]="inputLabel" [ngIf]="true"></ng-template>
 </td-file-input>
 <div *ngIf="value">
   <button #fileUpload
@@ -600,7 +599,7 @@ class TdFileService {
      * }
      *
      * Uses underlying [XMLHttpRequest] to upload a file to a url.
-     * Will be depricated when angular fixes [Http] to allow [FormData] as body.
+     * Will be depricated when Angular fixes [Http] to allow [FormData] as body.
      * @param {?} options
      * @return {?}
      */

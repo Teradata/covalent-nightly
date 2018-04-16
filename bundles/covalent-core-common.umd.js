@@ -1,8 +1,8 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/animations'), require('@angular/forms'), require('@angular/common'), require('@angular/router'), require('rxjs/operators/filter'), require('rxjs/operators/pairwise'), require('rxjs/Subject'), require('@angular/cdk/coercion')) :
-	typeof define === 'function' && define.amd ? define('@covalent/core/common', ['exports', '@angular/core', '@angular/animations', '@angular/forms', '@angular/common', '@angular/router', 'rxjs/operators/filter', 'rxjs/operators/pairwise', 'rxjs/Subject', '@angular/cdk/coercion'], factory) :
-	(factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.common = {}),global.ng.core,global.ng.animations,global.ng.forms,global.ng.common,global.ng.router,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.Rx,global.ng.cdk.coercion));
-}(this, (function (exports,core,animations,forms,common,router,filter,pairwise,Subject,coercion) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/animations'), require('@angular/forms'), require('@angular/common'), require('@angular/router'), require('rxjs/operators'), require('rxjs'), require('@angular/cdk/coercion')) :
+	typeof define === 'function' && define.amd ? define('@covalent/core/common', ['exports', '@angular/core', '@angular/animations', '@angular/forms', '@angular/common', '@angular/router', 'rxjs/operators', 'rxjs', '@angular/cdk/coercion'], factory) :
+	(factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.common = {}),global.ng.core,global.ng.animations,global.ng.forms,global.ng.common,global.ng.router,global.Rx.Observable.prototype,global.rxjs,global.ng.cdk.coercion));
+}(this, (function (exports,core,animations,forms,common,router,operators,rxjs,coercion) { 'use strict';
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
@@ -498,7 +498,7 @@ TdTruncatePipe.ctorParameters = function () { return []; };
 var RouterPathService = /** @class */ (function () {
     function RouterPathService(_router) {
         this._router = _router;
-        this._router.events.pipe(filter.filter(function (e) { return e instanceof router.RoutesRecognized; }), pairwise.pairwise()).subscribe(function (e) {
+        this._router.events.pipe(operators.filter(function (e) { return e instanceof router.RoutesRecognized; }), operators.pairwise()).subscribe(function (e) {
             RouterPathService._previousRoute = e[0].urlAfterRedirects;
         });
     }
@@ -1572,7 +1572,7 @@ function mixinControlValueAccessor(base, initialValue) {
             _this._value = initialValue;
             _this.onChange = function (_) { return noop; };
             _this.onTouched = function () { return noop; };
-            _this._subjectValueChanges = new Subject.Subject();
+            _this._subjectValueChanges = new rxjs.Subject();
             _this.valueChanges = _this._subjectValueChanges.asObservable();
             return _this;
         }

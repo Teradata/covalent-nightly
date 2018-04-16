@@ -3,8 +3,7 @@ import { trigger, state, style, transition, animate, AUTO_STYLE } from '@angular
 import { NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
 import { Dir } from '@angular/cdk/bidi';
 import { MatInput, MatInputModule } from '@angular/material/input';
-import { debounceTime } from 'rxjs/operators/debounceTime';
-import { skip } from 'rxjs/operators/skip';
+import { debounceTime, skip } from 'rxjs/operators';
 import { mixinControlValueAccessor } from '@covalent/core/common';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
@@ -142,7 +141,7 @@ TdSearchInputComponent.decorators = [
                 template: `<div class="td-search-input">
   <mat-form-field class="td-search-input-field"
                   [class.mat-hide-underline]="!showUnderline"
-                  floatPlaceholder="never">
+                  floatLabel="never">
     <input matInput
             #searchElement
             type="search"
@@ -160,7 +159,7 @@ TdSearchInputComponent.decorators = [
     <mat-icon>{{clearIcon}}</mat-icon>
   </button>
 </div>`,
-                styles: [`.td-search-input{overflow-x:hidden;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}.td-search-input .td-search-input-field{-webkit-box-flex:1;-ms-flex:1;flex:1}.td-search-input ::ng-deep mat-form-field.mat-hide-underline .mat-form-field-underline{display:none}.td-search-input .td-search-input-clear{-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto}`],
+                styles: [`:host .td-search-input{overflow-x:hidden;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}:host .td-search-input .td-search-input-field{-webkit-box-flex:1;-ms-flex:1;flex:1}:host .td-search-input ::ng-deep mat-form-field .mat-input-element{caret-color:currentColor}:host .td-search-input ::ng-deep mat-form-field.mat-hide-underline .mat-form-field-underline{display:none}:host .td-search-input .td-search-input-clear{-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto}`],
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 inputs: ['value'],
                 animations: [

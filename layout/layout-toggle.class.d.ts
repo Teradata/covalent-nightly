@@ -1,12 +1,12 @@
 import { Renderer2, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
+import { MatSidenav, MatDrawerToggleResult } from '@angular/material/sidenav';
 import { ICanDisable } from '@covalent/core/common';
 export interface ILayoutTogglable {
     opened: boolean;
     sidenav: MatSidenav;
-    toggle(): Promise<void>;
-    open(): Promise<void>;
-    close(): Promise<void>;
+    toggle(): Promise<MatDrawerToggleResult>;
+    open(): Promise<MatDrawerToggleResult>;
+    close(): Promise<MatDrawerToggleResult>;
 }
 export declare class LayoutToggleBase {
 }

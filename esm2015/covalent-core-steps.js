@@ -419,7 +419,7 @@ TdStepsComponent.decorators = [
                     [disabled]="step.disabled" 
                     [state]="step.state"
                     (click)="step.open()">
-      <ng-template td-step-header-label [cdkPortalHost]="step.stepLabel"></ng-template>
+      <ng-template td-step-header-label [cdkPortalOutlet]="step.stepLabel"></ng-template>
       <ng-template td-step-header-label [ngIf]="!step.stepLabel">{{step.label}}</ng-template>
       <ng-template td-step-header-sublabel [ngIf]="true">{{step.sublabel | truncate:30}}</ng-template>
     </td-step-header>
@@ -436,7 +436,7 @@ TdStepsComponent.decorators = [
                   [state]="step.state"
                   (click)="step.toggle()"
                   *ngIf="isVertical()">
-    <ng-template td-step-header-label [cdkPortalHost]="step.stepLabel"></ng-template>
+    <ng-template td-step-header-label [cdkPortalOutlet]="step.stepLabel"></ng-template>
     <ng-template td-step-header-label [ngIf]="!step.stepLabel">{{step.label}}</ng-template>
     <ng-template td-step-header-sublabel [ngIf]="true">{{step.sublabel}}</ng-template>
   </td-step-header>
@@ -445,9 +445,9 @@ TdStepsComponent.decorators = [
       <div *ngIf="isVertical()" class="td-line-wrapper">
         <div *ngIf="!last" class="td-vertical-line"></div>
       </div>
-      <ng-template td-step-body-content [cdkPortalHost]="step.stepContent"></ng-template>
-      <ng-template td-step-body-actions [cdkPortalHost]="step.stepActions"></ng-template>
-      <ng-template td-step-body-summary [cdkPortalHost]="step.stepSummary"></ng-template>
+      <ng-template td-step-body-content [cdkPortalOutlet]="step.stepContent"></ng-template>
+      <ng-template td-step-body-actions [cdkPortalOutlet]="step.stepActions"></ng-template>
+      <ng-template td-step-body-summary [cdkPortalOutlet]="step.stepSummary"></ng-template>
     </td-step-body>
   </ng-template>
 </div>

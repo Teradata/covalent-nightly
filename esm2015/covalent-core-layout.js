@@ -1050,7 +1050,7 @@ class TdNavigationDrawerComponent {
      * @param {?} backgroundUrl
      * @return {?}
      */
-    // TODO angular complains with warnings if this is type [SafeResourceUrl].. so we will make it <any> until its fixed.
+    // TODO Angular complains with warnings if this is type [SafeResourceUrl].. so we will make it <any> until its fixed.
     // https://github.com/webpack/webpack/issues/2977
     set backgroundUrl(backgroundUrl) {
         if (backgroundUrl) {

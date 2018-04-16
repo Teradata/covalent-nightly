@@ -9,24 +9,17 @@ import { DomSanitizer, DOCUMENT } from '@angular/platform-browser';
 import { animate, AnimationBuilder, AUTO_STYLE, style, animation, trigger, state, transition, query, animateChild, group, keyframes } from '@angular/animations';
 import { NgModel, FormsModule, Validators, NG_VALUE_ACCESSOR, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Router, RoutesRecognized } from '@angular/router';
-import { filter } from 'rxjs/operators/filter';
-import { pairwise } from 'rxjs/operators/pairwise';
-import { Subject } from 'rxjs/Subject';
+import { filter, pairwise, debounceTime, skip } from 'rxjs/operators';
+import { Subject, timer, merge, fromEvent, Observable, BehaviorSubject } from 'rxjs';
 import { TdCollapseAnimation, mixinDisabled, mixinControlValueAccessor, mixinDisableRipple, TdRotateAnimation, TdFadeInOutAnimation, CovalentCommonModule } from '@covalent/core/common';
 import { UP_ARROW, DOWN_ARROW, ESCAPE, LEFT_ARROW, RIGHT_ARROW, DELETE, BACKSPACE, TAB, ENTER, SPACE } from '@angular/cdk/keycodes';
 import { MatChip, MatChipsModule } from '@angular/material/chips';
 import { MatInput, MatInputModule } from '@angular/material/input';
 import { MatOption, MatPseudoCheckboxModule, MatRippleModule } from '@angular/material/core';
 import { MatAutocompleteTrigger, MatAutocompleteModule } from '@angular/material/autocomplete';
-import { timer } from 'rxjs/observable/timer';
-import { merge } from 'rxjs/observable/merge';
-import { toPromise } from 'rxjs/operator/toPromise';
-import { fromEvent } from 'rxjs/observable/fromEvent';
-import { debounceTime } from 'rxjs/operators/debounceTime';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogRef, MatDialog, MatDialogConfig, MatDialogModule } from '@angular/material/dialog';
-import { Observable } from 'rxjs/Observable';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -35,9 +28,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { Overlay, OverlayConfig, OverlayModule } from '@angular/cdk/overlay';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { MatMenuModule } from '@angular/material/menu';
-import { skip } from 'rxjs/operators/skip';
 
 /**
  * @fileoverview added by tsickle
@@ -3515,7 +3506,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
     mousedownListener(event) {
         // sets a flag to know if there was a mousedown and then it returns it back to false
         this._isMousedown = true;
-        toPromise.call(timer()).then(() => {
+        timer().toPromise().then(() => {
             this._isMousedown = false;
         });
     }
@@ -3543,7 +3534,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
         switch (event.keyCode) {
             case TAB:
                 // if tabing out, then unfocus the component
-                toPromise.call(timer()).then(() => {
+                timer().toPromise().then(() => {
                     this.removeFocusedState();
                 });
                 break;
@@ -3658,7 +3649,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
              * to rerender the next list and at the correct spot
              */
         this._closeAutocomplete();
-        toPromise.call(timer(this.debounce)).then(() => {
+        timer(this.debounce).toPromise().then(() => {
             this.setFocusedState();
             this._setFirstOptionActive();
             this._openAutocomplete();
@@ -3951,7 +3942,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
     _setFirstOptionActive() {
         if (this.requireMatch) {
             // need to use a timer here to wait until the autocomplete has been opened (end of queue)
-            toPromise.call(timer()).then(() => {
+            timer().toPromise().then(() => {
                 if (this.focused && this._options && this._options.length > 0) {
                     // clean up of previously active options
                     this._options.toArray().forEach((option) => {
@@ -4009,6 +4000,7 @@ TdChipsComponent.decorators = [
   <ng-template let-chip let-first="first" let-index="index" ngFor [ngForOf]="value">
     <mat-basic-chip [class.td-chip-disabled]="disabled"
                    [class.td-chip-after-pad]="!canRemoveChip"
+                   [disableRipple]="true"
                    [color]="color"
                    (keydown)="_chipKeydown($event, index)"
                    (blur)="_handleChipBlur($event, chip)"
@@ -4028,7 +4020,7 @@ TdChipsComponent.decorators = [
       </div>
     </mat-basic-chip>
   </ng-template>
-  <mat-form-field floatPlaceholder="never"
+  <mat-form-field floatLabel="never"
                   class="td-chips-form-field"
                   [style.width.px]="canAddChip ? null : 0"
                   [style.height.px]="canAddChip ? null : 0"
@@ -6470,16 +6462,16 @@ TdExpansionPanelComponent.decorators = [
       [tabIndex]="disabled? -1 : 0"
       (keydown.enter)="clickEvent()"
       (click)="clickEvent()">
-  <ng-template [cdkPortalHost]="expansionPanelHeader"></ng-template>
+  <ng-template [cdkPortalOutlet]="expansionPanelHeader"></ng-template>
   <div class="td-expansion-panel-header-content"
         [class.mat-disabled]="disabled"
         *ngIf="!expansionPanelHeader">
     <div *ngIf="label || expansionPanelLabel" class="td-expansion-label">
-      <ng-template [cdkPortalHost]="expansionPanelLabel"></ng-template>
+      <ng-template [cdkPortalOutlet]="expansionPanelLabel"></ng-template>
       <ng-template [ngIf]="!expansionPanelLabel">{{label}}</ng-template>
     </div>
     <div *ngIf="sublabel || expansionPanelSublabel" class="td-expansion-sublabel">
-      <ng-template [cdkPortalHost]="expansionPanelSublabel"></ng-template>
+      <ng-template [cdkPortalOutlet]="expansionPanelSublabel"></ng-template>
       <ng-template [ngIf]="!expansionPanelSublabel">{{sublabel}}</ng-template>
     </div>
     <mat-icon class="td-expand-icon" *ngIf="!disabled" [@tdRotate]="expand">keyboard_arrow_down</mat-icon>
@@ -7105,7 +7097,7 @@ TdFileUploadComponent.decorators = [
                [accept]="accept"
                [color]="defaultColor"
                (select)="handleSelect($event)">
-  <ng-template [cdkPortalHost]="inputLabel" [ngIf]="true"></ng-template>
+  <ng-template [cdkPortalOutlet]="inputLabel" [ngIf]="true"></ng-template>
 </td-file-input>
 <div *ngIf="value">
   <button #fileUpload
@@ -7179,7 +7171,7 @@ class TdFileService {
      * }
      *
      * Uses underlying [XMLHttpRequest] to upload a file to a url.
-     * Will be depricated when angular fixes [Http] to allow [FormData] as body.
+     * Will be depricated when Angular fixes [Http] to allow [FormData] as body.
      * @param {?} options
      * @return {?}
      */
@@ -8634,7 +8626,7 @@ class TdNavigationDrawerComponent {
      * @param {?} backgroundUrl
      * @return {?}
      */
-    // TODO angular complains with warnings if this is type [SafeResourceUrl].. so we will make it <any> until its fixed.
+    // TODO Angular complains with warnings if this is type [SafeResourceUrl].. so we will make it <any> until its fixed.
     // https://github.com/webpack/webpack/issues/2977
     set backgroundUrl(backgroundUrl) {
         if (backgroundUrl) {
@@ -9104,7 +9096,7 @@ TdLoadingComponent.decorators = [
                      [color]="color">
     </mat-progress-bar>
   </div>
-  <ng-template [cdkPortalHost]="content"></ng-template>
+  <ng-template [cdkPortalOutlet]="content"></ng-template>
 </div>`,
                 animations: [
                     TdFadeInOutAnimation(),
@@ -9847,7 +9839,7 @@ class TdMediaService {
         this._queryMap.set('portrait', '(orientation: portrait)');
         this._queryMap.set('print', 'print');
         this._resizing = false;
-        // we make sure that the resize checking happend outside of angular since it happens often
+        // we make sure that the resize checking happend outside of Angular since it happens often
         this._globalSubscription = this._ngZone.runOutsideAngular(() => {
             return fromEvent(window, 'resize').subscribe(() => {
                 // way to prevent the resize event from triggering the match media if there is already one event running already.
@@ -10324,7 +10316,7 @@ TdSearchInputComponent.decorators = [
                 template: `<div class="td-search-input">
   <mat-form-field class="td-search-input-field"
                   [class.mat-hide-underline]="!showUnderline"
-                  floatPlaceholder="never">
+                  floatLabel="never">
     <input matInput
             #searchElement
             type="search"
@@ -10342,7 +10334,7 @@ TdSearchInputComponent.decorators = [
     <mat-icon>{{clearIcon}}</mat-icon>
   </button>
 </div>`,
-                styles: [`.td-search-input{overflow-x:hidden;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}.td-search-input .td-search-input-field{-webkit-box-flex:1;-ms-flex:1;flex:1}.td-search-input ::ng-deep mat-form-field.mat-hide-underline .mat-form-field-underline{display:none}.td-search-input .td-search-input-clear{-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto}`],
+                styles: [`:host .td-search-input{overflow-x:hidden;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}:host .td-search-input .td-search-input-field{-webkit-box-flex:1;-ms-flex:1;flex:1}:host .td-search-input ::ng-deep mat-form-field .mat-input-element{caret-color:currentColor}:host .td-search-input ::ng-deep mat-form-field.mat-hide-underline .mat-form-field-underline{display:none}:host .td-search-input .td-search-input-clear{-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto}`],
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 inputs: ['value'],
                 animations: [
@@ -11008,7 +11000,7 @@ TdStepsComponent.decorators = [
                     [disabled]="step.disabled" 
                     [state]="step.state"
                     (click)="step.open()">
-      <ng-template td-step-header-label [cdkPortalHost]="step.stepLabel"></ng-template>
+      <ng-template td-step-header-label [cdkPortalOutlet]="step.stepLabel"></ng-template>
       <ng-template td-step-header-label [ngIf]="!step.stepLabel">{{step.label}}</ng-template>
       <ng-template td-step-header-sublabel [ngIf]="true">{{step.sublabel | truncate:30}}</ng-template>
     </td-step-header>
@@ -11025,7 +11017,7 @@ TdStepsComponent.decorators = [
                   [state]="step.state"
                   (click)="step.toggle()"
                   *ngIf="isVertical()">
-    <ng-template td-step-header-label [cdkPortalHost]="step.stepLabel"></ng-template>
+    <ng-template td-step-header-label [cdkPortalOutlet]="step.stepLabel"></ng-template>
     <ng-template td-step-header-label [ngIf]="!step.stepLabel">{{step.label}}</ng-template>
     <ng-template td-step-header-sublabel [ngIf]="true">{{step.sublabel}}</ng-template>
   </td-step-header>
@@ -11034,9 +11026,9 @@ TdStepsComponent.decorators = [
       <div *ngIf="isVertical()" class="td-line-wrapper">
         <div *ngIf="!last" class="td-vertical-line"></div>
       </div>
-      <ng-template td-step-body-content [cdkPortalHost]="step.stepContent"></ng-template>
-      <ng-template td-step-body-actions [cdkPortalHost]="step.stepActions"></ng-template>
-      <ng-template td-step-body-summary [cdkPortalHost]="step.stepSummary"></ng-template>
+      <ng-template td-step-body-content [cdkPortalOutlet]="step.stepContent"></ng-template>
+      <ng-template td-step-body-actions [cdkPortalOutlet]="step.stepActions"></ng-template>
+      <ng-template td-step-body-summary [cdkPortalOutlet]="step.stepSummary"></ng-template>
     </td-step-body>
   </ng-template>
 </div>

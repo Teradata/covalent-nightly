@@ -4,9 +4,8 @@ import { animate, AnimationBuilder, AUTO_STYLE, style, animation, trigger, state
 import { NgModel, FormsModule, Validators } from '@angular/forms';
 import { DecimalPipe, CommonModule } from '@angular/common';
 import { Router, RoutesRecognized } from '@angular/router';
-import { filter } from 'rxjs/operators/filter';
-import { pairwise } from 'rxjs/operators/pairwise';
-import { Subject } from 'rxjs/Subject';
+import { filter, pairwise } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 var TdToggleDirective = /** @class */ (function () {

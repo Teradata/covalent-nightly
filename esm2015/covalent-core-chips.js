@@ -8,12 +8,8 @@ import { MatChip, MatChipsModule } from '@angular/material/chips';
 import { MatInput, MatInputModule } from '@angular/material/input';
 import { MatOption } from '@angular/material/core';
 import { MatAutocompleteTrigger, MatAutocompleteModule } from '@angular/material/autocomplete';
-import { timer } from 'rxjs/observable/timer';
-import { merge } from 'rxjs/observable/merge';
-import { toPromise } from 'rxjs/operator/toPromise';
-import { fromEvent } from 'rxjs/observable/fromEvent';
-import { filter } from 'rxjs/operators/filter';
-import { debounceTime } from 'rxjs/operators/debounceTime';
+import { timer, merge, fromEvent } from 'rxjs';
+import { filter, debounceTime } from 'rxjs/operators';
 import { mixinDisabled, mixinControlValueAccessor } from '@covalent/core/common';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
@@ -302,7 +298,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
     mousedownListener(event) {
         // sets a flag to know if there was a mousedown and then it returns it back to false
         this._isMousedown = true;
-        toPromise.call(timer()).then(() => {
+        timer().toPromise().then(() => {
             this._isMousedown = false;
         });
     }
@@ -330,7 +326,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
         switch (event.keyCode) {
             case TAB:
                 // if tabing out, then unfocus the component
-                toPromise.call(timer()).then(() => {
+                timer().toPromise().then(() => {
                     this.removeFocusedState();
                 });
                 break;
@@ -445,7 +441,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
              * to rerender the next list and at the correct spot
              */
         this._closeAutocomplete();
-        toPromise.call(timer(this.debounce)).then(() => {
+        timer(this.debounce).toPromise().then(() => {
             this.setFocusedState();
             this._setFirstOptionActive();
             this._openAutocomplete();
@@ -738,7 +734,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
     _setFirstOptionActive() {
         if (this.requireMatch) {
             // need to use a timer here to wait until the autocomplete has been opened (end of queue)
-            toPromise.call(timer()).then(() => {
+            timer().toPromise().then(() => {
                 if (this.focused && this._options && this._options.length > 0) {
                     // clean up of previously active options
                     this._options.toArray().forEach((option) => {
@@ -796,6 +792,7 @@ TdChipsComponent.decorators = [
   <ng-template let-chip let-first="first" let-index="index" ngFor [ngForOf]="value">
     <mat-basic-chip [class.td-chip-disabled]="disabled"
                    [class.td-chip-after-pad]="!canRemoveChip"
+                   [disableRipple]="true"
                    [color]="color"
                    (keydown)="_chipKeydown($event, index)"
                    (blur)="_handleChipBlur($event, chip)"
@@ -815,7 +812,7 @@ TdChipsComponent.decorators = [
       </div>
     </mat-basic-chip>
   </ng-template>
-  <mat-form-field floatPlaceholder="never"
+  <mat-form-field floatLabel="never"
                   class="td-chips-form-field"
                   [style.width.px]="canAddChip ? null : 0"
                   [style.height.px]="canAddChip ? null : 0"

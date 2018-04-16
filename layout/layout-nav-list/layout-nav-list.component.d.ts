@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { MatSidenav } from '@angular/material/sidenav';
+import { MatSidenav, MatDrawerToggleResult } from '@angular/material/sidenav';
 import { ILayoutTogglable } from '../layout-toggle.class';
 export declare class TdLayoutNavListComponent implements ILayoutTogglable {
     private _router;
@@ -78,13 +78,13 @@ export declare class TdLayoutNavListComponent implements ILayoutTogglable {
     /**
      * Proxy toggle method to access sidenav from outside (from td-layout template).
      */
-    toggle(): Promise<void>;
+    toggle(): Promise<MatDrawerToggleResult>;
     /**
      * Proxy open method to access sidenav from outside (from td-layout template).
      */
-    open(): Promise<void>;
+    open(): Promise<MatDrawerToggleResult>;
     /**
      * Proxy close method to access sidenav from outside (from td-layout template).
      */
-    close(): Promise<void>;
+    close(): Promise<MatDrawerToggleResult>;
 }

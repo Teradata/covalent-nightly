@@ -5,7 +5,7 @@
   "typings": "covalent-core-json-formatter.d.ts",
   "metadata": "covalent-core-json-formatter.metadata.json",
   "dependencies": {
-    "tslib": "^1.7.1"
+    "tslib": "^1.9.0"
   },
   "name": "@covalent/core/json-formatter"
 }

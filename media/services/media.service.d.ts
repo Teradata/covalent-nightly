@@ -1,5 +1,5 @@
 import { NgZone, Provider } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 export declare class TdMediaService {
     private _ngZone;
     private _resizing;

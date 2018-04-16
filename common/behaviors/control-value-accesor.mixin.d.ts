@@ -1,7 +1,7 @@
 import { Constructor } from './constructor';
 import { ChangeDetectorRef } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 export interface IControlValueAccessor extends ControlValueAccessor {
     value: any;
     valueChanges: Observable<any>;

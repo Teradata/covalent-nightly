@@ -1,6 +1,5 @@
 import { Injectable, NgZone, SkipSelf, Optional, Directive, ElementRef, Input, Renderer2, NgModule } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { fromEvent } from 'rxjs/observable/fromEvent';
+import { BehaviorSubject, fromEvent } from 'rxjs';
 import { CommonModule } from '@angular/common';
 
 var TdMediaService = /** @class */ (function () {

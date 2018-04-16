@@ -1,8 +1,8 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('rxjs/BehaviorSubject'), require('rxjs/observable/fromEvent'), require('@angular/common')) :
-	typeof define === 'function' && define.amd ? define('@covalent/core/media', ['exports', '@angular/core', 'rxjs/BehaviorSubject', 'rxjs/observable/fromEvent', '@angular/common'], factory) :
-	(factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.media = {}),global.ng.core,global.Rx,global.Rx.Observable,global.ng.common));
-}(this, (function (exports,core,BehaviorSubject,fromEvent,common) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('rxjs'), require('@angular/common')) :
+	typeof define === 'function' && define.amd ? define('@covalent/core/media', ['exports', '@angular/core', 'rxjs', '@angular/common'], factory) :
+	(factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.media = {}),global.ng.core,global.rxjs,global.ng.common));
+}(this, (function (exports,core,rxjs,common) { 'use strict';
 
 var TdMediaService = /** @class */ (function () {
     function TdMediaService(_ngZone) {
@@ -26,7 +26,7 @@ var TdMediaService = /** @class */ (function () {
         this._queryMap.set('print', 'print');
         this._resizing = false;
         this._globalSubscription = this._ngZone.runOutsideAngular(function () {
-            return fromEvent.fromEvent(window, 'resize').subscribe(function () {
+            return rxjs.fromEvent(window, 'resize').subscribe(function () {
                 if (!_this._resizing) {
                     _this._resizing = true;
                     setTimeout(function () {
@@ -58,7 +58,7 @@ var TdMediaService = /** @class */ (function () {
             query = this._queryMap.get(query.toLowerCase());
         }
         if (!this._querySources[query]) {
-            this._querySources[query] = new BehaviorSubject.BehaviorSubject(matchMedia(query).matches);
+            this._querySources[query] = new rxjs.BehaviorSubject(matchMedia(query).matches);
             this._queryObservables[query] = this._querySources[query].asObservable();
         }
         return this._queryObservables[query];

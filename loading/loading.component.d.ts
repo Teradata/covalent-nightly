@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, ElementRef, DoCheck } from '@angular/core';
 import { AnimationEvent } from '@angular/animations';
 import { TemplatePortal } from '@angular/cdk/portal';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 export declare enum LoadingType {
     Circular = "circular",
     Linear = "linear",

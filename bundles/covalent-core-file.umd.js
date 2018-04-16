@@ -1,8 +1,8 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/cdk/coercion'), require('@angular/forms'), require('@covalent/core/common'), require('@angular/cdk/portal'), require('rxjs/Observable'), require('rxjs/Subject'), require('@angular/common'), require('@angular/material/icon'), require('@angular/material/button')) :
-	typeof define === 'function' && define.amd ? define('@covalent/core/file', ['exports', '@angular/core', '@angular/cdk/coercion', '@angular/forms', '@covalent/core/common', '@angular/cdk/portal', 'rxjs/Observable', 'rxjs/Subject', '@angular/common', '@angular/material/icon', '@angular/material/button'], factory) :
-	(factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.file = {}),global.ng.core,global.ng.cdk.coercion,global.ng.forms,global.covalent.core.common,global.ng.cdk.portal,global.Rx,global.Rx,global.ng.common,global.ng.material.icon,global.ng.material.button));
-}(this, (function (exports,core,coercion,forms,common,portal,Observable,Subject,common$1,icon,button) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/cdk/coercion'), require('@angular/forms'), require('@covalent/core/common'), require('@angular/cdk/portal'), require('rxjs'), require('@angular/common'), require('@angular/material/icon'), require('@angular/material/button')) :
+	typeof define === 'function' && define.amd ? define('@covalent/core/file', ['exports', '@angular/core', '@angular/cdk/coercion', '@angular/forms', '@covalent/core/common', '@angular/cdk/portal', 'rxjs', '@angular/common', '@angular/material/icon', '@angular/material/button'], factory) :
+	(factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.file = {}),global.ng.core,global.ng.cdk.coercion,global.ng.forms,global.covalent.core.common,global.ng.cdk.portal,global.rxjs,global.ng.common,global.ng.material.icon,global.ng.material.button));
+}(this, (function (exports,core,coercion,forms,common,portal,rxjs,common$1,icon,button) { 'use strict';
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
@@ -343,7 +343,7 @@ TdFileUploadComponent.decorators = [
                 selector: 'td-file-upload',
                 inputs: ['disabled', 'value'],
                 styles: [".td-file-upload{padding-left:8px;padding-right:8px}.td-file-upload-cancel{height:24px;width:24px;position:relative;top:24px;left:-12px}::ng-deep [dir=rtl] .td-file-upload-cancel{right:-12px;left:0}.td-file-upload-cancel mat-icon{border-radius:12px;vertical-align:baseline}.drop-zone{border-radius:3px}.drop-zone *{pointer-events:none}"],
-                template: "<td-file-input *ngIf=\"!value\"\n               [(ngModel)]=\"value\"\n               [multiple]=\"multiple\"\n               [disabled]=\"disabled\"\n               [accept]=\"accept\"\n               [color]=\"defaultColor\"\n               (select)=\"handleSelect($event)\">\n  <ng-template [cdkPortalHost]=\"inputLabel\" [ngIf]=\"true\"></ng-template>\n</td-file-input>\n<div *ngIf=\"value\">\n  <button #fileUpload\n          class=\"td-file-upload\"\n          mat-raised-button\n          type=\"button\"\n          [color]=\"activeColor\"\n          (keyup.delete)=\"cancel()\"\n          (keyup.backspace)=\"cancel()\"\n          (keyup.escape)=\"cancel()\"\n          (click)=\"uploadPressed()\"> \n    <ng-content></ng-content>\n  </button>\n  <button mat-icon-button\n          type=\"button\"\n          class=\"td-file-upload-cancel\"\n          [color]=\"cancelColor\"            \n          (click)=\"cancel()\">\n    <mat-icon>cancel</mat-icon>\n  </button>\n</div>",
+                template: "<td-file-input *ngIf=\"!value\"\n               [(ngModel)]=\"value\"\n               [multiple]=\"multiple\"\n               [disabled]=\"disabled\"\n               [accept]=\"accept\"\n               [color]=\"defaultColor\"\n               (select)=\"handleSelect($event)\">\n  <ng-template [cdkPortalOutlet]=\"inputLabel\" [ngIf]=\"true\"></ng-template>\n</td-file-input>\n<div *ngIf=\"value\">\n  <button #fileUpload\n          class=\"td-file-upload\"\n          mat-raised-button\n          type=\"button\"\n          [color]=\"activeColor\"\n          (keyup.delete)=\"cancel()\"\n          (keyup.backspace)=\"cancel()\"\n          (keyup.escape)=\"cancel()\"\n          (click)=\"uploadPressed()\"> \n    <ng-content></ng-content>\n  </button>\n  <button mat-icon-button\n          type=\"button\"\n          class=\"td-file-upload-cancel\"\n          [color]=\"cancelColor\"            \n          (click)=\"cancel()\">\n    <mat-icon>cancel</mat-icon>\n  </button>\n</div>",
             },] },
 ];
 TdFileUploadComponent.ctorParameters = function () { return [
@@ -364,7 +364,7 @@ TdFileUploadComponent.propDecorators = {
 };
 var TdFileService = /** @class */ (function () {
     function TdFileService() {
-        this._progressSubject = new Subject.Subject();
+        this._progressSubject = new rxjs.Subject();
         this._progressObservable = this._progressSubject.asObservable();
     }
     Object.defineProperty(TdFileService.prototype, "progress", {
@@ -376,7 +376,7 @@ var TdFileService = /** @class */ (function () {
     });
     TdFileService.prototype.upload = function (options) {
         var _this = this;
-        return new Observable.Observable(function (subscriber) {
+        return new rxjs.Observable(function (subscriber) {
             var xhr = new XMLHttpRequest();
             var formData = new FormData();
             if (options.file !== undefined) {

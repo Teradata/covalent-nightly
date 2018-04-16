@@ -1,8 +1,8 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('rxjs/Subject'), require('@covalent/core/common'), require('@angular/cdk/portal'), require('@angular/cdk/overlay'), require('@angular/common'), require('@angular/material/progress-bar'), require('@angular/material/progress-spinner')) :
-	typeof define === 'function' && define.amd ? define('@covalent/core/loading', ['exports', '@angular/core', 'rxjs/Subject', '@covalent/core/common', '@angular/cdk/portal', '@angular/cdk/overlay', '@angular/common', '@angular/material/progress-bar', '@angular/material/progress-spinner'], factory) :
-	(factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.loading = {}),global.ng.core,global.Rx,global.covalent.core.common,global.ng.cdk.portal,global.ng.cdk.overlay,global.ng.common,global.ng.material['progress-bar'],global.ng.material['progress-spinner']));
-}(this, (function (exports,core,Subject,common,portal,overlay,common$1,progressBar,progressSpinner) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('rxjs'), require('@covalent/core/common'), require('@angular/cdk/portal'), require('@angular/cdk/overlay'), require('@angular/common'), require('@angular/material/progress-bar'), require('@angular/material/progress-spinner')) :
+	typeof define === 'function' && define.amd ? define('@covalent/core/loading', ['exports', '@angular/core', 'rxjs', '@covalent/core/common', '@angular/cdk/portal', '@angular/cdk/overlay', '@angular/common', '@angular/material/progress-bar', '@angular/material/progress-spinner'], factory) :
+	(factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.loading = {}),global.ng.core,global.rxjs,global.covalent.core.common,global.ng.cdk.portal,global.ng.cdk.overlay,global.ng.common,global.ng.material['progress-bar'],global.ng.material['progress-spinner']));
+}(this, (function (exports,core,rxjs,common,portal,overlay,common$1,progressBar,progressSpinner) { 'use strict';
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
@@ -48,8 +48,8 @@ var TdLoadingComponent = /** @class */ (function () {
     function TdLoadingComponent(_elementRef, _changeDetectorRef) {
         this._elementRef = _elementRef;
         this._changeDetectorRef = _changeDetectorRef;
-        this._animationIn = new Subject.Subject();
-        this._animationOut = new Subject.Subject();
+        this._animationIn = new rxjs.Subject();
+        this._animationOut = new rxjs.Subject();
         this._mode = LoadingMode.Indeterminate;
         this._defaultMode = LoadingMode.Indeterminate;
         this._value = 0;
@@ -171,7 +171,7 @@ TdLoadingComponent.decorators = [
     { type: core.Component, args: [{
                 selector: 'td-loading',
                 styles: [".td-loading-wrapper{position:relative;display:block}.td-loading-wrapper.td-fullscreen{position:inherit}.td-loading-wrapper .td-loading{-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-flex:1;-ms-flex:1;flex:1}.td-loading-wrapper.td-overlay .td-loading{position:absolute;margin:0;top:0;left:0;right:0;z-index:1000}.td-loading-wrapper.td-overlay .td-loading mat-progress-bar{position:absolute;top:0;left:0;right:0}.td-loading-wrapper.td-overlay-circular .td-loading{bottom:0}"],
-                template: "<div class=\"td-loading-wrapper\"\n    [style.min-height]=\"getHeight()\"\n    [class.td-overlay-circular]=\"(isOverlay() || isFullScreen()) && !isLinear()\"\n    [class.td-overlay]=\"isOverlay() || isFullScreen()\" \n    [class.td-fullscreen]=\"isFullScreen()\">\n  <div [@tdFadeInOut]=\"animation\"\n     (@tdFadeInOut.done)=\"animationComplete($event)\"\n     [style.min-height]=\"getHeight()\"\n     class=\"td-loading\">\n    <mat-progress-spinner *ngIf=\"isCircular()\" \n                        [mode]=\"mode\"\n                        [value]=\"value\" \n                        [color]=\"color\" \n                        [diameter]=\"getCircleDiameter()\"\n                        [strokeWidth]=\"getCircleStrokeWidth()\">\n    </mat-progress-spinner>\n    <mat-progress-bar *ngIf=\"isLinear()\" \n                     [mode]=\"mode\"\n                     [value]=\"value\"\n                     [color]=\"color\">\n    </mat-progress-bar>\n  </div>\n  <ng-template [cdkPortalHost]=\"content\"></ng-template>\n</div>",
+                template: "<div class=\"td-loading-wrapper\"\n    [style.min-height]=\"getHeight()\"\n    [class.td-overlay-circular]=\"(isOverlay() || isFullScreen()) && !isLinear()\"\n    [class.td-overlay]=\"isOverlay() || isFullScreen()\" \n    [class.td-fullscreen]=\"isFullScreen()\">\n  <div [@tdFadeInOut]=\"animation\"\n     (@tdFadeInOut.done)=\"animationComplete($event)\"\n     [style.min-height]=\"getHeight()\"\n     class=\"td-loading\">\n    <mat-progress-spinner *ngIf=\"isCircular()\" \n                        [mode]=\"mode\"\n                        [value]=\"value\" \n                        [color]=\"color\" \n                        [diameter]=\"getCircleDiameter()\"\n                        [strokeWidth]=\"getCircleStrokeWidth()\">\n    </mat-progress-spinner>\n    <mat-progress-bar *ngIf=\"isLinear()\" \n                     [mode]=\"mode\"\n                     [value]=\"value\"\n                     [color]=\"color\">\n    </mat-progress-bar>\n  </div>\n  <ng-template [cdkPortalOutlet]=\"content\"></ng-template>\n</div>",
                 animations: [
                     common.TdFadeInOutAnimation(),
                 ],
@@ -283,7 +283,7 @@ var TdLoadingFactory = /** @class */ (function () {
         return compRef;
     };
     TdLoadingFactory.prototype._initializeContext = function () {
-        var subject = new Subject.Subject();
+        var subject = new rxjs.Subject();
         return {
             observable: subject.asObservable(),
             subject: subject,
