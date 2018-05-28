@@ -280,7 +280,11 @@ class TdSearchBoxComponent extends _TdSearchBoxMixinBase {
      * @return {?}
      */
     searchClicked() {
-        if (this.alwaysVisible || !this._searchVisible) {
+        if (!this.alwaysVisible && this._searchVisible) {
+            this.value = '';
+            this.handleClear();
+        }
+        else if (this.alwaysVisible || !this._searchVisible) {
             this._searchInput.focus();
         }
         this.toggleVisibility();
