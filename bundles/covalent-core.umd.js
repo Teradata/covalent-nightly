@@ -3519,6 +3519,7 @@ var TdDataTableComponent = /** @class */ (function (_super) {
             this._indeterminate = false;
         }
         this.onSelectAll.emit({ rows: toggledRows, selected: checked });
+        this.onChange(this.value);
     };
     TdDataTableComponent.prototype.isRowSelected = function (row) {
         var _this = this;

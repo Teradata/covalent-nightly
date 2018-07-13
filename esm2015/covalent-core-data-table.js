@@ -700,6 +700,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             this._indeterminate = false;
         }
         this.onSelectAll.emit({ rows: toggledRows, selected: checked });
+        this.onChange(this.value);
     }
     /**
      * Checks if row is selected
