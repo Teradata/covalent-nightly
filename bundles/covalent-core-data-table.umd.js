@@ -600,7 +600,8 @@ var TdDataTableComponent = /** @class */ (function (_super) {
     TdDataTableComponent.prototype.handleRowClick = function (row, index, event) {
         if (this.clickable) {
             var srcElement = event.srcElement || event.currentTarget;
-            if (srcElement.getAttribute('stopRowClick') === null) {
+            var element = (event.target);
+            if (srcElement.getAttribute('stopRowClick') === null && element.tagName.toLowerCase() !== 'mat-pseudo-checkbox') {
                 this.onRowClick.emit({
                     row: row,
                     index: index,

@@ -4939,8 +4939,9 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             // ignoring linting rules here because attribute it actually null or not there
             // can't check for undefined
             const /** @type {?} */ srcElement = event.srcElement || event.currentTarget;
+            let /** @type {?} */ element = /** @type {?} */ (event.target);
             /* tslint:disable-next-line */
-            if (srcElement.getAttribute('stopRowClick') === null) {
+            if (srcElement.getAttribute('stopRowClick') === null && element.tagName.toLowerCase() !== 'mat-pseudo-checkbox') {
                 this.onRowClick.emit({
                     row: row,
                     index: index,
