@@ -2199,8 +2199,18 @@ td-paging-bar, td-paging-bar mat-select .mat-select-value {
 .td-loading-wrapper.td-overlay .td-loading {
   background: rgba(255, 255, 255, 0.8); }
 
+td-data-table {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
+
 .td-data-table-scrollable {
   border-top: 1px solid rgba(0, 0, 0, 0.12); }
+
+.td-data-table-column-resizer .td-data-table-column-separator {
+  border-right: 2px solid rgba(0, 0, 0, 0.12);
+  opacity: 0.3; }
+
+.td-data-table-column-resizer:hover .td-data-table-column-separator, .td-data-table-column-resizer.td-resizing .td-data-table-column-separator {
+  opacity: 1; }
 
 table[td-data-table] .td-data-table-column-row,
 table[td-data-table] .td-data-table-row {

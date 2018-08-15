@@ -57,6 +57,13 @@ export declare class TdDataTableComponent extends _TdDataTableMixinBase implemen
     private _resizeSubs;
     private _rowsChangedSubs;
     private _hostWidth;
+    /** manually resizable columns */
+    private _resizableColumns;
+    private _columnClientX;
+    private _columnResizeSubs;
+    private _resizingColumn;
+    private _onColumnResize;
+    readonly resizingColumn: number;
     readonly hostWidth: number;
     private _widths;
     private _onResize;
@@ -140,6 +147,12 @@ export declare class TdDataTableComponent extends _TdDataTableMixinBase implemen
      * Defaults to [data] keys.
      */
     columns: ITdDataTableColumn[];
+    /**
+     * resizableColumns?: boolean
+     * Enables manual column resize.
+     * Defaults to 'false'
+     */
+    resizableColumns: boolean;
     /**
      * selectable?: boolean
      * Enables row selection events, hover and selected row states.
@@ -287,6 +300,18 @@ export declare class TdDataTableComponent extends _TdDataTableMixinBase implemen
      * Handle all keyup events when focusing a data table row
      */
     _rowKeyup(event: KeyboardEvent, row: any, index: number): void;
+    /**
+     * Sets column index of the dragged column and initial clientX of column
+     */
+    _handleStartColumnDrag(index: number, event: MouseEvent): void;
+    /**
+     * Calculates new width depending on new clientX of dragger column
+     */
+    _handleColumnDrag(event: MouseEvent | DragEvent): void;
+    /**
+     * Ends dragged flags
+     */
+    _handleEndColumnDrag(): void;
     /**
      * Method to prevent the default events
      */

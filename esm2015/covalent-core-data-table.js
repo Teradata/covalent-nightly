@@ -202,6 +202,12 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         this._elementRef = _elementRef;
         this._domSanitizer = _domSanitizer;
         this._hostWidth = 0;
+        /**
+         * manually resizable columns
+         */
+        this._resizableColumns = false;
+        this._columnClientX = 0;
+        this._onColumnResize = new Subject();
         this._widths = [];
         this._onResize = new Subject();
         this._scrollHorizontalOffset = 0;
@@ -266,6 +272,12 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         this.compareWith = (row, model) => {
             return row === model;
         };
+    }
+    /**
+     * @return {?}
+     */
+    get resizingColumn() {
+        return this._resizingColumn;
     }
     /**
      * @return {?}
@@ -387,6 +399,22 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         else {
             return [];
         }
+    }
+    /**
+     * resizableColumns?: boolean
+     * Enables manual column resize.
+     * Defaults to 'false'
+     * @param {?} resizableColumns
+     * @return {?}
+     */
+    set resizableColumns(resizableColumns) {
+        this._resizableColumns = coerceBooleanProperty(resizableColumns);
+    }
+    /**
+     * @return {?}
+     */
+    get resizableColumns() {
+        return this._resizableColumns;
     }
     /**
      * selectable?: boolean
@@ -516,6 +544,12 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             this._calculateWidths();
             this._calculateVirtualRows();
         });
+        // initialize observable for column resize calculations
+        this._columnResizeSubs = this._onColumnResize.asObservable().pipe(debounceTime(0)).subscribe((clientX) => {
+            this._columnClientX = clientX;
+            this._calculateWidths();
+            this._changeDetectorRef.markForCheck();
+        });
         // initialize observable for scroll column header reposition
         this._horizontalScrollSubs = this._onHorizontalScroll.asObservable()
             .subscribe((horizontalScroll) => {
@@ -583,6 +617,9 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
     ngOnDestroy() {
         if (this._resizeSubs) {
             this._resizeSubs.unsubscribe();
+        }
+        if (this._columnResizeSubs) {
+            this._columnResizeSubs.unsubscribe();
         }
         if (this._horizontalScrollSubs) {
             this._horizontalScrollSubs.unsubscribe();
@@ -888,6 +925,47 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         }
     }
     /**
+     * Sets column index of the dragged column and initial clientX of column
+     * @param {?} index
+     * @param {?} event
+     * @return {?}
+     */
+    _handleStartColumnDrag(index, event) {
+        this._columnClientX = event.clientX;
+        this._resizingColumn = index;
+    }
+    /**
+     * Calculates new width depending on new clientX of dragger column
+     * @param {?} event
+     * @return {?}
+     */
+    _handleColumnDrag(event) {
+        // check if there was been a separator clicked for resize
+        if (this._resizingColumn !== undefined && event.clientX > 0) {
+            let /** @type {?} */ xPosition = event.clientX;
+            // checks if the separator is being moved to try and resize the column, else dont do anything
+            if (xPosition > 0 && this._columnClientX > 0 && (xPosition - this._columnClientX) !== 0) {
+                // calculate the new width depending if making the column bigger or smaller
+                let /** @type {?} */ proposedManualWidth = this._widths[this._resizingColumn].value + (xPosition - this._columnClientX);
+                // if the proposed new width is less than the projected min width of the column, use projected min width
+                if (proposedManualWidth < this._colElements.toArray()[this._resizingColumn].projectedWidth) {
+                    proposedManualWidth = this._colElements.toArray()[this._resizingColumn].projectedWidth;
+                }
+                this.columns[this._resizingColumn].width = proposedManualWidth;
+                // update new x position for the resized column
+                this._onColumnResize.next(xPosition);
+            }
+        }
+    }
+    /**
+     * Ends dragged flags
+     * @return {?}
+     */
+    _handleEndColumnDrag() {
+        this._columnClientX = undefined;
+        this._resizingColumn = undefined;
+    }
+    /**
      * Method to prevent the default events
      * @param {?} event
      * @return {?}
@@ -1149,11 +1227,12 @@ TdDataTableComponent.decorators = [
                         multi: true,
                     }],
                 selector: 'td-data-table',
-                styles: [`:host{display:block;overflow:hidden}:host .td-data-table-scrollable{position:relative;overflow:auto;height:calc(100% - 56px)}table.td-data-table{width:auto!important}table.td-data-table.mat-selectable tbody>tr.td-data-table-row{-webkit-transition:background-color .2s;transition:background-color .2s}table.td-data-table.mat-selectable .td-data-table-column:first-child>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable td.td-data-table-cell:first-child>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable th.td-data-table-column:first-child>.td-data-table-column-content-wrapper{width:18px;min-width:18px;padding:0 24px}table.td-data-table.mat-selectable .td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2)>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper{padding-left:0}[dir=rtl] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper,[dir=rtl] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2)>.td-data-table-column-content-wrapper,[dir=rtl] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper{padding-right:0;padding-left:28px}table.td-data-table td.mat-checkbox-cell,table.td-data-table th.mat-checkbox-column{min-width:42px;width:42px;font-size:0!important}table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox,table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox{width:18px;height:18px}::ng-deep table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after,::ng-deep table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after{width:11px!important;height:4px!important}table.td-data-table td.mat-checkbox-cell mat-checkbox ::ng-deep .mat-checkbox-inner-container,table.td-data-table th.mat-checkbox-column mat-checkbox ::ng-deep .mat-checkbox-inner-container{width:18px;height:18px;margin:0}`],
+                styles: [`:host{display:block;overflow:hidden}:host .td-data-table-scrollable{position:relative;overflow:auto;height:calc(100% - 56px)}.td-data-table-column-resizer{right:0;width:6px;cursor:col-resize}.td-data-table-column-resizer,.td-data-table-column-resizer .td-data-table-column-separator{position:absolute;height:100%;top:0}.td-data-table-column-resizer .td-data-table-column-separator{left:2px}.td-data-table-column-resizer.td-resizing{cursor:-webkit-grabbing}table.td-data-table{width:auto!important}table.td-data-table.mat-selectable tbody>tr.td-data-table-row{-webkit-transition:background-color .2s;transition:background-color .2s}table.td-data-table.mat-selectable .td-data-table-column:first-child>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable td.td-data-table-cell:first-child>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable th.td-data-table-column:first-child>.td-data-table-column-content-wrapper{width:18px;min-width:18px;padding:0 24px}table.td-data-table.mat-selectable .td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2)>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper{padding-left:0}[dir=rtl] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper,[dir=rtl] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2)>.td-data-table-column-content-wrapper,[dir=rtl] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper{padding-right:0;padding-left:28px}table.td-data-table td.mat-checkbox-cell,table.td-data-table th.mat-checkbox-column{min-width:42px;width:42px;font-size:0!important}table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox,table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox{width:18px;height:18px}::ng-deep table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after,::ng-deep table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after{width:11px!important;height:4px!important}table.td-data-table td.mat-checkbox-cell mat-checkbox ::ng-deep .mat-checkbox-inner-container,table.td-data-table th.mat-checkbox-column mat-checkbox ::ng-deep .mat-checkbox-inner-container{width:18px;height:18px;margin:0}`],
                 template: `<table td-data-table
         [style.left.px]="columnsLeftScroll"
         [class.mat-selectable]="selectable">
-  <thead class="td-data-table-head">
+  <thead class="td-data-table-head"
+          (dragover)="_handleColumnDrag($event)">
     <tr td-data-table-column-row>
       <th td-data-table-column class="mat-checkbox-column" *ngIf="selectable">
         <mat-checkbox
@@ -1169,18 +1248,30 @@ TdDataTableComponent.decorators = [
         </mat-checkbox>
       </th>
       <th td-data-table-column
-          #columnElement
-          *ngFor="let column of columns; let i = index;"
-          [style.min-width.px]="getColumnWidth(i)"
-          [style.max-width.px]="getColumnWidth(i)"
-          [name]="column.name"
-          [numeric]="column.numeric"
-          [active]="(column.sortable || sortable) && column === sortByColumn"
-          [sortable]="column.sortable || (sortable && column.sortable !== false)"
-          [sortOrder]="sortOrderEnum"
-          [hidden]="column.hidden"
-          (sortChange)="handleSort(column)">
-          <span [matTooltip]="column.tooltip">{{column.label}}</span>
+        #columnElement
+        *ngFor="let column of columns; let i = index; let last = last"
+        [style.min-width.px]="getColumnWidth(i)"
+        [style.max-width.px]="getColumnWidth(i)"
+        [name]="column.name"
+        [numeric]="column.numeric"
+        [active]="(column.sortable || sortable) && column === sortByColumn"
+        [sortable]="column.sortable || (sortable && column.sortable !== false)"
+        [sortOrder]="sortOrderEnum"
+        [hidden]="column.hidden"
+        (sortChange)="handleSort(column)">
+        <span [matTooltip]="column.tooltip">{{column.label}}</span>
+        <span td-column-resizer
+              *ngIf="resizableColumns"
+              draggable="true"
+              class="td-data-table-column-resizer"
+              [class.td-resizing]="i === resizingColumn"
+              (mousedown)="_handleStartColumnDrag(i, $event)"
+              (dragstart)="$event?.dataTransfer?.setData('text', '')"
+              (drag)="_handleColumnDrag($event)"
+              (dragend)="_handleEndColumnDrag()"
+              (mouseup)="_handleEndColumnDrag()">
+          <span class="td-data-table-column-separator"></span>
+        </span>
       </th>
     </tr>
   </thead>
@@ -1251,6 +1342,7 @@ TdDataTableComponent.propDecorators = {
     "_rows": [{ type: ViewChildren, args: [TdDataTableRowComponent,] },],
     "data": [{ type: Input, args: ['data',] },],
     "columns": [{ type: Input, args: ['columns',] },],
+    "resizableColumns": [{ type: Input, args: ['resizableColumns',] },],
     "selectable": [{ type: Input, args: ['selectable',] },],
     "clickable": [{ type: Input, args: ['clickable',] },],
     "multiple": [{ type: Input, args: ['multiple',] },],
@@ -1406,6 +1498,7 @@ TdDataTableColumnComponent.decorators = [
     arrow_upward
   </mat-icon>
 </span>
+<ng-content select="[td-column-resizer]"></ng-content>
 `,
             },] },
 ];
