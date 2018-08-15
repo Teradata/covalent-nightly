@@ -375,7 +375,7 @@ var TdBytesPipe = /** @class */ (function () {
             return 'Invalid Number';
         }
         var k = 1024;
-        var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+        var sizes = ['B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
         var i = Math.floor(Math.log(bytes) / Math.log(k));
         if (i < 0) {
             return 'Invalid Number';
@@ -390,6 +390,33 @@ TdBytesPipe.decorators = [
             },] },
 ];
 TdBytesPipe.ctorParameters = function () { return []; };
+var TdDecimalBytesPipe = /** @class */ (function () {
+    function TdDecimalBytesPipe() {
+    }
+    TdDecimalBytesPipe.prototype.transform = function (bytes, precision) {
+        if (precision === void 0) { precision = 2; }
+        if (bytes === 0) {
+            return '0 B';
+        }
+        else if (isNaN(parseInt(bytes, 10))) {
+            return 'Invalid Number';
+        }
+        var k = 1000;
+        var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+        var i = Math.floor(Math.log(bytes) / Math.log(k));
+        if (i < 0) {
+            return 'Invalid Number';
+        }
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(precision)) + ' ' + sizes[i];
+    };
+    return TdDecimalBytesPipe;
+}());
+TdDecimalBytesPipe.decorators = [
+    { type: Pipe, args: [{
+                name: 'decimalBytes',
+            },] },
+];
+TdDecimalBytesPipe.ctorParameters = function () { return []; };
 var TdDigitsPipe = /** @class */ (function () {
     function TdDigitsPipe(_locale) {
         if (_locale === void 0) { _locale = 'en'; }
@@ -1276,6 +1303,7 @@ var TD_PIPES = [
     TdTimeAgoPipe,
     TdTimeDifferencePipe,
     TdBytesPipe,
+    TdDecimalBytesPipe,
     TdDigitsPipe,
     TdTruncatePipe,
 ];
@@ -1653,5 +1681,5 @@ var CovalentValidators = /** @class */ (function () {
     return CovalentValidators;
 }());
 
-export { CovalentCommonModule, TdToggleDirective, TdFadeDirective, TdRotateAnimation, TdCollapseAnimation, TdFadeInOutAnimation, TdBounceAnimation, TdFlashAnimation, TdHeadshakeAnimation, TdJelloAnimation, TdPulseAnimation, mixinControlValueAccessor, mixinDisabled, mixinDisableRipple, TdAutoTrimDirective, CovalentValidators, TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTruncatePipe, IconService as ɵb, RouterPathService as ɵa };
+export { CovalentCommonModule, TdToggleDirective, TdFadeDirective, TdRotateAnimation, TdCollapseAnimation, TdFadeInOutAnimation, TdBounceAnimation, TdFlashAnimation, TdHeadshakeAnimation, TdJelloAnimation, TdPulseAnimation, mixinControlValueAccessor, mixinDisabled, mixinDisableRipple, TdAutoTrimDirective, CovalentValidators, TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTruncatePipe, TdDecimalBytesPipe, IconService as ɵb, RouterPathService as ɵa };
 //# sourceMappingURL=covalent-core-common.js.map
