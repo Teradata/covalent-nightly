@@ -11,9 +11,11 @@ var TdNotificationCountPositionX = {
     After: 'after',
     Center: 'center',
 };
+var DEFAULT_NOTIFICATION_LIMIT = 99;
 var TdNotificationCountComponent = /** @class */ (function () {
     function TdNotificationCountComponent() {
         this._notifications = 0;
+        this._limit = DEFAULT_NOTIFICATION_LIMIT;
         this.color = 'warn';
     }
     Object.defineProperty(TdNotificationCountComponent.prototype, "positionX", {
@@ -43,6 +45,13 @@ var TdNotificationCountComponent = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(TdNotificationCountComponent.prototype, "limit", {
+        set: function (limit) {
+            this._limit = limit;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(TdNotificationCountComponent.prototype, "hideHost", {
         get: function () {
             return !this.show && !this._hasContent();
@@ -59,8 +68,8 @@ var TdNotificationCountComponent = /** @class */ (function () {
     });
     Object.defineProperty(TdNotificationCountComponent.prototype, "notificationsDisplay", {
         get: function () {
-            if (this._notifications > 99) {
-                return '99+';
+            if (this._notifications > this._limit) {
+                return this._limit + "+";
             }
             return this._notifications.toString();
         },
@@ -106,6 +115,7 @@ TdNotificationCountComponent.propDecorators = {
     "positionX": [{ type: Input },],
     "positionY": [{ type: Input },],
     "notifications": [{ type: Input },],
+    "limit": [{ type: Input },],
     "hideHost": [{ type: HostBinding, args: ['class.td-notification-hidden',] },],
 };
 var TD_NOTIFICATIONS = [
@@ -131,5 +141,5 @@ CovalentNotificationsModule.decorators = [
 ];
 CovalentNotificationsModule.ctorParameters = function () { return []; };
 
-export { CovalentNotificationsModule, TdNotificationCountPositionY, TdNotificationCountPositionX, TdNotificationCountComponent };
+export { CovalentNotificationsModule, TdNotificationCountPositionY, TdNotificationCountPositionX, DEFAULT_NOTIFICATION_LIMIT, TdNotificationCountComponent };
 //# sourceMappingURL=covalent-core-notifications.js.map

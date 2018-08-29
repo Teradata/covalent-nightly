@@ -14,9 +14,11 @@ var TdNotificationCountPositionX = {
     After: 'after',
     Center: 'center',
 };
+var DEFAULT_NOTIFICATION_LIMIT = 99;
 var TdNotificationCountComponent = /** @class */ (function () {
     function TdNotificationCountComponent() {
         this._notifications = 0;
+        this._limit = DEFAULT_NOTIFICATION_LIMIT;
         this.color = 'warn';
     }
     Object.defineProperty(TdNotificationCountComponent.prototype, "positionX", {
@@ -46,6 +48,13 @@ var TdNotificationCountComponent = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(TdNotificationCountComponent.prototype, "limit", {
+        set: function (limit) {
+            this._limit = limit;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(TdNotificationCountComponent.prototype, "hideHost", {
         get: function () {
             return !this.show && !this._hasContent();
@@ -62,8 +71,8 @@ var TdNotificationCountComponent = /** @class */ (function () {
     });
     Object.defineProperty(TdNotificationCountComponent.prototype, "notificationsDisplay", {
         get: function () {
-            if (this._notifications > 99) {
-                return '99+';
+            if (this._notifications > this._limit) {
+                return this._limit + "+";
             }
             return this._notifications.toString();
         },
@@ -109,6 +118,7 @@ TdNotificationCountComponent.propDecorators = {
     "positionX": [{ type: core.Input },],
     "positionY": [{ type: core.Input },],
     "notifications": [{ type: core.Input },],
+    "limit": [{ type: core.Input },],
     "hideHost": [{ type: core.HostBinding, args: ['class.td-notification-hidden',] },],
 };
 var TD_NOTIFICATIONS = [
@@ -137,6 +147,7 @@ CovalentNotificationsModule.ctorParameters = function () { return []; };
 exports.CovalentNotificationsModule = CovalentNotificationsModule;
 exports.TdNotificationCountPositionY = TdNotificationCountPositionY;
 exports.TdNotificationCountPositionX = TdNotificationCountPositionX;
+exports.DEFAULT_NOTIFICATION_LIMIT = DEFAULT_NOTIFICATION_LIMIT;
 exports.TdNotificationCountComponent = TdNotificationCountComponent;
 
 Object.defineProperty(exports, '__esModule', { value: true });

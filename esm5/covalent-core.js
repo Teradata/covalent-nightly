@@ -481,9 +481,11 @@ var TdNotificationCountPositionX = {
     After: 'after',
     Center: 'center',
 };
+var DEFAULT_NOTIFICATION_LIMIT = 99;
 var TdNotificationCountComponent = /** @class */ (function () {
     function TdNotificationCountComponent() {
         this._notifications = 0;
+        this._limit = DEFAULT_NOTIFICATION_LIMIT;
         this.color = 'warn';
     }
     Object.defineProperty(TdNotificationCountComponent.prototype, "positionX", {
@@ -513,6 +515,13 @@ var TdNotificationCountComponent = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(TdNotificationCountComponent.prototype, "limit", {
+        set: function (limit) {
+            this._limit = limit;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(TdNotificationCountComponent.prototype, "hideHost", {
         get: function () {
             return !this.show && !this._hasContent();
@@ -529,8 +538,8 @@ var TdNotificationCountComponent = /** @class */ (function () {
     });
     Object.defineProperty(TdNotificationCountComponent.prototype, "notificationsDisplay", {
         get: function () {
-            if (this._notifications > 99) {
-                return '99+';
+            if (this._notifications > this._limit) {
+                return this._limit + "+";
             }
             return this._notifications.toString();
         },
@@ -576,6 +585,7 @@ TdNotificationCountComponent.propDecorators = {
     "positionX": [{ type: Input },],
     "positionY": [{ type: Input },],
     "notifications": [{ type: Input },],
+    "limit": [{ type: Input },],
     "hideHost": [{ type: HostBinding, args: ['class.td-notification-hidden',] },],
 };
 var TD_NOTIFICATIONS = [
@@ -7515,5 +7525,5 @@ CovalentStepsModule.decorators = [
 ];
 CovalentStepsModule.ctorParameters = function () { return []; };
 
-export { CovalentPagingModule, TdPagingBarComponent, CovalentVirtualScrollModule, TdVirtualScrollContainerComponent, TdVirtualScrollRowDirective, CovalentNotificationsModule, TdNotificationCountPositionY, TdNotificationCountPositionX, TdNotificationCountComponent, CovalentCommonModule$1 as CovalentCommonModule, TdToggleDirective, TdFadeDirective, TdRotateAnimation$1 as TdRotateAnimation, TdCollapseAnimation$1 as TdCollapseAnimation, TdFadeInOutAnimation$1 as TdFadeInOutAnimation, TdBounceAnimation, TdFlashAnimation, TdHeadshakeAnimation, TdJelloAnimation, TdPulseAnimation, mixinControlValueAccessor$1 as mixinControlValueAccessor, mixinDisabled$1 as mixinDisabled, mixinDisableRipple$1 as mixinDisableRipple, TdAutoTrimDirective, CovalentValidators, TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTruncatePipe, TdDecimalBytesPipe, CovalentMessageModule, TdMessageContainerDirective, TdMessageComponent, CovalentChipsModule, TdChipDirective, TdAutocompleteOptionDirective, TdChipsBase, _TdChipsMixinBase, TdChipsComponent, CovalentDataTableModule, TdDataTableSortingOrder, TdDataTableBase, _TdDataTableMixinBase, TdDataTableComponent, TdDataTableCellComponent, TdDataTableColumnComponent, TdDataTableColumnRowComponent, TdDataTableRowComponent, TdDataTableTableComponent, TdDataTableTemplateDirective, TdDataTableService, DATA_TABLE_PROVIDER_FACTORY, DATA_TABLE_PROVIDER, CovalentDialogsModule, TdDialogTitleDirective, TdDialogContentDirective, TdDialogActionsDirective, TdDialogComponent, TdAlertDialogComponent, TdConfirmDialogComponent, TdPromptDialogComponent, TdDialogService, DIALOG_PROVIDER_FACTORY, DIALOG_PROVIDER, CovalentExpansionPanelModule, TdExpansionPanelHeaderDirective, TdExpansionPanelLabelDirective, TdExpansionPanelSublabelDirective, TdExpansionPanelSummaryComponent, TdExpansionPanelBase, _TdExpansionPanelMixinBase, TdExpansionPanelComponent, TdExpansionPanelGroupComponent, CovalentFileModule, TdFileDropBase, _TdFileDropMixinBase, TdFileDropDirective, TdFileSelectDirective, TdFileInputLabelDirective, TdFileInputBase, _TdFileInputMixinBase, TdFileInputComponent, TdFileUploadBase, _TdFileUploadMixinBase, TdFileUploadComponent, TdFileService, CovalentJsonFormatterModule, TdJsonFormatterComponent, CovalentLayoutModule, TdLayoutComponent, TdLayoutToggleDirective, TdLayoutCloseDirective, TdLayoutOpenDirective, LayoutToggleBase, _TdLayoutToggleMixinBase, LayoutToggle, TdLayoutCardOverComponent, TdLayoutFooterComponent, TdLayoutManageListComponent, TdLayoutManageListToggleDirective, TdLayoutManageListCloseDirective, TdLayoutManageListOpenDirective, TdLayoutNavComponent, TdLayoutNavListComponent, TdLayoutNavListToggleDirective, TdLayoutNavListCloseDirective, TdLayoutNavListOpenDirective, TdNavigationDrawerMenuDirective, TdNavigationDrawerToolbarDirective, TdNavigationDrawerComponent, CovalentLoadingModule, LoadingType, LoadingMode, LoadingStrategy, LoadingStyle, TD_CIRCLE_DIAMETER, TdLoadingComponent, TdLoadingContext, TdLoadingDirective, TdLoadingConfig, TdLoadingDirectiveConfig, TdLoadingService, LOADING_PROVIDER_FACTORY, LOADING_PROVIDER, TdLoadingFactory, LOADING_FACTORY_PROVIDER_FACTORY, LOADING_FACTORY_PROVIDER, CovalentMediaModule, TdMediaToggleDirective, TdMediaService, MEDIA_PROVIDER_FACTORY, MEDIA_PROVIDER, CovalentMenuModule, TdMenuComponent, CovalentSearchModule, TdSearchBoxBase, _TdSearchBoxMixinBase, TdSearchBoxComponent, TdSearchInputBase, _TdSearchInputMixinBase, TdSearchInputComponent, CovalentStepsModule, StepState, TdStepLabelDirective, TdStepActionsDirective, TdStepSummaryDirective, TdStepBase, _TdStepMixinBase, TdStepComponent, StepMode, TdStepsComponent, TdStepBodyComponent, TdStepHeaderBase, _TdStepHeaderMixinBase, TdStepHeaderComponent, IconService as ɵb, RouterPathService as ɵa };
+export { CovalentPagingModule, TdPagingBarComponent, CovalentVirtualScrollModule, TdVirtualScrollContainerComponent, TdVirtualScrollRowDirective, CovalentNotificationsModule, TdNotificationCountPositionY, TdNotificationCountPositionX, DEFAULT_NOTIFICATION_LIMIT, TdNotificationCountComponent, CovalentCommonModule$1 as CovalentCommonModule, TdToggleDirective, TdFadeDirective, TdRotateAnimation$1 as TdRotateAnimation, TdCollapseAnimation$1 as TdCollapseAnimation, TdFadeInOutAnimation$1 as TdFadeInOutAnimation, TdBounceAnimation, TdFlashAnimation, TdHeadshakeAnimation, TdJelloAnimation, TdPulseAnimation, mixinControlValueAccessor$1 as mixinControlValueAccessor, mixinDisabled$1 as mixinDisabled, mixinDisableRipple$1 as mixinDisableRipple, TdAutoTrimDirective, CovalentValidators, TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTruncatePipe, TdDecimalBytesPipe, CovalentMessageModule, TdMessageContainerDirective, TdMessageComponent, CovalentChipsModule, TdChipDirective, TdAutocompleteOptionDirective, TdChipsBase, _TdChipsMixinBase, TdChipsComponent, CovalentDataTableModule, TdDataTableSortingOrder, TdDataTableBase, _TdDataTableMixinBase, TdDataTableComponent, TdDataTableCellComponent, TdDataTableColumnComponent, TdDataTableColumnRowComponent, TdDataTableRowComponent, TdDataTableTableComponent, TdDataTableTemplateDirective, TdDataTableService, DATA_TABLE_PROVIDER_FACTORY, DATA_TABLE_PROVIDER, CovalentDialogsModule, TdDialogTitleDirective, TdDialogContentDirective, TdDialogActionsDirective, TdDialogComponent, TdAlertDialogComponent, TdConfirmDialogComponent, TdPromptDialogComponent, TdDialogService, DIALOG_PROVIDER_FACTORY, DIALOG_PROVIDER, CovalentExpansionPanelModule, TdExpansionPanelHeaderDirective, TdExpansionPanelLabelDirective, TdExpansionPanelSublabelDirective, TdExpansionPanelSummaryComponent, TdExpansionPanelBase, _TdExpansionPanelMixinBase, TdExpansionPanelComponent, TdExpansionPanelGroupComponent, CovalentFileModule, TdFileDropBase, _TdFileDropMixinBase, TdFileDropDirective, TdFileSelectDirective, TdFileInputLabelDirective, TdFileInputBase, _TdFileInputMixinBase, TdFileInputComponent, TdFileUploadBase, _TdFileUploadMixinBase, TdFileUploadComponent, TdFileService, CovalentJsonFormatterModule, TdJsonFormatterComponent, CovalentLayoutModule, TdLayoutComponent, TdLayoutToggleDirective, TdLayoutCloseDirective, TdLayoutOpenDirective, LayoutToggleBase, _TdLayoutToggleMixinBase, LayoutToggle, TdLayoutCardOverComponent, TdLayoutFooterComponent, TdLayoutManageListComponent, TdLayoutManageListToggleDirective, TdLayoutManageListCloseDirective, TdLayoutManageListOpenDirective, TdLayoutNavComponent, TdLayoutNavListComponent, TdLayoutNavListToggleDirective, TdLayoutNavListCloseDirective, TdLayoutNavListOpenDirective, TdNavigationDrawerMenuDirective, TdNavigationDrawerToolbarDirective, TdNavigationDrawerComponent, CovalentLoadingModule, LoadingType, LoadingMode, LoadingStrategy, LoadingStyle, TD_CIRCLE_DIAMETER, TdLoadingComponent, TdLoadingContext, TdLoadingDirective, TdLoadingConfig, TdLoadingDirectiveConfig, TdLoadingService, LOADING_PROVIDER_FACTORY, LOADING_PROVIDER, TdLoadingFactory, LOADING_FACTORY_PROVIDER_FACTORY, LOADING_FACTORY_PROVIDER, CovalentMediaModule, TdMediaToggleDirective, TdMediaService, MEDIA_PROVIDER_FACTORY, MEDIA_PROVIDER, CovalentMenuModule, TdMenuComponent, CovalentSearchModule, TdSearchBoxBase, _TdSearchBoxMixinBase, TdSearchBoxComponent, TdSearchInputBase, _TdSearchInputMixinBase, TdSearchInputComponent, CovalentStepsModule, StepState, TdStepLabelDirective, TdStepActionsDirective, TdStepSummaryDirective, TdStepBase, _TdStepMixinBase, TdStepComponent, StepMode, TdStepsComponent, TdStepBodyComponent, TdStepHeaderBase, _TdStepHeaderMixinBase, TdStepHeaderComponent, IconService as ɵb, RouterPathService as ɵa };
 //# sourceMappingURL=covalent-core.js.map

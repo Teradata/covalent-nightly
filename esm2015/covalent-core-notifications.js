@@ -17,9 +17,11 @@ const TdNotificationCountPositionX = {
     After: 'after',
     Center: 'center',
 };
+const DEFAULT_NOTIFICATION_LIMIT = 99;
 class TdNotificationCountComponent {
     constructor() {
         this._notifications = 0;
+        this._limit = DEFAULT_NOTIFICATION_LIMIT;
         /**
          * color?: "primary" | "accent" | "warn"
          * Sets the theme color of the notification tip. Defaults to "warn"
@@ -68,6 +70,15 @@ class TdNotificationCountComponent {
         this._notifications = notifications;
     }
     /**
+     * limit?: number
+     * Limit for notification count. If the number of notifications is greater than limit, then + will be added. Defaults to 99.
+     * @param {?} limit
+     * @return {?}
+     */
+    set limit(limit) {
+        this._limit = limit;
+    }
+    /**
      * @return {?}
      */
     get hideHost() {
@@ -87,8 +98,8 @@ class TdNotificationCountComponent {
      * @return {?}
      */
     get notificationsDisplay() {
-        if (this._notifications > 99) {
-            return '99+';
+        if (this._notifications > this._limit) {
+            return `${this._limit}+`;
         }
         return this._notifications.toString();
     }
@@ -152,6 +163,7 @@ TdNotificationCountComponent.propDecorators = {
     "positionX": [{ type: Input },],
     "positionY": [{ type: Input },],
     "notifications": [{ type: Input },],
+    "limit": [{ type: Input },],
     "hideHost": [{ type: HostBinding, args: ['class.td-notification-hidden',] },],
 };
 
@@ -198,5 +210,5 @@ CovalentNotificationsModule.ctorParameters = () => [];
  * Generated bundle index. Do not edit.
  */
 
-export { CovalentNotificationsModule, TdNotificationCountPositionY, TdNotificationCountPositionX, TdNotificationCountComponent };
+export { CovalentNotificationsModule, TdNotificationCountPositionY, TdNotificationCountPositionX, DEFAULT_NOTIFICATION_LIMIT, TdNotificationCountComponent };
 //# sourceMappingURL=covalent-core-notifications.js.map

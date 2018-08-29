@@ -9,10 +9,12 @@ export declare enum TdNotificationCountPositionX {
     After = "after",
     Center = "center",
 }
+export declare const DEFAULT_NOTIFICATION_LIMIT: number;
 export declare class TdNotificationCountComponent implements AfterContentInit {
     private _notifications;
     private _positionY;
     private _positionX;
+    private _limit;
     /**
      * Div content wrapper of `ng-content`.
      */
@@ -39,6 +41,11 @@ export declare class TdNotificationCountComponent implements AfterContentInit {
      * Number for the notification count. Shows component only if the input is a positive number or 'true'
      */
     notifications: number | boolean;
+    /**
+     * limit?: number
+     * Limit for notification count. If the number of notifications is greater than limit, then + will be added. Defaults to 99.
+     */
+    limit: number;
     readonly hideHost: boolean;
     /**
      * Sets the component in its 'noCount' state if [notifications] is a boolean 'true'.
