@@ -33,6 +33,17 @@ export declare class TdLayoutManageListComponent implements ILayoutTogglable {
      */
     sidenavWidth: string;
     /**
+     * containerAutosize?: boolean
+     *
+     * Sets "autosize" of the sidenav-container.
+     * Defaults to "false".
+     *
+     * See documentation for more info and potential performance risks.
+     *
+     * https://github.com/angular/material2/blob/master/src/lib/sidenav/sidenav.md#resizing-an-open-sidenav
+     */
+    containerAutosize: boolean;
+    /**
      * Checks if `ESC` should close the sidenav
      * Should only close it for `push` and `over` modes
      */

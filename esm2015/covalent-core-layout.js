@@ -47,6 +47,17 @@ class TdLayoutComponent {
          * https://github.com/angular/material2/tree/master/src/lib/sidenav
          */
         this.sidenavWidth = '320px';
+        /**
+         * containerAutosize?: boolean
+         *
+         * Sets "autosize" of the sidenav-container.
+         * Defaults to "false".
+         *
+         * See documentation for more info and potential performance risks.
+         *
+         * https://github.com/angular/material2/blob/master/src/lib/sidenav/sidenav.md#resizing-an-open-sidenav
+         */
+        this.containerAutosize = false;
     }
     /**
      * Checks if `ESC` should close the sidenav
@@ -82,7 +93,7 @@ TdLayoutComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-layout',
                 styles: [`:host{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0;width:100%;min-height:100%;height:100%;overflow:hidden}:host ::ng-deep>mat-sidenav-container>mat-sidenav{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}`],
-                template: `<mat-sidenav-container fullscreen>
+                template: `<mat-sidenav-container fullscreen [autosize]="containerAutosize">
   <mat-sidenav #sidenav
               class="td-layout-sidenav"
               [mode]="mode"
@@ -105,6 +116,7 @@ TdLayoutComponent.propDecorators = {
     "mode": [{ type: Input, args: ['mode',] },],
     "opened": [{ type: Input, args: ['opened',] },],
     "sidenavWidth": [{ type: Input, args: ['sidenavWidth',] },],
+    "containerAutosize": [{ type: Input, args: ['containerAutosize',] },],
 };
 
 /**
@@ -432,6 +444,17 @@ class TdLayoutNavListComponent {
          * https://github.com/angular/material2/tree/master/src/lib/sidenav
          */
         this.sidenavWidth = '350px';
+        /**
+         * containerAutosize?: boolean
+         *
+         * Sets "autosize" of the sidenav-container.
+         * Defaults to "false".
+         *
+         * See documentation for more info and potential performance risks.
+         *
+         * https://github.com/angular/material2/blob/master/src/lib/sidenav/sidenav.md#resizing-an-open-sidenav
+         */
+        this.containerAutosize = false;
     }
     /**
      * Checks if `ESC` should close the sidenav
@@ -483,7 +506,7 @@ TdLayoutNavListComponent.decorators = [
                 selector: 'td-layout-nav-list',
                 styles: [`:host{margin:0;width:100%;min-height:100%;height:100%;overflow:hidden;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-ms-flex:1;flex:1}:host .td-layout-nav-list-wrapper{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-ms-flex:1;flex:1;position:relative;overflow:auto;-webkit-overflow-scrolling:touch}:host .td-layout-nav-list-wrapper .td-layout-nav-list-toolbar-content{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:start}:host .td-layout-nav-list-wrapper .td-layout-nav-list-content{text-align:start;-webkit-box-flex:1;-ms-flex:1;flex:1;display:block;position:relative;overflow:auto;-webkit-overflow-scrolling:touch}:host .td-layout-nav-list-wrapper .td-layout-nav-list-main{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;margin:0;width:100%;min-height:100%;height:100%;position:relative;overflow:auto}:host .td-layout-nav-list-wrapper .td-layout-nav-list-main .td-layout-nav-list-content{display:block;position:relative;overflow:auto;-webkit-overflow-scrolling:touch;-webkit-box-flex:1;-ms-flex:1;flex:1}:host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list{-webkit-box-flex:1;-ms-flex:1;flex:1}:host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list>mat-sidenav.mat-drawer-closed,:host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list>mat-sidenav.mat-drawer-closing,:host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list>mat-sidenav.mat-drawer-opened,:host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list>mat-sidenav.mat-drawer-opening{-webkit-box-shadow:none;box-shadow:none}:host ::ng-deep mat-sidenav-container.td-layout-nav-list>.mat-drawer-content{-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1}:host ::ng-deep mat-sidenav-container.td-layout-nav-list>mat-sidenav{-webkit-box-shadow:0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);box-shadow:0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}`],
                 template: `<div class="td-layout-nav-list-wrapper">
-  <mat-sidenav-container fullscreen class="td-layout-nav-list">
+  <mat-sidenav-container fullscreen [autosize]="containerAutosize" class="td-layout-nav-list">
     <mat-sidenav #sidenav
                 position="start"
                 [mode]="mode"
@@ -534,6 +557,7 @@ TdLayoutNavListComponent.propDecorators = {
     "mode": [{ type: Input, args: ['mode',] },],
     "opened": [{ type: Input, args: ['opened',] },],
     "sidenavWidth": [{ type: Input, args: ['sidenavWidth',] },],
+    "containerAutosize": [{ type: Input, args: ['containerAutosize',] },],
     "navigationRoute": [{ type: Input, args: ['navigationRoute',] },],
 };
 
@@ -744,6 +768,17 @@ class TdLayoutManageListComponent {
          * https://github.com/angular/material2/tree/master/src/lib/sidenav
          */
         this.sidenavWidth = '257px';
+        /**
+         * containerAutosize?: boolean
+         *
+         * Sets "autosize" of the sidenav-container.
+         * Defaults to "false".
+         *
+         * See documentation for more info and potential performance risks.
+         *
+         * https://github.com/angular/material2/blob/master/src/lib/sidenav/sidenav.md#resizing-an-open-sidenav
+         */
+        this.containerAutosize = false;
     }
     /**
      * Checks if `ESC` should close the sidenav
@@ -779,7 +814,7 @@ TdLayoutManageListComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-layout-manage-list',
                 styles: [`:host{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0;width:100%;min-height:100%;height:100%;overflow:hidden}:host mat-sidenav-container.td-layout-manage-list{-webkit-box-flex:1;-ms-flex:1;flex:1}:host mat-sidenav-container.td-layout-manage-list>mat-sidenav.mat-drawer-closed,:host mat-sidenav-container.td-layout-manage-list>mat-sidenav.mat-drawer-closing,:host mat-sidenav-container.td-layout-manage-list>mat-sidenav.mat-drawer-opened,:host mat-sidenav-container.td-layout-manage-list>mat-sidenav.mat-drawer-opening{-webkit-box-shadow:0 1px 3px 0 rgba(0,0,0,.2);box-shadow:0 1px 3px 0 rgba(0,0,0,.2)}:host .td-layout-manage-list-sidenav{text-align:start;-webkit-box-flex:1;-ms-flex:1;flex:1;display:block;position:relative;overflow:auto;-webkit-overflow-scrolling:touch}:host .td-layout-manage-list-main{margin:0;width:100%;min-height:100%;height:100%;position:relative;overflow:auto;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex}:host .td-layout-manage-list-main .td-layout-manage-list-content{display:block;position:relative;overflow:auto;-webkit-overflow-scrolling:touch;-webkit-box-flex:1;-ms-flex:1;flex:1}:host ::ng-deep mat-sidenav-container.td-layout-manage-list>.mat-drawer-content{-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1}:host ::ng-deep mat-sidenav-container.td-layout-manage-list>mat-sidenav{-webkit-box-shadow:0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);box-shadow:0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}:host ::ng-deep mat-nav-list a[mat-list-item] .mat-list-item-content{font-size:14px}:host ::ng-deep .mat-toolbar{font-weight:400}`],
-                template: `<mat-sidenav-container fullscreen class="td-layout-manage-list">
+                template: `<mat-sidenav-container fullscreen [autosize]="containerAutosize" class="td-layout-manage-list">
   <mat-sidenav #sidenav
               position="start"
               [mode]="mode"
@@ -810,6 +845,7 @@ TdLayoutManageListComponent.propDecorators = {
     "mode": [{ type: Input, args: ['mode',] },],
     "opened": [{ type: Input, args: ['opened',] },],
     "sidenavWidth": [{ type: Input, args: ['sidenavWidth',] },],
+    "containerAutosize": [{ type: Input, args: ['containerAutosize',] },],
 };
 
 /**
