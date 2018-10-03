@@ -474,6 +474,84 @@ TdTimeDifferencePipe.ctorParameters = () => [];
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
+class TdTimeUntilPipe {
+    /**
+     * @param {?} time
+     * @param {?=} reference
+     * @return {?}
+     */
+    transform(time, reference) {
+        // Convert time to date object if not already
+        time = new Date(time);
+        let /** @type {?} */ ref = new Date(reference);
+        // If not a valid timestamp, return 'Invalid Date'
+        if (!time.getTime()) {
+            return 'Invalid Date';
+        }
+        // For unit testing, we need to be able to declare a static start time
+        // for calculations, or else speed of tests can bork.
+        let /** @type {?} */ startTime = isNaN(ref.getTime()) ? Date.now() : ref.getTime();
+        let /** @type {?} */ diff = Math.floor((time.getTime() - startTime) / 1000);
+        if (diff < 2) {
+            return 'in 1 second';
+        }
+        if (diff < 60) {
+            return 'in ' + Math.floor(diff) + ' seconds';
+        }
+        // Minutes
+        diff = diff / 60;
+        if (diff < 2) {
+            return 'in 1 minute';
+        }
+        if (diff < 60) {
+            return 'in ' + Math.floor(diff) + ' minutes';
+        }
+        // Hours
+        diff = diff / 60;
+        if (diff < 2) {
+            return 'in 1 hour';
+        }
+        if (diff < 24) {
+            return 'in ' + Math.floor(diff) + ' hours';
+        }
+        // Days
+        diff = diff / 24;
+        if (diff < 2) {
+            return 'in 1 day';
+        }
+        if (diff < 30) {
+            return 'in ' + Math.floor(diff) + ' days';
+        }
+        // Months
+        diff = diff / 30;
+        if (diff < 2) {
+            return 'in 1 month';
+        }
+        if (diff < 12) {
+            return 'in ' + Math.floor(diff) + ' months';
+        }
+        // Years
+        diff = diff / 12;
+        if (diff < 2) {
+            return 'in 1 year';
+        }
+        else {
+            return 'in ' + Math.floor(diff) + ' years';
+        }
+    }
+}
+TdTimeUntilPipe.decorators = [
+    { type: Pipe, args: [{
+                name: 'timeUntil',
+            },] },
+];
+/** @nocollapse */
+TdTimeUntilPipe.ctorParameters = () => [];
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 class TdBytesPipe {
     /**
      * @param {?} bytes
@@ -1476,6 +1554,7 @@ const TD_VALIDATORS = [];
 const TD_PIPES = [
     TdTimeAgoPipe,
     TdTimeDifferencePipe,
+    TdTimeUntilPipe,
     TdBytesPipe,
     TdDecimalBytesPipe,
     TdDigitsPipe,
@@ -2114,5 +2193,5 @@ class CovalentValidators {
  * Generated bundle index. Do not edit.
  */
 
-export { CovalentCommonModule, TdToggleDirective, TdFadeDirective, TdRotateAnimation, TdCollapseAnimation, TdFadeInOutAnimation, TdBounceAnimation, TdFlashAnimation, TdHeadshakeAnimation, TdJelloAnimation, TdPulseAnimation, mixinControlValueAccessor, mixinDisabled, mixinDisableRipple, TdAutoTrimDirective, CovalentValidators, TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTruncatePipe, TdDecimalBytesPipe, IconService as ɵb, RouterPathService as ɵa };
+export { CovalentCommonModule, TdToggleDirective, TdFadeDirective, TdRotateAnimation, TdCollapseAnimation, TdFadeInOutAnimation, TdBounceAnimation, TdFlashAnimation, TdHeadshakeAnimation, TdJelloAnimation, TdPulseAnimation, mixinControlValueAccessor, mixinDisabled, mixinDisableRipple, TdAutoTrimDirective, CovalentValidators, TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTruncatePipe, TdDecimalBytesPipe, TdTimeUntilPipe as ɵa, IconService as ɵc, RouterPathService as ɵb };
 //# sourceMappingURL=covalent-core-common.js.map

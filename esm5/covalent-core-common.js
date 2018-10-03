@@ -363,6 +363,67 @@ TdTimeDifferencePipe.decorators = [
             },] },
 ];
 TdTimeDifferencePipe.ctorParameters = function () { return []; };
+var TdTimeUntilPipe = /** @class */ (function () {
+    function TdTimeUntilPipe() {
+    }
+    TdTimeUntilPipe.prototype.transform = function (time, reference) {
+        time = new Date(time);
+        var ref = new Date(reference);
+        if (!time.getTime()) {
+            return 'Invalid Date';
+        }
+        var startTime = isNaN(ref.getTime()) ? Date.now() : ref.getTime();
+        var diff = Math.floor((time.getTime() - startTime) / 1000);
+        if (diff < 2) {
+            return 'in 1 second';
+        }
+        if (diff < 60) {
+            return 'in ' + Math.floor(diff) + ' seconds';
+        }
+        diff = diff / 60;
+        if (diff < 2) {
+            return 'in 1 minute';
+        }
+        if (diff < 60) {
+            return 'in ' + Math.floor(diff) + ' minutes';
+        }
+        diff = diff / 60;
+        if (diff < 2) {
+            return 'in 1 hour';
+        }
+        if (diff < 24) {
+            return 'in ' + Math.floor(diff) + ' hours';
+        }
+        diff = diff / 24;
+        if (diff < 2) {
+            return 'in 1 day';
+        }
+        if (diff < 30) {
+            return 'in ' + Math.floor(diff) + ' days';
+        }
+        diff = diff / 30;
+        if (diff < 2) {
+            return 'in 1 month';
+        }
+        if (diff < 12) {
+            return 'in ' + Math.floor(diff) + ' months';
+        }
+        diff = diff / 12;
+        if (diff < 2) {
+            return 'in 1 year';
+        }
+        else {
+            return 'in ' + Math.floor(diff) + ' years';
+        }
+    };
+    return TdTimeUntilPipe;
+}());
+TdTimeUntilPipe.decorators = [
+    { type: Pipe, args: [{
+                name: 'timeUntil',
+            },] },
+];
+TdTimeUntilPipe.ctorParameters = function () { return []; };
 var TdBytesPipe = /** @class */ (function () {
     function TdBytesPipe() {
     }
@@ -1302,6 +1363,7 @@ var TD_VALIDATORS = [];
 var TD_PIPES = [
     TdTimeAgoPipe,
     TdTimeDifferencePipe,
+    TdTimeUntilPipe,
     TdBytesPipe,
     TdDecimalBytesPipe,
     TdDigitsPipe,
@@ -1681,5 +1743,5 @@ var CovalentValidators = /** @class */ (function () {
     return CovalentValidators;
 }());
 
-export { CovalentCommonModule, TdToggleDirective, TdFadeDirective, TdRotateAnimation, TdCollapseAnimation, TdFadeInOutAnimation, TdBounceAnimation, TdFlashAnimation, TdHeadshakeAnimation, TdJelloAnimation, TdPulseAnimation, mixinControlValueAccessor, mixinDisabled, mixinDisableRipple, TdAutoTrimDirective, CovalentValidators, TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTruncatePipe, TdDecimalBytesPipe, IconService as ɵb, RouterPathService as ɵa };
+export { CovalentCommonModule, TdToggleDirective, TdFadeDirective, TdRotateAnimation, TdCollapseAnimation, TdFadeInOutAnimation, TdBounceAnimation, TdFlashAnimation, TdHeadshakeAnimation, TdJelloAnimation, TdPulseAnimation, mixinControlValueAccessor, mixinDisabled, mixinDisableRipple, TdAutoTrimDirective, CovalentValidators, TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTruncatePipe, TdDecimalBytesPipe, TdTimeUntilPipe as ɵa, IconService as ɵc, RouterPathService as ɵb };
 //# sourceMappingURL=covalent-core-common.js.map

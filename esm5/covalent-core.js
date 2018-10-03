@@ -965,6 +965,67 @@ TdTimeDifferencePipe.decorators = [
             },] },
 ];
 TdTimeDifferencePipe.ctorParameters = function () { return []; };
+var TdTimeUntilPipe = /** @class */ (function () {
+    function TdTimeUntilPipe() {
+    }
+    TdTimeUntilPipe.prototype.transform = function (time, reference) {
+        time = new Date(time);
+        var ref = new Date(reference);
+        if (!time.getTime()) {
+            return 'Invalid Date';
+        }
+        var startTime = isNaN(ref.getTime()) ? Date.now() : ref.getTime();
+        var diff = Math.floor((time.getTime() - startTime) / 1000);
+        if (diff < 2) {
+            return 'in 1 second';
+        }
+        if (diff < 60) {
+            return 'in ' + Math.floor(diff) + ' seconds';
+        }
+        diff = diff / 60;
+        if (diff < 2) {
+            return 'in 1 minute';
+        }
+        if (diff < 60) {
+            return 'in ' + Math.floor(diff) + ' minutes';
+        }
+        diff = diff / 60;
+        if (diff < 2) {
+            return 'in 1 hour';
+        }
+        if (diff < 24) {
+            return 'in ' + Math.floor(diff) + ' hours';
+        }
+        diff = diff / 24;
+        if (diff < 2) {
+            return 'in 1 day';
+        }
+        if (diff < 30) {
+            return 'in ' + Math.floor(diff) + ' days';
+        }
+        diff = diff / 30;
+        if (diff < 2) {
+            return 'in 1 month';
+        }
+        if (diff < 12) {
+            return 'in ' + Math.floor(diff) + ' months';
+        }
+        diff = diff / 12;
+        if (diff < 2) {
+            return 'in 1 year';
+        }
+        else {
+            return 'in ' + Math.floor(diff) + ' years';
+        }
+    };
+    return TdTimeUntilPipe;
+}());
+TdTimeUntilPipe.decorators = [
+    { type: Pipe, args: [{
+                name: 'timeUntil',
+            },] },
+];
+TdTimeUntilPipe.ctorParameters = function () { return []; };
 var TdBytesPipe = /** @class */ (function () {
     function TdBytesPipe() {
     }
@@ -1904,6 +1965,7 @@ var TD_VALIDATORS = [];
 var TD_PIPES = [
     TdTimeAgoPipe,
     TdTimeDifferencePipe,
+    TdTimeUntilPipe,
     TdBytesPipe,
     TdDecimalBytesPipe,
     TdDigitsPipe,
@@ -7531,5 +7593,5 @@ CovalentStepsModule.decorators = [
 ];
 CovalentStepsModule.ctorParameters = function () { return []; };
 
-export { CovalentPagingModule, TdPagingBarComponent, CovalentVirtualScrollModule, TdVirtualScrollContainerComponent, TdVirtualScrollRowDirective, CovalentNotificationsModule, TdNotificationCountPositionY, TdNotificationCountPositionX, DEFAULT_NOTIFICATION_LIMIT, TdNotificationCountComponent, CovalentCommonModule$1 as CovalentCommonModule, TdToggleDirective, TdFadeDirective, TdRotateAnimation$1 as TdRotateAnimation, TdCollapseAnimation$1 as TdCollapseAnimation, TdFadeInOutAnimation$1 as TdFadeInOutAnimation, TdBounceAnimation, TdFlashAnimation, TdHeadshakeAnimation, TdJelloAnimation, TdPulseAnimation, mixinControlValueAccessor$1 as mixinControlValueAccessor, mixinDisabled$1 as mixinDisabled, mixinDisableRipple$1 as mixinDisableRipple, TdAutoTrimDirective, CovalentValidators, TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTruncatePipe, TdDecimalBytesPipe, CovalentMessageModule, TdMessageContainerDirective, TdMessageComponent, CovalentChipsModule, TdChipDirective, TdAutocompleteOptionDirective, TdChipsBase, _TdChipsMixinBase, TdChipsComponent, CovalentDataTableModule, TdDataTableSortingOrder, TdDataTableBase, _TdDataTableMixinBase, TdDataTableComponent, TdDataTableCellComponent, TdDataTableColumnComponent, TdDataTableColumnRowComponent, TdDataTableRowComponent, TdDataTableTableComponent, TdDataTableTemplateDirective, TdDataTableService, DATA_TABLE_PROVIDER_FACTORY, DATA_TABLE_PROVIDER, CovalentDialogsModule, TdDialogTitleDirective, TdDialogContentDirective, TdDialogActionsDirective, TdDialogComponent, TdAlertDialogComponent, TdConfirmDialogComponent, TdPromptDialogComponent, TdDialogService, DIALOG_PROVIDER_FACTORY, DIALOG_PROVIDER, CovalentExpansionPanelModule, TdExpansionPanelHeaderDirective, TdExpansionPanelLabelDirective, TdExpansionPanelSublabelDirective, TdExpansionPanelSummaryComponent, TdExpansionPanelBase, _TdExpansionPanelMixinBase, TdExpansionPanelComponent, TdExpansionPanelGroupComponent, CovalentFileModule, TdFileDropBase, _TdFileDropMixinBase, TdFileDropDirective, TdFileSelectDirective, TdFileInputLabelDirective, TdFileInputBase, _TdFileInputMixinBase, TdFileInputComponent, TdFileUploadBase, _TdFileUploadMixinBase, TdFileUploadComponent, TdFileService, CovalentJsonFormatterModule, TdJsonFormatterComponent, CovalentLayoutModule, TdLayoutComponent, TdLayoutToggleDirective, TdLayoutCloseDirective, TdLayoutOpenDirective, LayoutToggleBase, _TdLayoutToggleMixinBase, LayoutToggle, TdLayoutCardOverComponent, TdLayoutFooterComponent, TdLayoutManageListComponent, TdLayoutManageListToggleDirective, TdLayoutManageListCloseDirective, TdLayoutManageListOpenDirective, TdLayoutNavComponent, TdLayoutNavListComponent, TdLayoutNavListToggleDirective, TdLayoutNavListCloseDirective, TdLayoutNavListOpenDirective, TdNavigationDrawerMenuDirective, TdNavigationDrawerToolbarDirective, TdNavigationDrawerComponent, CovalentLoadingModule, LoadingType, LoadingMode, LoadingStrategy, LoadingStyle, TD_CIRCLE_DIAMETER, TdLoadingComponent, TdLoadingContext, TdLoadingDirective, TdLoadingConfig, TdLoadingDirectiveConfig, TdLoadingService, LOADING_PROVIDER_FACTORY, LOADING_PROVIDER, TdLoadingFactory, LOADING_FACTORY_PROVIDER_FACTORY, LOADING_FACTORY_PROVIDER, CovalentMediaModule, TdMediaToggleDirective, TdMediaService, MEDIA_PROVIDER_FACTORY, MEDIA_PROVIDER, CovalentMenuModule, TdMenuComponent, CovalentSearchModule, TdSearchBoxBase, _TdSearchBoxMixinBase, TdSearchBoxComponent, TdSearchInputBase, _TdSearchInputMixinBase, TdSearchInputComponent, CovalentStepsModule, StepState, TdStepLabelDirective, TdStepActionsDirective, TdStepSummaryDirective, TdStepBase, _TdStepMixinBase, TdStepComponent, StepMode, TdStepsComponent, TdStepBodyComponent, TdStepHeaderBase, _TdStepHeaderMixinBase, TdStepHeaderComponent, IconService as ɵb, RouterPathService as ɵa };
+export { CovalentPagingModule, TdPagingBarComponent, CovalentVirtualScrollModule, TdVirtualScrollContainerComponent, TdVirtualScrollRowDirective, CovalentNotificationsModule, TdNotificationCountPositionY, TdNotificationCountPositionX, DEFAULT_NOTIFICATION_LIMIT, TdNotificationCountComponent, CovalentCommonModule$1 as CovalentCommonModule, TdToggleDirective, TdFadeDirective, TdRotateAnimation$1 as TdRotateAnimation, TdCollapseAnimation$1 as TdCollapseAnimation, TdFadeInOutAnimation$1 as TdFadeInOutAnimation, TdBounceAnimation, TdFlashAnimation, TdHeadshakeAnimation, TdJelloAnimation, TdPulseAnimation, mixinControlValueAccessor$1 as mixinControlValueAccessor, mixinDisabled$1 as mixinDisabled, mixinDisableRipple$1 as mixinDisableRipple, TdAutoTrimDirective, CovalentValidators, TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTruncatePipe, TdDecimalBytesPipe, CovalentMessageModule, TdMessageContainerDirective, TdMessageComponent, CovalentChipsModule, TdChipDirective, TdAutocompleteOptionDirective, TdChipsBase, _TdChipsMixinBase, TdChipsComponent, CovalentDataTableModule, TdDataTableSortingOrder, TdDataTableBase, _TdDataTableMixinBase, TdDataTableComponent, TdDataTableCellComponent, TdDataTableColumnComponent, TdDataTableColumnRowComponent, TdDataTableRowComponent, TdDataTableTableComponent, TdDataTableTemplateDirective, TdDataTableService, DATA_TABLE_PROVIDER_FACTORY, DATA_TABLE_PROVIDER, CovalentDialogsModule, TdDialogTitleDirective, TdDialogContentDirective, TdDialogActionsDirective, TdDialogComponent, TdAlertDialogComponent, TdConfirmDialogComponent, TdPromptDialogComponent, TdDialogService, DIALOG_PROVIDER_FACTORY, DIALOG_PROVIDER, CovalentExpansionPanelModule, TdExpansionPanelHeaderDirective, TdExpansionPanelLabelDirective, TdExpansionPanelSublabelDirective, TdExpansionPanelSummaryComponent, TdExpansionPanelBase, _TdExpansionPanelMixinBase, TdExpansionPanelComponent, TdExpansionPanelGroupComponent, CovalentFileModule, TdFileDropBase, _TdFileDropMixinBase, TdFileDropDirective, TdFileSelectDirective, TdFileInputLabelDirective, TdFileInputBase, _TdFileInputMixinBase, TdFileInputComponent, TdFileUploadBase, _TdFileUploadMixinBase, TdFileUploadComponent, TdFileService, CovalentJsonFormatterModule, TdJsonFormatterComponent, CovalentLayoutModule, TdLayoutComponent, TdLayoutToggleDirective, TdLayoutCloseDirective, TdLayoutOpenDirective, LayoutToggleBase, _TdLayoutToggleMixinBase, LayoutToggle, TdLayoutCardOverComponent, TdLayoutFooterComponent, TdLayoutManageListComponent, TdLayoutManageListToggleDirective, TdLayoutManageListCloseDirective, TdLayoutManageListOpenDirective, TdLayoutNavComponent, TdLayoutNavListComponent, TdLayoutNavListToggleDirective, TdLayoutNavListCloseDirective, TdLayoutNavListOpenDirective, TdNavigationDrawerMenuDirective, TdNavigationDrawerToolbarDirective, TdNavigationDrawerComponent, CovalentLoadingModule, LoadingType, LoadingMode, LoadingStrategy, LoadingStyle, TD_CIRCLE_DIAMETER, TdLoadingComponent, TdLoadingContext, TdLoadingDirective, TdLoadingConfig, TdLoadingDirectiveConfig, TdLoadingService, LOADING_PROVIDER_FACTORY, LOADING_PROVIDER, TdLoadingFactory, LOADING_FACTORY_PROVIDER_FACTORY, LOADING_FACTORY_PROVIDER, CovalentMediaModule, TdMediaToggleDirective, TdMediaService, MEDIA_PROVIDER_FACTORY, MEDIA_PROVIDER, CovalentMenuModule, TdMenuComponent, CovalentSearchModule, TdSearchBoxBase, _TdSearchBoxMixinBase, TdSearchBoxComponent, TdSearchInputBase, _TdSearchInputMixinBase, TdSearchInputComponent, CovalentStepsModule, StepState, TdStepLabelDirective, TdStepActionsDirective, TdStepSummaryDirective, TdStepBase, _TdStepMixinBase, TdStepComponent, StepMode, TdStepsComponent, TdStepBodyComponent, TdStepHeaderBase, _TdStepHeaderMixinBase, TdStepHeaderComponent, TdTimeUntilPipe as ɵa, IconService as ɵc, RouterPathService as ɵb };
 //# sourceMappingURL=covalent-core.js.map
