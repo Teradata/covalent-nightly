@@ -85,6 +85,7 @@ var TdChipsComponent = /** @class */ (function (_super) {
         _this._chipRemoval = true;
         _this._focused = false;
         _this._tabIndex = 0;
+        _this._touchendDebounce = 100;
         _this._internalClick = false;
         _this._internalActivateOption = false;
         _this.inputControl = new forms.FormControl();
@@ -505,7 +506,7 @@ var TdChipsComponent = /** @class */ (function (_super) {
     TdChipsComponent.prototype._watchOutsideClick = function () {
         var _this = this;
         if (this._document) {
-            rxjs.merge(rxjs.fromEvent(this._document, 'click'), rxjs.fromEvent(this._document, 'touchend')).pipe(operators.filter(function (event) {
+            rxjs.merge(rxjs.fromEvent(this._document, 'click'), rxjs.fromEvent(this._document, 'touchend')).pipe(operators.debounceTime(this._touchendDebounce), operators.filter(function (event) {
                 var clickTarget = (event.target);
                 setTimeout(function () {
                     _this._internalClick = false;

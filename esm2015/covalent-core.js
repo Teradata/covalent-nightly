@@ -3424,6 +3424,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
         this._chipRemoval = true;
         this._focused = false;
         this._tabIndex = 0;
+        this._touchendDebounce = 100;
         this._internalClick = false;
         this._internalActivateOption = false;
         /**
@@ -4092,7 +4093,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
      */
     _watchOutsideClick() {
         if (this._document) {
-            merge(fromEvent(this._document, 'click'), fromEvent(this._document, 'touchend')).pipe(filter((event) => {
+            merge(fromEvent(this._document, 'click'), fromEvent(this._document, 'touchend')).pipe(debounceTime(this._touchendDebounce), filter((event) => {
                 const /** @type {?} */ clickTarget = /** @type {?} */ (event.target);
                 setTimeout(() => {
                     this._internalClick = false;

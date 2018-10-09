@@ -34,6 +34,7 @@ export declare class TdChipsComponent extends _TdChipsMixinBase implements ICont
     private _chipRemoval;
     private _focused;
     private _tabIndex;
+    private _touchendDebounce;
     _internalClick: boolean;
     _internalActivateOption: boolean;
     _nativeInput: ElementRef;
