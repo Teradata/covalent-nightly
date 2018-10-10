@@ -2040,7 +2040,21 @@ CovalentCommonModule$1.decorators = [
             },] },
 ];
 CovalentCommonModule$1.ctorParameters = function () { return []; };
-function TdRotateAnimation$1(rotateOptions) {
+var tdRotateAnimation$1 = animations.trigger('tdRotate', [
+    animations.state('0', animations.style({
+        transform: 'rotate({{ degressStart }}deg)',
+    }), { params: { degressStart: 0 } }),
+    animations.state('1', animations.style({
+        transform: 'rotate({{ degreesEnd }}deg)',
+    }), { params: { degreesEnd: 180 } }),
+    animations.transition('0 <=> 1', [
+        animations.group([
+            animations.query('@*', animations.animateChild(), { optional: true }),
+            animations.animate('{{ duration }}ms {{ delay }}ms {{ ease }}'),
+        ]),
+    ], { params: { duration: 250, delay: '0', ease: 'ease-in' } }),
+]);
+function TdRotateAnimation(rotateOptions) {
     if (rotateOptions === void 0) { rotateOptions = {}; }
     return animations.trigger(rotateOptions.anchor || 'tdRotate', [
         animations.state('0', animations.style({
@@ -2059,6 +2073,28 @@ function TdRotateAnimation$1(rotateOptions) {
         ]),
     ]);
 }
+var tdCollapseAnimation$1 = animations.trigger('tdCollapse', [
+    animations.state('1', animations.style({
+        height: '0',
+        display: 'none',
+    })),
+    animations.state('0', animations.style({
+        height: animations.AUTO_STYLE,
+        display: animations.AUTO_STYLE,
+    })),
+    animations.transition('0 => 1', [
+        animations.group([
+            animations.query('@*', animations.animateChild(), { optional: true }),
+            animations.animate('{{ duration }}ms {{ delay }}ms {{ ease }}'),
+        ]),
+    ], { params: { duration: 150, delay: '0', ease: 'ease-in' } }),
+    animations.transition('1 => 0', [
+        animations.group([
+            animations.query('@*', animations.animateChild(), { optional: true }),
+            animations.animate('{{ duration }}ms {{ delay }}ms {{ ease }}'),
+        ]),
+    ], { params: { duration: 150, delay: '0', ease: 'ease-out' } }),
+]);
 function TdCollapseAnimation$1(collapseOptions) {
     if (collapseOptions === void 0) { collapseOptions = {}; }
     return animations.trigger(collapseOptions.anchor || 'tdCollapse', [
@@ -2088,7 +2124,29 @@ function TdCollapseAnimation$1(collapseOptions) {
         ]),
     ]);
 }
-function TdFadeInOutAnimation$1(fadeInOut) {
+var tdFadeInOutAnimation$1 = animations.trigger('tdFadeInOut', [
+    animations.state('0', animations.style({
+        opacity: '0',
+        display: 'none',
+    })),
+    animations.state('1', animations.style({
+        opacity: animations.AUTO_STYLE,
+        display: animations.AUTO_STYLE,
+    })),
+    animations.transition('0 => 1', [
+        animations.group([
+            animations.query('@*', animations.animateChild(), { optional: true }),
+            animations.animate('{{ duration }}ms {{ delay }}ms {{ easeOnIn }}'),
+        ]),
+    ], { params: { duration: 150, delay: '0', easeOnIn: 'ease-in' } }),
+    animations.transition('1 => 0', [
+        animations.group([
+            animations.query('@*', animations.animateChild(), { optional: true }),
+            animations.animate('{{ duration }}ms {{ delay }}ms {{ easeOnOut }}'),
+        ]),
+    ], { params: { duration: 150, delay: '0', easeOnOut: 'ease-out' } }),
+]);
+function TdFadeInOutAnimation(fadeInOut) {
     if (fadeInOut === void 0) { fadeInOut = {}; }
     return animations.trigger((fadeInOut.anchor || 'tdFadeInOut'), [
         animations.state('0', animations.style({
@@ -2117,6 +2175,30 @@ function TdFadeInOutAnimation$1(fadeInOut) {
         ]),
     ]);
 }
+var tdBounceAnimation = animations.trigger('tdBounce', [
+    animations.state('0', animations.style({
+        transform: 'translate3d(0, 0, 0)',
+    })),
+    animations.state('1', animations.style({
+        transform: 'translate3d(0, 0, 0)',
+    })),
+    animations.transition('0 <=> 1', [
+        animations.group([
+            animations.query('@*', animations.animateChild(), { optional: true }),
+            animations.animate('{{ duration }}ms {{ delay }}ms {{ ease }}', animations.keyframes([
+                animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0 }),
+                animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.2 }),
+                animations.style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -30px, 0)', offset: 0.4 }),
+                animations.style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -30px, 0)', offset: 0.43 }),
+                animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.53 }),
+                animations.style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -15px, 0)', offset: .7 }),
+                animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.8 }),
+                animations.style({ transform: 'translate3d(0, -4px, 0)', offset: .9 }),
+                animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 1.0 }),
+            ])),
+        ]),
+    ], { params: { duration: 500, delay: '0', ease: 'ease-out' } }),
+]);
 function TdBounceAnimation(bounceOptions) {
     if (bounceOptions === void 0) { bounceOptions = {}; }
     return animations.trigger(bounceOptions.anchor || 'tdBounce', [
@@ -2144,6 +2226,26 @@ function TdBounceAnimation(bounceOptions) {
         ]),
     ]);
 }
+var tdFlashAnimation = animations.trigger('tdFlash', [
+    animations.state('0', animations.style({
+        opacity: 1,
+    })),
+    animations.state('1', animations.style({
+        opacity: 1,
+    })),
+    animations.transition('0 <=> 1', [
+        animations.group([
+            animations.query('@*', animations.animateChild(), { optional: true }),
+            animations.animate('{{ duration }}ms {{ delay }}ms {{ ease }}', animations.keyframes([
+                animations.style({ opacity: 1, offset: 0 }),
+                animations.style({ opacity: 0, offset: 0.25 }),
+                animations.style({ opacity: 1, offset: 0.5 }),
+                animations.style({ opacity: 0, offset: 0.75 }),
+                animations.style({ opacity: 1, offset: 1.0 }),
+            ])),
+        ]),
+    ], { params: { duration: 500, delay: '0', ease: 'ease-out' } }),
+]);
 function TdFlashAnimation(flashOptions) {
     if (flashOptions === void 0) { flashOptions = {}; }
     return animations.trigger(flashOptions.anchor || 'tdFlash', [
@@ -2167,6 +2269,27 @@ function TdFlashAnimation(flashOptions) {
         ]),
     ]);
 }
+var tdHeadshakeAnimation = animations.trigger('tdHeadshake', [
+    animations.state('0', animations.style({
+        transform: 'translateX(0)',
+    })),
+    animations.state('1', animations.style({
+        transform: 'translateX(0)',
+    })),
+    animations.transition('0 <=> 1', [
+        animations.group([
+            animations.query('@*', animations.animateChild(), { optional: true }),
+            animations.animate('{{ duration }}ms {{ delay }}ms {{ ease }}', animations.keyframes([
+                animations.style({ transform: 'translateX(0)', offset: 0 }),
+                animations.style({ transform: 'translateX(-6px) rotateY(-9deg)', offset: 0.065 }),
+                animations.style({ transform: 'translateX(5px) rotateY(7deg)', offset: 0.185 }),
+                animations.style({ transform: 'translateX(-3px) rotateY(-5deg)', offset: 0.315 }),
+                animations.style({ transform: 'translateX(2px) rotateY(3deg)', offset: 0.435 }),
+                animations.style({ transform: 'translateX(0)', offset: 0.50 }),
+            ])),
+        ]),
+    ], { params: { duration: 500, delay: '0', ease: 'ease-out' } }),
+]);
 function TdHeadshakeAnimation(headshakeOptions) {
     if (headshakeOptions === void 0) { headshakeOptions = {}; }
     return animations.trigger(headshakeOptions.anchor || 'tdHeadshake', [
@@ -2191,6 +2314,30 @@ function TdHeadshakeAnimation(headshakeOptions) {
         ]),
     ]);
 }
+var tdJelloAnimation = animations.trigger('tdJello', [
+    animations.state('0', animations.style({
+        transform: 'none',
+    })),
+    animations.state('1', animations.style({
+        transform: 'none',
+    })),
+    animations.transition('0 <=> 1', [
+        animations.group([
+            animations.query('@*', animations.animateChild(), { optional: true }),
+            animations.animate('{{ duration }}ms {{ delay }}ms {{ ease }}', animations.keyframes([
+                animations.style({ transform: 'none', offset: 0 }),
+                animations.style({ transform: 'none', offset: 0.011 }),
+                animations.style({ transform: 'skewX(-12.5deg) skewY(-12.5deg)', offset: 0.222 }),
+                animations.style({ transform: 'skewX(6.25deg) skewY(6.25deg)', offset: 0.333 }),
+                animations.style({ transform: 'skewX(-3.125deg) skewY(-3.125deg)', offset: 0.444 }),
+                animations.style({ transform: 'skewX(1.5625deg) skewY(1.5625deg)', offset: 0.555 }),
+                animations.style({ transform: 'skewX(-0.78125deg) skewY(-0.78125deg)', offset: 0.666 }),
+                animations.style({ transform: 'skewX(0.390625deg) skewY(0.390625deg)', offset: 0.777 }),
+                animations.style({ transform: 'skewX(-0.1953125deg) skewY(-0.1953125deg)', offset: 0.888 }),
+            ])),
+        ]),
+    ], { params: { duration: 500, delay: '0', ease: 'ease-out' } }),
+]);
 function TdJelloAnimation(jelloOptions) {
     if (jelloOptions === void 0) { jelloOptions = {}; }
     return animations.trigger(jelloOptions.anchor || 'tdJello', [
@@ -2218,6 +2365,24 @@ function TdJelloAnimation(jelloOptions) {
         ]),
     ]);
 }
+var tdPulseAnimation = animations.trigger('tdPulse', [
+    animations.state('0', animations.style({
+        transform: 'scale3d(1, 1, 1)',
+    })),
+    animations.state('1', animations.style({
+        transform: 'scale3d(1, 1, 1)',
+    })),
+    animations.transition('0 <=> 1', [
+        animations.group([
+            animations.query('@*', animations.animateChild(), { optional: true }),
+            animations.animate('{{ duration }}ms {{ delay }}ms {{ ease }}', animations.keyframes([
+                animations.style({ transform: 'scale3d(1, 1, 1)', offset: 0 }),
+                animations.style({ transform: 'scale3d(1.05, 1.05, 1.05)', offset: 0.5 }),
+                animations.style({ transform: 'scale3d(1, 1, 1)', offset: 1.0 }),
+            ])),
+        ]),
+    ], { params: { duration: 500, delay: '0', ease: 'ease-out' } }),
+]);
 function TdPulseAnimation(pulseOptions) {
     if (pulseOptions === void 0) { pulseOptions = {}; }
     return animations.trigger(pulseOptions.anchor || 'tdPulse', [
@@ -2409,7 +2574,7 @@ var TdMessageComponent = /** @class */ (function () {
     }
     Object.defineProperty(TdMessageComponent.prototype, "collapsedAnimation", {
         get: function () {
-            return !this._opened;
+            return { value: !this._opened, duration: 100 };
         },
         enumerable: true,
         configurable: true
@@ -2521,7 +2686,7 @@ TdMessageComponent.decorators = [
                 template: "<div tdMessageContainer></div>\n<ng-template>\n  <div class=\"td-message-wrapper\">\n    <mat-icon class=\"td-message-icon\">{{icon}}</mat-icon>\n    <div class=\"td-message-labels\">\n      <div *ngIf=\"label\" class=\"td-message-label\">{{label}}</div>\n      <div *ngIf=\"sublabel\" class=\"td-message-sublabel\">{{sublabel}}</div>\n    </div>\n    <ng-content select=\"[td-message-actions]\"></ng-content>\n  </div>\n</ng-template>",
                 styles: [":host{display:block}:host .td-message-wrapper{padding:8px 16px;min-height:52px;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:start}:host .td-message-wrapper .td-message-labels{-webkit-box-flex:1;-ms-flex:1;flex:1}.td-message-icon{margin-right:16px}::ng-deep [dir=rtl] .td-message-icon{margin-left:16px;margin-right:0}"],
                 animations: [
-                    common$1.TdCollapseAnimation({ duration: 100 }),
+                    common$1.tdCollapseAnimation,
                 ],
             },] },
 ];
@@ -4673,7 +4838,7 @@ TdExpansionPanelComponent.decorators = [
                 inputs: ['disabled', 'disableRipple'],
                 animations: [
                     common$1.TdCollapseAnimation(),
-                    common$1.TdRotateAnimation({ anchor: 'tdRotate' }),
+                    common$1.tdRotateAnimation,
                 ],
             },] },
 ];
@@ -5348,7 +5513,7 @@ TdJsonFormatterComponent.decorators = [
                 styles: [":host{display:block}.td-json-formatter-wrapper{padding-top:2px;padding-bottom:2px}.td-json-formatter-wrapper .td-key{-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:start}.td-json-formatter-wrapper .td-key.td-key-node:hover{cursor:pointer}.td-json-formatter-wrapper .td-object-children.ng-animating{overflow:hidden}.td-json-formatter-wrapper .td-object-children .td-key,.td-json-formatter-wrapper .td-object-children .td-object-children{padding-left:24px}::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-key,::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-object-children{padding-right:24px;padding-left:0}.td-json-formatter-wrapper .td-object-children .td-key.td-key-leaf,.td-json-formatter-wrapper .td-object-children .td-object-children.td-key-leaf{padding-left:48px}::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-key.td-key-leaf,::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-object-children.td-key-leaf{padding-right:48px;padding-left:0}.td-json-formatter-wrapper .value{margin-left:5px}::ng-deep [dir=rtl] .td-json-formatter-wrapper .value{padding-right:5px;padding-left:0}.td-json-formatter-wrapper .value .td-empty{opacity:.5;text-decoration:line-through}.td-json-formatter-wrapper .value .date,.td-json-formatter-wrapper .value .string{word-break:break-word}"],
                 template: "<div class=\"td-json-formatter-wrapper\">\n  <a class=\"td-key\"\n     [class.td-key-node]=\"hasChildren()\"\n     [class.td-key-leaf]=\"!hasChildren()\"\n     [tabIndex]=\"isObject()? 0 : -1\"\n     (keydown.enter)=\"toggle()\"\n     (click)=\"toggle()\">\n    <mat-icon class=\"td-node-icon\" *ngIf=\"hasChildren()\">{{open? 'keyboard_arrow_down' : (isRTL ? 'keyboard_arrow_left' : 'keyboard_arrow_right')}}</mat-icon>\n    <span *ngIf=\"key\" class=\"key\">{{key}}:</span>\n    <span class=\"value\">\n      <span [class.td-empty]=\"!hasChildren()\" *ngIf=\"isObject()\" [matTooltip]=\"getPreview()\" matTooltipPosition=\"after\">\n        <span class=\"td-object-name\">{{getObjectName()}}</span>\n        <span class=\"td-array-length\" *ngIf=\"isArray()\">[{{data.length}}]</span>\n      </span>\n      <span *ngIf=\"!isObject()\" [class]=\"getType(data)\">{{getValue(data)}}</span>\n    </span>\n  </a>\n  <div class=\"td-object-children\" [@tdCollapse]=\"!(hasChildren() && open)\">\n    <ng-template let-key ngFor [ngForOf]=\"children\">\n      <td-json-formatter [key]=\"key\" [data]=\"data[key]\" [levelsOpen]=\"levelsOpen - 1\"></td-json-formatter>\n    </ng-template>\n  </div>\n</div>",
                 animations: [
-                    common$1.TdCollapseAnimation(),
+                    common$1.tdCollapseAnimation,
                 ],
             },] },
 ];
@@ -6070,7 +6235,7 @@ TdNavigationDrawerComponent.decorators = [
                 selector: 'td-navigation-drawer',
                 styles: [":host{width:100%}:host .td-navigation-drawer-content.ng-animating,:host .td-navigation-drawer-menu-content.ng-animating{overflow:hidden}:host mat-toolbar{padding:16px}:host mat-toolbar.td-toolbar-background{background-repeat:no-repeat;background-size:cover}:host mat-toolbar.td-nagivation-drawer-toolbar{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;height:auto!important;display:block!important}:host mat-toolbar .td-navigation-drawer-toolbar-content{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:start}:host mat-toolbar .td-navigation-drawer-menu-toggle{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex}:host mat-toolbar .td-navigation-drawer-menu-toggle .td-navigation-drawer-label{-webkit-box-flex:1;-ms-flex:1;flex:1}:host mat-toolbar .td-navigation-drawer-menu-toggle .td-navigation-drawer-menu-button{height:24px;line-height:24px;width:24px}:host>div{overflow:hidden}"],
                 template: "<mat-toolbar [color]=\"color\"\n             [style.background-image]=\"backgroundImage\"\n             [class.td-toolbar-background]=\"!!isBackgroundAvailable\"\n             class=\"td-nagivation-drawer-toolbar\">\n  <ng-content select=\"[td-navigation-drawer-toolbar]\"></ng-content>\n  <ng-container *ngIf=\"!isCustomToolbar\">\n    <div *ngIf=\"icon || logo || sidenavTitle\"\n          class=\"td-navigation-drawer-toolbar-content\"\n          [class.cursor-pointer]=\"routerEnabled\"\n          (click)=\"handleNavigationClick()\">\n      <mat-icon *ngIf=\"icon\">{{icon}}</mat-icon>\n      <mat-icon *ngIf=\"logo && !icon\" class=\"mat-icon-logo\" [svgIcon]=\"logo\"></mat-icon>\n      <span *ngIf=\"sidenavTitle\" class=\"td-navigation-drawer-title\">{{sidenavTitle}}</span>\n    </div>\n    <div class=\"td-navigation-drawer-name\" *ngIf=\"email && name\">{{name}}</div>\n    <div class=\"td-navigation-drawer-menu-toggle\"\n        href\n        *ngIf=\"email || name\"\n        (click)=\"toggleMenu()\">\n      <span class=\"td-navigation-drawer-label\">{{email || name}}</span>\n      <button mat-icon-button class=\"td-navigation-drawer-menu-button\" *ngIf=\"isMenuAvailable\">\n        <mat-icon *ngIf=\"!menuToggled\">arrow_drop_down</mat-icon>\n        <mat-icon *ngIf=\"menuToggled\">arrow_drop_up</mat-icon>\n      </button>\n    </div>\n  </ng-container>\n</mat-toolbar>\n<div class=\"td-navigation-drawer-content\" [@tdCollapse]=\"menuToggled\">\n  <ng-content></ng-content>\n</div>\n<div class=\"td-navigation-drawer-menu-content\" [@tdCollapse]=\"!menuToggled\">\n  <ng-content select=\"[td-navigation-drawer-menu]\"></ng-content>\n</div>\n",
-                animations: [common$1.TdCollapseAnimation()],
+                animations: [common$1.tdCollapseAnimation],
             },] },
 ];
 TdNavigationDrawerComponent.ctorParameters = function () { return [
@@ -6283,7 +6448,7 @@ TdLoadingComponent.decorators = [
                 styles: [".td-loading-wrapper{position:relative;display:block}.td-loading-wrapper.td-fullscreen{position:inherit}.td-loading-wrapper .td-loading{-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-flex:1;-ms-flex:1;flex:1}.td-loading-wrapper.td-overlay .td-loading{position:absolute;margin:0;top:0;left:0;right:0;z-index:1000}.td-loading-wrapper.td-overlay .td-loading mat-progress-bar{position:absolute;top:0;left:0;right:0}.td-loading-wrapper.td-overlay-circular .td-loading{bottom:0}"],
                 template: "<div class=\"td-loading-wrapper\"\n    [style.min-height]=\"getHeight()\"\n    [class.td-overlay-circular]=\"(isOverlay() || isFullScreen()) && !isLinear()\"\n    [class.td-overlay]=\"isOverlay() || isFullScreen()\" \n    [class.td-fullscreen]=\"isFullScreen()\">\n  <div [@tdFadeInOut]=\"animation\"\n     (@tdFadeInOut.done)=\"animationComplete($event)\"\n     [style.min-height]=\"getHeight()\"\n     class=\"td-loading\">\n    <mat-progress-spinner *ngIf=\"isCircular()\" \n                        [mode]=\"mode\"\n                        [value]=\"value\" \n                        [color]=\"color\" \n                        [diameter]=\"getCircleDiameter()\"\n                        [strokeWidth]=\"getCircleStrokeWidth()\">\n    </mat-progress-spinner>\n    <mat-progress-bar *ngIf=\"isLinear()\" \n                     [mode]=\"mode\"\n                     [value]=\"value\"\n                     [color]=\"color\">\n    </mat-progress-bar>\n  </div>\n  <ng-template [cdkPortalOutlet]=\"content\"></ng-template>\n</div>",
                 animations: [
-                    common$1.TdFadeInOutAnimation(),
+                    common$1.tdFadeInOutAnimation,
                 ],
             },] },
 ];
@@ -7585,7 +7750,7 @@ TdStepBodyComponent.decorators = [
                 styles: [":host{-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}:host .td-step-body{overflow-x:hidden;-webkit-box-flex:1;-ms-flex:1;flex:1;-webkit-box-sizing:border-box;box-sizing:border-box}:host .td-step-body .td-step-content-wrapper.ng-animating,:host .td-step-body .td-step-summary.ng-animating{overflow:hidden}:host .td-step-body .td-step-content{overflow-x:auto}:host .td-step-body .td-step-actions{-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}"],
                 template: "<ng-content></ng-content>\n<div class=\"td-step-body\">\n  <div class=\"td-step-content-wrapper\"\n       [@tdCollapse]=\"!active\">\n    <div #contentRef cdkScrollable [class.td-step-content]=\"hasContent\">\n      <ng-content select=\"[td-step-body-content]\"></ng-content>\n    </div>\n    <div #actionsRef\n         [class.td-step-actions]=\"hasActions\">\n      <ng-content select=\"[td-step-body-actions]\"></ng-content>\n    </div>\n  </div>\n  <div #summaryRef\n       [@tdCollapse]=\"active || !isComplete()\"\n       [class.td-step-summary]=\"hasSummary\">\n    <ng-content select=\"[td-step-body-summary]\"></ng-content>\n  </div>\n</div>",
                 animations: [
-                    common$1.TdCollapseAnimation(),
+                    common$1.tdCollapseAnimation,
                 ],
             },] },
 ];
@@ -7644,13 +7809,21 @@ exports.TdNotificationCountComponent = TdNotificationCountComponent;
 exports.CovalentCommonModule = CovalentCommonModule$1;
 exports.TdToggleDirective = TdToggleDirective;
 exports.TdFadeDirective = TdFadeDirective;
-exports.TdRotateAnimation = TdRotateAnimation$1;
+exports.tdRotateAnimation = tdRotateAnimation$1;
+exports.TdRotateAnimation = TdRotateAnimation;
+exports.tdCollapseAnimation = tdCollapseAnimation$1;
 exports.TdCollapseAnimation = TdCollapseAnimation$1;
-exports.TdFadeInOutAnimation = TdFadeInOutAnimation$1;
+exports.tdFadeInOutAnimation = tdFadeInOutAnimation$1;
+exports.TdFadeInOutAnimation = TdFadeInOutAnimation;
+exports.tdBounceAnimation = tdBounceAnimation;
 exports.TdBounceAnimation = TdBounceAnimation;
+exports.tdFlashAnimation = tdFlashAnimation;
 exports.TdFlashAnimation = TdFlashAnimation;
+exports.tdHeadshakeAnimation = tdHeadshakeAnimation;
 exports.TdHeadshakeAnimation = TdHeadshakeAnimation;
+exports.tdJelloAnimation = tdJelloAnimation;
 exports.TdJelloAnimation = TdJelloAnimation;
+exports.tdPulseAnimation = tdPulseAnimation;
 exports.TdPulseAnimation = TdPulseAnimation;
 exports.mixinControlValueAccessor = mixinControlValueAccessor$1;
 exports.mixinDisabled = mixinDisabled$1;

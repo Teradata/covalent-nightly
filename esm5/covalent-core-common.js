@@ -1401,6 +1401,20 @@ CovalentCommonModule.decorators = [
             },] },
 ];
 CovalentCommonModule.ctorParameters = function () { return []; };
+var tdRotateAnimation = trigger('tdRotate', [
+    state('0', style({
+        transform: 'rotate({{ degressStart }}deg)',
+    }), { params: { degressStart: 0 } }),
+    state('1', style({
+        transform: 'rotate({{ degreesEnd }}deg)',
+    }), { params: { degreesEnd: 180 } }),
+    transition('0 <=> 1', [
+        group([
+            query('@*', animateChild(), { optional: true }),
+            animate('{{ duration }}ms {{ delay }}ms {{ ease }}'),
+        ]),
+    ], { params: { duration: 250, delay: '0', ease: 'ease-in' } }),
+]);
 function TdRotateAnimation(rotateOptions) {
     if (rotateOptions === void 0) { rotateOptions = {}; }
     return trigger(rotateOptions.anchor || 'tdRotate', [
@@ -1420,6 +1434,28 @@ function TdRotateAnimation(rotateOptions) {
         ]),
     ]);
 }
+var tdCollapseAnimation = trigger('tdCollapse', [
+    state('1', style({
+        height: '0',
+        display: 'none',
+    })),
+    state('0', style({
+        height: AUTO_STYLE,
+        display: AUTO_STYLE,
+    })),
+    transition('0 => 1', [
+        group([
+            query('@*', animateChild(), { optional: true }),
+            animate('{{ duration }}ms {{ delay }}ms {{ ease }}'),
+        ]),
+    ], { params: { duration: 150, delay: '0', ease: 'ease-in' } }),
+    transition('1 => 0', [
+        group([
+            query('@*', animateChild(), { optional: true }),
+            animate('{{ duration }}ms {{ delay }}ms {{ ease }}'),
+        ]),
+    ], { params: { duration: 150, delay: '0', ease: 'ease-out' } }),
+]);
 function TdCollapseAnimation(collapseOptions) {
     if (collapseOptions === void 0) { collapseOptions = {}; }
     return trigger(collapseOptions.anchor || 'tdCollapse', [
@@ -1449,6 +1485,28 @@ function TdCollapseAnimation(collapseOptions) {
         ]),
     ]);
 }
+var tdFadeInOutAnimation = trigger('tdFadeInOut', [
+    state('0', style({
+        opacity: '0',
+        display: 'none',
+    })),
+    state('1', style({
+        opacity: AUTO_STYLE,
+        display: AUTO_STYLE,
+    })),
+    transition('0 => 1', [
+        group([
+            query('@*', animateChild(), { optional: true }),
+            animate('{{ duration }}ms {{ delay }}ms {{ easeOnIn }}'),
+        ]),
+    ], { params: { duration: 150, delay: '0', easeOnIn: 'ease-in' } }),
+    transition('1 => 0', [
+        group([
+            query('@*', animateChild(), { optional: true }),
+            animate('{{ duration }}ms {{ delay }}ms {{ easeOnOut }}'),
+        ]),
+    ], { params: { duration: 150, delay: '0', easeOnOut: 'ease-out' } }),
+]);
 function TdFadeInOutAnimation(fadeInOut) {
     if (fadeInOut === void 0) { fadeInOut = {}; }
     return trigger((fadeInOut.anchor || 'tdFadeInOut'), [
@@ -1478,6 +1536,30 @@ function TdFadeInOutAnimation(fadeInOut) {
         ]),
     ]);
 }
+var tdBounceAnimation = trigger('tdBounce', [
+    state('0', style({
+        transform: 'translate3d(0, 0, 0)',
+    })),
+    state('1', style({
+        transform: 'translate3d(0, 0, 0)',
+    })),
+    transition('0 <=> 1', [
+        group([
+            query('@*', animateChild(), { optional: true }),
+            animate('{{ duration }}ms {{ delay }}ms {{ ease }}', keyframes([
+                style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0 }),
+                style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.2 }),
+                style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -30px, 0)', offset: 0.4 }),
+                style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -30px, 0)', offset: 0.43 }),
+                style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.53 }),
+                style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -15px, 0)', offset: .7 }),
+                style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.8 }),
+                style({ transform: 'translate3d(0, -4px, 0)', offset: .9 }),
+                style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 1.0 }),
+            ])),
+        ]),
+    ], { params: { duration: 500, delay: '0', ease: 'ease-out' } }),
+]);
 function TdBounceAnimation(bounceOptions) {
     if (bounceOptions === void 0) { bounceOptions = {}; }
     return trigger(bounceOptions.anchor || 'tdBounce', [
@@ -1505,6 +1587,26 @@ function TdBounceAnimation(bounceOptions) {
         ]),
     ]);
 }
+var tdFlashAnimation = trigger('tdFlash', [
+    state('0', style({
+        opacity: 1,
+    })),
+    state('1', style({
+        opacity: 1,
+    })),
+    transition('0 <=> 1', [
+        group([
+            query('@*', animateChild(), { optional: true }),
+            animate('{{ duration }}ms {{ delay }}ms {{ ease }}', keyframes([
+                style({ opacity: 1, offset: 0 }),
+                style({ opacity: 0, offset: 0.25 }),
+                style({ opacity: 1, offset: 0.5 }),
+                style({ opacity: 0, offset: 0.75 }),
+                style({ opacity: 1, offset: 1.0 }),
+            ])),
+        ]),
+    ], { params: { duration: 500, delay: '0', ease: 'ease-out' } }),
+]);
 function TdFlashAnimation(flashOptions) {
     if (flashOptions === void 0) { flashOptions = {}; }
     return trigger(flashOptions.anchor || 'tdFlash', [
@@ -1528,6 +1630,27 @@ function TdFlashAnimation(flashOptions) {
         ]),
     ]);
 }
+var tdHeadshakeAnimation = trigger('tdHeadshake', [
+    state('0', style({
+        transform: 'translateX(0)',
+    })),
+    state('1', style({
+        transform: 'translateX(0)',
+    })),
+    transition('0 <=> 1', [
+        group([
+            query('@*', animateChild(), { optional: true }),
+            animate('{{ duration }}ms {{ delay }}ms {{ ease }}', keyframes([
+                style({ transform: 'translateX(0)', offset: 0 }),
+                style({ transform: 'translateX(-6px) rotateY(-9deg)', offset: 0.065 }),
+                style({ transform: 'translateX(5px) rotateY(7deg)', offset: 0.185 }),
+                style({ transform: 'translateX(-3px) rotateY(-5deg)', offset: 0.315 }),
+                style({ transform: 'translateX(2px) rotateY(3deg)', offset: 0.435 }),
+                style({ transform: 'translateX(0)', offset: 0.50 }),
+            ])),
+        ]),
+    ], { params: { duration: 500, delay: '0', ease: 'ease-out' } }),
+]);
 function TdHeadshakeAnimation(headshakeOptions) {
     if (headshakeOptions === void 0) { headshakeOptions = {}; }
     return trigger(headshakeOptions.anchor || 'tdHeadshake', [
@@ -1552,6 +1675,30 @@ function TdHeadshakeAnimation(headshakeOptions) {
         ]),
     ]);
 }
+var tdJelloAnimation = trigger('tdJello', [
+    state('0', style({
+        transform: 'none',
+    })),
+    state('1', style({
+        transform: 'none',
+    })),
+    transition('0 <=> 1', [
+        group([
+            query('@*', animateChild(), { optional: true }),
+            animate('{{ duration }}ms {{ delay }}ms {{ ease }}', keyframes([
+                style({ transform: 'none', offset: 0 }),
+                style({ transform: 'none', offset: 0.011 }),
+                style({ transform: 'skewX(-12.5deg) skewY(-12.5deg)', offset: 0.222 }),
+                style({ transform: 'skewX(6.25deg) skewY(6.25deg)', offset: 0.333 }),
+                style({ transform: 'skewX(-3.125deg) skewY(-3.125deg)', offset: 0.444 }),
+                style({ transform: 'skewX(1.5625deg) skewY(1.5625deg)', offset: 0.555 }),
+                style({ transform: 'skewX(-0.78125deg) skewY(-0.78125deg)', offset: 0.666 }),
+                style({ transform: 'skewX(0.390625deg) skewY(0.390625deg)', offset: 0.777 }),
+                style({ transform: 'skewX(-0.1953125deg) skewY(-0.1953125deg)', offset: 0.888 }),
+            ])),
+        ]),
+    ], { params: { duration: 500, delay: '0', ease: 'ease-out' } }),
+]);
 function TdJelloAnimation(jelloOptions) {
     if (jelloOptions === void 0) { jelloOptions = {}; }
     return trigger(jelloOptions.anchor || 'tdJello', [
@@ -1579,6 +1726,24 @@ function TdJelloAnimation(jelloOptions) {
         ]),
     ]);
 }
+var tdPulseAnimation = trigger('tdPulse', [
+    state('0', style({
+        transform: 'scale3d(1, 1, 1)',
+    })),
+    state('1', style({
+        transform: 'scale3d(1, 1, 1)',
+    })),
+    transition('0 <=> 1', [
+        group([
+            query('@*', animateChild(), { optional: true }),
+            animate('{{ duration }}ms {{ delay }}ms {{ ease }}', keyframes([
+                style({ transform: 'scale3d(1, 1, 1)', offset: 0 }),
+                style({ transform: 'scale3d(1.05, 1.05, 1.05)', offset: 0.5 }),
+                style({ transform: 'scale3d(1, 1, 1)', offset: 1.0 }),
+            ])),
+        ]),
+    ], { params: { duration: 500, delay: '0', ease: 'ease-out' } }),
+]);
 function TdPulseAnimation(pulseOptions) {
     if (pulseOptions === void 0) { pulseOptions = {}; }
     return trigger(pulseOptions.anchor || 'tdPulse', [
@@ -1743,5 +1908,5 @@ var CovalentValidators = /** @class */ (function () {
     return CovalentValidators;
 }());
 
-export { CovalentCommonModule, TdToggleDirective, TdFadeDirective, TdRotateAnimation, TdCollapseAnimation, TdFadeInOutAnimation, TdBounceAnimation, TdFlashAnimation, TdHeadshakeAnimation, TdJelloAnimation, TdPulseAnimation, mixinControlValueAccessor, mixinDisabled, mixinDisableRipple, TdAutoTrimDirective, CovalentValidators, TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTruncatePipe, TdDecimalBytesPipe, TdTimeUntilPipe as ɵa, IconService as ɵc, RouterPathService as ɵb };
+export { CovalentCommonModule, TdToggleDirective, TdFadeDirective, tdRotateAnimation, TdRotateAnimation, tdCollapseAnimation, TdCollapseAnimation, tdFadeInOutAnimation, TdFadeInOutAnimation, tdBounceAnimation, TdBounceAnimation, tdFlashAnimation, TdFlashAnimation, tdHeadshakeAnimation, TdHeadshakeAnimation, tdJelloAnimation, TdJelloAnimation, tdPulseAnimation, TdPulseAnimation, mixinControlValueAccessor, mixinDisabled, mixinDisableRipple, TdAutoTrimDirective, CovalentValidators, TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTruncatePipe, TdDecimalBytesPipe, TdTimeUntilPipe as ɵa, IconService as ɵc, RouterPathService as ɵb };
 //# sourceMappingURL=covalent-core-common.js.map

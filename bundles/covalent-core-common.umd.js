@@ -1452,6 +1452,20 @@ CovalentCommonModule.decorators = [
             },] },
 ];
 CovalentCommonModule.ctorParameters = function () { return []; };
+var tdRotateAnimation = animations.trigger('tdRotate', [
+    animations.state('0', animations.style({
+        transform: 'rotate({{ degressStart }}deg)',
+    }), { params: { degressStart: 0 } }),
+    animations.state('1', animations.style({
+        transform: 'rotate({{ degreesEnd }}deg)',
+    }), { params: { degreesEnd: 180 } }),
+    animations.transition('0 <=> 1', [
+        animations.group([
+            animations.query('@*', animations.animateChild(), { optional: true }),
+            animations.animate('{{ duration }}ms {{ delay }}ms {{ ease }}'),
+        ]),
+    ], { params: { duration: 250, delay: '0', ease: 'ease-in' } }),
+]);
 function TdRotateAnimation(rotateOptions) {
     if (rotateOptions === void 0) { rotateOptions = {}; }
     return animations.trigger(rotateOptions.anchor || 'tdRotate', [
@@ -1471,6 +1485,28 @@ function TdRotateAnimation(rotateOptions) {
         ]),
     ]);
 }
+var tdCollapseAnimation = animations.trigger('tdCollapse', [
+    animations.state('1', animations.style({
+        height: '0',
+        display: 'none',
+    })),
+    animations.state('0', animations.style({
+        height: animations.AUTO_STYLE,
+        display: animations.AUTO_STYLE,
+    })),
+    animations.transition('0 => 1', [
+        animations.group([
+            animations.query('@*', animations.animateChild(), { optional: true }),
+            animations.animate('{{ duration }}ms {{ delay }}ms {{ ease }}'),
+        ]),
+    ], { params: { duration: 150, delay: '0', ease: 'ease-in' } }),
+    animations.transition('1 => 0', [
+        animations.group([
+            animations.query('@*', animations.animateChild(), { optional: true }),
+            animations.animate('{{ duration }}ms {{ delay }}ms {{ ease }}'),
+        ]),
+    ], { params: { duration: 150, delay: '0', ease: 'ease-out' } }),
+]);
 function TdCollapseAnimation(collapseOptions) {
     if (collapseOptions === void 0) { collapseOptions = {}; }
     return animations.trigger(collapseOptions.anchor || 'tdCollapse', [
@@ -1500,6 +1536,28 @@ function TdCollapseAnimation(collapseOptions) {
         ]),
     ]);
 }
+var tdFadeInOutAnimation = animations.trigger('tdFadeInOut', [
+    animations.state('0', animations.style({
+        opacity: '0',
+        display: 'none',
+    })),
+    animations.state('1', animations.style({
+        opacity: animations.AUTO_STYLE,
+        display: animations.AUTO_STYLE,
+    })),
+    animations.transition('0 => 1', [
+        animations.group([
+            animations.query('@*', animations.animateChild(), { optional: true }),
+            animations.animate('{{ duration }}ms {{ delay }}ms {{ easeOnIn }}'),
+        ]),
+    ], { params: { duration: 150, delay: '0', easeOnIn: 'ease-in' } }),
+    animations.transition('1 => 0', [
+        animations.group([
+            animations.query('@*', animations.animateChild(), { optional: true }),
+            animations.animate('{{ duration }}ms {{ delay }}ms {{ easeOnOut }}'),
+        ]),
+    ], { params: { duration: 150, delay: '0', easeOnOut: 'ease-out' } }),
+]);
 function TdFadeInOutAnimation(fadeInOut) {
     if (fadeInOut === void 0) { fadeInOut = {}; }
     return animations.trigger((fadeInOut.anchor || 'tdFadeInOut'), [
@@ -1529,6 +1587,30 @@ function TdFadeInOutAnimation(fadeInOut) {
         ]),
     ]);
 }
+var tdBounceAnimation = animations.trigger('tdBounce', [
+    animations.state('0', animations.style({
+        transform: 'translate3d(0, 0, 0)',
+    })),
+    animations.state('1', animations.style({
+        transform: 'translate3d(0, 0, 0)',
+    })),
+    animations.transition('0 <=> 1', [
+        animations.group([
+            animations.query('@*', animations.animateChild(), { optional: true }),
+            animations.animate('{{ duration }}ms {{ delay }}ms {{ ease }}', animations.keyframes([
+                animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0 }),
+                animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.2 }),
+                animations.style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -30px, 0)', offset: 0.4 }),
+                animations.style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -30px, 0)', offset: 0.43 }),
+                animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.53 }),
+                animations.style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -15px, 0)', offset: .7 }),
+                animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.8 }),
+                animations.style({ transform: 'translate3d(0, -4px, 0)', offset: .9 }),
+                animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 1.0 }),
+            ])),
+        ]),
+    ], { params: { duration: 500, delay: '0', ease: 'ease-out' } }),
+]);
 function TdBounceAnimation(bounceOptions) {
     if (bounceOptions === void 0) { bounceOptions = {}; }
     return animations.trigger(bounceOptions.anchor || 'tdBounce', [
@@ -1556,6 +1638,26 @@ function TdBounceAnimation(bounceOptions) {
         ]),
     ]);
 }
+var tdFlashAnimation = animations.trigger('tdFlash', [
+    animations.state('0', animations.style({
+        opacity: 1,
+    })),
+    animations.state('1', animations.style({
+        opacity: 1,
+    })),
+    animations.transition('0 <=> 1', [
+        animations.group([
+            animations.query('@*', animations.animateChild(), { optional: true }),
+            animations.animate('{{ duration }}ms {{ delay }}ms {{ ease }}', animations.keyframes([
+                animations.style({ opacity: 1, offset: 0 }),
+                animations.style({ opacity: 0, offset: 0.25 }),
+                animations.style({ opacity: 1, offset: 0.5 }),
+                animations.style({ opacity: 0, offset: 0.75 }),
+                animations.style({ opacity: 1, offset: 1.0 }),
+            ])),
+        ]),
+    ], { params: { duration: 500, delay: '0', ease: 'ease-out' } }),
+]);
 function TdFlashAnimation(flashOptions) {
     if (flashOptions === void 0) { flashOptions = {}; }
     return animations.trigger(flashOptions.anchor || 'tdFlash', [
@@ -1579,6 +1681,27 @@ function TdFlashAnimation(flashOptions) {
         ]),
     ]);
 }
+var tdHeadshakeAnimation = animations.trigger('tdHeadshake', [
+    animations.state('0', animations.style({
+        transform: 'translateX(0)',
+    })),
+    animations.state('1', animations.style({
+        transform: 'translateX(0)',
+    })),
+    animations.transition('0 <=> 1', [
+        animations.group([
+            animations.query('@*', animations.animateChild(), { optional: true }),
+            animations.animate('{{ duration }}ms {{ delay }}ms {{ ease }}', animations.keyframes([
+                animations.style({ transform: 'translateX(0)', offset: 0 }),
+                animations.style({ transform: 'translateX(-6px) rotateY(-9deg)', offset: 0.065 }),
+                animations.style({ transform: 'translateX(5px) rotateY(7deg)', offset: 0.185 }),
+                animations.style({ transform: 'translateX(-3px) rotateY(-5deg)', offset: 0.315 }),
+                animations.style({ transform: 'translateX(2px) rotateY(3deg)', offset: 0.435 }),
+                animations.style({ transform: 'translateX(0)', offset: 0.50 }),
+            ])),
+        ]),
+    ], { params: { duration: 500, delay: '0', ease: 'ease-out' } }),
+]);
 function TdHeadshakeAnimation(headshakeOptions) {
     if (headshakeOptions === void 0) { headshakeOptions = {}; }
     return animations.trigger(headshakeOptions.anchor || 'tdHeadshake', [
@@ -1603,6 +1726,30 @@ function TdHeadshakeAnimation(headshakeOptions) {
         ]),
     ]);
 }
+var tdJelloAnimation = animations.trigger('tdJello', [
+    animations.state('0', animations.style({
+        transform: 'none',
+    })),
+    animations.state('1', animations.style({
+        transform: 'none',
+    })),
+    animations.transition('0 <=> 1', [
+        animations.group([
+            animations.query('@*', animations.animateChild(), { optional: true }),
+            animations.animate('{{ duration }}ms {{ delay }}ms {{ ease }}', animations.keyframes([
+                animations.style({ transform: 'none', offset: 0 }),
+                animations.style({ transform: 'none', offset: 0.011 }),
+                animations.style({ transform: 'skewX(-12.5deg) skewY(-12.5deg)', offset: 0.222 }),
+                animations.style({ transform: 'skewX(6.25deg) skewY(6.25deg)', offset: 0.333 }),
+                animations.style({ transform: 'skewX(-3.125deg) skewY(-3.125deg)', offset: 0.444 }),
+                animations.style({ transform: 'skewX(1.5625deg) skewY(1.5625deg)', offset: 0.555 }),
+                animations.style({ transform: 'skewX(-0.78125deg) skewY(-0.78125deg)', offset: 0.666 }),
+                animations.style({ transform: 'skewX(0.390625deg) skewY(0.390625deg)', offset: 0.777 }),
+                animations.style({ transform: 'skewX(-0.1953125deg) skewY(-0.1953125deg)', offset: 0.888 }),
+            ])),
+        ]),
+    ], { params: { duration: 500, delay: '0', ease: 'ease-out' } }),
+]);
 function TdJelloAnimation(jelloOptions) {
     if (jelloOptions === void 0) { jelloOptions = {}; }
     return animations.trigger(jelloOptions.anchor || 'tdJello', [
@@ -1630,6 +1777,24 @@ function TdJelloAnimation(jelloOptions) {
         ]),
     ]);
 }
+var tdPulseAnimation = animations.trigger('tdPulse', [
+    animations.state('0', animations.style({
+        transform: 'scale3d(1, 1, 1)',
+    })),
+    animations.state('1', animations.style({
+        transform: 'scale3d(1, 1, 1)',
+    })),
+    animations.transition('0 <=> 1', [
+        animations.group([
+            animations.query('@*', animations.animateChild(), { optional: true }),
+            animations.animate('{{ duration }}ms {{ delay }}ms {{ ease }}', animations.keyframes([
+                animations.style({ transform: 'scale3d(1, 1, 1)', offset: 0 }),
+                animations.style({ transform: 'scale3d(1.05, 1.05, 1.05)', offset: 0.5 }),
+                animations.style({ transform: 'scale3d(1, 1, 1)', offset: 1.0 }),
+            ])),
+        ]),
+    ], { params: { duration: 500, delay: '0', ease: 'ease-out' } }),
+]);
 function TdPulseAnimation(pulseOptions) {
     if (pulseOptions === void 0) { pulseOptions = {}; }
     return animations.trigger(pulseOptions.anchor || 'tdPulse', [
@@ -1797,13 +1962,21 @@ var CovalentValidators = /** @class */ (function () {
 exports.CovalentCommonModule = CovalentCommonModule;
 exports.TdToggleDirective = TdToggleDirective;
 exports.TdFadeDirective = TdFadeDirective;
+exports.tdRotateAnimation = tdRotateAnimation;
 exports.TdRotateAnimation = TdRotateAnimation;
+exports.tdCollapseAnimation = tdCollapseAnimation;
 exports.TdCollapseAnimation = TdCollapseAnimation;
+exports.tdFadeInOutAnimation = tdFadeInOutAnimation;
 exports.TdFadeInOutAnimation = TdFadeInOutAnimation;
+exports.tdBounceAnimation = tdBounceAnimation;
 exports.TdBounceAnimation = TdBounceAnimation;
+exports.tdFlashAnimation = tdFlashAnimation;
 exports.TdFlashAnimation = TdFlashAnimation;
+exports.tdHeadshakeAnimation = tdHeadshakeAnimation;
 exports.TdHeadshakeAnimation = TdHeadshakeAnimation;
+exports.tdJelloAnimation = tdJelloAnimation;
 exports.TdJelloAnimation = TdJelloAnimation;
+exports.tdPulseAnimation = tdPulseAnimation;
 exports.TdPulseAnimation = TdPulseAnimation;
 exports.mixinControlValueAccessor = mixinControlValueAccessor;
 exports.mixinDisabled = mixinDisabled;

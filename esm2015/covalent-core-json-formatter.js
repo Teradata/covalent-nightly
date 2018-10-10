@@ -1,6 +1,6 @@
 import { Component, Input, ChangeDetectionStrategy, ChangeDetectorRef, Optional, NgModule } from '@angular/core';
 import { Dir } from '@angular/cdk/bidi';
-import { TdCollapseAnimation } from '@covalent/core/common';
+import { tdCollapseAnimation } from '@covalent/core/common';
 import { CommonModule } from '@angular/common';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
@@ -274,7 +274,7 @@ TdJsonFormatterComponent.decorators = [
   </div>
 </div>`,
                 animations: [
-                    TdCollapseAnimation(),
+                    tdCollapseAnimation,
                 ],
             },] },
 ];

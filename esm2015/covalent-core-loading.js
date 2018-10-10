@@ -1,6 +1,6 @@
 import { Component, ChangeDetectorRef, ElementRef, Injectable, ComponentFactoryResolver, SkipSelf, Optional, Injector, Directive, Input, ViewContainerRef, TemplateRef, NgModule } from '@angular/core';
 import { Subject } from 'rxjs';
-import { TdFadeInOutAnimation } from '@covalent/core/common';
+import { tdFadeInOutAnimation } from '@covalent/core/common';
 import { TemplatePortal, ComponentPortal, PortalModule } from '@angular/cdk/portal';
 import { Overlay, OverlayConfig, OverlayModule } from '@angular/cdk/overlay';
 import { CommonModule } from '@angular/common';
@@ -282,7 +282,7 @@ TdLoadingComponent.decorators = [
   <ng-template [cdkPortalOutlet]="content"></ng-template>
 </div>`,
                 animations: [
-                    TdFadeInOutAnimation(),
+                    tdFadeInOutAnimation,
                 ],
             },] },
 ];

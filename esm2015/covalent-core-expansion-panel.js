@@ -1,7 +1,7 @@
 import { Component, Directive, Input, Output, TemplateRef, ViewContainerRef, ContentChild, ElementRef, Renderer2, EventEmitter, NgModule } from '@angular/core';
 import { TemplatePortalDirective, PortalModule } from '@angular/cdk/portal';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { TdCollapseAnimation, mixinDisabled, mixinDisableRipple, TdRotateAnimation } from '@covalent/core/common';
+import { TdCollapseAnimation, mixinDisabled, mixinDisableRipple, tdRotateAnimation } from '@covalent/core/common';
 import { CommonModule } from '@angular/common';
 import { MatRippleModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
@@ -235,7 +235,7 @@ TdExpansionPanelComponent.decorators = [
                 inputs: ['disabled', 'disableRipple'],
                 animations: [
                     TdCollapseAnimation(),
-                    TdRotateAnimation({ anchor: 'tdRotate' }),
+                    tdRotateAnimation,
                 ],
             },] },
 ];

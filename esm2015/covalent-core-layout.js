@@ -1,6 +1,6 @@
 import { Component, Input, ViewChild, HostListener, Directive, Renderer2, ElementRef, Inject, forwardRef, Optional, ContentChildren, SecurityContext, NgModule } from '@angular/core';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
-import { mixinDisabled, TdCollapseAnimation } from '@covalent/core/common';
+import { mixinDisabled, tdCollapseAnimation } from '@covalent/core/common';
 import { Router } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
@@ -1203,7 +1203,7 @@ TdNavigationDrawerComponent.decorators = [
   <ng-content select="[td-navigation-drawer-menu]"></ng-content>
 </div>
 `,
-                animations: [TdCollapseAnimation()],
+                animations: [tdCollapseAnimation],
             },] },
 ];
 /** @nocollapse */

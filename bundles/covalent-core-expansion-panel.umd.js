@@ -169,7 +169,7 @@ TdExpansionPanelComponent.decorators = [
                 inputs: ['disabled', 'disableRipple'],
                 animations: [
                     common.TdCollapseAnimation(),
-                    common.TdRotateAnimation({ anchor: 'tdRotate' }),
+                    common.tdRotateAnimation,
                 ],
             },] },
 ];

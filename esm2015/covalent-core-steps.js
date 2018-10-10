@@ -1,7 +1,7 @@
 import { Component, Directive, Input, Output, TemplateRef, ViewChild, ViewContainerRef, ContentChild, EventEmitter, ContentChildren, ElementRef, NgModule } from '@angular/core';
 import { TemplatePortalDirective, TemplatePortal, PortalModule } from '@angular/cdk/portal';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { mixinDisabled, mixinDisableRipple, TdCollapseAnimation, CovalentCommonModule } from '@covalent/core/common';
+import { mixinDisabled, mixinDisableRipple, tdCollapseAnimation, CovalentCommonModule } from '@covalent/core/common';
 import { CommonModule } from '@angular/common';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { MatIconModule } from '@angular/material/icon';
@@ -607,7 +607,7 @@ TdStepBodyComponent.decorators = [
   </div>
 </div>`,
                 animations: [
-                    TdCollapseAnimation(),
+                    tdCollapseAnimation,
                 ],
             },] },
 ];

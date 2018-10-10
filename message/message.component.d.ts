@@ -17,7 +17,7 @@ export declare class TdMessageComponent implements AfterViewInit {
     /**
      * Binding host to tdCollapse animation
      */
-    readonly collapsedAnimation: boolean;
+    readonly collapsedAnimation: any;
     /**
      * Binding host to display style when hidden
      */

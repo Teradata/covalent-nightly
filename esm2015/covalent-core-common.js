@@ -1600,18 +1600,35 @@ CovalentCommonModule.ctorParameters = () => [];
  */
 
 /**
- * Function TdRotateAnimation
+ * const tdRotateAnimation
  *
- * params:
- * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation. Defaults to tdRotate.
- * * duration: Duration the animation will run in milliseconds. Defaults to 250 ms.
+ * Parameter Options:
+ * * degressStart: Degrees of rotation that the dom object will end up in during the "false" state
+ * * degreesEnd: Degrees of rotation that the dom object will end up in during the "true" state
+ * * duration: Duration the animation will run in milliseconds. Defaults to 150 ms.
  * * delay: Delay before the animation will run in milliseconds. Defaults to 0 ms.
- * * degrees: Degrees of rotation that the dom object will animation. A negative value will cause the animation to initially rotate counter-clockwise.
- * * ease: Animation accelerates and decelerates when rotation. Defaults to ease-in.
+ * * ease: Animation accelerates and decelerates. Defaults to ease-in.
  *
- * Returns an [AnimationTriggerMetadata] object with states for a boolean trigger based rotation animation.
+ * Returns an [AnimationTriggerMetadata] object with boolean states for a rotation animation.
  *
- * usage: [\@myAnchorName]="true|false"
+ * usage: [\@tdRotate]="{ value: true | false, params: { degreesEnd: 90 }}"
+ */
+const tdRotateAnimation = trigger('tdRotate', [
+    state('0', style({
+        transform: 'rotate({{ degressStart }}deg)',
+    }), { params: { degressStart: 0 } }),
+    state('1', style({
+        transform: 'rotate({{ degreesEnd }}deg)',
+    }), { params: { degreesEnd: 180 } }),
+    transition('0 <=> 1', [
+        group([
+            query('@*', animateChild(), { optional: true }),
+            animate('{{ duration }}ms {{ delay }}ms {{ ease }}'),
+        ]),
+    ], { params: { duration: 250, delay: '0', ease: 'ease-in' } }),
+]);
+/**
+ * @deprecated see tdRotateAnimation
  * @param {?=} rotateOptions
  * @return {?}
  */
@@ -1643,18 +1660,42 @@ function TdRotateAnimation(rotateOptions = {}) {
  */
 
 /**
- * Function TdCollapseAnimation
+ * const tdCollapseAnimation
  *
- * params:
- * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation. Defaults to tdCollapse.
+ * Parameter Options:
  * * duration: Duration the animation will run in milliseconds. Defaults to 150 ms.
  * * delay: Delay before the animation will run in milliseconds. Defaults to 0 ms.
  * * easeOnClose: Animation accelerates and decelerates when closing. Defaults to ease-in.
  * * easeOnOpen: Animation accelerates and decelerates when opening. Defaults to ease-out.
  *
- * Returns an [AnimationTriggerMetadata] object with states for a collapse/expand animation.
+ * Returns an [AnimationTriggerMetadata] object with boolean states for a collapse/expand animation.
  *
- * usage: [\@tdCollapse]="true|false"
+ * usage: [\@tdCollapse]="{ value: true | false, params: { duration: 500 }}"
+ */
+const tdCollapseAnimation = trigger('tdCollapse', [
+    state('1', style({
+        height: '0',
+        display: 'none',
+    })),
+    state('0', style({
+        height: AUTO_STYLE,
+        display: AUTO_STYLE,
+    })),
+    transition('0 => 1', [
+        group([
+            query('@*', animateChild(), { optional: true }),
+            animate('{{ duration }}ms {{ delay }}ms {{ ease }}'),
+        ]),
+    ], { params: { duration: 150, delay: '0', ease: 'ease-in' } }),
+    transition('1 => 0', [
+        group([
+            query('@*', animateChild(), { optional: true }),
+            animate('{{ duration }}ms {{ delay }}ms {{ ease }}'),
+        ]),
+    ], { params: { duration: 150, delay: '0', ease: 'ease-out' } }),
+]);
+/**
+ * @deprecated see tdCollapseAnimation
  * @param {?=} collapseOptions
  * @return {?}
  */
@@ -1696,18 +1737,42 @@ function TdCollapseAnimation(collapseOptions = {}) {
  */
 
 /**
- * Function TdFadeInOutAnimation
+ * const tdFadeInOutAnimation
  *
- * params:
- * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation. Defaults to tdFadeInOut
+ * Parameter Options:
  * * duration: Duration the animation will run in milliseconds. Defaults to 150 ms.
  * * delay: Delay before the animation will run in milliseconds. Defaults to 0 ms.
  * * easeOnIn: Animation accelerates and decelerates when fading in. Defaults to ease-in.
  * * easeOnOut: Animation accelerates and decelerates when fading out. Defaults to ease-out.
  *
- * Returns an [AnimationTriggerMetadata] object with states for a fading animation.
+ * Returns an [AnimationTriggerMetadata] object with boolean states for a fade animation.
  *
- * usage: [\@tdFadeInOut]="true|false"
+ * usage: [\@tdFadeInOut]="{ value: true | false, params: { duration: 200 }}"
+ */
+const tdFadeInOutAnimation = trigger('tdFadeInOut', [
+    state('0', style({
+        opacity: '0',
+        display: 'none',
+    })),
+    state('1', style({
+        opacity: AUTO_STYLE,
+        display: AUTO_STYLE,
+    })),
+    transition('0 => 1', [
+        group([
+            query('@*', animateChild(), { optional: true }),
+            animate('{{ duration }}ms {{ delay }}ms {{ easeOnIn }}'),
+        ]),
+    ], { params: { duration: 150, delay: '0', easeOnIn: 'ease-in' } }),
+    transition('1 => 0', [
+        group([
+            query('@*', animateChild(), { optional: true }),
+            animate('{{ duration }}ms {{ delay }}ms {{ easeOnOut }}'),
+        ]),
+    ], { params: { duration: 150, delay: '0', easeOnOut: 'ease-out' } }),
+]);
+/**
+ * @deprecated see tdFadeInOutAnimation
  * @param {?=} fadeInOut
  * @return {?}
  */
@@ -1745,15 +1810,43 @@ function TdFadeInOutAnimation(fadeInOut = {}) {
  * @suppress {checkTypes} checked by tsc
  */
 /**
- * Function TdBounceAnimation
+ * const tdBounceAnimation
  *
- * params:
- * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation.
+ * Parameter Options:
  * * duration: Duration the animation will run in milliseconds. Defaults to 500 ms.
+ * * delay: Delay before the animation will run in milliseconds. Defaults to 0 ms.
+ * * ease: Animation accelerate and decelerate style. Defaults to ease-out.
  *
- * Returns an [AnimationTriggerMetadata] object with states for a boolean trigger based bounce animation.
+ * Returns an [AnimationTriggerMetadata] object with boolean states for a bounce animation.
  *
- * usage: [\@myAnchorName]="true|false"
+ * usage: [\@tdBounce]="{ value: true | false, params: { duration: 200 }}"
+ */
+const tdBounceAnimation = trigger('tdBounce', [
+    state('0', style({
+        transform: 'translate3d(0, 0, 0)',
+    })),
+    state('1', style({
+        transform: 'translate3d(0, 0, 0)',
+    })),
+    transition('0 <=> 1', [
+        group([
+            query('@*', animateChild(), { optional: true }),
+            animate('{{ duration }}ms {{ delay }}ms {{ ease }}', keyframes([
+                style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0 }),
+                style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.2 }),
+                style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -30px, 0)', offset: 0.4 }),
+                style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -30px, 0)', offset: 0.43 }),
+                style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.53 }),
+                style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -15px, 0)', offset: .7 }),
+                style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.8 }),
+                style({ transform: 'translate3d(0, -4px, 0)', offset: .9 }),
+                style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 1.0 }),
+            ])),
+        ]),
+    ], { params: { duration: 500, delay: '0', ease: 'ease-out' } }),
+]);
+/**
+ * @deprecated see tdBounceAnimation
  * @param {?=} bounceOptions
  * @return {?}
  */
@@ -1789,15 +1882,39 @@ function TdBounceAnimation(bounceOptions = {}) {
  * @suppress {checkTypes} checked by tsc
  */
 /**
- * Function TdFlashAnimation
+ * const tdFlashAnimation
  *
- * params:
- * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation.
+ * Parameter Options:
  * * duration: Duration the animation will run in milliseconds. Defaults to 500 ms.
+ * * delay: Delay before the animation will run in milliseconds. Defaults to 0 ms.
+ * * ease: Animation accelerate and decelerate style. Defaults to ease-out.
  *
- * Returns an [AnimationTriggerMetadata] object with states for a boolean trigger based flash animation.
+ * Returns an [AnimationTriggerMetadata] object with boolean states for a flash animation.
  *
- * usage: [\@myAnchorName]="true|false"
+ * usage: [\@tdFlash]="{ value: true | false, params: { duration: 200 }}"
+ */
+const tdFlashAnimation = trigger('tdFlash', [
+    state('0', style({
+        opacity: 1,
+    })),
+    state('1', style({
+        opacity: 1,
+    })),
+    transition('0 <=> 1', [
+        group([
+            query('@*', animateChild(), { optional: true }),
+            animate('{{ duration }}ms {{ delay }}ms {{ ease }}', keyframes([
+                style({ opacity: 1, offset: 0 }),
+                style({ opacity: 0, offset: 0.25 }),
+                style({ opacity: 1, offset: 0.5 }),
+                style({ opacity: 0, offset: 0.75 }),
+                style({ opacity: 1, offset: 1.0 }),
+            ])),
+        ]),
+    ], { params: { duration: 500, delay: '0', ease: 'ease-out' } }),
+]);
+/**
+ * @deprecated see tdFlashAnimation
  * @param {?=} flashOptions
  * @return {?}
  */
@@ -1829,15 +1946,40 @@ function TdFlashAnimation(flashOptions = {}) {
  * @suppress {checkTypes} checked by tsc
  */
 /**
- * Function TdHeadshakeAnimation
+ * const tdHeadshakeAnimation
  *
- * params:
- * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation.
+ * Parameter Options:
  * * duration: Duration the animation will run in milliseconds. Defaults to 500 ms.
+ * * delay: Delay before the animation will run in milliseconds. Defaults to 0 ms.
+ * * ease: Animation accelerate and decelerate style. Defaults to ease-out.
  *
- * Returns an [AnimationTriggerMetadata] object with states for a boolean trigger based headshake animation.
+ * Returns an [AnimationTriggerMetadata] object with boolean states for a headshake animation.
  *
- * usage: [\@myAnchorName]="true|false"
+ * usage: [\@tdHeadshake]="{ value: true | false, params: { duration: 200 }}"
+ */
+const tdHeadshakeAnimation = trigger('tdHeadshake', [
+    state('0', style({
+        transform: 'translateX(0)',
+    })),
+    state('1', style({
+        transform: 'translateX(0)',
+    })),
+    transition('0 <=> 1', [
+        group([
+            query('@*', animateChild(), { optional: true }),
+            animate('{{ duration }}ms {{ delay }}ms {{ ease }}', keyframes([
+                style({ transform: 'translateX(0)', offset: 0 }),
+                style({ transform: 'translateX(-6px) rotateY(-9deg)', offset: 0.065 }),
+                style({ transform: 'translateX(5px) rotateY(7deg)', offset: 0.185 }),
+                style({ transform: 'translateX(-3px) rotateY(-5deg)', offset: 0.315 }),
+                style({ transform: 'translateX(2px) rotateY(3deg)', offset: 0.435 }),
+                style({ transform: 'translateX(0)', offset: 0.50 }),
+            ])),
+        ]),
+    ], { params: { duration: 500, delay: '0', ease: 'ease-out' } }),
+]);
+/**
+ * @deprecated see tdHeadshakeAnimation
  * @param {?=} headshakeOptions
  * @return {?}
  */
@@ -1870,15 +2012,43 @@ function TdHeadshakeAnimation(headshakeOptions = {}) {
  * @suppress {checkTypes} checked by tsc
  */
 /**
- * Function TdJelloAnimation
+ * const tdJelloAnimation
  *
- * params:
- * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation.
+ * Parameter Options:
  * * duration: Duration the animation will run in milliseconds. Defaults to 500 ms.
+ * * delay: Delay before the animation will run in milliseconds. Defaults to 0 ms.
+ * * ease: Animation accelerate and decelerate style. Defaults to ease-out.
  *
- * Returns an [AnimationTriggerMetadata] object with states for a boolean trigger based jello animation.
+ * Returns an [AnimationTriggerMetadata] object with boolean states for a jello animation.
  *
- * usage: [\@myAnchorName]="true|false"
+ * usage: [\@tdJello]="{ value: true | false, params: { duration: 200 }}"
+ */
+const tdJelloAnimation = trigger('tdJello', [
+    state('0', style({
+        transform: 'none',
+    })),
+    state('1', style({
+        transform: 'none',
+    })),
+    transition('0 <=> 1', [
+        group([
+            query('@*', animateChild(), { optional: true }),
+            animate('{{ duration }}ms {{ delay }}ms {{ ease }}', keyframes([
+                style({ transform: 'none', offset: 0 }),
+                style({ transform: 'none', offset: 0.011 }),
+                style({ transform: 'skewX(-12.5deg) skewY(-12.5deg)', offset: 0.222 }),
+                style({ transform: 'skewX(6.25deg) skewY(6.25deg)', offset: 0.333 }),
+                style({ transform: 'skewX(-3.125deg) skewY(-3.125deg)', offset: 0.444 }),
+                style({ transform: 'skewX(1.5625deg) skewY(1.5625deg)', offset: 0.555 }),
+                style({ transform: 'skewX(-0.78125deg) skewY(-0.78125deg)', offset: 0.666 }),
+                style({ transform: 'skewX(0.390625deg) skewY(0.390625deg)', offset: 0.777 }),
+                style({ transform: 'skewX(-0.1953125deg) skewY(-0.1953125deg)', offset: 0.888 }),
+            ])),
+        ]),
+    ], { params: { duration: 500, delay: '0', ease: 'ease-out' } }),
+]);
+/**
+ * @deprecated see tdJelloAnimation
  * @param {?=} jelloOptions
  * @return {?}
  */
@@ -1914,15 +2084,37 @@ function TdJelloAnimation(jelloOptions = {}) {
  * @suppress {checkTypes} checked by tsc
  */
 /**
- * Function TdPulseAnimation
+ * const tdPulseAnimation
  *
- * params:
- * * anchor: Name of the anchor that will attach to a dom element in the components template that will contain the animation.
+ * Parameter Options:
  * * duration: Duration the animation will run in milliseconds. Defaults to 500 ms.
+ * * delay: Delay before the animation will run in milliseconds. Defaults to 0 ms.
+ * * ease: Animation accelerate and decelerate style. Defaults to ease-out.
  *
- * Returns an [AnimationTriggerMetadata] object with states for a boolean trigger based pulse animation.
+ * Returns an [AnimationTriggerMetadata] object with boolean states for a pulse animation.
  *
- * usage: [\@myAnchorName]="true|false"
+ * usage: [\@tdPulse]="{ value: true | false, params: { duration: 200 }}"
+ */
+const tdPulseAnimation = trigger('tdPulse', [
+    state('0', style({
+        transform: 'scale3d(1, 1, 1)',
+    })),
+    state('1', style({
+        transform: 'scale3d(1, 1, 1)',
+    })),
+    transition('0 <=> 1', [
+        group([
+            query('@*', animateChild(), { optional: true }),
+            animate('{{ duration }}ms {{ delay }}ms {{ ease }}', keyframes([
+                style({ transform: 'scale3d(1, 1, 1)', offset: 0 }),
+                style({ transform: 'scale3d(1.05, 1.05, 1.05)', offset: 0.5 }),
+                style({ transform: 'scale3d(1, 1, 1)', offset: 1.0 }),
+            ])),
+        ]),
+    ], { params: { duration: 500, delay: '0', ease: 'ease-out' } }),
+]);
+/**
+ * @deprecated see tdPulseAnimation
  * @param {?=} pulseOptions
  * @return {?}
  */
@@ -2193,5 +2385,5 @@ class CovalentValidators {
  * Generated bundle index. Do not edit.
  */
 
-export { CovalentCommonModule, TdToggleDirective, TdFadeDirective, TdRotateAnimation, TdCollapseAnimation, TdFadeInOutAnimation, TdBounceAnimation, TdFlashAnimation, TdHeadshakeAnimation, TdJelloAnimation, TdPulseAnimation, mixinControlValueAccessor, mixinDisabled, mixinDisableRipple, TdAutoTrimDirective, CovalentValidators, TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTruncatePipe, TdDecimalBytesPipe, TdTimeUntilPipe as ɵa, IconService as ɵc, RouterPathService as ɵb };
+export { CovalentCommonModule, TdToggleDirective, TdFadeDirective, tdRotateAnimation, TdRotateAnimation, tdCollapseAnimation, TdCollapseAnimation, tdFadeInOutAnimation, TdFadeInOutAnimation, tdBounceAnimation, TdBounceAnimation, tdFlashAnimation, TdFlashAnimation, tdHeadshakeAnimation, TdHeadshakeAnimation, tdJelloAnimation, TdJelloAnimation, tdPulseAnimation, TdPulseAnimation, mixinControlValueAccessor, mixinDisabled, mixinDisableRipple, TdAutoTrimDirective, CovalentValidators, TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTruncatePipe, TdDecimalBytesPipe, TdTimeUntilPipe as ɵa, IconService as ɵc, RouterPathService as ɵb };
 //# sourceMappingURL=covalent-core-common.js.map
