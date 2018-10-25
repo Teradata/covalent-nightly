@@ -26,8 +26,8 @@ export declare class TdMediaService {
      * Trigger a match media event on all subscribed observables.
      */
     broadcast(): void;
-    private _onResize();
-    private _matchMediaTrigger(query);
+    private _onResize;
+    private _matchMediaTrigger;
 }
 export declare function MEDIA_PROVIDER_FACTORY(parent: TdMediaService, ngZone: NgZone): TdMediaService;
 export declare const MEDIA_PROVIDER: Provider;

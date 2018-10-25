@@ -17,7 +17,7 @@ export declare class TdChipsBase {
     _changeDetectorRef: ChangeDetectorRef;
     constructor(_changeDetectorRef: ChangeDetectorRef);
 }
-export declare const _TdChipsMixinBase: (new (...args: any[]) => IControlValueAccessor) & (new (...args: any[]) => ICanDisable) & typeof TdChipsBase;
+export declare const _TdChipsMixinBase: import("../../../../deploy/platform/core/common/behaviors/constructor").Constructor<IControlValueAccessor> & import("../../../../deploy/platform/core/common/behaviors/constructor").Constructor<ICanDisable> & typeof TdChipsBase;
 export declare class TdChipsComponent extends _TdChipsMixinBase implements IControlValueAccessor, DoCheck, OnInit, AfterViewInit, OnDestroy, ICanDisable {
     private _elementRef;
     private _renderer;
@@ -237,25 +237,25 @@ export declare class TdChipsComponent extends _TdChipsMixinBase implements ICont
     /**
      * Method to focus a desired chip by index
      */
-    private _focusChip(index);
+    private _focusChip;
     /** Method to focus first chip */
-    private _focusFirstChip();
+    private _focusFirstChip;
     /** Method to focus last chip */
-    private _focusLastChip();
+    private _focusLastChip;
     /**
      * Method to toggle the disable state of input
      * Checks if not in disabled state and if chipAddition is set to 'true'
      */
-    private _toggleInput();
+    private _toggleInput;
     /**
      * Sets first option as active to let the user know which one will be added when pressing enter
      * Only if [requireMatch] has been set
      */
-    private _setFirstOptionActive();
+    private _setFirstOptionActive;
     /**
      * Watches clicks outside of the component to remove the focus
      * The autocomplete panel is considered inside the component so we
      * need to use a flag to find out when its clicked.
      */
-    private _watchOutsideClick();
+    private _watchOutsideClick;
 }

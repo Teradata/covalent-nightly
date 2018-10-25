@@ -48,19 +48,19 @@ export declare class TdLoadingFactory {
     /**
      * Creates a fullscreen overlay for the loading usage.
      */
-    private _createOverlay();
+    private _createOverlay;
     /**
      * Creates a generic component dynamically waiting to be attached to a viewContainerRef.
      */
-    private _createComponent(options);
+    private _createComponent;
     /**
      * Initialize context for loading component.
      */
-    private _initializeContext();
+    private _initializeContext;
     /**
      * Maps configuration to the loading component instance.
      */
-    private _mapOptions(options, instance);
+    private _mapOptions;
 }
 export declare function LOADING_FACTORY_PROVIDER_FACTORY(parent: TdLoadingFactory, componentFactoryResolver: ComponentFactoryResolver, overlay: Overlay, injector: Injector): TdLoadingFactory;
 export declare const LOADING_FACTORY_PROVIDER: Provider;

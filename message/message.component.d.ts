@@ -82,13 +82,13 @@ export declare class TdMessageComponent implements AfterViewInit {
     /**
      * Method to set the state before starting an animation
      */
-    private _startAnimationState();
+    private _startAnimationState;
     /**
      * Method to attach template to DOM
      */
-    private _attach();
+    private _attach;
     /**
      * Method to detach template from DOM
      */
-    private _detach();
+    private _detach;
 }

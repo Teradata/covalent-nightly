@@ -76,7 +76,7 @@ export declare class TdDialogService {
      * Returns an MatDialogRef<TdPromptDialogComponent> object.
      */
     openPrompt(config: IPromptConfig): MatDialogRef<TdPromptDialogComponent>;
-    private _createConfig(config);
+    private _createConfig;
 }
 export declare function DIALOG_PROVIDER_FACTORY(parent: TdDialogService, dialog: MatDialog): TdDialogService;
 export declare const DIALOG_PROVIDER: Provider;

@@ -15,7 +15,7 @@ export declare class TdExpansionPanelSummaryComponent {
 }
 export declare class TdExpansionPanelBase {
 }
-export declare const _TdExpansionPanelMixinBase: (new (...args: any[]) => ICanDisableRipple) & (new (...args: any[]) => ICanDisable) & typeof TdExpansionPanelBase;
+export declare const _TdExpansionPanelMixinBase: import("../../../../deploy/platform/core/common/behaviors/constructor").Constructor<ICanDisableRipple> & import("../../../../deploy/platform/core/common/behaviors/constructor").Constructor<ICanDisable> & typeof TdExpansionPanelBase;
 export declare class TdExpansionPanelComponent extends _TdExpansionPanelMixinBase implements ICanDisable, ICanDisableRipple {
     private _renderer;
     private _elementRef;
@@ -75,7 +75,7 @@ export declare class TdExpansionPanelComponent extends _TdExpansionPanelMixinBas
      * Method to change expand state internally and emit the [onExpanded] event if 'true' or [onCollapsed]
      * event if 'false'. (Blocked if [disabled] is 'true')
      */
-    private _setExpand(newExpand);
-    private _onExpanded();
-    private _onCollapsed();
+    private _setExpand;
+    private _onExpanded;
+    private _onCollapsed;
 }

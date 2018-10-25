@@ -2,12 +2,12 @@ import { ElementRef, AfterContentInit } from '@angular/core';
 export declare enum TdNotificationCountPositionY {
     Top = "top",
     Bottom = "bottom",
-    Center = "center",
+    Center = "center"
 }
 export declare enum TdNotificationCountPositionX {
     Before = "before",
     After = "after",
-    Center = "center",
+    Center = "center"
 }
 export declare const DEFAULT_NOTIFICATION_LIMIT: number;
 export declare class TdNotificationCountComponent implements AfterContentInit {
@@ -68,5 +68,5 @@ export declare class TdNotificationCountComponent implements AfterContentInit {
     /**
      * Method to check if element has any kind of content (elements or text)
      */
-    private _hasContent();
+    private _hasContent;
 }

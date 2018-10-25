@@ -40,6 +40,6 @@ export declare class TdToggleDirective {
      * starts animation and adds "overflow:[default]" style again at the end.
      */
     show(): void;
-    private _onHideDone();
-    private _onShowDone();
+    private _onHideDone;
+    private _onShowDone;
 }

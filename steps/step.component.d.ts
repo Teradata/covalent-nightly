@@ -5,7 +5,7 @@ import { ICanDisable, ICanDisableRipple } from '@covalent/core/common';
 export declare enum StepState {
     None = "none",
     Required = "required",
-    Complete = "complete",
+    Complete = "complete"
 }
 export declare class TdStepLabelDirective extends TemplatePortalDirective {
     constructor(templateRef: TemplateRef<any>, viewContainerRef: ViewContainerRef);
@@ -18,7 +18,7 @@ export declare class TdStepSummaryDirective extends TemplatePortalDirective {
 }
 export declare class TdStepBase {
 }
-export declare const _TdStepMixinBase: (new (...args: any[]) => ICanDisableRipple) & (new (...args: any[]) => ICanDisable) & typeof TdStepBase;
+export declare const _TdStepMixinBase: import("../../../../deploy/platform/core/common/behaviors/constructor").Constructor<ICanDisableRipple> & import("../../../../deploy/platform/core/common/behaviors/constructor").Constructor<ICanDisable> & typeof TdStepBase;
 export declare class TdStepComponent extends _TdStepMixinBase implements OnInit, ICanDisable, ICanDisableRipple {
     private _viewContainerRef;
     private _active;
@@ -89,7 +89,7 @@ export declare class TdStepComponent extends _TdStepMixinBase implements OnInit,
      * event if 'false'. (Blocked if [disabled] is 'true')
      * returns true if successfully changed state
      */
-    private _setActive(newActive);
-    private _onActivated();
-    private _onDeactivated();
+    private _setActive;
+    private _onActivated;
+    private _onDeactivated;
 }

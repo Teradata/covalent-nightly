@@ -47,6 +47,6 @@ export declare class TdFadeDirective {
      * Shows element: sets "display:[default]" so animation is shown.
      */
     show(): void;
-    private _onFadeInDone();
-    private _onFadeOutDone();
+    private _onFadeInDone;
+    private _onFadeOutDone;
 }

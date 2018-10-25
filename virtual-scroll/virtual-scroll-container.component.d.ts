@@ -57,5 +57,5 @@ export declare class TdVirtualScrollContainerComponent implements AfterViewInit,
      * Method to scroll to the end of the list.
      */
     scrollToEnd(): void;
-    private _calculateVirtualRows();
+    private _calculateVirtualRows;
 }

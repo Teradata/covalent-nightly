@@ -5,7 +5,7 @@ export declare class TdSearchBoxBase {
     _changeDetectorRef: ChangeDetectorRef;
     constructor(_changeDetectorRef: ChangeDetectorRef);
 }
-export declare const _TdSearchBoxMixinBase: (new (...args: any[]) => IControlValueAccessor) & typeof TdSearchBoxBase;
+export declare const _TdSearchBoxMixinBase: import("../../../../../deploy/platform/core/common/behaviors/constructor").Constructor<IControlValueAccessor> & typeof TdSearchBoxBase;
 export declare class TdSearchBoxComponent extends _TdSearchBoxMixinBase implements IControlValueAccessor {
     private _searchVisible;
     _searchInput: TdSearchInputComponent;

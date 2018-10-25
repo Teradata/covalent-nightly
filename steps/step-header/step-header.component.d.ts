@@ -2,7 +2,7 @@ import { ICanDisable, ICanDisableRipple } from '@covalent/core/common';
 import { StepState } from '../step.component';
 export declare class TdStepHeaderBase {
 }
-export declare const _TdStepHeaderMixinBase: (new (...args: any[]) => ICanDisableRipple) & (new (...args: any[]) => ICanDisable) & typeof TdStepHeaderBase;
+export declare const _TdStepHeaderMixinBase: import("../../../../../deploy/platform/core/common/behaviors/constructor").Constructor<ICanDisableRipple> & import("../../../../../deploy/platform/core/common/behaviors/constructor").Constructor<ICanDisable> & typeof TdStepHeaderBase;
 export declare class TdStepHeaderComponent extends _TdStepHeaderMixinBase implements ICanDisable, ICanDisableRipple {
     /**
      * Number assigned to [TdStepHeaderComponent].

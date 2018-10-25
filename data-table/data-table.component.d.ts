@@ -6,7 +6,7 @@ import { TdDataTableTemplateDirective } from './directives/data-table-template.d
 import { IControlValueAccessor } from '@covalent/core/common';
 export declare enum TdDataTableSortingOrder {
     Ascending = "ASC",
-    Descending = "DESC",
+    Descending = "DESC"
 }
 export interface ITdDataTableColumnWidth {
     min?: number;
@@ -48,7 +48,7 @@ export declare class TdDataTableBase {
     _changeDetectorRef: ChangeDetectorRef;
     constructor(_changeDetectorRef: ChangeDetectorRef);
 }
-export declare const _TdDataTableMixinBase: (new (...args: any[]) => IControlValueAccessor) & typeof TdDataTableBase;
+export declare const _TdDataTableMixinBase: import("../../../../deploy/platform/core/common/behaviors/constructor").Constructor<IControlValueAccessor> & typeof TdDataTableBase;
 export declare class TdDataTableComponent extends _TdDataTableMixinBase implements IControlValueAccessor, OnInit, AfterContentInit, AfterContentChecked, AfterViewInit, OnDestroy {
     private _document;
     private _elementRef;
@@ -316,33 +316,33 @@ export declare class TdDataTableComponent extends _TdDataTableMixinBase implemen
      * Method to prevent the default events
      */
     blockEvent(event: Event): void;
-    private _getNestedValue(name, value);
+    private _getNestedValue;
     /**
      * Does the actual Row Selection
      */
-    private _doSelection(row, rowIndex);
+    private _doSelection;
     /**
      * Calculate all the state of all checkboxes
      */
-    private _calculateCheckboxState();
+    private _calculateCheckboxState;
     /**
      * Calculates the widths for columns and cells depending on content
      */
-    private _calculateWidths();
+    private _calculateWidths;
     /**
      * Adjusts columns after calculation to see if they need to be recalculated.
      */
-    private _adjustColumnWidhts();
+    private _adjustColumnWidhts;
     /**
      * Adjusts a single column to see if it can be recalculated
      */
-    private _adjustColumnWidth(index, value);
+    private _adjustColumnWidth;
     /**
      * Generic method to calculate column width
      */
-    private _calculateWidth();
+    private _calculateWidth;
     /**
      * Method to calculate the rows to be rendered in the viewport
      */
-    private _calculateVirtualRows();
+    private _calculateVirtualRows;
 }
