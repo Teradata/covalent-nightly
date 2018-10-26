@@ -33,6 +33,7 @@ export declare class TdChipsComponent extends _TdChipsMixinBase implements ICont
     private _chipAddition;
     private _chipRemoval;
     private _focused;
+    private _required;
     private _tabIndex;
     private _touchendDebounce;
     _internalClick: boolean;
@@ -75,6 +76,12 @@ export declare class TdChipsComponent extends _TdChipsMixinBase implements ICont
      */
     requireMatch: boolean;
     /**
+     * required?: boolean
+     * Value is set to true if at least one chip is needed
+     * Defaults to false
+     */
+    required: boolean;
+    /**
      * chipAddition?: boolean
      * Disables the ability to add chips. When setting disabled as true, this will be overriden.
      * Defaults to true.
@@ -96,6 +103,10 @@ export declare class TdChipsComponent extends _TdChipsMixinBase implements ICont
      * States if a chip can be removed
      */
     readonly canRemoveChip: boolean;
+    /**
+     * returns the display placeholder
+     */
+    readonly displayPlaceHolder: string;
     /**
      * placeholder?: string
      * Placeholder for the autocomplete input.
