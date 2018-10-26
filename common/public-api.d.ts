@@ -1,6 +1,4 @@
 export * from './common.module';
-export * from './animations/toggle/toggle.directive';
-export * from './animations/fade/fade.directive';
 export * from './animations/rotate/rotate.animation';
 export * from './animations/collapse/collapse.animation';
 export * from './animations/fade/fadeInOut.animation';
