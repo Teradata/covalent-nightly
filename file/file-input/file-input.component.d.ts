@@ -8,7 +8,7 @@ export declare class TdFileInputBase {
     _changeDetectorRef: ChangeDetectorRef;
     constructor(_changeDetectorRef: ChangeDetectorRef);
 }
-export declare const _TdFileInputMixinBase: import("../../../../../deploy/platform/core/common/behaviors/constructor").Constructor<IControlValueAccessor> & import("../../../../../deploy/platform/core/common/behaviors/constructor").Constructor<ICanDisable> & typeof TdFileInputBase;
+export declare const _TdFileInputMixinBase: (new (...args: any[]) => IControlValueAccessor) & (new (...args: any[]) => ICanDisable) & typeof TdFileInputBase;
 export declare class TdFileInputComponent extends _TdFileInputMixinBase implements IControlValueAccessor, ICanDisable {
     private _renderer;
     private _multiple;

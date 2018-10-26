@@ -15,7 +15,7 @@ export declare class TdExpansionPanelSummaryComponent {
 }
 export declare class TdExpansionPanelBase {
 }
-export declare const _TdExpansionPanelMixinBase: import("../../../../deploy/platform/core/common/behaviors/constructor").Constructor<ICanDisableRipple> & import("../../../../deploy/platform/core/common/behaviors/constructor").Constructor<ICanDisable> & typeof TdExpansionPanelBase;
+export declare const _TdExpansionPanelMixinBase: (new (...args: any[]) => ICanDisableRipple) & (new (...args: any[]) => ICanDisable) & typeof TdExpansionPanelBase;
 export declare class TdExpansionPanelComponent extends _TdExpansionPanelMixinBase implements ICanDisable, ICanDisableRipple {
     private _renderer;
     private _elementRef;

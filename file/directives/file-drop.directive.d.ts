@@ -3,7 +3,7 @@ import { ElementRef, Renderer2 } from '@angular/core';
 import { ICanDisable } from '@covalent/core/common';
 export declare class TdFileDropBase {
 }
-export declare const _TdFileDropMixinBase: import("../../../../../deploy/platform/core/common/behaviors/constructor").Constructor<ICanDisable> & typeof TdFileDropBase;
+export declare const _TdFileDropMixinBase: (new (...args: any[]) => ICanDisable) & typeof TdFileDropBase;
 export declare class TdFileDropDirective extends _TdFileDropMixinBase implements ICanDisable {
     private _renderer;
     private _element;

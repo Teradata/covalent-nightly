@@ -48,7 +48,7 @@ export declare class TdDataTableBase {
     _changeDetectorRef: ChangeDetectorRef;
     constructor(_changeDetectorRef: ChangeDetectorRef);
 }
-export declare const _TdDataTableMixinBase: import("../../../../deploy/platform/core/common/behaviors/constructor").Constructor<IControlValueAccessor> & typeof TdDataTableBase;
+export declare const _TdDataTableMixinBase: (new (...args: any[]) => IControlValueAccessor) & typeof TdDataTableBase;
 export declare class TdDataTableComponent extends _TdDataTableMixinBase implements IControlValueAccessor, OnInit, AfterContentInit, AfterContentChecked, AfterViewInit, OnDestroy {
     private _document;
     private _elementRef;

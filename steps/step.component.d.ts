@@ -18,7 +18,7 @@ export declare class TdStepSummaryDirective extends TemplatePortalDirective {
 }
 export declare class TdStepBase {
 }
-export declare const _TdStepMixinBase: import("../../../../deploy/platform/core/common/behaviors/constructor").Constructor<ICanDisableRipple> & import("../../../../deploy/platform/core/common/behaviors/constructor").Constructor<ICanDisable> & typeof TdStepBase;
+export declare const _TdStepMixinBase: (new (...args: any[]) => ICanDisableRipple) & (new (...args: any[]) => ICanDisable) & typeof TdStepBase;
 export declare class TdStepComponent extends _TdStepMixinBase implements OnInit, ICanDisable, ICanDisableRipple {
     private _viewContainerRef;
     private _active;

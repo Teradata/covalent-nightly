@@ -6,7 +6,7 @@ export declare class TdSearchInputBase {
     _changeDetectorRef: ChangeDetectorRef;
     constructor(_changeDetectorRef: ChangeDetectorRef);
 }
-export declare const _TdSearchInputMixinBase: import("../../../../../deploy/platform/core/common/behaviors/constructor").Constructor<IControlValueAccessor> & typeof TdSearchInputBase;
+export declare const _TdSearchInputMixinBase: (new (...args: any[]) => IControlValueAccessor) & typeof TdSearchInputBase;
 export declare class TdSearchInputComponent extends _TdSearchInputMixinBase implements IControlValueAccessor, OnInit {
     private _dir;
     _input: MatInput;

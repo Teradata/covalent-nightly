@@ -17,7 +17,7 @@ export declare class TdChipsBase {
     _changeDetectorRef: ChangeDetectorRef;
     constructor(_changeDetectorRef: ChangeDetectorRef);
 }
-export declare const _TdChipsMixinBase: import("../../../../deploy/platform/core/common/behaviors/constructor").Constructor<IControlValueAccessor> & import("../../../../deploy/platform/core/common/behaviors/constructor").Constructor<ICanDisable> & typeof TdChipsBase;
+export declare const _TdChipsMixinBase: (new (...args: any[]) => IControlValueAccessor) & (new (...args: any[]) => ICanDisable) & typeof TdChipsBase;
 export declare class TdChipsComponent extends _TdChipsMixinBase implements IControlValueAccessor, DoCheck, OnInit, AfterViewInit, OnDestroy, ICanDisable {
     private _elementRef;
     private _renderer;

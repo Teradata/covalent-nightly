@@ -5,7 +5,7 @@ export declare class TdFileUploadBase {
     _changeDetectorRef: ChangeDetectorRef;
     constructor(_changeDetectorRef: ChangeDetectorRef);
 }
-export declare const _TdFileUploadMixinBase: import("../../../../../deploy/platform/core/common/behaviors/constructor").Constructor<IControlValueAccessor> & import("../../../../../deploy/platform/core/common/behaviors/constructor").Constructor<ICanDisable> & typeof TdFileUploadBase;
+export declare const _TdFileUploadMixinBase: (new (...args: any[]) => IControlValueAccessor) & (new (...args: any[]) => ICanDisable) & typeof TdFileUploadBase;
 export declare class TdFileUploadComponent extends _TdFileUploadMixinBase implements IControlValueAccessor, ICanDisable {
     private _multiple;
     private _required;
