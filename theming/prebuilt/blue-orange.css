@@ -2292,8 +2292,8 @@ td-chips.mat-warn .mat-form-field-underline .mat-form-field-ripple {
 td-chips.ng-invalid .mat-form-field-underline .mat-form-field-ripple {
   background-color: #e53935; }
 
-td-chips.ng-invalid mat-form-field label {
-  color: #e53935 !important; }
+td-chips.ng-invalid .mat-form-field-label-wrapper > label.mat-form-field-label.mat-form-field-empty {
+  color: #e53935; }
 
 td-file-upload .td-file-upload-cancel mat-icon {
   background-color: #fafafa; }
