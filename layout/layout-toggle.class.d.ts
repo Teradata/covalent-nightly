@@ -33,4 +33,5 @@ export declare abstract class LayoutToggle extends _TdLayoutToggleMixinBase impl
     clickListener(event: Event): void;
     abstract onClick(): void;
     private _toggleVisibility;
+    private _noLayoutMessage;
 }
