@@ -2132,6 +2132,10 @@ td-navigation-drawer .td-navigation-drawer-menu-toggle {
   font-weight: 400;
   line-height: 24px; }
 
+td-breadcrumb:last-of-type {
+  color: rgba(0, 0, 0, 0.38);
+  cursor: default; }
+
 mat-list-item mat-icon,
 .mat-list-item-content mat-icon {
   color: rgba(0, 0, 0, 0.54); }
