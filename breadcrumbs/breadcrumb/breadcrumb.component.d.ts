@@ -1,7 +1,6 @@
-import { ElementRef, Renderer2, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { ElementRef, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 export declare class TdBreadcrumbComponent implements AfterViewInit {
     private _elementRef;
-    private _renderer;
     private _changeDetectorRef;
     private _displayCrumb;
     private _width;
@@ -19,7 +18,7 @@ export declare class TdBreadcrumbComponent implements AfterViewInit {
      * Gets the display style of the crumb
      */
     readonly displayBinding: string;
-    constructor(_elementRef: ElementRef, _renderer: Renderer2, _changeDetectorRef: ChangeDetectorRef);
+    constructor(_elementRef: ElementRef, _changeDetectorRef: ChangeDetectorRef);
     ngAfterViewInit(): void;
     /**
      * Stop click propagation when clicking on icon
