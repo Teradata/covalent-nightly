@@ -9,7 +9,7 @@ export declare class TdBreadcrumbsComponent implements OnInit, DoCheck, AfterCon
     _breadcrumbs: QueryList<TdBreadcrumbComponent>;
     hiddenBreadcrumbs: TdBreadcrumbComponent[];
     /**
-     * Sets the icon url shown between breadcrumbs. Defaults to right chevron.
+     * Sets the icon url shown between breadcrumbs. Defaults to 'chevron_right'.
      */
     separatorIcon: string;
     constructor(_elementRef: ElementRef, _changeDetectorRef: ChangeDetectorRef);
@@ -26,5 +26,5 @@ export declare class TdBreadcrumbsComponent implements OnInit, DoCheck, AfterCon
      * Set the crumb icon separators
      */
     private setCrumbIcons;
-    private displayWidthAvailableCrumbs;
+    private _calculateVisibility;
 }
