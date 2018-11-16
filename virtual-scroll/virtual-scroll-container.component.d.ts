@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, QueryList, ElementRef, Renderer2, AfterViewChecked, OnDestroy, TrackByFunction } from '@angular/core';
+import { EventEmitter, AfterViewInit, ChangeDetectorRef, QueryList, ElementRef, Renderer2, AfterViewChecked, OnDestroy, TrackByFunction } from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { TdVirtualScrollRowDirective } from './virtual-scroll-row.directive';
 export declare class TdVirtualScrollContainerComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
@@ -6,6 +6,7 @@ export declare class TdVirtualScrollContainerComponent implements AfterViewInit,
     private _domSanitizer;
     private _renderer;
     private _changeDetectorRef;
+    private _bottom;
     private _rowChangeSubs;
     private _initialized;
     private _totalHeight;
@@ -22,6 +23,11 @@ export declare class TdVirtualScrollContainerComponent implements AfterViewInit,
      */
     data: any[];
     readonly virtualData: any[];
+    /**
+     * bottom: function
+     * Method to be executed when user scrolled to the last item of the list. No value is emitted.
+     */
+    bottom: EventEmitter<any>;
     _rows: QueryList<ElementRef>;
     _rowTemplate: TdVirtualScrollRowDirective;
     readonly rowHeight: number;
@@ -58,4 +64,8 @@ export declare class TdVirtualScrollContainerComponent implements AfterViewInit,
      */
     scrollToEnd(): void;
     private _calculateVirtualRows;
+    /**
+     * Method to emit bottom event if scrolled to the end of the list.
+     */
+    private bottomCheck;
 }
