@@ -23,6 +23,7 @@ export declare class TdChipsComponent extends _TdChipsMixinBase implements ICont
     private _renderer;
     private _document;
     private _outsideClickSubs;
+    private _inputValueChangesSubs;
     private _isMousedown;
     private _items;
     private _length;
