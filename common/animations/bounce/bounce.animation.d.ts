@@ -1,5 +1,4 @@
 import { AnimationTriggerMetadata } from '@angular/animations';
-import { IAnimationOptions } from '../common/interfaces';
 /**
  * const tdBounceAnimation
  *
@@ -13,5 +12,3 @@ import { IAnimationOptions } from '../common/interfaces';
  * usage: [@tdBounce]="{ value: true | false, params: { duration: 200 }}"
  */
 export declare const tdBounceAnimation: AnimationTriggerMetadata;
-/** @deprecated see tdBounceAnimation */
-export declare function TdBounceAnimation(bounceOptions?: IAnimationOptions): AnimationTriggerMetadata;

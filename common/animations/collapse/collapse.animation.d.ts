@@ -18,5 +18,3 @@ export interface ICollapseAnimation extends IAnimationOptions {
  * usage: [@tdCollapse]="{ value: true | false, params: { duration: 500 }}"
  */
 export declare const tdCollapseAnimation: AnimationTriggerMetadata;
-/** @deprecated see tdCollapseAnimation */
-export declare function TdCollapseAnimation(collapseOptions?: ICollapseAnimation): AnimationTriggerMetadata;

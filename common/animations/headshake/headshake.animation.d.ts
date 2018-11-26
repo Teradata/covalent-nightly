@@ -1,5 +1,4 @@
 import { AnimationTriggerMetadata } from '@angular/animations';
-import { IAnimationOptions } from '../common/interfaces';
 /**
  * const tdHeadshakeAnimation
  *
@@ -13,5 +12,3 @@ import { IAnimationOptions } from '../common/interfaces';
  * usage: [@tdHeadshake]="{ value: true | false, params: { duration: 200 }}"
  */
 export declare const tdHeadshakeAnimation: AnimationTriggerMetadata;
-/** @deprecated see tdHeadshakeAnimation */
-export declare function TdHeadshakeAnimation(headshakeOptions?: IAnimationOptions): AnimationTriggerMetadata;

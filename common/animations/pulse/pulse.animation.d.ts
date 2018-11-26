@@ -1,5 +1,4 @@
 import { AnimationTriggerMetadata } from '@angular/animations';
-import { IAnimationOptions } from '../common/interfaces';
 /**
  * const tdPulseAnimation
  *
@@ -13,5 +12,3 @@ import { IAnimationOptions } from '../common/interfaces';
  * usage: [@tdPulse]="{ value: true | false, params: { duration: 200 }}"
  */
 export declare const tdPulseAnimation: AnimationTriggerMetadata;
-/** @deprecated see tdPulseAnimation */
-export declare function TdPulseAnimation(pulseOptions?: IAnimationOptions): AnimationTriggerMetadata;

@@ -1,5 +1,4 @@
 import { AnimationTriggerMetadata } from '@angular/animations';
-import { IAnimationOptions } from '../common/interfaces';
 /**
  * const tdJelloAnimation
  *
@@ -13,5 +12,3 @@ import { IAnimationOptions } from '../common/interfaces';
  * usage: [@tdJello]="{ value: true | false, params: { duration: 200 }}"
  */
 export declare const tdJelloAnimation: AnimationTriggerMetadata;
-/** @deprecated see tdJelloAnimation */
-export declare function TdJelloAnimation(jelloOptions?: IAnimationOptions): AnimationTriggerMetadata;

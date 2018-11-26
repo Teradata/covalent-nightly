@@ -1,5 +1,4 @@
 import { AnimationTriggerMetadata } from '@angular/animations';
-import { IAnimationOptions } from '../common/interfaces';
 /**
  * const tdFlashAnimation
  *
@@ -13,5 +12,3 @@ import { IAnimationOptions } from '../common/interfaces';
  * usage: [@tdFlash]="{ value: true | false, params: { duration: 200 }}"
  */
 export declare const tdFlashAnimation: AnimationTriggerMetadata;
-/** @deprecated see tdFlashAnimation */
-export declare function TdFlashAnimation(flashOptions?: IAnimationOptions): AnimationTriggerMetadata;

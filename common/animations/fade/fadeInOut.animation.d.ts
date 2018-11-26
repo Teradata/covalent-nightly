@@ -18,5 +18,3 @@ export interface IFadeInOutAnimation extends IAnimationOptions {
  * usage: [@tdFadeInOut]="{ value: true | false, params: { duration: 200 }}"
  */
 export declare const tdFadeInOutAnimation: AnimationTriggerMetadata;
-/** @deprecated see tdFadeInOutAnimation */
-export declare function TdFadeInOutAnimation(fadeInOut?: IFadeInOutAnimation): AnimationTriggerMetadata;

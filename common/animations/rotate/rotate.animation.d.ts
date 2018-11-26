@@ -19,5 +19,3 @@ export interface IRotateAnimation extends IAnimationOptions {
  * usage: [@tdRotate]="{ value: true | false, params: { degreesEnd: 90 }}"
  */
 export declare const tdRotateAnimation: AnimationTriggerMetadata;
-/** @deprecated see tdRotateAnimation */
-export declare function TdRotateAnimation(rotateOptions?: IRotateAnimation): AnimationTriggerMetadata;
