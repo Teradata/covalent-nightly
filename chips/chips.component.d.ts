@@ -160,6 +160,12 @@ export declare class TdChipsComponent extends _TdChipsMixinBase implements ICont
     readonly tabIndex: number;
     constructor(_elementRef: ElementRef, _renderer: Renderer2, _document: any, _changeDetectorRef: ChangeDetectorRef);
     /**
+     * compareWith? function
+     * Function used to check whether a chip value already exists.
+     * Defaults to strict equality comparison ===
+     */
+    compareWith: (o1: any, o2: any) => boolean;
+    /**
      * Listens to host focus event to act on it
      */
     focusListener(event: FocusEvent): void;
