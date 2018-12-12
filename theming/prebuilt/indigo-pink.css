@@ -2198,6 +2198,9 @@ td-layout mat-toolbar {
 .td-steps .td-vertical-line {
   border-left-color: rgba(0, 0, 0, 0.12); }
 
+.td-steps .td-step-link:focus:not(.mat-disabled) .td-step-header, .td-steps .td-step-link:hover:not(.mat-disabled) .td-step-header {
+  background: rgba(0, 0, 0, 0.04); }
+
 .td-steps .td-step-header.mat-disabled {
   cursor: default; }
 

@@ -30,6 +30,11 @@ export declare class TdNavStepLinkComponent extends _TdStepMixinBase implements 
      * Toggles component between active/deactive.
      */
     active: boolean;
+    /**
+     * tabIndex?: number
+     * tabIndex for component
+     */
+    tabIndex: number;
     constructor(_changeDetectorRef: ChangeDetectorRef, elementRef: ElementRef);
     _handleClick(click: Event): void;
 }
