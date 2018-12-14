@@ -8494,6 +8494,22 @@
                     this.clear();
                 }
             };
+        /**
+         * Sets disable to the component. Implemented as part of ControlValueAccessor.
+         */
+        /**
+         * Sets disable to the component. Implemented as part of ControlValueAccessor.
+         * @param {?} isDisabled
+         * @return {?}
+         */
+        TdFileInputComponent.prototype.setDisabledState = /**
+         * Sets disable to the component. Implemented as part of ControlValueAccessor.
+         * @param {?} isDisabled
+         * @return {?}
+         */
+            function (isDisabled) {
+                this.disabled = isDisabled;
+            };
         TdFileInputComponent.decorators = [
             { type: core$1.Component, args: [{
                         changeDetection: core$1.ChangeDetectionStrategy.OnPush,

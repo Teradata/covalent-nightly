@@ -6693,6 +6693,14 @@ class TdFileInputComponent extends _TdFileInputMixinBase {
             this.clear();
         }
     }
+    /**
+     * Sets disable to the component. Implemented as part of ControlValueAccessor.
+     * @param {?} isDisabled
+     * @return {?}
+     */
+    setDisabledState(isDisabled) {
+        this.disabled = isDisabled;
+    }
 }
 TdFileInputComponent.decorators = [
     { type: Component, args: [{
