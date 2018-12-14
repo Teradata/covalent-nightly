@@ -5474,6 +5474,7 @@
          * @return {?}
          */
             function () {
+                var _this = this;
                 // check if the scroll has been reset when element is hidden
                 if (this._scrollVerticalOffset - this._scrollableDiv.nativeElement.scrollTop > 5) {
                     // scroll back to the top if element has been reset
@@ -5481,11 +5482,13 @@
                 }
                 if (this._elementRef.nativeElement) {
                     /** @type {?} */
-                    var newHostWidth = this._elementRef.nativeElement.getBoundingClientRect().width;
+                    var newHostWidth_1 = this._elementRef.nativeElement.getBoundingClientRect().width;
                     // if the width has changed then we throw a resize event.
-                    if (this._hostWidth !== newHostWidth) {
-                        this._hostWidth = newHostWidth;
-                        this._onResize.next();
+                    if (this._hostWidth !== newHostWidth_1) {
+                        setTimeout(function () {
+                            _this._hostWidth = newHostWidth_1;
+                            _this._onResize.next();
+                        }, 0);
                     }
                 }
                 if (this._scrollableDiv.nativeElement) {
