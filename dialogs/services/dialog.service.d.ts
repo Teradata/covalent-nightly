@@ -1,4 +1,3 @@
-import { Provider } from '@angular/core';
 import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material/dialog';
 import { ComponentType } from '@angular/cdk/portal';
 import { TdAlertDialogComponent } from '../alert-dialog/alert-dialog.component';
@@ -78,5 +77,3 @@ export declare class TdDialogService {
     openPrompt(config: IPromptConfig): MatDialogRef<TdPromptDialogComponent>;
     private _createConfig;
 }
-export declare function DIALOG_PROVIDER_FACTORY(parent: TdDialogService, dialog: MatDialog): TdDialogService;
-export declare const DIALOG_PROVIDER: Provider;

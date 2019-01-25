@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { Component, Directive, ContentChildren, ViewChild, Injectable, SkipSelf, Optional, NgModule } from '@angular/core';
+import { Component, Directive, ContentChildren, ViewChild, Injectable, NgModule } from '@angular/core';
 import { MatDialogRef, MatDialog, MatDialogConfig, MatDialogModule } from '@angular/material/dialog';
 
 /**
@@ -326,21 +326,6 @@ TdDialogService.decorators = [
 TdDialogService.ctorParameters = () => [
     { type: MatDialog }
 ];
-/**
- * @param {?} parent
- * @param {?} dialog
- * @return {?}
- */
-function DIALOG_PROVIDER_FACTORY(parent, dialog) {
-    return parent || new TdDialogService(dialog);
-}
-/** @type {?} */
-const DIALOG_PROVIDER = {
-    // If there is already service available, use that. Otherwise, provide a new one.
-    provide: TdDialogService,
-    deps: [[new Optional(), new SkipSelf(), TdDialogService], MatDialog],
-    useFactory: DIALOG_PROVIDER_FACTORY,
-};
 
 /**
  * @fileoverview added by tsickle
@@ -380,7 +365,7 @@ CovalentDialogsModule.decorators = [
                     TD_DIALOGS,
                 ],
                 providers: [
-                    DIALOG_PROVIDER,
+                    TdDialogService,
                 ],
                 entryComponents: [
                     TD_DIALOGS_ENTRY_COMPONENTS,
@@ -403,6 +388,6 @@ CovalentDialogsModule.decorators = [
  * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 
-export { CovalentDialogsModule, TdDialogTitleDirective, TdDialogContentDirective, TdDialogActionsDirective, TdDialogComponent, TdAlertDialogComponent, TdConfirmDialogComponent, TdPromptDialogComponent, DIALOG_PROVIDER_FACTORY, TdDialogService, DIALOG_PROVIDER };
+export { CovalentDialogsModule, TdDialogTitleDirective, TdDialogContentDirective, TdDialogActionsDirective, TdDialogComponent, TdAlertDialogComponent, TdConfirmDialogComponent, TdPromptDialogComponent, TdDialogService };
 
 //# sourceMappingURL=covalent-core-dialogs.js.map

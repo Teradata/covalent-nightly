@@ -483,21 +483,6 @@
         };
         return TdDialogService;
     }());
-    /**
-     * @param {?} parent
-     * @param {?} dialog
-     * @return {?}
-     */
-    function DIALOG_PROVIDER_FACTORY(parent, dialog$$1) {
-        return parent || new TdDialogService(dialog$$1);
-    }
-    /** @type {?} */
-    var DIALOG_PROVIDER = {
-        // If there is already service available, use that. Otherwise, provide a new one.
-        provide: TdDialogService,
-        deps: [[new core.Optional(), new core.SkipSelf(), TdDialogService], dialog.MatDialog],
-        useFactory: DIALOG_PROVIDER_FACTORY,
-    };
 
     /**
      * @fileoverview added by tsickle
@@ -538,7 +523,7 @@
                             TD_DIALOGS,
                         ],
                         providers: [
-                            DIALOG_PROVIDER,
+                            TdDialogService,
                         ],
                         entryComponents: [
                             TD_DIALOGS_ENTRY_COMPONENTS,
@@ -571,9 +556,7 @@
     exports.TdAlertDialogComponent = TdAlertDialogComponent;
     exports.TdConfirmDialogComponent = TdConfirmDialogComponent;
     exports.TdPromptDialogComponent = TdPromptDialogComponent;
-    exports.DIALOG_PROVIDER_FACTORY = DIALOG_PROVIDER_FACTORY;
     exports.TdDialogService = TdDialogService;
-    exports.DIALOG_PROVIDER = DIALOG_PROVIDER;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
