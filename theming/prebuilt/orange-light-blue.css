@@ -2133,7 +2133,7 @@ td-navigation-drawer .td-navigation-drawer-menu-toggle {
   line-height: 24px; }
 
 td-breadcrumb:last-of-type {
-  color: rgba(0, 0, 0, 0.38);
+  font-weight: bold;
   cursor: default; }
 
 mat-list-item mat-icon,
