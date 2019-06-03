@@ -1487,6 +1487,8 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
   caret-color: #ef6c00; }
   .mat-input-element::-webkit-input-placeholder {
     color: rgba(0, 0, 0, 0.42); }
+  .mat-input-element::-moz-placeholder {
+    color: rgba(0, 0, 0, 0.42); }
   .mat-input-element:-ms-input-placeholder {
     color: rgba(0, 0, 0, 0.42); }
   .mat-input-element::placeholder {
