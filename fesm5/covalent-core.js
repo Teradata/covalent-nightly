@@ -7,7 +7,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { Router, RoutesRecognized } from '@angular/router';
-import { DomSanitizer, DOCUMENT } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Overlay, OverlayConfig, OverlayModule } from '@angular/cdk/overlay';
@@ -23,7 +23,7 @@ import { UP_ARROW, DOWN_ARROW, ESCAPE, LEFT_ARROW, RIGHT_ARROW, DELETE, BACKSPAC
 import { ScrollDispatchModule, ViewportRuler } from '@angular/cdk/scrolling';
 import { Subject, Subscription, timer, merge, fromEvent, Observable, BehaviorSubject, of } from 'rxjs';
 import { debounceTime, filter, pairwise, takeUntil, distinctUntilChanged, skip } from 'rxjs/operators';
-import { CommonModule, DecimalPipe } from '@angular/common';
+import { CommonModule, DecimalPipe, DOCUMENT } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
 import { NgModel, FormsModule, Validators, NG_VALUE_ACCESSOR, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { coerceNumberProperty, coerceBooleanProperty } from '@angular/cdk/coercion';

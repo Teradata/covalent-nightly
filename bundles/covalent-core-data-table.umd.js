@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/material/checkbox'), require('@angular/material/tooltip'), require('@angular/material/icon'), require('@angular/material/core'), require('@angular/platform-browser'), require('@angular/forms'), require('@angular/cdk/coercion'), require('@angular/cdk/keycodes'), require('rxjs'), require('rxjs/operators'), require('@angular/cdk/portal'), require('@covalent/core/common'), require('@angular/core')) :
-    typeof define === 'function' && define.amd ? define('@covalent/core/data-table', ['exports', '@angular/common', '@angular/material/checkbox', '@angular/material/tooltip', '@angular/material/icon', '@angular/material/core', '@angular/platform-browser', '@angular/forms', '@angular/cdk/coercion', '@angular/cdk/keycodes', 'rxjs', 'rxjs/operators', '@angular/cdk/portal', '@covalent/core/common', '@angular/core'], factory) :
-    (factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core['data-table'] = {}),global.ng.common,global.ng.material.checkbox,global.ng.material.tooltip,global.ng.material.icon,global.ng.material.core,global.ng.platformBrowser,global.ng.forms,global.ng.cdk.coercion,global.ng.cdk.keycodes,global.rxjs,global.rxjs.operators,global.ng.cdk.portal,global.covalent.core.common,global.ng.core));
-}(this, (function (exports,common,checkbox,tooltip,icon,core,platformBrowser,forms,coercion,keycodes,rxjs,operators,portal,common$1,core$1) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/material/checkbox'), require('@angular/material/tooltip'), require('@angular/material/icon'), require('@angular/material/core'), require('@angular/common'), require('@angular/platform-browser'), require('@angular/forms'), require('@angular/cdk/coercion'), require('@angular/cdk/keycodes'), require('rxjs'), require('rxjs/operators'), require('@angular/cdk/portal'), require('@covalent/core/common'), require('@angular/core')) :
+    typeof define === 'function' && define.amd ? define('@covalent/core/data-table', ['exports', '@angular/material/checkbox', '@angular/material/tooltip', '@angular/material/icon', '@angular/material/core', '@angular/common', '@angular/platform-browser', '@angular/forms', '@angular/cdk/coercion', '@angular/cdk/keycodes', 'rxjs', 'rxjs/operators', '@angular/cdk/portal', '@covalent/core/common', '@angular/core'], factory) :
+    (factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core['data-table'] = {}),global.ng.material.checkbox,global.ng.material.tooltip,global.ng.material.icon,global.ng.material.core,global.ng.common,global.ng.platformBrowser,global.ng.forms,global.ng.cdk.coercion,global.ng.cdk.keycodes,global.rxjs,global.rxjs.operators,global.ng.cdk.portal,global.covalent.core.common,global.ng.core));
+}(this, (function (exports,checkbox,tooltip,icon,core,common,platformBrowser,forms,coercion,keycodes,rxjs,operators,portal,common$1,core$1) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -1706,7 +1706,7 @@
         /** @nocollapse */
         TdDataTableComponent.ctorParameters = function () {
             return [
-                { type: undefined, decorators: [{ type: core$1.Optional }, { type: core$1.Inject, args: [platformBrowser.DOCUMENT,] }] },
+                { type: undefined, decorators: [{ type: core$1.Optional }, { type: core$1.Inject, args: [common.DOCUMENT,] }] },
                 { type: core$1.ElementRef },
                 { type: platformBrowser.DomSanitizer },
                 { type: core$1.ChangeDetectorRef }

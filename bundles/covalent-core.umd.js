@@ -4683,7 +4683,7 @@
             return [
                 { type: core$1.ElementRef },
                 { type: core$1.Renderer2 },
-                { type: undefined, decorators: [{ type: core$1.Optional }, { type: core$1.Inject, args: [platformBrowser.DOCUMENT,] }] },
+                { type: undefined, decorators: [{ type: core$1.Optional }, { type: core$1.Inject, args: [common.DOCUMENT,] }] },
                 { type: core$1.ChangeDetectorRef }
             ];
         };
@@ -6423,7 +6423,7 @@
         /** @nocollapse */
         TdDataTableComponent.ctorParameters = function () {
             return [
-                { type: undefined, decorators: [{ type: core$1.Optional }, { type: core$1.Inject, args: [platformBrowser.DOCUMENT,] }] },
+                { type: undefined, decorators: [{ type: core$1.Optional }, { type: core$1.Inject, args: [common.DOCUMENT,] }] },
                 { type: core$1.ElementRef },
                 { type: platformBrowser.DomSanitizer },
                 { type: core$1.ChangeDetectorRef }
