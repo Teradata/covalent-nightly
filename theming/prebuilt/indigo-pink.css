@@ -198,12 +198,14 @@
 .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
 .mat-form-field-can-float .mat-input-server:focus + .mat-form-field-label-wrapper .mat-form-field-label {
   -webkit-transform: translateY(-1.34375em) scale(0.75);
+      -ms-transform: translateY(-1.34375em) scale(0.75);
           transform: translateY(-1.34375em) scale(0.75);
   width: 133.33333%; }
 
 .mat-form-field-can-float .mat-input-server[label]:not(:label-shown) + .mat-form-field-label-wrapper
 .mat-form-field-label {
   -webkit-transform: translateY(-1.34374em) scale(0.75);
+      -ms-transform: translateY(-1.34374em) scale(0.75);
           transform: translateY(-1.34374em) scale(0.75);
   width: 133.33334%; }
 
@@ -263,6 +265,7 @@
   .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
   .mat-form-field-appearance-legacy.mat-form-field-can-float .mat-input-server:focus + .mat-form-field-label-wrapper .mat-form-field-label {
     -webkit-transform: translateY(-1.28122em) scale(0.75);
+        -ms-transform: translateY(-1.28122em) scale(0.75);
             transform: translateY(-1.28122em) scale(0.75); }
   .mat-form-field-appearance-legacy.mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill + .mat-form-field-label-wrapper
 .mat-form-field-label {
@@ -271,6 +274,7 @@
   .mat-form-field-appearance-legacy.mat-form-field-can-float .mat-input-server[label]:not(:label-shown) + .mat-form-field-label-wrapper
 .mat-form-field-label {
     -webkit-transform: translateY(-1.2812em) scale(0.75);
+        -ms-transform: translateY(-1.2812em) scale(0.75);
             transform: translateY(-1.2812em) scale(0.75); } }
 
 .mat-form-field-appearance-fill .mat-form-field-infix {
@@ -283,12 +287,14 @@
 .mat-form-field-appearance-fill.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
 .mat-form-field-appearance-fill.mat-form-field-can-float .mat-input-server:focus + .mat-form-field-label-wrapper .mat-form-field-label {
   -webkit-transform: translateY(-0.59375em) scale(0.75);
+      -ms-transform: translateY(-0.59375em) scale(0.75);
           transform: translateY(-0.59375em) scale(0.75);
   width: 133.33333%; }
 
 .mat-form-field-appearance-fill.mat-form-field-can-float .mat-input-server[label]:not(:label-shown) + .mat-form-field-label-wrapper
 .mat-form-field-label {
   -webkit-transform: translateY(-0.59374em) scale(0.75);
+      -ms-transform: translateY(-0.59374em) scale(0.75);
           transform: translateY(-0.59374em) scale(0.75);
   width: 133.33334%; }
 
@@ -302,12 +308,14 @@
 .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
 .mat-form-field-appearance-outline.mat-form-field-can-float .mat-input-server:focus + .mat-form-field-label-wrapper .mat-form-field-label {
   -webkit-transform: translateY(-1.59375em) scale(0.75);
+      -ms-transform: translateY(-1.59375em) scale(0.75);
           transform: translateY(-1.59375em) scale(0.75);
   width: 133.33333%; }
 
 .mat-form-field-appearance-outline.mat-form-field-can-float .mat-input-server[label]:not(:label-shown) + .mat-form-field-label-wrapper
 .mat-form-field-label {
   -webkit-transform: translateY(-1.59374em) scale(0.75);
+      -ms-transform: translateY(-1.59374em) scale(0.75);
           transform: translateY(-1.59374em) scale(0.75);
   width: 133.33334%; }
 
@@ -507,6 +515,7 @@ input.mat-input-element {
   transition: opacity, transform 0ms cubic-bezier(0, 0, 0.2, 1);
   transition: opacity, transform 0ms cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0ms cubic-bezier(0, 0, 0.2, 1);
   -webkit-transform: scale(0);
+      -ms-transform: scale(0);
           transform: scale(0); }
   @media screen and (-ms-high-contrast: active) {
     .mat-ripple-element {
@@ -831,6 +840,7 @@ textarea.cdk-textarea-autosize-measuring {
   transition: transform 200ms ease-in-out;
   transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
   -webkit-transform: scale(0.6);
+      -ms-transform: scale(0.6);
           transform: scale(0.6);
   overflow: hidden;
   white-space: nowrap;
@@ -839,6 +849,7 @@ textarea.cdk-textarea-autosize-measuring {
 
 .mat-badge-content.mat-badge-active {
   -webkit-transform: none;
+      -ms-transform: none;
           transform: none; }
 
 .mat-badge-small .mat-badge-content {
