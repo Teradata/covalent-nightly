@@ -1,10 +1,3 @@
-/**
- * Applies styles for users in high contrast mode. Note that this only applies
- * to Microsoft browsers. Chrome can be included by checking for the `html[hc]`
- * attribute, however Chrome handles high contrast differently.
- * @param target Which kind of high contrast setting to target. Defaults to `active`, can be
- *    `white-on-black` or `black-on-white`.
- */
 /* Theme for the ripple elements.*/
 /* stylelint-disable material/no-prefixes */
 /* stylelint-enable */
@@ -416,60 +409,60 @@ input.mat-input-element {
 .mat-list-option {
   font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.mat-list .mat-list-item, .mat-nav-list .mat-list-item, .mat-selection-list .mat-list-item {
+.mat-list-base .mat-list-item {
   font-size: 16px; }
-  .mat-list .mat-list-item .mat-line, .mat-nav-list .mat-list-item .mat-line, .mat-selection-list .mat-list-item .mat-line {
+  .mat-list-base .mat-list-item .mat-line {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     display: block;
     -webkit-box-sizing: border-box;
             box-sizing: border-box; }
-    .mat-list .mat-list-item .mat-line:nth-child(n+2), .mat-nav-list .mat-list-item .mat-line:nth-child(n+2), .mat-selection-list .mat-list-item .mat-line:nth-child(n+2) {
+    .mat-list-base .mat-list-item .mat-line:nth-child(n+2) {
       font-size: 14px; }
 
-.mat-list .mat-list-option, .mat-nav-list .mat-list-option, .mat-selection-list .mat-list-option {
+.mat-list-base .mat-list-option {
   font-size: 16px; }
-  .mat-list .mat-list-option .mat-line, .mat-nav-list .mat-list-option .mat-line, .mat-selection-list .mat-list-option .mat-line {
+  .mat-list-base .mat-list-option .mat-line {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     display: block;
     -webkit-box-sizing: border-box;
             box-sizing: border-box; }
-    .mat-list .mat-list-option .mat-line:nth-child(n+2), .mat-nav-list .mat-list-option .mat-line:nth-child(n+2), .mat-selection-list .mat-list-option .mat-line:nth-child(n+2) {
+    .mat-list-base .mat-list-option .mat-line:nth-child(n+2) {
       font-size: 14px; }
 
-.mat-list .mat-subheader, .mat-nav-list .mat-subheader, .mat-selection-list .mat-subheader {
+.mat-list-base .mat-subheader {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
   font-weight: 500; }
 
-.mat-list[dense] .mat-list-item, .mat-nav-list[dense] .mat-list-item, .mat-selection-list[dense] .mat-list-item {
+.mat-list-base[dense] .mat-list-item {
   font-size: 12px; }
-  .mat-list[dense] .mat-list-item .mat-line, .mat-nav-list[dense] .mat-list-item .mat-line, .mat-selection-list[dense] .mat-list-item .mat-line {
+  .mat-list-base[dense] .mat-list-item .mat-line {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     display: block;
     -webkit-box-sizing: border-box;
             box-sizing: border-box; }
-    .mat-list[dense] .mat-list-item .mat-line:nth-child(n+2), .mat-nav-list[dense] .mat-list-item .mat-line:nth-child(n+2), .mat-selection-list[dense] .mat-list-item .mat-line:nth-child(n+2) {
+    .mat-list-base[dense] .mat-list-item .mat-line:nth-child(n+2) {
       font-size: 12px; }
 
-.mat-list[dense] .mat-list-option, .mat-nav-list[dense] .mat-list-option, .mat-selection-list[dense] .mat-list-option {
+.mat-list-base[dense] .mat-list-option {
   font-size: 12px; }
-  .mat-list[dense] .mat-list-option .mat-line, .mat-nav-list[dense] .mat-list-option .mat-line, .mat-selection-list[dense] .mat-list-option .mat-line {
+  .mat-list-base[dense] .mat-list-option .mat-line {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     display: block;
     -webkit-box-sizing: border-box;
             box-sizing: border-box; }
-    .mat-list[dense] .mat-list-option .mat-line:nth-child(n+2), .mat-nav-list[dense] .mat-list-option .mat-line:nth-child(n+2), .mat-selection-list[dense] .mat-list-option .mat-line:nth-child(n+2) {
+    .mat-list-base[dense] .mat-list-option .mat-line:nth-child(n+2) {
       font-size: 12px; }
 
-.mat-list[dense] .mat-subheader, .mat-nav-list[dense] .mat-subheader, .mat-selection-list[dense] .mat-subheader {
+.mat-list-base[dense] .mat-subheader {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: 12px;
   font-weight: 500; }
@@ -517,7 +510,7 @@ input.mat-input-element {
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
           transform: scale(0); }
-  @media screen and (-ms-high-contrast: active) {
+  @media (-ms-high-contrast: active) {
     .mat-ripple-element {
       display: none; } }
 
@@ -673,6 +666,9 @@ textarea.cdk-textarea-autosize-measuring {
   .mat-pseudo-checkbox::after {
     color: #fafafa; }
 
+.mat-pseudo-checkbox-disabled {
+  color: #b0b0b0; }
+
 .mat-pseudo-checkbox-checked,
 .mat-pseudo-checkbox-indeterminate,
 .mat-accent .mat-pseudo-checkbox-checked,
@@ -687,7 +683,8 @@ textarea.cdk-textarea-autosize-measuring {
 .mat-warn .mat-pseudo-checkbox-indeterminate {
   background: #e53935; }
 
-.mat-pseudo-checkbox-checked.mat-pseudo-checkbox-disabled {
+.mat-pseudo-checkbox-checked.mat-pseudo-checkbox-disabled,
+.mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-disabled {
   background: #b0b0b0; }
 
 .mat-elevation-z0 {
@@ -811,6 +808,10 @@ textarea.cdk-textarea-autosize-measuring {
 .mat-badge-content {
   color: rgba(255, 255, 255, 0.87);
   background: #3f51b5; }
+  @media (-ms-high-contrast: active) {
+    .mat-badge-content {
+      outline: solid 1px;
+      border-radius: 0; } }
 
 .mat-badge-accent .mat-badge-content {
   background: #ff4081;
@@ -856,10 +857,6 @@ textarea.cdk-textarea-autosize-measuring {
   width: 16px;
   height: 16px;
   line-height: 16px; }
-  @media screen and (-ms-high-contrast: active) {
-    .mat-badge-small .mat-badge-content {
-      outline: solid 1px;
-      border-radius: 0; } }
 
 .mat-badge-small.mat-badge-above .mat-badge-content {
   top: -8px; }
@@ -899,10 +896,6 @@ textarea.cdk-textarea-autosize-measuring {
   width: 22px;
   height: 22px;
   line-height: 22px; }
-  @media screen and (-ms-high-contrast: active) {
-    .mat-badge-medium .mat-badge-content {
-      outline: solid 1px;
-      border-radius: 0; } }
 
 .mat-badge-medium.mat-badge-above .mat-badge-content {
   top: -11px; }
@@ -942,10 +935,6 @@ textarea.cdk-textarea-autosize-measuring {
   width: 28px;
   height: 28px;
   line-height: 28px; }
-  @media screen and (-ms-high-contrast: active) {
-    .mat-badge-large .mat-badge-content {
-      outline: solid 1px;
-      border-radius: 0; } }
 
 .mat-badge-large.mat-badge-above .mat-badge-content {
   top: -14px; }
@@ -1006,12 +995,9 @@ textarea.cdk-textarea-autosize-measuring {
     background-color: #e53935; }
   .mat-button[disabled] .mat-button-focus-overlay, .mat-icon-button[disabled] .mat-button-focus-overlay, .mat-stroked-button[disabled] .mat-button-focus-overlay {
     background-color: transparent; }
-  .mat-button.mat-primary .mat-ripple-element, .mat-icon-button.mat-primary .mat-ripple-element, .mat-stroked-button.mat-primary .mat-ripple-element {
-    background-color: rgba(63, 81, 181, 0.1); }
-  .mat-button.mat-accent .mat-ripple-element, .mat-icon-button.mat-accent .mat-ripple-element, .mat-stroked-button.mat-accent .mat-ripple-element {
-    background-color: rgba(255, 64, 129, 0.1); }
-  .mat-button.mat-warn .mat-ripple-element, .mat-icon-button.mat-warn .mat-ripple-element, .mat-stroked-button.mat-warn .mat-ripple-element {
-    background-color: rgba(229, 57, 53, 0.1); }
+  .mat-button .mat-ripple-element, .mat-icon-button .mat-ripple-element, .mat-stroked-button .mat-ripple-element {
+    opacity: 0.1;
+    background-color: currentColor; }
 
 .mat-button-focus-overlay {
   background: black; }
@@ -1044,15 +1030,6 @@ textarea.cdk-textarea-autosize-measuring {
     background-color: rgba(255, 255, 255, 0.1); }
   .mat-flat-button.mat-warn .mat-ripple-element, .mat-raised-button.mat-warn .mat-ripple-element, .mat-fab.mat-warn .mat-ripple-element, .mat-mini-fab.mat-warn .mat-ripple-element {
     background-color: rgba(255, 255, 255, 0.1); }
-
-.mat-icon-button.mat-primary .mat-ripple-element {
-  background-color: rgba(63, 81, 181, 0.2); }
-
-.mat-icon-button.mat-accent .mat-ripple-element {
-  background-color: rgba(255, 64, 129, 0.2); }
-
-.mat-icon-button.mat-warn .mat-ripple-element {
-  background-color: rgba(229, 57, 53, 0.2); }
 
 .mat-stroked-button:not([class*='mat-elevation-z']), .mat-flat-button:not([class*='mat-elevation-z']) {
   -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
@@ -1154,7 +1131,7 @@ textarea.cdk-textarea-autosize-measuring {
 
 .mat-checkbox-checkmark-path {
   stroke: #fafafa !important; }
-  @media screen and (-ms-high-contrast: black-on-white) {
+  @media (-ms-high-contrast: black-on-white) {
     .mat-checkbox-checkmark-path {
       stroke: #000 !important; } }
 
@@ -1170,20 +1147,20 @@ textarea.cdk-textarea-autosize-measuring {
 .mat-checkbox-indeterminate.mat-warn .mat-checkbox-background, .mat-checkbox-checked.mat-warn .mat-checkbox-background {
   background-color: #e53935; }
 
-.mat-checkbox-disabled.mat-checkbox-checked:not(.mat-checkbox-indeterminate) .mat-checkbox-background {
+.mat-checkbox-disabled.mat-checkbox-checked .mat-checkbox-background, .mat-checkbox-disabled.mat-checkbox-indeterminate .mat-checkbox-background {
   background-color: #b0b0b0; }
 
 .mat-checkbox-disabled:not(.mat-checkbox-checked) .mat-checkbox-frame {
   border-color: #b0b0b0; }
 
 .mat-checkbox-disabled .mat-checkbox-label {
-  color: #b0b0b0; }
+  color: rgba(0, 0, 0, 0.54); }
 
-@media screen and (-ms-high-contrast: active) {
+@media (-ms-high-contrast: active) {
   .mat-checkbox-disabled {
     opacity: 0.5; } }
 
-@media screen and (-ms-high-contrast: active) {
+@media (-ms-high-contrast: active) {
   .mat-checkbox-background {
     background: none; } }
 
@@ -1202,11 +1179,15 @@ textarea.cdk-textarea-autosize-measuring {
   .mat-chip.mat-standard-chip .mat-chip-remove {
     color: rgba(0, 0, 0, 0.87);
     opacity: 0.4; }
-  .mat-chip.mat-standard-chip .mat-chip-remove:hover {
-    opacity: 0.54; }
-  .mat-chip.mat-standard-chip:focus {
+  .mat-chip.mat-standard-chip:not(.mat-chip-disabled):active {
     -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
             box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12); }
+  .mat-chip.mat-standard-chip:not(.mat-chip-disabled) .mat-chip-remove:hover {
+    opacity: 0.54; }
+  .mat-chip.mat-standard-chip.mat-chip-disabled {
+    opacity: 0.4; }
+  .mat-chip.mat-standard-chip::after {
+    background: black; }
 
 .mat-chip.mat-standard-chip.mat-chip-selected.mat-primary {
   background-color: #3f51b5;
@@ -1214,8 +1195,8 @@ textarea.cdk-textarea-autosize-measuring {
   .mat-chip.mat-standard-chip.mat-chip-selected.mat-primary .mat-chip-remove {
     color: rgba(255, 255, 255, 0.87);
     opacity: 0.4; }
-  .mat-chip.mat-standard-chip.mat-chip-selected.mat-primary .mat-chip-remove:hover {
-    opacity: 0.54; }
+  .mat-chip.mat-standard-chip.mat-chip-selected.mat-primary .mat-ripple-element {
+    background: rgba(255, 255, 255, 0.1); }
 
 .mat-chip.mat-standard-chip.mat-chip-selected.mat-warn {
   background-color: #e53935;
@@ -1223,8 +1204,8 @@ textarea.cdk-textarea-autosize-measuring {
   .mat-chip.mat-standard-chip.mat-chip-selected.mat-warn .mat-chip-remove {
     color: white;
     opacity: 0.4; }
-  .mat-chip.mat-standard-chip.mat-chip-selected.mat-warn .mat-chip-remove:hover {
-    opacity: 0.54; }
+  .mat-chip.mat-standard-chip.mat-chip-selected.mat-warn .mat-ripple-element {
+    background: rgba(255, 255, 255, 0.1); }
 
 .mat-chip.mat-standard-chip.mat-chip-selected.mat-accent {
   background-color: #ff4081;
@@ -1232,8 +1213,8 @@ textarea.cdk-textarea-autosize-measuring {
   .mat-chip.mat-standard-chip.mat-chip-selected.mat-accent .mat-chip-remove {
     color: white;
     opacity: 0.4; }
-  .mat-chip.mat-standard-chip.mat-chip-selected.mat-accent .mat-chip-remove:hover {
-    opacity: 0.54; }
+  .mat-chip.mat-standard-chip.mat-chip-selected.mat-accent .mat-ripple-element {
+    background: rgba(255, 255, 255, 0.1); }
 
 .mat-table {
   background: white; }
@@ -1402,6 +1383,15 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
   .mat-form-field.mat-focused .mat-form-field-ripple.mat-warn {
     background-color: #e53935; }
 
+.mat-form-field-type-mat-native-select.mat-focused:not(.mat-form-field-invalid) .mat-form-field-infix::after {
+  color: #3f51b5; }
+
+.mat-form-field-type-mat-native-select.mat-focused:not(.mat-form-field-invalid).mat-accent .mat-form-field-infix::after {
+  color: #ff4081; }
+
+.mat-form-field-type-mat-native-select.mat-focused:not(.mat-form-field-invalid).mat-warn .mat-form-field-infix::after {
+  color: #e53935; }
+
 .mat-form-field.mat-form-field-invalid .mat-form-field-label {
   color: #e53935; }
   .mat-form-field.mat-form-field-invalid .mat-form-field-label.mat-accent,
@@ -1521,13 +1511,13 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 .mat-form-field-type-mat-native-select.mat-form-field-invalid .mat-form-field-infix::after {
   color: #e53935; }
 
-.mat-list .mat-list-item, .mat-nav-list .mat-list-item, .mat-selection-list .mat-list-item {
+.mat-list-base .mat-list-item {
   color: rgba(0, 0, 0, 0.87); }
 
-.mat-list .mat-list-option, .mat-nav-list .mat-list-option, .mat-selection-list .mat-list-option {
+.mat-list-base .mat-list-option {
   color: rgba(0, 0, 0, 0.87); }
 
-.mat-list .mat-subheader, .mat-nav-list .mat-subheader, .mat-selection-list .mat-subheader {
+.mat-list-base .mat-subheader {
   color: rgba(0, 0, 0, 0.54); }
 
 .mat-list-item-disabled {
@@ -1535,7 +1525,9 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 
 .mat-list-option:hover, .mat-list-option:focus,
 .mat-nav-list .mat-list-item:hover,
-.mat-nav-list .mat-list-item:focus {
+.mat-nav-list .mat-list-item:focus,
+.mat-action-list .mat-list-item:hover,
+.mat-action-list .mat-list-item:focus {
   background: rgba(0, 0, 0, 0.04); }
 
 .mat-menu-panel {
@@ -1550,7 +1542,7 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
   .mat-menu-item[disabled], .mat-menu-item[disabled]::after {
     color: rgba(0, 0, 0, 0.38); }
 
-.mat-menu-item .mat-icon:not([color]),
+.mat-menu-item .mat-icon-no-color,
 .mat-menu-item-submenu-trigger::after {
   color: rgba(0, 0, 0, 0.54); }
 
@@ -1726,41 +1718,35 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 .mat-drawer-backdrop.mat-drawer-shown {
   background-color: rgba(0, 0, 0, 0.6); }
 
-.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
   background-color: #ff4081; }
 
-.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
   background-color: rgba(255, 64, 129, 0.54); }
 
-.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-ripple-element {
+.mat-slide-toggle.mat-checked .mat-ripple-element {
   background-color: #ff4081; }
 
-.mat-slide-toggle.mat-primary.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+.mat-slide-toggle.mat-primary.mat-checked .mat-slide-toggle-thumb {
   background-color: #3f51b5; }
 
-.mat-slide-toggle.mat-primary.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+.mat-slide-toggle.mat-primary.mat-checked .mat-slide-toggle-bar {
   background-color: rgba(63, 81, 181, 0.54); }
 
-.mat-slide-toggle.mat-primary.mat-checked:not(.mat-disabled) .mat-ripple-element {
+.mat-slide-toggle.mat-primary.mat-checked .mat-ripple-element {
   background-color: #3f51b5; }
 
-.mat-slide-toggle.mat-warn.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+.mat-slide-toggle.mat-warn.mat-checked .mat-slide-toggle-thumb {
   background-color: #e53935; }
 
-.mat-slide-toggle.mat-warn.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+.mat-slide-toggle.mat-warn.mat-checked .mat-slide-toggle-bar {
   background-color: rgba(229, 57, 53, 0.54); }
 
-.mat-slide-toggle.mat-warn.mat-checked:not(.mat-disabled) .mat-ripple-element {
+.mat-slide-toggle.mat-warn.mat-checked .mat-ripple-element {
   background-color: #e53935; }
 
 .mat-slide-toggle:not(.mat-checked) .mat-ripple-element {
   background-color: black; }
-
-.mat-disabled .mat-slide-toggle-thumb {
-  background-color: #bdbdbd; }
-
-.mat-disabled .mat-slide-toggle-bar {
-  background-color: rgba(0, 0, 0, 0.1); }
 
 .mat-slide-toggle-thumb {
   -webkit-box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
@@ -1846,12 +1832,16 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 .mat-step-header.cdk-keyboard-focused, .mat-step-header.cdk-program-focused, .mat-step-header:hover {
   background-color: rgba(0, 0, 0, 0.04); }
 
+@media (hover: none) {
+  .mat-step-header:hover {
+    background: none; } }
+
 .mat-step-header .mat-step-label,
 .mat-step-header .mat-step-optional {
-  color: rgba(0, 0, 0, 0.38); }
+  color: rgba(0, 0, 0, 0.54); }
 
 .mat-step-header .mat-step-icon {
-  background-color: rgba(0, 0, 0, 0.38);
+  background-color: rgba(0, 0, 0, 0.54);
   color: rgba(255, 255, 255, 0.87); }
 
 .mat-step-header .mat-step-icon-selected,
@@ -1876,6 +1866,8 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 .mat-stepper-vertical-line::before {
   border-left-color: rgba(0, 0, 0, 0.12); }
 
+.mat-horizontal-stepper-header::before,
+.mat-horizontal-stepper-header::after,
 .mat-stepper-horizontal-line {
   border-top-color: rgba(0, 0, 0, 0.12); }
 
