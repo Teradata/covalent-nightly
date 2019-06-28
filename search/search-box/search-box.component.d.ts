@@ -1,5 +1,4 @@
 import { EventEmitter, ChangeDetectorRef } from '@angular/core';
-import { MatFormFieldAppearance } from '@angular/material/form-field';
 import { TdSearchInputComponent } from '../search-input/search-input.component';
 import { IControlValueAccessor } from '@covalent/core/common';
 export declare class TdSearchBoxBase {
@@ -11,11 +10,6 @@ export declare class TdSearchBoxComponent extends _TdSearchBoxMixinBase implemen
     private _searchVisible;
     _searchInput: TdSearchInputComponent;
     readonly searchVisible: boolean;
-    /**
-     * appearance?: MatFormFieldAppearance
-     * Appearance style for the underlying input component.
-     */
-    appearance: MatFormFieldAppearance;
     /**
      * backIcon?: string
      * The icon used to close the search toggle, only shown when [alwaysVisible] is false.
