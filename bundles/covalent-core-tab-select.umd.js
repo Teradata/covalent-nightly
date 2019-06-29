@@ -242,6 +242,7 @@
                 this._values = this.tabOptions.map(function (tabOption) {
                     return tabOption.value;
                 });
+                this._changeDetectorRef.markForCheck();
             };
         /**
          * Try to set value depending if its part of our options

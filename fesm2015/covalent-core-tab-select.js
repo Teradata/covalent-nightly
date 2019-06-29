@@ -176,6 +176,7 @@ class TdTabSelectComponent extends _TdTabSelectMixinBase {
         this._values = this.tabOptions.map((tabOption) => {
             return tabOption.value;
         });
+        this._changeDetectorRef.markForCheck();
     }
     /**
      * Try to set value depending if its part of our options
