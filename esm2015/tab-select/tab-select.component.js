@@ -152,7 +152,7 @@ TdTabSelectComponent.decorators = [
                 template: "<mat-tab-group [attr.mat-stretch-tabs]=\"stretchTabs ? true : undefined\"\n                [backgroundColor]=\"backgroundColor\"\n                [color]=\"color\"\n                [disableRipple]=\"disableRipple\"\n                [selectedIndex]=\"selectedIndex\"\n                (selectedIndexChange)=\"selectedIndexChange($event)\">\n  <ng-template let-tabOption\n                ngFor\n                [ngForOf]=\"tabOptions\">\n    <mat-tab [disabled]=\"tabOption.disabled || disabled\">\n      <ng-template matTabLabel>\n        <ng-template *ngIf=\"tabOption.content\" [cdkPortalOutlet]=\"tabOption.content\">\n        </ng-template>\n      </ng-template>\n    </mat-tab>\n  </ng-template>\n</mat-tab-group>\n",
                 /* tslint:disable-next-line */
                 inputs: ['value', 'disabled', 'disableRipple'],
-                styles: [""]
+                styles: [":host::ng-deep>.mat-tab-group>.mat-tab-body-wrapper{display:none}"]
             }] }
 ];
 /** @nocollapse */
