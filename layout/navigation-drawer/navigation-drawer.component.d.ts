@@ -48,6 +48,13 @@ export declare class TdNavigationDrawerComponent implements OnInit, OnDestroy {
      */
     logo: string;
     /**
+     * avatar?: string
+     *
+     * avatar url to be displayed before the title
+     * If [icon] or [logo] are set, then this will not be shown.
+     */
+    avatar: string;
+    /**
      * color?: string
      *
      * toolbar color option: primary | accent | warn.
