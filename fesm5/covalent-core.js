@@ -23,12 +23,12 @@ import { UP_ARROW, DOWN_ARROW, ESCAPE, LEFT_ARROW, RIGHT_ARROW, DELETE, BACKSPAC
 import { ScrollDispatchModule, ViewportRuler } from '@angular/cdk/scrolling';
 import { Subject, Subscription, timer, merge, fromEvent, Observable, BehaviorSubject, of } from 'rxjs';
 import { debounceTime, filter, pairwise, takeUntil, distinctUntilChanged, skip } from 'rxjs/operators';
-import { CommonModule, DecimalPipe, DOCUMENT } from '@angular/common';
+import { CommonModule, DOCUMENT, DecimalPipe } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
 import { NgModel, FormsModule, Validators, NG_VALUE_ACCESSOR, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { coerceNumberProperty, coerceBooleanProperty } from '@angular/cdk/coercion';
-import { __extends, __spread, __values } from 'tslib';
-import { Component, Input, Output, EventEmitter, Optional, ChangeDetectorRef, ChangeDetectionStrategy, NgModule, Directive, TemplateRef, ViewContainerRef, ContentChild, ViewChildren, ElementRef, HostListener, Renderer2, HostBinding, ViewChild, Host, Pipe, Inject, LOCALE_ID, Injectable, forwardRef, ContentChildren, SkipSelf, SecurityContext, ComponentFactoryResolver, Injector, NgZone } from '@angular/core';
+import { __values, __extends, __spread } from 'tslib';
+import { Component, Input, Output, EventEmitter, Optional, ChangeDetectorRef, ChangeDetectionStrategy, NgModule, Directive, TemplateRef, ViewContainerRef, ContentChild, ViewChildren, ElementRef, HostListener, Renderer2, HostBinding, ViewChild, Host, Inject, Pipe, LOCALE_ID, Injectable, forwardRef, ContentChildren, SkipSelf, SecurityContext, ComponentFactoryResolver, Injector, NgZone } from '@angular/core';
 import { TemplatePortalDirective, PortalModule, TemplatePortal, ComponentPortal } from '@angular/cdk/portal';
 import { tdCollapseAnimation, mixinDisabled, mixinControlValueAccessor, mixinDisableRipple, tdRotateAnimation, tdFadeInOutAnimation, CovalentCommonModule } from '@covalent/core/common';
 
@@ -1201,6 +1201,158 @@ var TdAutoTrimDirective = /** @class */ (function () {
         onBlur: [{ type: HostListener, args: ['blur', ['$event'],] }]
     };
     return TdAutoTrimDirective;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ */
+var TdFullscreenDirective = /** @class */ (function () {
+    function TdFullscreenDirective(_document, _el) {
+        this._document = _document;
+        this._el = _el;
+        this.fullScreenIsActive = false;
+    }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
+    TdFullscreenDirective.prototype.fsChangeHandler = /**
+     * @param {?} event
+     * @return {?}
+     */
+    function (event) {
+        this.fullScreenIsActive = event.srcElement === this._getFullScreenElement();
+    };
+    /**
+     * @return {?}
+     */
+    TdFullscreenDirective.prototype.toggleFullScreen = /**
+     * @return {?}
+     */
+    function () {
+        this._getFullScreenElement() === this._el.nativeElement ? this.exitFullScreen() : this.enterFullScreen();
+    };
+    /**
+     * @return {?}
+     */
+    TdFullscreenDirective.prototype.enterFullScreen = /**
+     * @return {?}
+     */
+    function () {
+        var e_1, _a;
+        var nativeElement = this._el.nativeElement;
+        /** @type {?} */
+        var enterFullScreenMap = {
+            requestFullscreen: function () { return nativeElement.requestFullscreen(); },
+            // Chrome
+            webkitRequestFullscreen: function () { return nativeElement.webkitRequestFullscreen(); },
+            // Safari 
+            mozRequestFullScreen: function () { return nativeElement.mozRequestFullScreen(); },
+            // Firefox
+            msRequestFullscreen: function () { return nativeElement.msRequestFullscreen(); },
+        };
+        try {
+            for (var _b = __values(Object.keys(enterFullScreenMap)), _c = _b.next(); !_c.done; _c = _b.next()) {
+                var handler = _c.value;
+                if (nativeElement[handler]) {
+                    enterFullScreenMap[handler]();
+                }
+            }
+        }
+        catch (e_1_1) { e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+            }
+            finally { if (e_1) throw e_1.error; }
+        }
+    };
+    /**
+     * @return {?}
+     */
+    TdFullscreenDirective.prototype.exitFullScreen = /**
+     * @return {?}
+     */
+    function () {
+        var e_2, _a;
+        var _b = this, _document = _b._document, nativeElement = _b._el.nativeElement;
+        /** @type {?} */
+        var exitFullScreenMap = {
+            exitFullscreen: function () { return _document.exitFullscreen(); },
+            // Chrome
+            webkitExitFullscreen: function () { return _document.webkitExitFullscreen(); },
+            // Safari
+            mozCancelFullScreen: function () { return _document.mozCancelFullScreen(); },
+            // Firefox
+            msExitFullscreen: function () { return _document.msExitFullscreen(); },
+        };
+        try {
+            for (var _c = __values(Object.keys(exitFullScreenMap)), _d = _c.next(); !_d.done; _d = _c.next()) {
+                var handler = _d.value;
+                if (_document[handler] && this._getFullScreenElement() === nativeElement) {
+                    exitFullScreenMap[handler]();
+                }
+            }
+        }
+        catch (e_2_1) { e_2 = { error: e_2_1 }; }
+        finally {
+            try {
+                if (_d && !_d.done && (_a = _c.return)) _a.call(_c);
+            }
+            finally { if (e_2) throw e_2.error; }
+        }
+    };
+    /**
+     * @return {?}
+     */
+    TdFullscreenDirective.prototype._getFullScreenElement = /**
+     * @return {?}
+     */
+    function () {
+        var e_3, _a;
+        var _document = this._document;
+        /** @type {?} */
+        var tdFullScreenElementMap = {
+            fullscreenElement: function () { return _document.fullscreenElement; },
+            // Chrome, Opera
+            webkitFullscreenElement: function () { return _document.webkitFullscreenElement; },
+            // Safari
+            mozFullscreenElement: function () { return _document.mozFullscreenElement; },
+            // Firefox
+            msFullscreenElement: function () { return _document.msFullscreenElement; },
+        };
+        try {
+            for (var _b = __values(Object.keys(tdFullScreenElementMap)), _c = _b.next(); !_c.done; _c = _b.next()) {
+                var props = _c.value;
+                if (_document[props]) {
+                    return _document[props];
+                }
+            }
+        }
+        catch (e_3_1) { e_3 = { error: e_3_1 }; }
+        finally {
+            try {
+                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+            }
+            finally { if (e_3) throw e_3.error; }
+        }
+    };
+    TdFullscreenDirective.decorators = [
+        { type: Directive, args: [{
+                    selector: '[tdFullScreen]',
+                    exportAs: 'tdFullScreen',
+                },] }
+    ];
+    /** @nocollapse */
+    TdFullscreenDirective.ctorParameters = function () { return [
+        { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] },
+        { type: ElementRef }
+    ]; };
+    TdFullscreenDirective.propDecorators = {
+        fsChangeHandler: [{ type: HostListener, args: ['document:fullscreenchange', ['$event'],] }, { type: HostListener, args: ['document:webkitfullscreenchange', ['$event'],] }, { type: HostListener, args: ['document:mozfullscreenchange', ['$event'],] }, { type: HostListener, args: ['document:msfullscreenchange', ['$event'],] }]
+    };
+    return TdFullscreenDirective;
 }());
 
 /**
@@ -2506,9 +2658,7 @@ var IconService = /** @class */ (function () {
  * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 /** @type {?} */
-var TD_FORMS = [
-    TdAutoTrimDirective,
-];
+var TD_DIRECTIVES = [TdAutoTrimDirective, TdFullscreenDirective];
 // Validators
 /** @type {?} */
 var TD_VALIDATORS = [];
@@ -2527,26 +2677,10 @@ var CovalentCommonModule$1 = /** @class */ (function () {
     }
     CovalentCommonModule$$1.decorators = [
         { type: NgModule, args: [{
-                    imports: [
-                        FormsModule,
-                        CommonModule,
-                    ],
-                    declarations: [
-                        TD_FORMS,
-                        TD_PIPES,
-                        TD_VALIDATORS,
-                    ],
-                    exports: [
-                        FormsModule,
-                        CommonModule,
-                        TD_FORMS,
-                        TD_PIPES,
-                        TD_VALIDATORS,
-                    ],
-                    providers: [
-                        RouterPathService,
-                        IconService,
-                    ],
+                    imports: [FormsModule, CommonModule],
+                    declarations: [TD_DIRECTIVES, TD_PIPES, TD_VALIDATORS],
+                    exports: [FormsModule, CommonModule, TD_DIRECTIVES, TD_PIPES, TD_VALIDATORS],
+                    providers: [RouterPathService, IconService],
                 },] }
     ];
     return CovalentCommonModule$$1;
@@ -15013,6 +15147,6 @@ var CovalentTabSelectModule = /** @class */ (function () {
  * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 
-export { CovalentPagingModule, TdPagingBarComponent, CovalentVirtualScrollModule, TdVirtualScrollContainerComponent, TdVirtualScrollRowDirective, CovalentNotificationsModule, TdNotificationCountPositionY, TdNotificationCountPositionX, DEFAULT_NOTIFICATION_LIMIT, TdNotificationCountComponent, CovalentCommonModule$1 as CovalentCommonModule, tdRotateAnimation$1 as tdRotateAnimation, tdCollapseAnimation$1 as tdCollapseAnimation, tdFadeInOutAnimation$1 as tdFadeInOutAnimation, tdBounceAnimation, tdFlashAnimation, tdHeadshakeAnimation, tdJelloAnimation, tdPulseAnimation, mixinControlValueAccessor$1 as mixinControlValueAccessor, mixinDisabled$1 as mixinDisabled, mixinDisableRipple$1 as mixinDisableRipple, TdAutoTrimDirective, CovalentValidators, TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTruncatePipe, TdDecimalBytesPipe, CovalentMessageModule, TdMessageContainerDirective, TdMessageComponent, CovalentChipsModule, TdChipDirective, TdAutocompleteOptionDirective, TdChipsBase, _TdChipsMixinBase, TdChipsComponent, CovalentDataTableModule, TdDataTableSortingOrder, TdDataTableBase, _TdDataTableMixinBase, TdDataTableComponent, TdDataTableCellComponent, TdDataTableColumnComponent, TdDataTableColumnRowComponent, TdDataTableRowComponent, TdDataTableTableComponent, TdDataTableTemplateDirective, DATA_TABLE_PROVIDER_FACTORY, TdDataTableService, DATA_TABLE_PROVIDER, CovalentDialogsModule, TdDialogTitleDirective, TdDialogContentDirective, TdDialogActionsDirective, TdDialogComponent, TdAlertDialogComponent, TdConfirmDialogComponent, TdPromptDialogComponent, TdDialogService, CovalentExpansionPanelModule, TdExpansionPanelHeaderDirective, TdExpansionPanelLabelDirective, TdExpansionPanelSublabelDirective, TdExpansionPanelSummaryComponent, TdExpansionPanelBase, _TdExpansionPanelMixinBase, TdExpansionPanelComponent, TdExpansionPanelGroupComponent, CovalentFileModule, TdFileDropBase, _TdFileDropMixinBase, TdFileDropDirective, TdFileSelectDirective, TdFileInputLabelDirective, TdFileInputBase, _TdFileInputMixinBase, TdFileInputComponent, TdFileUploadBase, _TdFileUploadMixinBase, TdFileUploadComponent, TdFileService, CovalentJsonFormatterModule, TdJsonFormatterComponent, CovalentLayoutModule, TdLayoutComponent, TdLayoutToggleDirective, TdLayoutCloseDirective, TdLayoutOpenDirective, LayoutToggleBase, _TdLayoutToggleMixinBase, LayoutToggle, TdLayoutCardOverComponent, TdLayoutFooterComponent, TdLayoutManageListComponent, TdLayoutManageListToggleDirective, TdLayoutManageListCloseDirective, TdLayoutManageListOpenDirective, TdLayoutNavComponent, TdLayoutNavListComponent, TdLayoutNavListToggleDirective, TdLayoutNavListCloseDirective, TdLayoutNavListOpenDirective, TdNavigationDrawerMenuDirective, TdNavigationDrawerToolbarDirective, TdNavigationDrawerComponent, CovalentLoadingModule, LoadingType, LoadingMode, LoadingStrategy, LoadingStyle, TD_CIRCLE_DIAMETER, TdLoadingComponent, TdLoadingContext, TdLoadingDirective, LOADING_PROVIDER_FACTORY, TdLoadingConfig, TdLoadingDirectiveConfig, TdLoadingService, LOADING_PROVIDER, LOADING_FACTORY_PROVIDER_FACTORY, TdLoadingFactory, LOADING_FACTORY_PROVIDER, CovalentMediaModule, TdMediaToggleDirective, MEDIA_PROVIDER_FACTORY, TdMediaService, MEDIA_PROVIDER, CovalentMenuModule, TdMenuComponent, CovalentSearchModule, TdSearchBoxBase, _TdSearchBoxMixinBase, TdSearchBoxComponent, TdSearchInputBase, _TdSearchInputMixinBase, TdSearchInputComponent, CovalentBreadcrumbsModule, TdBreadcrumbsComponent, CovalentStepsModule, StepState, TdStepLabelDirective, TdStepActionsDirective, TdStepSummaryDirective, TdStepBase, _TdStepMixinBase, TdStepComponent, StepMode, TdStepsComponent, TdStepBodyComponent, TdStepHeaderBase, _TdStepHeaderMixinBase, TdStepHeaderComponent, CovalentTabSelectModule, TdTabSelectBase, _TdTabSelectMixinBase, TdTabSelectComponent, TdTabOptionBase, _TdTabOptionMixinBase, TdTabOptionComponent, TdBreadcrumbComponent as ɵd, TdTimeUntilPipe as ɵa, IconService as ɵc, RouterPathService as ɵb, TdNavStepLinkComponent as ɵf, TdNavStepsHorizontalComponent as ɵe, TdNavStepsVerticalComponent as ɵg };
+export { CovalentPagingModule, TdPagingBarComponent, CovalentVirtualScrollModule, TdVirtualScrollContainerComponent, TdVirtualScrollRowDirective, CovalentNotificationsModule, TdNotificationCountPositionY, TdNotificationCountPositionX, DEFAULT_NOTIFICATION_LIMIT, TdNotificationCountComponent, CovalentCommonModule$1 as CovalentCommonModule, tdRotateAnimation$1 as tdRotateAnimation, tdCollapseAnimation$1 as tdCollapseAnimation, tdFadeInOutAnimation$1 as tdFadeInOutAnimation, tdBounceAnimation, tdFlashAnimation, tdHeadshakeAnimation, tdJelloAnimation, tdPulseAnimation, mixinControlValueAccessor$1 as mixinControlValueAccessor, mixinDisabled$1 as mixinDisabled, mixinDisableRipple$1 as mixinDisableRipple, TdAutoTrimDirective, CovalentValidators, TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTruncatePipe, TdDecimalBytesPipe, CovalentMessageModule, TdMessageContainerDirective, TdMessageComponent, CovalentChipsModule, TdChipDirective, TdAutocompleteOptionDirective, TdChipsBase, _TdChipsMixinBase, TdChipsComponent, CovalentDataTableModule, TdDataTableSortingOrder, TdDataTableBase, _TdDataTableMixinBase, TdDataTableComponent, TdDataTableCellComponent, TdDataTableColumnComponent, TdDataTableColumnRowComponent, TdDataTableRowComponent, TdDataTableTableComponent, TdDataTableTemplateDirective, DATA_TABLE_PROVIDER_FACTORY, TdDataTableService, DATA_TABLE_PROVIDER, CovalentDialogsModule, TdDialogTitleDirective, TdDialogContentDirective, TdDialogActionsDirective, TdDialogComponent, TdAlertDialogComponent, TdConfirmDialogComponent, TdPromptDialogComponent, TdDialogService, CovalentExpansionPanelModule, TdExpansionPanelHeaderDirective, TdExpansionPanelLabelDirective, TdExpansionPanelSublabelDirective, TdExpansionPanelSummaryComponent, TdExpansionPanelBase, _TdExpansionPanelMixinBase, TdExpansionPanelComponent, TdExpansionPanelGroupComponent, CovalentFileModule, TdFileDropBase, _TdFileDropMixinBase, TdFileDropDirective, TdFileSelectDirective, TdFileInputLabelDirective, TdFileInputBase, _TdFileInputMixinBase, TdFileInputComponent, TdFileUploadBase, _TdFileUploadMixinBase, TdFileUploadComponent, TdFileService, CovalentJsonFormatterModule, TdJsonFormatterComponent, CovalentLayoutModule, TdLayoutComponent, TdLayoutToggleDirective, TdLayoutCloseDirective, TdLayoutOpenDirective, LayoutToggleBase, _TdLayoutToggleMixinBase, LayoutToggle, TdLayoutCardOverComponent, TdLayoutFooterComponent, TdLayoutManageListComponent, TdLayoutManageListToggleDirective, TdLayoutManageListCloseDirective, TdLayoutManageListOpenDirective, TdLayoutNavComponent, TdLayoutNavListComponent, TdLayoutNavListToggleDirective, TdLayoutNavListCloseDirective, TdLayoutNavListOpenDirective, TdNavigationDrawerMenuDirective, TdNavigationDrawerToolbarDirective, TdNavigationDrawerComponent, CovalentLoadingModule, LoadingType, LoadingMode, LoadingStrategy, LoadingStyle, TD_CIRCLE_DIAMETER, TdLoadingComponent, TdLoadingContext, TdLoadingDirective, LOADING_PROVIDER_FACTORY, TdLoadingConfig, TdLoadingDirectiveConfig, TdLoadingService, LOADING_PROVIDER, LOADING_FACTORY_PROVIDER_FACTORY, TdLoadingFactory, LOADING_FACTORY_PROVIDER, CovalentMediaModule, TdMediaToggleDirective, MEDIA_PROVIDER_FACTORY, TdMediaService, MEDIA_PROVIDER, CovalentMenuModule, TdMenuComponent, CovalentSearchModule, TdSearchBoxBase, _TdSearchBoxMixinBase, TdSearchBoxComponent, TdSearchInputBase, _TdSearchInputMixinBase, TdSearchInputComponent, CovalentBreadcrumbsModule, TdBreadcrumbsComponent, CovalentStepsModule, StepState, TdStepLabelDirective, TdStepActionsDirective, TdStepSummaryDirective, TdStepBase, _TdStepMixinBase, TdStepComponent, StepMode, TdStepsComponent, TdStepBodyComponent, TdStepHeaderBase, _TdStepHeaderMixinBase, TdStepHeaderComponent, CovalentTabSelectModule, TdTabSelectBase, _TdTabSelectMixinBase, TdTabSelectComponent, TdTabOptionBase, _TdTabOptionMixinBase, TdTabOptionComponent, TdBreadcrumbComponent as ɵe, TdFullscreenDirective as ɵa, TdTimeUntilPipe as ɵb, IconService as ɵd, RouterPathService as ɵc, TdNavStepLinkComponent as ɵg, TdNavStepsHorizontalComponent as ɵf, TdNavStepsVerticalComponent as ɵh };
 
 //# sourceMappingURL=covalent-core.js.map

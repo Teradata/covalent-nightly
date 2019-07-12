@@ -1228,6 +1228,178 @@
      * @fileoverview added by tsickle
      * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
      */
+    var TdFullscreenDirective = /** @class */ (function () {
+        function TdFullscreenDirective(_document, _el) {
+            this._document = _document;
+            this._el = _el;
+            this.fullScreenIsActive = false;
+        }
+        /**
+         * @param {?} event
+         * @return {?}
+         */
+        TdFullscreenDirective.prototype.fsChangeHandler = /**
+         * @param {?} event
+         * @return {?}
+         */
+            function (event) {
+                this.fullScreenIsActive = event.srcElement === this._getFullScreenElement();
+            };
+        /**
+         * @return {?}
+         */
+        TdFullscreenDirective.prototype.toggleFullScreen = /**
+         * @return {?}
+         */
+            function () {
+                this._getFullScreenElement() === this._el.nativeElement ? this.exitFullScreen() : this.enterFullScreen();
+            };
+        /**
+         * @return {?}
+         */
+        TdFullscreenDirective.prototype.enterFullScreen = /**
+         * @return {?}
+         */
+            function () {
+                var e_1, _a;
+                var nativeElement = this._el.nativeElement;
+                /** @type {?} */
+                var enterFullScreenMap = {
+                    requestFullscreen: function () { return nativeElement.requestFullscreen(); },
+                    // Chrome
+                    webkitRequestFullscreen: function () { return nativeElement.webkitRequestFullscreen(); },
+                    // Safari 
+                    mozRequestFullScreen: function () { return nativeElement.mozRequestFullScreen(); },
+                    // Firefox
+                    msRequestFullscreen: function () { return nativeElement.msRequestFullscreen(); },
+                };
+                try {
+                    for (var _b = __values(Object.keys(enterFullScreenMap)), _c = _b.next(); !_c.done; _c = _b.next()) {
+                        var handler = _c.value;
+                        if (nativeElement[handler]) {
+                            enterFullScreenMap[handler]();
+                        }
+                    }
+                }
+                catch (e_1_1) {
+                    e_1 = { error: e_1_1 };
+                }
+                finally {
+                    try {
+                        if (_c && !_c.done && (_a = _b.return))
+                            _a.call(_b);
+                    }
+                    finally {
+                        if (e_1)
+                            throw e_1.error;
+                    }
+                }
+            };
+        /**
+         * @return {?}
+         */
+        TdFullscreenDirective.prototype.exitFullScreen = /**
+         * @return {?}
+         */
+            function () {
+                var e_2, _a;
+                var _b = this, _document = _b._document, nativeElement = _b._el.nativeElement;
+                /** @type {?} */
+                var exitFullScreenMap = {
+                    exitFullscreen: function () { return _document.exitFullscreen(); },
+                    // Chrome
+                    webkitExitFullscreen: function () { return _document.webkitExitFullscreen(); },
+                    // Safari
+                    mozCancelFullScreen: function () { return _document.mozCancelFullScreen(); },
+                    // Firefox
+                    msExitFullscreen: function () { return _document.msExitFullscreen(); },
+                };
+                try {
+                    for (var _c = __values(Object.keys(exitFullScreenMap)), _d = _c.next(); !_d.done; _d = _c.next()) {
+                        var handler = _d.value;
+                        if (_document[handler] && this._getFullScreenElement() === nativeElement) {
+                            exitFullScreenMap[handler]();
+                        }
+                    }
+                }
+                catch (e_2_1) {
+                    e_2 = { error: e_2_1 };
+                }
+                finally {
+                    try {
+                        if (_d && !_d.done && (_a = _c.return))
+                            _a.call(_c);
+                    }
+                    finally {
+                        if (e_2)
+                            throw e_2.error;
+                    }
+                }
+            };
+        /**
+         * @return {?}
+         */
+        TdFullscreenDirective.prototype._getFullScreenElement = /**
+         * @return {?}
+         */
+            function () {
+                var e_3, _a;
+                var _document = this._document;
+                /** @type {?} */
+                var tdFullScreenElementMap = {
+                    fullscreenElement: function () { return _document.fullscreenElement; },
+                    // Chrome, Opera
+                    webkitFullscreenElement: function () { return _document.webkitFullscreenElement; },
+                    // Safari
+                    mozFullscreenElement: function () { return _document.mozFullscreenElement; },
+                    // Firefox
+                    msFullscreenElement: function () { return _document.msFullscreenElement; },
+                };
+                try {
+                    for (var _b = __values(Object.keys(tdFullScreenElementMap)), _c = _b.next(); !_c.done; _c = _b.next()) {
+                        var props = _c.value;
+                        if (_document[props]) {
+                            return _document[props];
+                        }
+                    }
+                }
+                catch (e_3_1) {
+                    e_3 = { error: e_3_1 };
+                }
+                finally {
+                    try {
+                        if (_c && !_c.done && (_a = _b.return))
+                            _a.call(_b);
+                    }
+                    finally {
+                        if (e_3)
+                            throw e_3.error;
+                    }
+                }
+            };
+        TdFullscreenDirective.decorators = [
+            { type: core$1.Directive, args: [{
+                        selector: '[tdFullScreen]',
+                        exportAs: 'tdFullScreen',
+                    },] }
+        ];
+        /** @nocollapse */
+        TdFullscreenDirective.ctorParameters = function () {
+            return [
+                { type: undefined, decorators: [{ type: core$1.Inject, args: [common.DOCUMENT,] }] },
+                { type: core$1.ElementRef }
+            ];
+        };
+        TdFullscreenDirective.propDecorators = {
+            fsChangeHandler: [{ type: core$1.HostListener, args: ['document:fullscreenchange', ['$event'],] }, { type: core$1.HostListener, args: ['document:webkitfullscreenchange', ['$event'],] }, { type: core$1.HostListener, args: ['document:mozfullscreenchange', ['$event'],] }, { type: core$1.HostListener, args: ['document:msfullscreenchange', ['$event'],] }]
+        };
+        return TdFullscreenDirective;
+    }());
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     */
     var TdTimeAgoPipe = /** @class */ (function () {
         function TdTimeAgoPipe() {
         }
@@ -2538,9 +2710,7 @@
      * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
      */
     /** @type {?} */
-    var TD_FORMS = [
-        TdAutoTrimDirective,
-    ];
+    var TD_DIRECTIVES = [TdAutoTrimDirective, TdFullscreenDirective];
     // Validators
     /** @type {?} */
     var TD_VALIDATORS = [];
@@ -2559,26 +2729,10 @@
         }
         CovalentCommonModule.decorators = [
             { type: core$1.NgModule, args: [{
-                        imports: [
-                            forms.FormsModule,
-                            common.CommonModule,
-                        ],
-                        declarations: [
-                            TD_FORMS,
-                            TD_PIPES,
-                            TD_VALIDATORS,
-                        ],
-                        exports: [
-                            forms.FormsModule,
-                            common.CommonModule,
-                            TD_FORMS,
-                            TD_PIPES,
-                            TD_VALIDATORS,
-                        ],
-                        providers: [
-                            RouterPathService,
-                            IconService,
-                        ],
+                        imports: [forms.FormsModule, common.CommonModule],
+                        declarations: [TD_DIRECTIVES, TD_PIPES, TD_VALIDATORS],
+                        exports: [forms.FormsModule, common.CommonModule, TD_DIRECTIVES, TD_PIPES, TD_VALIDATORS],
+                        providers: [RouterPathService, IconService],
                     },] }
         ];
         return CovalentCommonModule;
@@ -15177,13 +15331,14 @@
     exports.TdTabOptionBase = TdTabOptionBase;
     exports._TdTabOptionMixinBase = _TdTabOptionMixinBase;
     exports.TdTabOptionComponent = TdTabOptionComponent;
-    exports.ɵd = TdBreadcrumbComponent;
-    exports.ɵa = TdTimeUntilPipe;
-    exports.ɵc = IconService;
-    exports.ɵb = RouterPathService;
-    exports.ɵf = TdNavStepLinkComponent;
-    exports.ɵe = TdNavStepsHorizontalComponent;
-    exports.ɵg = TdNavStepsVerticalComponent;
+    exports.ɵe = TdBreadcrumbComponent;
+    exports.ɵa = TdFullscreenDirective;
+    exports.ɵb = TdTimeUntilPipe;
+    exports.ɵd = IconService;
+    exports.ɵc = RouterPathService;
+    exports.ɵg = TdNavStepLinkComponent;
+    exports.ɵf = TdNavStepsHorizontalComponent;
+    exports.ɵh = TdNavStepsVerticalComponent;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

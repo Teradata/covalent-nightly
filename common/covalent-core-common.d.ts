@@ -2,6 +2,7 @@
  * Generated bundle index. Do not edit.
  */
 export * from './index';
-export { TdTimeUntilPipe as ɵa } from './pipes/time-until/time-until.pipe';
-export { IconService as ɵc } from './services/icon.service';
-export { RouterPathService as ɵb } from './services/router-path.service';
+export { TdFullscreenDirective as ɵa } from './directives/fullscreen/fullscreen.directive';
+export { TdTimeUntilPipe as ɵb } from './pipes/time-until/time-until.pipe';
+export { IconService as ɵd } from './services/icon.service';
+export { RouterPathService as ɵc } from './services/router-path.service';

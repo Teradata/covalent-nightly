@@ -1,7 +1,7 @@
-import { DecimalPipe, CommonModule } from '@angular/common';
+import { DOCUMENT, DecimalPipe, CommonModule } from '@angular/common';
 import { Router, RoutesRecognized } from '@angular/router';
 import { filter, pairwise } from 'rxjs/operators';
-import { Directive, HostListener, Host, Optional, Pipe, Inject, LOCALE_ID, Injectable, NgModule } from '@angular/core';
+import { Directive, HostListener, Host, Optional, ElementRef, Inject, Pipe, LOCALE_ID, Injectable, NgModule } from '@angular/core';
 import { trigger, state, style, transition, animate, query, animateChild, group, AUTO_STYLE, keyframes } from '@angular/animations';
 import { Subject } from 'rxjs';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
@@ -40,6 +40,112 @@ TdAutoTrimDirective.ctorParameters = () => [
 ];
 TdAutoTrimDirective.propDecorators = {
     onBlur: [{ type: HostListener, args: ['blur', ['$event'],] }]
+};
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ */
+class TdFullscreenDirective {
+    /**
+     * @param {?} _document
+     * @param {?} _el
+     */
+    constructor(_document, _el) {
+        this._document = _document;
+        this._el = _el;
+        this.fullScreenIsActive = false;
+    }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
+    fsChangeHandler(event) {
+        this.fullScreenIsActive = event.srcElement === this._getFullScreenElement();
+    }
+    /**
+     * @return {?}
+     */
+    toggleFullScreen() {
+        this._getFullScreenElement() === this._el.nativeElement ? this.exitFullScreen() : this.enterFullScreen();
+    }
+    /**
+     * @return {?}
+     */
+    enterFullScreen() {
+        const { _el: { nativeElement } } = this;
+        /** @type {?} */
+        const enterFullScreenMap = {
+            requestFullscreen: () => nativeElement.requestFullscreen(),
+            // Chrome
+            webkitRequestFullscreen: () => nativeElement.webkitRequestFullscreen(),
+            // Safari 
+            mozRequestFullScreen: () => nativeElement.mozRequestFullScreen(),
+            // Firefox
+            msRequestFullscreen: () => nativeElement.msRequestFullscreen(),
+        };
+        for (const handler of Object.keys(enterFullScreenMap)) {
+            if (nativeElement[handler]) {
+                enterFullScreenMap[handler]();
+            }
+        }
+    }
+    /**
+     * @return {?}
+     */
+    exitFullScreen() {
+        const { _document, _el: { nativeElement } } = this;
+        /** @type {?} */
+        const exitFullScreenMap = {
+            exitFullscreen: () => _document.exitFullscreen(),
+            // Chrome
+            webkitExitFullscreen: () => _document.webkitExitFullscreen(),
+            // Safari
+            mozCancelFullScreen: () => _document.mozCancelFullScreen(),
+            // Firefox
+            msExitFullscreen: () => _document.msExitFullscreen(),
+        };
+        for (const handler of Object.keys(exitFullScreenMap)) {
+            if (_document[handler] && this._getFullScreenElement() === nativeElement) {
+                exitFullScreenMap[handler]();
+            }
+        }
+    }
+    /**
+     * @return {?}
+     */
+    _getFullScreenElement() {
+        const { _document } = this;
+        /** @type {?} */
+        const tdFullScreenElementMap = {
+            fullscreenElement: () => _document.fullscreenElement,
+            // Chrome, Opera
+            webkitFullscreenElement: () => _document.webkitFullscreenElement,
+            // Safari
+            mozFullscreenElement: () => _document.mozFullscreenElement,
+            // Firefox
+            msFullscreenElement: () => _document.msFullscreenElement,
+        };
+        for (const props of Object.keys(tdFullScreenElementMap)) {
+            if (_document[props]) {
+                return _document[props];
+            }
+        }
+    }
+}
+TdFullscreenDirective.decorators = [
+    { type: Directive, args: [{
+                selector: '[tdFullScreen]',
+                exportAs: 'tdFullScreen',
+            },] }
+];
+/** @nocollapse */
+TdFullscreenDirective.ctorParameters = () => [
+    { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] },
+    { type: ElementRef }
+];
+TdFullscreenDirective.propDecorators = {
+    fsChangeHandler: [{ type: HostListener, args: ['document:fullscreenchange', ['$event'],] }, { type: HostListener, args: ['document:webkitfullscreenchange', ['$event'],] }, { type: HostListener, args: ['document:mozfullscreenchange', ['$event'],] }, { type: HostListener, args: ['document:msfullscreenchange', ['$event'],] }]
 };
 
 /**
@@ -1262,9 +1368,7 @@ IconService.decorators = [
  * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 /** @type {?} */
-const TD_FORMS = [
-    TdAutoTrimDirective,
-];
+const TD_DIRECTIVES = [TdAutoTrimDirective, TdFullscreenDirective];
 // Validators
 /** @type {?} */
 const TD_VALIDATORS = [];
@@ -1282,26 +1386,10 @@ class CovalentCommonModule {
 }
 CovalentCommonModule.decorators = [
     { type: NgModule, args: [{
-                imports: [
-                    FormsModule,
-                    CommonModule,
-                ],
-                declarations: [
-                    TD_FORMS,
-                    TD_PIPES,
-                    TD_VALIDATORS,
-                ],
-                exports: [
-                    FormsModule,
-                    CommonModule,
-                    TD_FORMS,
-                    TD_PIPES,
-                    TD_VALIDATORS,
-                ],
-                providers: [
-                    RouterPathService,
-                    IconService,
-                ],
+                imports: [FormsModule, CommonModule],
+                declarations: [TD_DIRECTIVES, TD_PIPES, TD_VALIDATORS],
+                exports: [FormsModule, CommonModule, TD_DIRECTIVES, TD_PIPES, TD_VALIDATORS],
+                providers: [RouterPathService, IconService],
             },] }
 ];
 
@@ -1864,6 +1952,6 @@ class CovalentValidators {
  * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 
-export { CovalentCommonModule, tdRotateAnimation, tdCollapseAnimation, tdFadeInOutAnimation, tdBounceAnimation, tdFlashAnimation, tdHeadshakeAnimation, tdJelloAnimation, tdPulseAnimation, mixinControlValueAccessor, mixinDisabled, mixinDisableRipple, TdAutoTrimDirective, CovalentValidators, TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTruncatePipe, TdDecimalBytesPipe, TdTimeUntilPipe as ɵa, IconService as ɵc, RouterPathService as ɵb };
+export { CovalentCommonModule, tdRotateAnimation, tdCollapseAnimation, tdFadeInOutAnimation, tdBounceAnimation, tdFlashAnimation, tdHeadshakeAnimation, tdJelloAnimation, tdPulseAnimation, mixinControlValueAccessor, mixinDisabled, mixinDisableRipple, TdAutoTrimDirective, CovalentValidators, TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTruncatePipe, TdDecimalBytesPipe, TdFullscreenDirective as ɵa, TdTimeUntilPipe as ɵb, IconService as ɵd, RouterPathService as ɵc };
 
 //# sourceMappingURL=covalent-core-common.js.map
