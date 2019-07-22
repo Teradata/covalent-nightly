@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('rxjs'), require('@angular/core')) :
-    typeof define === 'function' && define.amd ? define('@covalent/core/media', ['exports', '@angular/common', 'rxjs', '@angular/core'], factory) :
-    (factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.media = {}),global.ng.common,global.rxjs,global.ng.core));
-}(this, (function (exports,common,rxjs,core) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('rxjs')) :
+    typeof define === 'function' && define.amd ? define('@covalent/core/media', ['exports', '@angular/core', 'rxjs'], factory) :
+    (factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.media = {}),global.ng.core,global.rxjs));
+}(this, (function (exports,i0,rxjs) { 'use strict';
 
     /**
      * @fileoverview added by tsickle
@@ -158,31 +158,19 @@
                 this._querySources[query].next(matchMedia(query).matches);
             };
         TdMediaService.decorators = [
-            { type: core.Injectable }
+            { type: i0.Injectable, args: [{
+                        providedIn: 'root',
+                    },] }
         ];
         /** @nocollapse */
         TdMediaService.ctorParameters = function () {
             return [
-                { type: core.NgZone }
+                { type: i0.NgZone }
             ];
         };
+        /** @nocollapse */ TdMediaService.ngInjectableDef = i0.defineInjectable({ factory: function TdMediaService_Factory() { return new TdMediaService(i0.inject(i0.NgZone)); }, token: TdMediaService, providedIn: "root" });
         return TdMediaService;
     }());
-    /**
-     * @param {?} parent
-     * @param {?} ngZone
-     * @return {?}
-     */
-    function MEDIA_PROVIDER_FACTORY(parent, ngZone) {
-        return parent || new TdMediaService(ngZone);
-    }
-    /** @type {?} */
-    var MEDIA_PROVIDER = {
-        // If there is already a service available, use that. Otherwise, provide a new one.
-        provide: TdMediaService,
-        deps: [[new core.Optional(), new core.SkipSelf(), TdMediaService], core.NgZone],
-        useFactory: MEDIA_PROVIDER_FACTORY,
-    };
 
     /**
      * @fileoverview added by tsickle
@@ -355,23 +343,23 @@
                 }
             };
         TdMediaToggleDirective.decorators = [
-            { type: core.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[tdMediaToggle]',
                     },] }
         ];
         /** @nocollapse */
         TdMediaToggleDirective.ctorParameters = function () {
             return [
-                { type: core.Renderer2 },
-                { type: core.ElementRef },
+                { type: i0.Renderer2 },
+                { type: i0.ElementRef },
                 { type: TdMediaService }
             ];
         };
         TdMediaToggleDirective.propDecorators = {
-            query: [{ type: core.Input, args: ['tdMediaToggle',] }],
-            attributes: [{ type: core.Input, args: ['mediaAttributes',] }],
-            classes: [{ type: core.Input, args: ['mediaClasses',] }],
-            styles: [{ type: core.Input, args: ['mediaStyles',] }]
+            query: [{ type: i0.Input, args: ['tdMediaToggle',] }],
+            attributes: [{ type: i0.Input, args: ['mediaAttributes',] }],
+            classes: [{ type: i0.Input, args: ['mediaClasses',] }],
+            styles: [{ type: i0.Input, args: ['mediaStyles',] }]
         };
         return TdMediaToggleDirective;
     }());
@@ -388,18 +376,12 @@
         function CovalentMediaModule() {
         }
         CovalentMediaModule.decorators = [
-            { type: core.NgModule, args: [{
-                        imports: [
-                            common.CommonModule,
-                        ],
+            { type: i0.NgModule, args: [{
                         declarations: [
                             TD_MEDIA,
                         ],
                         exports: [
                             TD_MEDIA,
-                        ],
-                        providers: [
-                            MEDIA_PROVIDER,
                         ],
                     },] }
         ];
@@ -423,9 +405,7 @@
 
     exports.CovalentMediaModule = CovalentMediaModule;
     exports.TdMediaToggleDirective = TdMediaToggleDirective;
-    exports.MEDIA_PROVIDER_FACTORY = MEDIA_PROVIDER_FACTORY;
     exports.TdMediaService = TdMediaService;
-    exports.MEDIA_PROVIDER = MEDIA_PROVIDER;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

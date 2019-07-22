@@ -1,6 +1,5 @@
-import { CommonModule } from '@angular/common';
+import { Injectable, NgZone, NgModule, Directive, ElementRef, Input, Renderer2, defineInjectable, inject } from '@angular/core';
 import { BehaviorSubject, fromEvent } from 'rxjs';
-import { Injectable, NgZone, SkipSelf, Optional, Directive, ElementRef, Input, Renderer2, NgModule } from '@angular/core';
 
 /**
  * @fileoverview added by tsickle
@@ -156,29 +155,17 @@ var TdMediaService = /** @class */ (function () {
         this._querySources[query].next(matchMedia(query).matches);
     };
     TdMediaService.decorators = [
-        { type: Injectable }
+        { type: Injectable, args: [{
+                    providedIn: 'root',
+                },] }
     ];
     /** @nocollapse */
     TdMediaService.ctorParameters = function () { return [
         { type: NgZone }
     ]; };
+    /** @nocollapse */ TdMediaService.ngInjectableDef = defineInjectable({ factory: function TdMediaService_Factory() { return new TdMediaService(inject(NgZone)); }, token: TdMediaService, providedIn: "root" });
     return TdMediaService;
 }());
-/**
- * @param {?} parent
- * @param {?} ngZone
- * @return {?}
- */
-function MEDIA_PROVIDER_FACTORY(parent, ngZone) {
-    return parent || new TdMediaService(ngZone);
-}
-/** @type {?} */
-var MEDIA_PROVIDER = {
-    // If there is already a service available, use that. Otherwise, provide a new one.
-    provide: TdMediaService,
-    deps: [[new Optional(), new SkipSelf(), TdMediaService], NgZone],
-    useFactory: MEDIA_PROVIDER_FACTORY,
-};
 
 /**
  * @fileoverview added by tsickle
@@ -387,17 +374,11 @@ var CovalentMediaModule = /** @class */ (function () {
     }
     CovalentMediaModule.decorators = [
         { type: NgModule, args: [{
-                    imports: [
-                        CommonModule,
-                    ],
                     declarations: [
                         TD_MEDIA,
                     ],
                     exports: [
                         TD_MEDIA,
-                    ],
-                    providers: [
-                        MEDIA_PROVIDER,
                     ],
                 },] }
     ];
@@ -419,6 +400,6 @@ var CovalentMediaModule = /** @class */ (function () {
  * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 
-export { CovalentMediaModule, TdMediaToggleDirective, MEDIA_PROVIDER_FACTORY, TdMediaService, MEDIA_PROVIDER };
+export { CovalentMediaModule, TdMediaToggleDirective, TdMediaService };
 
 //# sourceMappingURL=covalent-core-media.js.map

@@ -2,7 +2,7 @@
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/material/chips'), require('@angular/material/autocomplete'), require('@angular/material/checkbox'), require('@angular/material/dialog'), require('@angular/material/tooltip'), require('@angular/material/toolbar'), require('@angular/material/card'), require('@angular/material/sidenav'), require('@angular/router'), require('@angular/platform-browser'), require('@angular/material/progress-bar'), require('@angular/material/progress-spinner'), require('@angular/cdk/overlay'), require('@angular/material/menu'), require('@angular/material/divider'), require('@angular/material/button'), require('@angular/material/input'), require('@angular/animations'), require('@angular/material/icon'), require('@angular/material/core'), require('@angular/cdk/bidi'), require('@angular/cdk/keycodes'), require('@angular/cdk/scrolling'), require('rxjs'), require('rxjs/operators'), require('@angular/common'), require('@angular/material/tabs'), require('@angular/forms'), require('@angular/cdk/coercion'), require('@angular/core'), require('@angular/cdk/portal'), require('@covalent/core/common')) :
     typeof define === 'function' && define.amd ? define('@covalent/core', ['exports', '@angular/material/chips', '@angular/material/autocomplete', '@angular/material/checkbox', '@angular/material/dialog', '@angular/material/tooltip', '@angular/material/toolbar', '@angular/material/card', '@angular/material/sidenav', '@angular/router', '@angular/platform-browser', '@angular/material/progress-bar', '@angular/material/progress-spinner', '@angular/cdk/overlay', '@angular/material/menu', '@angular/material/divider', '@angular/material/button', '@angular/material/input', '@angular/animations', '@angular/material/icon', '@angular/material/core', '@angular/cdk/bidi', '@angular/cdk/keycodes', '@angular/cdk/scrolling', 'rxjs', 'rxjs/operators', '@angular/common', '@angular/material/tabs', '@angular/forms', '@angular/cdk/coercion', '@angular/core', '@angular/cdk/portal', '@covalent/core/common'], factory) :
     (factory((global.covalent = global.covalent || {}, global.covalent.core = {}),global.ng.material.chips,global.ng.material.autocomplete,global.ng.material.checkbox,global.ng.material.dialog,global.ng.material.tooltip,global.ng.material.toolbar,global.ng.material.card,global.ng.material.sidenav,global.ng.router,global.ng.platformBrowser,global.ng.material['progress-bar'],global.ng.material['progress-spinner'],global.ng.cdk.overlay,global.ng.material.menu,global.ng.material.divider,global.ng.material.button,global.ng.material.input,global.ng.animations,global.ng.material.icon,global.ng.material.core,global.ng.cdk.bidi,global.ng.cdk.keycodes,global.ng.cdk.scrolling,global.rxjs,global.rxjs.operators,global.ng.common,global.ng.material.tabs,global.ng.forms,global.ng.cdk.coercion,global.ng.core,global.ng.cdk.portal,global.covalent.core.common));
-}(this, (function (exports,chips,autocomplete,checkbox,dialog,tooltip,toolbar,card,sidenav,router,platformBrowser,progressBar,progressSpinner,overlay,menu,divider,button,input,animations,icon,core,bidi,keycodes,scrolling,rxjs,operators,common,tabs,forms,coercion,core$1,portal,common$1) { 'use strict';
+}(this, (function (exports,chips,autocomplete,checkbox,dialog,tooltip,toolbar,card,sidenav,router,platformBrowser,progressBar,progressSpinner,overlay,menu,divider,button,input,animations,icon,core,bidi,keycodes,scrolling,rxjs,operators,common,tabs,forms,coercion,i0,portal,common$1) { 'use strict';
 
     /**
      * @fileoverview added by tsickle
@@ -39,7 +39,7 @@
              * Method to be executed when page size changes or any button is clicked in the paging bar.
              * Emits an [IPageChangeEvent] implemented object.
              */
-            this.onChange = new core$1.EventEmitter();
+            this.onChange = new i0.EventEmitter();
         }
         Object.defineProperty(TdPagingBarComponent.prototype, "pageLinkCount", {
             get: /**
@@ -402,8 +402,8 @@
                 this.onChange.emit(event);
             };
         TdPagingBarComponent.decorators = [
-            { type: core$1.Component, args: [{
-                        changeDetection: core$1.ChangeDetectionStrategy.OnPush,
+            { type: i0.Component, args: [{
+                        changeDetection: i0.ChangeDetectionStrategy.OnPush,
                         selector: 'td-paging-bar',
                         template: "<div class=\"td-paging-bar\" (change)=\"$event.stopPropagation()\" >\n  <ng-content></ng-content>\n  <div class=\"td-paging-bar-navigation\">\n    <button mat-icon-button class=\"td-paging-bar-first-page\" type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMinPage()\" (click)=\"firstPage()\">\n      <mat-icon>{{ isRTL ? 'skip_next' : 'skip_previous' }}</mat-icon>\n    </button>\n    <button mat-icon-button class=\"td-paging-bar-prev-page\" type=\"button\" [disabled]=\"isMinPage()\" (click)=\"prevPage()\">\n      <mat-icon>{{ isRTL ? 'navigate_next' : 'navigate_before' }}</mat-icon>\n    </button>\n    <ng-template *ngIf=\"pageLinkCount > 0\" let-link let-index=\"index\" ngFor [ngForOf]=\"pageLinks\">\n      <button class=\"td-paging-bar-link-page\" mat-icon-button type=\"button\" [color]=\"page === link ? 'accent' : ''\" (click)=\"navigateToPage(link)\">{{link}}</button>\n    </ng-template>\n    <button mat-icon-button class=\"td-paging-bar-next-page\" type=\"button\" [disabled]=\"isMaxPage()\" (click)=\"nextPage()\">\n      <mat-icon>{{ isRTL ? 'navigate_before' : 'navigate_next' }}</mat-icon>\n    </button>\n    <button mat-icon-button class=\"td-paging-bar-last-page\" type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMaxPage()\" (click)=\"lastPage()\">\n      <mat-icon>{{ isRTL ? 'skip_previous' : 'skip_next' }}</mat-icon>\n    </button>\n  </div>\n</div>",
                         styles: [":host{display:block}:host .td-paging-bar{height:48px;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}:host .td-paging-bar ::ng-deep>*{margin:0 10px}:host .td-paging-bar [mat-icon-button]{font-size:12px;font-weight:400}"]
@@ -412,17 +412,17 @@
         /** @nocollapse */
         TdPagingBarComponent.ctorParameters = function () {
             return [
-                { type: bidi.Dir, decorators: [{ type: core$1.Optional }] },
-                { type: core$1.ChangeDetectorRef }
+                { type: bidi.Dir, decorators: [{ type: i0.Optional }] },
+                { type: i0.ChangeDetectorRef }
             ];
         };
         TdPagingBarComponent.propDecorators = {
-            firstLast: [{ type: core$1.Input, args: ['firstLast',] }],
-            initialPage: [{ type: core$1.Input, args: ['initialPage',] }],
-            pageLinkCount: [{ type: core$1.Input, args: ['pageLinkCount',] }],
-            pageSize: [{ type: core$1.Input, args: ['pageSize',] }],
-            total: [{ type: core$1.Input, args: ['total',] }],
-            onChange: [{ type: core$1.Output, args: ['change',] }]
+            firstLast: [{ type: i0.Input, args: ['firstLast',] }],
+            initialPage: [{ type: i0.Input, args: ['initialPage',] }],
+            pageLinkCount: [{ type: i0.Input, args: ['pageLinkCount',] }],
+            pageSize: [{ type: i0.Input, args: ['pageSize',] }],
+            total: [{ type: i0.Input, args: ['total',] }],
+            onChange: [{ type: i0.Output, args: ['change',] }]
         };
         return TdPagingBarComponent;
     }());
@@ -435,7 +435,7 @@
         function CovalentPagingModule() {
         }
         CovalentPagingModule.decorators = [
-            { type: core$1.NgModule, args: [{
+            { type: i0.NgModule, args: [{
                         imports: [
                             common.CommonModule,
                             icon.MatIconModule,
@@ -542,13 +542,13 @@
             return _super.call(this, templateRef, viewContainerRef) || this;
         }
         TdVirtualScrollRowDirective.decorators = [
-            { type: core$1.Directive, args: [{ selector: '[tdVirtualScrollRow]' },] }
+            { type: i0.Directive, args: [{ selector: '[tdVirtualScrollRow]' },] }
         ];
         /** @nocollapse */
         TdVirtualScrollRowDirective.ctorParameters = function () {
             return [
-                { type: core$1.TemplateRef },
-                { type: core$1.ViewContainerRef }
+                { type: i0.TemplateRef },
+                { type: i0.ViewContainerRef }
             ];
         };
         return TdVirtualScrollRowDirective;
@@ -581,7 +581,7 @@
              * Method to be executed when user scrolled to the last item of the list.
              * An [ITdVirtualScrollBottomEvent] event is emitted
              */
-            this.bottom = new core$1.EventEmitter();
+            this.bottom = new i0.EventEmitter();
             /**
              * trackBy?: TrackByFunction
              * This accepts the same trackBy function [ngFor] does.
@@ -860,29 +860,29 @@
                 });
             };
         TdVirtualScrollContainerComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'td-virtual-scroll-container',
                         template: "<div [style.height.px]=\"totalHeight\"></div>\n<div [style.transform]=\"offsetTransform\"\n      [style.position]=\"'absolute'\"\n      [style.width.%]=\"100\">\n  <ng-template let-row\n                let-index=\"index\"\n                ngFor\n                [ngForOf]=\"virtualData\"\n                [ngForTrackBy]=\"trackBy\">\n    <div #rowElement\n         [style.width.%]=\"100\">\n      <ng-template *ngIf=\"_rowTemplate\"\n                  [ngTemplateOutlet]=\"_rowTemplate.templateRef\"\n                  [ngTemplateOutletContext]=\"{row: row,\n                                      index: (fromRow + index),\n                                      first: (fromRow + index) === 0,\n                                      last: (fromRow + index) === (data.length - 1),\n                                      odd: ((fromRow + index + 1) % 2) === 1,\n                                      even: ((fromRow + index + 1) % 2) === 0}\">\n      </ng-template>\n    </div>\n  </ng-template>\n</div>",
-                        changeDetection: core$1.ChangeDetectionStrategy.OnPush,
+                        changeDetection: i0.ChangeDetectionStrategy.OnPush,
                         styles: [":host{display:block;height:100%;width:100%;overflow:auto;position:relative}"]
                     }] }
         ];
         /** @nocollapse */
         TdVirtualScrollContainerComponent.ctorParameters = function () {
             return [
-                { type: core$1.ElementRef },
+                { type: i0.ElementRef },
                 { type: platformBrowser.DomSanitizer },
-                { type: core$1.Renderer2 },
-                { type: core$1.ChangeDetectorRef }
+                { type: i0.Renderer2 },
+                { type: i0.ChangeDetectorRef }
             ];
         };
         TdVirtualScrollContainerComponent.propDecorators = {
-            data: [{ type: core$1.Input, args: ['data',] }],
-            bottom: [{ type: core$1.Output }],
-            _rows: [{ type: core$1.ViewChildren, args: ['rowElement',] }],
-            _rowTemplate: [{ type: core$1.ContentChild, args: [TdVirtualScrollRowDirective,] }],
-            trackBy: [{ type: core$1.Input, args: ['trackBy',] }],
-            handleScroll: [{ type: core$1.HostListener, args: ['scroll', ['$event'],] }]
+            data: [{ type: i0.Input, args: ['data',] }],
+            bottom: [{ type: i0.Output }],
+            _rows: [{ type: i0.ViewChildren, args: ['rowElement',] }],
+            _rowTemplate: [{ type: i0.ContentChild, args: [TdVirtualScrollRowDirective,] }],
+            trackBy: [{ type: i0.Input, args: ['trackBy',] }],
+            handleScroll: [{ type: i0.HostListener, args: ['scroll', ['$event'],] }]
         };
         return TdVirtualScrollContainerComponent;
     }());
@@ -900,7 +900,7 @@
         function CovalentVirtualScrollModule() {
         }
         CovalentVirtualScrollModule.decorators = [
-            { type: core$1.NgModule, args: [{
+            { type: i0.NgModule, args: [{
                         imports: [
                             common.CommonModule,
                         ],
@@ -1125,21 +1125,21 @@
                 return false;
             };
         TdNotificationCountComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'td-notification-count',
                         template: "<div #content class=\"td-notification-content\">\n  <ng-content></ng-content>\n</div>\n<div *ngIf=\"show\"\n     class=\"td-notification-count mat-{{color}}\"\n     [class.td-notification-top]=\"positionY === 'top'\"\n     [class.td-notification-bottom]=\"positionY === 'bottom'\"\n     [class.td-notification-before]=\"positionX === 'before'\"\n     [class.td-notification-after]=\"positionX === 'after'\"\n     [class.td-notification-center-y]=\"positionY === 'center'\"\n     [class.td-notification-center-x]=\"positionX === 'center'\"\n     [class.td-notification-no-count]=\"noCount\">\n  {{noCount ? '' : notificationsDisplay}}\n</div>",
-                        changeDetection: core$1.ChangeDetectionStrategy.OnPush,
+                        changeDetection: i0.ChangeDetectionStrategy.OnPush,
                         styles: [":host{position:relative;display:block;text-align:center;min-width:40px;height:40px}:host.td-notification-hidden{min-width:0}.td-notification-count{line-height:21px;width:20px;height:20px;position:absolute;font-size:10px;font-weight:600;border-radius:50%;z-index:1}.td-notification-count.td-notification-center-x{margin-left:auto;margin-right:auto;left:0;right:0}.td-notification-count.td-notification-center-y{margin-top:auto;margin-bottom:auto;top:0;bottom:0}.td-notification-count.td-notification-top{top:0}.td-notification-count.td-notification-bottom{bottom:0}.td-notification-count.td-notification-before{left:0}.td-notification-count.td-notification-after{right:0}.td-notification-count.td-notification-no-count{width:8px;height:8px}.td-notification-count.td-notification-no-count.td-notification-top{top:8px}.td-notification-count.td-notification-no-count.td-notification-bottom{bottom:8px}.td-notification-count.td-notification-no-count.td-notification-before{left:8px}.td-notification-count.td-notification-no-count.td-notification-after{right:8px}::ng-deep [dir=rtl] .td-notification-count.td-notification-before{right:0;left:auto}::ng-deep [dir=rtl] .td-notification-count.td-notification-after{left:0;right:auto}::ng-deep [dir=rtl] .td-notification-count.td-notification-no-count.td-notification-before{right:8px;left:auto}::ng-deep [dir=rtl] .td-notification-count.td-notification-no-count.td-notification-after{left:8px;right:auto}.td-notification-content,.td-notification-content ::ng-deep>*{line-height:40px}"]
                     }] }
         ];
         TdNotificationCountComponent.propDecorators = {
-            content: [{ type: core$1.ViewChild, args: ['content',] }],
-            color: [{ type: core$1.Input }],
-            positionX: [{ type: core$1.Input }],
-            positionY: [{ type: core$1.Input }],
-            notifications: [{ type: core$1.Input }],
-            limit: [{ type: core$1.Input }],
-            hideHost: [{ type: core$1.HostBinding, args: ['class.td-notification-hidden',] }]
+            content: [{ type: i0.ViewChild, args: ['content',] }],
+            color: [{ type: i0.Input }],
+            positionX: [{ type: i0.Input }],
+            positionY: [{ type: i0.Input }],
+            notifications: [{ type: i0.Input }],
+            limit: [{ type: i0.Input }],
+            hideHost: [{ type: i0.HostBinding, args: ['class.td-notification-hidden',] }]
         };
         return TdNotificationCountComponent;
     }());
@@ -1156,7 +1156,7 @@
         function CovalentNotificationsModule() {
         }
         CovalentNotificationsModule.decorators = [
-            { type: core$1.NgModule, args: [{
+            { type: i0.NgModule, args: [{
                         imports: [
                             common.CommonModule,
                         ],
@@ -1208,18 +1208,18 @@
                 }
             };
         TdAutoTrimDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[tdAutoTrim]',
                     },] }
         ];
         /** @nocollapse */
         TdAutoTrimDirective.ctorParameters = function () {
             return [
-                { type: forms.NgModel, decorators: [{ type: core$1.Optional }, { type: core$1.Host }] }
+                { type: forms.NgModel, decorators: [{ type: i0.Optional }, { type: i0.Host }] }
             ];
         };
         TdAutoTrimDirective.propDecorators = {
-            onBlur: [{ type: core$1.HostListener, args: ['blur', ['$event'],] }]
+            onBlur: [{ type: i0.HostListener, args: ['blur', ['$event'],] }]
         };
         return TdAutoTrimDirective;
     }());
@@ -1378,7 +1378,7 @@
                 }
             };
         TdFullscreenDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[tdFullScreen]',
                         exportAs: 'tdFullScreen',
                     },] }
@@ -1386,12 +1386,12 @@
         /** @nocollapse */
         TdFullscreenDirective.ctorParameters = function () {
             return [
-                { type: undefined, decorators: [{ type: core$1.Inject, args: [common.DOCUMENT,] }] },
-                { type: core$1.ElementRef }
+                { type: undefined, decorators: [{ type: i0.Inject, args: [common.DOCUMENT,] }] },
+                { type: i0.ElementRef }
             ];
         };
         TdFullscreenDirective.propDecorators = {
-            fsChangeHandler: [{ type: core$1.HostListener, args: ['document:fullscreenchange', ['$event'],] }, { type: core$1.HostListener, args: ['document:webkitfullscreenchange', ['$event'],] }, { type: core$1.HostListener, args: ['document:mozfullscreenchange', ['$event'],] }, { type: core$1.HostListener, args: ['document:msfullscreenchange', ['$event'],] }]
+            fsChangeHandler: [{ type: i0.HostListener, args: ['document:fullscreenchange', ['$event'],] }, { type: i0.HostListener, args: ['document:webkitfullscreenchange', ['$event'],] }, { type: i0.HostListener, args: ['document:mozfullscreenchange', ['$event'],] }, { type: i0.HostListener, args: ['document:msfullscreenchange', ['$event'],] }]
         };
         return TdFullscreenDirective;
     }());
@@ -1476,7 +1476,7 @@
                 }
             };
         TdTimeAgoPipe.decorators = [
-            { type: core$1.Pipe, args: [{
+            { type: i0.Pipe, args: [{
                         name: 'timeAgo',
                     },] }
         ];
@@ -1543,7 +1543,7 @@
                     pad.substring(0, pad.length - (seconds + '').length) + seconds;
             };
         TdTimeDifferencePipe.decorators = [
-            { type: core$1.Pipe, args: [{
+            { type: i0.Pipe, args: [{
                         name: 'timeDifference',
                     },] }
         ];
@@ -1630,7 +1630,7 @@
                 }
             };
         TdTimeUntilPipe.decorators = [
-            { type: core$1.Pipe, args: [{
+            { type: i0.Pipe, args: [{
                         name: 'timeUntil',
                     },] }
         ];
@@ -1684,7 +1684,7 @@
                 return parseFloat((bytes / Math.pow(k, i)).toFixed(precision)) + ' ' + sizes[i];
             };
         TdBytesPipe.decorators = [
-            { type: core$1.Pipe, args: [{
+            { type: i0.Pipe, args: [{
                         name: 'bytes',
                     },] }
         ];
@@ -1738,7 +1738,7 @@
                 return parseFloat((bytes / Math.pow(k, i)).toFixed(precision)) + ' ' + sizes[i];
             };
         TdDecimalBytesPipe.decorators = [
-            { type: core$1.Pipe, args: [{
+            { type: i0.Pipe, args: [{
                         name: 'decimalBytes',
                     },] }
         ];
@@ -1795,14 +1795,14 @@
                 return this._decimalPipe.transform(parseFloat((digits / Math.pow(k, i)).toFixed(precision))) + (size ? ' ' + size : '');
             };
         TdDigitsPipe.decorators = [
-            { type: core$1.Pipe, args: [{
+            { type: i0.Pipe, args: [{
                         name: 'digits',
                     },] }
         ];
         /** @nocollapse */
         TdDigitsPipe.ctorParameters = function () {
             return [
-                { type: String, decorators: [{ type: core$1.Inject, args: [core$1.LOCALE_ID,] }] }
+                { type: String, decorators: [{ type: i0.Inject, args: [i0.LOCALE_ID,] }] }
             ];
         };
         return TdDigitsPipe;
@@ -1841,7 +1841,7 @@
                 return truncated;
             };
         TdTruncatePipe.decorators = [
-            { type: core$1.Pipe, args: [{
+            { type: i0.Pipe, args: [{
                         name: 'truncate',
                     },] }
         ];
@@ -1882,7 +1882,7 @@
             };
         RouterPathService._previousRoute = '/';
         RouterPathService.decorators = [
-            { type: core$1.Injectable }
+            { type: i0.Injectable }
         ];
         /** @nocollapse */
         RouterPathService.ctorParameters = function () {
@@ -2700,7 +2700,7 @@
                 });
             };
         IconService.decorators = [
-            { type: core$1.Injectable }
+            { type: i0.Injectable }
         ];
         return IconService;
     }());
@@ -2728,7 +2728,7 @@
         function CovalentCommonModule() {
         }
         CovalentCommonModule.decorators = [
-            { type: core$1.NgModule, args: [{
+            { type: i0.NgModule, args: [{
                         imports: [forms.FormsModule, common.CommonModule],
                         declarations: [TD_DIRECTIVES, TD_PIPES, TD_VALIDATORS],
                         exports: [forms.FormsModule, common.CommonModule, TD_DIRECTIVES, TD_PIPES, TD_VALIDATORS],
@@ -3354,14 +3354,14 @@
             this.viewContainer = viewContainer;
         }
         TdMessageContainerDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[tdMessageContainer]',
                     },] }
         ];
         /** @nocollapse */
         TdMessageContainerDirective.ctorParameters = function () {
             return [
-                { type: core$1.ViewContainerRef }
+                { type: i0.ViewContainerRef }
             ];
         };
         return TdMessageContainerDirective;
@@ -3630,7 +3630,7 @@
                 this._changeDetectorRef.markForCheck();
             };
         TdMessageComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'td-message',
                         template: "<div tdMessageContainer></div>\n<ng-template>\n  <div class=\"td-message-wrapper\">\n    <mat-icon class=\"td-message-icon\">{{icon}}</mat-icon>\n    <div class=\"td-message-labels\">\n      <div *ngIf=\"label\" class=\"td-message-label\">{{label}}</div>\n      <div *ngIf=\"sublabel\" class=\"td-message-sublabel\">{{sublabel}}</div>\n    </div>\n    <ng-content select=\"[td-message-actions]\"></ng-content>\n  </div>\n</ng-template>",
                         animations: [
@@ -3642,22 +3642,22 @@
         /** @nocollapse */
         TdMessageComponent.ctorParameters = function () {
             return [
-                { type: core$1.Renderer2 },
-                { type: core$1.ChangeDetectorRef },
-                { type: core$1.ElementRef }
+                { type: i0.Renderer2 },
+                { type: i0.ChangeDetectorRef },
+                { type: i0.ElementRef }
             ];
         };
         TdMessageComponent.propDecorators = {
-            _childElement: [{ type: core$1.ViewChild, args: [TdMessageContainerDirective,] }],
-            _template: [{ type: core$1.ViewChild, args: [core$1.TemplateRef,] }],
-            collapsedAnimation: [{ type: core$1.HostBinding, args: ['@tdCollapse',] }],
-            hidden: [{ type: core$1.HostBinding, args: ['style.display',] }],
-            label: [{ type: core$1.Input, args: ['label',] }],
-            sublabel: [{ type: core$1.Input, args: ['sublabel',] }],
-            icon: [{ type: core$1.Input, args: ['icon',] }],
-            color: [{ type: core$1.Input, args: ['color',] }],
-            opened: [{ type: core$1.Input, args: ['opened',] }],
-            animationDoneListener: [{ type: core$1.HostListener, args: ['@tdCollapse.done',] }]
+            _childElement: [{ type: i0.ViewChild, args: [TdMessageContainerDirective,] }],
+            _template: [{ type: i0.ViewChild, args: [i0.TemplateRef,] }],
+            collapsedAnimation: [{ type: i0.HostBinding, args: ['@tdCollapse',] }],
+            hidden: [{ type: i0.HostBinding, args: ['style.display',] }],
+            label: [{ type: i0.Input, args: ['label',] }],
+            sublabel: [{ type: i0.Input, args: ['sublabel',] }],
+            icon: [{ type: i0.Input, args: ['icon',] }],
+            color: [{ type: i0.Input, args: ['color',] }],
+            opened: [{ type: i0.Input, args: ['opened',] }],
+            animationDoneListener: [{ type: i0.HostListener, args: ['@tdCollapse.done',] }]
         };
         return TdMessageComponent;
     }());
@@ -3675,7 +3675,7 @@
         function CovalentMessageModule() {
         }
         CovalentMessageModule.decorators = [
-            { type: core$1.NgModule, args: [{
+            { type: i0.NgModule, args: [{
                         imports: [
                             common.CommonModule,
                             icon.MatIconModule,
@@ -3711,15 +3711,15 @@
             return _super.call(this, templateRef, viewContainerRef) || this;
         }
         TdChipDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[td-chip]ng-template',
                     },] }
         ];
         /** @nocollapse */
         TdChipDirective.ctorParameters = function () {
             return [
-                { type: core$1.TemplateRef },
-                { type: core$1.ViewContainerRef }
+                { type: i0.TemplateRef },
+                { type: i0.ViewContainerRef }
             ];
         };
         return TdChipDirective;
@@ -3730,15 +3730,15 @@
             return _super.call(this, templateRef, viewContainerRef) || this;
         }
         TdAutocompleteOptionDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[td-autocomplete-option]ng-template',
                     },] }
         ];
         /** @nocollapse */
         TdAutocompleteOptionDirective.ctorParameters = function () {
             return [
-                { type: core$1.TemplateRef },
-                { type: core$1.ViewContainerRef }
+                { type: i0.TemplateRef },
+                { type: i0.ViewContainerRef }
             ];
         };
         return TdAutocompleteOptionDirective;
@@ -3789,31 +3789,31 @@
              * Method to be executed when a chip is added.
              * Sends chip value as event.
              */
-            _this.onAdd = new core$1.EventEmitter();
+            _this.onAdd = new i0.EventEmitter();
             /**
              * remove?: function
              * Method to be executed when a chip is removed.
              * Sends chip value as event.
              */
-            _this.onRemove = new core$1.EventEmitter();
+            _this.onRemove = new i0.EventEmitter();
             /**
              * inputChange?: function
              * Method to be executed when the value in the autocomplete input changes.
              * Sends string value as event.
              */
-            _this.onInputChange = new core$1.EventEmitter();
+            _this.onInputChange = new i0.EventEmitter();
             /**
              * chipFocus?: function
              * Method to be executed when a chip is focused.
              * Sends chip value as event.
              */
-            _this.onChipFocus = new core$1.EventEmitter();
+            _this.onChipFocus = new i0.EventEmitter();
             /**
              * blur?: function
              * Method to be executed when a chip is blurred.
              * Sends chip value as event.
              */
-            _this.onChipBlur = new core$1.EventEmitter();
+            _this.onChipBlur = new i0.EventEmitter();
             /**
              * compareWith? function
              * Function used to check whether a chip value already exists.
@@ -4819,57 +4819,57 @@
                 return undefined;
             };
         TdChipsComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         providers: [{
                                 provide: forms.NG_VALUE_ACCESSOR,
-                                useExisting: core$1.forwardRef(function () { return TdChipsComponent; }),
+                                useExisting: i0.forwardRef(function () { return TdChipsComponent; }),
                                 multi: true,
                             }],
                         selector: 'td-chips',
                         inputs: ['disabled', 'value'],
                         template: "<div class=\"td-chips-wrapper\"\n     [class.td-chips-stacked]=\"stacked\"\n     [class.td-chips-input-before-position]=\"inputPosition === 'before'\">\n  <ng-template let-chip let-first=\"first\" let-index=\"index\" ngFor [ngForOf]=\"value\">\n    <mat-basic-chip [class.td-chip-disabled]=\"disabled\"\n                   [class.td-chip-after-pad]=\"!canRemoveChip\"\n                   [disableRipple]=\"true\"\n                   [color]=\"color\"\n                   (keydown)=\"_chipKeydown($event, index)\"\n                   (blur)=\"_handleChipBlur($event, chip)\"\n                   (focus)=\"_handleChipFocus($event, chip)\">\n      <div class=\"td-chip\" [class.td-chip-stacked]=\"stacked\">\n        <span class=\"td-chip-content\">\n          <span *ngIf=\"!_chipTemplate?.templateRef\">{{chip}}</span>\n          <ng-template\n            *ngIf=\"_chipTemplate?.templateRef\"\n            [ngTemplateOutlet]=\"_chipTemplate?.templateRef\"\n            [ngTemplateOutletContext]=\"{ chip: chip }\">\n          </ng-template>\n        </span>\n        <mat-icon *ngIf=\"canRemoveChip\" class=\"td-chip-removal\" (click)=\"_internalClick = removeChip(index)\">\n          cancel\n        </mat-icon>\n      </div>\n    </mat-basic-chip>\n  </ng-template>\n  <mat-form-field floatLabel=\"never\"\n                  class=\"td-chips-form-field\"\n                  [style.width.px]=\"canAddChip ? null : 0\"\n                  [style.height.px]=\"canAddChip ? null : 0\"\n                  [color]=\"color\">\n    <input matInput\n            #input\n            [tabIndex]=\"-1\"\n            [matAutocomplete]=\"autocomplete\"\n            [formControl]=\"inputControl\"\n            [placeholder]=\"displayPlaceHolder\"\n            (keydown)=\"_inputKeydown($event)\"\n            (keyup.enter)=\"_handleAddChip()\"\n            (focus)=\"_handleFocus()\">\n  </mat-form-field>\n  <mat-autocomplete #autocomplete=\"matAutocomplete\"\n                   [displayWith]=\"_removeInputDisplay\"\n                   (optionSelected)=\"addChip($event.option.value)\">\n    <ng-template let-item let-first=\"first\" ngFor [ngForOf]=\"items\">\n      <mat-option (click)=\"_setInternalClick()\" [value]=\"item\">\n        <span *ngIf=\"!_autocompleteOptionTemplate?.templateRef\">{{item}}</span>\n        <ng-template\n          *ngIf=\"_autocompleteOptionTemplate?.templateRef\"\n          [ngTemplateOutlet]=\"_autocompleteOptionTemplate?.templateRef\"\n          [ngTemplateOutletContext]=\"{ option: item }\">\n        </ng-template>\n      </mat-option>\n    </ng-template>\n  </mat-autocomplete>\n</div>\n<div *ngIf=\"chipAddition\" class=\"mat-form-field-underline\"\n      [class.mat-disabled]=\"disabled\">\n  <span class=\"mat-form-field-ripple\"\n        [class.mat-focused]=\"focused\"></span>\n</div>\n<ng-content></ng-content>",
-                        changeDetection: core$1.ChangeDetectionStrategy.OnPush,
+                        changeDetection: i0.ChangeDetectionStrategy.OnPush,
                         styles: [":host{display:block;padding:0 5px;min-height:48px}:host .td-chips-wrapper{min-height:42px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}:host .td-chips-wrapper.td-chips-stacked .mat-basic-chip,:host .td-chips-wrapper.td-chips-stacked .td-chips-form-field{width:100%}:host .td-chips-wrapper.td-chips-input-before-position .td-chips-form-field{-webkit-box-ordinal-group:0;-ms-flex-order:-1;order:-1}:host .td-chip,:host .td-chip>.td-chip-content{-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;max-width:100%;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;min-width:0}:host .td-chip.td-chip-stacked,:host .td-chip>.td-chip-content.td-chip-stacked{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}:host ::ng-deep .mat-form-field-wrapper{padding-bottom:2px}:host ::ng-deep .mat-basic-chip{display:inline-block;cursor:default;border-radius:16px;margin:8px 8px 0 0;-webkit-box-sizing:border-box;box-sizing:border-box;max-width:100%;position:relative}html[dir=rtl] :host ::ng-deep .mat-basic-chip{margin:8px 0 0 8px;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip{margin:8px 0 0 8px;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip{margin:8px 0 0 8px;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip{min-height:32px;line-height:32px;font-size:13px;padding:0 0 0 12px}html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{padding:0 12px 0 0;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{padding:0 12px 0 0;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{padding:0 12px 0 0;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip .td-chip bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{display:inline-block;-webkit-box-ordinal-group:-19;-ms-flex-order:-20;order:-20;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;text-align:center;height:32px;width:32px;margin:0 8px 0 -12px;border-radius:50%;-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto;-webkit-box-sizing:border-box;box-sizing:border-box}html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{margin:0 -12px 0 8px;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{margin:0 -12px 0 8px;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{margin:0 -12px 0 8px;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 12px 0 0}html[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 0 0 12px;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 0 0 12px;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 0 0 12px;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal{margin:0 4px;font-size:21px;line-height:22px}:host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal:hover{cursor:pointer}:host ::ng-deep .td-chips-stacked .mat-basic-chip{margin:4px 0}:host ::ng-deep .td-chips-stacked .mat-basic-chip:first-of-type{margin:8px 0 4px}:host ::ng-deep .td-chips-stacked .mat-basic-chip:last-of-type{margin:4px 0 8px}:host .mat-form-field-underline{position:relative;height:1px;width:100%;bottom:0}:host .mat-form-field-underline.mat-disabled{background-position:0;bottom:-4px;background-color:transparent}:host .mat-form-field-underline .mat-form-field-ripple{position:absolute;height:2px;top:0;width:100%;-webkit-transform-origin:50%;-ms-transform-origin:50%;transform-origin:50%;-webkit-transform:scaleX(.5);-ms-transform:scaleX(.5);transform:scaleX(.5);visibility:hidden;opacity:0;-webkit-transition:background-color .3s cubic-bezier(.55,0,.55,.2);transition:background-color .3s cubic-bezier(.55,0,.55,.2)}:host .mat-form-field-underline .mat-form-field-ripple.mat-focused{visibility:visible;opacity:1;-webkit-transform:scaleX(1);-ms-transform:scaleX(1);transform:scaleX(1);-webkit-transition:background-color .3s cubic-bezier(.55,0,.55,.2),-webkit-transform 150ms linear;transition:transform 150ms linear,background-color .3s cubic-bezier(.55,0,.55,.2),-webkit-transform 150ms linear}:host.ng-invalid .mat-form-field-underline .mat-form-field-ripple{visibility:visible;opacity:1;-webkit-transform:scaleX(1);-ms-transform:scaleX(1);transform:scaleX(1);-webkit-transition:background-color .3s cubic-bezier(.55,0,.55,.2),-webkit-transform 150ms linear;transition:transform 150ms linear,background-color .3s cubic-bezier(.55,0,.55,.2),-webkit-transform 150ms linear}:host ::ng-deep mat-form-field .mat-form-field-underline{display:none}"]
                     }] }
         ];
         /** @nocollapse */
         TdChipsComponent.ctorParameters = function () {
             return [
-                { type: core$1.ElementRef },
-                { type: core$1.Renderer2 },
-                { type: undefined, decorators: [{ type: core$1.Optional }, { type: core$1.Inject, args: [common.DOCUMENT,] }] },
-                { type: core$1.ChangeDetectorRef }
+                { type: i0.ElementRef },
+                { type: i0.Renderer2 },
+                { type: undefined, decorators: [{ type: i0.Optional }, { type: i0.Inject, args: [common.DOCUMENT,] }] },
+                { type: i0.ChangeDetectorRef }
             ];
         };
         TdChipsComponent.propDecorators = {
-            _nativeInput: [{ type: core$1.ViewChild, args: ['input',] }],
-            _inputChild: [{ type: core$1.ViewChild, args: [input.MatInput,] }],
-            _autocompleteTrigger: [{ type: core$1.ViewChild, args: [autocomplete.MatAutocompleteTrigger,] }],
-            _chipsChildren: [{ type: core$1.ViewChildren, args: [chips.MatChip,] }],
-            _chipTemplate: [{ type: core$1.ContentChild, args: [TdChipDirective,] }],
-            _autocompleteOptionTemplate: [{ type: core$1.ContentChild, args: [TdAutocompleteOptionDirective,] }],
-            _options: [{ type: core$1.ViewChildren, args: [core.MatOption,] }],
-            items: [{ type: core$1.Input, args: ['items',] }],
-            stacked: [{ type: core$1.Input, args: ['stacked',] }],
-            inputPosition: [{ type: core$1.Input, args: ['inputPosition',] }],
-            requireMatch: [{ type: core$1.Input, args: ['requireMatch',] }],
-            required: [{ type: core$1.Input, args: ['required',] }],
-            chipAddition: [{ type: core$1.Input, args: ['chipAddition',] }],
-            chipRemoval: [{ type: core$1.Input, args: ['chipRemoval',] }],
-            placeholder: [{ type: core$1.Input, args: ['placeholder',] }],
-            debounce: [{ type: core$1.Input, args: ['debounce',] }],
-            color: [{ type: core$1.Input, args: ['color',] }],
-            onAdd: [{ type: core$1.Output, args: ['add',] }],
-            onRemove: [{ type: core$1.Output, args: ['remove',] }],
-            onInputChange: [{ type: core$1.Output, args: ['inputChange',] }],
-            onChipFocus: [{ type: core$1.Output, args: ['chipFocus',] }],
-            onChipBlur: [{ type: core$1.Output, args: ['chipBlur',] }],
-            tabIndex: [{ type: core$1.HostBinding, args: ['attr.tabindex',] }],
-            compareWith: [{ type: core$1.Input, args: ['compareWith',] }],
-            focusListener: [{ type: core$1.HostListener, args: ['focus', ['$event'],] }],
-            mousedownListener: [{ type: core$1.HostListener, args: ['mousedown', ['$event'],] }],
-            clickListener: [{ type: core$1.HostListener, args: ['click', ['$event'],] }],
-            keydownListener: [{ type: core$1.HostListener, args: ['keydown', ['$event'],] }]
+            _nativeInput: [{ type: i0.ViewChild, args: ['input',] }],
+            _inputChild: [{ type: i0.ViewChild, args: [input.MatInput,] }],
+            _autocompleteTrigger: [{ type: i0.ViewChild, args: [autocomplete.MatAutocompleteTrigger,] }],
+            _chipsChildren: [{ type: i0.ViewChildren, args: [chips.MatChip,] }],
+            _chipTemplate: [{ type: i0.ContentChild, args: [TdChipDirective,] }],
+            _autocompleteOptionTemplate: [{ type: i0.ContentChild, args: [TdAutocompleteOptionDirective,] }],
+            _options: [{ type: i0.ViewChildren, args: [core.MatOption,] }],
+            items: [{ type: i0.Input, args: ['items',] }],
+            stacked: [{ type: i0.Input, args: ['stacked',] }],
+            inputPosition: [{ type: i0.Input, args: ['inputPosition',] }],
+            requireMatch: [{ type: i0.Input, args: ['requireMatch',] }],
+            required: [{ type: i0.Input, args: ['required',] }],
+            chipAddition: [{ type: i0.Input, args: ['chipAddition',] }],
+            chipRemoval: [{ type: i0.Input, args: ['chipRemoval',] }],
+            placeholder: [{ type: i0.Input, args: ['placeholder',] }],
+            debounce: [{ type: i0.Input, args: ['debounce',] }],
+            color: [{ type: i0.Input, args: ['color',] }],
+            onAdd: [{ type: i0.Output, args: ['add',] }],
+            onRemove: [{ type: i0.Output, args: ['remove',] }],
+            onInputChange: [{ type: i0.Output, args: ['inputChange',] }],
+            onChipFocus: [{ type: i0.Output, args: ['chipFocus',] }],
+            onChipBlur: [{ type: i0.Output, args: ['chipBlur',] }],
+            tabIndex: [{ type: i0.HostBinding, args: ['attr.tabindex',] }],
+            compareWith: [{ type: i0.Input, args: ['compareWith',] }],
+            focusListener: [{ type: i0.HostListener, args: ['focus', ['$event'],] }],
+            mousedownListener: [{ type: i0.HostListener, args: ['mousedown', ['$event'],] }],
+            clickListener: [{ type: i0.HostListener, args: ['click', ['$event'],] }],
+            keydownListener: [{ type: i0.HostListener, args: ['keydown', ['$event'],] }]
         };
         return TdChipsComponent;
     }(_TdChipsMixinBase));
@@ -4882,7 +4882,7 @@
         function CovalentChipsModule() {
         }
         CovalentChipsModule.decorators = [
-            { type: core$1.NgModule, args: [{
+            { type: i0.NgModule, args: [{
                         imports: [
                             forms.ReactiveFormsModule,
                             common.CommonModule,
@@ -4927,7 +4927,7 @@
             this._renderer.addClass(this._elementRef.nativeElement, 'td-data-table-column-row');
         }
         TdDataTableColumnRowComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         /* tslint:disable-next-line */
                         selector: 'tr[td-data-table-column-row]',
                         template: "<ng-content></ng-content>",
@@ -4937,8 +4937,8 @@
         /** @nocollapse */
         TdDataTableColumnRowComponent.ctorParameters = function () {
             return [
-                { type: core$1.ElementRef },
-                { type: core$1.Renderer2 }
+                { type: i0.ElementRef },
+                { type: i0.Renderer2 }
             ];
         };
         return TdDataTableColumnRowComponent;
@@ -5009,7 +5009,7 @@
                 this._elementRef.nativeElement.focus();
             };
         TdDataTableRowComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         /* tslint:disable-next-line */
                         selector: 'tr[td-data-table-row]',
                         template: "<ng-content></ng-content>",
@@ -5019,13 +5019,13 @@
         /** @nocollapse */
         TdDataTableRowComponent.ctorParameters = function () {
             return [
-                { type: core$1.ElementRef },
-                { type: core$1.Renderer2 }
+                { type: i0.ElementRef },
+                { type: i0.Renderer2 }
             ];
         };
         TdDataTableRowComponent.propDecorators = {
-            selected: [{ type: core$1.Input, args: ['selected',] }],
-            clickListener: [{ type: core$1.HostListener, args: ['click',] }]
+            selected: [{ type: i0.Input, args: ['selected',] }],
+            clickListener: [{ type: i0.HostListener, args: ['click',] }]
         };
         return TdDataTableRowComponent;
     }());
@@ -5040,17 +5040,17 @@
             return _super.call(this, templateRef, viewContainerRef) || this;
         }
         TdDataTableTemplateDirective.decorators = [
-            { type: core$1.Directive, args: [{ selector: '[tdDataTableTemplate]ng-template' },] }
+            { type: i0.Directive, args: [{ selector: '[tdDataTableTemplate]ng-template' },] }
         ];
         /** @nocollapse */
         TdDataTableTemplateDirective.ctorParameters = function () {
             return [
-                { type: core$1.TemplateRef },
-                { type: core$1.ViewContainerRef }
+                { type: i0.TemplateRef },
+                { type: i0.ViewContainerRef }
             ];
         };
         TdDataTableTemplateDirective.propDecorators = {
-            tdDataTableTemplate: [{ type: core$1.Input }]
+            tdDataTableTemplate: [{ type: i0.Input }]
         };
         return TdDataTableTemplateDirective;
     }(portal.TemplatePortalDirective));
@@ -5139,25 +5139,25 @@
              * Event emitted when the column headers are clicked. [sortable] needs to be enabled.
              * Emits an [ITdDataTableSortChangeEvent] implemented object.
              */
-            _this.onSortChange = new core$1.EventEmitter();
+            _this.onSortChange = new i0.EventEmitter();
             /**
              * rowSelect?: function
              * Event emitted when a row is selected/deselected. [selectable] needs to be enabled.
              * Emits an [ITdDataTableSelectEvent] implemented object.
              */
-            _this.onRowSelect = new core$1.EventEmitter();
+            _this.onRowSelect = new i0.EventEmitter();
             /**
              * rowClick?: function
              * Event emitted when a row is clicked.
              * Emits an [ITdDataTableRowClickEvent] implemented object.
              */
-            _this.onRowClick = new core$1.EventEmitter();
+            _this.onRowClick = new i0.EventEmitter();
             /**
              * selectAll?: function
              * Event emitted when all rows are selected/deselected by the all checkbox. [selectable] needs to be enabled.
              * Emits an [ITdDataTableSelectAllEvent] implemented object.
              */
-            _this.onSelectAll = new core$1.EventEmitter();
+            _this.onSelectAll = new i0.EventEmitter();
             /**
              * compareWith?: function(row, model): boolean
              * Allows custom comparison between row and model to see if row is selected or not
@@ -6561,47 +6561,47 @@
                 });
             };
         TdDataTableComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         providers: [{
                                 provide: forms.NG_VALUE_ACCESSOR,
-                                useExisting: core$1.forwardRef(function () { return TdDataTableComponent; }),
+                                useExisting: i0.forwardRef(function () { return TdDataTableComponent; }),
                                 multi: true,
                             }],
                         selector: 'td-data-table',
                         template: "<table td-data-table\n        [style.left.px]=\"columnsLeftScroll\"\n        [class.mat-selectable]=\"selectable\">\n  <thead class=\"td-data-table-head\"\n          (dragover)=\"_handleColumnDrag($event)\">\n    <tr td-data-table-column-row>\n      <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"selectable\">\n        <mat-checkbox\n          #checkBoxAll\n          *ngIf=\"multiple\"\n          [disabled]=\"!hasData\"\n          [indeterminate]=\"indeterminate && !allSelected && hasData\"\n          [checked]=\"allSelected && hasData\"\n          (click)=\"blockEvent($event); selectAll(!checkBoxAll.checked)\"\n          (keyup.enter)=\"selectAll(!checkBoxAll.checked)\"\n          (keyup.space)=\"selectAll(!checkBoxAll.checked)\"\n          (keydown.space)=\"blockEvent($event)\">\n        </mat-checkbox>\n      </th>\n      <th td-data-table-column\n        #columnElement\n        *ngFor=\"let column of columns; let i = index; let last = last\"\n        [style.min-width.px]=\"getColumnWidth(i)\"\n        [style.max-width.px]=\"getColumnWidth(i)\"\n        [name]=\"column.name\"\n        [numeric]=\"column.numeric\"\n        [active]=\"(column.sortable || sortable) && column === sortByColumn\"\n        [sortable]=\"column.sortable || (sortable && column.sortable !== false)\"\n        [sortOrder]=\"sortOrderEnum\"\n        [hidden]=\"column.hidden\"\n        (sortChange)=\"handleSort(column)\">\n        <span [matTooltip]=\"column.tooltip\">{{column.label}}</span>\n        <span td-column-resizer\n              *ngIf=\"resizableColumns\"\n              draggable=\"true\"\n              class=\"td-data-table-column-resizer\"\n              [class.td-resizing]=\"i === resizingColumn\"\n              (mousedown)=\"_handleStartColumnDrag(i, $event)\"\n              (dragstart)=\"$event?.dataTransfer?.setData('text', '')\"\n              (drag)=\"_handleColumnDrag($event)\"\n              (dragend)=\"_handleEndColumnDrag()\"\n              (mouseup)=\"_handleEndColumnDrag()\">\n          <span class=\"td-data-table-column-separator\"></span>\n        </span>\n      </th>\n    </tr>\n  </thead>\n</table>\n<div #scrollableDiv class=\"td-data-table-scrollable\"\n      (scroll)=\"handleScroll($event)\">\n  <div [style.height.px]=\"totalHeight\"></div>\n  <table td-data-table\n          [style.transform]=\"offsetTransform\"\n          [style.position]=\"'absolute'\"\n          [class.mat-selectable]=\"selectable\"\n          [class.mat-clickable]=\"clickable\">\n    <tbody class=\"td-data-table-body\">\n      <tr td-data-table-row\n          #dtRow\n          [tabIndex]=\"selectable ? 0 : -1\"\n          [selected]=\"(clickable || selectable) && isRowSelected(row)\"\n          *ngFor=\"let row of virtualData; let rowIndex = index\"\n          (click)=\"handleRowClick(row, fromRow + rowIndex, $event)\"\n          (keyup)=\"selectable && _rowKeyup($event, row, rowIndex)\"\n          (keydown.space)=\"blockEvent($event)\"\n          (keydown.shift.space)=\"blockEvent($event)\"\n          (keydown.shift)=\"disableTextSelection()\"\n          (keyup.shift)=\"enableTextSelection()\">\n        <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"selectable\">\n          <mat-pseudo-checkbox\n            [state]=\"dtRow.selected ? 'checked' : 'unchecked'\"\n            (mousedown)=\"disableTextSelection()\"\n            (mouseup)=\"enableTextSelection()\"\n            stopRowClick\n            (click)=\"select(row, $event, fromRow + rowIndex)\">\n          </mat-pseudo-checkbox>\n        </td>\n        <td td-data-table-cell\n            [numeric]=\"column.numeric\"\n            [hidden]=\"column.hidden\"\n            *ngFor=\"let column of columns; let i = index\"\n            [style.min-width.px]=\"getColumnWidth(i)\"\n            [style.max-width.px]=\"getColumnWidth(i)\">\n          <span *ngIf=\"!getTemplateRef(column.name)\">{{column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row)}}</span>\n          <ng-template\n            *ngIf=\"getTemplateRef(column.name)\"\n            [ngTemplateOutlet]=\"getTemplateRef(column.name)\"\n            [ngTemplateOutletContext]=\"{ value: getCellValue(column, row), row: row, column: column.name, index: rowIndex }\">\n          </ng-template>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n<ng-content></ng-content>\n",
                         inputs: ['value'],
-                        changeDetection: core$1.ChangeDetectionStrategy.OnPush,
+                        changeDetection: i0.ChangeDetectionStrategy.OnPush,
                         styles: [":host{display:block;overflow:hidden}:host .td-data-table-scrollable{position:relative;overflow:auto;height:calc(100% - 56px)}.td-data-table-column-resizer{right:0;width:6px;cursor:col-resize}.td-data-table-column-resizer,.td-data-table-column-resizer .td-data-table-column-separator{position:absolute;height:100%;top:0}.td-data-table-column-resizer .td-data-table-column-separator{left:2px}.td-data-table-column-resizer.td-resizing{cursor:-webkit-grabbing}table.td-data-table{width:auto!important}table.td-data-table.mat-selectable tbody>tr.td-data-table-row{-webkit-transition:background-color .2s;transition:background-color .2s}table.td-data-table.mat-selectable .td-data-table-column:first-child>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable td.td-data-table-cell:first-child>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable th.td-data-table-column:first-child>.td-data-table-column-content-wrapper{width:18px;min-width:18px;padding:0 24px}table.td-data-table.mat-selectable .td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2)>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper{padding-left:0}[dir=rtl] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper,[dir=rtl] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2)>.td-data-table-column-content-wrapper,[dir=rtl] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper{padding-right:0;padding-left:28px}table.td-data-table td.mat-checkbox-cell,table.td-data-table th.mat-checkbox-column{min-width:42px;width:42px;font-size:0!important}table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox,table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox{width:18px;height:18px}::ng-deep table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after,::ng-deep table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after{width:11px!important;height:4px!important}table.td-data-table td.mat-checkbox-cell mat-checkbox ::ng-deep .mat-checkbox-inner-container,table.td-data-table th.mat-checkbox-column mat-checkbox ::ng-deep .mat-checkbox-inner-container{width:18px;height:18px;margin:0}"]
                     }] }
         ];
         /** @nocollapse */
         TdDataTableComponent.ctorParameters = function () {
             return [
-                { type: undefined, decorators: [{ type: core$1.Optional }, { type: core$1.Inject, args: [common.DOCUMENT,] }] },
-                { type: core$1.ElementRef },
+                { type: undefined, decorators: [{ type: i0.Optional }, { type: i0.Inject, args: [common.DOCUMENT,] }] },
+                { type: i0.ElementRef },
                 { type: platformBrowser.DomSanitizer },
-                { type: core$1.ChangeDetectorRef }
+                { type: i0.ChangeDetectorRef }
             ];
         };
         TdDataTableComponent.propDecorators = {
-            _templates: [{ type: core$1.ContentChildren, args: [TdDataTableTemplateDirective,] }],
-            _scrollableDiv: [{ type: core$1.ViewChild, args: ['scrollableDiv',] }],
-            _colElements: [{ type: core$1.ViewChildren, args: ['columnElement',] }],
-            _rows: [{ type: core$1.ViewChildren, args: [TdDataTableRowComponent,] }],
-            data: [{ type: core$1.Input, args: ['data',] }],
-            columns: [{ type: core$1.Input, args: ['columns',] }],
-            resizableColumns: [{ type: core$1.Input, args: ['resizableColumns',] }],
-            selectable: [{ type: core$1.Input, args: ['selectable',] }],
-            clickable: [{ type: core$1.Input, args: ['clickable',] }],
-            multiple: [{ type: core$1.Input, args: ['multiple',] }],
-            sortable: [{ type: core$1.Input, args: ['sortable',] }],
-            sortBy: [{ type: core$1.Input, args: ['sortBy',] }],
-            sortOrder: [{ type: core$1.Input, args: ['sortOrder',] }],
-            onSortChange: [{ type: core$1.Output, args: ['sortChange',] }],
-            onRowSelect: [{ type: core$1.Output, args: ['rowSelect',] }],
-            onRowClick: [{ type: core$1.Output, args: ['rowClick',] }],
-            onSelectAll: [{ type: core$1.Output, args: ['selectAll',] }],
-            compareWith: [{ type: core$1.Input, args: ['compareWith',] }]
+            _templates: [{ type: i0.ContentChildren, args: [TdDataTableTemplateDirective,] }],
+            _scrollableDiv: [{ type: i0.ViewChild, args: ['scrollableDiv',] }],
+            _colElements: [{ type: i0.ViewChildren, args: ['columnElement',] }],
+            _rows: [{ type: i0.ViewChildren, args: [TdDataTableRowComponent,] }],
+            data: [{ type: i0.Input, args: ['data',] }],
+            columns: [{ type: i0.Input, args: ['columns',] }],
+            resizableColumns: [{ type: i0.Input, args: ['resizableColumns',] }],
+            selectable: [{ type: i0.Input, args: ['selectable',] }],
+            clickable: [{ type: i0.Input, args: ['clickable',] }],
+            multiple: [{ type: i0.Input, args: ['multiple',] }],
+            sortable: [{ type: i0.Input, args: ['sortable',] }],
+            sortBy: [{ type: i0.Input, args: ['sortBy',] }],
+            sortOrder: [{ type: i0.Input, args: ['sortOrder',] }],
+            onSortChange: [{ type: i0.Output, args: ['sortChange',] }],
+            onRowSelect: [{ type: i0.Output, args: ['rowSelect',] }],
+            onRowClick: [{ type: i0.Output, args: ['rowClick',] }],
+            onSelectAll: [{ type: i0.Output, args: ['selectAll',] }],
+            compareWith: [{ type: i0.Input, args: ['compareWith',] }]
         };
         return TdDataTableComponent;
     }(_TdDataTableMixinBase));
@@ -6643,7 +6643,7 @@
              * Event emitted when the column headers are clicked. [sortable] needs to be enabled.
              * Emits an [ITdDataTableSortChangeEvent] implemented object.
              */
-            this.onSortChange = new core$1.EventEmitter();
+            this.onSortChange = new i0.EventEmitter();
             this._renderer.addClass(this._elementRef.nativeElement, 'td-data-table-column');
         }
         Object.defineProperty(TdDataTableColumnComponent.prototype, "projectedWidth", {
@@ -6753,7 +6753,7 @@
                 return this._sortOrder === TdDataTableSortingOrder.Descending;
             };
         TdDataTableColumnComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         /* tslint:disable-next-line */
                         selector: 'th[td-data-table-column]',
                         template: "<span #columnContent class=\"td-data-table-heading\">\n  <mat-icon \n    class=\"td-data-table-sort-icon\" \n    *ngIf=\"sortable && numeric\"\n    [class.mat-asc]=\"isAscending()\"\n    [class.mat-desc]=\"isDescending()\">\n    arrow_upward\n  </mat-icon>\n  <span>\n    <ng-content></ng-content>\n  </span>\n  <mat-icon \n    class=\"td-data-table-sort-icon\" \n    *ngIf=\"sortable && !numeric\"\n    [class.mat-asc]=\"isAscending()\"\n    [class.mat-desc]=\"isDescending()\">\n    arrow_upward\n  </mat-icon>\n</span>\n<ng-content select=\"[td-column-resizer]\"></ng-content>\n",
@@ -6763,23 +6763,23 @@
         /** @nocollapse */
         TdDataTableColumnComponent.ctorParameters = function () {
             return [
-                { type: core$1.ElementRef },
-                { type: core$1.Renderer2 }
+                { type: i0.ElementRef },
+                { type: i0.Renderer2 }
             ];
         };
         TdDataTableColumnComponent.propDecorators = {
-            _columnContent: [{ type: core$1.ViewChild, args: ['columnContent', { read: core$1.ElementRef },] }],
-            name: [{ type: core$1.Input, args: ['name',] }],
-            sortable: [{ type: core$1.Input, args: ['sortable',] }],
-            active: [{ type: core$1.Input, args: ['active',] }],
-            numeric: [{ type: core$1.Input, args: ['numeric',] }],
-            sortOrder: [{ type: core$1.Input, args: ['sortOrder',] }],
-            onSortChange: [{ type: core$1.Output, args: ['sortChange',] }],
-            bindClickable: [{ type: core$1.HostBinding, args: ['class.mat-clickable',] }],
-            bingSortable: [{ type: core$1.HostBinding, args: ['class.mat-sortable',] }],
-            bindActive: [{ type: core$1.HostBinding, args: ['class.mat-active',] }],
-            bindNumeric: [{ type: core$1.HostBinding, args: ['class.mat-numeric',] }],
-            handleClick: [{ type: core$1.HostListener, args: ['click',] }]
+            _columnContent: [{ type: i0.ViewChild, args: ['columnContent', { read: i0.ElementRef },] }],
+            name: [{ type: i0.Input, args: ['name',] }],
+            sortable: [{ type: i0.Input, args: ['sortable',] }],
+            active: [{ type: i0.Input, args: ['active',] }],
+            numeric: [{ type: i0.Input, args: ['numeric',] }],
+            sortOrder: [{ type: i0.Input, args: ['sortOrder',] }],
+            onSortChange: [{ type: i0.Output, args: ['sortChange',] }],
+            bindClickable: [{ type: i0.HostBinding, args: ['class.mat-clickable',] }],
+            bingSortable: [{ type: i0.HostBinding, args: ['class.mat-sortable',] }],
+            bindActive: [{ type: i0.HostBinding, args: ['class.mat-active',] }],
+            bindNumeric: [{ type: i0.HostBinding, args: ['class.mat-numeric',] }],
+            handleClick: [{ type: i0.HostListener, args: ['click',] }]
         };
         return TdDataTableColumnComponent;
     }());
@@ -6833,7 +6833,7 @@
             configurable: true
         });
         TdDataTableCellComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         /* tslint:disable-next-line */
                         selector: 'td[td-data-table-cell]',
                         template: "<div class=\"td-data-table-cell-content-wrapper\"\n     [class.td-data-table-cell-numeric]=\"numeric\"\n     [class.td-data-table-cell-align-center]=\"align === 'center'\"\n     [class.td-data-table-cell-align-end]=\"align === 'end'\"\n     [class.td-data-table-cell-align-start]=\"align === 'start'\"\n     >\n  <ng-content></ng-content>\n</div>",
@@ -6843,14 +6843,14 @@
         /** @nocollapse */
         TdDataTableCellComponent.ctorParameters = function () {
             return [
-                { type: core$1.ElementRef },
-                { type: core$1.Renderer2 }
+                { type: i0.ElementRef },
+                { type: i0.Renderer2 }
             ];
         };
         TdDataTableCellComponent.propDecorators = {
-            numeric: [{ type: core$1.Input, args: ['numeric',] }],
-            align: [{ type: core$1.Input }],
-            bindNumeric: [{ type: core$1.HostBinding, args: ['class.mat-numeric',] }]
+            numeric: [{ type: i0.Input, args: ['numeric',] }],
+            align: [{ type: i0.Input }],
+            bindNumeric: [{ type: i0.HostBinding, args: ['class.mat-numeric',] }]
         };
         return TdDataTableCellComponent;
     }());
@@ -6866,7 +6866,7 @@
             this._renderer.addClass(this._elementRef.nativeElement, 'td-data-table');
         }
         TdDataTableTableComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         /* tslint:disable-next-line */
                         selector: 'table[td-data-table]',
                         template: "<ng-content></ng-content>",
@@ -6876,8 +6876,8 @@
         /** @nocollapse */
         TdDataTableTableComponent.ctorParameters = function () {
             return [
-                { type: core$1.ElementRef },
-                { type: core$1.Renderer2 }
+                { type: i0.ElementRef },
+                { type: i0.Renderer2 }
             ];
         };
         return TdDataTableTableComponent;
@@ -7050,7 +7050,7 @@
                 return data;
             };
         TdDataTableService.decorators = [
-            { type: core$1.Injectable }
+            { type: i0.Injectable }
         ];
         return TdDataTableService;
     }());
@@ -7065,7 +7065,7 @@
     var DATA_TABLE_PROVIDER = {
         // If there is already a service available, use that. Otherwise, provide a new one.
         provide: TdDataTableService,
-        deps: [[new core$1.Optional(), new core$1.SkipSelf(), TdDataTableService]],
+        deps: [[new i0.Optional(), new i0.SkipSelf(), TdDataTableService]],
         useFactory: DATA_TABLE_PROVIDER_FACTORY,
     };
 
@@ -7087,7 +7087,7 @@
         function CovalentDataTableModule() {
         }
         CovalentDataTableModule.decorators = [
-            { type: core$1.NgModule, args: [{
+            { type: i0.NgModule, args: [{
                         imports: [
                             common.CommonModule,
                             checkbox.MatCheckboxModule,
@@ -7127,7 +7127,7 @@
         function TdDialogTitleDirective() {
         }
         TdDialogTitleDirective.decorators = [
-            { type: core$1.Directive, args: [{ selector: 'td-dialog-title' },] }
+            { type: i0.Directive, args: [{ selector: 'td-dialog-title' },] }
         ];
         return TdDialogTitleDirective;
     }());
@@ -7135,7 +7135,7 @@
         function TdDialogContentDirective() {
         }
         TdDialogContentDirective.decorators = [
-            { type: core$1.Directive, args: [{ selector: 'td-dialog-content' },] }
+            { type: i0.Directive, args: [{ selector: 'td-dialog-content' },] }
         ];
         return TdDialogContentDirective;
     }());
@@ -7143,7 +7143,7 @@
         function TdDialogActionsDirective() {
         }
         TdDialogActionsDirective.decorators = [
-            { type: core$1.Directive, args: [{ selector: 'td-dialog-actions' },] }
+            { type: i0.Directive, args: [{ selector: 'td-dialog-actions' },] }
         ];
         return TdDialogActionsDirective;
     }());
@@ -7168,16 +7168,16 @@
                 }
             };
         TdDialogComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'td-dialog',
                         template: "<div class=\"td-dialog-wrapper\">\n  <h3 class=\"td-dialog-title\" *ngIf=\"dialogTitle.length > 0\">\n    <ng-content select=\"td-dialog-title\"></ng-content>\n  </h3>\n  <div class=\"td-dialog-content\" *ngIf=\"dialogContent.length > 0\">\n    <ng-content select=\"td-dialog-content\"></ng-content>\n  </div>\n  <div class=\"td-dialog-actions\" *ngIf=\"dialogActions.length > 0\">\n    <span class=\"td-dialog-spacer\"></span>\n    <ng-content select=\"td-dialog-actions\"></ng-content>\n  </div>\n</div>",
                         styles: [".td-dialog-title{margin-top:0;margin-bottom:20px}.td-dialog-content{margin-bottom:16px}.td-dialog-actions{position:relative;top:16px;left:16px}::ng-deep [dir=rtl] .td-dialog-actions{right:16px;left:auto}:host{display:block}:host .td-dialog-actions{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex}:host .td-dialog-actions .td-dialog-spacer{-webkit-box-flex:1;-ms-flex:1;flex:1}:host .td-dialog-actions ::ng-deep button{text-transform:uppercase;margin-left:8px;padding-left:8px;padding-right:8px;min-width:64px}[dir=rtl] :host .td-dialog-actions ::ng-deep button{margin-right:8px;margin-left:inherit}"]
                     }] }
         ];
         TdDialogComponent.propDecorators = {
-            dialogTitle: [{ type: core$1.ContentChildren, args: [TdDialogTitleDirective,] }],
-            dialogContent: [{ type: core$1.ContentChildren, args: [TdDialogContentDirective,] }],
-            dialogActions: [{ type: core$1.ContentChildren, args: [TdDialogActionsDirective,] }]
+            dialogTitle: [{ type: i0.ContentChildren, args: [TdDialogTitleDirective,] }],
+            dialogContent: [{ type: i0.ContentChildren, args: [TdDialogContentDirective,] }],
+            dialogActions: [{ type: i0.ContentChildren, args: [TdDialogActionsDirective,] }]
         };
         return TdDialogComponent;
     }());
@@ -7201,7 +7201,7 @@
                 this._dialogRef.close();
             };
         TdAlertDialogComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'td-alert-dialog',
                         template: "<td-dialog>\n  <td-dialog-title *ngIf=\"title\">\n    {{title}}\n  </td-dialog-title>\n  <td-dialog-content>\n    <span class=\"td-dialog-message\">{{message}}</span>\n  </td-dialog-content>\n  <td-dialog-actions>\n    <button mat-button color=\"accent\" (click)=\"close()\">{{closeButton}}</button>\n  </td-dialog-actions>\n</td-dialog>",
                         styles: [".td-dialog-message{word-break:break-word}"]
@@ -7245,7 +7245,7 @@
                 this._dialogRef.close(true);
             };
         TdConfirmDialogComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'td-confirm-dialog',
                         template: "<td-dialog>\n  <td-dialog-title *ngIf=\"title\">\n    {{title}}\n  </td-dialog-title>\n  <td-dialog-content>\n    <span class=\"td-dialog-message\">{{message}}</span>\n  </td-dialog-content>\n  <td-dialog-actions>\n    <button mat-button\n            #closeBtn \n            (keydown.arrowright)=\"acceptBtn.focus()\"\n            (click)=\"cancel()\">{{cancelButton}}</button>\n    <button mat-button\n            color=\"accent\"\n            #acceptBtn\n            (keydown.arrowleft)=\"closeBtn.focus()\"\n            (click)=\"accept()\">{{acceptButton}}</button>\n  </td-dialog-actions>\n</td-dialog>",
                         styles: [".td-dialog-message{word-break:break-word}"]
@@ -7319,7 +7319,7 @@
                 this._dialogRef.close(this.value);
             };
         TdPromptDialogComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'td-prompt-dialog',
                         template: "<td-dialog>\n  <td-dialog-title *ngIf=\"title\">\n    {{title}}\n  </td-dialog-title>\n  <td-dialog-content>\n    <span class=\"td-dialog-message\">{{message}}</span>\n    <form #form=\"ngForm\" novalidate>\n      <div class=\"td-dialog-input-wrapper\">\n        <mat-form-field class=\"td-dialog-input\">\n          <input matInput\n                #input\n                (focus)=\"handleInputFocus()\"\n                (keydown.enter)=\"$event.preventDefault(); form.valid && accept()\"\n                [(ngModel)]=\"value\"\n                name=\"value\"\n                required/>\n        </mat-form-field>\n      </div>\n    </form>\n  </td-dialog-content>\n  <td-dialog-actions>\n    <button mat-button\n            #closeBtn \n            (keydown.arrowright)=\"acceptBtn.focus()\"\n            (click)=\"cancel()\">{{cancelButton}}</button>\n    <button mat-button\n            color=\"accent\"\n            #acceptBtn\n            (keydown.arrowleft)=\"closeBtn.focus()\"\n            [disabled]=\"!form.valid\"\n            (click)=\"accept()\">{{acceptButton}}</button>\n  </td-dialog-actions>\n</td-dialog>",
                         styles: [".td-dialog-input-wrapper{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex}.td-dialog-input-wrapper .td-dialog-input{-webkit-box-flex:1;-ms-flex:1;flex:1;-webkit-box-sizing:border-box;box-sizing:border-box}.td-dialog-message{word-break:break-word}"]
@@ -7332,7 +7332,7 @@
             ];
         };
         TdPromptDialogComponent.propDecorators = {
-            _input: [{ type: core$1.ViewChild, args: ['input',] }]
+            _input: [{ type: i0.ViewChild, args: ['input',] }]
         };
         return TdPromptDialogComponent;
     }());
@@ -7588,7 +7588,7 @@
                 return dialogConfig;
             };
         TdDialogService.decorators = [
-            { type: core$1.Injectable }
+            { type: i0.Injectable }
         ];
         /** @nocollapse */
         TdDialogService.ctorParameters = function () {
@@ -7623,7 +7623,7 @@
         function CovalentDialogsModule() {
         }
         CovalentDialogsModule.decorators = [
-            { type: core$1.NgModule, args: [{
+            { type: i0.NgModule, args: [{
                         imports: [
                             forms.FormsModule,
                             common.CommonModule,
@@ -7668,15 +7668,15 @@
             return _super.call(this, templateRef, viewContainerRef) || this;
         }
         TdExpansionPanelHeaderDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[td-expansion-panel-header]ng-template',
                     },] }
         ];
         /** @nocollapse */
         TdExpansionPanelHeaderDirective.ctorParameters = function () {
             return [
-                { type: core$1.TemplateRef },
-                { type: core$1.ViewContainerRef }
+                { type: i0.TemplateRef },
+                { type: i0.ViewContainerRef }
             ];
         };
         return TdExpansionPanelHeaderDirective;
@@ -7687,15 +7687,15 @@
             return _super.call(this, templateRef, viewContainerRef) || this;
         }
         TdExpansionPanelLabelDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[td-expansion-panel-label]ng-template',
                     },] }
         ];
         /** @nocollapse */
         TdExpansionPanelLabelDirective.ctorParameters = function () {
             return [
-                { type: core$1.TemplateRef },
-                { type: core$1.ViewContainerRef }
+                { type: i0.TemplateRef },
+                { type: i0.ViewContainerRef }
             ];
         };
         return TdExpansionPanelLabelDirective;
@@ -7706,15 +7706,15 @@
             return _super.call(this, templateRef, viewContainerRef) || this;
         }
         TdExpansionPanelSublabelDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[td-expansion-panel-sublabel]ng-template',
                     },] }
         ];
         /** @nocollapse */
         TdExpansionPanelSublabelDirective.ctorParameters = function () {
             return [
-                { type: core$1.TemplateRef },
-                { type: core$1.ViewContainerRef }
+                { type: i0.TemplateRef },
+                { type: i0.ViewContainerRef }
             ];
         };
         return TdExpansionPanelSublabelDirective;
@@ -7723,7 +7723,7 @@
         function TdExpansionPanelSummaryComponent() {
         }
         TdExpansionPanelSummaryComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'td-expansion-summary',
                         template: '<ng-content></ng-content>'
                     }] }
@@ -7749,12 +7749,12 @@
              * expanded?: function
              * Event emitted when [TdExpansionPanelComponent] is expanded.
              */
-            _this.expanded = new core$1.EventEmitter();
+            _this.expanded = new i0.EventEmitter();
             /**
              * collapsed?: function
              * Event emitted when [TdExpansionPanelComponent] is collapsed.
              */
-            _this.collapsed = new core$1.EventEmitter();
+            _this.collapsed = new i0.EventEmitter();
             _this._renderer.addClass(_this._elementRef.nativeElement, 'td-expansion-panel');
             return _this;
         }
@@ -7914,7 +7914,7 @@
                 this.collapsed.emit(undefined);
             };
         TdExpansionPanelComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'td-expansion-panel',
                         template: "<div class=\"td-expansion-panel-header\"\n      [class.mat-disabled]=\"disabled\"\n      matRipple\n      [matRippleDisabled]=\"disabled || disableRipple\"\n      [tabIndex]=\"disabled? -1 : 0\"\n      (keydown.enter)=\"clickEvent()\"\n      (click)=\"clickEvent()\">\n  <ng-template [cdkPortalOutlet]=\"expansionPanelHeader\"></ng-template>\n  <div class=\"td-expansion-panel-header-content\"\n        [class.mat-disabled]=\"disabled\"\n        *ngIf=\"!expansionPanelHeader\">\n    <div *ngIf=\"label || expansionPanelLabel\" class=\"td-expansion-label\">\n      <ng-template [cdkPortalOutlet]=\"expansionPanelLabel\"></ng-template>\n      <ng-template [ngIf]=\"!expansionPanelLabel\">{{label}}</ng-template>\n    </div>\n    <div *ngIf=\"sublabel || expansionPanelSublabel\" class=\"td-expansion-sublabel\">\n      <ng-template [cdkPortalOutlet]=\"expansionPanelSublabel\"></ng-template>\n      <ng-template [ngIf]=\"!expansionPanelSublabel\">{{sublabel}}</ng-template>\n    </div>\n    <mat-icon class=\"td-expand-icon\" *ngIf=\"!disabled\" [@tdRotate]=\"expand\">keyboard_arrow_down</mat-icon>\n  </div>\n</div>\n<div class=\"td-expansion-content\"\n      [@tdCollapse]=\"!expand\">\n  <ng-content></ng-content>\n</div>\n<div class=\"td-expansion-summary\"\n      [@tdCollapse]=\"expand\">\n  <ng-content select=\"td-expansion-summary\"></ng-content>\n</div>\n",
                         inputs: ['disabled', 'disableRipple'],
@@ -7928,19 +7928,19 @@
         /** @nocollapse */
         TdExpansionPanelComponent.ctorParameters = function () {
             return [
-                { type: core$1.Renderer2 },
-                { type: core$1.ElementRef }
+                { type: i0.Renderer2 },
+                { type: i0.ElementRef }
             ];
         };
         TdExpansionPanelComponent.propDecorators = {
-            expansionPanelHeader: [{ type: core$1.ContentChild, args: [TdExpansionPanelHeaderDirective,] }],
-            expansionPanelLabel: [{ type: core$1.ContentChild, args: [TdExpansionPanelLabelDirective,] }],
-            expansionPanelSublabel: [{ type: core$1.ContentChild, args: [TdExpansionPanelSublabelDirective,] }],
-            label: [{ type: core$1.Input }],
-            sublabel: [{ type: core$1.Input }],
-            expand: [{ type: core$1.Input, args: ['expand',] }],
-            expanded: [{ type: core$1.Output }],
-            collapsed: [{ type: core$1.Output }]
+            expansionPanelHeader: [{ type: i0.ContentChild, args: [TdExpansionPanelHeaderDirective,] }],
+            expansionPanelLabel: [{ type: i0.ContentChild, args: [TdExpansionPanelLabelDirective,] }],
+            expansionPanelSublabel: [{ type: i0.ContentChild, args: [TdExpansionPanelSublabelDirective,] }],
+            label: [{ type: i0.Input }],
+            sublabel: [{ type: i0.Input }],
+            expand: [{ type: i0.Input, args: ['expand',] }],
+            expanded: [{ type: i0.Output }],
+            collapsed: [{ type: i0.Output }]
         };
         return TdExpansionPanelComponent;
     }(_TdExpansionPanelMixinBase));
@@ -8107,7 +8107,7 @@
                 });
             };
         TdExpansionPanelGroupComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'td-expansion-panel-group',
                         template: "<ng-content></ng-content>",
                         styles: [""]
@@ -8116,13 +8116,13 @@
         /** @nocollapse */
         TdExpansionPanelGroupComponent.ctorParameters = function () {
             return [
-                { type: core$1.Renderer2 },
-                { type: core$1.ElementRef }
+                { type: i0.Renderer2 },
+                { type: i0.ElementRef }
             ];
         };
         TdExpansionPanelGroupComponent.propDecorators = {
-            multi: [{ type: core$1.Input, args: ['multi',] }],
-            expansionPanels: [{ type: core$1.ContentChildren, args: [TdExpansionPanelComponent,] }]
+            multi: [{ type: i0.Input, args: ['multi',] }],
+            expansionPanels: [{ type: i0.ContentChildren, args: [TdExpansionPanelComponent,] }]
         };
         return TdExpansionPanelGroupComponent;
     }());
@@ -8144,7 +8144,7 @@
         function CovalentExpansionPanelModule() {
         }
         CovalentExpansionPanelModule.decorators = [
-            { type: core$1.NgModule, args: [{
+            { type: i0.NgModule, args: [{
                         imports: [
                             common.CommonModule,
                             core.MatRippleModule,
@@ -8186,7 +8186,7 @@
              * Emits a [FileList | File] object.
              * Alternative to not use [(ngModel)].
              */
-            this.onFileSelect = new core$1.EventEmitter();
+            this.onFileSelect = new i0.EventEmitter();
         }
         Object.defineProperty(TdFileSelectDirective.prototype, "multiple", {
             /**
@@ -8252,21 +8252,21 @@
                 }
             };
         TdFileSelectDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[tdFileSelect]',
                     },] }
         ];
         /** @nocollapse */
         TdFileSelectDirective.ctorParameters = function () {
             return [
-                { type: forms.NgModel, decorators: [{ type: core$1.Optional }, { type: core$1.Host }] }
+                { type: forms.NgModel, decorators: [{ type: i0.Optional }, { type: i0.Host }] }
             ];
         };
         TdFileSelectDirective.propDecorators = {
-            multiple: [{ type: core$1.Input, args: ['multiple',] }],
-            onFileSelect: [{ type: core$1.Output, args: ['fileSelect',] }],
-            multipleBinding: [{ type: core$1.HostBinding, args: ['attr.multiple',] }],
-            onChange: [{ type: core$1.HostListener, args: ['change', ['$event'],] }]
+            multiple: [{ type: i0.Input, args: ['multiple',] }],
+            onFileSelect: [{ type: i0.Output, args: ['fileSelect',] }],
+            multipleBinding: [{ type: i0.HostBinding, args: ['attr.multiple',] }],
+            onChange: [{ type: i0.HostListener, args: ['change', ['$event'],] }]
         };
         return TdFileSelectDirective;
     }());
@@ -8295,7 +8295,7 @@
              * Event emitted when a file or files are dropped in host element after being validated.
              * Emits a [FileList | File] object.
              */
-            _this.onFileDrop = new core$1.EventEmitter();
+            _this.onFileDrop = new i0.EventEmitter();
             return _this;
         }
         Object.defineProperty(TdFileDropDirective.prototype, "multiple", {
@@ -8487,7 +8487,7 @@
                 event.stopPropagation();
             };
         TdFileDropDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[tdFileDrop]',
                         inputs: ['disabled'],
                     },] }
@@ -8495,19 +8495,19 @@
         /** @nocollapse */
         TdFileDropDirective.ctorParameters = function () {
             return [
-                { type: core$1.Renderer2 },
-                { type: core$1.ElementRef }
+                { type: i0.Renderer2 },
+                { type: i0.ElementRef }
             ];
         };
         TdFileDropDirective.propDecorators = {
-            multiple: [{ type: core$1.Input, args: ['multiple',] }],
-            onFileDrop: [{ type: core$1.Output, args: ['fileDrop',] }],
-            multipleBinding: [{ type: core$1.HostBinding, args: ['attr.multiple',] }],
-            disabledBinding: [{ type: core$1.HostBinding, args: ['attr.disabled',] }],
-            onDrop: [{ type: core$1.HostListener, args: ['drop', ['$event'],] }],
-            onDragOver: [{ type: core$1.HostListener, args: ['dragover', ['$event'],] }],
-            onDragEnter: [{ type: core$1.HostListener, args: ['dragenter', ['$event'],] }],
-            onDragLeave: [{ type: core$1.HostListener, args: ['dragleave', ['$event'],] }]
+            multiple: [{ type: i0.Input, args: ['multiple',] }],
+            onFileDrop: [{ type: i0.Output, args: ['fileDrop',] }],
+            multipleBinding: [{ type: i0.HostBinding, args: ['attr.multiple',] }],
+            disabledBinding: [{ type: i0.HostBinding, args: ['attr.disabled',] }],
+            onDrop: [{ type: i0.HostListener, args: ['drop', ['$event'],] }],
+            onDragOver: [{ type: i0.HostListener, args: ['dragover', ['$event'],] }],
+            onDragEnter: [{ type: i0.HostListener, args: ['dragenter', ['$event'],] }],
+            onDragLeave: [{ type: i0.HostListener, args: ['dragleave', ['$event'],] }]
         };
         return TdFileDropDirective;
     }(_TdFileDropMixinBase));
@@ -8522,15 +8522,15 @@
             return _super.call(this, templateRef, viewContainerRef) || this;
         }
         TdFileInputLabelDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[td-file-input-label]ng-template',
                     },] }
         ];
         /** @nocollapse */
         TdFileInputLabelDirective.ctorParameters = function () {
             return [
-                { type: core$1.TemplateRef },
-                { type: core$1.ViewContainerRef }
+                { type: i0.TemplateRef },
+                { type: i0.ViewContainerRef }
             ];
         };
         return TdFileInputLabelDirective;
@@ -8555,7 +8555,7 @@
              * Event emitted a file is selected
              * Emits a [File | FileList] object.
              */
-            _this.onSelect = new core$1.EventEmitter();
+            _this.onSelect = new i0.EventEmitter();
             return _this;
         }
         Object.defineProperty(TdFileInputComponent.prototype, "inputElement", {
@@ -8653,11 +8653,11 @@
                 this.disabled = isDisabled;
             };
         TdFileInputComponent.decorators = [
-            { type: core$1.Component, args: [{
-                        changeDetection: core$1.ChangeDetectionStrategy.OnPush,
+            { type: i0.Component, args: [{
+                        changeDetection: i0.ChangeDetectionStrategy.OnPush,
                         providers: [{
                                 provide: forms.NG_VALUE_ACCESSOR,
-                                useExisting: core$1.forwardRef(function () { return TdFileInputComponent; }),
+                                useExisting: i0.forwardRef(function () { return TdFileInputComponent; }),
                                 multi: true,
                             }],
                         selector: 'td-file-input',
@@ -8669,16 +8669,16 @@
         /** @nocollapse */
         TdFileInputComponent.ctorParameters = function () {
             return [
-                { type: core$1.Renderer2 },
-                { type: core$1.ChangeDetectorRef }
+                { type: i0.Renderer2 },
+                { type: i0.ChangeDetectorRef }
             ];
         };
         TdFileInputComponent.propDecorators = {
-            _inputElement: [{ type: core$1.ViewChild, args: ['fileInput',] }],
-            color: [{ type: core$1.Input, args: ['color',] }],
-            multiple: [{ type: core$1.Input, args: ['multiple',] }],
-            accept: [{ type: core$1.Input, args: ['accept',] }],
-            onSelect: [{ type: core$1.Output, args: ['select',] }]
+            _inputElement: [{ type: i0.ViewChild, args: ['fileInput',] }],
+            color: [{ type: i0.Input, args: ['color',] }],
+            multiple: [{ type: i0.Input, args: ['multiple',] }],
+            accept: [{ type: i0.Input, args: ['accept',] }],
+            onSelect: [{ type: i0.Output, args: ['select',] }]
         };
         return TdFileInputComponent;
     }(_TdFileInputMixinBase));
@@ -8722,18 +8722,18 @@
              * Event emitted when a file is selected.
              * Emits a [File | FileList] object.
              */
-            _this.onSelect = new core$1.EventEmitter();
+            _this.onSelect = new i0.EventEmitter();
             /**
              * upload?: function
              * Event emitted when upload button is clicked.
              * Emits a [File | FileList] object.
              */
-            _this.onUpload = new core$1.EventEmitter();
+            _this.onUpload = new i0.EventEmitter();
             /**
              * cancel?: function
              * Event emitted when cancel button is clicked.
              */
-            _this.onCancel = new core$1.EventEmitter();
+            _this.onCancel = new i0.EventEmitter();
             return _this;
         }
         Object.defineProperty(TdFileUploadComponent.prototype, "multiple", {
@@ -8852,11 +8852,11 @@
                 }
             };
         TdFileUploadComponent.decorators = [
-            { type: core$1.Component, args: [{
-                        changeDetection: core$1.ChangeDetectionStrategy.OnPush,
+            { type: i0.Component, args: [{
+                        changeDetection: i0.ChangeDetectionStrategy.OnPush,
                         providers: [{
                                 provide: forms.NG_VALUE_ACCESSOR,
-                                useExisting: core$1.forwardRef(function () { return TdFileUploadComponent; }),
+                                useExisting: i0.forwardRef(function () { return TdFileUploadComponent; }),
                                 multi: true,
                             }],
                         selector: 'td-file-upload',
@@ -8868,21 +8868,21 @@
         /** @nocollapse */
         TdFileUploadComponent.ctorParameters = function () {
             return [
-                { type: core$1.ChangeDetectorRef }
+                { type: i0.ChangeDetectorRef }
             ];
         };
         TdFileUploadComponent.propDecorators = {
-            fileInput: [{ type: core$1.ViewChild, args: [TdFileInputComponent,] }],
-            inputLabel: [{ type: core$1.ContentChild, args: [TdFileInputLabelDirective,] }],
-            defaultColor: [{ type: core$1.Input, args: ['defaultColor',] }],
-            activeColor: [{ type: core$1.Input, args: ['activeColor',] }],
-            cancelColor: [{ type: core$1.Input, args: ['cancelColor',] }],
-            multiple: [{ type: core$1.Input, args: ['multiple',] }],
-            required: [{ type: core$1.Input, args: ['required',] }],
-            accept: [{ type: core$1.Input, args: ['accept',] }],
-            onSelect: [{ type: core$1.Output, args: ['select',] }],
-            onUpload: [{ type: core$1.Output, args: ['upload',] }],
-            onCancel: [{ type: core$1.Output, args: ['cancel',] }]
+            fileInput: [{ type: i0.ViewChild, args: [TdFileInputComponent,] }],
+            inputLabel: [{ type: i0.ContentChild, args: [TdFileInputLabelDirective,] }],
+            defaultColor: [{ type: i0.Input, args: ['defaultColor',] }],
+            activeColor: [{ type: i0.Input, args: ['activeColor',] }],
+            cancelColor: [{ type: i0.Input, args: ['cancelColor',] }],
+            multiple: [{ type: i0.Input, args: ['multiple',] }],
+            required: [{ type: i0.Input, args: ['required',] }],
+            accept: [{ type: i0.Input, args: ['accept',] }],
+            onSelect: [{ type: i0.Output, args: ['select',] }],
+            onUpload: [{ type: i0.Output, args: ['upload',] }],
+            onCancel: [{ type: i0.Output, args: ['cancel',] }]
         };
         return TdFileUploadComponent;
     }(_TdFileUploadMixinBase));
@@ -9000,7 +9000,7 @@
                 });
             };
         TdFileService.decorators = [
-            { type: core$1.Injectable }
+            { type: i0.Injectable }
         ];
         /** @nocollapse */
         TdFileService.ctorParameters = function () { return []; };
@@ -9023,7 +9023,7 @@
         function CovalentFileModule() {
         }
         CovalentFileModule.decorators = [
-            { type: core$1.NgModule, args: [{
+            { type: i0.NgModule, args: [{
                         imports: [
                             forms.FormsModule,
                             common.CommonModule,
@@ -9392,8 +9392,8 @@
          */
         TdJsonFormatterComponent.PREVIEW_LIMIT = 5;
         TdJsonFormatterComponent.decorators = [
-            { type: core$1.Component, args: [{
-                        changeDetection: core$1.ChangeDetectionStrategy.OnPush,
+            { type: i0.Component, args: [{
+                        changeDetection: i0.ChangeDetectionStrategy.OnPush,
                         selector: 'td-json-formatter',
                         template: "<div class=\"td-json-formatter-wrapper\">\n  <a class=\"td-key\"\n     [class.td-key-node]=\"hasChildren()\"\n     [class.td-key-leaf]=\"!hasChildren()\"\n     [tabIndex]=\"isObject()? 0 : -1\"\n     (keydown.enter)=\"toggle()\"\n     (click)=\"toggle()\">\n    <mat-icon class=\"td-node-icon\" *ngIf=\"hasChildren()\">{{open? 'keyboard_arrow_down' : (isRTL ? 'keyboard_arrow_left' : 'keyboard_arrow_right')}}</mat-icon>\n    <span *ngIf=\"key\" class=\"key\">{{key}}:</span>\n    <span class=\"value\">\n      <span [class.td-empty]=\"!hasChildren()\" *ngIf=\"isObject()\" [matTooltip]=\"getPreview()\" matTooltipPosition=\"after\">\n        <span class=\"td-object-name\">{{getObjectName()}}</span>\n        <span class=\"td-array-length\" *ngIf=\"isArray()\">[{{data.length}}]</span>\n      </span>\n      <span *ngIf=\"!isObject()\" [class]=\"getType(data)\">{{getValue(data)}}</span>\n    </span>\n  </a>\n  <div class=\"td-object-children\" [@tdCollapse]=\"!(hasChildren() && open)\">\n    <ng-template let-key ngFor [ngForOf]=\"children\">\n      <td-json-formatter [key]=\"key\" [data]=\"data[key]\" [levelsOpen]=\"levelsOpen - 1\"></td-json-formatter>\n    </ng-template>\n  </div>\n</div>",
                         animations: [
@@ -9405,14 +9405,14 @@
         /** @nocollapse */
         TdJsonFormatterComponent.ctorParameters = function () {
             return [
-                { type: core$1.ChangeDetectorRef },
-                { type: bidi.Dir, decorators: [{ type: core$1.Optional }] }
+                { type: i0.ChangeDetectorRef },
+                { type: bidi.Dir, decorators: [{ type: i0.Optional }] }
             ];
         };
         TdJsonFormatterComponent.propDecorators = {
-            levelsOpen: [{ type: core$1.Input, args: ['levelsOpen',] }],
-            key: [{ type: core$1.Input, args: ['key',] }],
-            data: [{ type: core$1.Input, args: ['data',] }]
+            levelsOpen: [{ type: i0.Input, args: ['levelsOpen',] }],
+            key: [{ type: i0.Input, args: ['key',] }],
+            data: [{ type: i0.Input, args: ['data',] }]
         };
         return TdJsonFormatterComponent;
     }());
@@ -9425,7 +9425,7 @@
         function CovalentJsonFormatterModule() {
         }
         CovalentJsonFormatterModule.decorators = [
-            { type: core$1.NgModule, args: [{
+            { type: i0.NgModule, args: [{
                         imports: [
                             common.CommonModule,
                             tooltip.MatTooltipModule,
@@ -9558,18 +9558,18 @@
                 return this.sidenav.close();
             };
         TdLayoutComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'td-layout',
                         template: "<mat-sidenav-container fullscreen [autosize]=\"containerAutosize\">\n  <mat-sidenav #sidenav\n              class=\"td-layout-sidenav\"\n              [mode]=\"mode\"\n              [opened]=\"opened\"\n              [style.max-width]=\"sidenavWidth\"\n              [style.min-width]=\"sidenavWidth\"\n              [disableClose]=\"disableClose\">\n    <ng-content select=\"td-navigation-drawer\"></ng-content>\n    <ng-content select=\"[td-sidenav-content]\"></ng-content>\n  </mat-sidenav>\n  <ng-content></ng-content>\n</mat-sidenav-container>\n",
                         styles: [":host{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0;width:100%;min-height:100%;height:100%;overflow:hidden}:host ::ng-deep>mat-sidenav-container .mat-drawer>.mat-drawer-inner-container{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}"]
                     }] }
         ];
         TdLayoutComponent.propDecorators = {
-            sidenav: [{ type: core$1.ViewChild, args: [sidenav.MatSidenav,] }],
-            mode: [{ type: core$1.Input, args: ['mode',] }],
-            opened: [{ type: core$1.Input, args: ['opened',] }],
-            sidenavWidth: [{ type: core$1.Input, args: ['sidenavWidth',] }],
-            containerAutosize: [{ type: core$1.Input, args: ['containerAutosize',] }]
+            sidenav: [{ type: i0.ViewChild, args: [sidenav.MatSidenav,] }],
+            mode: [{ type: i0.Input, args: ['mode',] }],
+            opened: [{ type: i0.Input, args: ['opened',] }],
+            sidenavWidth: [{ type: i0.Input, args: ['sidenavWidth',] }],
+            containerAutosize: [{ type: i0.Input, args: ['containerAutosize',] }]
         };
         return TdLayoutComponent;
     }());
@@ -9710,8 +9710,8 @@
                 console.warn('Covalent: Parent layout not found for layout toggle directive');
             };
         LayoutToggle.propDecorators = {
-            hideWhenOpened: [{ type: core$1.Input, args: ['hideWhenOpened',] }],
-            clickListener: [{ type: core$1.HostListener, args: ['click', ['$event'],] }]
+            hideWhenOpened: [{ type: i0.Input, args: ['hideWhenOpened',] }],
+            clickListener: [{ type: i0.HostListener, args: ['click', ['$event'],] }]
         };
         return LayoutToggle;
     }(_TdLayoutToggleMixinBase));
@@ -9745,20 +9745,20 @@
                 this._layout.toggle();
             };
         TdLayoutToggleDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[tdLayoutToggle]',
                     },] }
         ];
         /** @nocollapse */
         TdLayoutToggleDirective.ctorParameters = function () {
             return [
-                { type: TdLayoutComponent, decorators: [{ type: core$1.Optional }, { type: core$1.Inject, args: [core$1.forwardRef(function () { return TdLayoutComponent; }),] }] },
-                { type: core$1.Renderer2 },
-                { type: core$1.ElementRef }
+                { type: TdLayoutComponent, decorators: [{ type: i0.Optional }, { type: i0.Inject, args: [i0.forwardRef(function () { return TdLayoutComponent; }),] }] },
+                { type: i0.Renderer2 },
+                { type: i0.ElementRef }
             ];
         };
         TdLayoutToggleDirective.propDecorators = {
-            tdLayoutToggle: [{ type: core$1.Input, args: ['tdLayoutToggle',] }]
+            tdLayoutToggle: [{ type: i0.Input, args: ['tdLayoutToggle',] }]
         };
         return TdLayoutToggleDirective;
     }(LayoutToggle));
@@ -9787,20 +9787,20 @@
                 this._layout.close();
             };
         TdLayoutCloseDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[tdLayoutClose]',
                     },] }
         ];
         /** @nocollapse */
         TdLayoutCloseDirective.ctorParameters = function () {
             return [
-                { type: TdLayoutComponent, decorators: [{ type: core$1.Optional }, { type: core$1.Inject, args: [core$1.forwardRef(function () { return TdLayoutComponent; }),] }] },
-                { type: core$1.Renderer2 },
-                { type: core$1.ElementRef }
+                { type: TdLayoutComponent, decorators: [{ type: i0.Optional }, { type: i0.Inject, args: [i0.forwardRef(function () { return TdLayoutComponent; }),] }] },
+                { type: i0.Renderer2 },
+                { type: i0.ElementRef }
             ];
         };
         TdLayoutCloseDirective.propDecorators = {
-            tdLayoutClose: [{ type: core$1.Input, args: ['tdLayoutClose',] }]
+            tdLayoutClose: [{ type: i0.Input, args: ['tdLayoutClose',] }]
         };
         return TdLayoutCloseDirective;
     }(LayoutToggle));
@@ -9829,20 +9829,20 @@
                 this._layout.open();
             };
         TdLayoutOpenDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[tdLayoutOpen]',
                     },] }
         ];
         /** @nocollapse */
         TdLayoutOpenDirective.ctorParameters = function () {
             return [
-                { type: TdLayoutComponent, decorators: [{ type: core$1.Optional }, { type: core$1.Inject, args: [core$1.forwardRef(function () { return TdLayoutComponent; }),] }] },
-                { type: core$1.Renderer2 },
-                { type: core$1.ElementRef }
+                { type: TdLayoutComponent, decorators: [{ type: i0.Optional }, { type: i0.Inject, args: [i0.forwardRef(function () { return TdLayoutComponent; }),] }] },
+                { type: i0.Renderer2 },
+                { type: i0.ElementRef }
             ];
         };
         TdLayoutOpenDirective.propDecorators = {
-            tdLayoutClose: [{ type: core$1.Input, args: ['tdLayoutOpen',] }]
+            tdLayoutClose: [{ type: i0.Input, args: ['tdLayoutOpen',] }]
         };
         return TdLayoutOpenDirective;
     }(LayoutToggle));
@@ -9887,7 +9887,7 @@
                 }
             };
         TdLayoutNavComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'td-layout-nav',
                         template: "<div class=\"td-layout-nav-wrapper\">\n  <mat-toolbar [color]=\"color\">\n    <ng-content select=\"[td-menu-button]\"></ng-content>\n    <span *ngIf=\"icon || logo || toolbarTitle\"\n          [class.cursor-pointer]=\"routerEnabled\"\n          (click)=\"handleNavigationClick()\"\n          class=\"td-layout-nav-toolbar-content\">\n      <mat-icon *ngIf=\"icon\">{{icon}}</mat-icon>\n      <mat-icon *ngIf=\"logo && !icon\" class=\"mat-icon-logo\" [svgIcon]=\"logo\"></mat-icon>\n      <span *ngIf=\"toolbarTitle\">{{toolbarTitle}}</span>\n    </span>\n    <ng-content select=\"[td-toolbar-content]\"></ng-content>\n  </mat-toolbar>\n  <div class=\"td-layout-nav-content\" cdkScrollable>\n    <ng-content></ng-content>\n  </div>\n  <ng-content select=\"td-layout-footer\"></ng-content>\n</div>\n",
                         styles: [".td-menu-button{margin-left:0}::ng-deep [dir=rtl] .td-menu-button{margin-right:0;margin-left:6px}:host{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0;width:100%;min-height:100%;height:100%;overflow:hidden}:host .td-layout-nav-wrapper{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;margin:0;width:100%;min-height:100%;height:100%}:host .td-layout-nav-wrapper .td-layout-nav-toolbar-content{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}:host .td-layout-nav-wrapper .td-layout-nav-content{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-ms-flex:1;flex:1;position:relative;overflow:auto;-webkit-overflow-scrolling:touch}"]
@@ -9896,15 +9896,15 @@
         /** @nocollapse */
         TdLayoutNavComponent.ctorParameters = function () {
             return [
-                { type: router.Router, decorators: [{ type: core$1.Optional }] }
+                { type: router.Router, decorators: [{ type: i0.Optional }] }
             ];
         };
         TdLayoutNavComponent.propDecorators = {
-            toolbarTitle: [{ type: core$1.Input, args: ['toolbarTitle',] }],
-            icon: [{ type: core$1.Input, args: ['icon',] }],
-            logo: [{ type: core$1.Input, args: ['logo',] }],
-            color: [{ type: core$1.Input, args: ['color',] }],
-            navigationRoute: [{ type: core$1.Input, args: ['navigationRoute',] }]
+            toolbarTitle: [{ type: i0.Input, args: ['toolbarTitle',] }],
+            icon: [{ type: i0.Input, args: ['icon',] }],
+            logo: [{ type: i0.Input, args: ['logo',] }],
+            color: [{ type: i0.Input, args: ['color',] }],
+            navigationRoute: [{ type: i0.Input, args: ['navigationRoute',] }]
         };
         return TdLayoutNavComponent;
     }());
@@ -10046,7 +10046,7 @@
                 return this.sidenav.close();
             };
         TdLayoutNavListComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'td-layout-nav-list',
                         template: "<div class=\"td-layout-nav-list-wrapper\">\n  <mat-sidenav-container fullscreen [autosize]=\"containerAutosize\" class=\"td-layout-nav-list\">\n    <mat-sidenav #sidenav\n                position=\"start\"\n                [mode]=\"mode\"\n                [opened]=\"opened\"\n                [disableClose]=\"disableClose\"\n                [style.max-width]=\"sidenavWidth\"\n                [style.min-width]=\"sidenavWidth\">\n      <mat-toolbar [color]=\"color\">\n        <ng-content select=\"[td-menu-button]\"></ng-content>\n        <span *ngIf=\"icon || logo || toolbarTitle\"\n              class=\"td-layout-nav-list-toolbar-content\"\n              [class.cursor-pointer]=\"routerEnabled\"\n              (click)=\"handleNavigationClick()\">\n          <mat-icon *ngIf=\"icon\">{{icon}}</mat-icon>\n          <mat-icon *ngIf=\"logo && !icon\" class=\"mat-icon-logo\" [svgIcon]=\"logo\"></mat-icon>\n          <span *ngIf=\"toolbarTitle\">{{toolbarTitle}}</span>\n        </span>\n        <ng-content select=\"[td-sidenav-toolbar-content]\"></ng-content>\n      </mat-toolbar>\n      <div class=\"td-layout-nav-list-content\" cdkScrollable>\n        <ng-content select=\"[td-sidenav-content]\"></ng-content>\n      </div>\n    </mat-sidenav>\n    <div class=\"td-layout-nav-list-main\">\n      <mat-toolbar [color]=\"color\">\n        <ng-content select=\"[td-toolbar-content]\"></ng-content>\n      </mat-toolbar>\n      <div class=\"td-layout-nav-list-content\" cdkScrollable>\n        <ng-content></ng-content>\n      </div>\n      <ng-content select=\"td-layout-footer-inner\"></ng-content>\n    </div>\n  </mat-sidenav-container>\n</div>\n<ng-content select=\"td-layout-footer\"></ng-content>",
                         styles: [":host{margin:0;width:100%;min-height:100%;height:100%;overflow:hidden;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-ms-flex:1;flex:1}:host .td-layout-nav-list-wrapper>.mat-sidenav-container>mat-sidenav.mat-drawer-side{border-right:0}[dir=rtl] :host .td-layout-nav-list-wrapper>.mat-sidenav-container>mat-sidenav.mat-drawer-side{border-left:0}:host .td-layout-nav-list-wrapper{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-ms-flex:1;flex:1;position:relative;overflow:auto;-webkit-overflow-scrolling:touch}:host .td-layout-nav-list-wrapper .td-layout-nav-list-toolbar-content{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}:host .td-layout-nav-list-wrapper .td-layout-nav-list-content{text-align:start;-webkit-box-flex:1;-ms-flex:1;flex:1;display:block;position:relative;overflow:auto;-webkit-overflow-scrolling:touch}:host .td-layout-nav-list-wrapper .td-layout-nav-list-main{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;margin:0;width:100%;min-height:100%;height:100%;position:relative;overflow:auto}:host .td-layout-nav-list-wrapper .td-layout-nav-list-main .td-layout-nav-list-content{display:block;position:relative;overflow:auto;-webkit-overflow-scrolling:touch;-webkit-box-flex:1;-ms-flex:1;flex:1}:host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list{-webkit-box-flex:1;-ms-flex:1;flex:1}:host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list>mat-sidenav.mat-drawer-closed,:host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list>mat-sidenav.mat-drawer-closing,:host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list>mat-sidenav.mat-drawer-opened,:host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list>mat-sidenav.mat-drawer-opening{-webkit-box-shadow:none;box-shadow:none}:host ::ng-deep mat-sidenav-container.td-layout-nav-list>.mat-drawer-content{-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1}:host ::ng-deep mat-sidenav-container.td-layout-nav-list>.mat-drawer>.mat-drawer-inner-container{-webkit-box-shadow:0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);box-shadow:0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}"]
@@ -10055,20 +10055,20 @@
         /** @nocollapse */
         TdLayoutNavListComponent.ctorParameters = function () {
             return [
-                { type: router.Router, decorators: [{ type: core$1.Optional }] }
+                { type: router.Router, decorators: [{ type: i0.Optional }] }
             ];
         };
         TdLayoutNavListComponent.propDecorators = {
-            sidenav: [{ type: core$1.ViewChild, args: [sidenav.MatSidenav,] }],
-            toolbarTitle: [{ type: core$1.Input, args: ['toolbarTitle',] }],
-            icon: [{ type: core$1.Input, args: ['icon',] }],
-            logo: [{ type: core$1.Input, args: ['logo',] }],
-            color: [{ type: core$1.Input, args: ['color',] }],
-            mode: [{ type: core$1.Input, args: ['mode',] }],
-            opened: [{ type: core$1.Input, args: ['opened',] }],
-            sidenavWidth: [{ type: core$1.Input, args: ['sidenavWidth',] }],
-            containerAutosize: [{ type: core$1.Input, args: ['containerAutosize',] }],
-            navigationRoute: [{ type: core$1.Input, args: ['navigationRoute',] }]
+            sidenav: [{ type: i0.ViewChild, args: [sidenav.MatSidenav,] }],
+            toolbarTitle: [{ type: i0.Input, args: ['toolbarTitle',] }],
+            icon: [{ type: i0.Input, args: ['icon',] }],
+            logo: [{ type: i0.Input, args: ['logo',] }],
+            color: [{ type: i0.Input, args: ['color',] }],
+            mode: [{ type: i0.Input, args: ['mode',] }],
+            opened: [{ type: i0.Input, args: ['opened',] }],
+            sidenavWidth: [{ type: i0.Input, args: ['sidenavWidth',] }],
+            containerAutosize: [{ type: i0.Input, args: ['containerAutosize',] }],
+            navigationRoute: [{ type: i0.Input, args: ['navigationRoute',] }]
         };
         return TdLayoutNavListComponent;
     }());
@@ -10102,20 +10102,20 @@
                 this._layout.toggle();
             };
         TdLayoutNavListToggleDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[tdLayoutNavListToggle]',
                     },] }
         ];
         /** @nocollapse */
         TdLayoutNavListToggleDirective.ctorParameters = function () {
             return [
-                { type: TdLayoutNavListComponent, decorators: [{ type: core$1.Optional }, { type: core$1.Inject, args: [core$1.forwardRef(function () { return TdLayoutNavListComponent; }),] }] },
-                { type: core$1.Renderer2 },
-                { type: core$1.ElementRef }
+                { type: TdLayoutNavListComponent, decorators: [{ type: i0.Optional }, { type: i0.Inject, args: [i0.forwardRef(function () { return TdLayoutNavListComponent; }),] }] },
+                { type: i0.Renderer2 },
+                { type: i0.ElementRef }
             ];
         };
         TdLayoutNavListToggleDirective.propDecorators = {
-            tdLayoutNavListToggle: [{ type: core$1.Input, args: ['tdLayoutNavListToggle',] }]
+            tdLayoutNavListToggle: [{ type: i0.Input, args: ['tdLayoutNavListToggle',] }]
         };
         return TdLayoutNavListToggleDirective;
     }(LayoutToggle));
@@ -10144,20 +10144,20 @@
                 this._layout.close();
             };
         TdLayoutNavListCloseDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[tdLayoutNavListClose]',
                     },] }
         ];
         /** @nocollapse */
         TdLayoutNavListCloseDirective.ctorParameters = function () {
             return [
-                { type: TdLayoutNavListComponent, decorators: [{ type: core$1.Optional }, { type: core$1.Inject, args: [core$1.forwardRef(function () { return TdLayoutNavListComponent; }),] }] },
-                { type: core$1.Renderer2 },
-                { type: core$1.ElementRef }
+                { type: TdLayoutNavListComponent, decorators: [{ type: i0.Optional }, { type: i0.Inject, args: [i0.forwardRef(function () { return TdLayoutNavListComponent; }),] }] },
+                { type: i0.Renderer2 },
+                { type: i0.ElementRef }
             ];
         };
         TdLayoutNavListCloseDirective.propDecorators = {
-            tdLayoutNavListClose: [{ type: core$1.Input, args: ['tdLayoutNavListClose',] }]
+            tdLayoutNavListClose: [{ type: i0.Input, args: ['tdLayoutNavListClose',] }]
         };
         return TdLayoutNavListCloseDirective;
     }(LayoutToggle));
@@ -10186,20 +10186,20 @@
                 this._layout.open();
             };
         TdLayoutNavListOpenDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[tdLayoutNavListOpen]',
                     },] }
         ];
         /** @nocollapse */
         TdLayoutNavListOpenDirective.ctorParameters = function () {
             return [
-                { type: TdLayoutNavListComponent, decorators: [{ type: core$1.Optional }, { type: core$1.Inject, args: [core$1.forwardRef(function () { return TdLayoutNavListComponent; }),] }] },
-                { type: core$1.Renderer2 },
-                { type: core$1.ElementRef }
+                { type: TdLayoutNavListComponent, decorators: [{ type: i0.Optional }, { type: i0.Inject, args: [i0.forwardRef(function () { return TdLayoutNavListComponent; }),] }] },
+                { type: i0.Renderer2 },
+                { type: i0.ElementRef }
             ];
         };
         TdLayoutNavListOpenDirective.propDecorators = {
-            tdLayoutNavListOpen: [{ type: core$1.Input, args: ['tdLayoutNavListOpen',] }]
+            tdLayoutNavListOpen: [{ type: i0.Input, args: ['tdLayoutNavListOpen',] }]
         };
         return TdLayoutNavListOpenDirective;
     }(LayoutToggle));
@@ -10226,17 +10226,17 @@
             this.color = 'primary';
         }
         TdLayoutCardOverComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'td-layout-card-over',
                         template: "<mat-toolbar [color]=\"color\">\n</mat-toolbar>\n<div class=\"td-layout-card-over-wrapper\">\n  <div class=\"td-layout-card-over\"\n        [style.max-width.%]=\"cardWidth\"\n        [style.flex]=\"'1 1 ' + cardWidth + '%'\"\n        [style.-ms-flex]=\"'1 1 ' + cardWidth + '%'\"\n        [style.-webkit-box-flex]=\"1\">\n    <mat-card>\n      <mat-card-title *ngIf=\"cardTitle\">{{cardTitle}}</mat-card-title>\n      <mat-card-subtitle *ngIf=\"cardSubtitle\">{{cardSubtitle}}</mat-card-subtitle>\n      <mat-divider *ngIf=\"cardTitle || cardSubtitle\"></mat-divider>\n      <ng-content></ng-content>\n    </mat-card>\n    <ng-content select=\"[td-after-card]\"></ng-content>\n  </div>\n</div>\n",
                         styles: [":host{position:relative;display:block;z-index:2;width:100%;min-height:100%;height:100%}:host [td-after-card]{display:block}.td-layout-card-over-wrapper{margin:-64px 0;width:100%;min-height:100%;height:100%}@media (min-width:600px){.td-layout-card-over-wrapper{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start;-ms-flex-line-pack:start;align-content:flex-start;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.td-layout-card-over-wrapper .td-layout-card-over{max-height:100%;-webkit-box-sizing:border-box;box-sizing:border-box}}@media (max-width:599px){.td-layout-card-over-wrapper .td-layout-card-over{max-width:100%!important}}"]
                     }] }
         ];
         TdLayoutCardOverComponent.propDecorators = {
-            cardTitle: [{ type: core$1.Input, args: ['cardTitle',] }],
-            cardSubtitle: [{ type: core$1.Input, args: ['cardSubtitle',] }],
-            cardWidth: [{ type: core$1.Input, args: ['cardWidth',] }],
-            color: [{ type: core$1.Input, args: ['color',] }]
+            cardTitle: [{ type: i0.Input, args: ['cardTitle',] }],
+            cardSubtitle: [{ type: i0.Input, args: ['cardSubtitle',] }],
+            cardWidth: [{ type: i0.Input, args: ['cardWidth',] }],
+            color: [{ type: i0.Input, args: ['color',] }]
         };
         return TdLayoutCardOverComponent;
     }());
@@ -10347,18 +10347,18 @@
                 return this.sidenav.close();
             };
         TdLayoutManageListComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'td-layout-manage-list',
                         template: "<mat-sidenav-container fullscreen [autosize]=\"containerAutosize\" class=\"td-layout-manage-list\">\n  <mat-sidenav #sidenav\n              position=\"start\"\n              [mode]=\"mode\"\n              [opened]=\"opened\"\n              [disableClose]=\"disableClose\"\n              [style.max-width]=\"sidenavWidth\"\n              [style.min-width]=\"sidenavWidth\">\n    <ng-content select=\"mat-toolbar[td-sidenav-content]\"></ng-content>\n    <div class=\"td-layout-manage-list-sidenav\" cdkScrollable>\n      <ng-content select=\"[td-sidenav-content]\"></ng-content>\n    </div>\n  </mat-sidenav>\n  <div class=\"td-layout-manage-list-main\">\n    <ng-content select=\"mat-toolbar\"></ng-content>\n    <div class=\"td-layout-manage-list-content\" cdkScrollable>\n      <ng-content></ng-content>\n    </div>\n    <ng-content select=\"td-layout-footer-inner\"></ng-content>\n  </div>\n</mat-sidenav-container>\n",
                         styles: [":host{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0;width:100%;min-height:100%;height:100%;overflow:hidden}:host mat-sidenav-container.td-layout-manage-list{-webkit-box-flex:1;-ms-flex:1;flex:1}:host mat-sidenav-container.td-layout-manage-list>.mat-drawer>.mat-drawer-inner-container.mat-drawer-closed,:host mat-sidenav-container.td-layout-manage-list>.mat-drawer>.mat-drawer-inner-container.mat-drawer-closing,:host mat-sidenav-container.td-layout-manage-list>.mat-drawer>.mat-drawer-inner-container.mat-drawer-opened,:host mat-sidenav-container.td-layout-manage-list>.mat-drawer>.mat-drawer-inner-container.mat-drawer-opening{-webkit-box-shadow:0 1px 3px 0 rgba(0,0,0,.2);box-shadow:0 1px 3px 0 rgba(0,0,0,.2)}:host .td-layout-manage-list-sidenav{text-align:start;-webkit-box-flex:1;-ms-flex:1;flex:1;display:block;position:relative;overflow:auto;-webkit-overflow-scrolling:touch}:host .td-layout-manage-list-main{margin:0;width:100%;min-height:100%;height:100%;position:relative;overflow:auto;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex}:host .td-layout-manage-list-main .td-layout-manage-list-content{display:block;position:relative;overflow:auto;-webkit-overflow-scrolling:touch;-webkit-box-flex:1;-ms-flex:1;flex:1}:host ::ng-deep mat-sidenav-container.td-layout-manage-list>.mat-drawer-content{-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1}:host ::ng-deep mat-sidenav-container.td-layout-manage-list>.mat-drawer>.mat-drawer-inner-container{-webkit-box-shadow:0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);box-shadow:0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}:host ::ng-deep mat-nav-list a[mat-list-item] .mat-list-item-content{font-size:14px}:host ::ng-deep .mat-toolbar{font-weight:400}"]
                     }] }
         ];
         TdLayoutManageListComponent.propDecorators = {
-            sidenav: [{ type: core$1.ViewChild, args: [sidenav.MatSidenav,] }],
-            mode: [{ type: core$1.Input, args: ['mode',] }],
-            opened: [{ type: core$1.Input, args: ['opened',] }],
-            sidenavWidth: [{ type: core$1.Input, args: ['sidenavWidth',] }],
-            containerAutosize: [{ type: core$1.Input, args: ['containerAutosize',] }]
+            sidenav: [{ type: i0.ViewChild, args: [sidenav.MatSidenav,] }],
+            mode: [{ type: i0.Input, args: ['mode',] }],
+            opened: [{ type: i0.Input, args: ['opened',] }],
+            sidenavWidth: [{ type: i0.Input, args: ['sidenavWidth',] }],
+            containerAutosize: [{ type: i0.Input, args: ['containerAutosize',] }]
         };
         return TdLayoutManageListComponent;
     }());
@@ -10392,20 +10392,20 @@
                 this._layout.toggle();
             };
         TdLayoutManageListToggleDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[tdLayoutManageListToggle]',
                     },] }
         ];
         /** @nocollapse */
         TdLayoutManageListToggleDirective.ctorParameters = function () {
             return [
-                { type: TdLayoutManageListComponent, decorators: [{ type: core$1.Optional }, { type: core$1.Inject, args: [core$1.forwardRef(function () { return TdLayoutManageListComponent; }),] }] },
-                { type: core$1.Renderer2 },
-                { type: core$1.ElementRef }
+                { type: TdLayoutManageListComponent, decorators: [{ type: i0.Optional }, { type: i0.Inject, args: [i0.forwardRef(function () { return TdLayoutManageListComponent; }),] }] },
+                { type: i0.Renderer2 },
+                { type: i0.ElementRef }
             ];
         };
         TdLayoutManageListToggleDirective.propDecorators = {
-            tdLayoutManageListToggle: [{ type: core$1.Input, args: ['tdLayoutManageListToggle',] }]
+            tdLayoutManageListToggle: [{ type: i0.Input, args: ['tdLayoutManageListToggle',] }]
         };
         return TdLayoutManageListToggleDirective;
     }(LayoutToggle));
@@ -10434,20 +10434,20 @@
                 this._layout.close();
             };
         TdLayoutManageListCloseDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[tdLayoutManageListClose]',
                     },] }
         ];
         /** @nocollapse */
         TdLayoutManageListCloseDirective.ctorParameters = function () {
             return [
-                { type: TdLayoutManageListComponent, decorators: [{ type: core$1.Optional }, { type: core$1.Inject, args: [core$1.forwardRef(function () { return TdLayoutManageListComponent; }),] }] },
-                { type: core$1.Renderer2 },
-                { type: core$1.ElementRef }
+                { type: TdLayoutManageListComponent, decorators: [{ type: i0.Optional }, { type: i0.Inject, args: [i0.forwardRef(function () { return TdLayoutManageListComponent; }),] }] },
+                { type: i0.Renderer2 },
+                { type: i0.ElementRef }
             ];
         };
         TdLayoutManageListCloseDirective.propDecorators = {
-            tdLayoutManageListClose: [{ type: core$1.Input, args: ['tdLayoutManageListClose',] }]
+            tdLayoutManageListClose: [{ type: i0.Input, args: ['tdLayoutManageListClose',] }]
         };
         return TdLayoutManageListCloseDirective;
     }(LayoutToggle));
@@ -10476,20 +10476,20 @@
                 this._layout.open();
             };
         TdLayoutManageListOpenDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[tdLayoutManageListOpen]',
                     },] }
         ];
         /** @nocollapse */
         TdLayoutManageListOpenDirective.ctorParameters = function () {
             return [
-                { type: TdLayoutManageListComponent, decorators: [{ type: core$1.Optional }, { type: core$1.Inject, args: [core$1.forwardRef(function () { return TdLayoutManageListComponent; }),] }] },
-                { type: core$1.Renderer2 },
-                { type: core$1.ElementRef }
+                { type: TdLayoutManageListComponent, decorators: [{ type: i0.Optional }, { type: i0.Inject, args: [i0.forwardRef(function () { return TdLayoutManageListComponent; }),] }] },
+                { type: i0.Renderer2 },
+                { type: i0.ElementRef }
             ];
         };
         TdLayoutManageListOpenDirective.propDecorators = {
-            tdLayoutManageListOpen: [{ type: core$1.Input, args: ['tdLayoutManageListOpen',] }]
+            tdLayoutManageListOpen: [{ type: i0.Input, args: ['tdLayoutManageListOpen',] }]
         };
         return TdLayoutManageListOpenDirective;
     }(LayoutToggle));
@@ -10532,7 +10532,7 @@
             configurable: true
         });
         TdLayoutFooterComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         /* tslint:disable-next-line */
                         selector: 'td-layout-footer,td-layout-footer-inner',
                         template: "<ng-content></ng-content>\n",
@@ -10542,12 +10542,12 @@
         /** @nocollapse */
         TdLayoutFooterComponent.ctorParameters = function () {
             return [
-                { type: core$1.Renderer2 },
-                { type: core$1.ElementRef }
+                { type: i0.Renderer2 },
+                { type: i0.ElementRef }
             ];
         };
         TdLayoutFooterComponent.propDecorators = {
-            color: [{ type: core$1.Input, args: ['color',] }]
+            color: [{ type: i0.Input, args: ['color',] }]
         };
         return TdLayoutFooterComponent;
     }());
@@ -10560,7 +10560,7 @@
         function TdNavigationDrawerMenuDirective() {
         }
         TdNavigationDrawerMenuDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[td-navigation-drawer-menu]',
                     },] }
         ];
@@ -10570,7 +10570,7 @@
         function TdNavigationDrawerToolbarDirective() {
         }
         TdNavigationDrawerToolbarDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[td-navigation-drawer-toolbar]',
                     },] }
         ];
@@ -10648,8 +10648,8 @@
              */ function (backgroundUrl) {
                 if (backgroundUrl) {
                     /** @type {?} */
-                    var sanitizedUrl = this._sanitize.sanitize(core$1.SecurityContext.RESOURCE_URL, backgroundUrl);
-                    this._backgroundImage = this._sanitize.sanitize(core$1.SecurityContext.STYLE, 'url(' + sanitizedUrl + ')');
+                    var sanitizedUrl = this._sanitize.sanitize(i0.SecurityContext.RESOURCE_URL, backgroundUrl);
+                    this._backgroundImage = this._sanitize.sanitize(i0.SecurityContext.STYLE, 'url(' + sanitizedUrl + ')');
                 }
             },
             enumerable: true,
@@ -10769,7 +10769,7 @@
                 return this._layout.close();
             };
         TdNavigationDrawerComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'td-navigation-drawer',
                         template: "<mat-toolbar [color]=\"color\"\n             [style.background-image]=\"backgroundImage\"\n             [class.td-toolbar-background]=\"!!isBackgroundAvailable\"\n             class=\"td-nagivation-drawer-toolbar\">\n  <ng-content select=\"[td-navigation-drawer-toolbar]\"></ng-content>\n  <ng-container *ngIf=\"!isCustomToolbar\">\n    <div *ngIf=\"icon || logo || sidenavTitle || avatar\"\n          class=\"td-navigation-drawer-toolbar-content\"\n          [class.cursor-pointer]=\"routerEnabled\"\n          (click)=\"handleNavigationClick()\">\n      <mat-icon *ngIf=\"icon\">{{icon}}</mat-icon>\n      <mat-icon *ngIf=\"logo && !icon\" class=\"mat-icon-logo\" [svgIcon]=\"logo\"></mat-icon>\n      <img *ngIf=\"avatar && !logo && !icon\" class=\"td-nagivation-drawer-toolbar-avatar\" [attr.src]=\"avatar\" />\n      <span *ngIf=\"sidenavTitle\" class=\"td-navigation-drawer-title\">{{sidenavTitle}}</span>\n    </div>\n    <div class=\"td-navigation-drawer-name\" *ngIf=\"email && name\">{{name}}</div>\n    <div class=\"td-navigation-drawer-menu-toggle\"\n        href\n        *ngIf=\"email || name\"\n        (click)=\"toggleMenu()\">\n      <span class=\"td-navigation-drawer-label\">{{email || name}}</span>\n      <button mat-icon-button class=\"td-navigation-drawer-menu-button\" *ngIf=\"isMenuAvailable\">\n        <mat-icon *ngIf=\"!menuToggled\">arrow_drop_down</mat-icon>\n        <mat-icon *ngIf=\"menuToggled\">arrow_drop_up</mat-icon>\n      </button>\n    </div>\n  </ng-container>\n</mat-toolbar>\n<div class=\"td-navigation-drawer-content\" [@tdCollapse]=\"menuToggled\">\n  <ng-content></ng-content>\n</div>\n<div class=\"td-navigation-drawer-menu-content\" [@tdCollapse]=\"!menuToggled\">\n  <ng-content select=\"[td-navigation-drawer-menu]\"></ng-content>\n</div>\n",
                         animations: [common$1.tdCollapseAnimation],
@@ -10779,23 +10779,23 @@
         /** @nocollapse */
         TdNavigationDrawerComponent.ctorParameters = function () {
             return [
-                { type: TdLayoutComponent, decorators: [{ type: core$1.Inject, args: [core$1.forwardRef(function () { return TdLayoutComponent; }),] }] },
-                { type: router.Router, decorators: [{ type: core$1.Optional }] },
+                { type: TdLayoutComponent, decorators: [{ type: i0.Inject, args: [i0.forwardRef(function () { return TdLayoutComponent; }),] }] },
+                { type: router.Router, decorators: [{ type: i0.Optional }] },
                 { type: platformBrowser.DomSanitizer }
             ];
         };
         TdNavigationDrawerComponent.propDecorators = {
-            _drawerMenu: [{ type: core$1.ContentChildren, args: [TdNavigationDrawerMenuDirective,] }],
-            _toolbar: [{ type: core$1.ContentChildren, args: [TdNavigationDrawerToolbarDirective,] }],
-            sidenavTitle: [{ type: core$1.Input, args: ['sidenavTitle',] }],
-            icon: [{ type: core$1.Input, args: ['icon',] }],
-            logo: [{ type: core$1.Input, args: ['logo',] }],
-            avatar: [{ type: core$1.Input, args: ['avatar',] }],
-            color: [{ type: core$1.Input, args: ['color',] }],
-            navigationRoute: [{ type: core$1.Input, args: ['navigationRoute',] }],
-            backgroundUrl: [{ type: core$1.Input, args: ['backgroundUrl',] }],
-            name: [{ type: core$1.Input, args: ['name',] }],
-            email: [{ type: core$1.Input, args: ['email',] }]
+            _drawerMenu: [{ type: i0.ContentChildren, args: [TdNavigationDrawerMenuDirective,] }],
+            _toolbar: [{ type: i0.ContentChildren, args: [TdNavigationDrawerToolbarDirective,] }],
+            sidenavTitle: [{ type: i0.Input, args: ['sidenavTitle',] }],
+            icon: [{ type: i0.Input, args: ['icon',] }],
+            logo: [{ type: i0.Input, args: ['logo',] }],
+            avatar: [{ type: i0.Input, args: ['avatar',] }],
+            color: [{ type: i0.Input, args: ['color',] }],
+            navigationRoute: [{ type: i0.Input, args: ['navigationRoute',] }],
+            backgroundUrl: [{ type: i0.Input, args: ['backgroundUrl',] }],
+            name: [{ type: i0.Input, args: ['name',] }],
+            email: [{ type: i0.Input, args: ['email',] }]
         };
         return TdNavigationDrawerComponent;
     }());
@@ -10829,7 +10829,7 @@
         function CovalentLayoutModule() {
         }
         CovalentLayoutModule.decorators = [
-            { type: core$1.NgModule, args: [{
+            { type: i0.NgModule, args: [{
                         imports: [
                             common.CommonModule,
                             scrolling.ScrollDispatchModule,
@@ -11178,7 +11178,7 @@
                 return 0;
             };
         TdLoadingComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'td-loading',
                         template: "<div class=\"td-loading-wrapper\"\n    [style.min-height]=\"getHeight()\"\n    [class.td-overlay-circular]=\"(isOverlay() || isFullScreen()) && !isLinear()\"\n    [class.td-overlay]=\"isOverlay() || isFullScreen()\" \n    [class.td-fullscreen]=\"isFullScreen()\">\n  <div [@tdFadeInOut]=\"animation\"\n     (@tdFadeInOut.done)=\"animationComplete($event)\"\n     [style.min-height]=\"getHeight()\"\n     class=\"td-loading\">\n    <mat-progress-spinner *ngIf=\"isCircular()\" \n                        [mode]=\"mode\"\n                        [value]=\"value\" \n                        [color]=\"color\" \n                        [diameter]=\"getCircleDiameter()\"\n                        [strokeWidth]=\"getCircleStrokeWidth()\">\n    </mat-progress-spinner>\n    <mat-progress-bar *ngIf=\"isLinear()\" \n                     [mode]=\"mode\"\n                     [value]=\"value\"\n                     [color]=\"color\">\n    </mat-progress-bar>\n  </div>\n  <ng-template [cdkPortalOutlet]=\"content\"></ng-template>\n</div>",
                         animations: [
@@ -11190,8 +11190,8 @@
         /** @nocollapse */
         TdLoadingComponent.ctorParameters = function () {
             return [
-                { type: core$1.ElementRef },
-                { type: core$1.ChangeDetectorRef }
+                { type: i0.ElementRef },
+                { type: i0.ChangeDetectorRef }
             ];
         };
         return TdLoadingComponent;
@@ -11482,14 +11482,14 @@
                 }
             };
         TdLoadingFactory.decorators = [
-            { type: core$1.Injectable }
+            { type: i0.Injectable }
         ];
         /** @nocollapse */
         TdLoadingFactory.ctorParameters = function () {
             return [
-                { type: core$1.ComponentFactoryResolver },
+                { type: i0.ComponentFactoryResolver },
                 { type: overlay.Overlay },
-                { type: core$1.Injector }
+                { type: i0.Injector }
             ];
         };
         return TdLoadingFactory;
@@ -11508,7 +11508,7 @@
     var LOADING_FACTORY_PROVIDER = {
         // If there is already a service available, use that. Otherwise, provide a new one.
         provide: TdLoadingFactory,
-        deps: [[new core$1.Optional(), new core$1.SkipSelf(), TdLoadingFactory], core$1.ComponentFactoryResolver, overlay.Overlay, core$1.Injector],
+        deps: [[new i0.Optional(), new i0.SkipSelf(), TdLoadingFactory], i0.ComponentFactoryResolver, overlay.Overlay, i0.Injector],
         useFactory: LOADING_FACTORY_PROVIDER_FACTORY,
     };
 
@@ -11921,7 +11921,7 @@
                 delete this._timeouts[name];
             };
         TdLoadingService.decorators = [
-            { type: core$1.Injectable }
+            { type: i0.Injectable }
         ];
         /** @nocollapse */
         TdLoadingService.ctorParameters = function () {
@@ -11943,7 +11943,7 @@
     var LOADING_PROVIDER = {
         // If there is already a service available, use that. Otherwise, provide a new one.
         provide: TdLoadingService,
-        deps: [[new core$1.Optional(), new core$1.SkipSelf(), TdLoadingService], TdLoadingFactory],
+        deps: [[new i0.Optional(), new i0.SkipSelf(), TdLoadingService], TdLoadingFactory],
         useFactory: LOADING_PROVIDER_FACTORY,
     };
 
@@ -12162,25 +12162,25 @@
                 }
             };
         TdLoadingDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[tdLoading]',
                     },] }
         ];
         /** @nocollapse */
         TdLoadingDirective.ctorParameters = function () {
             return [
-                { type: core$1.ViewContainerRef },
-                { type: core$1.TemplateRef },
+                { type: i0.ViewContainerRef },
+                { type: i0.TemplateRef },
                 { type: TdLoadingService }
             ];
         };
         TdLoadingDirective.propDecorators = {
-            name: [{ type: core$1.Input, args: ['tdLoading',] }],
-            until: [{ type: core$1.Input, args: ['tdLoadingUntil',] }],
-            type: [{ type: core$1.Input, args: ['tdLoadingType',] }],
-            mode: [{ type: core$1.Input, args: ['tdLoadingMode',] }],
-            strategy: [{ type: core$1.Input, args: ['tdLoadingStrategy',] }],
-            color: [{ type: core$1.Input, args: ['tdLoadingColor',] }]
+            name: [{ type: i0.Input, args: ['tdLoading',] }],
+            until: [{ type: i0.Input, args: ['tdLoadingUntil',] }],
+            type: [{ type: i0.Input, args: ['tdLoadingType',] }],
+            mode: [{ type: i0.Input, args: ['tdLoadingMode',] }],
+            strategy: [{ type: i0.Input, args: ['tdLoadingStrategy',] }],
+            color: [{ type: i0.Input, args: ['tdLoadingColor',] }]
         };
         return TdLoadingDirective;
     }());
@@ -12202,7 +12202,7 @@
         function CovalentLoadingModule() {
         }
         CovalentLoadingModule.decorators = [
-            { type: core$1.NgModule, args: [{
+            { type: i0.NgModule, args: [{
                         imports: [
                             common.CommonModule,
                             progressBar.MatProgressBarModule,
@@ -12392,31 +12392,19 @@
                 this._querySources[query].next(matchMedia(query).matches);
             };
         TdMediaService.decorators = [
-            { type: core$1.Injectable }
+            { type: i0.Injectable, args: [{
+                        providedIn: 'root',
+                    },] }
         ];
         /** @nocollapse */
         TdMediaService.ctorParameters = function () {
             return [
-                { type: core$1.NgZone }
+                { type: i0.NgZone }
             ];
         };
+        /** @nocollapse */ TdMediaService.ngInjectableDef = i0.defineInjectable({ factory: function TdMediaService_Factory() { return new TdMediaService(i0.inject(i0.NgZone)); }, token: TdMediaService, providedIn: "root" });
         return TdMediaService;
     }());
-    /**
-     * @param {?} parent
-     * @param {?} ngZone
-     * @return {?}
-     */
-    function MEDIA_PROVIDER_FACTORY(parent, ngZone) {
-        return parent || new TdMediaService(ngZone);
-    }
-    /** @type {?} */
-    var MEDIA_PROVIDER = {
-        // If there is already a service available, use that. Otherwise, provide a new one.
-        provide: TdMediaService,
-        deps: [[new core$1.Optional(), new core$1.SkipSelf(), TdMediaService], core$1.NgZone],
-        useFactory: MEDIA_PROVIDER_FACTORY,
-    };
 
     /**
      * @fileoverview added by tsickle
@@ -12589,23 +12577,23 @@
                 }
             };
         TdMediaToggleDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[tdMediaToggle]',
                     },] }
         ];
         /** @nocollapse */
         TdMediaToggleDirective.ctorParameters = function () {
             return [
-                { type: core$1.Renderer2 },
-                { type: core$1.ElementRef },
+                { type: i0.Renderer2 },
+                { type: i0.ElementRef },
                 { type: TdMediaService }
             ];
         };
         TdMediaToggleDirective.propDecorators = {
-            query: [{ type: core$1.Input, args: ['tdMediaToggle',] }],
-            attributes: [{ type: core$1.Input, args: ['mediaAttributes',] }],
-            classes: [{ type: core$1.Input, args: ['mediaClasses',] }],
-            styles: [{ type: core$1.Input, args: ['mediaStyles',] }]
+            query: [{ type: i0.Input, args: ['tdMediaToggle',] }],
+            attributes: [{ type: i0.Input, args: ['mediaAttributes',] }],
+            classes: [{ type: i0.Input, args: ['mediaClasses',] }],
+            styles: [{ type: i0.Input, args: ['mediaStyles',] }]
         };
         return TdMediaToggleDirective;
     }());
@@ -12622,18 +12610,12 @@
         function CovalentMediaModule() {
         }
         CovalentMediaModule.decorators = [
-            { type: core$1.NgModule, args: [{
-                        imports: [
-                            common.CommonModule,
-                        ],
+            { type: i0.NgModule, args: [{
                         declarations: [
                             TD_MEDIA,
                         ],
                         exports: [
                             TD_MEDIA,
-                        ],
-                        providers: [
-                            MEDIA_PROVIDER,
                         ],
                     },] }
         ];
@@ -12658,7 +12640,7 @@
         function TdMenuComponent() {
         }
         TdMenuComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'td-menu',
                         template: "<ng-content select=\"[td-menu-header]\"></ng-content>\n<mat-divider></mat-divider>\n<div class=\"td-menu-content\">\n  <ng-content></ng-content>\n</div>\n<mat-divider></mat-divider>\n<ng-content select=\"[td-menu-footer]\"></ng-content>",
                         styles: [":host{margin-top:-8px;margin-bottom:-8px;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}:host ::ng-deep [td-menu-header]{padding:8px;text-align:center}:host ::ng-deep mat-list a[mat-list-item].mat-2-line,:host ::ng-deep mat-list mat-list-item.mat-2-line,:host ::ng-deep mat-list[dense] a[mat-list-item].mat-2-line,:host ::ng-deep mat-list[dense] mat-list-item.mat-2-line,:host ::ng-deep mat-nav-list a[mat-list-item].mat-2-line,:host ::ng-deep mat-nav-list mat-list-item.mat-2-line,:host ::ng-deep mat-nav-list[dense] a[mat-list-item].mat-2-line,:host ::ng-deep mat-nav-list[dense] mat-list-item.mat-2-line{height:auto}:host ::ng-deep mat-list a[mat-list-item].mat-2-line .mat-list-item-content,:host ::ng-deep mat-list mat-list-item.mat-2-line .mat-list-item-content,:host ::ng-deep mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content,:host ::ng-deep mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content,:host ::ng-deep mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content,:host ::ng-deep mat-nav-list mat-list-item.mat-2-line .mat-list-item-content,:host ::ng-deep mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content,:host ::ng-deep mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content{height:auto;padding:8px}:host ::ng-deep mat-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-nav-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text{padding-right:0}[dir=rtl] :host ::ng-deep mat-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-nav-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text{padding-left:0;padding-right:16px}:host ::ng-deep mat-list a[mat-list-item].mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-list mat-list-item.mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-nav-list mat-list-item.mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content [matLine]+[matLine]{margin-top:4px}.td-menu-content{max-height:calc(50vh);overflow-y:auto}"]
@@ -12679,7 +12661,7 @@
         function CovalentMenuModule() {
         }
         CovalentMenuModule.decorators = [
-            { type: core$1.NgModule, args: [{
+            { type: i0.NgModule, args: [{
                         imports: [
                             common.CommonModule,
                             menu.MatMenuModule,
@@ -12744,22 +12726,22 @@
              * searchDebounce: function($event)
              * Event emitted after the [debounce] timeout.
              */
-            _this.onSearchDebounce = new core$1.EventEmitter();
+            _this.onSearchDebounce = new i0.EventEmitter();
             /**
              * search: function($event)
              * Event emitted after the key enter has been pressed.
              */
-            _this.onSearch = new core$1.EventEmitter();
+            _this.onSearch = new i0.EventEmitter();
             /**
              * clear: function()
              * Event emitted after the clear icon has been clicked.
              */
-            _this.onClear = new core$1.EventEmitter();
+            _this.onClear = new i0.EventEmitter();
             /**
              * blur: function()
              * Event emitted after the blur event has been called in underlying input.
              */
-            _this.onBlur = new core$1.EventEmitter();
+            _this.onBlur = new i0.EventEmitter();
             return _this;
         }
         Object.defineProperty(TdSearchInputComponent.prototype, "isRTL", {
@@ -12860,15 +12842,15 @@
                 this.onSearchDebounce.emit(value);
             };
         TdSearchInputComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         providers: [{
                                 provide: forms.NG_VALUE_ACCESSOR,
-                                useExisting: core$1.forwardRef(function () { return TdSearchInputComponent; }),
+                                useExisting: i0.forwardRef(function () { return TdSearchInputComponent; }),
                                 multi: true,
                             }],
                         selector: 'td-search-input',
                         template: "<div class=\"td-search-input\">\n  <mat-form-field class=\"td-search-input-field\"\n                  [class.mat-hide-underline]=\"!showUnderline\"\n                  [appearance]=\"appearance\"\n                  floatLabel=\"never\">\n    <input matInput\n            #searchElement\n            type=\"search\"\n            [(ngModel)]=\"value\"\n            [placeholder]=\"placeholder\"\n            (blur)=\"handleBlur()\"\n            (search)=\"stopPropagation($event)\"\n            (keyup.enter)=\"handleSearch($event)\"/>\n    <span matSuffix *ngIf=\"appearance === 'fill' || appearance === 'outline' || appearance === 'standard'\">\n      <ng-template\n        [ngTemplateOutlet]=\"clearButton\">\n      </ng-template>\n    </span>\n  </mat-form-field>\n  <ng-template\n    *ngIf=\"!appearance || appearance === 'legacy'\"\n    [ngTemplateOutlet]=\"clearButton\">\n  </ng-template>\n</div>\n<ng-template #clearButton>\n  <button mat-icon-button\n          class=\"td-search-input-clear\"\n          type=\"button\"\n          [@searchState]=\"(searchElement.value ?  'show' : (isRTL ? 'hide-left' : 'hide-right'))\"\n          (click)=\"clearSearch()\">\n    <mat-icon>{{clearIcon}}</mat-icon>\n  </button>\n</ng-template>\n",
-                        changeDetection: core$1.ChangeDetectionStrategy.OnPush,
+                        changeDetection: i0.ChangeDetectionStrategy.OnPush,
                         inputs: ['value'],
                         animations: [
                             animations.trigger('searchState', [
@@ -12894,21 +12876,21 @@
         /** @nocollapse */
         TdSearchInputComponent.ctorParameters = function () {
             return [
-                { type: bidi.Dir, decorators: [{ type: core$1.Optional }] },
-                { type: core$1.ChangeDetectorRef }
+                { type: bidi.Dir, decorators: [{ type: i0.Optional }] },
+                { type: i0.ChangeDetectorRef }
             ];
         };
         TdSearchInputComponent.propDecorators = {
-            _input: [{ type: core$1.ViewChild, args: [input.MatInput,] }],
-            appearance: [{ type: core$1.Input, args: ['appearance',] }],
-            showUnderline: [{ type: core$1.Input, args: ['showUnderline',] }],
-            debounce: [{ type: core$1.Input, args: ['debounce',] }],
-            placeholder: [{ type: core$1.Input, args: ['placeholder',] }],
-            clearIcon: [{ type: core$1.Input, args: ['clearIcon',] }],
-            onSearchDebounce: [{ type: core$1.Output, args: ['searchDebounce',] }],
-            onSearch: [{ type: core$1.Output, args: ['search',] }],
-            onClear: [{ type: core$1.Output, args: ['clear',] }],
-            onBlur: [{ type: core$1.Output, args: ['blur',] }]
+            _input: [{ type: i0.ViewChild, args: [input.MatInput,] }],
+            appearance: [{ type: i0.Input, args: ['appearance',] }],
+            showUnderline: [{ type: i0.Input, args: ['showUnderline',] }],
+            debounce: [{ type: i0.Input, args: ['debounce',] }],
+            placeholder: [{ type: i0.Input, args: ['placeholder',] }],
+            clearIcon: [{ type: i0.Input, args: ['clearIcon',] }],
+            onSearchDebounce: [{ type: i0.Output, args: ['searchDebounce',] }],
+            onSearch: [{ type: i0.Output, args: ['search',] }],
+            onClear: [{ type: i0.Output, args: ['clear',] }],
+            onBlur: [{ type: i0.Output, args: ['blur',] }]
         };
         return TdSearchInputComponent;
     }(_TdSearchInputMixinBase));
@@ -12968,22 +12950,22 @@
              * searchDebounce: function($event)
              * Event emitted after the [debounce] timeout.
              */
-            _this.onSearchDebounce = new core$1.EventEmitter();
+            _this.onSearchDebounce = new i0.EventEmitter();
             /**
              * search: function($event)
              * Event emitted after the key enter has been pressed.
              */
-            _this.onSearch = new core$1.EventEmitter();
+            _this.onSearch = new i0.EventEmitter();
             /**
              * clear: function()
              * Event emitted after the clear icon has been clicked.
              */
-            _this.onClear = new core$1.EventEmitter();
+            _this.onClear = new i0.EventEmitter();
             /**
              * blur: function()
              * Event emitted after the blur event has been called in underlying input.
              */
-            _this.onBlur = new core$1.EventEmitter();
+            _this.onBlur = new i0.EventEmitter();
             return _this;
         }
         Object.defineProperty(TdSearchBoxComponent.prototype, "searchVisible", {
@@ -13067,15 +13049,15 @@
                 this.onBlur.emit(undefined);
             };
         TdSearchBoxComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         providers: [{
                                 provide: forms.NG_VALUE_ACCESSOR,
-                                useExisting: core$1.forwardRef(function () { return TdSearchBoxComponent; }),
+                                useExisting: i0.forwardRef(function () { return TdSearchBoxComponent; }),
                                 multi: true,
                             }],
                         selector: 'td-search-box',
                         template: "<div class=\"td-search-box\">\n  <button mat-icon-button type=\"button\" class=\"td-search-icon\" (click)=\"searchClicked()\">\n    <mat-icon *ngIf=\"searchVisible && !alwaysVisible\">{{backIcon}}</mat-icon>\n    <mat-icon *ngIf=\"!searchVisible || alwaysVisible\">{{searchIcon}}</mat-icon>\n  </button>\n  <td-search-input #searchInput\n                   [@inputState]=\"alwaysVisible || searchVisible\"\n                   [debounce]=\"debounce\"\n                   [(ngModel)]=\"value\"\n                   [showUnderline]=\"showUnderline\"\n                   [placeholder]=\"placeholder\"\n                   [clearIcon]=\"clearIcon\"\n                   (searchDebounce)=\"handleSearchDebounce($event)\"\n                   (search)=\"handleSearch($event)\"\n                   (clear)=\"handleClear(); toggleVisibility()\"\n                   (blur)=\"handleBlur()\">\n  </td-search-input>\n</div>\n",
-                        changeDetection: core$1.ChangeDetectionStrategy.OnPush,
+                        changeDetection: i0.ChangeDetectionStrategy.OnPush,
                         inputs: ['value'],
                         animations: [
                             animations.trigger('inputState', [
@@ -13097,22 +13079,22 @@
         /** @nocollapse */
         TdSearchBoxComponent.ctorParameters = function () {
             return [
-                { type: core$1.ChangeDetectorRef }
+                { type: i0.ChangeDetectorRef }
             ];
         };
         TdSearchBoxComponent.propDecorators = {
-            _searchInput: [{ type: core$1.ViewChild, args: [TdSearchInputComponent,] }],
-            backIcon: [{ type: core$1.Input, args: ['backIcon',] }],
-            searchIcon: [{ type: core$1.Input, args: ['searchIcon',] }],
-            clearIcon: [{ type: core$1.Input, args: ['clearIcon',] }],
-            showUnderline: [{ type: core$1.Input, args: ['showUnderline',] }],
-            debounce: [{ type: core$1.Input, args: ['debounce',] }],
-            alwaysVisible: [{ type: core$1.Input, args: ['alwaysVisible',] }],
-            placeholder: [{ type: core$1.Input, args: ['placeholder',] }],
-            onSearchDebounce: [{ type: core$1.Output, args: ['searchDebounce',] }],
-            onSearch: [{ type: core$1.Output, args: ['search',] }],
-            onClear: [{ type: core$1.Output, args: ['clear',] }],
-            onBlur: [{ type: core$1.Output, args: ['blur',] }]
+            _searchInput: [{ type: i0.ViewChild, args: [TdSearchInputComponent,] }],
+            backIcon: [{ type: i0.Input, args: ['backIcon',] }],
+            searchIcon: [{ type: i0.Input, args: ['searchIcon',] }],
+            clearIcon: [{ type: i0.Input, args: ['clearIcon',] }],
+            showUnderline: [{ type: i0.Input, args: ['showUnderline',] }],
+            debounce: [{ type: i0.Input, args: ['debounce',] }],
+            alwaysVisible: [{ type: i0.Input, args: ['alwaysVisible',] }],
+            placeholder: [{ type: i0.Input, args: ['placeholder',] }],
+            onSearchDebounce: [{ type: i0.Output, args: ['searchDebounce',] }],
+            onSearch: [{ type: i0.Output, args: ['search',] }],
+            onClear: [{ type: i0.Output, args: ['clear',] }],
+            onBlur: [{ type: i0.Output, args: ['blur',] }]
         };
         return TdSearchBoxComponent;
     }(_TdSearchBoxMixinBase));
@@ -13125,7 +13107,7 @@
         function CovalentSearchModule() {
         }
         CovalentSearchModule.decorators = [
-            { type: core$1.NgModule, args: [{
+            { type: i0.NgModule, args: [{
                         imports: [
                             forms.FormsModule,
                             common.CommonModule,
@@ -13251,26 +13233,26 @@
                 event.preventDefault();
             };
         TdBreadcrumbComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'td-breadcrumb, a[td-breadcrumb]',
                         template: "<ng-content></ng-content>\n<mat-icon *ngIf=\"_displayIcon\"\n          class=\"td-breadcrumb-separator-icon\"\n          [style.cursor]=\"'default'\"\n          (click)=\"_handleIconClick($event)\">\n  {{separatorIcon}}\n</mat-icon>\n",
                         /* tslint:disable-next-line */
                         host: {
                             class: 'mat-button td-breadcrumb',
                         },
-                        changeDetection: core$1.ChangeDetectionStrategy.OnPush,
+                        changeDetection: i0.ChangeDetectionStrategy.OnPush,
                         styles: [":host.td-breadcrumb{display:inline-block;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}:host.td-breadcrumb ::ng-deep>*{margin:0 10px}:host .td-breadcrumb-separator-icon{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;vertical-align:middle}:host.mat-button{min-width:0;padding:0}"]
                     }] }
         ];
         /** @nocollapse */
         TdBreadcrumbComponent.ctorParameters = function () {
             return [
-                { type: core$1.ElementRef },
-                { type: core$1.ChangeDetectorRef }
+                { type: i0.ElementRef },
+                { type: i0.ChangeDetectorRef }
             ];
         };
         TdBreadcrumbComponent.propDecorators = {
-            displayBinding: [{ type: core$1.HostBinding, args: ['style.display',] }]
+            displayBinding: [{ type: i0.HostBinding, args: ['style.display',] }]
         };
         return TdBreadcrumbComponent;
     }());
@@ -13444,27 +13426,27 @@
                 this._changeDetectorRef.markForCheck();
             };
         TdBreadcrumbsComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'td-breadcrumbs',
                         template: "<ng-content></ng-content>\n",
                         /* tslint:disable-next-line */
                         host: {
                             class: 'td-breadcrumbs',
                         },
-                        changeDetection: core$1.ChangeDetectionStrategy.OnPush,
+                        changeDetection: i0.ChangeDetectionStrategy.OnPush,
                         styles: [":host{display:block;width:100%}:host.td-breadcrumbs{white-space:nowrap}"]
                     }] }
         ];
         /** @nocollapse */
         TdBreadcrumbsComponent.ctorParameters = function () {
             return [
-                { type: core$1.ElementRef },
-                { type: core$1.ChangeDetectorRef }
+                { type: i0.ElementRef },
+                { type: i0.ChangeDetectorRef }
             ];
         };
         TdBreadcrumbsComponent.propDecorators = {
-            _breadcrumbs: [{ type: core$1.ContentChildren, args: [TdBreadcrumbComponent,] }],
-            separatorIcon: [{ type: core$1.Input, args: ['separatorIcon',] }]
+            _breadcrumbs: [{ type: i0.ContentChildren, args: [TdBreadcrumbComponent,] }],
+            separatorIcon: [{ type: i0.Input, args: ['separatorIcon',] }]
         };
         return TdBreadcrumbsComponent;
     }());
@@ -13477,7 +13459,7 @@
         function CovalentBreadcrumbsModule() {
         }
         CovalentBreadcrumbsModule.decorators = [
-            { type: core$1.NgModule, args: [{
+            { type: i0.NgModule, args: [{
                         imports: [
                             common.CommonModule,
                             icon.MatIconModule,
@@ -13521,15 +13503,15 @@
             return _super.call(this, templateRef, viewContainerRef) || this;
         }
         TdStepLabelDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[td-step-label]ng-template',
                     },] }
         ];
         /** @nocollapse */
         TdStepLabelDirective.ctorParameters = function () {
             return [
-                { type: core$1.TemplateRef },
-                { type: core$1.ViewContainerRef }
+                { type: i0.TemplateRef },
+                { type: i0.ViewContainerRef }
             ];
         };
         return TdStepLabelDirective;
@@ -13540,15 +13522,15 @@
             return _super.call(this, templateRef, viewContainerRef) || this;
         }
         TdStepActionsDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[td-step-actions]ng-template',
                     },] }
         ];
         /** @nocollapse */
         TdStepActionsDirective.ctorParameters = function () {
             return [
-                { type: core$1.TemplateRef },
-                { type: core$1.ViewContainerRef }
+                { type: i0.TemplateRef },
+                { type: i0.ViewContainerRef }
             ];
         };
         return TdStepActionsDirective;
@@ -13559,15 +13541,15 @@
             return _super.call(this, templateRef, viewContainerRef) || this;
         }
         TdStepSummaryDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: i0.Directive, args: [{
                         selector: '[td-step-summary]ng-template',
                     },] }
         ];
         /** @nocollapse */
         TdStepSummaryDirective.ctorParameters = function () {
             return [
-                { type: core$1.TemplateRef },
-                { type: core$1.ViewContainerRef }
+                { type: i0.TemplateRef },
+                { type: i0.ViewContainerRef }
             ];
         };
         return TdStepSummaryDirective;
@@ -13591,12 +13573,12 @@
              * activated?: function
              * Event emitted when [TdStepComponent] is activated.
              */
-            _this.onActivated = new core$1.EventEmitter();
+            _this.onActivated = new i0.EventEmitter();
             /**
              * deactivated?: function
              * Event emitted when [TdStepComponent] is deactivated.
              */
-            _this.onDeactivated = new core$1.EventEmitter();
+            _this.onDeactivated = new i0.EventEmitter();
             return _this;
         }
         Object.defineProperty(TdStepComponent.prototype, "stepContent", {
@@ -13807,7 +13789,7 @@
                 this.onDeactivated.emit(undefined);
             };
         TdStepComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'td-step',
                         inputs: ['disabled', 'disableRipple'],
                         template: "<ng-template>\n  <ng-content></ng-content>\n</ng-template>"
@@ -13816,20 +13798,20 @@
         /** @nocollapse */
         TdStepComponent.ctorParameters = function () {
             return [
-                { type: core$1.ViewContainerRef }
+                { type: i0.ViewContainerRef }
             ];
         };
         TdStepComponent.propDecorators = {
-            _content: [{ type: core$1.ViewChild, args: [core$1.TemplateRef,] }],
-            stepLabel: [{ type: core$1.ContentChild, args: [TdStepLabelDirective,] }],
-            stepActions: [{ type: core$1.ContentChild, args: [TdStepActionsDirective,] }],
-            stepSummary: [{ type: core$1.ContentChild, args: [TdStepSummaryDirective,] }],
-            label: [{ type: core$1.Input, args: ['label',] }],
-            sublabel: [{ type: core$1.Input, args: ['sublabel',] }],
-            active: [{ type: core$1.Input, args: ['active',] }],
-            state: [{ type: core$1.Input, args: ['state',] }],
-            onActivated: [{ type: core$1.Output, args: ['activated',] }],
-            onDeactivated: [{ type: core$1.Output, args: ['deactivated',] }]
+            _content: [{ type: i0.ViewChild, args: [i0.TemplateRef,] }],
+            stepLabel: [{ type: i0.ContentChild, args: [TdStepLabelDirective,] }],
+            stepActions: [{ type: i0.ContentChild, args: [TdStepActionsDirective,] }],
+            stepSummary: [{ type: i0.ContentChild, args: [TdStepSummaryDirective,] }],
+            label: [{ type: i0.Input, args: ['label',] }],
+            sublabel: [{ type: i0.Input, args: ['sublabel',] }],
+            active: [{ type: i0.Input, args: ['active',] }],
+            state: [{ type: i0.Input, args: ['state',] }],
+            onActivated: [{ type: i0.Output, args: ['activated',] }],
+            onDeactivated: [{ type: i0.Output, args: ['deactivated',] }]
         };
         return TdStepComponent;
     }(_TdStepMixinBase));
@@ -13851,7 +13833,7 @@
              * Method to be executed when [onStepChange] event is emitted.
              * Emits an [IStepChangeEvent] implemented object.
              */
-            this.onStepChange = new core$1.EventEmitter();
+            this.onStepChange = new i0.EventEmitter();
         }
         Object.defineProperty(TdStepsComponent.prototype, "stepsContent", {
             set: /**
@@ -14053,7 +14035,7 @@
                 }
             };
         TdStepsComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'td-steps',
                         template: "<div *ngIf=\"isHorizontal()\" class=\"td-steps-header\">\n  <ng-template let-step let-index=\"index\" let-last=\"last\" ngFor [ngForOf]=\"steps\">\n    <td-step-header class=\"td-step-horizontal-header\"\n                    (keydown.enter)=\"step.open()\"\n                    [number]=\"index + 1\"\n                    [active]=\"step.active\"\n                    [disableRipple]=\"step.disableRipple\"\n                    [disabled]=\"step.disabled\" \n                    [state]=\"step.state\"\n                    (click)=\"step.open()\">\n      <ng-template td-step-header-label [cdkPortalOutlet]=\"step.stepLabel\"></ng-template>\n      <ng-template td-step-header-label [ngIf]=\"!step.stepLabel\">{{step.label}}</ng-template>\n      <ng-template td-step-header-sublabel [ngIf]=\"true\">{{step.sublabel | truncate:30}}</ng-template>\n    </td-step-header>\n    <span *ngIf=\"!last\" class=\"td-horizontal-line\"></span>\n  </ng-template>\n</div>\n<div *ngFor=\"let step of steps; let index = index; let last = last\" class=\"td-step\">\n  <td-step-header class=\"td-step-vertical-header\"\n                  (keydown.enter)=\"step.toggle()\"\n                  [number]=\"index + 1\"\n                  [active]=\"step.active\" \n                  [disabled]=\"step.disabled\"\n                  [disableRipple]=\"step.disableRipple\"\n                  [state]=\"step.state\"\n                  (click)=\"step.toggle()\"\n                  *ngIf=\"isVertical()\">\n    <ng-template td-step-header-label [cdkPortalOutlet]=\"step.stepLabel\"></ng-template>\n    <ng-template td-step-header-label [ngIf]=\"!step.stepLabel\">{{step.label}}</ng-template>\n    <ng-template td-step-header-sublabel [ngIf]=\"true\">{{step.sublabel}}</ng-template>\n  </td-step-header>\n  <ng-template [ngIf]=\"isVertical() || step.active || (!areStepsActive() && prevStep === step)\">\n    <td-step-body [active]=\"step.active\" [state]=\"step.state\">\n      <div *ngIf=\"isVertical()\" class=\"td-line-wrapper\">\n        <div *ngIf=\"!last\" class=\"td-vertical-line\"></div>\n      </div>\n      <ng-template td-step-body-content [cdkPortalOutlet]=\"step.stepContent\"></ng-template>\n      <ng-template td-step-body-actions [cdkPortalOutlet]=\"step.stepActions\"></ng-template>\n      <ng-template td-step-body-summary [cdkPortalOutlet]=\"step.stepSummary\"></ng-template>\n    </td-step-body>\n  </ng-template>\n</div>\n",
                         /* tslint:disable-next-line */
@@ -14064,9 +14046,9 @@
                     }] }
         ];
         TdStepsComponent.propDecorators = {
-            stepsContent: [{ type: core$1.ContentChildren, args: [TdStepComponent,] }],
-            mode: [{ type: core$1.Input, args: ['mode',] }],
-            onStepChange: [{ type: core$1.Output, args: ['stepChange',] }]
+            stepsContent: [{ type: i0.ContentChildren, args: [TdStepComponent,] }],
+            mode: [{ type: i0.Input, args: ['mode',] }],
+            onStepChange: [{ type: i0.Output, args: ['stepChange',] }]
         };
         return TdStepsComponent;
     }());
@@ -14124,7 +14106,7 @@
                 return this.state === StepState.Required;
             };
         TdStepHeaderComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'td-step-header',
                         inputs: ['disabled', 'disableRipple'],
                         template: "<div class=\"td-step-header\"\n      [class.mat-disabled]=\"disabled\"\n      matRipple\n      [matRippleDisabled]=\"disabled || disableRipple\"\n      [tabIndex]=\"disabled ? -1 : (tabIndex || 0)\">\n  <div class=\"td-circle\"\n      [class.mat-inactive]=\"(!active && !isComplete()) || disabled\"\n      [class.mat-active]=\"active && !disabled\"\n      *ngIf=\"!isRequired() && !isComplete()\">\n    <span *ngIf=\"(active || !isComplete())\">{{number || ''}}</span>\n  </div>\n  <div class=\"td-complete\" *ngIf=\"isComplete()\">\n    <mat-icon class=\"mat-complete\">check_circle</mat-icon>\n  </div>\n  <div class=\"td-triangle\"\n      [class.bg-muted]=\"disabled\"\n      *ngIf=\"isRequired()\">\n    <mat-icon class=\"mat-warn\">warning</mat-icon>\n  </div>\n  <div class=\"td-step-label-wrapper\"\n        [class.mat-inactive]=\"(!active && !isComplete()) || disabled\"\n        [class.mat-warn]=\"isRequired() && !disabled\">\n    <div class=\"td-step-label\">\n      <ng-content select=\"[td-step-header-label]\"></ng-content>\n    </div>\n    <div class=\"td-step-sublabel\">\n      <ng-content select=\"[td-step-header-sublabel]\"></ng-content>\n    </div>\n  </div>\n  <span class=\"td-step-header-separator\"></span>\n  <mat-icon class=\"td-edit-icon\" *ngIf=\"isComplete() && !active && !disabled\">mode_edit</mat-icon>\n</div>",
@@ -14132,10 +14114,10 @@
                     }] }
         ];
         TdStepHeaderComponent.propDecorators = {
-            number: [{ type: core$1.Input, args: ['number',] }],
-            active: [{ type: core$1.Input, args: ['active',] }],
-            state: [{ type: core$1.Input, args: ['state',] }],
-            tabIndex: [{ type: core$1.Input, args: ['tabIndex',] }]
+            number: [{ type: i0.Input, args: ['number',] }],
+            active: [{ type: i0.Input, args: ['active',] }],
+            state: [{ type: i0.Input, args: ['state',] }],
+            tabIndex: [{ type: i0.Input, args: ['tabIndex',] }]
         };
         return TdStepHeaderComponent;
     }(_TdStepHeaderMixinBase));
@@ -14198,7 +14180,7 @@
                 return this.state === StepState.Complete;
             };
         TdStepBodyComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'td-step-body',
                         template: "<ng-content></ng-content>\n<div class=\"td-step-body\">\n  <div class=\"td-step-content-wrapper\"\n       [@tdCollapse]=\"!active\">\n    <div #contentRef cdkScrollable [class.td-step-content]=\"hasContent\">\n      <ng-content select=\"[td-step-body-content]\"></ng-content>\n    </div>\n    <div #actionsRef\n         [class.td-step-actions]=\"hasActions\">\n      <ng-content select=\"[td-step-body-actions]\"></ng-content>\n    </div>\n  </div>\n  <div #summaryRef\n       [@tdCollapse]=\"active || !isComplete()\"\n       [class.td-step-summary]=\"hasSummary\">\n    <ng-content select=\"[td-step-body-summary]\"></ng-content>\n  </div>\n</div>",
                         animations: [
@@ -14208,11 +14190,11 @@
                     }] }
         ];
         TdStepBodyComponent.propDecorators = {
-            contentRef: [{ type: core$1.ViewChild, args: ['contentRef', { read: core$1.ElementRef },] }],
-            actionsRef: [{ type: core$1.ViewChild, args: ['actionsRef', { read: core$1.ElementRef },] }],
-            summaryRef: [{ type: core$1.ViewChild, args: ['summaryRef', { read: core$1.ElementRef },] }],
-            active: [{ type: core$1.Input, args: ['active',] }],
-            state: [{ type: core$1.Input, args: ['state',] }]
+            contentRef: [{ type: i0.ViewChild, args: ['contentRef', { read: i0.ElementRef },] }],
+            actionsRef: [{ type: i0.ViewChild, args: ['actionsRef', { read: i0.ElementRef },] }],
+            summaryRef: [{ type: i0.ViewChild, args: ['summaryRef', { read: i0.ElementRef },] }],
+            active: [{ type: i0.Input, args: ['active',] }],
+            state: [{ type: i0.Input, args: ['state',] }]
         };
         return TdStepBodyComponent;
     }());
@@ -14301,11 +14283,11 @@
                 }
             };
         TdNavStepLinkComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: '[td-step-link],[tdStepLink]',
                         template: "<td-step-header class=\"td-step-header-wrapper\"\n                [tabIndex]=\"-1\"\n                [number]=\"number\"\n                [active]=\"active\"\n                [disableRipple]=\"disableRipple || disabled\"\n                [disabled]=\"disabled\" \n                [state]=\"state\">\n  <ng-template td-step-header-label [ngIf]=\"true\">{{label}}</ng-template>\n  <ng-template td-step-header-sublabel [ngIf]=\"true\">{{sublabel | truncate:30}}</ng-template>\n  <ng-content></ng-content>\n</td-step-header>",
                         inputs: ['disabled', 'disableRipple'],
-                        changeDetection: core$1.ChangeDetectionStrategy.OnPush,
+                        changeDetection: i0.ChangeDetectionStrategy.OnPush,
                         /* tslint:disable-next-line */
                         host: {
                             '[class.td-step-link]': 'true',
@@ -14320,16 +14302,16 @@
         /** @nocollapse */
         TdNavStepLinkComponent.ctorParameters = function () {
             return [
-                { type: core$1.ChangeDetectorRef },
-                { type: core$1.ElementRef }
+                { type: i0.ChangeDetectorRef },
+                { type: i0.ElementRef }
             ];
         };
         TdNavStepLinkComponent.propDecorators = {
-            state: [{ type: core$1.Input, args: ['state',] }],
-            label: [{ type: core$1.Input, args: ['label',] }],
-            sublabel: [{ type: core$1.Input, args: ['sublabel',] }],
-            active: [{ type: core$1.Input, args: ['active',] }],
-            tabIndex: [{ type: core$1.Input, args: ['tabIndex',] }]
+            state: [{ type: i0.Input, args: ['state',] }],
+            label: [{ type: i0.Input, args: ['label',] }],
+            sublabel: [{ type: i0.Input, args: ['sublabel',] }],
+            active: [{ type: i0.Input, args: ['active',] }],
+            tabIndex: [{ type: i0.Input, args: ['tabIndex',] }]
         };
         return TdNavStepLinkComponent;
     }(_TdStepMixinBase));
@@ -14661,10 +14643,10 @@
                 });
             };
         TdNavStepsHorizontalComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'nav[td-steps][horizontal]',
                         template: "<div class=\"td-steps-header\">\n  <div class=\"td-step-header-pagination td-step-header-pagination-before mat-elevation-z4\"\n        aria-hidden=\"true\"\n        mat-ripple [matRippleDisabled]=\"_disableScrollBefore\"\n        [class.td-step-header-pagination-disabled]=\"_disableScrollBefore\"\n        (click)=\"_scrollHeader('before')\">\n    <div class=\"td-step-header-pagination-chevron\"></div>\n  </div>\n  <div #stepListContainer class=\"td-steps-header-container\" (keydown)=\"_handleKeydown($event)\">\n    <div #stepList class=\"td-steps-header-list\">\n      <ng-content></ng-content>\n    </div>\n  </div>\n  <div class=\"td-step-header-pagination td-step-header-pagination-after mat-elevation-z4\"\n        aria-hidden=\"true\"\n        mat-ripple [matRippleDisabled]=\"_disableScrollAfter\"\n        [class.td-step-header-pagination-disabled]=\"_disableScrollAfter\"\n        (click)=\"_scrollHeader('after')\">\n    <div class=\"td-step-header-pagination-chevron\"></div>\n  </div>\n</div>\n",
-                        changeDetection: core$1.ChangeDetectionStrategy.OnPush,
+                        changeDetection: i0.ChangeDetectionStrategy.OnPush,
                         /* tslint:disable-next-line */
                         host: {
                             class: 'td-steps td-steps-horizontal',
@@ -14677,17 +14659,17 @@
         /** @nocollapse */
         TdNavStepsHorizontalComponent.ctorParameters = function () {
             return [
-                { type: core$1.ElementRef },
+                { type: i0.ElementRef },
                 { type: scrolling.ViewportRuler },
-                { type: bidi.Directionality, decorators: [{ type: core$1.Optional }] },
-                { type: core$1.Renderer2 },
-                { type: core$1.ChangeDetectorRef }
+                { type: bidi.Directionality, decorators: [{ type: i0.Optional }] },
+                { type: i0.Renderer2 },
+                { type: i0.ChangeDetectorRef }
             ];
         };
         TdNavStepsHorizontalComponent.propDecorators = {
-            _steps: [{ type: core$1.ContentChildren, args: [TdNavStepLinkComponent,] }],
-            _stepListContainer: [{ type: core$1.ViewChild, args: ['stepListContainer',] }],
-            _stepList: [{ type: core$1.ViewChild, args: ['stepList',] }]
+            _steps: [{ type: i0.ContentChildren, args: [TdNavStepLinkComponent,] }],
+            _stepListContainer: [{ type: i0.ViewChild, args: ['stepListContainer',] }],
+            _stepList: [{ type: i0.ViewChild, args: ['stepList',] }]
         };
         return TdNavStepsHorizontalComponent;
     }());
@@ -14766,10 +14748,10 @@
                 });
             };
         TdNavStepsVerticalComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'nav[td-steps][vertical]',
                         template: "<div class=\"td-steps-header\">\n  <div class=\"td-steps-header-container\">\n    <div #stepList class=\"td-steps-header-list\">\n      <ng-content></ng-content>\n    </div>\n  </div>\n</div>\n  ",
-                        changeDetection: core$1.ChangeDetectionStrategy.OnPush,
+                        changeDetection: i0.ChangeDetectionStrategy.OnPush,
                         /* tslint:disable-next-line */
                         host: {
                             class: 'td-steps td-steps-vertical',
@@ -14780,13 +14762,13 @@
         /** @nocollapse */
         TdNavStepsVerticalComponent.ctorParameters = function () {
             return [
-                { type: core$1.Renderer2 },
-                { type: core$1.ChangeDetectorRef }
+                { type: i0.Renderer2 },
+                { type: i0.ChangeDetectorRef }
             ];
         };
         TdNavStepsVerticalComponent.propDecorators = {
-            _steps: [{ type: core$1.ContentChildren, args: [TdNavStepLinkComponent,] }],
-            _stepList: [{ type: core$1.ViewChild, args: ['stepList',] }]
+            _steps: [{ type: i0.ContentChildren, args: [TdNavStepLinkComponent,] }],
+            _stepList: [{ type: i0.ViewChild, args: ['stepList',] }]
         };
         return TdNavStepsVerticalComponent;
     }());
@@ -14812,7 +14794,7 @@
         function CovalentStepsModule() {
         }
         CovalentStepsModule.decorators = [
-            { type: core$1.NgModule, args: [{
+            { type: i0.NgModule, args: [{
                         imports: [
                             common.CommonModule,
                             icon.MatIconModule,
@@ -14880,10 +14862,10 @@
                 this._contentPortal = new portal.TemplatePortal(this._content, this._viewContainerRef);
             };
         TdTabOptionComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         selector: 'td-tab-option',
                         template: "<ng-template>\n  <ng-content></ng-content>\n</ng-template>\n",
-                        changeDetection: core$1.ChangeDetectionStrategy.OnPush,
+                        changeDetection: i0.ChangeDetectionStrategy.OnPush,
                         /* tslint:disable-next-line */
                         inputs: ['disabled'],
                         styles: [""]
@@ -14892,13 +14874,13 @@
         /** @nocollapse */
         TdTabOptionComponent.ctorParameters = function () {
             return [
-                { type: core$1.ViewContainerRef },
-                { type: core$1.ChangeDetectorRef }
+                { type: i0.ViewContainerRef },
+                { type: i0.ChangeDetectorRef }
             ];
         };
         TdTabOptionComponent.propDecorators = {
-            _content: [{ type: core$1.ViewChild, args: [core$1.TemplateRef,] }],
-            value: [{ type: core$1.Input, args: ['value',] }]
+            _content: [{ type: i0.ViewChild, args: [i0.TemplateRef,] }],
+            value: [{ type: i0.Input, args: ['value',] }]
         };
         return TdTabOptionComponent;
     }(_TdTabOptionMixinBase));
@@ -14928,7 +14910,7 @@
              * Event that emits whenever the raw value of the select changes. This is here primarily
              * to facilitate the two-way binding for the `value` input.
              */
-            _this.valueChange = new core$1.EventEmitter();
+            _this.valueChange = new i0.EventEmitter();
             return _this;
         }
         Object.defineProperty(TdTabSelectComponent.prototype, "selectedIndex", {
@@ -15082,11 +15064,11 @@
                 this._changeDetectorRef.markForCheck();
             };
         TdTabSelectComponent.decorators = [
-            { type: core$1.Component, args: [{
-                        changeDetection: core$1.ChangeDetectionStrategy.OnPush,
+            { type: i0.Component, args: [{
+                        changeDetection: i0.ChangeDetectionStrategy.OnPush,
                         providers: [{
                                 provide: forms.NG_VALUE_ACCESSOR,
-                                useExisting: core$1.forwardRef(function () { return TdTabSelectComponent; }),
+                                useExisting: i0.forwardRef(function () { return TdTabSelectComponent; }),
                                 multi: true,
                             }],
                         selector: 'td-tab-select',
@@ -15099,15 +15081,15 @@
         /** @nocollapse */
         TdTabSelectComponent.ctorParameters = function () {
             return [
-                { type: core$1.ChangeDetectorRef }
+                { type: i0.ChangeDetectorRef }
             ];
         };
         TdTabSelectComponent.propDecorators = {
-            _tabOptions: [{ type: core$1.ContentChildren, args: [TdTabOptionComponent,] }],
-            stretchTabs: [{ type: core$1.Input, args: ['stretchTabs',] }],
-            color: [{ type: core$1.Input, args: ['color',] }],
-            backgroundColor: [{ type: core$1.Input, args: ['backgroundColor',] }],
-            valueChange: [{ type: core$1.Output }]
+            _tabOptions: [{ type: i0.ContentChildren, args: [TdTabOptionComponent,] }],
+            stretchTabs: [{ type: i0.Input, args: ['stretchTabs',] }],
+            color: [{ type: i0.Input, args: ['color',] }],
+            backgroundColor: [{ type: i0.Input, args: ['backgroundColor',] }],
+            valueChange: [{ type: i0.Output }]
         };
         return TdTabSelectComponent;
     }(_TdTabSelectMixinBase));
@@ -15120,7 +15102,7 @@
         function CovalentTabSelectModule() {
         }
         CovalentTabSelectModule.decorators = [
-            { type: core$1.NgModule, args: [{
+            { type: i0.NgModule, args: [{
                         declarations: [
                             TdTabSelectComponent,
                             TdTabOptionComponent,
@@ -15296,9 +15278,7 @@
     exports.LOADING_FACTORY_PROVIDER = LOADING_FACTORY_PROVIDER;
     exports.CovalentMediaModule = CovalentMediaModule;
     exports.TdMediaToggleDirective = TdMediaToggleDirective;
-    exports.MEDIA_PROVIDER_FACTORY = MEDIA_PROVIDER_FACTORY;
     exports.TdMediaService = TdMediaService;
-    exports.MEDIA_PROVIDER = MEDIA_PROVIDER;
     exports.CovalentMenuModule = CovalentMenuModule;
     exports.TdMenuComponent = TdMenuComponent;
     exports.CovalentSearchModule = CovalentSearchModule;
