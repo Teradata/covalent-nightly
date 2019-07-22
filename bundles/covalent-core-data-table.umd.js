@@ -2,7 +2,7 @@
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/material/checkbox'), require('@angular/material/tooltip'), require('@angular/material/icon'), require('@angular/material/core'), require('@angular/common'), require('@angular/platform-browser'), require('@angular/forms'), require('@angular/cdk/coercion'), require('@angular/cdk/keycodes'), require('rxjs'), require('rxjs/operators'), require('@angular/cdk/portal'), require('@covalent/core/common'), require('@angular/core')) :
     typeof define === 'function' && define.amd ? define('@covalent/core/data-table', ['exports', '@angular/material/checkbox', '@angular/material/tooltip', '@angular/material/icon', '@angular/material/core', '@angular/common', '@angular/platform-browser', '@angular/forms', '@angular/cdk/coercion', '@angular/cdk/keycodes', 'rxjs', 'rxjs/operators', '@angular/cdk/portal', '@covalent/core/common', '@angular/core'], factory) :
     (factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core['data-table'] = {}),global.ng.material.checkbox,global.ng.material.tooltip,global.ng.material.icon,global.ng.material.core,global.ng.common,global.ng.platformBrowser,global.ng.forms,global.ng.cdk.coercion,global.ng.cdk.keycodes,global.rxjs,global.rxjs.operators,global.ng.cdk.portal,global.covalent.core.common,global.ng.core));
-}(this, (function (exports,checkbox,tooltip,icon,core,common,platformBrowser,forms,coercion,keycodes,rxjs,operators,portal,common$1,core$1) { 'use strict';
+}(this, (function (exports,checkbox,tooltip,icon,core,common,platformBrowser,forms,coercion,keycodes,rxjs,operators,portal,common$1,i0) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -56,7 +56,7 @@
             this._renderer.addClass(this._elementRef.nativeElement, 'td-data-table-column-row');
         }
         TdDataTableColumnRowComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         /* tslint:disable-next-line */
                         selector: 'tr[td-data-table-column-row]',
                         template: "<ng-content></ng-content>",
@@ -66,8 +66,8 @@
         /** @nocollapse */
         TdDataTableColumnRowComponent.ctorParameters = function () {
             return [
-                { type: core$1.ElementRef },
-                { type: core$1.Renderer2 }
+                { type: i0.ElementRef },
+                { type: i0.Renderer2 }
             ];
         };
         return TdDataTableColumnRowComponent;
@@ -138,7 +138,7 @@
                 this._elementRef.nativeElement.focus();
             };
         TdDataTableRowComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         /* tslint:disable-next-line */
                         selector: 'tr[td-data-table-row]',
                         template: "<ng-content></ng-content>",
@@ -148,13 +148,13 @@
         /** @nocollapse */
         TdDataTableRowComponent.ctorParameters = function () {
             return [
-                { type: core$1.ElementRef },
-                { type: core$1.Renderer2 }
+                { type: i0.ElementRef },
+                { type: i0.Renderer2 }
             ];
         };
         TdDataTableRowComponent.propDecorators = {
-            selected: [{ type: core$1.Input, args: ['selected',] }],
-            clickListener: [{ type: core$1.HostListener, args: ['click',] }]
+            selected: [{ type: i0.Input, args: ['selected',] }],
+            clickListener: [{ type: i0.HostListener, args: ['click',] }]
         };
         return TdDataTableRowComponent;
     }());
@@ -169,17 +169,17 @@
             return _super.call(this, templateRef, viewContainerRef) || this;
         }
         TdDataTableTemplateDirective.decorators = [
-            { type: core$1.Directive, args: [{ selector: '[tdDataTableTemplate]ng-template' },] }
+            { type: i0.Directive, args: [{ selector: '[tdDataTableTemplate]ng-template' },] }
         ];
         /** @nocollapse */
         TdDataTableTemplateDirective.ctorParameters = function () {
             return [
-                { type: core$1.TemplateRef },
-                { type: core$1.ViewContainerRef }
+                { type: i0.TemplateRef },
+                { type: i0.ViewContainerRef }
             ];
         };
         TdDataTableTemplateDirective.propDecorators = {
-            tdDataTableTemplate: [{ type: core$1.Input }]
+            tdDataTableTemplate: [{ type: i0.Input }]
         };
         return TdDataTableTemplateDirective;
     }(portal.TemplatePortalDirective));
@@ -268,25 +268,25 @@
              * Event emitted when the column headers are clicked. [sortable] needs to be enabled.
              * Emits an [ITdDataTableSortChangeEvent] implemented object.
              */
-            _this.onSortChange = new core$1.EventEmitter();
+            _this.onSortChange = new i0.EventEmitter();
             /**
              * rowSelect?: function
              * Event emitted when a row is selected/deselected. [selectable] needs to be enabled.
              * Emits an [ITdDataTableSelectEvent] implemented object.
              */
-            _this.onRowSelect = new core$1.EventEmitter();
+            _this.onRowSelect = new i0.EventEmitter();
             /**
              * rowClick?: function
              * Event emitted when a row is clicked.
              * Emits an [ITdDataTableRowClickEvent] implemented object.
              */
-            _this.onRowClick = new core$1.EventEmitter();
+            _this.onRowClick = new i0.EventEmitter();
             /**
              * selectAll?: function
              * Event emitted when all rows are selected/deselected by the all checkbox. [selectable] needs to be enabled.
              * Emits an [ITdDataTableSelectAllEvent] implemented object.
              */
-            _this.onSelectAll = new core$1.EventEmitter();
+            _this.onSelectAll = new i0.EventEmitter();
             /**
              * compareWith?: function(row, model): boolean
              * Allows custom comparison between row and model to see if row is selected or not
@@ -1690,47 +1690,47 @@
                 });
             };
         TdDataTableComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         providers: [{
                                 provide: forms.NG_VALUE_ACCESSOR,
-                                useExisting: core$1.forwardRef(function () { return TdDataTableComponent; }),
+                                useExisting: i0.forwardRef(function () { return TdDataTableComponent; }),
                                 multi: true,
                             }],
                         selector: 'td-data-table',
                         template: "<table td-data-table\n        [style.left.px]=\"columnsLeftScroll\"\n        [class.mat-selectable]=\"selectable\">\n  <thead class=\"td-data-table-head\"\n          (dragover)=\"_handleColumnDrag($event)\">\n    <tr td-data-table-column-row>\n      <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"selectable\">\n        <mat-checkbox\n          #checkBoxAll\n          *ngIf=\"multiple\"\n          [disabled]=\"!hasData\"\n          [indeterminate]=\"indeterminate && !allSelected && hasData\"\n          [checked]=\"allSelected && hasData\"\n          (click)=\"blockEvent($event); selectAll(!checkBoxAll.checked)\"\n          (keyup.enter)=\"selectAll(!checkBoxAll.checked)\"\n          (keyup.space)=\"selectAll(!checkBoxAll.checked)\"\n          (keydown.space)=\"blockEvent($event)\">\n        </mat-checkbox>\n      </th>\n      <th td-data-table-column\n        #columnElement\n        *ngFor=\"let column of columns; let i = index; let last = last\"\n        [style.min-width.px]=\"getColumnWidth(i)\"\n        [style.max-width.px]=\"getColumnWidth(i)\"\n        [name]=\"column.name\"\n        [numeric]=\"column.numeric\"\n        [active]=\"(column.sortable || sortable) && column === sortByColumn\"\n        [sortable]=\"column.sortable || (sortable && column.sortable !== false)\"\n        [sortOrder]=\"sortOrderEnum\"\n        [hidden]=\"column.hidden\"\n        (sortChange)=\"handleSort(column)\">\n        <span [matTooltip]=\"column.tooltip\">{{column.label}}</span>\n        <span td-column-resizer\n              *ngIf=\"resizableColumns\"\n              draggable=\"true\"\n              class=\"td-data-table-column-resizer\"\n              [class.td-resizing]=\"i === resizingColumn\"\n              (mousedown)=\"_handleStartColumnDrag(i, $event)\"\n              (dragstart)=\"$event?.dataTransfer?.setData('text', '')\"\n              (drag)=\"_handleColumnDrag($event)\"\n              (dragend)=\"_handleEndColumnDrag()\"\n              (mouseup)=\"_handleEndColumnDrag()\">\n          <span class=\"td-data-table-column-separator\"></span>\n        </span>\n      </th>\n    </tr>\n  </thead>\n</table>\n<div #scrollableDiv class=\"td-data-table-scrollable\"\n      (scroll)=\"handleScroll($event)\">\n  <div [style.height.px]=\"totalHeight\"></div>\n  <table td-data-table\n          [style.transform]=\"offsetTransform\"\n          [style.position]=\"'absolute'\"\n          [class.mat-selectable]=\"selectable\"\n          [class.mat-clickable]=\"clickable\">\n    <tbody class=\"td-data-table-body\">\n      <tr td-data-table-row\n          #dtRow\n          [tabIndex]=\"selectable ? 0 : -1\"\n          [selected]=\"(clickable || selectable) && isRowSelected(row)\"\n          *ngFor=\"let row of virtualData; let rowIndex = index\"\n          (click)=\"handleRowClick(row, fromRow + rowIndex, $event)\"\n          (keyup)=\"selectable && _rowKeyup($event, row, rowIndex)\"\n          (keydown.space)=\"blockEvent($event)\"\n          (keydown.shift.space)=\"blockEvent($event)\"\n          (keydown.shift)=\"disableTextSelection()\"\n          (keyup.shift)=\"enableTextSelection()\">\n        <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"selectable\">\n          <mat-pseudo-checkbox\n            [state]=\"dtRow.selected ? 'checked' : 'unchecked'\"\n            (mousedown)=\"disableTextSelection()\"\n            (mouseup)=\"enableTextSelection()\"\n            stopRowClick\n            (click)=\"select(row, $event, fromRow + rowIndex)\">\n          </mat-pseudo-checkbox>\n        </td>\n        <td td-data-table-cell\n            [numeric]=\"column.numeric\"\n            [hidden]=\"column.hidden\"\n            *ngFor=\"let column of columns; let i = index\"\n            [style.min-width.px]=\"getColumnWidth(i)\"\n            [style.max-width.px]=\"getColumnWidth(i)\">\n          <span *ngIf=\"!getTemplateRef(column.name)\">{{column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row)}}</span>\n          <ng-template\n            *ngIf=\"getTemplateRef(column.name)\"\n            [ngTemplateOutlet]=\"getTemplateRef(column.name)\"\n            [ngTemplateOutletContext]=\"{ value: getCellValue(column, row), row: row, column: column.name, index: rowIndex }\">\n          </ng-template>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n<ng-content></ng-content>\n",
                         inputs: ['value'],
-                        changeDetection: core$1.ChangeDetectionStrategy.OnPush,
+                        changeDetection: i0.ChangeDetectionStrategy.OnPush,
                         styles: [":host{display:block;overflow:hidden}:host .td-data-table-scrollable{position:relative;overflow:auto;height:calc(100% - 56px)}.td-data-table-column-resizer{right:0;width:6px;cursor:col-resize}.td-data-table-column-resizer,.td-data-table-column-resizer .td-data-table-column-separator{position:absolute;height:100%;top:0}.td-data-table-column-resizer .td-data-table-column-separator{left:2px}.td-data-table-column-resizer.td-resizing{cursor:-webkit-grabbing}table.td-data-table{width:auto!important}table.td-data-table.mat-selectable tbody>tr.td-data-table-row{-webkit-transition:background-color .2s;transition:background-color .2s}table.td-data-table.mat-selectable .td-data-table-column:first-child>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable td.td-data-table-cell:first-child>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable th.td-data-table-column:first-child>.td-data-table-column-content-wrapper{width:18px;min-width:18px;padding:0 24px}table.td-data-table.mat-selectable .td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2)>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper{padding-left:0}[dir=rtl] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper,[dir=rtl] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2)>.td-data-table-column-content-wrapper,[dir=rtl] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper{padding-right:0;padding-left:28px}table.td-data-table td.mat-checkbox-cell,table.td-data-table th.mat-checkbox-column{min-width:42px;width:42px;font-size:0!important}table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox,table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox{width:18px;height:18px}::ng-deep table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after,::ng-deep table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after{width:11px!important;height:4px!important}table.td-data-table td.mat-checkbox-cell mat-checkbox ::ng-deep .mat-checkbox-inner-container,table.td-data-table th.mat-checkbox-column mat-checkbox ::ng-deep .mat-checkbox-inner-container{width:18px;height:18px;margin:0}"]
                     }] }
         ];
         /** @nocollapse */
         TdDataTableComponent.ctorParameters = function () {
             return [
-                { type: undefined, decorators: [{ type: core$1.Optional }, { type: core$1.Inject, args: [common.DOCUMENT,] }] },
-                { type: core$1.ElementRef },
+                { type: undefined, decorators: [{ type: i0.Optional }, { type: i0.Inject, args: [common.DOCUMENT,] }] },
+                { type: i0.ElementRef },
                 { type: platformBrowser.DomSanitizer },
-                { type: core$1.ChangeDetectorRef }
+                { type: i0.ChangeDetectorRef }
             ];
         };
         TdDataTableComponent.propDecorators = {
-            _templates: [{ type: core$1.ContentChildren, args: [TdDataTableTemplateDirective,] }],
-            _scrollableDiv: [{ type: core$1.ViewChild, args: ['scrollableDiv',] }],
-            _colElements: [{ type: core$1.ViewChildren, args: ['columnElement',] }],
-            _rows: [{ type: core$1.ViewChildren, args: [TdDataTableRowComponent,] }],
-            data: [{ type: core$1.Input, args: ['data',] }],
-            columns: [{ type: core$1.Input, args: ['columns',] }],
-            resizableColumns: [{ type: core$1.Input, args: ['resizableColumns',] }],
-            selectable: [{ type: core$1.Input, args: ['selectable',] }],
-            clickable: [{ type: core$1.Input, args: ['clickable',] }],
-            multiple: [{ type: core$1.Input, args: ['multiple',] }],
-            sortable: [{ type: core$1.Input, args: ['sortable',] }],
-            sortBy: [{ type: core$1.Input, args: ['sortBy',] }],
-            sortOrder: [{ type: core$1.Input, args: ['sortOrder',] }],
-            onSortChange: [{ type: core$1.Output, args: ['sortChange',] }],
-            onRowSelect: [{ type: core$1.Output, args: ['rowSelect',] }],
-            onRowClick: [{ type: core$1.Output, args: ['rowClick',] }],
-            onSelectAll: [{ type: core$1.Output, args: ['selectAll',] }],
-            compareWith: [{ type: core$1.Input, args: ['compareWith',] }]
+            _templates: [{ type: i0.ContentChildren, args: [TdDataTableTemplateDirective,] }],
+            _scrollableDiv: [{ type: i0.ViewChild, args: ['scrollableDiv',] }],
+            _colElements: [{ type: i0.ViewChildren, args: ['columnElement',] }],
+            _rows: [{ type: i0.ViewChildren, args: [TdDataTableRowComponent,] }],
+            data: [{ type: i0.Input, args: ['data',] }],
+            columns: [{ type: i0.Input, args: ['columns',] }],
+            resizableColumns: [{ type: i0.Input, args: ['resizableColumns',] }],
+            selectable: [{ type: i0.Input, args: ['selectable',] }],
+            clickable: [{ type: i0.Input, args: ['clickable',] }],
+            multiple: [{ type: i0.Input, args: ['multiple',] }],
+            sortable: [{ type: i0.Input, args: ['sortable',] }],
+            sortBy: [{ type: i0.Input, args: ['sortBy',] }],
+            sortOrder: [{ type: i0.Input, args: ['sortOrder',] }],
+            onSortChange: [{ type: i0.Output, args: ['sortChange',] }],
+            onRowSelect: [{ type: i0.Output, args: ['rowSelect',] }],
+            onRowClick: [{ type: i0.Output, args: ['rowClick',] }],
+            onSelectAll: [{ type: i0.Output, args: ['selectAll',] }],
+            compareWith: [{ type: i0.Input, args: ['compareWith',] }]
         };
         return TdDataTableComponent;
     }(_TdDataTableMixinBase));
@@ -1772,7 +1772,7 @@
              * Event emitted when the column headers are clicked. [sortable] needs to be enabled.
              * Emits an [ITdDataTableSortChangeEvent] implemented object.
              */
-            this.onSortChange = new core$1.EventEmitter();
+            this.onSortChange = new i0.EventEmitter();
             this._renderer.addClass(this._elementRef.nativeElement, 'td-data-table-column');
         }
         Object.defineProperty(TdDataTableColumnComponent.prototype, "projectedWidth", {
@@ -1882,7 +1882,7 @@
                 return this._sortOrder === TdDataTableSortingOrder.Descending;
             };
         TdDataTableColumnComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         /* tslint:disable-next-line */
                         selector: 'th[td-data-table-column]',
                         template: "<span #columnContent class=\"td-data-table-heading\">\n  <mat-icon \n    class=\"td-data-table-sort-icon\" \n    *ngIf=\"sortable && numeric\"\n    [class.mat-asc]=\"isAscending()\"\n    [class.mat-desc]=\"isDescending()\">\n    arrow_upward\n  </mat-icon>\n  <span>\n    <ng-content></ng-content>\n  </span>\n  <mat-icon \n    class=\"td-data-table-sort-icon\" \n    *ngIf=\"sortable && !numeric\"\n    [class.mat-asc]=\"isAscending()\"\n    [class.mat-desc]=\"isDescending()\">\n    arrow_upward\n  </mat-icon>\n</span>\n<ng-content select=\"[td-column-resizer]\"></ng-content>\n",
@@ -1892,23 +1892,23 @@
         /** @nocollapse */
         TdDataTableColumnComponent.ctorParameters = function () {
             return [
-                { type: core$1.ElementRef },
-                { type: core$1.Renderer2 }
+                { type: i0.ElementRef },
+                { type: i0.Renderer2 }
             ];
         };
         TdDataTableColumnComponent.propDecorators = {
-            _columnContent: [{ type: core$1.ViewChild, args: ['columnContent', { read: core$1.ElementRef },] }],
-            name: [{ type: core$1.Input, args: ['name',] }],
-            sortable: [{ type: core$1.Input, args: ['sortable',] }],
-            active: [{ type: core$1.Input, args: ['active',] }],
-            numeric: [{ type: core$1.Input, args: ['numeric',] }],
-            sortOrder: [{ type: core$1.Input, args: ['sortOrder',] }],
-            onSortChange: [{ type: core$1.Output, args: ['sortChange',] }],
-            bindClickable: [{ type: core$1.HostBinding, args: ['class.mat-clickable',] }],
-            bingSortable: [{ type: core$1.HostBinding, args: ['class.mat-sortable',] }],
-            bindActive: [{ type: core$1.HostBinding, args: ['class.mat-active',] }],
-            bindNumeric: [{ type: core$1.HostBinding, args: ['class.mat-numeric',] }],
-            handleClick: [{ type: core$1.HostListener, args: ['click',] }]
+            _columnContent: [{ type: i0.ViewChild, args: ['columnContent', { read: i0.ElementRef },] }],
+            name: [{ type: i0.Input, args: ['name',] }],
+            sortable: [{ type: i0.Input, args: ['sortable',] }],
+            active: [{ type: i0.Input, args: ['active',] }],
+            numeric: [{ type: i0.Input, args: ['numeric',] }],
+            sortOrder: [{ type: i0.Input, args: ['sortOrder',] }],
+            onSortChange: [{ type: i0.Output, args: ['sortChange',] }],
+            bindClickable: [{ type: i0.HostBinding, args: ['class.mat-clickable',] }],
+            bingSortable: [{ type: i0.HostBinding, args: ['class.mat-sortable',] }],
+            bindActive: [{ type: i0.HostBinding, args: ['class.mat-active',] }],
+            bindNumeric: [{ type: i0.HostBinding, args: ['class.mat-numeric',] }],
+            handleClick: [{ type: i0.HostListener, args: ['click',] }]
         };
         return TdDataTableColumnComponent;
     }());
@@ -1962,7 +1962,7 @@
             configurable: true
         });
         TdDataTableCellComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         /* tslint:disable-next-line */
                         selector: 'td[td-data-table-cell]',
                         template: "<div class=\"td-data-table-cell-content-wrapper\"\n     [class.td-data-table-cell-numeric]=\"numeric\"\n     [class.td-data-table-cell-align-center]=\"align === 'center'\"\n     [class.td-data-table-cell-align-end]=\"align === 'end'\"\n     [class.td-data-table-cell-align-start]=\"align === 'start'\"\n     >\n  <ng-content></ng-content>\n</div>",
@@ -1972,14 +1972,14 @@
         /** @nocollapse */
         TdDataTableCellComponent.ctorParameters = function () {
             return [
-                { type: core$1.ElementRef },
-                { type: core$1.Renderer2 }
+                { type: i0.ElementRef },
+                { type: i0.Renderer2 }
             ];
         };
         TdDataTableCellComponent.propDecorators = {
-            numeric: [{ type: core$1.Input, args: ['numeric',] }],
-            align: [{ type: core$1.Input }],
-            bindNumeric: [{ type: core$1.HostBinding, args: ['class.mat-numeric',] }]
+            numeric: [{ type: i0.Input, args: ['numeric',] }],
+            align: [{ type: i0.Input }],
+            bindNumeric: [{ type: i0.HostBinding, args: ['class.mat-numeric',] }]
         };
         return TdDataTableCellComponent;
     }());
@@ -1995,7 +1995,7 @@
             this._renderer.addClass(this._elementRef.nativeElement, 'td-data-table');
         }
         TdDataTableTableComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: i0.Component, args: [{
                         /* tslint:disable-next-line */
                         selector: 'table[td-data-table]',
                         template: "<ng-content></ng-content>",
@@ -2005,11 +2005,48 @@
         /** @nocollapse */
         TdDataTableTableComponent.ctorParameters = function () {
             return [
-                { type: core$1.ElementRef },
-                { type: core$1.Renderer2 }
+                { type: i0.ElementRef },
+                { type: i0.Renderer2 }
             ];
         };
         return TdDataTableTableComponent;
+    }());
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     */
+    /** @type {?} */
+    var TD_DATA_TABLE = [
+        TdDataTableComponent,
+        TdDataTableTemplateDirective,
+        TdDataTableColumnComponent,
+        TdDataTableCellComponent,
+        TdDataTableRowComponent,
+        TdDataTableColumnRowComponent,
+        TdDataTableTableComponent,
+    ];
+    var CovalentDataTableModule = /** @class */ (function () {
+        function CovalentDataTableModule() {
+        }
+        CovalentDataTableModule.decorators = [
+            { type: i0.NgModule, args: [{
+                        imports: [
+                            common.CommonModule,
+                            checkbox.MatCheckboxModule,
+                            tooltip.MatTooltipModule,
+                            icon.MatIconModule,
+                            core.MatPseudoCheckboxModule,
+                        ],
+                        declarations: [
+                            TD_DATA_TABLE,
+                        ],
+                        exports: [
+                            TD_DATA_TABLE,
+                        ],
+                    },] }
+        ];
+        return CovalentDataTableModule;
     }());
 
     /**
@@ -2179,63 +2216,12 @@
                 return data;
             };
         TdDataTableService.decorators = [
-            { type: core$1.Injectable }
-        ];
-        return TdDataTableService;
-    }());
-    /**
-     * @param {?} parent
-     * @return {?}
-     */
-    function DATA_TABLE_PROVIDER_FACTORY(parent) {
-        return parent || new TdDataTableService();
-    }
-    /** @type {?} */
-    var DATA_TABLE_PROVIDER = {
-        // If there is already a service available, use that. Otherwise, provide a new one.
-        provide: TdDataTableService,
-        deps: [[new core$1.Optional(), new core$1.SkipSelf(), TdDataTableService]],
-        useFactory: DATA_TABLE_PROVIDER_FACTORY,
-    };
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-    /** @type {?} */
-    var TD_DATA_TABLE = [
-        TdDataTableComponent,
-        TdDataTableTemplateDirective,
-        TdDataTableColumnComponent,
-        TdDataTableCellComponent,
-        TdDataTableRowComponent,
-        TdDataTableColumnRowComponent,
-        TdDataTableTableComponent,
-    ];
-    var CovalentDataTableModule = /** @class */ (function () {
-        function CovalentDataTableModule() {
-        }
-        CovalentDataTableModule.decorators = [
-            { type: core$1.NgModule, args: [{
-                        imports: [
-                            common.CommonModule,
-                            checkbox.MatCheckboxModule,
-                            tooltip.MatTooltipModule,
-                            icon.MatIconModule,
-                            core.MatPseudoCheckboxModule,
-                        ],
-                        declarations: [
-                            TD_DATA_TABLE,
-                        ],
-                        exports: [
-                            TD_DATA_TABLE,
-                        ],
-                        providers: [
-                            DATA_TABLE_PROVIDER,
-                        ],
+            { type: i0.Injectable, args: [{
+                        providedIn: 'root',
                     },] }
         ];
-        return CovalentDataTableModule;
+        /** @nocollapse */ TdDataTableService.ngInjectableDef = i0.defineInjectable({ factory: function TdDataTableService_Factory() { return new TdDataTableService(); }, token: TdDataTableService, providedIn: "root" });
+        return TdDataTableService;
     }());
 
     /**
@@ -2264,9 +2250,7 @@
     exports.TdDataTableRowComponent = TdDataTableRowComponent;
     exports.TdDataTableTableComponent = TdDataTableTableComponent;
     exports.TdDataTableTemplateDirective = TdDataTableTemplateDirective;
-    exports.DATA_TABLE_PROVIDER_FACTORY = DATA_TABLE_PROVIDER_FACTORY;
     exports.TdDataTableService = TdDataTableService;
-    exports.DATA_TABLE_PROVIDER = DATA_TABLE_PROVIDER;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

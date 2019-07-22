@@ -6887,6 +6887,43 @@
      * @fileoverview added by tsickle
      * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
      */
+    /** @type {?} */
+    var TD_DATA_TABLE = [
+        TdDataTableComponent,
+        TdDataTableTemplateDirective,
+        TdDataTableColumnComponent,
+        TdDataTableCellComponent,
+        TdDataTableRowComponent,
+        TdDataTableColumnRowComponent,
+        TdDataTableTableComponent,
+    ];
+    var CovalentDataTableModule = /** @class */ (function () {
+        function CovalentDataTableModule() {
+        }
+        CovalentDataTableModule.decorators = [
+            { type: i0.NgModule, args: [{
+                        imports: [
+                            common.CommonModule,
+                            checkbox.MatCheckboxModule,
+                            tooltip.MatTooltipModule,
+                            icon.MatIconModule,
+                            core.MatPseudoCheckboxModule,
+                        ],
+                        declarations: [
+                            TD_DATA_TABLE,
+                        ],
+                        exports: [
+                            TD_DATA_TABLE,
+                        ],
+                    },] }
+        ];
+        return CovalentDataTableModule;
+    }());
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     */
     var TdDataTableService = /** @class */ (function () {
         function TdDataTableService() {
         }
@@ -7050,63 +7087,12 @@
                 return data;
             };
         TdDataTableService.decorators = [
-            { type: i0.Injectable }
-        ];
-        return TdDataTableService;
-    }());
-    /**
-     * @param {?} parent
-     * @return {?}
-     */
-    function DATA_TABLE_PROVIDER_FACTORY(parent) {
-        return parent || new TdDataTableService();
-    }
-    /** @type {?} */
-    var DATA_TABLE_PROVIDER = {
-        // If there is already a service available, use that. Otherwise, provide a new one.
-        provide: TdDataTableService,
-        deps: [[new i0.Optional(), new i0.SkipSelf(), TdDataTableService]],
-        useFactory: DATA_TABLE_PROVIDER_FACTORY,
-    };
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-    /** @type {?} */
-    var TD_DATA_TABLE = [
-        TdDataTableComponent,
-        TdDataTableTemplateDirective,
-        TdDataTableColumnComponent,
-        TdDataTableCellComponent,
-        TdDataTableRowComponent,
-        TdDataTableColumnRowComponent,
-        TdDataTableTableComponent,
-    ];
-    var CovalentDataTableModule = /** @class */ (function () {
-        function CovalentDataTableModule() {
-        }
-        CovalentDataTableModule.decorators = [
-            { type: i0.NgModule, args: [{
-                        imports: [
-                            common.CommonModule,
-                            checkbox.MatCheckboxModule,
-                            tooltip.MatTooltipModule,
-                            icon.MatIconModule,
-                            core.MatPseudoCheckboxModule,
-                        ],
-                        declarations: [
-                            TD_DATA_TABLE,
-                        ],
-                        exports: [
-                            TD_DATA_TABLE,
-                        ],
-                        providers: [
-                            DATA_TABLE_PROVIDER,
-                        ],
+            { type: i0.Injectable, args: [{
+                        providedIn: 'root',
                     },] }
         ];
-        return CovalentDataTableModule;
+        /** @nocollapse */ TdDataTableService.ngInjectableDef = i0.defineInjectable({ factory: function TdDataTableService_Factory() { return new TdDataTableService(); }, token: TdDataTableService, providedIn: "root" });
+        return TdDataTableService;
     }());
 
     /**
@@ -15201,9 +15187,7 @@
     exports.TdDataTableRowComponent = TdDataTableRowComponent;
     exports.TdDataTableTableComponent = TdDataTableTableComponent;
     exports.TdDataTableTemplateDirective = TdDataTableTemplateDirective;
-    exports.DATA_TABLE_PROVIDER_FACTORY = DATA_TABLE_PROVIDER_FACTORY;
     exports.TdDataTableService = TdDataTableService;
-    exports.DATA_TABLE_PROVIDER = DATA_TABLE_PROVIDER;
     exports.CovalentDialogsModule = CovalentDialogsModule;
     exports.TdDialogTitleDirective = TdDialogTitleDirective;
     exports.TdDialogContentDirective = TdDialogContentDirective;

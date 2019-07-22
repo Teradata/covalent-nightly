@@ -12,7 +12,7 @@ import { debounceTime } from 'rxjs/operators';
 import { __extends, __values } from 'tslib';
 import { TemplatePortalDirective } from '@angular/cdk/portal';
 import { mixinControlValueAccessor } from '@covalent/core/common';
-import { Component, Input, Renderer2, ElementRef, HostListener, Directive, TemplateRef, ViewContainerRef, Output, EventEmitter, forwardRef, ChangeDetectionStrategy, ChangeDetectorRef, ViewChild, ContentChildren, Inject, Optional, ViewChildren, HostBinding, Injectable, SkipSelf, NgModule } from '@angular/core';
+import { Component, Input, Renderer2, ElementRef, HostListener, Directive, TemplateRef, ViewContainerRef, Output, EventEmitter, forwardRef, ChangeDetectionStrategy, ChangeDetectorRef, ViewChild, ContentChildren, Inject, Optional, ViewChildren, HostBinding, NgModule, Injectable, defineInjectable } from '@angular/core';
 
 /**
  * @fileoverview added by tsickle
@@ -2006,6 +2006,43 @@ var TdDataTableTableComponent = /** @class */ (function () {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
+/** @type {?} */
+var TD_DATA_TABLE = [
+    TdDataTableComponent,
+    TdDataTableTemplateDirective,
+    TdDataTableColumnComponent,
+    TdDataTableCellComponent,
+    TdDataTableRowComponent,
+    TdDataTableColumnRowComponent,
+    TdDataTableTableComponent,
+];
+var CovalentDataTableModule = /** @class */ (function () {
+    function CovalentDataTableModule() {
+    }
+    CovalentDataTableModule.decorators = [
+        { type: NgModule, args: [{
+                    imports: [
+                        CommonModule,
+                        MatCheckboxModule,
+                        MatTooltipModule,
+                        MatIconModule,
+                        MatPseudoCheckboxModule,
+                    ],
+                    declarations: [
+                        TD_DATA_TABLE,
+                    ],
+                    exports: [
+                        TD_DATA_TABLE,
+                    ],
+                },] }
+    ];
+    return CovalentDataTableModule;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ */
 var TdDataTableService = /** @class */ (function () {
     function TdDataTableService() {
     }
@@ -2165,63 +2202,12 @@ var TdDataTableService = /** @class */ (function () {
         return data;
     };
     TdDataTableService.decorators = [
-        { type: Injectable }
-    ];
-    return TdDataTableService;
-}());
-/**
- * @param {?} parent
- * @return {?}
- */
-function DATA_TABLE_PROVIDER_FACTORY(parent) {
-    return parent || new TdDataTableService();
-}
-/** @type {?} */
-var DATA_TABLE_PROVIDER = {
-    // If there is already a service available, use that. Otherwise, provide a new one.
-    provide: TdDataTableService,
-    deps: [[new Optional(), new SkipSelf(), TdDataTableService]],
-    useFactory: DATA_TABLE_PROVIDER_FACTORY,
-};
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-/** @type {?} */
-var TD_DATA_TABLE = [
-    TdDataTableComponent,
-    TdDataTableTemplateDirective,
-    TdDataTableColumnComponent,
-    TdDataTableCellComponent,
-    TdDataTableRowComponent,
-    TdDataTableColumnRowComponent,
-    TdDataTableTableComponent,
-];
-var CovalentDataTableModule = /** @class */ (function () {
-    function CovalentDataTableModule() {
-    }
-    CovalentDataTableModule.decorators = [
-        { type: NgModule, args: [{
-                    imports: [
-                        CommonModule,
-                        MatCheckboxModule,
-                        MatTooltipModule,
-                        MatIconModule,
-                        MatPseudoCheckboxModule,
-                    ],
-                    declarations: [
-                        TD_DATA_TABLE,
-                    ],
-                    exports: [
-                        TD_DATA_TABLE,
-                    ],
-                    providers: [
-                        DATA_TABLE_PROVIDER,
-                    ],
+        { type: Injectable, args: [{
+                    providedIn: 'root',
                 },] }
     ];
-    return CovalentDataTableModule;
+    /** @nocollapse */ TdDataTableService.ngInjectableDef = defineInjectable({ factory: function TdDataTableService_Factory() { return new TdDataTableService(); }, token: TdDataTableService, providedIn: "root" });
+    return TdDataTableService;
 }());
 
 /**
@@ -2239,6 +2225,6 @@ var CovalentDataTableModule = /** @class */ (function () {
  * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 
-export { CovalentDataTableModule, TdDataTableSortingOrder, TdDataTableBase, _TdDataTableMixinBase, TdDataTableComponent, TdDataTableCellComponent, TdDataTableColumnComponent, TdDataTableColumnRowComponent, TdDataTableRowComponent, TdDataTableTableComponent, TdDataTableTemplateDirective, DATA_TABLE_PROVIDER_FACTORY, TdDataTableService, DATA_TABLE_PROVIDER };
+export { CovalentDataTableModule, TdDataTableSortingOrder, TdDataTableBase, _TdDataTableMixinBase, TdDataTableComponent, TdDataTableCellComponent, TdDataTableColumnComponent, TdDataTableColumnRowComponent, TdDataTableRowComponent, TdDataTableTableComponent, TdDataTableTemplateDirective, TdDataTableService };
 
 //# sourceMappingURL=covalent-core-data-table.js.map
