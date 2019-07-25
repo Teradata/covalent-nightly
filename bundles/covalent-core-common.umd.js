@@ -26,7 +26,7 @@
          * @return {?}
          */
             function (event) {
-                if (this._model && this._model.value && typeof (this._model.value) === 'string') {
+                if (this._model && this._model.value && typeof this._model.value === 'string') {
                     this._model.update.emit(this._model.value.trim());
                 }
             };
@@ -161,7 +161,7 @@
                     requestFullscreen: function () { return nativeElement.requestFullscreen(); },
                     // Chrome
                     webkitRequestFullscreen: function () { return nativeElement.webkitRequestFullscreen(); },
-                    // Safari 
+                    // Safari
                     mozRequestFullScreen: function () { return nativeElement.mozRequestFullScreen(); },
                     // Firefox
                     msRequestFullscreen: function () { return nativeElement.msRequestFullscreen(); },
@@ -411,13 +411,13 @@
                 var diff = Math.floor((endTime.getTime() - startTime.getTime()) / 1000);
                 /** @type {?} */
                 var days = Math.floor(diff / (60 * 60 * 24));
-                diff = diff - (days * (60 * 60 * 24));
+                diff = diff - days * (60 * 60 * 24);
                 /** @type {?} */
                 var hours = Math.floor(diff / (60 * 60));
-                diff = diff - (hours * (60 * 60));
+                diff = diff - hours * (60 * 60);
                 /** @type {?} */
-                var minutes = Math.floor(diff / (60));
-                diff -= minutes * (60);
+                var minutes = Math.floor(diff / 60);
+                diff -= minutes * 60;
                 /** @type {?} */
                 var seconds = diff;
                 /** @type {?} */
@@ -430,10 +430,15 @@
                 else if (days > 1) {
                     daysFormatted = ' days - ';
                 }
-                return (days > 0 ? days + daysFormatted : daysFormatted) +
-                    pad.substring(0, pad.length - (hours + '').length) + hours + ':' +
-                    pad.substring(0, pad.length - (minutes + '').length) + minutes + ':' +
-                    pad.substring(0, pad.length - (seconds + '').length) + seconds;
+                return ((days > 0 ? days + daysFormatted : daysFormatted) +
+                    pad.substring(0, pad.length - (hours + '').length) +
+                    hours +
+                    ':' +
+                    pad.substring(0, pad.length - (minutes + '').length) +
+                    minutes +
+                    ':' +
+                    pad.substring(0, pad.length - (seconds + '').length) +
+                    seconds);
             };
         TdTimeDifferencePipe.decorators = [
             { type: core.Pipe, args: [{
@@ -685,7 +690,7 @@
                 var i = Math.floor(Math.log(digits) / Math.log(k));
                 /** @type {?} */
                 var size = sizes[i];
-                return this._decimalPipe.transform(parseFloat((digits / Math.pow(k, i)).toFixed(precision))) + (size ? ' ' + size : '');
+                return (this._decimalPipe.transform(parseFloat((digits / Math.pow(k, i)).toFixed(precision))) + (size ? ' ' + size : ''));
             };
         TdDigitsPipe.decorators = [
             { type: core.Pipe, args: [{
@@ -748,25 +753,27 @@
     var RouterPathService = /** @class */ (function () {
         function RouterPathService(_router) {
             this._router = _router;
-            this._router.events.pipe(operators.filter(function (e) { return e instanceof router.RoutesRecognized; }), operators.pairwise()).subscribe(function (e) {
+            this._router.events
+                .pipe(operators.filter(function (e) { return e instanceof router.RoutesRecognized; }), operators.pairwise())
+                .subscribe(function (e) {
                 RouterPathService._previousRoute = e[0].urlAfterRedirects;
             });
         }
         /*
-        * Utility function to get the route the user previously went to
-        * good for use in a "back button"
-        */
+         * Utility function to get the route the user previously went to
+         * good for use in a "back button"
+         */
         /*
-          * Utility function to get the route the user previously went to
-          * good for use in a "back button"
-          */
+           * Utility function to get the route the user previously went to
+           * good for use in a "back button"
+           */
         /**
          * @return {?}
          */
         RouterPathService.prototype.getPreviousRoute = /*
-          * Utility function to get the route the user previously went to
-          * good for use in a "back button"
-          */
+           * Utility function to get the route the user previously went to
+           * good for use in a "back button"
+           */
             /**
              * @return {?}
              */
@@ -1657,12 +1664,7 @@
         animations.state('1', animations.style({
             transform: 'rotate({{ degreesEnd }}deg)',
         }), { params: { degreesEnd: 180 } }),
-        animations.transition('0 <=> 1', [
-            animations.group([
-                animations.query('@*', animations.animateChild(), { optional: true }),
-                animations.animate('{{ duration }}ms {{ delay }}ms {{ ease }}'),
-            ]),
-        ], { params: { duration: 250, delay: '0', ease: 'ease-in' } }),
+        animations.transition('0 <=> 1', [animations.group([animations.query('@*', animations.animateChild(), { optional: true }), animations.animate('{{ duration }}ms {{ delay }}ms {{ ease }}')])], { params: { duration: 250, delay: '0', ease: 'ease-in' } }),
     ]);
 
     /**
@@ -1789,15 +1791,47 @@
             animations.group([
                 animations.query('@*', animations.animateChild(), { optional: true }),
                 animations.animate('{{ duration }}ms {{ delay }}ms {{ ease }}', animations.keyframes([
-                    animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0 }),
-                    animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.2 }),
-                    animations.style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -30px, 0)', offset: 0.4 }),
-                    animations.style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -30px, 0)', offset: 0.43 }),
-                    animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.53 }),
-                    animations.style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -15px, 0)', offset: .7 }),
-                    animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.8 }),
-                    animations.style({ transform: 'translate3d(0, -4px, 0)', offset: .9 }),
-                    animations.style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 1.0 }),
+                    animations.style({
+                        animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)',
+                        transform: 'translate3d(0, 0, 0)',
+                        offset: 0,
+                    }),
+                    animations.style({
+                        animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)',
+                        transform: 'translate3d(0, 0, 0)',
+                        offset: 0.2,
+                    }),
+                    animations.style({
+                        animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)',
+                        transform: 'translate3d(0, -30px, 0)',
+                        offset: 0.4,
+                    }),
+                    animations.style({
+                        animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)',
+                        transform: 'translate3d(0, -30px, 0)',
+                        offset: 0.43,
+                    }),
+                    animations.style({
+                        animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)',
+                        transform: 'translate3d(0, 0, 0)',
+                        offset: 0.53,
+                    }),
+                    animations.style({
+                        animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)',
+                        transform: 'translate3d(0, -15px, 0)',
+                        offset: 0.7,
+                    }),
+                    animations.style({
+                        animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)',
+                        transform: 'translate3d(0, 0, 0)',
+                        offset: 0.8,
+                    }),
+                    animations.style({ transform: 'translate3d(0, -4px, 0)', offset: 0.9 }),
+                    animations.style({
+                        animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)',
+                        transform: 'translate3d(0, 0, 0)',
+                        offset: 1.0,
+                    }),
                 ])),
             ]),
         ], { params: { duration: 500, delay: '0', ease: 'ease-out' } }),
@@ -1874,7 +1908,7 @@
                     animations.style({ transform: 'translateX(5px) rotateY(7deg)', offset: 0.185 }),
                     animations.style({ transform: 'translateX(-3px) rotateY(-5deg)', offset: 0.315 }),
                     animations.style({ transform: 'translateX(2px) rotateY(3deg)', offset: 0.435 }),
-                    animations.style({ transform: 'translateX(0)', offset: 0.50 }),
+                    animations.style({ transform: 'translateX(0)', offset: 0.5 }),
                 ])),
             ]),
         ], { params: { duration: 500, delay: '0', ease: 'ease-out' } }),
@@ -2184,9 +2218,7 @@
                     }
                     /** @type {?} */
                     var v = c.value;
-                    return v < minValue ?
-                        { min: { minValue: minValue, actualValue: v } } :
-                        undefined;
+                    return v < minValue ? { min: { minValue: minValue, actualValue: v } } : undefined;
                 };
                 return func;
             };
@@ -2206,9 +2238,7 @@
                     }
                     /** @type {?} */
                     var v = c.value;
-                    return v > maxValue ?
-                        { max: { maxValue: maxValue, actualValue: v } } :
-                        undefined;
+                    return v > maxValue ? { max: { maxValue: maxValue, actualValue: v } } : undefined;
                 };
                 return func;
             };
@@ -2221,9 +2251,7 @@
          * @return {?}
          */
             function (c) {
-                return (Number.isNaN(c.value)) ?
-                    { required: true } :
-                    undefined;
+                return Number.isNaN(c.value) ? { required: true } : undefined;
             };
         return CovalentValidators;
     }());

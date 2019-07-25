@@ -109,7 +109,9 @@
          */
             function () {
                 var _this = this;
-                this._input.ngControl.valueChanges.pipe(operators.debounceTime(this.debounce), operators.skip(1)).subscribe(function (value) {
+                this._input.ngControl.valueChanges
+                    .pipe(operators.debounceTime(this.debounce), operators.skip(1))
+                    .subscribe(function (value) {
                     _this._searchTermChanged(value);
                 });
             };
@@ -188,13 +190,15 @@
             };
         TdSearchInputComponent.decorators = [
             { type: core.Component, args: [{
-                        providers: [{
+                        providers: [
+                            {
                                 provide: forms.NG_VALUE_ACCESSOR,
                                 useExisting: core.forwardRef(function () { return TdSearchInputComponent; }),
                                 multi: true,
-                            }],
+                            },
+                        ],
                         selector: 'td-search-input',
-                        template: "<div class=\"td-search-input\">\n  <mat-form-field class=\"td-search-input-field\"\n                  [class.mat-hide-underline]=\"!showUnderline\"\n                  [appearance]=\"appearance\"\n                  floatLabel=\"never\">\n    <input matInput\n            #searchElement\n            type=\"search\"\n            [(ngModel)]=\"value\"\n            [placeholder]=\"placeholder\"\n            (blur)=\"handleBlur()\"\n            (search)=\"stopPropagation($event)\"\n            (keyup.enter)=\"handleSearch($event)\"/>\n    <span matSuffix *ngIf=\"appearance === 'fill' || appearance === 'outline' || appearance === 'standard'\">\n      <ng-template\n        [ngTemplateOutlet]=\"clearButton\">\n      </ng-template>\n    </span>\n  </mat-form-field>\n  <ng-template\n    *ngIf=\"!appearance || appearance === 'legacy'\"\n    [ngTemplateOutlet]=\"clearButton\">\n  </ng-template>\n</div>\n<ng-template #clearButton>\n  <button mat-icon-button\n          class=\"td-search-input-clear\"\n          type=\"button\"\n          [@searchState]=\"(searchElement.value ?  'show' : (isRTL ? 'hide-left' : 'hide-right'))\"\n          (click)=\"clearSearch()\">\n    <mat-icon>{{clearIcon}}</mat-icon>\n  </button>\n</ng-template>\n",
+                        template: "<div class=\"td-search-input\">\n  <mat-form-field\n    class=\"td-search-input-field\"\n    [class.mat-hide-underline]=\"!showUnderline\"\n    [appearance]=\"appearance\"\n    floatLabel=\"never\"\n  >\n    <input\n      matInput\n      #searchElement\n      type=\"search\"\n      [(ngModel)]=\"value\"\n      [placeholder]=\"placeholder\"\n      (blur)=\"handleBlur()\"\n      (search)=\"stopPropagation($event)\"\n      (keyup.enter)=\"handleSearch($event)\"\n    />\n    <span matSuffix *ngIf=\"appearance === 'fill' || appearance === 'outline' || appearance === 'standard'\">\n      <ng-template [ngTemplateOutlet]=\"clearButton\"> </ng-template>\n    </span>\n  </mat-form-field>\n  <ng-template *ngIf=\"!appearance || appearance === 'legacy'\" [ngTemplateOutlet]=\"clearButton\"> </ng-template>\n</div>\n<ng-template #clearButton>\n  <button\n    mat-icon-button\n    class=\"td-search-input-clear\"\n    type=\"button\"\n    [@searchState]=\"searchElement.value ? 'show' : isRTL ? 'hide-left' : 'hide-right'\"\n    (click)=\"clearSearch()\"\n  >\n    <mat-icon>{{ clearIcon }}</mat-icon>\n  </button>\n</ng-template>\n",
                         changeDetection: core.ChangeDetectionStrategy.OnPush,
                         inputs: ['value'],
                         animations: [
@@ -395,13 +399,15 @@
             };
         TdSearchBoxComponent.decorators = [
             { type: core.Component, args: [{
-                        providers: [{
+                        providers: [
+                            {
                                 provide: forms.NG_VALUE_ACCESSOR,
                                 useExisting: core.forwardRef(function () { return TdSearchBoxComponent; }),
                                 multi: true,
-                            }],
+                            },
+                        ],
                         selector: 'td-search-box',
-                        template: "<div class=\"td-search-box\">\n  <button mat-icon-button type=\"button\" class=\"td-search-icon\" (click)=\"searchClicked()\">\n    <mat-icon *ngIf=\"searchVisible && !alwaysVisible\">{{backIcon}}</mat-icon>\n    <mat-icon *ngIf=\"!searchVisible || alwaysVisible\">{{searchIcon}}</mat-icon>\n  </button>\n  <td-search-input #searchInput\n                   [@inputState]=\"alwaysVisible || searchVisible\"\n                   [debounce]=\"debounce\"\n                   [(ngModel)]=\"value\"\n                   [showUnderline]=\"showUnderline\"\n                   [placeholder]=\"placeholder\"\n                   [clearIcon]=\"clearIcon\"\n                   (searchDebounce)=\"handleSearchDebounce($event)\"\n                   (search)=\"handleSearch($event)\"\n                   (clear)=\"handleClear(); toggleVisibility()\"\n                   (blur)=\"handleBlur()\">\n  </td-search-input>\n</div>\n",
+                        template: "<div class=\"td-search-box\">\n  <button mat-icon-button type=\"button\" class=\"td-search-icon\" (click)=\"searchClicked()\">\n    <mat-icon *ngIf=\"searchVisible && !alwaysVisible\">{{ backIcon }}</mat-icon>\n    <mat-icon *ngIf=\"!searchVisible || alwaysVisible\">{{ searchIcon }}</mat-icon>\n  </button>\n  <td-search-input\n    #searchInput\n    [@inputState]=\"alwaysVisible || searchVisible\"\n    [debounce]=\"debounce\"\n    [(ngModel)]=\"value\"\n    [showUnderline]=\"showUnderline\"\n    [placeholder]=\"placeholder\"\n    [clearIcon]=\"clearIcon\"\n    (searchDebounce)=\"handleSearchDebounce($event)\"\n    (search)=\"handleSearch($event)\"\n    (clear)=\"handleClear(); toggleVisibility()\"\n    (blur)=\"handleBlur()\"\n  >\n  </td-search-input>\n</div>\n",
                         changeDetection: core.ChangeDetectionStrategy.OnPush,
                         inputs: ['value'],
                         animations: [
@@ -453,21 +459,9 @@
         }
         CovalentSearchModule.decorators = [
             { type: core.NgModule, args: [{
-                        imports: [
-                            forms.FormsModule,
-                            common.CommonModule,
-                            input.MatInputModule,
-                            icon.MatIconModule,
-                            button.MatButtonModule,
-                        ],
-                        declarations: [
-                            TdSearchInputComponent,
-                            TdSearchBoxComponent,
-                        ],
-                        exports: [
-                            TdSearchInputComponent,
-                            TdSearchBoxComponent,
-                        ],
+                        imports: [forms.FormsModule, common.CommonModule, input.MatInputModule, icon.MatIconModule, button.MatButtonModule],
+                        declarations: [TdSearchInputComponent, TdSearchBoxComponent],
+                        exports: [TdSearchInputComponent, TdSearchBoxComponent],
                     },] }
         ];
         return CovalentSearchModule;

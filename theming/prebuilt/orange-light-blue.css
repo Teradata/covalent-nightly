@@ -2181,15 +2181,18 @@ td-layout mat-toolbar {
           box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12); }
   .td-layout-footer.mat-primary {
     background: #ef6c00; }
-    .td-layout-footer.mat-primary, .td-layout-footer.mat-primary mat-icon {
+    .td-layout-footer.mat-primary,
+    .td-layout-footer.mat-primary mat-icon {
       color: white; }
   .td-layout-footer.mat-accent {
     background: #039be5; }
-    .td-layout-footer.mat-accent, .td-layout-footer.mat-accent mat-icon {
+    .td-layout-footer.mat-accent,
+    .td-layout-footer.mat-accent mat-icon {
       color: white; }
   .td-layout-footer.mat-warn {
     background: #e53935; }
-    .td-layout-footer.mat-warn, .td-layout-footer.mat-warn mat-icon {
+    .td-layout-footer.mat-warn,
+    .td-layout-footer.mat-warn mat-icon {
       color: white; }
 
 .td-steps .td-step-content,
@@ -2218,10 +2221,12 @@ td-layout mat-toolbar {
 .td-steps .td-step-header .td-step-label-wrapper .td-step-sublabel {
   color: rgba(0, 0, 0, 0.54); }
 
-.td-steps .td-step-header .td-step-label-wrapper.mat-inactive, .td-steps .td-step-header .td-step-label-wrapper.mat-inactive * {
+.td-steps .td-step-header .td-step-label-wrapper.mat-inactive,
+.td-steps .td-step-header .td-step-label-wrapper.mat-inactive * {
   color: rgba(0, 0, 0, 0.38); }
 
-.td-steps .td-step-header .td-step-label-wrapper.mat-warn, .td-steps .td-step-header .td-step-label-wrapper.mat-warn * {
+.td-steps .td-step-header .td-step-label-wrapper.mat-warn,
+.td-steps .td-step-header .td-step-label-wrapper.mat-warn * {
   color: #e53935; }
 
 .td-steps .td-step-header .mat-complete {
@@ -2264,11 +2269,13 @@ td-layout mat-toolbar {
     background: rgba(0, 0, 0, 0.04); }
   .td-expansion-panel .td-expansion-panel-header .td-expansion-panel-header-content mat-icon.td-expand-icon {
     color: rgba(0, 0, 0, 0.54); }
-  .td-expansion-panel .td-expansion-panel-header .td-expansion-panel-header-content.mat-disabled, .td-expansion-panel .td-expansion-panel-header .td-expansion-panel-header-content.mat-disabled * {
+  .td-expansion-panel .td-expansion-panel-header .td-expansion-panel-header-content.mat-disabled,
+  .td-expansion-panel .td-expansion-panel-header .td-expansion-panel-header-content.mat-disabled * {
     color: rgba(0, 0, 0, 0.38); }
   .td-expansion-panel mat-icon.td-expand-icon {
     color: rgba(0, 0, 0, 0.54); }
-  .td-expansion-panel .td-expansion-label, .td-expansion-panel .td-expansion-label *,
+  .td-expansion-panel .td-expansion-label,
+  .td-expansion-panel .td-expansion-label *,
   .td-expansion-panel .td-expansion-sublabel,
   .td-expansion-panel .td-expansion-sublabel * {
     vertical-align: middle; }
@@ -2282,15 +2289,18 @@ td-chips .mat-basic-chip {
     color: rgba(0, 0, 0, 0.54); }
   td-chips .mat-basic-chip:focus:not(.td-chip-disabled).mat-primary {
     background: #ef6c00; }
-    td-chips .mat-basic-chip:focus:not(.td-chip-disabled).mat-primary, td-chips .mat-basic-chip:focus:not(.td-chip-disabled).mat-primary mat-icon {
+    td-chips .mat-basic-chip:focus:not(.td-chip-disabled).mat-primary,
+    td-chips .mat-basic-chip:focus:not(.td-chip-disabled).mat-primary mat-icon {
       color: white; }
   td-chips .mat-basic-chip:focus:not(.td-chip-disabled).mat-accent {
     background: #039be5; }
-    td-chips .mat-basic-chip:focus:not(.td-chip-disabled).mat-accent, td-chips .mat-basic-chip:focus:not(.td-chip-disabled).mat-accent mat-icon {
+    td-chips .mat-basic-chip:focus:not(.td-chip-disabled).mat-accent,
+    td-chips .mat-basic-chip:focus:not(.td-chip-disabled).mat-accent mat-icon {
       color: white; }
   td-chips .mat-basic-chip:focus:not(.td-chip-disabled).mat-warn {
     background: #e53935; }
-    td-chips .mat-basic-chip:focus:not(.td-chip-disabled).mat-warn, td-chips .mat-basic-chip:focus:not(.td-chip-disabled).mat-warn mat-icon {
+    td-chips .mat-basic-chip:focus:not(.td-chip-disabled).mat-warn,
+    td-chips .mat-basic-chip:focus:not(.td-chip-disabled).mat-warn mat-icon {
       color: white; }
   td-chips .mat-basic-chip mat-icon.td-chip-removal {
     color: rgba(0, 0, 0, 0.38); }
@@ -2367,7 +2377,8 @@ td-file-input {
 .td-json-formatter-wrapper .value .date {
   color: rgba(0, 0, 0, 0.87); }
 
-td-paging-bar, td-paging-bar mat-select .mat-select-value {
+td-paging-bar,
+td-paging-bar mat-select .mat-select-value {
   color: rgba(0, 0, 0, 0.54); }
 
 .td-loading-wrapper.td-overlay .td-loading {

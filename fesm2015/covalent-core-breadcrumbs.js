@@ -77,7 +77,7 @@ class TdBreadcrumbComponent {
 TdBreadcrumbComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-breadcrumb, a[td-breadcrumb]',
-                template: "<ng-content></ng-content>\n<mat-icon *ngIf=\"_displayIcon\"\n          class=\"td-breadcrumb-separator-icon\"\n          [style.cursor]=\"'default'\"\n          (click)=\"_handleIconClick($event)\">\n  {{separatorIcon}}\n</mat-icon>\n",
+                template: "<ng-content></ng-content>\n<mat-icon\n  *ngIf=\"_displayIcon\"\n  class=\"td-breadcrumb-separator-icon\"\n  [style.cursor]=\"'default'\"\n  (click)=\"_handleIconClick($event)\"\n>\n  {{ separatorIcon }}\n</mat-icon>\n",
                 /* tslint:disable-next-line */
                 host: {
                     class: 'mat-button td-breadcrumb',
@@ -154,14 +154,14 @@ class TdBreadcrumbsComponent {
         this._resizeSubscription.unsubscribe();
     }
     /*
-      * Current width of the element container
-      */
+       * Current width of the element container
+       */
     /**
      * @return {?}
      */
     get nativeElementWidth() {
         /** @type {?} */
-        let element = ((/** @type {?} */ (this._elementRef.nativeElement)));
+        let element = (/** @type {?} */ (this._elementRef.nativeElement));
         // Need to take into account border, margin and padding that might be around all the crumbs
         /** @type {?} */
         let style = window.getComputedStyle(element);
@@ -177,7 +177,13 @@ class TdBreadcrumbsComponent {
         let paddingLeft = parseInt(style.paddingLeft, 10);
         /** @type {?} */
         let paddingRight = parseInt(style.paddingRight, 10);
-        return element.getBoundingClientRect().width - borderLeft - borderRight - marginLeft - marginRight - paddingLeft - paddingRight;
+        return (element.getBoundingClientRect().width -
+            borderLeft -
+            borderRight -
+            marginLeft -
+            marginRight -
+            paddingLeft -
+            paddingRight);
     }
     /**
      * The total count of individual breadcrumbs
@@ -217,7 +223,7 @@ class TdBreadcrumbsComponent {
             let breadcrumb = crumbsArray[i];
             // if crumb exceeds width, then we skip it from the sum and add it into the hiddencrumbs array
             // and hide it
-            if ((crumbWidthSum + breadcrumb.width) > this.nativeElementWidth) {
+            if (crumbWidthSum + breadcrumb.width > this.nativeElementWidth) {
                 breadcrumb.displayCrumb = false;
                 hiddenCrumbs.push(breadcrumb);
             }
@@ -261,18 +267,9 @@ class CovalentBreadcrumbsModule {
 }
 CovalentBreadcrumbsModule.decorators = [
     { type: NgModule, args: [{
-                imports: [
-                    CommonModule,
-                    MatIconModule,
-                ],
-                declarations: [
-                    TdBreadcrumbsComponent,
-                    TdBreadcrumbComponent,
-                ],
-                exports: [
-                    TdBreadcrumbsComponent,
-                    TdBreadcrumbComponent,
-                ],
+                imports: [CommonModule, MatIconModule],
+                declarations: [TdBreadcrumbsComponent, TdBreadcrumbComponent],
+                exports: [TdBreadcrumbsComponent, TdBreadcrumbComponent],
             },] }
 ];
 

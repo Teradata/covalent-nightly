@@ -196,7 +196,7 @@ var TdJsonFormatterComponent = /** @class */ (function () {
     function (value) {
         /** @type {?} */
         var type = this.getType(value);
-        if (type === 'undefined' || (type === 'null')) {
+        if (type === 'undefined' || type === 'null') {
             return type;
         }
         else if (type === 'date') {
@@ -207,9 +207,10 @@ var TdJsonFormatterComponent = /** @class */ (function () {
         }
         else if (type === 'function') {
             // Remove content of the function
-            return value.toString()
+            return (value
+                .toString()
                 .replace(/[\r\n]/g, '')
-                .replace(/\{.*\}/, '') + '{…}';
+                .replace(/\{.*\}/, '') + '{…}');
         }
         else if (Array.isArray(value)) {
             return this.getObjectName() + ' [' + value.length + ']';
@@ -273,7 +274,7 @@ var TdJsonFormatterComponent = /** @class */ (function () {
         /** @type {?} */
         var funcNameRegex = /function (.{1,})\(/;
         /** @type {?} */
-        var results = (funcNameRegex).exec((object).constructor.toString());
+        var results = funcNameRegex.exec(object.constructor.toString());
         if (results && results.length > 1) {
             return results[1];
         }
@@ -320,9 +321,10 @@ var TdJsonFormatterComponent = /** @class */ (function () {
         var previewString = previewData.join(', ');
         /** @type {?} */
         var ellipsis = previewData.length >= TdJsonFormatterComponent.PREVIEW_LIMIT ||
-            previewString.length > TdJsonFormatterComponent.PREVIEW_STRING_MAX_LENGTH ? '…' : '';
-        return startChar + previewString.substring(0, TdJsonFormatterComponent.PREVIEW_STRING_MAX_LENGTH) +
-            ellipsis + endChar;
+            previewString.length > TdJsonFormatterComponent.PREVIEW_STRING_MAX_LENGTH
+            ? '…'
+            : '';
+        return (startChar + previewString.substring(0, TdJsonFormatterComponent.PREVIEW_STRING_MAX_LENGTH) + ellipsis + endChar);
     };
     /**
      * @return {?}
@@ -354,10 +356,8 @@ var TdJsonFormatterComponent = /** @class */ (function () {
         { type: Component, args: [{
                     changeDetection: ChangeDetectionStrategy.OnPush,
                     selector: 'td-json-formatter',
-                    template: "<div class=\"td-json-formatter-wrapper\">\n  <a class=\"td-key\"\n     [class.td-key-node]=\"hasChildren()\"\n     [class.td-key-leaf]=\"!hasChildren()\"\n     [tabIndex]=\"isObject()? 0 : -1\"\n     (keydown.enter)=\"toggle()\"\n     (click)=\"toggle()\">\n    <mat-icon class=\"td-node-icon\" *ngIf=\"hasChildren()\">{{open? 'keyboard_arrow_down' : (isRTL ? 'keyboard_arrow_left' : 'keyboard_arrow_right')}}</mat-icon>\n    <span *ngIf=\"key\" class=\"key\">{{key}}:</span>\n    <span class=\"value\">\n      <span [class.td-empty]=\"!hasChildren()\" *ngIf=\"isObject()\" [matTooltip]=\"getPreview()\" matTooltipPosition=\"after\">\n        <span class=\"td-object-name\">{{getObjectName()}}</span>\n        <span class=\"td-array-length\" *ngIf=\"isArray()\">[{{data.length}}]</span>\n      </span>\n      <span *ngIf=\"!isObject()\" [class]=\"getType(data)\">{{getValue(data)}}</span>\n    </span>\n  </a>\n  <div class=\"td-object-children\" [@tdCollapse]=\"!(hasChildren() && open)\">\n    <ng-template let-key ngFor [ngForOf]=\"children\">\n      <td-json-formatter [key]=\"key\" [data]=\"data[key]\" [levelsOpen]=\"levelsOpen - 1\"></td-json-formatter>\n    </ng-template>\n  </div>\n</div>",
-                    animations: [
-                        tdCollapseAnimation,
-                    ],
+                    template: "<div class=\"td-json-formatter-wrapper\">\n  <a\n    class=\"td-key\"\n    [class.td-key-node]=\"hasChildren()\"\n    [class.td-key-leaf]=\"!hasChildren()\"\n    [tabIndex]=\"isObject() ? 0 : -1\"\n    (keydown.enter)=\"toggle()\"\n    (click)=\"toggle()\"\n  >\n    <mat-icon class=\"td-node-icon\" *ngIf=\"hasChildren()\">{{\n      open ? 'keyboard_arrow_down' : isRTL ? 'keyboard_arrow_left' : 'keyboard_arrow_right'\n    }}</mat-icon>\n    <span *ngIf=\"key\" class=\"key\">{{ key }}:</span>\n    <span class=\"value\">\n      <span [class.td-empty]=\"!hasChildren()\" *ngIf=\"isObject()\" [matTooltip]=\"getPreview()\" matTooltipPosition=\"after\">\n        <span class=\"td-object-name\">{{ getObjectName() }}</span>\n        <span class=\"td-array-length\" *ngIf=\"isArray()\">[{{ data.length }}]</span>\n      </span>\n      <span *ngIf=\"!isObject()\" [class]=\"getType(data)\">{{ getValue(data) }}</span>\n    </span>\n  </a>\n  <div class=\"td-object-children\" [@tdCollapse]=\"!(hasChildren() && open)\">\n    <ng-template let-key ngFor [ngForOf]=\"children\">\n      <td-json-formatter [key]=\"key\" [data]=\"data[key]\" [levelsOpen]=\"levelsOpen - 1\"></td-json-formatter>\n    </ng-template>\n  </div>\n</div>\n",
+                    animations: [tdCollapseAnimation],
                     styles: [":host{display:block}.td-json-formatter-wrapper{padding-top:2px;padding-bottom:2px}.td-json-formatter-wrapper .td-key{-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}.td-json-formatter-wrapper .td-key.td-key-node:hover{cursor:pointer}.td-json-formatter-wrapper .td-object-children.ng-animating{overflow:hidden}.td-json-formatter-wrapper .td-object-children .td-key,.td-json-formatter-wrapper .td-object-children .td-object-children{padding-left:24px}::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-key,::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-object-children{padding-right:24px;padding-left:0}.td-json-formatter-wrapper .td-object-children .td-key.td-key-leaf,.td-json-formatter-wrapper .td-object-children .td-object-children.td-key-leaf{padding-left:48px}::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-key.td-key-leaf,::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-object-children.td-key-leaf{padding-right:48px;padding-left:0}.td-json-formatter-wrapper .value{margin-left:5px}::ng-deep [dir=rtl] .td-json-formatter-wrapper .value{padding-right:5px;padding-left:0}.td-json-formatter-wrapper .value .td-empty{opacity:.5;text-decoration:line-through}.td-json-formatter-wrapper .value .date,.td-json-formatter-wrapper .value .string{word-break:break-word}"]
                 }] }
     ];
@@ -383,17 +383,9 @@ var CovalentJsonFormatterModule = /** @class */ (function () {
     }
     CovalentJsonFormatterModule.decorators = [
         { type: NgModule, args: [{
-                    imports: [
-                        CommonModule,
-                        MatTooltipModule,
-                        MatIconModule,
-                    ],
-                    declarations: [
-                        TdJsonFormatterComponent,
-                    ],
-                    exports: [
-                        TdJsonFormatterComponent,
-                    ],
+                    imports: [CommonModule, MatTooltipModule, MatIconModule],
+                    declarations: [TdJsonFormatterComponent],
+                    exports: [TdJsonFormatterComponent],
                 },] }
     ];
     return CovalentJsonFormatterModule;

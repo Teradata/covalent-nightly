@@ -241,8 +241,8 @@ class TdPagingBarComponent {
      */
     _calculateRows() {
         /** @type {?} */
-        let top = (this._pageSize * this._page);
-        this._fromRow = (this._pageSize * (this._page - 1)) + 1;
+        let top = this._pageSize * this._page;
+        this._fromRow = this._pageSize * (this._page - 1) + 1;
         this._toRow = this._total > top ? top : this._total;
     }
     /**
@@ -275,18 +275,19 @@ class TdPagingBarComponent {
         for (let x = 0; x < actualPageLinkCount; x++) {
             // don't go past the maxPage in the pageLinks
             // have to handle even and odd pageLinkCounts differently so can still lead to the next numbers
-            if ((actualPageLinkCount % 2 === 0 && (this.page + middlePageLinks > this.maxPage)) ||
-                (actualPageLinkCount % 2 !== 0 && (this.page + middlePageLinks >= this.maxPage))) {
+            if ((actualPageLinkCount % 2 === 0 && this.page + middlePageLinks > this.maxPage) ||
+                (actualPageLinkCount % 2 !== 0 && this.page + middlePageLinks >= this.maxPage)) {
                 this._pageLinks[x] = this.maxPage - (actualPageLinkCount - (x + 1));
                 // if the selected page is after the middle then set that page as middle and get the correct balance on left and right
                 // special handling when there are only 2 pageLinks to just drop to next if block so can lead to next numbers when moving to right
                 // when moving to the left then go into this block
             }
-            else if ((actualPageLinkCount > 2 || actualPageLinkCount <= 2 && this._hitEnd) && (this.page - middlePageLinks) > 0) {
-                this._pageLinks[x] = (this.page - middlePageLinks) + x;
+            else if ((actualPageLinkCount > 2 || (actualPageLinkCount <= 2 && this._hitEnd)) &&
+                this.page - middlePageLinks > 0) {
+                this._pageLinks[x] = this.page - middlePageLinks + x;
                 // if the selected page is before the middle then set the pages based on the x index leading up to and after selected page
             }
-            else if ((this.page - middlePageLinks) <= 0) {
+            else if (this.page - middlePageLinks <= 0) {
                 this._pageLinks[x] = x + 1;
                 // other wise just set the array in order starting from the selected page
             }
@@ -318,7 +319,7 @@ TdPagingBarComponent.decorators = [
     { type: Component, args: [{
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 selector: 'td-paging-bar',
-                template: "<div class=\"td-paging-bar\" (change)=\"$event.stopPropagation()\" >\n  <ng-content></ng-content>\n  <div class=\"td-paging-bar-navigation\">\n    <button mat-icon-button class=\"td-paging-bar-first-page\" type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMinPage()\" (click)=\"firstPage()\">\n      <mat-icon>{{ isRTL ? 'skip_next' : 'skip_previous' }}</mat-icon>\n    </button>\n    <button mat-icon-button class=\"td-paging-bar-prev-page\" type=\"button\" [disabled]=\"isMinPage()\" (click)=\"prevPage()\">\n      <mat-icon>{{ isRTL ? 'navigate_next' : 'navigate_before' }}</mat-icon>\n    </button>\n    <ng-template *ngIf=\"pageLinkCount > 0\" let-link let-index=\"index\" ngFor [ngForOf]=\"pageLinks\">\n      <button class=\"td-paging-bar-link-page\" mat-icon-button type=\"button\" [color]=\"page === link ? 'accent' : ''\" (click)=\"navigateToPage(link)\">{{link}}</button>\n    </ng-template>\n    <button mat-icon-button class=\"td-paging-bar-next-page\" type=\"button\" [disabled]=\"isMaxPage()\" (click)=\"nextPage()\">\n      <mat-icon>{{ isRTL ? 'navigate_before' : 'navigate_next' }}</mat-icon>\n    </button>\n    <button mat-icon-button class=\"td-paging-bar-last-page\" type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMaxPage()\" (click)=\"lastPage()\">\n      <mat-icon>{{ isRTL ? 'skip_previous' : 'skip_next' }}</mat-icon>\n    </button>\n  </div>\n</div>",
+                template: "<div class=\"td-paging-bar\" (change)=\"$event.stopPropagation()\">\n  <ng-content></ng-content>\n  <div class=\"td-paging-bar-navigation\">\n    <button\n      mat-icon-button\n      class=\"td-paging-bar-first-page\"\n      type=\"button\"\n      *ngIf=\"firstLast\"\n      [disabled]=\"isMinPage()\"\n      (click)=\"firstPage()\"\n    >\n      <mat-icon>{{ isRTL ? 'skip_next' : 'skip_previous' }}</mat-icon>\n    </button>\n    <button mat-icon-button class=\"td-paging-bar-prev-page\" type=\"button\" [disabled]=\"isMinPage()\" (click)=\"prevPage()\">\n      <mat-icon>{{ isRTL ? 'navigate_next' : 'navigate_before' }}</mat-icon>\n    </button>\n    <ng-template *ngIf=\"pageLinkCount > 0\" let-link let-index=\"index\" ngFor [ngForOf]=\"pageLinks\">\n      <button\n        class=\"td-paging-bar-link-page\"\n        mat-icon-button\n        type=\"button\"\n        [color]=\"page === link ? 'accent' : ''\"\n        (click)=\"navigateToPage(link)\"\n      >\n        {{ link }}\n      </button>\n    </ng-template>\n    <button mat-icon-button class=\"td-paging-bar-next-page\" type=\"button\" [disabled]=\"isMaxPage()\" (click)=\"nextPage()\">\n      <mat-icon>{{ isRTL ? 'navigate_before' : 'navigate_next' }}</mat-icon>\n    </button>\n    <button\n      mat-icon-button\n      class=\"td-paging-bar-last-page\"\n      type=\"button\"\n      *ngIf=\"firstLast\"\n      [disabled]=\"isMaxPage()\"\n      (click)=\"lastPage()\"\n    >\n      <mat-icon>{{ isRTL ? 'skip_previous' : 'skip_next' }}</mat-icon>\n    </button>\n  </div>\n</div>\n",
                 styles: [":host{display:block}:host .td-paging-bar{height:48px;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}:host .td-paging-bar ::ng-deep>*{margin:0 10px}:host .td-paging-bar [mat-icon-button]{font-size:12px;font-weight:400}"]
             }] }
 ];
@@ -344,17 +345,9 @@ class CovalentPagingModule {
 }
 CovalentPagingModule.decorators = [
     { type: NgModule, args: [{
-                imports: [
-                    CommonModule,
-                    MatIconModule,
-                    MatButtonModule,
-                ],
-                declarations: [
-                    TdPagingBarComponent,
-                ],
-                exports: [
-                    TdPagingBarComponent,
-                ],
+                imports: [CommonModule, MatIconModule, MatButtonModule],
+                declarations: [TdPagingBarComponent],
+                exports: [TdPagingBarComponent],
             },] }
 ];
 
@@ -536,7 +529,7 @@ class TdVirtualScrollContainerComponent {
      */
     handleScroll(event) {
         /** @type {?} */
-        let element = ((/** @type {?} */ (event.target)));
+        let element = (/** @type {?} */ (event.target));
         if (element) {
             /** @type {?} */
             let verticalScroll = element.scrollTop;
@@ -548,7 +541,7 @@ class TdVirtualScrollContainerComponent {
             }
             if (this._initialized) {
                 // check to see if bottom was hit to throw the bottom event
-                if ((this._data.length * this.rowHeight) - (verticalScroll + this._hostHeight) === 0) {
+                if (this._data.length * this.rowHeight - (verticalScroll + this._hostHeight) === 0) {
                     this._bottom.next();
                 }
             }
@@ -594,10 +587,10 @@ class TdVirtualScrollContainerComponent {
         if (this._data) {
             this._totalHeight = this._data.length * this.rowHeight;
             /** @type {?} */
-            let fromRow = Math.floor((this._scrollVerticalOffset / this.rowHeight)) - TD_VIRTUAL_OFFSET;
+            let fromRow = Math.floor(this._scrollVerticalOffset / this.rowHeight) - TD_VIRTUAL_OFFSET;
             this._fromRow = fromRow > 0 ? fromRow : 0;
             /** @type {?} */
-            let range = Math.floor((this._hostHeight / this.rowHeight)) + (TD_VIRTUAL_OFFSET * 2);
+            let range = Math.floor(this._hostHeight / this.rowHeight) + TD_VIRTUAL_OFFSET * 2;
             /** @type {?} */
             let toRow = range + this.fromRow;
             if (isFinite(toRow) && toRow > this._data.length) {
@@ -615,7 +608,7 @@ class TdVirtualScrollContainerComponent {
         }
         /** @type {?} */
         let offset = 0;
-        if (this._scrollVerticalOffset > (TD_VIRTUAL_OFFSET * this.rowHeight)) {
+        if (this._scrollVerticalOffset > TD_VIRTUAL_OFFSET * this.rowHeight) {
             offset = this.fromRow * this.rowHeight;
         }
         this._offsetTransform = this._domSanitizer.bypassSecurityTrustStyle('translateY(' + (offset - this.totalHeight) + 'px)');
@@ -632,7 +625,7 @@ class TdVirtualScrollContainerComponent {
 TdVirtualScrollContainerComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-virtual-scroll-container',
-                template: "<div [style.height.px]=\"totalHeight\"></div>\n<div [style.transform]=\"offsetTransform\"\n      [style.position]=\"'absolute'\"\n      [style.width.%]=\"100\">\n  <ng-template let-row\n                let-index=\"index\"\n                ngFor\n                [ngForOf]=\"virtualData\"\n                [ngForTrackBy]=\"trackBy\">\n    <div #rowElement\n         [style.width.%]=\"100\">\n      <ng-template *ngIf=\"_rowTemplate\"\n                  [ngTemplateOutlet]=\"_rowTemplate.templateRef\"\n                  [ngTemplateOutletContext]=\"{row: row,\n                                      index: (fromRow + index),\n                                      first: (fromRow + index) === 0,\n                                      last: (fromRow + index) === (data.length - 1),\n                                      odd: ((fromRow + index + 1) % 2) === 1,\n                                      even: ((fromRow + index + 1) % 2) === 0}\">\n      </ng-template>\n    </div>\n  </ng-template>\n</div>",
+                template: "<div [style.height.px]=\"totalHeight\"></div>\n<div [style.transform]=\"offsetTransform\" [style.position]=\"'absolute'\" [style.width.%]=\"100\">\n  <ng-template let-row let-index=\"index\" ngFor [ngForOf]=\"virtualData\" [ngForTrackBy]=\"trackBy\">\n    <div #rowElement [style.width.%]=\"100\">\n      <ng-template\n        *ngIf=\"_rowTemplate\"\n        [ngTemplateOutlet]=\"_rowTemplate.templateRef\"\n        [ngTemplateOutletContext]=\"{\n          row: row,\n          index: fromRow + index,\n          first: fromRow + index === 0,\n          last: fromRow + index === data.length - 1,\n          odd: (fromRow + index + 1) % 2 === 1,\n          even: (fromRow + index + 1) % 2 === 0\n        }\"\n      >\n      </ng-template>\n    </div>\n  </ng-template>\n</div>\n",
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 styles: [":host{display:block;height:100%;width:100%;overflow:auto;position:relative}"]
             }] }
@@ -658,23 +651,14 @@ TdVirtualScrollContainerComponent.propDecorators = {
  * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 /** @type {?} */
-const TD_VIRTUAL_SCROLL = [
-    TdVirtualScrollRowDirective,
-    TdVirtualScrollContainerComponent,
-];
+const TD_VIRTUAL_SCROLL = [TdVirtualScrollRowDirective, TdVirtualScrollContainerComponent];
 class CovalentVirtualScrollModule {
 }
 CovalentVirtualScrollModule.decorators = [
     { type: NgModule, args: [{
-                imports: [
-                    CommonModule,
-                ],
-                declarations: [
-                    TD_VIRTUAL_SCROLL,
-                ],
-                exports: [
-                    TD_VIRTUAL_SCROLL,
-                ],
+                imports: [CommonModule],
+                declarations: [TD_VIRTUAL_SCROLL],
+                exports: [TD_VIRTUAL_SCROLL],
             },] }
 ];
 
@@ -826,7 +810,7 @@ class TdNotificationCountComponent {
 TdNotificationCountComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-notification-count',
-                template: "<div #content class=\"td-notification-content\">\n  <ng-content></ng-content>\n</div>\n<div *ngIf=\"show\"\n     class=\"td-notification-count mat-{{color}}\"\n     [class.td-notification-top]=\"positionY === 'top'\"\n     [class.td-notification-bottom]=\"positionY === 'bottom'\"\n     [class.td-notification-before]=\"positionX === 'before'\"\n     [class.td-notification-after]=\"positionX === 'after'\"\n     [class.td-notification-center-y]=\"positionY === 'center'\"\n     [class.td-notification-center-x]=\"positionX === 'center'\"\n     [class.td-notification-no-count]=\"noCount\">\n  {{noCount ? '' : notificationsDisplay}}\n</div>",
+                template: "<div #content class=\"td-notification-content\">\n  <ng-content></ng-content>\n</div>\n<div\n  *ngIf=\"show\"\n  class=\"td-notification-count mat-{{ color }}\"\n  [class.td-notification-top]=\"positionY === 'top'\"\n  [class.td-notification-bottom]=\"positionY === 'bottom'\"\n  [class.td-notification-before]=\"positionX === 'before'\"\n  [class.td-notification-after]=\"positionX === 'after'\"\n  [class.td-notification-center-y]=\"positionY === 'center'\"\n  [class.td-notification-center-x]=\"positionX === 'center'\"\n  [class.td-notification-no-count]=\"noCount\"\n>\n  {{ noCount ? '' : notificationsDisplay }}\n</div>\n",
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 styles: [":host{position:relative;display:block;text-align:center;min-width:40px;height:40px}:host.td-notification-hidden{min-width:0}.td-notification-count{line-height:21px;width:20px;height:20px;position:absolute;font-size:10px;font-weight:600;border-radius:50%;z-index:1}.td-notification-count.td-notification-center-x{margin-left:auto;margin-right:auto;left:0;right:0}.td-notification-count.td-notification-center-y{margin-top:auto;margin-bottom:auto;top:0;bottom:0}.td-notification-count.td-notification-top{top:0}.td-notification-count.td-notification-bottom{bottom:0}.td-notification-count.td-notification-before{left:0}.td-notification-count.td-notification-after{right:0}.td-notification-count.td-notification-no-count{width:8px;height:8px}.td-notification-count.td-notification-no-count.td-notification-top{top:8px}.td-notification-count.td-notification-no-count.td-notification-bottom{bottom:8px}.td-notification-count.td-notification-no-count.td-notification-before{left:8px}.td-notification-count.td-notification-no-count.td-notification-after{right:8px}::ng-deep [dir=rtl] .td-notification-count.td-notification-before{right:0;left:auto}::ng-deep [dir=rtl] .td-notification-count.td-notification-after{left:0;right:auto}::ng-deep [dir=rtl] .td-notification-count.td-notification-no-count.td-notification-before{right:8px;left:auto}::ng-deep [dir=rtl] .td-notification-count.td-notification-no-count.td-notification-after{left:8px;right:auto}.td-notification-content,.td-notification-content ::ng-deep>*{line-height:40px}"]
             }] }
@@ -846,22 +830,14 @@ TdNotificationCountComponent.propDecorators = {
  * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 /** @type {?} */
-const TD_NOTIFICATIONS = [
-    TdNotificationCountComponent,
-];
+const TD_NOTIFICATIONS = [TdNotificationCountComponent];
 class CovalentNotificationsModule {
 }
 CovalentNotificationsModule.decorators = [
     { type: NgModule, args: [{
-                imports: [
-                    CommonModule,
-                ],
-                declarations: [
-                    TD_NOTIFICATIONS,
-                ],
-                exports: [
-                    TD_NOTIFICATIONS,
-                ],
+                imports: [CommonModule],
+                declarations: [TD_NOTIFICATIONS],
+                exports: [TD_NOTIFICATIONS],
             },] }
 ];
 
@@ -892,7 +868,7 @@ class TdAutoTrimDirective {
      * @return {?}
      */
     onBlur(event) {
-        if (this._model && this._model.value && typeof (this._model.value) === 'string') {
+        if (this._model && this._model.value && typeof this._model.value === 'string') {
             this._model.update.emit(this._model.value.trim());
         }
     }
@@ -941,13 +917,13 @@ class TdFullscreenDirective {
      * @return {?}
      */
     enterFullScreen() {
-        const { _el: { nativeElement } } = this;
+        const { _el: { nativeElement }, } = this;
         /** @type {?} */
         const enterFullScreenMap = {
             requestFullscreen: () => nativeElement.requestFullscreen(),
             // Chrome
             webkitRequestFullscreen: () => nativeElement.webkitRequestFullscreen(),
-            // Safari 
+            // Safari
             mozRequestFullScreen: () => nativeElement.mozRequestFullScreen(),
             // Firefox
             msRequestFullscreen: () => nativeElement.msRequestFullscreen(),
@@ -962,7 +938,7 @@ class TdFullscreenDirective {
      * @return {?}
      */
     exitFullScreen() {
-        const { _document, _el: { nativeElement } } = this;
+        const { _document, _el: { nativeElement }, } = this;
         /** @type {?} */
         const exitFullScreenMap = {
             exitFullscreen: () => _document.exitFullscreen(),
@@ -1123,13 +1099,13 @@ class TdTimeDifferencePipe {
         let diff = Math.floor((endTime.getTime() - startTime.getTime()) / 1000);
         /** @type {?} */
         let days = Math.floor(diff / (60 * 60 * 24));
-        diff = diff - (days * (60 * 60 * 24));
+        diff = diff - days * (60 * 60 * 24);
         /** @type {?} */
         let hours = Math.floor(diff / (60 * 60));
-        diff = diff - (hours * (60 * 60));
+        diff = diff - hours * (60 * 60);
         /** @type {?} */
-        let minutes = Math.floor(diff / (60));
-        diff -= minutes * (60);
+        let minutes = Math.floor(diff / 60);
+        diff -= minutes * 60;
         /** @type {?} */
         let seconds = diff;
         /** @type {?} */
@@ -1142,10 +1118,15 @@ class TdTimeDifferencePipe {
         else if (days > 1) {
             daysFormatted = ' days - ';
         }
-        return (days > 0 ? days + daysFormatted : daysFormatted) +
-            pad.substring(0, pad.length - (hours + '').length) + hours + ':' +
-            pad.substring(0, pad.length - (minutes + '').length) + minutes + ':' +
-            pad.substring(0, pad.length - (seconds + '').length) + seconds;
+        return ((days > 0 ? days + daysFormatted : daysFormatted) +
+            pad.substring(0, pad.length - (hours + '').length) +
+            hours +
+            ':' +
+            pad.substring(0, pad.length - (minutes + '').length) +
+            minutes +
+            ':' +
+            pad.substring(0, pad.length - (seconds + '').length) +
+            seconds);
     }
 }
 TdTimeDifferencePipe.decorators = [
@@ -1348,7 +1329,7 @@ class TdDigitsPipe {
         let i = Math.floor(Math.log(digits) / Math.log(k));
         /** @type {?} */
         let size = sizes[i];
-        return this._decimalPipe.transform(parseFloat((digits / Math.pow(k, i)).toFixed(precision))) + (size ? ' ' + size : '');
+        return (this._decimalPipe.transform(parseFloat((digits / Math.pow(k, i)).toFixed(precision))) + (size ? ' ' + size : ''));
     }
 }
 TdDigitsPipe.decorators = [
@@ -1403,14 +1384,16 @@ class RouterPathService {
      */
     constructor(_router) {
         this._router = _router;
-        this._router.events.pipe(filter((e) => e instanceof RoutesRecognized), pairwise()).subscribe((e) => {
+        this._router.events
+            .pipe(filter((e) => e instanceof RoutesRecognized), pairwise())
+            .subscribe((e) => {
             RouterPathService._previousRoute = e[0].urlAfterRedirects;
         });
     }
     /*
-      * Utility function to get the route the user previously went to
-      * good for use in a "back button"
-      */
+       * Utility function to get the route the user previously went to
+       * good for use in a "back button"
+       */
     /**
      * @return {?}
      */
@@ -2287,12 +2270,7 @@ const tdRotateAnimation$1 = trigger('tdRotate', [
     state('1', style({
         transform: 'rotate({{ degreesEnd }}deg)',
     }), { params: { degreesEnd: 180 } }),
-    transition('0 <=> 1', [
-        group([
-            query('@*', animateChild(), { optional: true }),
-            animate('{{ duration }}ms {{ delay }}ms {{ ease }}'),
-        ]),
-    ], { params: { duration: 250, delay: '0', ease: 'ease-in' } }),
+    transition('0 <=> 1', [group([query('@*', animateChild(), { optional: true }), animate('{{ duration }}ms {{ delay }}ms {{ ease }}')])], { params: { duration: 250, delay: '0', ease: 'ease-in' } }),
 ]);
 
 /**
@@ -2419,15 +2397,47 @@ const tdBounceAnimation = trigger('tdBounce', [
         group([
             query('@*', animateChild(), { optional: true }),
             animate('{{ duration }}ms {{ delay }}ms {{ ease }}', keyframes([
-                style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0 }),
-                style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.2 }),
-                style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -30px, 0)', offset: 0.4 }),
-                style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -30px, 0)', offset: 0.43 }),
-                style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.53 }),
-                style({ animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)', transform: 'translate3d(0, -15px, 0)', offset: .7 }),
-                style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 0.8 }),
-                style({ transform: 'translate3d(0, -4px, 0)', offset: .9 }),
-                style({ animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', transform: 'translate3d(0, 0, 0)', offset: 1.0 }),
+                style({
+                    animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)',
+                    transform: 'translate3d(0, 0, 0)',
+                    offset: 0,
+                }),
+                style({
+                    animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)',
+                    transform: 'translate3d(0, 0, 0)',
+                    offset: 0.2,
+                }),
+                style({
+                    animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)',
+                    transform: 'translate3d(0, -30px, 0)',
+                    offset: 0.4,
+                }),
+                style({
+                    animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)',
+                    transform: 'translate3d(0, -30px, 0)',
+                    offset: 0.43,
+                }),
+                style({
+                    animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)',
+                    transform: 'translate3d(0, 0, 0)',
+                    offset: 0.53,
+                }),
+                style({
+                    animationTimingFunction: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)',
+                    transform: 'translate3d(0, -15px, 0)',
+                    offset: 0.7,
+                }),
+                style({
+                    animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)',
+                    transform: 'translate3d(0, 0, 0)',
+                    offset: 0.8,
+                }),
+                style({ transform: 'translate3d(0, -4px, 0)', offset: 0.9 }),
+                style({
+                    animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)',
+                    transform: 'translate3d(0, 0, 0)',
+                    offset: 1.0,
+                }),
             ])),
         ]),
     ], { params: { duration: 500, delay: '0', ease: 'ease-out' } }),
@@ -2504,7 +2514,7 @@ const tdHeadshakeAnimation = trigger('tdHeadshake', [
                 style({ transform: 'translateX(5px) rotateY(7deg)', offset: 0.185 }),
                 style({ transform: 'translateX(-3px) rotateY(-5deg)', offset: 0.315 }),
                 style({ transform: 'translateX(2px) rotateY(3deg)', offset: 0.435 }),
-                style({ transform: 'translateX(0)', offset: 0.50 }),
+                style({ transform: 'translateX(0)', offset: 0.5 }),
             ])),
         ]),
     ], { params: { duration: 500, delay: '0', ease: 'ease-out' } }),
@@ -2770,9 +2780,7 @@ class CovalentValidators {
             }
             /** @type {?} */
             let v = c.value;
-            return v < minValue ?
-                { min: { minValue: minValue, actualValue: v } } :
-                undefined;
+            return v < minValue ? { min: { minValue: minValue, actualValue: v } } : undefined;
         };
         return func;
     }
@@ -2788,9 +2796,7 @@ class CovalentValidators {
             }
             /** @type {?} */
             let v = c.value;
-            return v > maxValue ?
-                { max: { maxValue: maxValue, actualValue: v } } :
-                undefined;
+            return v > maxValue ? { max: { maxValue: maxValue, actualValue: v } } : undefined;
         };
         return func;
     }
@@ -2799,9 +2805,7 @@ class CovalentValidators {
      * @return {?}
      */
     static numberRequired(c) {
-        return (Number.isNaN(c.value)) ?
-            { required: true } :
-            undefined;
+        return Number.isNaN(c.value) ? { required: true } : undefined;
     }
 }
 
@@ -3017,10 +3021,8 @@ class TdMessageComponent {
 TdMessageComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-message',
-                template: "<div tdMessageContainer></div>\n<ng-template>\n  <div class=\"td-message-wrapper\">\n    <mat-icon class=\"td-message-icon\">{{icon}}</mat-icon>\n    <div class=\"td-message-labels\">\n      <div *ngIf=\"label\" class=\"td-message-label\">{{label}}</div>\n      <div *ngIf=\"sublabel\" class=\"td-message-sublabel\">{{sublabel}}</div>\n    </div>\n    <ng-content select=\"[td-message-actions]\"></ng-content>\n  </div>\n</ng-template>",
-                animations: [
-                    tdCollapseAnimation,
-                ],
+                template: "<div tdMessageContainer></div>\n<ng-template>\n  <div class=\"td-message-wrapper\">\n    <mat-icon class=\"td-message-icon\">{{ icon }}</mat-icon>\n    <div class=\"td-message-labels\">\n      <div *ngIf=\"label\" class=\"td-message-label\">{{ label }}</div>\n      <div *ngIf=\"sublabel\" class=\"td-message-sublabel\">{{ sublabel }}</div>\n    </div>\n    <ng-content select=\"[td-message-actions]\"></ng-content>\n  </div>\n</ng-template>\n",
+                animations: [tdCollapseAnimation],
                 styles: [":host{display:block}:host .td-message-wrapper{padding:8px 16px;min-height:52px;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}:host .td-message-wrapper .td-message-labels{-webkit-box-flex:1;-ms-flex:1;flex:1}.td-message-icon{margin-right:16px}::ng-deep [dir=rtl] .td-message-icon{margin-left:16px;margin-right:0}"]
             }] }
 ];
@@ -3048,24 +3050,14 @@ TdMessageComponent.propDecorators = {
  * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 /** @type {?} */
-const TD_MESSAGE = [
-    TdMessageComponent,
-    TdMessageContainerDirective,
-];
+const TD_MESSAGE = [TdMessageComponent, TdMessageContainerDirective];
 class CovalentMessageModule {
 }
 CovalentMessageModule.decorators = [
     { type: NgModule, args: [{
-                imports: [
-                    CommonModule,
-                    MatIconModule,
-                ],
-                declarations: [
-                    TD_MESSAGE,
-                ],
-                exports: [
-                    TD_MESSAGE,
-                ],
+                imports: [CommonModule, MatIconModule],
+                declarations: [TD_MESSAGE],
+                exports: [TD_MESSAGE],
             },] }
 ];
 
@@ -3353,7 +3345,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
         if (!this.canAddChip) {
             return '';
         }
-        return (this._required) ? `${this.placeholder} *` : this.placeholder;
+        return this._required ? `${this.placeholder} *` : this.placeholder;
     }
     /**
      * color?: 'primary' | 'accent' | 'warn'
@@ -3402,7 +3394,9 @@ class TdChipsComponent extends _TdChipsMixinBase {
     mousedownListener(event) {
         // sets a flag to know if there was a mousedown and then it returns it back to false
         this._isMousedown = true;
-        timer().toPromise().then(() => {
+        timer()
+            .toPromise()
+            .then(() => {
             this._isMousedown = false;
         });
     }
@@ -3415,8 +3409,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
     clickListener(event) {
         /** @type {?} */
         const clickTarget = (/** @type {?} */ (event.target));
-        if (clickTarget === this._elementRef.nativeElement ||
-            clickTarget.className.indexOf('td-chips-wrapper') > -1) {
+        if (clickTarget === this._elementRef.nativeElement || clickTarget.className.indexOf('td-chips-wrapper') > -1) {
             this.focus();
             event.preventDefault();
             event.stopPropagation();
@@ -3431,7 +3424,9 @@ class TdChipsComponent extends _TdChipsMixinBase {
         switch (event.keyCode) {
             case TAB:
                 // if tabing out, then unfocus the component
-                timer().toPromise().then(() => {
+                timer()
+                    .toPromise()
+                    .then(() => {
                     this.removeFocusedState();
                 });
                 break;
@@ -3453,7 +3448,9 @@ class TdChipsComponent extends _TdChipsMixinBase {
      * @return {?}
      */
     ngOnInit() {
-        this._inputValueChangesSubs = this.inputControl.valueChanges.pipe(debounceTime(this.debounce)).subscribe((value) => {
+        this._inputValueChangesSubs = this.inputControl.valueChanges
+            .pipe(debounceTime(this.debounce))
+            .subscribe((value) => {
             this.onInputChange.emit(value ? value : '');
         });
         this._changeDetectorRef.markForCheck();
@@ -3547,7 +3544,9 @@ class TdChipsComponent extends _TdChipsMixinBase {
          * to rerender the next list and at the correct spot
          */
         this._closeAutocomplete();
-        timer(this.debounce).toPromise().then(() => {
+        timer(this.debounce)
+            .toPromise()
+            .then(() => {
             this.setFocusedState();
             this._setFirstOptionActive();
             this._openAutocomplete();
@@ -3579,10 +3578,10 @@ class TdChipsComponent extends _TdChipsMixinBase {
          * Checks if deleting last single chip, to focus input afterwards
          * Else check if its not the last chip of the list to focus the next one.
          */
-        if (index === (this._totalChips - 1) && index === 0) {
+        if (index === this._totalChips - 1 && index === 0) {
             this._inputChild.focus();
         }
-        else if (index < (this._totalChips - 1)) {
+        else if (index < this._totalChips - 1) {
             this._focusChip(index + 1);
         }
         else if (index > 0) {
@@ -3743,7 +3742,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
                  * Check to see if right/up arrow was pressed while focusing the last chip to focus input next
                  * Also check if input should be focused
                  */
-                if (index === (this._totalChips - 1)) {
+                if (index === this._totalChips - 1) {
                     // only try to target input if pressing right
                     if (this.canAddChip && event.keyCode === RIGHT_ARROW) {
                         this._inputChild.focus();
@@ -3752,7 +3751,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
                         this._focusFirstChip();
                     }
                 }
-                else if (index < (this._totalChips - 1)) {
+                else if (index < this._totalChips - 1) {
                     this._focusChip(index + 1);
                 }
                 // prevent default window scrolling
@@ -3845,7 +3844,9 @@ class TdChipsComponent extends _TdChipsMixinBase {
     _setFirstOptionActive() {
         if (this.requireMatch) {
             // need to use a timer here to wait until the autocomplete has been opened (end of queue)
-            timer().toPromise().then(() => {
+            timer()
+                .toPromise()
+                .then(() => {
                 if (this.focused && this._options && this._options.length > 0) {
                     // clean up of previously active options
                     this._options.toArray().forEach((option) => {
@@ -3867,16 +3868,19 @@ class TdChipsComponent extends _TdChipsMixinBase {
      */
     _watchOutsideClick() {
         if (this._document) {
-            this._outsideClickSubs = merge(fromEvent(this._document, 'click'), fromEvent(this._document, 'touchend')).pipe(debounceTime(this._touchendDebounce), filter((event) => {
+            this._outsideClickSubs = merge(fromEvent(this._document, 'click'), fromEvent(this._document, 'touchend'))
+                .pipe(debounceTime(this._touchendDebounce), filter((event) => {
                 /** @type {?} */
                 const clickTarget = (/** @type {?} */ (event.target));
                 setTimeout(() => {
                     this._internalClick = false;
                 });
-                return this.focused &&
-                    (clickTarget !== this._elementRef.nativeElement) &&
-                    !this._elementRef.nativeElement.contains(clickTarget) && !this._internalClick;
-            })).subscribe(() => {
+                return (this.focused &&
+                    clickTarget !== this._elementRef.nativeElement &&
+                    !this._elementRef.nativeElement.contains(clickTarget) &&
+                    !this._internalClick);
+            }))
+                .subscribe(() => {
                 if (this.focused) {
                     this._autocompleteTrigger.closePanel();
                     this.removeFocusedState();
@@ -3890,14 +3894,16 @@ class TdChipsComponent extends _TdChipsMixinBase {
 }
 TdChipsComponent.decorators = [
     { type: Component, args: [{
-                providers: [{
+                providers: [
+                    {
                         provide: NG_VALUE_ACCESSOR,
                         useExisting: forwardRef(() => TdChipsComponent),
                         multi: true,
-                    }],
+                    },
+                ],
                 selector: 'td-chips',
                 inputs: ['disabled', 'value'],
-                template: "<div class=\"td-chips-wrapper\"\n     [class.td-chips-stacked]=\"stacked\"\n     [class.td-chips-input-before-position]=\"inputPosition === 'before'\">\n  <ng-template let-chip let-first=\"first\" let-index=\"index\" ngFor [ngForOf]=\"value\">\n    <mat-basic-chip [class.td-chip-disabled]=\"disabled\"\n                   [class.td-chip-after-pad]=\"!canRemoveChip\"\n                   [disableRipple]=\"true\"\n                   [color]=\"color\"\n                   (keydown)=\"_chipKeydown($event, index)\"\n                   (blur)=\"_handleChipBlur($event, chip)\"\n                   (focus)=\"_handleChipFocus($event, chip)\">\n      <div class=\"td-chip\" [class.td-chip-stacked]=\"stacked\">\n        <span class=\"td-chip-content\">\n          <span *ngIf=\"!_chipTemplate?.templateRef\">{{chip}}</span>\n          <ng-template\n            *ngIf=\"_chipTemplate?.templateRef\"\n            [ngTemplateOutlet]=\"_chipTemplate?.templateRef\"\n            [ngTemplateOutletContext]=\"{ chip: chip }\">\n          </ng-template>\n        </span>\n        <mat-icon *ngIf=\"canRemoveChip\" class=\"td-chip-removal\" (click)=\"_internalClick = removeChip(index)\">\n          cancel\n        </mat-icon>\n      </div>\n    </mat-basic-chip>\n  </ng-template>\n  <mat-form-field floatLabel=\"never\"\n                  class=\"td-chips-form-field\"\n                  [style.width.px]=\"canAddChip ? null : 0\"\n                  [style.height.px]=\"canAddChip ? null : 0\"\n                  [color]=\"color\">\n    <input matInput\n            #input\n            [tabIndex]=\"-1\"\n            [matAutocomplete]=\"autocomplete\"\n            [formControl]=\"inputControl\"\n            [placeholder]=\"displayPlaceHolder\"\n            (keydown)=\"_inputKeydown($event)\"\n            (keyup.enter)=\"_handleAddChip()\"\n            (focus)=\"_handleFocus()\">\n  </mat-form-field>\n  <mat-autocomplete #autocomplete=\"matAutocomplete\"\n                   [displayWith]=\"_removeInputDisplay\"\n                   (optionSelected)=\"addChip($event.option.value)\">\n    <ng-template let-item let-first=\"first\" ngFor [ngForOf]=\"items\">\n      <mat-option (click)=\"_setInternalClick()\" [value]=\"item\">\n        <span *ngIf=\"!_autocompleteOptionTemplate?.templateRef\">{{item}}</span>\n        <ng-template\n          *ngIf=\"_autocompleteOptionTemplate?.templateRef\"\n          [ngTemplateOutlet]=\"_autocompleteOptionTemplate?.templateRef\"\n          [ngTemplateOutletContext]=\"{ option: item }\">\n        </ng-template>\n      </mat-option>\n    </ng-template>\n  </mat-autocomplete>\n</div>\n<div *ngIf=\"chipAddition\" class=\"mat-form-field-underline\"\n      [class.mat-disabled]=\"disabled\">\n  <span class=\"mat-form-field-ripple\"\n        [class.mat-focused]=\"focused\"></span>\n</div>\n<ng-content></ng-content>",
+                template: "<div\n  class=\"td-chips-wrapper\"\n  [class.td-chips-stacked]=\"stacked\"\n  [class.td-chips-input-before-position]=\"inputPosition === 'before'\"\n>\n  <ng-template let-chip let-first=\"first\" let-index=\"index\" ngFor [ngForOf]=\"value\">\n    <mat-basic-chip\n      [class.td-chip-disabled]=\"disabled\"\n      [class.td-chip-after-pad]=\"!canRemoveChip\"\n      [disableRipple]=\"true\"\n      [color]=\"color\"\n      (keydown)=\"_chipKeydown($event, index)\"\n      (blur)=\"_handleChipBlur($event, chip)\"\n      (focus)=\"_handleChipFocus($event, chip)\"\n    >\n      <div class=\"td-chip\" [class.td-chip-stacked]=\"stacked\">\n        <span class=\"td-chip-content\">\n          <span *ngIf=\"!_chipTemplate?.templateRef\">{{ chip }}</span>\n          <ng-template\n            *ngIf=\"_chipTemplate?.templateRef\"\n            [ngTemplateOutlet]=\"_chipTemplate?.templateRef\"\n            [ngTemplateOutletContext]=\"{ chip: chip }\"\n          >\n          </ng-template>\n        </span>\n        <mat-icon *ngIf=\"canRemoveChip\" class=\"td-chip-removal\" (click)=\"_internalClick = removeChip(index)\">\n          cancel\n        </mat-icon>\n      </div>\n    </mat-basic-chip>\n  </ng-template>\n  <mat-form-field\n    floatLabel=\"never\"\n    class=\"td-chips-form-field\"\n    [style.width.px]=\"canAddChip ? null : 0\"\n    [style.height.px]=\"canAddChip ? null : 0\"\n    [color]=\"color\"\n  >\n    <input\n      matInput\n      #input\n      [tabIndex]=\"-1\"\n      [matAutocomplete]=\"autocomplete\"\n      [formControl]=\"inputControl\"\n      [placeholder]=\"displayPlaceHolder\"\n      (keydown)=\"_inputKeydown($event)\"\n      (keyup.enter)=\"_handleAddChip()\"\n      (focus)=\"_handleFocus()\"\n    />\n  </mat-form-field>\n  <mat-autocomplete\n    #autocomplete=\"matAutocomplete\"\n    [displayWith]=\"_removeInputDisplay\"\n    (optionSelected)=\"addChip($event.option.value)\"\n  >\n    <ng-template let-item let-first=\"first\" ngFor [ngForOf]=\"items\">\n      <mat-option (click)=\"_setInternalClick()\" [value]=\"item\">\n        <span *ngIf=\"!_autocompleteOptionTemplate?.templateRef\">{{ item }}</span>\n        <ng-template\n          *ngIf=\"_autocompleteOptionTemplate?.templateRef\"\n          [ngTemplateOutlet]=\"_autocompleteOptionTemplate?.templateRef\"\n          [ngTemplateOutletContext]=\"{ option: item }\"\n        >\n        </ng-template>\n      </mat-option>\n    </ng-template>\n  </mat-autocomplete>\n</div>\n<div *ngIf=\"chipAddition\" class=\"mat-form-field-underline\" [class.mat-disabled]=\"disabled\">\n  <span class=\"mat-form-field-ripple\" [class.mat-focused]=\"focused\"></span>\n</div>\n<ng-content></ng-content>\n",
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 styles: [":host{display:block;padding:0 5px;min-height:48px}:host .td-chips-wrapper{min-height:42px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}:host .td-chips-wrapper.td-chips-stacked .mat-basic-chip,:host .td-chips-wrapper.td-chips-stacked .td-chips-form-field{width:100%}:host .td-chips-wrapper.td-chips-input-before-position .td-chips-form-field{-webkit-box-ordinal-group:0;-ms-flex-order:-1;order:-1}:host .td-chip,:host .td-chip>.td-chip-content{-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;max-width:100%;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;min-width:0}:host .td-chip.td-chip-stacked,:host .td-chip>.td-chip-content.td-chip-stacked{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}:host ::ng-deep .mat-form-field-wrapper{padding-bottom:2px}:host ::ng-deep .mat-basic-chip{display:inline-block;cursor:default;border-radius:16px;margin:8px 8px 0 0;-webkit-box-sizing:border-box;box-sizing:border-box;max-width:100%;position:relative}html[dir=rtl] :host ::ng-deep .mat-basic-chip{margin:8px 0 0 8px;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip{margin:8px 0 0 8px;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip{margin:8px 0 0 8px;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip{min-height:32px;line-height:32px;font-size:13px;padding:0 0 0 12px}html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{padding:0 12px 0 0;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{padding:0 12px 0 0;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{padding:0 12px 0 0;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip .td-chip bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{display:inline-block;-webkit-box-ordinal-group:-19;-ms-flex-order:-20;order:-20;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;text-align:center;height:32px;width:32px;margin:0 8px 0 -12px;border-radius:50%;-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto;-webkit-box-sizing:border-box;box-sizing:border-box}html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{margin:0 -12px 0 8px;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{margin:0 -12px 0 8px;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{margin:0 -12px 0 8px;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 12px 0 0}html[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 0 0 12px;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 0 0 12px;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 0 0 12px;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal{margin:0 4px;font-size:21px;line-height:22px}:host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal:hover{cursor:pointer}:host ::ng-deep .td-chips-stacked .mat-basic-chip{margin:4px 0}:host ::ng-deep .td-chips-stacked .mat-basic-chip:first-of-type{margin:8px 0 4px}:host ::ng-deep .td-chips-stacked .mat-basic-chip:last-of-type{margin:4px 0 8px}:host .mat-form-field-underline{position:relative;height:1px;width:100%;bottom:0}:host .mat-form-field-underline.mat-disabled{background-position:0;bottom:-4px;background-color:transparent}:host .mat-form-field-underline .mat-form-field-ripple{position:absolute;height:2px;top:0;width:100%;-webkit-transform-origin:50%;-ms-transform-origin:50%;transform-origin:50%;-webkit-transform:scaleX(.5);-ms-transform:scaleX(.5);transform:scaleX(.5);visibility:hidden;opacity:0;-webkit-transition:background-color .3s cubic-bezier(.55,0,.55,.2);transition:background-color .3s cubic-bezier(.55,0,.55,.2)}:host .mat-form-field-underline .mat-form-field-ripple.mat-focused{visibility:visible;opacity:1;-webkit-transform:scaleX(1);-ms-transform:scaleX(1);transform:scaleX(1);-webkit-transition:background-color .3s cubic-bezier(.55,0,.55,.2),-webkit-transform 150ms linear;transition:transform 150ms linear,background-color .3s cubic-bezier(.55,0,.55,.2),-webkit-transform 150ms linear}:host.ng-invalid .mat-form-field-underline .mat-form-field-ripple{visibility:visible;opacity:1;-webkit-transform:scaleX(1);-ms-transform:scaleX(1);transform:scaleX(1);-webkit-transition:background-color .3s cubic-bezier(.55,0,.55,.2),-webkit-transform 150ms linear;transition:transform 150ms linear,background-color .3s cubic-bezier(.55,0,.55,.2),-webkit-transform 150ms linear}:host ::ng-deep mat-form-field .mat-form-field-underline{display:none}"]
             }] }
@@ -3948,24 +3954,9 @@ class CovalentChipsModule {
 }
 CovalentChipsModule.decorators = [
     { type: NgModule, args: [{
-                imports: [
-                    ReactiveFormsModule,
-                    CommonModule,
-                    MatInputModule,
-                    MatIconModule,
-                    MatChipsModule,
-                    MatAutocompleteModule,
-                ],
-                declarations: [
-                    TdChipsComponent,
-                    TdChipDirective,
-                    TdAutocompleteOptionDirective,
-                ],
-                exports: [
-                    TdChipsComponent,
-                    TdChipDirective,
-                    TdAutocompleteOptionDirective,
-                ],
+                imports: [ReactiveFormsModule, CommonModule, MatInputModule, MatIconModule, MatChipsModule, MatAutocompleteModule],
+                declarations: [TdChipsComponent, TdChipDirective, TdAutocompleteOptionDirective],
+                exports: [TdChipsComponent, TdChipDirective, TdAutocompleteOptionDirective],
             },] }
 ];
 
@@ -3998,7 +3989,7 @@ TdDataTableColumnRowComponent.decorators = [
     { type: Component, args: [{
                 /* tslint:disable-next-line */
                 selector: 'tr[td-data-table-column-row]',
-                template: "<ng-content></ng-content>",
+                template: "<ng-content></ng-content>\n",
                 styles: [":host{border-bottom-style:solid;border-bottom-width:1px}:host.td-data-table-row{height:48px}:host.td-data-table-column-row{height:56px}"]
             }] }
 ];
@@ -4066,7 +4057,7 @@ TdDataTableRowComponent.decorators = [
     { type: Component, args: [{
                 /* tslint:disable-next-line */
                 selector: 'tr[td-data-table-row]',
-                template: "<ng-content></ng-content>",
+                template: "<ng-content></ng-content>\n",
                 styles: [":host{border-bottom-style:solid;border-bottom-width:1px}:host.td-data-table-row{height:48px}:host.td-data-table-column-row{height:56px}"]
             }] }
 ];
@@ -4468,8 +4459,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         if (sortOrder !== 'DESC' && sortOrder !== 'ASC') {
             throw new Error('[sortOrder] must be empty, ASC or DESC');
         }
-        this._sortOrder = sortOrder === 'ASC' ?
-            TdDataTableSortingOrder.Ascending : TdDataTableSortingOrder.Descending;
+        this._sortOrder = sortOrder === 'ASC' ? TdDataTableSortingOrder.Ascending : TdDataTableSortingOrder.Descending;
     }
     /**
      * @return {?}
@@ -4499,20 +4489,21 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             this._calculateVirtualRows();
         });
         // initialize observable for column resize calculations
-        this._columnResizeSubs = this._onColumnResize.asObservable().pipe(debounceTime(0)).subscribe((clientX) => {
+        this._columnResizeSubs = this._onColumnResize
+            .asObservable()
+            .pipe(debounceTime(0))
+            .subscribe((clientX) => {
             this._columnClientX = clientX;
             this._calculateWidths();
             this._changeDetectorRef.markForCheck();
         });
         // initialize observable for scroll column header reposition
-        this._horizontalScrollSubs = this._onHorizontalScroll.asObservable()
-            .subscribe((horizontalScroll) => {
+        this._horizontalScrollSubs = this._onHorizontalScroll.asObservable().subscribe((horizontalScroll) => {
             this._scrollHorizontalOffset = horizontalScroll;
             this._changeDetectorRef.markForCheck();
         });
         // initialize observable for virtual scroll rendering
-        this._verticalScrollSubs = this._onVerticalScroll.asObservable()
-            .subscribe((verticalScroll) => {
+        this._verticalScrollSubs = this._onVerticalScroll.asObservable().subscribe((verticalScroll) => {
             this._scrollVerticalOffset = verticalScroll;
             this._calculateVirtualRows();
             this._changeDetectorRef.markForCheck();
@@ -4605,7 +4596,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
      */
     handleScroll(event) {
         /** @type {?} */
-        let element = ((/** @type {?} */ (event.target)));
+        let element = (/** @type {?} */ (event.target));
         if (element) {
             /** @type {?} */
             let horizontalScroll = element.scrollLeft;
@@ -4715,9 +4706,11 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
      */
     isRowSelected(row) {
         // compare items by [compareWith] function
-        return this.value ? this.value.filter((val) => {
-            return this.compareWith(row, val);
-        }).length > 0 : false;
+        return this.value
+            ? this.value.filter((val) => {
+                return this.compareWith(row, val);
+            }).length > 0
+            : false;
     }
     /**
      * Selects or clears a row depending on 'checked' value if the row 'isSelectable'
@@ -4752,7 +4745,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
                         }
                     }
                 }
-                else if ((this._firstSelectedIndex > currentSelected) || (this._firstSelectedIndex < currentSelected)) {
+                else if (this._firstSelectedIndex > currentSelected || this._firstSelectedIndex < currentSelected) {
                     // change indexes depending on where the next checkbox is selected (before or after)
                     if (this._firstSelectedIndex > currentSelected) {
                         lastIndex--;
@@ -4766,8 +4759,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
                         // if row is selected and first checkbox was selected
                         // or if row was unselected and first checkbox was unselected
                         // we ignore the toggle
-                        if ((this._firstCheckboxValue && !rowSelected) ||
-                            (!this._firstCheckboxValue && rowSelected)) {
+                        if ((this._firstCheckboxValue && !rowSelected) || (!this._firstCheckboxValue && rowSelected)) {
                             this._doSelection(this._data[i], i);
                         }
                         else if (this._shiftPreviouslyPressed) {
@@ -4845,8 +4837,10 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
      */
     handleSort(column) {
         if (this._sortBy === column) {
-            this._sortOrder = this._sortOrder === TdDataTableSortingOrder.Ascending ?
-                TdDataTableSortingOrder.Descending : TdDataTableSortingOrder.Ascending;
+            this._sortOrder =
+                this._sortOrder === TdDataTableSortingOrder.Ascending
+                    ? TdDataTableSortingOrder.Descending
+                    : TdDataTableSortingOrder.Ascending;
         }
         else {
             this._sortBy = column;
@@ -4888,7 +4882,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
                  * if users presses the down arrow, we focus the next row
                  * unless its the last row
                  */
-                if (index < (this._rows.toArray().length - 1)) {
+                if (index < this._rows.toArray().length - 1) {
                     this._rows.toArray()[index + 1].focus();
                 }
                 this.blockEvent(event);
@@ -4921,7 +4915,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             /** @type {?} */
             let xPosition = event.clientX;
             // checks if the separator is being moved to try and resize the column, else dont do anything
-            if (xPosition > 0 && this._columnClientX > 0 && (xPosition - this._columnClientX) !== 0) {
+            if (xPosition > 0 && this._columnClientX > 0 && xPosition - this._columnClientX !== 0) {
                 // calculate the new width depending if making the column bigger or smaller
                 /** @type {?} */
                 let proposedManualWidth = this._widths[this._resizingColumn].value + (xPosition - this._columnClientX);
@@ -5065,8 +5059,8 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             let adjustedNumber = 0;
             // adjust the column widths with the spread pixels
             this._widths.forEach((colWidth) => {
-                if (this._widths[colWidth.index].max && this._widths[colWidth.index].value > newValue ||
-                    this._widths[colWidth.index].min && this._widths[colWidth.index].value < newValue ||
+                if ((this._widths[colWidth.index].max && this._widths[colWidth.index].value > newValue) ||
+                    (this._widths[colWidth.index].min && this._widths[colWidth.index].value < newValue) ||
                     !this._widths[colWidth.index].limit) {
                     this._adjustColumnWidth(colWidth.index, newValue);
                     adjustedNumber++;
@@ -5106,7 +5100,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
                 /** @type {?} */
                 let widthOpts = (/** @type {?} */ (this.columns[index].width));
                 // if the column width is less than the configured min, we override it
-                skipMinWidthProjection = (widthOpts && !!widthOpts.min);
+                skipMinWidthProjection = widthOpts && !!widthOpts.min;
                 if (widthOpts && widthOpts.min >= this._widths[index].value) {
                     this._widths[index].value = widthOpts.min;
                     this._widths[index].min = true;
@@ -5124,8 +5118,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             }
         }
         // if there wasn't any width or min width provided, we set a min to what the column width min should be
-        if (!skipMinWidthProjection &&
-            this._widths[index].value < this._colElements.toArray()[index].projectedWidth) {
+        if (!skipMinWidthProjection && this._widths[index].value < this._colElements.toArray()[index].projectedWidth) {
             this._widths[index].value = this._colElements.toArray()[index].projectedWidth;
             this._widths[index].min = true;
             this._widths[index].limit = false;
@@ -5181,7 +5174,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             }
             // set the last row to be rendered taking into account the row offset
             /** @type {?} */
-            let range = (index - 1) + (TD_VIRTUAL_OFFSET$1 * 2);
+            let range = index - 1 + TD_VIRTUAL_OFFSET$1 * 2;
             /** @type {?} */
             let toRow = range + this.fromRow;
             // if last row is greater than the total length, then we use the total length
@@ -5219,13 +5212,15 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
 }
 TdDataTableComponent.decorators = [
     { type: Component, args: [{
-                providers: [{
+                providers: [
+                    {
                         provide: NG_VALUE_ACCESSOR,
                         useExisting: forwardRef(() => TdDataTableComponent),
                         multi: true,
-                    }],
+                    },
+                ],
                 selector: 'td-data-table',
-                template: "<table td-data-table\n        [style.left.px]=\"columnsLeftScroll\"\n        [class.mat-selectable]=\"selectable\">\n  <thead class=\"td-data-table-head\"\n          (dragover)=\"_handleColumnDrag($event)\">\n    <tr td-data-table-column-row>\n      <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"selectable\">\n        <mat-checkbox\n          #checkBoxAll\n          *ngIf=\"multiple\"\n          [disabled]=\"!hasData\"\n          [indeterminate]=\"indeterminate && !allSelected && hasData\"\n          [checked]=\"allSelected && hasData\"\n          (click)=\"blockEvent($event); selectAll(!checkBoxAll.checked)\"\n          (keyup.enter)=\"selectAll(!checkBoxAll.checked)\"\n          (keyup.space)=\"selectAll(!checkBoxAll.checked)\"\n          (keydown.space)=\"blockEvent($event)\">\n        </mat-checkbox>\n      </th>\n      <th td-data-table-column\n        #columnElement\n        *ngFor=\"let column of columns; let i = index; let last = last\"\n        [style.min-width.px]=\"getColumnWidth(i)\"\n        [style.max-width.px]=\"getColumnWidth(i)\"\n        [name]=\"column.name\"\n        [numeric]=\"column.numeric\"\n        [active]=\"(column.sortable || sortable) && column === sortByColumn\"\n        [sortable]=\"column.sortable || (sortable && column.sortable !== false)\"\n        [sortOrder]=\"sortOrderEnum\"\n        [hidden]=\"column.hidden\"\n        (sortChange)=\"handleSort(column)\">\n        <span [matTooltip]=\"column.tooltip\">{{column.label}}</span>\n        <span td-column-resizer\n              *ngIf=\"resizableColumns\"\n              draggable=\"true\"\n              class=\"td-data-table-column-resizer\"\n              [class.td-resizing]=\"i === resizingColumn\"\n              (mousedown)=\"_handleStartColumnDrag(i, $event)\"\n              (dragstart)=\"$event?.dataTransfer?.setData('text', '')\"\n              (drag)=\"_handleColumnDrag($event)\"\n              (dragend)=\"_handleEndColumnDrag()\"\n              (mouseup)=\"_handleEndColumnDrag()\">\n          <span class=\"td-data-table-column-separator\"></span>\n        </span>\n      </th>\n    </tr>\n  </thead>\n</table>\n<div #scrollableDiv class=\"td-data-table-scrollable\"\n      (scroll)=\"handleScroll($event)\">\n  <div [style.height.px]=\"totalHeight\"></div>\n  <table td-data-table\n          [style.transform]=\"offsetTransform\"\n          [style.position]=\"'absolute'\"\n          [class.mat-selectable]=\"selectable\"\n          [class.mat-clickable]=\"clickable\">\n    <tbody class=\"td-data-table-body\">\n      <tr td-data-table-row\n          #dtRow\n          [tabIndex]=\"selectable ? 0 : -1\"\n          [selected]=\"(clickable || selectable) && isRowSelected(row)\"\n          *ngFor=\"let row of virtualData; let rowIndex = index\"\n          (click)=\"handleRowClick(row, fromRow + rowIndex, $event)\"\n          (keyup)=\"selectable && _rowKeyup($event, row, rowIndex)\"\n          (keydown.space)=\"blockEvent($event)\"\n          (keydown.shift.space)=\"blockEvent($event)\"\n          (keydown.shift)=\"disableTextSelection()\"\n          (keyup.shift)=\"enableTextSelection()\">\n        <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"selectable\">\n          <mat-pseudo-checkbox\n            [state]=\"dtRow.selected ? 'checked' : 'unchecked'\"\n            (mousedown)=\"disableTextSelection()\"\n            (mouseup)=\"enableTextSelection()\"\n            stopRowClick\n            (click)=\"select(row, $event, fromRow + rowIndex)\">\n          </mat-pseudo-checkbox>\n        </td>\n        <td td-data-table-cell\n            [numeric]=\"column.numeric\"\n            [hidden]=\"column.hidden\"\n            *ngFor=\"let column of columns; let i = index\"\n            [style.min-width.px]=\"getColumnWidth(i)\"\n            [style.max-width.px]=\"getColumnWidth(i)\">\n          <span *ngIf=\"!getTemplateRef(column.name)\">{{column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row)}}</span>\n          <ng-template\n            *ngIf=\"getTemplateRef(column.name)\"\n            [ngTemplateOutlet]=\"getTemplateRef(column.name)\"\n            [ngTemplateOutletContext]=\"{ value: getCellValue(column, row), row: row, column: column.name, index: rowIndex }\">\n          </ng-template>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n<ng-content></ng-content>\n",
+                template: "<table td-data-table [style.left.px]=\"columnsLeftScroll\" [class.mat-selectable]=\"selectable\">\n  <thead class=\"td-data-table-head\" (dragover)=\"_handleColumnDrag($event)\">\n    <tr td-data-table-column-row>\n      <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"selectable\">\n        <mat-checkbox\n          #checkBoxAll\n          *ngIf=\"multiple\"\n          [disabled]=\"!hasData\"\n          [indeterminate]=\"indeterminate && !allSelected && hasData\"\n          [checked]=\"allSelected && hasData\"\n          (click)=\"blockEvent($event); selectAll(!checkBoxAll.checked)\"\n          (keyup.enter)=\"selectAll(!checkBoxAll.checked)\"\n          (keyup.space)=\"selectAll(!checkBoxAll.checked)\"\n          (keydown.space)=\"blockEvent($event)\"\n        >\n        </mat-checkbox>\n      </th>\n      <th\n        td-data-table-column\n        #columnElement\n        *ngFor=\"let column of columns; let i = index; let last = last\"\n        [style.min-width.px]=\"getColumnWidth(i)\"\n        [style.max-width.px]=\"getColumnWidth(i)\"\n        [name]=\"column.name\"\n        [numeric]=\"column.numeric\"\n        [active]=\"(column.sortable || sortable) && column === sortByColumn\"\n        [sortable]=\"column.sortable || (sortable && column.sortable !== false)\"\n        [sortOrder]=\"sortOrderEnum\"\n        [hidden]=\"column.hidden\"\n        (sortChange)=\"handleSort(column)\"\n      >\n        <span [matTooltip]=\"column.tooltip\">{{ column.label }}</span>\n        <span\n          td-column-resizer\n          *ngIf=\"resizableColumns\"\n          draggable=\"true\"\n          class=\"td-data-table-column-resizer\"\n          [class.td-resizing]=\"i === resizingColumn\"\n          (mousedown)=\"_handleStartColumnDrag(i, $event)\"\n          (dragstart)=\"$event?.dataTransfer?.setData('text', '')\"\n          (drag)=\"_handleColumnDrag($event)\"\n          (dragend)=\"_handleEndColumnDrag()\"\n          (mouseup)=\"_handleEndColumnDrag()\"\n        >\n          <span class=\"td-data-table-column-separator\"></span>\n        </span>\n      </th>\n    </tr>\n  </thead>\n</table>\n<div #scrollableDiv class=\"td-data-table-scrollable\" (scroll)=\"handleScroll($event)\">\n  <div [style.height.px]=\"totalHeight\"></div>\n  <table\n    td-data-table\n    [style.transform]=\"offsetTransform\"\n    [style.position]=\"'absolute'\"\n    [class.mat-selectable]=\"selectable\"\n    [class.mat-clickable]=\"clickable\"\n  >\n    <tbody class=\"td-data-table-body\">\n      <tr\n        td-data-table-row\n        #dtRow\n        [tabIndex]=\"selectable ? 0 : -1\"\n        [selected]=\"(clickable || selectable) && isRowSelected(row)\"\n        *ngFor=\"let row of virtualData; let rowIndex = index\"\n        (click)=\"handleRowClick(row, fromRow + rowIndex, $event)\"\n        (keyup)=\"selectable && _rowKeyup($event, row, rowIndex)\"\n        (keydown.space)=\"blockEvent($event)\"\n        (keydown.shift.space)=\"blockEvent($event)\"\n        (keydown.shift)=\"disableTextSelection()\"\n        (keyup.shift)=\"enableTextSelection()\"\n      >\n        <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"selectable\">\n          <mat-pseudo-checkbox\n            [state]=\"dtRow.selected ? 'checked' : 'unchecked'\"\n            (mousedown)=\"disableTextSelection()\"\n            (mouseup)=\"enableTextSelection()\"\n            stopRowClick\n            (click)=\"select(row, $event, fromRow + rowIndex)\"\n          >\n          </mat-pseudo-checkbox>\n        </td>\n        <td\n          td-data-table-cell\n          [numeric]=\"column.numeric\"\n          [hidden]=\"column.hidden\"\n          *ngFor=\"let column of columns; let i = index\"\n          [style.min-width.px]=\"getColumnWidth(i)\"\n          [style.max-width.px]=\"getColumnWidth(i)\"\n        >\n          <span *ngIf=\"!getTemplateRef(column.name)\">{{\n            column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row)\n          }}</span>\n          <ng-template\n            *ngIf=\"getTemplateRef(column.name)\"\n            [ngTemplateOutlet]=\"getTemplateRef(column.name)\"\n            [ngTemplateOutletContext]=\"{\n              value: getCellValue(column, row),\n              row: row,\n              column: column.name,\n              index: rowIndex\n            }\"\n          >\n          </ng-template>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n<ng-content></ng-content>\n",
                 inputs: ['value'],
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 styles: [":host{display:block;overflow:hidden}:host .td-data-table-scrollable{position:relative;overflow:auto;height:calc(100% - 56px)}.td-data-table-column-resizer{right:0;width:6px;cursor:col-resize}.td-data-table-column-resizer,.td-data-table-column-resizer .td-data-table-column-separator{position:absolute;height:100%;top:0}.td-data-table-column-resizer .td-data-table-column-separator{left:2px}.td-data-table-column-resizer.td-resizing{cursor:-webkit-grabbing}table.td-data-table{width:auto!important}table.td-data-table.mat-selectable tbody>tr.td-data-table-row{-webkit-transition:background-color .2s;transition:background-color .2s}table.td-data-table.mat-selectable .td-data-table-column:first-child>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable td.td-data-table-cell:first-child>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable th.td-data-table-column:first-child>.td-data-table-column-content-wrapper{width:18px;min-width:18px;padding:0 24px}table.td-data-table.mat-selectable .td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2)>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper{padding-left:0}[dir=rtl] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper,[dir=rtl] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2)>.td-data-table-column-content-wrapper,[dir=rtl] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper{padding-right:0;padding-left:28px}table.td-data-table td.mat-checkbox-cell,table.td-data-table th.mat-checkbox-column{min-width:42px;width:42px;font-size:0!important}table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox,table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox{width:18px;height:18px}::ng-deep table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after,::ng-deep table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after{width:11px!important;height:4px!important}table.td-data-table td.mat-checkbox-cell mat-checkbox ::ng-deep .mat-checkbox-inner-container,table.td-data-table th.mat-checkbox-column mat-checkbox ::ng-deep .mat-checkbox-inner-container{width:18px;height:18px;margin:0}"]
@@ -5325,8 +5320,7 @@ class TdDataTableColumnComponent {
         if (sortOrder !== 'DESC' && sortOrder !== 'ASC') {
             throw new Error('[sortOrder] must be empty, ASC or DESC');
         }
-        this._sortOrder = sortOrder === 'ASC' ?
-            TdDataTableSortingOrder.Ascending : TdDataTableSortingOrder.Descending;
+        this._sortOrder = sortOrder === 'ASC' ? TdDataTableSortingOrder.Ascending : TdDataTableSortingOrder.Descending;
     }
     /**
      * @return {?}
@@ -5378,7 +5372,7 @@ TdDataTableColumnComponent.decorators = [
     { type: Component, args: [{
                 /* tslint:disable-next-line */
                 selector: 'th[td-data-table-column]',
-                template: "<span #columnContent class=\"td-data-table-heading\">\n  <mat-icon \n    class=\"td-data-table-sort-icon\" \n    *ngIf=\"sortable && numeric\"\n    [class.mat-asc]=\"isAscending()\"\n    [class.mat-desc]=\"isDescending()\">\n    arrow_upward\n  </mat-icon>\n  <span>\n    <ng-content></ng-content>\n  </span>\n  <mat-icon \n    class=\"td-data-table-sort-icon\" \n    *ngIf=\"sortable && !numeric\"\n    [class.mat-asc]=\"isAscending()\"\n    [class.mat-desc]=\"isDescending()\">\n    arrow_upward\n  </mat-icon>\n</span>\n<ng-content select=\"[td-column-resizer]\"></ng-content>\n",
+                template: "<span #columnContent class=\"td-data-table-heading\">\n  <mat-icon\n    class=\"td-data-table-sort-icon\"\n    *ngIf=\"sortable && numeric\"\n    [class.mat-asc]=\"isAscending()\"\n    [class.mat-desc]=\"isDescending()\"\n  >\n    arrow_upward\n  </mat-icon>\n  <span>\n    <ng-content></ng-content>\n  </span>\n  <mat-icon\n    class=\"td-data-table-sort-icon\"\n    *ngIf=\"sortable && !numeric\"\n    [class.mat-asc]=\"isAscending()\"\n    [class.mat-desc]=\"isDescending()\"\n  >\n    arrow_upward\n  </mat-icon>\n</span>\n<ng-content select=\"[td-column-resizer]\"></ng-content>\n",
                 styles: [":host{white-space:nowrap;position:relative;padding:0;vertical-align:middle;text-align:left}:host>.td-data-table-heading{padding:0 28px}:host:first-child>.td-data-table-heading{padding-left:24px;padding-right:initial}html[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}body[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}:host:first-child>.td-data-table-heading bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:first-child>.td-data-table-heading bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:last-child>.td-data-table-heading{padding-left:28px;padding-right:24px}html[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}body[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}:host:last-child>.td-data-table-heading bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:last-child>.td-data-table-heading bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host mat-icon{height:16px;width:16px;font-size:16px!important;line-height:16px!important}:host mat-icon.td-data-table-sort-icon{opacity:0;-webkit-transition:-webkit-transform .25s;transition:transform .25s;transition:transform .25s,-webkit-transform .25s;position:absolute;top:0}:host mat-icon.td-data-table-sort-icon.mat-asc{-webkit-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0)}:host mat-icon.td-data-table-sort-icon.mat-desc{-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg)}:host.mat-active.mat-sortable mat-icon.td-data-table-sort-icon,:host:hover.mat-sortable mat-icon.td-data-table-sort-icon{opacity:1}html[dir=rtl] :host{text-align:right;unicode-bidi:embed}body[dir=rtl] :host{text-align:right;unicode-bidi:embed}[dir=rtl] :host{text-align:right;unicode-bidi:embed}:host bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host>*{vertical-align:middle}:host.mat-clickable{cursor:pointer}:host.mat-clickable:focus{outline:0}:host .td-data-table-heading{display:inline-block;position:relative}:host.mat-numeric{text-align:right}html[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}:host.mat-numeric bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:-22px;margin-right:initial}html[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}:host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:6px;margin-right:initial}html[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}body[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}"]
             }] }
 ];
@@ -5449,7 +5443,7 @@ TdDataTableCellComponent.decorators = [
     { type: Component, args: [{
                 /* tslint:disable-next-line */
                 selector: 'td[td-data-table-cell]',
-                template: "<div class=\"td-data-table-cell-content-wrapper\"\n     [class.td-data-table-cell-numeric]=\"numeric\"\n     [class.td-data-table-cell-align-center]=\"align === 'center'\"\n     [class.td-data-table-cell-align-end]=\"align === 'end'\"\n     [class.td-data-table-cell-align-start]=\"align === 'start'\"\n     >\n  <ng-content></ng-content>\n</div>",
+                template: "<div\n  class=\"td-data-table-cell-content-wrapper\"\n  [class.td-data-table-cell-numeric]=\"numeric\"\n  [class.td-data-table-cell-align-center]=\"align === 'center'\"\n  [class.td-data-table-cell-align-end]=\"align === 'end'\"\n  [class.td-data-table-cell-align-start]=\"align === 'start'\"\n>\n  <ng-content></ng-content>\n</div>\n",
                 styles: [":host{vertical-align:middle;text-align:left;padding:0}html[dir=rtl] :host{text-align:right;unicode-bidi:embed}body[dir=rtl] :host{text-align:right;unicode-bidi:embed}[dir=rtl] :host{text-align:right;unicode-bidi:embed}:host bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host>.td-data-table-cell-content-wrapper{padding:0 28px;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}:host>.td-data-table-cell-content-wrapper.td-data-table-cell-numeric{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}:host>.td-data-table-cell-content-wrapper.td-data-table-cell-align-start{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}:host>.td-data-table-cell-content-wrapper.td-data-table-cell-align-end{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}:host>.td-data-table-cell-content-wrapper.td-data-table-cell-align-center{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}:host:first-child>.td-data-table-cell-content-wrapper{padding-left:24px;padding-right:initial}html[dir=rtl] :host:first-child>.td-data-table-cell-content-wrapper{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}body[dir=rtl] :host:first-child>.td-data-table-cell-content-wrapper{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}[dir=rtl] :host:first-child>.td-data-table-cell-content-wrapper{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}:host:first-child>.td-data-table-cell-content-wrapper bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:first-child>.td-data-table-cell-content-wrapper bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:last-child>.td-data-table-cell-content-wrapper{padding-left:28px;padding-right:24px}html[dir=rtl] :host:last-child>.td-data-table-cell-content-wrapper{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}body[dir=rtl] :host:last-child>.td-data-table-cell-content-wrapper{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}[dir=rtl] :host:last-child>.td-data-table-cell-content-wrapper{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}:host:last-child>.td-data-table-cell-content-wrapper bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:last-child>.td-data-table-cell-content-wrapper bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host>*{vertical-align:middle}:host.mat-clickable{cursor:pointer}:host.mat-clickable:focus{outline:0}:host.mat-numeric{text-align:right}html[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}:host.mat-numeric bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}"]
             }] }
 ];
@@ -5483,7 +5477,7 @@ TdDataTableTableComponent.decorators = [
     { type: Component, args: [{
                 /* tslint:disable-next-line */
                 selector: 'table[td-data-table]',
-                template: "<ng-content></ng-content>",
+                template: "<ng-content></ng-content>\n",
                 styles: [":host{width:100%;position:relative;border-spacing:0;overflow:hidden;border-collapse:collapse}"]
             }] }
 ];
@@ -5511,19 +5505,9 @@ class CovalentDataTableModule {
 }
 CovalentDataTableModule.decorators = [
     { type: NgModule, args: [{
-                imports: [
-                    CommonModule,
-                    MatCheckboxModule,
-                    MatTooltipModule,
-                    MatIconModule,
-                    MatPseudoCheckboxModule,
-                ],
-                declarations: [
-                    TD_DATA_TABLE,
-                ],
-                exports: [
-                    TD_DATA_TABLE,
-                ],
+                imports: [CommonModule, MatCheckboxModule, MatTooltipModule, MatIconModule, MatPseudoCheckboxModule],
+                declarations: [TD_DATA_TABLE],
+                exports: [TD_DATA_TABLE],
             },] }
 ];
 
@@ -5555,7 +5539,7 @@ class TdDataTableService {
                 const res = Object.keys(item).find((key) => {
                     if (!excludedColumns || excludedColumns.indexOf(key) === -1) {
                         /** @type {?} */
-                        const preItemValue = ('' + item[key]);
+                        const preItemValue = '' + item[key];
                         /** @type {?} */
                         const itemValue = ignoreCase ? preItemValue.toLowerCase() : preItemValue;
                         return itemValue.indexOf(filter$$1) > -1;
@@ -5678,7 +5662,7 @@ class TdDialogComponent {
 TdDialogComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-dialog',
-                template: "<div class=\"td-dialog-wrapper\">\n  <h3 class=\"td-dialog-title\" *ngIf=\"dialogTitle.length > 0\">\n    <ng-content select=\"td-dialog-title\"></ng-content>\n  </h3>\n  <div class=\"td-dialog-content\" *ngIf=\"dialogContent.length > 0\">\n    <ng-content select=\"td-dialog-content\"></ng-content>\n  </div>\n  <div class=\"td-dialog-actions\" *ngIf=\"dialogActions.length > 0\">\n    <span class=\"td-dialog-spacer\"></span>\n    <ng-content select=\"td-dialog-actions\"></ng-content>\n  </div>\n</div>",
+                template: "<div class=\"td-dialog-wrapper\">\n  <h3 class=\"td-dialog-title\" *ngIf=\"dialogTitle.length > 0\">\n    <ng-content select=\"td-dialog-title\"></ng-content>\n  </h3>\n  <div class=\"td-dialog-content\" *ngIf=\"dialogContent.length > 0\">\n    <ng-content select=\"td-dialog-content\"></ng-content>\n  </div>\n  <div class=\"td-dialog-actions\" *ngIf=\"dialogActions.length > 0\">\n    <span class=\"td-dialog-spacer\"></span>\n    <ng-content select=\"td-dialog-actions\"></ng-content>\n  </div>\n</div>\n",
                 styles: [".td-dialog-title{margin-top:0;margin-bottom:20px}.td-dialog-content{margin-bottom:16px}.td-dialog-actions{position:relative;top:16px;left:16px}::ng-deep [dir=rtl] .td-dialog-actions{right:16px;left:auto}:host{display:block}:host .td-dialog-actions{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex}:host .td-dialog-actions .td-dialog-spacer{-webkit-box-flex:1;-ms-flex:1;flex:1}:host .td-dialog-actions ::ng-deep button{text-transform:uppercase;margin-left:8px;padding-left:8px;padding-right:8px;min-width:64px}[dir=rtl] :host .td-dialog-actions ::ng-deep button{margin-right:8px;margin-left:inherit}"]
             }] }
 ];
@@ -5710,7 +5694,7 @@ class TdAlertDialogComponent {
 TdAlertDialogComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-alert-dialog',
-                template: "<td-dialog>\n  <td-dialog-title *ngIf=\"title\">\n    {{title}}\n  </td-dialog-title>\n  <td-dialog-content>\n    <span class=\"td-dialog-message\">{{message}}</span>\n  </td-dialog-content>\n  <td-dialog-actions>\n    <button mat-button color=\"accent\" (click)=\"close()\">{{closeButton}}</button>\n  </td-dialog-actions>\n</td-dialog>",
+                template: "<td-dialog>\n  <td-dialog-title *ngIf=\"title\">\n    {{ title }}\n  </td-dialog-title>\n  <td-dialog-content>\n    <span class=\"td-dialog-message\">{{ message }}</span>\n  </td-dialog-content>\n  <td-dialog-actions>\n    <button mat-button color=\"accent\" (click)=\"close()\">{{ closeButton }}</button>\n  </td-dialog-actions>\n</td-dialog>\n",
                 styles: [".td-dialog-message{word-break:break-word}"]
             }] }
 ];
@@ -5748,7 +5732,7 @@ class TdConfirmDialogComponent {
 TdConfirmDialogComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-confirm-dialog',
-                template: "<td-dialog>\n  <td-dialog-title *ngIf=\"title\">\n    {{title}}\n  </td-dialog-title>\n  <td-dialog-content>\n    <span class=\"td-dialog-message\">{{message}}</span>\n  </td-dialog-content>\n  <td-dialog-actions>\n    <button mat-button\n            #closeBtn \n            (keydown.arrowright)=\"acceptBtn.focus()\"\n            (click)=\"cancel()\">{{cancelButton}}</button>\n    <button mat-button\n            color=\"accent\"\n            #acceptBtn\n            (keydown.arrowleft)=\"closeBtn.focus()\"\n            (click)=\"accept()\">{{acceptButton}}</button>\n  </td-dialog-actions>\n</td-dialog>",
+                template: "<td-dialog>\n  <td-dialog-title *ngIf=\"title\">\n    {{ title }}\n  </td-dialog-title>\n  <td-dialog-content>\n    <span class=\"td-dialog-message\">{{ message }}</span>\n  </td-dialog-content>\n  <td-dialog-actions>\n    <button mat-button #closeBtn (keydown.arrowright)=\"acceptBtn.focus()\" (click)=\"cancel()\">{{ cancelButton }}</button>\n    <button mat-button color=\"accent\" #acceptBtn (keydown.arrowleft)=\"closeBtn.focus()\" (click)=\"accept()\">\n      {{ acceptButton }}\n    </button>\n  </td-dialog-actions>\n</td-dialog>\n",
                 styles: [".td-dialog-message{word-break:break-word}"]
             }] }
 ];
@@ -5803,7 +5787,7 @@ class TdPromptDialogComponent {
 TdPromptDialogComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-prompt-dialog',
-                template: "<td-dialog>\n  <td-dialog-title *ngIf=\"title\">\n    {{title}}\n  </td-dialog-title>\n  <td-dialog-content>\n    <span class=\"td-dialog-message\">{{message}}</span>\n    <form #form=\"ngForm\" novalidate>\n      <div class=\"td-dialog-input-wrapper\">\n        <mat-form-field class=\"td-dialog-input\">\n          <input matInput\n                #input\n                (focus)=\"handleInputFocus()\"\n                (keydown.enter)=\"$event.preventDefault(); form.valid && accept()\"\n                [(ngModel)]=\"value\"\n                name=\"value\"\n                required/>\n        </mat-form-field>\n      </div>\n    </form>\n  </td-dialog-content>\n  <td-dialog-actions>\n    <button mat-button\n            #closeBtn \n            (keydown.arrowright)=\"acceptBtn.focus()\"\n            (click)=\"cancel()\">{{cancelButton}}</button>\n    <button mat-button\n            color=\"accent\"\n            #acceptBtn\n            (keydown.arrowleft)=\"closeBtn.focus()\"\n            [disabled]=\"!form.valid\"\n            (click)=\"accept()\">{{acceptButton}}</button>\n  </td-dialog-actions>\n</td-dialog>",
+                template: "<td-dialog>\n  <td-dialog-title *ngIf=\"title\">\n    {{ title }}\n  </td-dialog-title>\n  <td-dialog-content>\n    <span class=\"td-dialog-message\">{{ message }}</span>\n    <form #form=\"ngForm\" novalidate>\n      <div class=\"td-dialog-input-wrapper\">\n        <mat-form-field class=\"td-dialog-input\">\n          <input\n            matInput\n            #input\n            (focus)=\"handleInputFocus()\"\n            (keydown.enter)=\"$event.preventDefault(); form.valid && accept()\"\n            [(ngModel)]=\"value\"\n            name=\"value\"\n            required\n          />\n        </mat-form-field>\n      </div>\n    </form>\n  </td-dialog-content>\n  <td-dialog-actions>\n    <button mat-button #closeBtn (keydown.arrowright)=\"acceptBtn.focus()\" (click)=\"cancel()\">{{ cancelButton }}</button>\n    <button\n      mat-button\n      color=\"accent\"\n      #acceptBtn\n      (keydown.arrowleft)=\"closeBtn.focus()\"\n      [disabled]=\"!form.valid\"\n      (click)=\"accept()\"\n    >\n      {{ acceptButton }}\n    </button>\n  </td-dialog-actions>\n</td-dialog>\n",
                 styles: [".td-dialog-input-wrapper{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex}.td-dialog-input-wrapper .td-dialog-input{-webkit-box-flex:1;-ms-flex:1;flex:1;-webkit-box-sizing:border-box;box-sizing:border-box}.td-dialog-message{word-break:break-word}"]
             }] }
 ];
@@ -5986,25 +5970,11 @@ class CovalentDialogsModule {
 }
 CovalentDialogsModule.decorators = [
     { type: NgModule, args: [{
-                imports: [
-                    FormsModule,
-                    CommonModule,
-                    MatDialogModule,
-                    MatInputModule,
-                    MatButtonModule,
-                ],
-                declarations: [
-                    TD_DIALOGS,
-                ],
-                exports: [
-                    TD_DIALOGS,
-                ],
-                providers: [
-                    TdDialogService,
-                ],
-                entryComponents: [
-                    TD_DIALOGS_ENTRY_COMPONENTS,
-                ],
+                imports: [FormsModule, CommonModule, MatDialogModule, MatInputModule, MatButtonModule],
+                declarations: [TD_DIALOGS],
+                exports: [TD_DIALOGS],
+                providers: [TdDialogService],
+                entryComponents: [TD_DIALOGS_ENTRY_COMPONENTS],
             },] }
 ];
 
@@ -6211,12 +6181,9 @@ class TdExpansionPanelComponent extends _TdExpansionPanelMixinBase {
 TdExpansionPanelComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-expansion-panel',
-                template: "<div class=\"td-expansion-panel-header\"\n      [class.mat-disabled]=\"disabled\"\n      matRipple\n      [matRippleDisabled]=\"disabled || disableRipple\"\n      [tabIndex]=\"disabled? -1 : 0\"\n      (keydown.enter)=\"clickEvent()\"\n      (click)=\"clickEvent()\">\n  <ng-template [cdkPortalOutlet]=\"expansionPanelHeader\"></ng-template>\n  <div class=\"td-expansion-panel-header-content\"\n        [class.mat-disabled]=\"disabled\"\n        *ngIf=\"!expansionPanelHeader\">\n    <div *ngIf=\"label || expansionPanelLabel\" class=\"td-expansion-label\">\n      <ng-template [cdkPortalOutlet]=\"expansionPanelLabel\"></ng-template>\n      <ng-template [ngIf]=\"!expansionPanelLabel\">{{label}}</ng-template>\n    </div>\n    <div *ngIf=\"sublabel || expansionPanelSublabel\" class=\"td-expansion-sublabel\">\n      <ng-template [cdkPortalOutlet]=\"expansionPanelSublabel\"></ng-template>\n      <ng-template [ngIf]=\"!expansionPanelSublabel\">{{sublabel}}</ng-template>\n    </div>\n    <mat-icon class=\"td-expand-icon\" *ngIf=\"!disabled\" [@tdRotate]=\"expand\">keyboard_arrow_down</mat-icon>\n  </div>\n</div>\n<div class=\"td-expansion-content\"\n      [@tdCollapse]=\"!expand\">\n  <ng-content></ng-content>\n</div>\n<div class=\"td-expansion-summary\"\n      [@tdCollapse]=\"expand\">\n  <ng-content select=\"td-expansion-summary\"></ng-content>\n</div>\n",
+                template: "<div\n  class=\"td-expansion-panel-header\"\n  [class.mat-disabled]=\"disabled\"\n  matRipple\n  [matRippleDisabled]=\"disabled || disableRipple\"\n  [tabIndex]=\"disabled ? -1 : 0\"\n  (keydown.enter)=\"clickEvent()\"\n  (click)=\"clickEvent()\"\n>\n  <ng-template [cdkPortalOutlet]=\"expansionPanelHeader\"></ng-template>\n  <div class=\"td-expansion-panel-header-content\" [class.mat-disabled]=\"disabled\" *ngIf=\"!expansionPanelHeader\">\n    <div *ngIf=\"label || expansionPanelLabel\" class=\"td-expansion-label\">\n      <ng-template [cdkPortalOutlet]=\"expansionPanelLabel\"></ng-template>\n      <ng-template [ngIf]=\"!expansionPanelLabel\">{{ label }}</ng-template>\n    </div>\n    <div *ngIf=\"sublabel || expansionPanelSublabel\" class=\"td-expansion-sublabel\">\n      <ng-template [cdkPortalOutlet]=\"expansionPanelSublabel\"></ng-template>\n      <ng-template [ngIf]=\"!expansionPanelSublabel\">{{ sublabel }}</ng-template>\n    </div>\n    <mat-icon class=\"td-expand-icon\" *ngIf=\"!disabled\" [@tdRotate]=\"expand\">keyboard_arrow_down</mat-icon>\n  </div>\n</div>\n<div class=\"td-expansion-content\" [@tdCollapse]=\"!expand\">\n  <ng-content></ng-content>\n</div>\n<div class=\"td-expansion-summary\" [@tdCollapse]=\"expand\">\n  <ng-content select=\"td-expansion-summary\"></ng-content>\n</div>\n",
                 inputs: ['disabled', 'disableRipple'],
-                animations: [
-                    tdCollapseAnimation,
-                    tdRotateAnimation,
-                ],
+                animations: [tdCollapseAnimation, tdRotateAnimation],
                 styles: [":host{display:block}:host .td-expansion-panel-header{position:relative;outline:0}:host .td-expansion-panel-header:focus:not(.mat-disabled),:host .td-expansion-panel-header:hover:not(.mat-disabled){cursor:pointer}:host .td-expansion-panel-header .td-expansion-panel-header-content{height:48px;padding:0 24px;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-flex:1;-ms-flex:1;flex:1;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%}:host .td-expansion-panel-header .td-expansion-panel-header-content .td-expansion-label,:host .td-expansion-panel-header .td-expansion-panel-header-content .td-expansion-sublabel{-webkit-box-flex:1;-ms-flex:1;flex:1}:host .td-expansion-content.ng-animating,:host .td-expansion-summary.ng-animating{overflow:hidden}.td-expansion-label,.td-expansion-sublabel{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:16px}::ng-deep [dir=rtl] .td-expansion-label,::ng-deep [dir=rtl] .td-expansion-sublabel{margin-left:16px;margin-right:inherit}"]
             }] }
 ];
@@ -6327,9 +6294,7 @@ class TdExpansionPanelGroupComponent {
     _attachListeners(expansionPanels) {
         this._lastOpenedPanels = [];
         expansionPanels.forEach((expansionPanel) => {
-            expansionPanel.expanded
-                .pipe(takeUntil(this._stopWatchingPanels))
-                .subscribe(() => {
+            expansionPanel.expanded.pipe(takeUntil(this._stopWatchingPanels)).subscribe(() => {
                 /** @type {?} */
                 const indexOfPanel = this._lastOpenedPanels.indexOf(expansionPanel);
                 if (indexOfPanel !== -1) {
@@ -6340,9 +6305,7 @@ class TdExpansionPanelGroupComponent {
                     this._closeAllExcept(expansionPanel);
                 }
             });
-            expansionPanel.collapsed
-                .pipe(takeUntil(this._stopWatchingPanels))
-                .subscribe(() => {
+            expansionPanel.collapsed.pipe(takeUntil(this._stopWatchingPanels)).subscribe(() => {
                 /** @type {?} */
                 const indexOfPanel = this._lastOpenedPanels.indexOf(expansionPanel);
                 if (indexOfPanel !== -1) {
@@ -6366,7 +6329,7 @@ class TdExpansionPanelGroupComponent {
 TdExpansionPanelGroupComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-expansion-panel-group',
-                template: "<ng-content></ng-content>",
+                template: "<ng-content></ng-content>\n",
                 styles: [""]
             }] }
 ];
@@ -6397,18 +6360,9 @@ class CovalentExpansionPanelModule {
 }
 CovalentExpansionPanelModule.decorators = [
     { type: NgModule, args: [{
-                imports: [
-                    CommonModule,
-                    MatRippleModule,
-                    MatIconModule,
-                    PortalModule,
-                ],
-                declarations: [
-                    TD_EXPANSION_PANEL,
-                ],
-                exports: [
-                    TD_EXPANSION_PANEL,
-                ],
+                imports: [CommonModule, MatRippleModule, MatIconModule, PortalModule],
+                declarations: [TD_EXPANSION_PANEL],
+                exports: [TD_EXPANSION_PANEL],
             },] }
 ];
 
@@ -6468,7 +6422,7 @@ class TdFileSelectDirective {
     onChange(event) {
         if (event.target instanceof HTMLInputElement) {
             /** @type {?} */
-            let fileInputEl = ((/** @type {?} */ (event.target)));
+            let fileInputEl = (/** @type {?} */ (event.target));
             /** @type {?} */
             let files = fileInputEl.files;
             if (files.length) {
@@ -6578,8 +6532,8 @@ class TdFileDropDirective extends _TdFileDropMixinBase {
         /** @type {?} */
         let transfer = ((/** @type {?} */ (event))).dataTransfer;
         transfer.dropEffect = this._typeCheck(transfer.types);
-        if (this.disabled || (!this._multiple &&
-            ((transfer.items && transfer.items.length > 1) || ((/** @type {?} */ (transfer))).mozItemCount > 1))) {
+        if (this.disabled ||
+            (!this._multiple && ((transfer.items && transfer.items.length > 1) || ((/** @type {?} */ (transfer))).mozItemCount > 1))) {
             transfer.dropEffect = 'none';
         }
         else {
@@ -6618,8 +6572,8 @@ class TdFileDropDirective extends _TdFileDropMixinBase {
         /** @type {?} */
         let dropEffect = 'none';
         if (types) {
-            if ((((/** @type {?} */ (types))).contains && ((/** @type {?} */ (types))).contains('Files'))
-                || (((/** @type {?} */ (types))).indexOf && ((/** @type {?} */ (types))).indexOf('Files') !== -1)) {
+            if ((((/** @type {?} */ (types))).contains && ((/** @type {?} */ (types))).contains('Files')) ||
+                (((/** @type {?} */ (types))).indexOf && ((/** @type {?} */ (types))).indexOf('Files') !== -1)) {
                 dropEffect = 'copy';
             }
         }
@@ -6766,14 +6720,16 @@ class TdFileInputComponent extends _TdFileInputMixinBase {
 TdFileInputComponent.decorators = [
     { type: Component, args: [{
                 changeDetection: ChangeDetectionStrategy.OnPush,
-                providers: [{
+                providers: [
+                    {
                         provide: NG_VALUE_ACCESSOR,
                         useExisting: forwardRef(() => TdFileInputComponent),
                         multi: true,
-                    }],
+                    },
+                ],
                 selector: 'td-file-input',
                 inputs: ['disabled', 'value'],
-                template: "<div>\n  <button mat-raised-button\n          class=\"td-file-input\"\n          type=\"button\"\n          [color]=\"color\" \n          [multiple]=\"multiple\" \n          [disabled]=\"disabled\"\n          (keyup.enter)=\"fileInput.click()\"\n          (click)=\"fileInput.click()\"\n          (fileDrop)=\"handleSelect($event)\"\n          tdFileDrop>\n    <ng-content></ng-content>\n  </button>\n  <input #fileInput \n          class=\"td-file-input-hidden\" \n          type=\"file\"\n          [attr.accept]=\"accept\"                \n          (fileSelect)=\"handleSelect($event)\"\n          [multiple]=\"multiple\" \n          [disabled]=\"disabled\"\n          tdFileSelect>\n</div>",
+                template: "<div>\n  <button\n    mat-raised-button\n    class=\"td-file-input\"\n    type=\"button\"\n    [color]=\"color\"\n    [multiple]=\"multiple\"\n    [disabled]=\"disabled\"\n    (keyup.enter)=\"fileInput.click()\"\n    (click)=\"fileInput.click()\"\n    (fileDrop)=\"handleSelect($event)\"\n    tdFileDrop\n  >\n    <ng-content></ng-content>\n  </button>\n  <input\n    #fileInput\n    class=\"td-file-input-hidden\"\n    type=\"file\"\n    [attr.accept]=\"accept\"\n    (fileSelect)=\"handleSelect($event)\"\n    [multiple]=\"multiple\"\n    [disabled]=\"disabled\"\n    tdFileSelect\n  />\n</div>\n",
                 styles: [":host .td-file-input{padding-left:8px;padding-right:8px}:host input.td-file-input-hidden{display:none}:host .drop-zone{border-radius:3px}:host .drop-zone *{pointer-events:none}"]
             }] }
 ];
@@ -6922,14 +6878,16 @@ class TdFileUploadComponent extends _TdFileUploadMixinBase {
 TdFileUploadComponent.decorators = [
     { type: Component, args: [{
                 changeDetection: ChangeDetectionStrategy.OnPush,
-                providers: [{
+                providers: [
+                    {
                         provide: NG_VALUE_ACCESSOR,
                         useExisting: forwardRef(() => TdFileUploadComponent),
                         multi: true,
-                    }],
+                    },
+                ],
                 selector: 'td-file-upload',
                 inputs: ['disabled', 'value'],
-                template: "<td-file-input *ngIf=\"!value\"\n               [(ngModel)]=\"value\"\n               [multiple]=\"multiple\"\n               [disabled]=\"disabled\"\n               [accept]=\"accept\"\n               [color]=\"defaultColor\"\n               (select)=\"handleSelect($event)\">\n  <ng-template [cdkPortalOutlet]=\"inputLabel\" [ngIf]=\"true\"></ng-template>\n</td-file-input>\n<div *ngIf=\"value\">\n  <button #fileUpload\n          class=\"td-file-upload\"\n          mat-raised-button\n          type=\"button\"\n          [color]=\"activeColor\"\n          (keyup.delete)=\"cancel()\"\n          (keyup.backspace)=\"cancel()\"\n          (keyup.escape)=\"cancel()\"\n          (click)=\"uploadPressed()\"> \n    <ng-content></ng-content>\n  </button>\n  <button mat-icon-button\n          type=\"button\"\n          class=\"td-file-upload-cancel\"\n          [color]=\"cancelColor\"            \n          (click)=\"cancel()\">\n    <mat-icon>cancel</mat-icon>\n  </button>\n</div>",
+                template: "<td-file-input\n  *ngIf=\"!value\"\n  [(ngModel)]=\"value\"\n  [multiple]=\"multiple\"\n  [disabled]=\"disabled\"\n  [accept]=\"accept\"\n  [color]=\"defaultColor\"\n  (select)=\"handleSelect($event)\"\n>\n  <ng-template [cdkPortalOutlet]=\"inputLabel\" [ngIf]=\"true\"></ng-template>\n</td-file-input>\n<div *ngIf=\"value\">\n  <button\n    #fileUpload\n    class=\"td-file-upload\"\n    mat-raised-button\n    type=\"button\"\n    [color]=\"activeColor\"\n    (keyup.delete)=\"cancel()\"\n    (keyup.backspace)=\"cancel()\"\n    (keyup.escape)=\"cancel()\"\n    (click)=\"uploadPressed()\"\n  >\n    <ng-content></ng-content>\n  </button>\n  <button mat-icon-button type=\"button\" class=\"td-file-upload-cancel\" [color]=\"cancelColor\" (click)=\"cancel()\">\n    <mat-icon>cancel</mat-icon>\n  </button>\n</div>\n",
                 styles: [".td-file-upload{padding-left:8px;padding-right:8px}.td-file-upload-cancel{height:24px;width:24px;position:relative;top:24px;left:-12px}::ng-deep [dir=rtl] .td-file-upload-cancel{right:-12px;left:0}.td-file-upload-cancel mat-icon{border-radius:12px;vertical-align:baseline}.drop-zone{border-radius:3px}.drop-zone *{pointer-events:none}"]
             }] }
 ];
@@ -7002,7 +6960,7 @@ class TdFileService {
                 /** @type {?} */
                 let progress = 0;
                 if (event.lengthComputable) {
-                    progress = Math.round(event.loaded / event.total * 100);
+                    progress = Math.round((event.loaded / event.total) * 100);
                 }
                 this._progressSubject.next(progress);
             };
@@ -7050,22 +7008,10 @@ class CovalentFileModule {
 }
 CovalentFileModule.decorators = [
     { type: NgModule, args: [{
-                imports: [
-                    FormsModule,
-                    CommonModule,
-                    MatIconModule,
-                    MatButtonModule,
-                    PortalModule,
-                ],
-                declarations: [
-                    TD_FILE,
-                ],
-                exports: [
-                    TD_FILE,
-                ],
-                providers: [
-                    TdFileService,
-                ],
+                imports: [FormsModule, CommonModule, MatIconModule, MatButtonModule, PortalModule],
+                declarations: [TD_FILE],
+                exports: [TD_FILE],
+                providers: [TdFileService],
             },] }
 ];
 
@@ -7207,7 +7153,7 @@ class TdJsonFormatterComponent {
     getValue(value) {
         /** @type {?} */
         let type = this.getType(value);
-        if (type === 'undefined' || (type === 'null')) {
+        if (type === 'undefined' || type === 'null') {
             return type;
         }
         else if (type === 'date') {
@@ -7218,9 +7164,10 @@ class TdJsonFormatterComponent {
         }
         else if (type === 'function') {
             // Remove content of the function
-            return value.toString()
+            return (value
+                .toString()
                 .replace(/[\r\n]/g, '')
-                .replace(/\{.*\}/, '') + '{…}';
+                .replace(/\{.*\}/, '') + '{…}');
         }
         else if (Array.isArray(value)) {
             return this.getObjectName() + ' [' + value.length + ']';
@@ -7265,7 +7212,7 @@ class TdJsonFormatterComponent {
         /** @type {?} */
         let funcNameRegex = /function (.{1,})\(/;
         /** @type {?} */
-        let results = (funcNameRegex).exec((object).constructor.toString());
+        let results = funcNameRegex.exec(object.constructor.toString());
         if (results && results.length > 1) {
             return results[1];
         }
@@ -7304,9 +7251,10 @@ class TdJsonFormatterComponent {
         let previewString = previewData.join(', ');
         /** @type {?} */
         let ellipsis = previewData.length >= TdJsonFormatterComponent.PREVIEW_LIMIT ||
-            previewString.length > TdJsonFormatterComponent.PREVIEW_STRING_MAX_LENGTH ? '…' : '';
-        return startChar + previewString.substring(0, TdJsonFormatterComponent.PREVIEW_STRING_MAX_LENGTH) +
-            ellipsis + endChar;
+            previewString.length > TdJsonFormatterComponent.PREVIEW_STRING_MAX_LENGTH
+            ? '…'
+            : '';
+        return (startChar + previewString.substring(0, TdJsonFormatterComponent.PREVIEW_STRING_MAX_LENGTH) + ellipsis + endChar);
     }
     /**
      * @return {?}
@@ -7336,10 +7284,8 @@ TdJsonFormatterComponent.decorators = [
     { type: Component, args: [{
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 selector: 'td-json-formatter',
-                template: "<div class=\"td-json-formatter-wrapper\">\n  <a class=\"td-key\"\n     [class.td-key-node]=\"hasChildren()\"\n     [class.td-key-leaf]=\"!hasChildren()\"\n     [tabIndex]=\"isObject()? 0 : -1\"\n     (keydown.enter)=\"toggle()\"\n     (click)=\"toggle()\">\n    <mat-icon class=\"td-node-icon\" *ngIf=\"hasChildren()\">{{open? 'keyboard_arrow_down' : (isRTL ? 'keyboard_arrow_left' : 'keyboard_arrow_right')}}</mat-icon>\n    <span *ngIf=\"key\" class=\"key\">{{key}}:</span>\n    <span class=\"value\">\n      <span [class.td-empty]=\"!hasChildren()\" *ngIf=\"isObject()\" [matTooltip]=\"getPreview()\" matTooltipPosition=\"after\">\n        <span class=\"td-object-name\">{{getObjectName()}}</span>\n        <span class=\"td-array-length\" *ngIf=\"isArray()\">[{{data.length}}]</span>\n      </span>\n      <span *ngIf=\"!isObject()\" [class]=\"getType(data)\">{{getValue(data)}}</span>\n    </span>\n  </a>\n  <div class=\"td-object-children\" [@tdCollapse]=\"!(hasChildren() && open)\">\n    <ng-template let-key ngFor [ngForOf]=\"children\">\n      <td-json-formatter [key]=\"key\" [data]=\"data[key]\" [levelsOpen]=\"levelsOpen - 1\"></td-json-formatter>\n    </ng-template>\n  </div>\n</div>",
-                animations: [
-                    tdCollapseAnimation,
-                ],
+                template: "<div class=\"td-json-formatter-wrapper\">\n  <a\n    class=\"td-key\"\n    [class.td-key-node]=\"hasChildren()\"\n    [class.td-key-leaf]=\"!hasChildren()\"\n    [tabIndex]=\"isObject() ? 0 : -1\"\n    (keydown.enter)=\"toggle()\"\n    (click)=\"toggle()\"\n  >\n    <mat-icon class=\"td-node-icon\" *ngIf=\"hasChildren()\">{{\n      open ? 'keyboard_arrow_down' : isRTL ? 'keyboard_arrow_left' : 'keyboard_arrow_right'\n    }}</mat-icon>\n    <span *ngIf=\"key\" class=\"key\">{{ key }}:</span>\n    <span class=\"value\">\n      <span [class.td-empty]=\"!hasChildren()\" *ngIf=\"isObject()\" [matTooltip]=\"getPreview()\" matTooltipPosition=\"after\">\n        <span class=\"td-object-name\">{{ getObjectName() }}</span>\n        <span class=\"td-array-length\" *ngIf=\"isArray()\">[{{ data.length }}]</span>\n      </span>\n      <span *ngIf=\"!isObject()\" [class]=\"getType(data)\">{{ getValue(data) }}</span>\n    </span>\n  </a>\n  <div class=\"td-object-children\" [@tdCollapse]=\"!(hasChildren() && open)\">\n    <ng-template let-key ngFor [ngForOf]=\"children\">\n      <td-json-formatter [key]=\"key\" [data]=\"data[key]\" [levelsOpen]=\"levelsOpen - 1\"></td-json-formatter>\n    </ng-template>\n  </div>\n</div>\n",
+                animations: [tdCollapseAnimation],
                 styles: [":host{display:block}.td-json-formatter-wrapper{padding-top:2px;padding-bottom:2px}.td-json-formatter-wrapper .td-key{-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}.td-json-formatter-wrapper .td-key.td-key-node:hover{cursor:pointer}.td-json-formatter-wrapper .td-object-children.ng-animating{overflow:hidden}.td-json-formatter-wrapper .td-object-children .td-key,.td-json-formatter-wrapper .td-object-children .td-object-children{padding-left:24px}::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-key,::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-object-children{padding-right:24px;padding-left:0}.td-json-formatter-wrapper .td-object-children .td-key.td-key-leaf,.td-json-formatter-wrapper .td-object-children .td-object-children.td-key-leaf{padding-left:48px}::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-key.td-key-leaf,::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-object-children.td-key-leaf{padding-right:48px;padding-left:0}.td-json-formatter-wrapper .value{margin-left:5px}::ng-deep [dir=rtl] .td-json-formatter-wrapper .value{padding-right:5px;padding-left:0}.td-json-formatter-wrapper .value .td-empty{opacity:.5;text-decoration:line-through}.td-json-formatter-wrapper .value .date,.td-json-formatter-wrapper .value .string{word-break:break-word}"]
             }] }
 ];
@@ -7362,17 +7308,9 @@ class CovalentJsonFormatterModule {
 }
 CovalentJsonFormatterModule.decorators = [
     { type: NgModule, args: [{
-                imports: [
-                    CommonModule,
-                    MatTooltipModule,
-                    MatIconModule,
-                ],
-                declarations: [
-                    TdJsonFormatterComponent,
-                ],
-                exports: [
-                    TdJsonFormatterComponent,
-                ],
+                imports: [CommonModule, MatTooltipModule, MatIconModule],
+                declarations: [TdJsonFormatterComponent],
+                exports: [TdJsonFormatterComponent],
             },] }
 ];
 
@@ -7467,7 +7405,7 @@ class TdLayoutComponent {
 TdLayoutComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-layout',
-                template: "<mat-sidenav-container fullscreen [autosize]=\"containerAutosize\">\n  <mat-sidenav #sidenav\n              class=\"td-layout-sidenav\"\n              [mode]=\"mode\"\n              [opened]=\"opened\"\n              [style.max-width]=\"sidenavWidth\"\n              [style.min-width]=\"sidenavWidth\"\n              [disableClose]=\"disableClose\">\n    <ng-content select=\"td-navigation-drawer\"></ng-content>\n    <ng-content select=\"[td-sidenav-content]\"></ng-content>\n  </mat-sidenav>\n  <ng-content></ng-content>\n</mat-sidenav-container>\n",
+                template: "<mat-sidenav-container fullscreen [autosize]=\"containerAutosize\">\n  <mat-sidenav\n    #sidenav\n    class=\"td-layout-sidenav\"\n    [mode]=\"mode\"\n    [opened]=\"opened\"\n    [style.max-width]=\"sidenavWidth\"\n    [style.min-width]=\"sidenavWidth\"\n    [disableClose]=\"disableClose\"\n  >\n    <ng-content select=\"td-navigation-drawer\"></ng-content>\n    <ng-content select=\"[td-sidenav-content]\"></ng-content>\n  </mat-sidenav>\n  <ng-content></ng-content>\n</mat-sidenav-container>\n",
                 styles: [":host{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0;width:100%;min-height:100%;height:100%;overflow:hidden}:host ::ng-deep>mat-sidenav-container .mat-drawer>.mat-drawer-inner-container{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}"]
             }] }
 ];
@@ -7744,7 +7682,7 @@ class TdLayoutNavComponent {
 TdLayoutNavComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-layout-nav',
-                template: "<div class=\"td-layout-nav-wrapper\">\n  <mat-toolbar [color]=\"color\">\n    <ng-content select=\"[td-menu-button]\"></ng-content>\n    <span *ngIf=\"icon || logo || toolbarTitle\"\n          [class.cursor-pointer]=\"routerEnabled\"\n          (click)=\"handleNavigationClick()\"\n          class=\"td-layout-nav-toolbar-content\">\n      <mat-icon *ngIf=\"icon\">{{icon}}</mat-icon>\n      <mat-icon *ngIf=\"logo && !icon\" class=\"mat-icon-logo\" [svgIcon]=\"logo\"></mat-icon>\n      <span *ngIf=\"toolbarTitle\">{{toolbarTitle}}</span>\n    </span>\n    <ng-content select=\"[td-toolbar-content]\"></ng-content>\n  </mat-toolbar>\n  <div class=\"td-layout-nav-content\" cdkScrollable>\n    <ng-content></ng-content>\n  </div>\n  <ng-content select=\"td-layout-footer\"></ng-content>\n</div>\n",
+                template: "<div class=\"td-layout-nav-wrapper\">\n  <mat-toolbar [color]=\"color\">\n    <ng-content select=\"[td-menu-button]\"></ng-content>\n    <span\n      *ngIf=\"icon || logo || toolbarTitle\"\n      [class.cursor-pointer]=\"routerEnabled\"\n      (click)=\"handleNavigationClick()\"\n      class=\"td-layout-nav-toolbar-content\"\n    >\n      <mat-icon *ngIf=\"icon\">{{ icon }}</mat-icon>\n      <mat-icon *ngIf=\"logo && !icon\" class=\"mat-icon-logo\" [svgIcon]=\"logo\"></mat-icon>\n      <span *ngIf=\"toolbarTitle\">{{ toolbarTitle }}</span>\n    </span>\n    <ng-content select=\"[td-toolbar-content]\"></ng-content>\n  </mat-toolbar>\n  <div class=\"td-layout-nav-content\" cdkScrollable>\n    <ng-content></ng-content>\n  </div>\n  <ng-content select=\"td-layout-footer\"></ng-content>\n</div>\n",
                 styles: [".td-menu-button{margin-left:0}::ng-deep [dir=rtl] .td-menu-button{margin-right:0;margin-left:6px}:host{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0;width:100%;min-height:100%;height:100%;overflow:hidden}:host .td-layout-nav-wrapper{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;margin:0;width:100%;min-height:100%;height:100%}:host .td-layout-nav-wrapper .td-layout-nav-toolbar-content{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}:host .td-layout-nav-wrapper .td-layout-nav-content{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-ms-flex:1;flex:1;position:relative;overflow:auto;-webkit-overflow-scrolling:touch}"]
             }] }
 ];
@@ -7866,7 +7804,7 @@ class TdLayoutNavListComponent {
 TdLayoutNavListComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-layout-nav-list',
-                template: "<div class=\"td-layout-nav-list-wrapper\">\n  <mat-sidenav-container fullscreen [autosize]=\"containerAutosize\" class=\"td-layout-nav-list\">\n    <mat-sidenav #sidenav\n                position=\"start\"\n                [mode]=\"mode\"\n                [opened]=\"opened\"\n                [disableClose]=\"disableClose\"\n                [style.max-width]=\"sidenavWidth\"\n                [style.min-width]=\"sidenavWidth\">\n      <mat-toolbar [color]=\"color\">\n        <ng-content select=\"[td-menu-button]\"></ng-content>\n        <span *ngIf=\"icon || logo || toolbarTitle\"\n              class=\"td-layout-nav-list-toolbar-content\"\n              [class.cursor-pointer]=\"routerEnabled\"\n              (click)=\"handleNavigationClick()\">\n          <mat-icon *ngIf=\"icon\">{{icon}}</mat-icon>\n          <mat-icon *ngIf=\"logo && !icon\" class=\"mat-icon-logo\" [svgIcon]=\"logo\"></mat-icon>\n          <span *ngIf=\"toolbarTitle\">{{toolbarTitle}}</span>\n        </span>\n        <ng-content select=\"[td-sidenav-toolbar-content]\"></ng-content>\n      </mat-toolbar>\n      <div class=\"td-layout-nav-list-content\" cdkScrollable>\n        <ng-content select=\"[td-sidenav-content]\"></ng-content>\n      </div>\n    </mat-sidenav>\n    <div class=\"td-layout-nav-list-main\">\n      <mat-toolbar [color]=\"color\">\n        <ng-content select=\"[td-toolbar-content]\"></ng-content>\n      </mat-toolbar>\n      <div class=\"td-layout-nav-list-content\" cdkScrollable>\n        <ng-content></ng-content>\n      </div>\n      <ng-content select=\"td-layout-footer-inner\"></ng-content>\n    </div>\n  </mat-sidenav-container>\n</div>\n<ng-content select=\"td-layout-footer\"></ng-content>",
+                template: "<div class=\"td-layout-nav-list-wrapper\">\n  <mat-sidenav-container fullscreen [autosize]=\"containerAutosize\" class=\"td-layout-nav-list\">\n    <mat-sidenav\n      #sidenav\n      position=\"start\"\n      [mode]=\"mode\"\n      [opened]=\"opened\"\n      [disableClose]=\"disableClose\"\n      [style.max-width]=\"sidenavWidth\"\n      [style.min-width]=\"sidenavWidth\"\n    >\n      <mat-toolbar [color]=\"color\">\n        <ng-content select=\"[td-menu-button]\"></ng-content>\n        <span\n          *ngIf=\"icon || logo || toolbarTitle\"\n          class=\"td-layout-nav-list-toolbar-content\"\n          [class.cursor-pointer]=\"routerEnabled\"\n          (click)=\"handleNavigationClick()\"\n        >\n          <mat-icon *ngIf=\"icon\">{{ icon }}</mat-icon>\n          <mat-icon *ngIf=\"logo && !icon\" class=\"mat-icon-logo\" [svgIcon]=\"logo\"></mat-icon>\n          <span *ngIf=\"toolbarTitle\">{{ toolbarTitle }}</span>\n        </span>\n        <ng-content select=\"[td-sidenav-toolbar-content]\"></ng-content>\n      </mat-toolbar>\n      <div class=\"td-layout-nav-list-content\" cdkScrollable>\n        <ng-content select=\"[td-sidenav-content]\"></ng-content>\n      </div>\n    </mat-sidenav>\n    <div class=\"td-layout-nav-list-main\">\n      <mat-toolbar [color]=\"color\">\n        <ng-content select=\"[td-toolbar-content]\"></ng-content>\n      </mat-toolbar>\n      <div class=\"td-layout-nav-list-content\" cdkScrollable>\n        <ng-content></ng-content>\n      </div>\n      <ng-content select=\"td-layout-footer-inner\"></ng-content>\n    </div>\n  </mat-sidenav-container>\n</div>\n<ng-content select=\"td-layout-footer\"></ng-content>\n",
                 styles: [":host{margin:0;width:100%;min-height:100%;height:100%;overflow:hidden;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-ms-flex:1;flex:1}:host .td-layout-nav-list-wrapper>.mat-sidenav-container>mat-sidenav.mat-drawer-side{border-right:0}[dir=rtl] :host .td-layout-nav-list-wrapper>.mat-sidenav-container>mat-sidenav.mat-drawer-side{border-left:0}:host .td-layout-nav-list-wrapper{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-ms-flex:1;flex:1;position:relative;overflow:auto;-webkit-overflow-scrolling:touch}:host .td-layout-nav-list-wrapper .td-layout-nav-list-toolbar-content{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}:host .td-layout-nav-list-wrapper .td-layout-nav-list-content{text-align:start;-webkit-box-flex:1;-ms-flex:1;flex:1;display:block;position:relative;overflow:auto;-webkit-overflow-scrolling:touch}:host .td-layout-nav-list-wrapper .td-layout-nav-list-main{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;margin:0;width:100%;min-height:100%;height:100%;position:relative;overflow:auto}:host .td-layout-nav-list-wrapper .td-layout-nav-list-main .td-layout-nav-list-content{display:block;position:relative;overflow:auto;-webkit-overflow-scrolling:touch;-webkit-box-flex:1;-ms-flex:1;flex:1}:host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list{-webkit-box-flex:1;-ms-flex:1;flex:1}:host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list>mat-sidenav.mat-drawer-closed,:host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list>mat-sidenav.mat-drawer-closing,:host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list>mat-sidenav.mat-drawer-opened,:host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list>mat-sidenav.mat-drawer-opening{-webkit-box-shadow:none;box-shadow:none}:host ::ng-deep mat-sidenav-container.td-layout-nav-list>.mat-drawer-content{-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1}:host ::ng-deep mat-sidenav-container.td-layout-nav-list>.mat-drawer>.mat-drawer-inner-container{-webkit-box-shadow:0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);box-shadow:0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}"]
             }] }
 ];
@@ -8028,7 +7966,7 @@ class TdLayoutCardOverComponent {
 TdLayoutCardOverComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-layout-card-over',
-                template: "<mat-toolbar [color]=\"color\">\n</mat-toolbar>\n<div class=\"td-layout-card-over-wrapper\">\n  <div class=\"td-layout-card-over\"\n        [style.max-width.%]=\"cardWidth\"\n        [style.flex]=\"'1 1 ' + cardWidth + '%'\"\n        [style.-ms-flex]=\"'1 1 ' + cardWidth + '%'\"\n        [style.-webkit-box-flex]=\"1\">\n    <mat-card>\n      <mat-card-title *ngIf=\"cardTitle\">{{cardTitle}}</mat-card-title>\n      <mat-card-subtitle *ngIf=\"cardSubtitle\">{{cardSubtitle}}</mat-card-subtitle>\n      <mat-divider *ngIf=\"cardTitle || cardSubtitle\"></mat-divider>\n      <ng-content></ng-content>\n    </mat-card>\n    <ng-content select=\"[td-after-card]\"></ng-content>\n  </div>\n</div>\n",
+                template: "<mat-toolbar [color]=\"color\"> </mat-toolbar>\n<div class=\"td-layout-card-over-wrapper\">\n  <div\n    class=\"td-layout-card-over\"\n    [style.max-width.%]=\"cardWidth\"\n    [style.flex]=\"'1 1 ' + cardWidth + '%'\"\n    [style.-ms-flex]=\"'1 1 ' + cardWidth + '%'\"\n    [style.-webkit-box-flex]=\"1\"\n  >\n    <mat-card>\n      <mat-card-title *ngIf=\"cardTitle\">{{ cardTitle }}</mat-card-title>\n      <mat-card-subtitle *ngIf=\"cardSubtitle\">{{ cardSubtitle }}</mat-card-subtitle>\n      <mat-divider *ngIf=\"cardTitle || cardSubtitle\"></mat-divider>\n      <ng-content></ng-content>\n    </mat-card>\n    <ng-content select=\"[td-after-card]\"></ng-content>\n  </div>\n</div>\n",
                 styles: [":host{position:relative;display:block;z-index:2;width:100%;min-height:100%;height:100%}:host [td-after-card]{display:block}.td-layout-card-over-wrapper{margin:-64px 0;width:100%;min-height:100%;height:100%}@media (min-width:600px){.td-layout-card-over-wrapper{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start;-ms-flex-line-pack:start;align-content:flex-start;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.td-layout-card-over-wrapper .td-layout-card-over{max-height:100%;-webkit-box-sizing:border-box;box-sizing:border-box}}@media (max-width:599px){.td-layout-card-over-wrapper .td-layout-card-over{max-width:100%!important}}"]
             }] }
 ];
@@ -8120,7 +8058,7 @@ class TdLayoutManageListComponent {
 TdLayoutManageListComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-layout-manage-list',
-                template: "<mat-sidenav-container fullscreen [autosize]=\"containerAutosize\" class=\"td-layout-manage-list\">\n  <mat-sidenav #sidenav\n              position=\"start\"\n              [mode]=\"mode\"\n              [opened]=\"opened\"\n              [disableClose]=\"disableClose\"\n              [style.max-width]=\"sidenavWidth\"\n              [style.min-width]=\"sidenavWidth\">\n    <ng-content select=\"mat-toolbar[td-sidenav-content]\"></ng-content>\n    <div class=\"td-layout-manage-list-sidenav\" cdkScrollable>\n      <ng-content select=\"[td-sidenav-content]\"></ng-content>\n    </div>\n  </mat-sidenav>\n  <div class=\"td-layout-manage-list-main\">\n    <ng-content select=\"mat-toolbar\"></ng-content>\n    <div class=\"td-layout-manage-list-content\" cdkScrollable>\n      <ng-content></ng-content>\n    </div>\n    <ng-content select=\"td-layout-footer-inner\"></ng-content>\n  </div>\n</mat-sidenav-container>\n",
+                template: "<mat-sidenav-container fullscreen [autosize]=\"containerAutosize\" class=\"td-layout-manage-list\">\n  <mat-sidenav\n    #sidenav\n    position=\"start\"\n    [mode]=\"mode\"\n    [opened]=\"opened\"\n    [disableClose]=\"disableClose\"\n    [style.max-width]=\"sidenavWidth\"\n    [style.min-width]=\"sidenavWidth\"\n  >\n    <ng-content select=\"mat-toolbar[td-sidenav-content]\"></ng-content>\n    <div class=\"td-layout-manage-list-sidenav\" cdkScrollable>\n      <ng-content select=\"[td-sidenav-content]\"></ng-content>\n    </div>\n  </mat-sidenav>\n  <div class=\"td-layout-manage-list-main\">\n    <ng-content select=\"mat-toolbar\"></ng-content>\n    <div class=\"td-layout-manage-list-content\" cdkScrollable>\n      <ng-content></ng-content>\n    </div>\n    <ng-content select=\"td-layout-footer-inner\"></ng-content>\n  </div>\n</mat-sidenav-container>\n",
                 styles: [":host{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0;width:100%;min-height:100%;height:100%;overflow:hidden}:host mat-sidenav-container.td-layout-manage-list{-webkit-box-flex:1;-ms-flex:1;flex:1}:host mat-sidenav-container.td-layout-manage-list>.mat-drawer>.mat-drawer-inner-container.mat-drawer-closed,:host mat-sidenav-container.td-layout-manage-list>.mat-drawer>.mat-drawer-inner-container.mat-drawer-closing,:host mat-sidenav-container.td-layout-manage-list>.mat-drawer>.mat-drawer-inner-container.mat-drawer-opened,:host mat-sidenav-container.td-layout-manage-list>.mat-drawer>.mat-drawer-inner-container.mat-drawer-opening{-webkit-box-shadow:0 1px 3px 0 rgba(0,0,0,.2);box-shadow:0 1px 3px 0 rgba(0,0,0,.2)}:host .td-layout-manage-list-sidenav{text-align:start;-webkit-box-flex:1;-ms-flex:1;flex:1;display:block;position:relative;overflow:auto;-webkit-overflow-scrolling:touch}:host .td-layout-manage-list-main{margin:0;width:100%;min-height:100%;height:100%;position:relative;overflow:auto;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex}:host .td-layout-manage-list-main .td-layout-manage-list-content{display:block;position:relative;overflow:auto;-webkit-overflow-scrolling:touch;-webkit-box-flex:1;-ms-flex:1;flex:1}:host ::ng-deep mat-sidenav-container.td-layout-manage-list>.mat-drawer-content{-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1}:host ::ng-deep mat-sidenav-container.td-layout-manage-list>.mat-drawer>.mat-drawer-inner-container{-webkit-box-shadow:0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);box-shadow:0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}:host ::ng-deep mat-nav-list a[mat-list-item] .mat-list-item-content{font-size:14px}:host ::ng-deep .mat-toolbar{font-weight:400}"]
             }] }
 ];
@@ -8446,7 +8384,7 @@ class TdNavigationDrawerComponent {
 TdNavigationDrawerComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-navigation-drawer',
-                template: "<mat-toolbar [color]=\"color\"\n             [style.background-image]=\"backgroundImage\"\n             [class.td-toolbar-background]=\"!!isBackgroundAvailable\"\n             class=\"td-nagivation-drawer-toolbar\">\n  <ng-content select=\"[td-navigation-drawer-toolbar]\"></ng-content>\n  <ng-container *ngIf=\"!isCustomToolbar\">\n    <div *ngIf=\"icon || logo || sidenavTitle || avatar\"\n          class=\"td-navigation-drawer-toolbar-content\"\n          [class.cursor-pointer]=\"routerEnabled\"\n          (click)=\"handleNavigationClick()\">\n      <mat-icon *ngIf=\"icon\">{{icon}}</mat-icon>\n      <mat-icon *ngIf=\"logo && !icon\" class=\"mat-icon-logo\" [svgIcon]=\"logo\"></mat-icon>\n      <img *ngIf=\"avatar && !logo && !icon\" class=\"td-nagivation-drawer-toolbar-avatar\" [attr.src]=\"avatar\" />\n      <span *ngIf=\"sidenavTitle\" class=\"td-navigation-drawer-title\">{{sidenavTitle}}</span>\n    </div>\n    <div class=\"td-navigation-drawer-name\" *ngIf=\"email && name\">{{name}}</div>\n    <div class=\"td-navigation-drawer-menu-toggle\"\n        href\n        *ngIf=\"email || name\"\n        (click)=\"toggleMenu()\">\n      <span class=\"td-navigation-drawer-label\">{{email || name}}</span>\n      <button mat-icon-button class=\"td-navigation-drawer-menu-button\" *ngIf=\"isMenuAvailable\">\n        <mat-icon *ngIf=\"!menuToggled\">arrow_drop_down</mat-icon>\n        <mat-icon *ngIf=\"menuToggled\">arrow_drop_up</mat-icon>\n      </button>\n    </div>\n  </ng-container>\n</mat-toolbar>\n<div class=\"td-navigation-drawer-content\" [@tdCollapse]=\"menuToggled\">\n  <ng-content></ng-content>\n</div>\n<div class=\"td-navigation-drawer-menu-content\" [@tdCollapse]=\"!menuToggled\">\n  <ng-content select=\"[td-navigation-drawer-menu]\"></ng-content>\n</div>\n",
+                template: "<mat-toolbar\n  [color]=\"color\"\n  [style.background-image]=\"backgroundImage\"\n  [class.td-toolbar-background]=\"!!isBackgroundAvailable\"\n  class=\"td-nagivation-drawer-toolbar\"\n>\n  <ng-content select=\"[td-navigation-drawer-toolbar]\"></ng-content>\n  <ng-container *ngIf=\"!isCustomToolbar\">\n    <div\n      *ngIf=\"icon || logo || sidenavTitle || avatar\"\n      class=\"td-navigation-drawer-toolbar-content\"\n      [class.cursor-pointer]=\"routerEnabled\"\n      (click)=\"handleNavigationClick()\"\n    >\n      <mat-icon *ngIf=\"icon\">{{ icon }}</mat-icon>\n      <mat-icon *ngIf=\"logo && !icon\" class=\"mat-icon-logo\" [svgIcon]=\"logo\"></mat-icon>\n      <img *ngIf=\"avatar && !logo && !icon\" class=\"td-nagivation-drawer-toolbar-avatar\" [attr.src]=\"avatar\" />\n      <span *ngIf=\"sidenavTitle\" class=\"td-navigation-drawer-title\">{{ sidenavTitle }}</span>\n    </div>\n    <div class=\"td-navigation-drawer-name\" *ngIf=\"email && name\">{{ name }}</div>\n    <div class=\"td-navigation-drawer-menu-toggle\" href *ngIf=\"email || name\" (click)=\"toggleMenu()\">\n      <span class=\"td-navigation-drawer-label\">{{ email || name }}</span>\n      <button mat-icon-button class=\"td-navigation-drawer-menu-button\" *ngIf=\"isMenuAvailable\">\n        <mat-icon *ngIf=\"!menuToggled\">arrow_drop_down</mat-icon>\n        <mat-icon *ngIf=\"menuToggled\">arrow_drop_up</mat-icon>\n      </button>\n    </div>\n  </ng-container>\n</mat-toolbar>\n<div class=\"td-navigation-drawer-content\" [@tdCollapse]=\"menuToggled\">\n  <ng-content></ng-content>\n</div>\n<div class=\"td-navigation-drawer-menu-content\" [@tdCollapse]=\"!menuToggled\">\n  <ng-content select=\"[td-navigation-drawer-menu]\"></ng-content>\n</div>\n",
                 animations: [tdCollapseAnimation],
                 styles: [":host{width:100%}:host .td-navigation-drawer-content.ng-animating,:host .td-navigation-drawer-menu-content.ng-animating{overflow:hidden}:host mat-toolbar{padding:16px}:host mat-toolbar.td-toolbar-background{background-repeat:no-repeat;background-size:cover}:host mat-toolbar.td-nagivation-drawer-toolbar{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;height:auto!important;display:block!important}:host mat-toolbar .td-navigation-drawer-toolbar-content{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}:host mat-toolbar .td-navigation-drawer-toolbar-content .td-nagivation-drawer-toolbar-avatar{border-radius:50%;height:60px;width:60px;margin:0 12px 12px 0}:host mat-toolbar .td-navigation-drawer-menu-toggle{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex}:host mat-toolbar .td-navigation-drawer-menu-toggle .td-navigation-drawer-label{-webkit-box-flex:1;-ms-flex:1;flex:1}:host mat-toolbar .td-navigation-drawer-menu-toggle .td-navigation-drawer-menu-button{height:24px;line-height:24px;width:24px}:host>div{overflow:hidden}"]
             }] }
@@ -8510,12 +8448,8 @@ CovalentLayoutModule.decorators = [
                     MatCardModule,
                     MatDividerModule,
                 ],
-                declarations: [
-                    TD_LAYOUTS,
-                ],
-                exports: [
-                    TD_LAYOUTS,
-                ],
+                declarations: [TD_LAYOUTS],
+                exports: [TD_LAYOUTS],
             },] }
 ];
 
@@ -8719,8 +8653,8 @@ class TdLoadingComponent {
      */
     startInAnimation() {
         /* need to switch back to the selected mode, so we have saved it in another variable
-        *  and then recover it. (issue with protractor)
-        */
+         *  and then recover it. (issue with protractor)
+         */
         this._mode = this._defaultMode;
         // Set values before the animations starts
         this._setCircleDiameter();
@@ -8736,8 +8670,8 @@ class TdLoadingComponent {
     startOutAnimation() {
         this.animation = false;
         /* need to switch back and forth from determinate/indeterminate so the setInterval()
-        * inside mat-progress-spinner stops and protractor doesnt timeout waiting to sync.
-        */
+         * inside mat-progress-spinner stops and protractor doesnt timeout waiting to sync.
+         */
         this._mode = LoadingMode.Determinate;
         // Check for changes for `OnPush` change detection
         this._changeDetectorRef.markForCheck();
@@ -8781,10 +8715,8 @@ class TdLoadingComponent {
 TdLoadingComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-loading',
-                template: "<div class=\"td-loading-wrapper\"\n    [style.min-height]=\"getHeight()\"\n    [class.td-overlay-circular]=\"(isOverlay() || isFullScreen()) && !isLinear()\"\n    [class.td-overlay]=\"isOverlay() || isFullScreen()\" \n    [class.td-fullscreen]=\"isFullScreen()\">\n  <div [@tdFadeInOut]=\"animation\"\n     (@tdFadeInOut.done)=\"animationComplete($event)\"\n     [style.min-height]=\"getHeight()\"\n     class=\"td-loading\">\n    <mat-progress-spinner *ngIf=\"isCircular()\" \n                        [mode]=\"mode\"\n                        [value]=\"value\" \n                        [color]=\"color\" \n                        [diameter]=\"getCircleDiameter()\"\n                        [strokeWidth]=\"getCircleStrokeWidth()\">\n    </mat-progress-spinner>\n    <mat-progress-bar *ngIf=\"isLinear()\" \n                     [mode]=\"mode\"\n                     [value]=\"value\"\n                     [color]=\"color\">\n    </mat-progress-bar>\n  </div>\n  <ng-template [cdkPortalOutlet]=\"content\"></ng-template>\n</div>",
-                animations: [
-                    tdFadeInOutAnimation,
-                ],
+                template: "<div\n  class=\"td-loading-wrapper\"\n  [style.min-height]=\"getHeight()\"\n  [class.td-overlay-circular]=\"(isOverlay() || isFullScreen()) && !isLinear()\"\n  [class.td-overlay]=\"isOverlay() || isFullScreen()\"\n  [class.td-fullscreen]=\"isFullScreen()\"\n>\n  <div\n    [@tdFadeInOut]=\"animation\"\n    (@tdFadeInOut.done)=\"animationComplete($event)\"\n    [style.min-height]=\"getHeight()\"\n    class=\"td-loading\"\n  >\n    <mat-progress-spinner\n      *ngIf=\"isCircular()\"\n      [mode]=\"mode\"\n      [value]=\"value\"\n      [color]=\"color\"\n      [diameter]=\"getCircleDiameter()\"\n      [strokeWidth]=\"getCircleStrokeWidth()\"\n    >\n    </mat-progress-spinner>\n    <mat-progress-bar *ngIf=\"isLinear()\" [mode]=\"mode\" [value]=\"value\" [color]=\"color\"> </mat-progress-bar>\n  </div>\n  <ng-template [cdkPortalOutlet]=\"content\"></ng-template>\n</div>\n",
+                animations: [tdFadeInOutAnimation],
                 styles: [".td-loading-wrapper{position:relative;display:block}.td-loading-wrapper.td-fullscreen{position:inherit}.td-loading-wrapper .td-loading{-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-flex:1;-ms-flex:1;flex:1}.td-loading-wrapper.td-overlay .td-loading{position:absolute;margin:0;top:0;left:0;right:0;z-index:1000}.td-loading-wrapper.td-overlay .td-loading mat-progress-bar{position:absolute;top:0;left:0;right:0}.td-loading-wrapper.td-overlay-circular .td-loading{bottom:0}"]
             }] }
 ];
@@ -8898,8 +8830,9 @@ class TdLoadingFactory {
     createReplaceComponent(options, viewContainerRef, templateRef, context) {
         /** @type {?} */
         let nativeElement = (/** @type {?} */ (templateRef.elementRef.nativeElement));
-        ((/** @type {?} */ (options))).height = nativeElement.nextElementSibling ?
-            nativeElement.nextElementSibling.scrollHeight : undefined;
+        ((/** @type {?} */ (options))).height = nativeElement.nextElementSibling
+            ? nativeElement.nextElementSibling.scrollHeight
+            : undefined;
         ((/** @type {?} */ (options))).style = LoadingStyle.None;
         /** @type {?} */
         let loadingRef = this._createComponent(options);
@@ -8951,7 +8884,11 @@ class TdLoadingFactory {
         /** @type {?} */
         let state$$1 = new OverlayConfig();
         state$$1.hasBackdrop = false;
-        state$$1.positionStrategy = this._overlay.position().global().centerHorizontally().centerVertically();
+        state$$1.positionStrategy = this._overlay
+            .position()
+            .global()
+            .centerHorizontally()
+            .centerVertically();
         return this._overlay.create(state$$1);
     }
     /**
@@ -8963,7 +8900,8 @@ class TdLoadingFactory {
         /** @type {?} */
         let compRef = this._initializeContext();
         compRef.componentRef = this._componentFactoryResolver
-            .resolveComponentFactory(TdLoadingComponent).create(this._injector);
+            .resolveComponentFactory(TdLoadingComponent)
+            .create(this._injector);
         this._mapOptions(options, compRef.componentRef.instance);
         return compRef;
     }
@@ -9461,38 +9399,18 @@ TdLoadingDirective.propDecorators = {
  * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 /** @type {?} */
-const TD_LOADING = [
-    TdLoadingComponent,
-    TdLoadingDirective,
-];
+const TD_LOADING = [TdLoadingComponent, TdLoadingDirective];
 /** @type {?} */
-const TD_LOADING_ENTRY_COMPONENTS = [
-    TdLoadingComponent,
-];
+const TD_LOADING_ENTRY_COMPONENTS = [TdLoadingComponent];
 class CovalentLoadingModule {
 }
 CovalentLoadingModule.decorators = [
     { type: NgModule, args: [{
-                imports: [
-                    CommonModule,
-                    MatProgressBarModule,
-                    MatProgressSpinnerModule,
-                    OverlayModule,
-                    PortalModule,
-                ],
-                declarations: [
-                    TD_LOADING,
-                ],
-                exports: [
-                    TD_LOADING,
-                ],
-                providers: [
-                    LOADING_FACTORY_PROVIDER,
-                    LOADING_PROVIDER,
-                ],
-                entryComponents: [
-                    TD_LOADING_ENTRY_COMPONENTS,
-                ],
+                imports: [CommonModule, MatProgressBarModule, MatProgressSpinnerModule, OverlayModule, PortalModule],
+                declarations: [TD_LOADING],
+                exports: [TD_LOADING],
+                providers: [LOADING_FACTORY_PROVIDER, LOADING_PROVIDER],
+                entryComponents: [TD_LOADING_ENTRY_COMPONENTS],
             },] }
 ];
 
@@ -9775,19 +9693,13 @@ TdMediaToggleDirective.propDecorators = {
  * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 /** @type {?} */
-const TD_MEDIA = [
-    TdMediaToggleDirective,
-];
+const TD_MEDIA = [TdMediaToggleDirective];
 class CovalentMediaModule {
 }
 CovalentMediaModule.decorators = [
     { type: NgModule, args: [{
-                declarations: [
-                    TD_MEDIA,
-                ],
-                exports: [
-                    TD_MEDIA,
-                ],
+                declarations: [TD_MEDIA],
+                exports: [TD_MEDIA],
             },] }
 ];
 
@@ -9810,7 +9722,7 @@ class TdMenuComponent {
 TdMenuComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-menu',
-                template: "<ng-content select=\"[td-menu-header]\"></ng-content>\n<mat-divider></mat-divider>\n<div class=\"td-menu-content\">\n  <ng-content></ng-content>\n</div>\n<mat-divider></mat-divider>\n<ng-content select=\"[td-menu-footer]\"></ng-content>",
+                template: "<ng-content select=\"[td-menu-header]\"></ng-content>\n<mat-divider></mat-divider>\n<div class=\"td-menu-content\">\n  <ng-content></ng-content>\n</div>\n<mat-divider></mat-divider>\n<ng-content select=\"[td-menu-footer]\"></ng-content>\n",
                 styles: [":host{margin-top:-8px;margin-bottom:-8px;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}:host ::ng-deep [td-menu-header]{padding:8px;text-align:center}:host ::ng-deep mat-list a[mat-list-item].mat-2-line,:host ::ng-deep mat-list mat-list-item.mat-2-line,:host ::ng-deep mat-list[dense] a[mat-list-item].mat-2-line,:host ::ng-deep mat-list[dense] mat-list-item.mat-2-line,:host ::ng-deep mat-nav-list a[mat-list-item].mat-2-line,:host ::ng-deep mat-nav-list mat-list-item.mat-2-line,:host ::ng-deep mat-nav-list[dense] a[mat-list-item].mat-2-line,:host ::ng-deep mat-nav-list[dense] mat-list-item.mat-2-line{height:auto}:host ::ng-deep mat-list a[mat-list-item].mat-2-line .mat-list-item-content,:host ::ng-deep mat-list mat-list-item.mat-2-line .mat-list-item-content,:host ::ng-deep mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content,:host ::ng-deep mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content,:host ::ng-deep mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content,:host ::ng-deep mat-nav-list mat-list-item.mat-2-line .mat-list-item-content,:host ::ng-deep mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content,:host ::ng-deep mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content{height:auto;padding:8px}:host ::ng-deep mat-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-nav-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text{padding-right:0}[dir=rtl] :host ::ng-deep mat-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-nav-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text{padding-left:0;padding-right:16px}:host ::ng-deep mat-list a[mat-list-item].mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-list mat-list-item.mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-nav-list mat-list-item.mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content [matLine]+[matLine]{margin-top:4px}.td-menu-content{max-height:calc(50vh);overflow-y:auto}"]
             }] }
 ];
@@ -9820,24 +9732,14 @@ TdMenuComponent.decorators = [
  * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 /** @type {?} */
-const TD_MENU = [
-    TdMenuComponent,
-];
+const TD_MENU = [TdMenuComponent];
 class CovalentMenuModule {
 }
 CovalentMenuModule.decorators = [
     { type: NgModule, args: [{
-                imports: [
-                    CommonModule,
-                    MatMenuModule,
-                    MatDividerModule,
-                ],
-                declarations: [
-                    TD_MENU,
-                ],
-                exports: [
-                    TD_MENU,
-                ],
+                imports: [CommonModule, MatMenuModule, MatDividerModule],
+                declarations: [TD_MENU],
+                exports: [TD_MENU],
             },] }
 ];
 
@@ -9924,7 +9826,9 @@ class TdSearchInputComponent extends _TdSearchInputMixinBase {
      * @return {?}
      */
     ngOnInit() {
-        this._input.ngControl.valueChanges.pipe(debounceTime(this.debounce), skip(1)).subscribe((value) => {
+        this._input.ngControl.valueChanges
+            .pipe(debounceTime(this.debounce), skip(1))
+            .subscribe((value) => {
             this._searchTermChanged(value);
         });
     }
@@ -9975,13 +9879,15 @@ class TdSearchInputComponent extends _TdSearchInputMixinBase {
 }
 TdSearchInputComponent.decorators = [
     { type: Component, args: [{
-                providers: [{
+                providers: [
+                    {
                         provide: NG_VALUE_ACCESSOR,
                         useExisting: forwardRef(() => TdSearchInputComponent),
                         multi: true,
-                    }],
+                    },
+                ],
                 selector: 'td-search-input',
-                template: "<div class=\"td-search-input\">\n  <mat-form-field class=\"td-search-input-field\"\n                  [class.mat-hide-underline]=\"!showUnderline\"\n                  [appearance]=\"appearance\"\n                  floatLabel=\"never\">\n    <input matInput\n            #searchElement\n            type=\"search\"\n            [(ngModel)]=\"value\"\n            [placeholder]=\"placeholder\"\n            (blur)=\"handleBlur()\"\n            (search)=\"stopPropagation($event)\"\n            (keyup.enter)=\"handleSearch($event)\"/>\n    <span matSuffix *ngIf=\"appearance === 'fill' || appearance === 'outline' || appearance === 'standard'\">\n      <ng-template\n        [ngTemplateOutlet]=\"clearButton\">\n      </ng-template>\n    </span>\n  </mat-form-field>\n  <ng-template\n    *ngIf=\"!appearance || appearance === 'legacy'\"\n    [ngTemplateOutlet]=\"clearButton\">\n  </ng-template>\n</div>\n<ng-template #clearButton>\n  <button mat-icon-button\n          class=\"td-search-input-clear\"\n          type=\"button\"\n          [@searchState]=\"(searchElement.value ?  'show' : (isRTL ? 'hide-left' : 'hide-right'))\"\n          (click)=\"clearSearch()\">\n    <mat-icon>{{clearIcon}}</mat-icon>\n  </button>\n</ng-template>\n",
+                template: "<div class=\"td-search-input\">\n  <mat-form-field\n    class=\"td-search-input-field\"\n    [class.mat-hide-underline]=\"!showUnderline\"\n    [appearance]=\"appearance\"\n    floatLabel=\"never\"\n  >\n    <input\n      matInput\n      #searchElement\n      type=\"search\"\n      [(ngModel)]=\"value\"\n      [placeholder]=\"placeholder\"\n      (blur)=\"handleBlur()\"\n      (search)=\"stopPropagation($event)\"\n      (keyup.enter)=\"handleSearch($event)\"\n    />\n    <span matSuffix *ngIf=\"appearance === 'fill' || appearance === 'outline' || appearance === 'standard'\">\n      <ng-template [ngTemplateOutlet]=\"clearButton\"> </ng-template>\n    </span>\n  </mat-form-field>\n  <ng-template *ngIf=\"!appearance || appearance === 'legacy'\" [ngTemplateOutlet]=\"clearButton\"> </ng-template>\n</div>\n<ng-template #clearButton>\n  <button\n    mat-icon-button\n    class=\"td-search-input-clear\"\n    type=\"button\"\n    [@searchState]=\"searchElement.value ? 'show' : isRTL ? 'hide-left' : 'hide-right'\"\n    (click)=\"clearSearch()\"\n  >\n    <mat-icon>{{ clearIcon }}</mat-icon>\n  </button>\n</ng-template>\n",
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 inputs: ['value'],
                 animations: [
@@ -10155,13 +10061,15 @@ class TdSearchBoxComponent extends _TdSearchBoxMixinBase {
 }
 TdSearchBoxComponent.decorators = [
     { type: Component, args: [{
-                providers: [{
+                providers: [
+                    {
                         provide: NG_VALUE_ACCESSOR,
                         useExisting: forwardRef(() => TdSearchBoxComponent),
                         multi: true,
-                    }],
+                    },
+                ],
                 selector: 'td-search-box',
-                template: "<div class=\"td-search-box\">\n  <button mat-icon-button type=\"button\" class=\"td-search-icon\" (click)=\"searchClicked()\">\n    <mat-icon *ngIf=\"searchVisible && !alwaysVisible\">{{backIcon}}</mat-icon>\n    <mat-icon *ngIf=\"!searchVisible || alwaysVisible\">{{searchIcon}}</mat-icon>\n  </button>\n  <td-search-input #searchInput\n                   [@inputState]=\"alwaysVisible || searchVisible\"\n                   [debounce]=\"debounce\"\n                   [(ngModel)]=\"value\"\n                   [showUnderline]=\"showUnderline\"\n                   [placeholder]=\"placeholder\"\n                   [clearIcon]=\"clearIcon\"\n                   (searchDebounce)=\"handleSearchDebounce($event)\"\n                   (search)=\"handleSearch($event)\"\n                   (clear)=\"handleClear(); toggleVisibility()\"\n                   (blur)=\"handleBlur()\">\n  </td-search-input>\n</div>\n",
+                template: "<div class=\"td-search-box\">\n  <button mat-icon-button type=\"button\" class=\"td-search-icon\" (click)=\"searchClicked()\">\n    <mat-icon *ngIf=\"searchVisible && !alwaysVisible\">{{ backIcon }}</mat-icon>\n    <mat-icon *ngIf=\"!searchVisible || alwaysVisible\">{{ searchIcon }}</mat-icon>\n  </button>\n  <td-search-input\n    #searchInput\n    [@inputState]=\"alwaysVisible || searchVisible\"\n    [debounce]=\"debounce\"\n    [(ngModel)]=\"value\"\n    [showUnderline]=\"showUnderline\"\n    [placeholder]=\"placeholder\"\n    [clearIcon]=\"clearIcon\"\n    (searchDebounce)=\"handleSearchDebounce($event)\"\n    (search)=\"handleSearch($event)\"\n    (clear)=\"handleClear(); toggleVisibility()\"\n    (blur)=\"handleBlur()\"\n  >\n  </td-search-input>\n</div>\n",
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 inputs: ['value'],
                 animations: [
@@ -10208,21 +10116,9 @@ class CovalentSearchModule {
 }
 CovalentSearchModule.decorators = [
     { type: NgModule, args: [{
-                imports: [
-                    FormsModule,
-                    CommonModule,
-                    MatInputModule,
-                    MatIconModule,
-                    MatButtonModule,
-                ],
-                declarations: [
-                    TdSearchInputComponent,
-                    TdSearchBoxComponent,
-                ],
-                exports: [
-                    TdSearchInputComponent,
-                    TdSearchBoxComponent,
-                ],
+                imports: [FormsModule, CommonModule, MatInputModule, MatIconModule, MatButtonModule],
+                declarations: [TdSearchInputComponent, TdSearchBoxComponent],
+                exports: [TdSearchInputComponent, TdSearchBoxComponent],
             },] }
 ];
 
@@ -10309,7 +10205,7 @@ class TdBreadcrumbComponent {
 TdBreadcrumbComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-breadcrumb, a[td-breadcrumb]',
-                template: "<ng-content></ng-content>\n<mat-icon *ngIf=\"_displayIcon\"\n          class=\"td-breadcrumb-separator-icon\"\n          [style.cursor]=\"'default'\"\n          (click)=\"_handleIconClick($event)\">\n  {{separatorIcon}}\n</mat-icon>\n",
+                template: "<ng-content></ng-content>\n<mat-icon\n  *ngIf=\"_displayIcon\"\n  class=\"td-breadcrumb-separator-icon\"\n  [style.cursor]=\"'default'\"\n  (click)=\"_handleIconClick($event)\"\n>\n  {{ separatorIcon }}\n</mat-icon>\n",
                 /* tslint:disable-next-line */
                 host: {
                     class: 'mat-button td-breadcrumb',
@@ -10386,14 +10282,14 @@ class TdBreadcrumbsComponent {
         this._resizeSubscription.unsubscribe();
     }
     /*
-      * Current width of the element container
-      */
+       * Current width of the element container
+       */
     /**
      * @return {?}
      */
     get nativeElementWidth() {
         /** @type {?} */
-        let element = ((/** @type {?} */ (this._elementRef.nativeElement)));
+        let element = (/** @type {?} */ (this._elementRef.nativeElement));
         // Need to take into account border, margin and padding that might be around all the crumbs
         /** @type {?} */
         let style$$1 = window.getComputedStyle(element);
@@ -10409,7 +10305,13 @@ class TdBreadcrumbsComponent {
         let paddingLeft = parseInt(style$$1.paddingLeft, 10);
         /** @type {?} */
         let paddingRight = parseInt(style$$1.paddingRight, 10);
-        return element.getBoundingClientRect().width - borderLeft - borderRight - marginLeft - marginRight - paddingLeft - paddingRight;
+        return (element.getBoundingClientRect().width -
+            borderLeft -
+            borderRight -
+            marginLeft -
+            marginRight -
+            paddingLeft -
+            paddingRight);
     }
     /**
      * The total count of individual breadcrumbs
@@ -10449,7 +10351,7 @@ class TdBreadcrumbsComponent {
             let breadcrumb = crumbsArray[i];
             // if crumb exceeds width, then we skip it from the sum and add it into the hiddencrumbs array
             // and hide it
-            if ((crumbWidthSum + breadcrumb.width) > this.nativeElementWidth) {
+            if (crumbWidthSum + breadcrumb.width > this.nativeElementWidth) {
                 breadcrumb.displayCrumb = false;
                 hiddenCrumbs.push(breadcrumb);
             }
@@ -10493,18 +10395,9 @@ class CovalentBreadcrumbsModule {
 }
 CovalentBreadcrumbsModule.decorators = [
     { type: NgModule, args: [{
-                imports: [
-                    CommonModule,
-                    MatIconModule,
-                ],
-                declarations: [
-                    TdBreadcrumbsComponent,
-                    TdBreadcrumbComponent,
-                ],
-                exports: [
-                    TdBreadcrumbsComponent,
-                    TdBreadcrumbComponent,
-                ],
+                imports: [CommonModule, MatIconModule],
+                declarations: [TdBreadcrumbsComponent, TdBreadcrumbComponent],
+                exports: [TdBreadcrumbsComponent, TdBreadcrumbComponent],
             },] }
 ];
 
@@ -10745,7 +10638,7 @@ TdStepComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-step',
                 inputs: ['disabled', 'disableRipple'],
-                template: "<ng-template>\n  <ng-content></ng-content>\n</ng-template>"
+                template: "<ng-template>\n  <ng-content></ng-content>\n</ng-template>\n"
             }] }
 ];
 /** @nocollapse */
@@ -10854,9 +10747,9 @@ class TdStepsComponent {
      * @return {?}
      */
     areStepsActive() {
-        return this._steps.filter((step) => {
+        return (this._steps.filter((step) => {
             return step.active;
-        }).length > 0;
+        }).length > 0);
     }
     /**
      * Wraps previous and new [TdStepComponent] numbers in an object that implements [IStepChangeEvent]
@@ -10884,7 +10777,8 @@ class TdStepsComponent {
      * @return {?}
      */
     _deactivateAllBut(activeStep) {
-        this._steps.filter((step) => step !== activeStep)
+        this._steps
+            .filter((step) => step !== activeStep)
             .forEach((step) => {
             step.active = false;
         });
@@ -10917,7 +10811,7 @@ class TdStepsComponent {
 TdStepsComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-steps',
-                template: "<div *ngIf=\"isHorizontal()\" class=\"td-steps-header\">\n  <ng-template let-step let-index=\"index\" let-last=\"last\" ngFor [ngForOf]=\"steps\">\n    <td-step-header class=\"td-step-horizontal-header\"\n                    (keydown.enter)=\"step.open()\"\n                    [number]=\"index + 1\"\n                    [active]=\"step.active\"\n                    [disableRipple]=\"step.disableRipple\"\n                    [disabled]=\"step.disabled\" \n                    [state]=\"step.state\"\n                    (click)=\"step.open()\">\n      <ng-template td-step-header-label [cdkPortalOutlet]=\"step.stepLabel\"></ng-template>\n      <ng-template td-step-header-label [ngIf]=\"!step.stepLabel\">{{step.label}}</ng-template>\n      <ng-template td-step-header-sublabel [ngIf]=\"true\">{{step.sublabel | truncate:30}}</ng-template>\n    </td-step-header>\n    <span *ngIf=\"!last\" class=\"td-horizontal-line\"></span>\n  </ng-template>\n</div>\n<div *ngFor=\"let step of steps; let index = index; let last = last\" class=\"td-step\">\n  <td-step-header class=\"td-step-vertical-header\"\n                  (keydown.enter)=\"step.toggle()\"\n                  [number]=\"index + 1\"\n                  [active]=\"step.active\" \n                  [disabled]=\"step.disabled\"\n                  [disableRipple]=\"step.disableRipple\"\n                  [state]=\"step.state\"\n                  (click)=\"step.toggle()\"\n                  *ngIf=\"isVertical()\">\n    <ng-template td-step-header-label [cdkPortalOutlet]=\"step.stepLabel\"></ng-template>\n    <ng-template td-step-header-label [ngIf]=\"!step.stepLabel\">{{step.label}}</ng-template>\n    <ng-template td-step-header-sublabel [ngIf]=\"true\">{{step.sublabel}}</ng-template>\n  </td-step-header>\n  <ng-template [ngIf]=\"isVertical() || step.active || (!areStepsActive() && prevStep === step)\">\n    <td-step-body [active]=\"step.active\" [state]=\"step.state\">\n      <div *ngIf=\"isVertical()\" class=\"td-line-wrapper\">\n        <div *ngIf=\"!last\" class=\"td-vertical-line\"></div>\n      </div>\n      <ng-template td-step-body-content [cdkPortalOutlet]=\"step.stepContent\"></ng-template>\n      <ng-template td-step-body-actions [cdkPortalOutlet]=\"step.stepActions\"></ng-template>\n      <ng-template td-step-body-summary [cdkPortalOutlet]=\"step.stepSummary\"></ng-template>\n    </td-step-body>\n  </ng-template>\n</div>\n",
+                template: "<div *ngIf=\"isHorizontal()\" class=\"td-steps-header\">\n  <ng-template let-step let-index=\"index\" let-last=\"last\" ngFor [ngForOf]=\"steps\">\n    <td-step-header\n      class=\"td-step-horizontal-header\"\n      (keydown.enter)=\"step.open()\"\n      [number]=\"index + 1\"\n      [active]=\"step.active\"\n      [disableRipple]=\"step.disableRipple\"\n      [disabled]=\"step.disabled\"\n      [state]=\"step.state\"\n      (click)=\"step.open()\"\n    >\n      <ng-template td-step-header-label [cdkPortalOutlet]=\"step.stepLabel\"></ng-template>\n      <ng-template td-step-header-label [ngIf]=\"!step.stepLabel\">{{ step.label }}</ng-template>\n      <ng-template td-step-header-sublabel [ngIf]=\"true\">{{ step.sublabel | truncate: 30 }}</ng-template>\n    </td-step-header>\n    <span *ngIf=\"!last\" class=\"td-horizontal-line\"></span>\n  </ng-template>\n</div>\n<div *ngFor=\"let step of steps; let index = index; let last = last\" class=\"td-step\">\n  <td-step-header\n    class=\"td-step-vertical-header\"\n    (keydown.enter)=\"step.toggle()\"\n    [number]=\"index + 1\"\n    [active]=\"step.active\"\n    [disabled]=\"step.disabled\"\n    [disableRipple]=\"step.disableRipple\"\n    [state]=\"step.state\"\n    (click)=\"step.toggle()\"\n    *ngIf=\"isVertical()\"\n  >\n    <ng-template td-step-header-label [cdkPortalOutlet]=\"step.stepLabel\"></ng-template>\n    <ng-template td-step-header-label [ngIf]=\"!step.stepLabel\">{{ step.label }}</ng-template>\n    <ng-template td-step-header-sublabel [ngIf]=\"true\">{{ step.sublabel }}</ng-template>\n  </td-step-header>\n  <ng-template [ngIf]=\"isVertical() || step.active || (!areStepsActive() && prevStep === step)\">\n    <td-step-body [active]=\"step.active\" [state]=\"step.state\">\n      <div *ngIf=\"isVertical()\" class=\"td-line-wrapper\">\n        <div *ngIf=\"!last\" class=\"td-vertical-line\"></div>\n      </div>\n      <ng-template td-step-body-content [cdkPortalOutlet]=\"step.stepContent\"></ng-template>\n      <ng-template td-step-body-actions [cdkPortalOutlet]=\"step.stepActions\"></ng-template>\n      <ng-template td-step-body-summary [cdkPortalOutlet]=\"step.stepSummary\"></ng-template>\n    </td-step-body>\n  </ng-template>\n</div>\n",
                 /* tslint:disable-next-line */
                 host: {
                     class: 'td-steps',
@@ -10969,7 +10863,7 @@ TdStepHeaderComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-step-header',
                 inputs: ['disabled', 'disableRipple'],
-                template: "<div class=\"td-step-header\"\n      [class.mat-disabled]=\"disabled\"\n      matRipple\n      [matRippleDisabled]=\"disabled || disableRipple\"\n      [tabIndex]=\"disabled ? -1 : (tabIndex || 0)\">\n  <div class=\"td-circle\"\n      [class.mat-inactive]=\"(!active && !isComplete()) || disabled\"\n      [class.mat-active]=\"active && !disabled\"\n      *ngIf=\"!isRequired() && !isComplete()\">\n    <span *ngIf=\"(active || !isComplete())\">{{number || ''}}</span>\n  </div>\n  <div class=\"td-complete\" *ngIf=\"isComplete()\">\n    <mat-icon class=\"mat-complete\">check_circle</mat-icon>\n  </div>\n  <div class=\"td-triangle\"\n      [class.bg-muted]=\"disabled\"\n      *ngIf=\"isRequired()\">\n    <mat-icon class=\"mat-warn\">warning</mat-icon>\n  </div>\n  <div class=\"td-step-label-wrapper\"\n        [class.mat-inactive]=\"(!active && !isComplete()) || disabled\"\n        [class.mat-warn]=\"isRequired() && !disabled\">\n    <div class=\"td-step-label\">\n      <ng-content select=\"[td-step-header-label]\"></ng-content>\n    </div>\n    <div class=\"td-step-sublabel\">\n      <ng-content select=\"[td-step-header-sublabel]\"></ng-content>\n    </div>\n  </div>\n  <span class=\"td-step-header-separator\"></span>\n  <mat-icon class=\"td-edit-icon\" *ngIf=\"isComplete() && !active && !disabled\">mode_edit</mat-icon>\n</div>",
+                template: "<div\n  class=\"td-step-header\"\n  [class.mat-disabled]=\"disabled\"\n  matRipple\n  [matRippleDisabled]=\"disabled || disableRipple\"\n  [tabIndex]=\"disabled ? -1 : tabIndex || 0\"\n>\n  <div\n    class=\"td-circle\"\n    [class.mat-inactive]=\"(!active && !isComplete()) || disabled\"\n    [class.mat-active]=\"active && !disabled\"\n    *ngIf=\"!isRequired() && !isComplete()\"\n  >\n    <span *ngIf=\"active || !isComplete()\">{{ number || '' }}</span>\n  </div>\n  <div class=\"td-complete\" *ngIf=\"isComplete()\">\n    <mat-icon class=\"mat-complete\">check_circle</mat-icon>\n  </div>\n  <div class=\"td-triangle\" [class.bg-muted]=\"disabled\" *ngIf=\"isRequired()\">\n    <mat-icon class=\"mat-warn\">warning</mat-icon>\n  </div>\n  <div\n    class=\"td-step-label-wrapper\"\n    [class.mat-inactive]=\"(!active && !isComplete()) || disabled\"\n    [class.mat-warn]=\"isRequired() && !disabled\"\n  >\n    <div class=\"td-step-label\">\n      <ng-content select=\"[td-step-header-label]\"></ng-content>\n    </div>\n    <div class=\"td-step-sublabel\">\n      <ng-content select=\"[td-step-header-sublabel]\"></ng-content>\n    </div>\n  </div>\n  <span class=\"td-step-header-separator\"></span>\n  <mat-icon class=\"td-edit-icon\" *ngIf=\"isComplete() && !active && !disabled\">mode_edit</mat-icon>\n</div>\n",
                 styles: [".td-step-header{position:relative;outline:0;min-width:120px;height:72px;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-ms-flex:1;flex:1;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%}.td-step-header:hover:not(.mat-disabled){cursor:pointer}.td-step-header mat-icon.td-edit-icon{margin:0 8px}.td-step-header mat-icon.mat-warn{font-size:24px;height:24px;width:24px}.td-step-header mat-icon.mat-complete{position:relative;left:-2px;top:2px;font-size:28px;height:24px;width:24px}.td-step-header .td-circle{height:24px;width:24px;line-height:24px;border-radius:99%;text-align:center;-webkit-box-flex:0;-ms-flex:none;flex:none}.td-step-header .td-circle mat-icon{margin-top:2px;font-weight:700}.td-step-header .td-triangle>mat-icon{font-size:25px}::ng-deep :not([dir=rtl]) .td-step-header .td-circle,::ng-deep :not([dir=rtl]) .td-step-header .td-complete,::ng-deep :not([dir=rtl]) .td-step-header .td-triangle{margin-left:8px;margin-right:0}::ng-deep [dir=rtl] .td-step-header .td-circle,::ng-deep [dir=rtl] .td-step-header .td-complete,::ng-deep [dir=rtl] .td-step-header .td-triangle{margin-left:0;margin-right:8px}.td-step-header .td-circle,.td-step-header .td-complete{font-size:14px}.td-step-header .td-step-label-wrapper{padding-left:8px;padding-right:8px}.td-step-header .td-step-header-separator{-webkit-box-flex:1;-ms-flex:1;flex:1;-webkit-box-sizing:border-box;box-sizing:border-box}"]
             }] }
 ];
@@ -10997,22 +10891,22 @@ class TdStepBodyComponent {
      * @return {?}
      */
     get hasContent() {
-        return this.contentRef &&
-            (this.contentRef.nativeElement.children.length > 0 || !!this.contentRef.nativeElement.textContent.trim());
+        return (this.contentRef &&
+            (this.contentRef.nativeElement.children.length > 0 || !!this.contentRef.nativeElement.textContent.trim()));
     }
     /**
      * @return {?}
      */
     get hasActions() {
-        return this.actionsRef &&
-            (this.actionsRef.nativeElement.children.length > 0 || !!this.actionsRef.nativeElement.textContent.trim());
+        return (this.actionsRef &&
+            (this.actionsRef.nativeElement.children.length > 0 || !!this.actionsRef.nativeElement.textContent.trim()));
     }
     /**
      * @return {?}
      */
     get hasSummary() {
-        return this.summaryRef &&
-            (this.summaryRef.nativeElement.children.length > 0 || !!this.summaryRef.nativeElement.textContent.trim());
+        return (this.summaryRef &&
+            (this.summaryRef.nativeElement.children.length > 0 || !!this.summaryRef.nativeElement.textContent.trim()));
     }
     /**
      * Returns 'true' if [state] equals to [StepState.Complete | 'complete'], else 'false'.
@@ -11025,10 +10919,8 @@ class TdStepBodyComponent {
 TdStepBodyComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-step-body',
-                template: "<ng-content></ng-content>\n<div class=\"td-step-body\">\n  <div class=\"td-step-content-wrapper\"\n       [@tdCollapse]=\"!active\">\n    <div #contentRef cdkScrollable [class.td-step-content]=\"hasContent\">\n      <ng-content select=\"[td-step-body-content]\"></ng-content>\n    </div>\n    <div #actionsRef\n         [class.td-step-actions]=\"hasActions\">\n      <ng-content select=\"[td-step-body-actions]\"></ng-content>\n    </div>\n  </div>\n  <div #summaryRef\n       [@tdCollapse]=\"active || !isComplete()\"\n       [class.td-step-summary]=\"hasSummary\">\n    <ng-content select=\"[td-step-body-summary]\"></ng-content>\n  </div>\n</div>",
-                animations: [
-                    tdCollapseAnimation,
-                ],
+                template: "<ng-content></ng-content>\n<div class=\"td-step-body\">\n  <div class=\"td-step-content-wrapper\" [@tdCollapse]=\"!active\">\n    <div #contentRef cdkScrollable [class.td-step-content]=\"hasContent\">\n      <ng-content select=\"[td-step-body-content]\"></ng-content>\n    </div>\n    <div #actionsRef [class.td-step-actions]=\"hasActions\">\n      <ng-content select=\"[td-step-body-actions]\"></ng-content>\n    </div>\n  </div>\n  <div #summaryRef [@tdCollapse]=\"active || !isComplete()\" [class.td-step-summary]=\"hasSummary\">\n    <ng-content select=\"[td-step-body-summary]\"></ng-content>\n  </div>\n</div>\n",
+                animations: [tdCollapseAnimation],
                 styles: [":host{-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}:host .td-step-body{overflow-x:hidden;-webkit-box-flex:1;-ms-flex:1;flex:1;-webkit-box-sizing:border-box;box-sizing:border-box}:host .td-step-body .td-step-content-wrapper.ng-animating,:host .td-step-body .td-step-summary.ng-animating{overflow:hidden}:host .td-step-body .td-step-content{overflow-x:auto}:host .td-step-body .td-step-actions{-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}"]
             }] }
 ];
@@ -11112,7 +11004,7 @@ class TdNavStepLinkComponent extends _TdStepMixinBase {
 TdNavStepLinkComponent.decorators = [
     { type: Component, args: [{
                 selector: '[td-step-link],[tdStepLink]',
-                template: "<td-step-header class=\"td-step-header-wrapper\"\n                [tabIndex]=\"-1\"\n                [number]=\"number\"\n                [active]=\"active\"\n                [disableRipple]=\"disableRipple || disabled\"\n                [disabled]=\"disabled\" \n                [state]=\"state\">\n  <ng-template td-step-header-label [ngIf]=\"true\">{{label}}</ng-template>\n  <ng-template td-step-header-sublabel [ngIf]=\"true\">{{sublabel | truncate:30}}</ng-template>\n  <ng-content></ng-content>\n</td-step-header>",
+                template: "<td-step-header\n  class=\"td-step-header-wrapper\"\n  [tabIndex]=\"-1\"\n  [number]=\"number\"\n  [active]=\"active\"\n  [disableRipple]=\"disableRipple || disabled\"\n  [disabled]=\"disabled\"\n  [state]=\"state\"\n>\n  <ng-template td-step-header-label [ngIf]=\"true\">{{ label }}</ng-template>\n  <ng-template td-step-header-sublabel [ngIf]=\"true\">{{ sublabel | truncate: 30 }}</ng-template>\n  <ng-content></ng-content>\n</td-step-header>\n",
                 inputs: ['disabled', 'disableRipple'],
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 /* tslint:disable-next-line */
@@ -11179,14 +11071,14 @@ class TdNavStepsHorizontalComponent {
         this._disableScrollBefore = true;
     }
     /*
-      * Current width of the element container
-      */
+       * Current width of the element container
+       */
     /**
      * @return {?}
      */
     get nativeElementWidth() {
         /** @type {?} */
-        let element = ((/** @type {?} */ (this._elementRef.nativeElement)));
+        let element = (/** @type {?} */ (this._elementRef.nativeElement));
         // Need to take into account border, margin and padding that might be around all the crumbs
         /** @type {?} */
         let style$$1 = window.getComputedStyle(element);
@@ -11202,13 +11094,21 @@ class TdNavStepsHorizontalComponent {
         let paddingLeft = parseInt(style$$1.paddingLeft, 10);
         /** @type {?} */
         let paddingRight = parseInt(style$$1.paddingRight, 10);
-        return element.getBoundingClientRect().width - borderLeft - borderRight - marginLeft - marginRight - paddingLeft - paddingRight;
+        return (element.getBoundingClientRect().width -
+            borderLeft -
+            borderRight -
+            marginLeft -
+            marginRight -
+            paddingLeft -
+            paddingRight);
     }
     /**
      * @return {?}
      */
     ngAfterContentInit() {
-        merge(this._widthSubject.asObservable().pipe(distinctUntilChanged()), this._viewportRuler.change(150), this._dir ? this._dir.change : of(undefined), this._steps.changes).pipe(takeUntil(this._destroyed)).subscribe(() => {
+        merge(this._widthSubject.asObservable().pipe(distinctUntilChanged()), this._viewportRuler.change(150), this._dir ? this._dir.change : of(undefined), this._steps.changes)
+            .pipe(takeUntil(this._destroyed))
+            .subscribe(() => {
             this._configureSteps();
             this.updatePagination();
             this._changeDetectorRef.markForCheck();
@@ -11294,7 +11194,9 @@ class TdNavStepsHorizontalComponent {
      * Sets the distance in pixels that the step header should be transformed in the X-axis.
      * @return {?}
      */
-    get scrollDistance() { return this._scrollDistance; }
+    get scrollDistance() {
+        return this._scrollDistance;
+    }
     /**
      * @param {?} v
      * @return {?}
@@ -11314,7 +11216,7 @@ class TdNavStepsHorizontalComponent {
      */
     _scrollHeader(scrollDir) {
         // Move the scroll distance one-half the length of the step list's viewport.
-        this.scrollDistance += (scrollDir === 'before' ? -1 : 1) * this._stepListContainer.nativeElement.offsetWidth / 2;
+        this.scrollDistance += ((scrollDir === 'before' ? -1 : 1) * this._stepListContainer.nativeElement.offsetWidth) / 2;
     }
     /**
      * Evaluate whether the pagination controls should be displayed. If the scroll width of the
@@ -11352,7 +11254,7 @@ class TdNavStepsHorizontalComponent {
      * @return {?}
      */
     _getMaxScrollDistance() {
-        return (this._stepList.nativeElement.scrollWidth - this._stepListContainer.nativeElement.offsetWidth) || 0;
+        return this._stepList.nativeElement.scrollWidth - this._stepListContainer.nativeElement.offsetWidth || 0;
     }
     /**
      * Set the step line separators and display numbers
@@ -11380,7 +11282,7 @@ class TdNavStepsHorizontalComponent {
 TdNavStepsHorizontalComponent.decorators = [
     { type: Component, args: [{
                 selector: 'nav[td-steps][horizontal]',
-                template: "<div class=\"td-steps-header\">\n  <div class=\"td-step-header-pagination td-step-header-pagination-before mat-elevation-z4\"\n        aria-hidden=\"true\"\n        mat-ripple [matRippleDisabled]=\"_disableScrollBefore\"\n        [class.td-step-header-pagination-disabled]=\"_disableScrollBefore\"\n        (click)=\"_scrollHeader('before')\">\n    <div class=\"td-step-header-pagination-chevron\"></div>\n  </div>\n  <div #stepListContainer class=\"td-steps-header-container\" (keydown)=\"_handleKeydown($event)\">\n    <div #stepList class=\"td-steps-header-list\">\n      <ng-content></ng-content>\n    </div>\n  </div>\n  <div class=\"td-step-header-pagination td-step-header-pagination-after mat-elevation-z4\"\n        aria-hidden=\"true\"\n        mat-ripple [matRippleDisabled]=\"_disableScrollAfter\"\n        [class.td-step-header-pagination-disabled]=\"_disableScrollAfter\"\n        (click)=\"_scrollHeader('after')\">\n    <div class=\"td-step-header-pagination-chevron\"></div>\n  </div>\n</div>\n",
+                template: "<div class=\"td-steps-header\">\n  <div\n    class=\"td-step-header-pagination td-step-header-pagination-before mat-elevation-z4\"\n    aria-hidden=\"true\"\n    mat-ripple\n    [matRippleDisabled]=\"_disableScrollBefore\"\n    [class.td-step-header-pagination-disabled]=\"_disableScrollBefore\"\n    (click)=\"_scrollHeader('before')\"\n  >\n    <div class=\"td-step-header-pagination-chevron\"></div>\n  </div>\n  <div #stepListContainer class=\"td-steps-header-container\" (keydown)=\"_handleKeydown($event)\">\n    <div #stepList class=\"td-steps-header-list\">\n      <ng-content></ng-content>\n    </div>\n  </div>\n  <div\n    class=\"td-step-header-pagination td-step-header-pagination-after mat-elevation-z4\"\n    aria-hidden=\"true\"\n    mat-ripple\n    [matRippleDisabled]=\"_disableScrollAfter\"\n    [class.td-step-header-pagination-disabled]=\"_disableScrollAfter\"\n    (click)=\"_scrollHeader('after')\"\n  >\n    <div class=\"td-step-header-pagination-chevron\"></div>\n  </div>\n</div>\n",
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 /* tslint:disable-next-line */
                 host: {
@@ -11471,7 +11373,7 @@ class TdNavStepsVerticalComponent {
 TdNavStepsVerticalComponent.decorators = [
     { type: Component, args: [{
                 selector: 'nav[td-steps][vertical]',
-                template: "<div class=\"td-steps-header\">\n  <div class=\"td-steps-header-container\">\n    <div #stepList class=\"td-steps-header-list\">\n      <ng-content></ng-content>\n    </div>\n  </div>\n</div>\n  ",
+                template: "<div class=\"td-steps-header\">\n  <div class=\"td-steps-header-container\">\n    <div #stepList class=\"td-steps-header-list\">\n      <ng-content></ng-content>\n    </div>\n  </div>\n</div>\n",
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 /* tslint:disable-next-line */
                 host: {
@@ -11511,20 +11413,9 @@ class CovalentStepsModule {
 }
 CovalentStepsModule.decorators = [
     { type: NgModule, args: [{
-                imports: [
-                    CommonModule,
-                    MatIconModule,
-                    MatRippleModule,
-                    PortalModule,
-                    ScrollDispatchModule,
-                    CovalentCommonModule,
-                ],
-                declarations: [
-                    TD_STEPS,
-                ],
-                exports: [
-                    TD_STEPS,
-                ],
+                imports: [CommonModule, MatIconModule, MatRippleModule, PortalModule, ScrollDispatchModule, CovalentCommonModule],
+                declarations: [TD_STEPS],
+                exports: [TD_STEPS],
             },] }
 ];
 
@@ -11732,13 +11623,15 @@ class TdTabSelectComponent extends _TdTabSelectMixinBase {
 TdTabSelectComponent.decorators = [
     { type: Component, args: [{
                 changeDetection: ChangeDetectionStrategy.OnPush,
-                providers: [{
+                providers: [
+                    {
                         provide: NG_VALUE_ACCESSOR,
                         useExisting: forwardRef(() => TdTabSelectComponent),
                         multi: true,
-                    }],
+                    },
+                ],
                 selector: 'td-tab-select',
-                template: "<mat-tab-group [attr.mat-stretch-tabs]=\"stretchTabs ? true : undefined\"\n                [backgroundColor]=\"backgroundColor\"\n                [color]=\"color\"\n                [disableRipple]=\"disableRipple\"\n                [selectedIndex]=\"selectedIndex\"\n                (selectedIndexChange)=\"selectedIndexChange($event)\">\n  <ng-template let-tabOption\n                ngFor\n                [ngForOf]=\"tabOptions\">\n    <mat-tab [disabled]=\"tabOption.disabled || disabled\">\n      <ng-template matTabLabel>\n        <ng-template *ngIf=\"tabOption.content\" [cdkPortalOutlet]=\"tabOption.content\">\n        </ng-template>\n      </ng-template>\n    </mat-tab>\n  </ng-template>\n</mat-tab-group>\n",
+                template: "<mat-tab-group\n  [attr.mat-stretch-tabs]=\"stretchTabs ? true : undefined\"\n  [backgroundColor]=\"backgroundColor\"\n  [color]=\"color\"\n  [disableRipple]=\"disableRipple\"\n  [selectedIndex]=\"selectedIndex\"\n  (selectedIndexChange)=\"selectedIndexChange($event)\"\n>\n  <ng-template let-tabOption ngFor [ngForOf]=\"tabOptions\">\n    <mat-tab [disabled]=\"tabOption.disabled || disabled\">\n      <ng-template matTabLabel>\n        <ng-template *ngIf=\"tabOption.content\" [cdkPortalOutlet]=\"tabOption.content\"> </ng-template>\n      </ng-template>\n    </mat-tab>\n  </ng-template>\n</mat-tab-group>\n",
                 /* tslint:disable-next-line */
                 inputs: ['value', 'disabled', 'disableRipple'],
                 styles: [":host::ng-deep>.mat-tab-group>.mat-tab-body-wrapper{display:none}"]
@@ -11764,10 +11657,7 @@ class CovalentTabSelectModule {
 }
 CovalentTabSelectModule.decorators = [
     { type: NgModule, args: [{
-                declarations: [
-                    TdTabSelectComponent,
-                    TdTabOptionComponent,
-                ],
+                declarations: [TdTabSelectComponent, TdTabOptionComponent],
                 // directives, components, and pipes owned by this NgModule
                 imports: [
                     /** Angular Modules */
@@ -11778,10 +11668,7 @@ CovalentTabSelectModule.decorators = [
                     MatTabsModule,
                 ],
                 // modules needed to run this module
-                exports: [
-                    TdTabSelectComponent,
-                    TdTabOptionComponent,
-                ],
+                exports: [TdTabSelectComponent, TdTabOptionComponent],
             },] }
 ];
 

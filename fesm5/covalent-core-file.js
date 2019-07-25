@@ -80,7 +80,7 @@ var TdFileSelectDirective = /** @class */ (function () {
     function (event) {
         if (event.target instanceof HTMLInputElement) {
             /** @type {?} */
-            var fileInputEl = ((/** @type {?} */ (event.target)));
+            var fileInputEl = (/** @type {?} */ (event.target));
             /** @type {?} */
             var files = fileInputEl.files;
             if (files.length) {
@@ -239,8 +239,8 @@ var TdFileDropDirective = /** @class */ (function (_super) {
         /** @type {?} */
         var transfer = ((/** @type {?} */ (event))).dataTransfer;
         transfer.dropEffect = this._typeCheck(transfer.types);
-        if (this.disabled || (!this._multiple &&
-            ((transfer.items && transfer.items.length > 1) || ((/** @type {?} */ (transfer))).mozItemCount > 1))) {
+        if (this.disabled ||
+            (!this._multiple && ((transfer.items && transfer.items.length > 1) || ((/** @type {?} */ (transfer))).mozItemCount > 1))) {
             transfer.dropEffect = 'none';
         }
         else {
@@ -307,8 +307,8 @@ var TdFileDropDirective = /** @class */ (function (_super) {
         /** @type {?} */
         var dropEffect = 'none';
         if (types) {
-            if ((((/** @type {?} */ (types))).contains && ((/** @type {?} */ (types))).contains('Files'))
-                || (((/** @type {?} */ (types))).indexOf && ((/** @type {?} */ (types))).indexOf('Files') !== -1)) {
+            if ((((/** @type {?} */ (types))).contains && ((/** @type {?} */ (types))).contains('Files')) ||
+                (((/** @type {?} */ (types))).indexOf && ((/** @type {?} */ (types))).indexOf('Files') !== -1)) {
                 dropEffect = 'copy';
             }
         }
@@ -494,14 +494,16 @@ var TdFileInputComponent = /** @class */ (function (_super) {
     TdFileInputComponent.decorators = [
         { type: Component, args: [{
                     changeDetection: ChangeDetectionStrategy.OnPush,
-                    providers: [{
+                    providers: [
+                        {
                             provide: NG_VALUE_ACCESSOR,
                             useExisting: forwardRef(function () { return TdFileInputComponent; }),
                             multi: true,
-                        }],
+                        },
+                    ],
                     selector: 'td-file-input',
                     inputs: ['disabled', 'value'],
-                    template: "<div>\n  <button mat-raised-button\n          class=\"td-file-input\"\n          type=\"button\"\n          [color]=\"color\" \n          [multiple]=\"multiple\" \n          [disabled]=\"disabled\"\n          (keyup.enter)=\"fileInput.click()\"\n          (click)=\"fileInput.click()\"\n          (fileDrop)=\"handleSelect($event)\"\n          tdFileDrop>\n    <ng-content></ng-content>\n  </button>\n  <input #fileInput \n          class=\"td-file-input-hidden\" \n          type=\"file\"\n          [attr.accept]=\"accept\"                \n          (fileSelect)=\"handleSelect($event)\"\n          [multiple]=\"multiple\" \n          [disabled]=\"disabled\"\n          tdFileSelect>\n</div>",
+                    template: "<div>\n  <button\n    mat-raised-button\n    class=\"td-file-input\"\n    type=\"button\"\n    [color]=\"color\"\n    [multiple]=\"multiple\"\n    [disabled]=\"disabled\"\n    (keyup.enter)=\"fileInput.click()\"\n    (click)=\"fileInput.click()\"\n    (fileDrop)=\"handleSelect($event)\"\n    tdFileDrop\n  >\n    <ng-content></ng-content>\n  </button>\n  <input\n    #fileInput\n    class=\"td-file-input-hidden\"\n    type=\"file\"\n    [attr.accept]=\"accept\"\n    (fileSelect)=\"handleSelect($event)\"\n    [multiple]=\"multiple\"\n    [disabled]=\"disabled\"\n    tdFileSelect\n  />\n</div>\n",
                     styles: [":host .td-file-input{padding-left:8px;padding-right:8px}:host input.td-file-input-hidden{display:none}:host .drop-zone{border-radius:3px}:host .drop-zone *{pointer-events:none}"]
                 }] }
     ];
@@ -695,14 +697,16 @@ var TdFileUploadComponent = /** @class */ (function (_super) {
     TdFileUploadComponent.decorators = [
         { type: Component, args: [{
                     changeDetection: ChangeDetectionStrategy.OnPush,
-                    providers: [{
+                    providers: [
+                        {
                             provide: NG_VALUE_ACCESSOR,
                             useExisting: forwardRef(function () { return TdFileUploadComponent; }),
                             multi: true,
-                        }],
+                        },
+                    ],
                     selector: 'td-file-upload',
                     inputs: ['disabled', 'value'],
-                    template: "<td-file-input *ngIf=\"!value\"\n               [(ngModel)]=\"value\"\n               [multiple]=\"multiple\"\n               [disabled]=\"disabled\"\n               [accept]=\"accept\"\n               [color]=\"defaultColor\"\n               (select)=\"handleSelect($event)\">\n  <ng-template [cdkPortalOutlet]=\"inputLabel\" [ngIf]=\"true\"></ng-template>\n</td-file-input>\n<div *ngIf=\"value\">\n  <button #fileUpload\n          class=\"td-file-upload\"\n          mat-raised-button\n          type=\"button\"\n          [color]=\"activeColor\"\n          (keyup.delete)=\"cancel()\"\n          (keyup.backspace)=\"cancel()\"\n          (keyup.escape)=\"cancel()\"\n          (click)=\"uploadPressed()\"> \n    <ng-content></ng-content>\n  </button>\n  <button mat-icon-button\n          type=\"button\"\n          class=\"td-file-upload-cancel\"\n          [color]=\"cancelColor\"            \n          (click)=\"cancel()\">\n    <mat-icon>cancel</mat-icon>\n  </button>\n</div>",
+                    template: "<td-file-input\n  *ngIf=\"!value\"\n  [(ngModel)]=\"value\"\n  [multiple]=\"multiple\"\n  [disabled]=\"disabled\"\n  [accept]=\"accept\"\n  [color]=\"defaultColor\"\n  (select)=\"handleSelect($event)\"\n>\n  <ng-template [cdkPortalOutlet]=\"inputLabel\" [ngIf]=\"true\"></ng-template>\n</td-file-input>\n<div *ngIf=\"value\">\n  <button\n    #fileUpload\n    class=\"td-file-upload\"\n    mat-raised-button\n    type=\"button\"\n    [color]=\"activeColor\"\n    (keyup.delete)=\"cancel()\"\n    (keyup.backspace)=\"cancel()\"\n    (keyup.escape)=\"cancel()\"\n    (click)=\"uploadPressed()\"\n  >\n    <ng-content></ng-content>\n  </button>\n  <button mat-icon-button type=\"button\" class=\"td-file-upload-cancel\" [color]=\"cancelColor\" (click)=\"cancel()\">\n    <mat-icon>cancel</mat-icon>\n  </button>\n</div>\n",
                     styles: [".td-file-upload{padding-left:8px;padding-right:8px}.td-file-upload-cancel{height:24px;width:24px;position:relative;top:24px;left:-12px}::ng-deep [dir=rtl] .td-file-upload-cancel{right:-12px;left:0}.td-file-upload-cancel mat-icon{border-radius:12px;vertical-align:baseline}.drop-zone{border-radius:3px}.drop-zone *{pointer-events:none}"]
                 }] }
     ];
@@ -814,7 +818,7 @@ var TdFileService = /** @class */ (function () {
                 /** @type {?} */
                 var progress = 0;
                 if (event.lengthComputable) {
-                    progress = Math.round(event.loaded / event.total * 100);
+                    progress = Math.round((event.loaded / event.total) * 100);
                 }
                 _this._progressSubject.next(progress);
             };
@@ -864,22 +868,10 @@ var CovalentFileModule = /** @class */ (function () {
     }
     CovalentFileModule.decorators = [
         { type: NgModule, args: [{
-                    imports: [
-                        FormsModule,
-                        CommonModule,
-                        MatIconModule,
-                        MatButtonModule,
-                        PortalModule,
-                    ],
-                    declarations: [
-                        TD_FILE,
-                    ],
-                    exports: [
-                        TD_FILE,
-                    ],
-                    providers: [
-                        TdFileService,
-                    ],
+                    imports: [FormsModule, CommonModule, MatIconModule, MatButtonModule, PortalModule],
+                    declarations: [TD_FILE],
+                    exports: [TD_FILE],
+                    providers: [TdFileService],
                 },] }
     ];
     return CovalentFileModule;

@@ -329,8 +329,8 @@ var TdPagingBarComponent = /** @class */ (function () {
      */
     function () {
         /** @type {?} */
-        var top = (this._pageSize * this._page);
-        this._fromRow = (this._pageSize * (this._page - 1)) + 1;
+        var top = this._pageSize * this._page;
+        this._fromRow = this._pageSize * (this._page - 1) + 1;
         this._toRow = this._total > top ? top : this._total;
     };
     /**
@@ -372,18 +372,19 @@ var TdPagingBarComponent = /** @class */ (function () {
         for (var x = 0; x < actualPageLinkCount; x++) {
             // don't go past the maxPage in the pageLinks
             // have to handle even and odd pageLinkCounts differently so can still lead to the next numbers
-            if ((actualPageLinkCount % 2 === 0 && (this.page + middlePageLinks > this.maxPage)) ||
-                (actualPageLinkCount % 2 !== 0 && (this.page + middlePageLinks >= this.maxPage))) {
+            if ((actualPageLinkCount % 2 === 0 && this.page + middlePageLinks > this.maxPage) ||
+                (actualPageLinkCount % 2 !== 0 && this.page + middlePageLinks >= this.maxPage)) {
                 this._pageLinks[x] = this.maxPage - (actualPageLinkCount - (x + 1));
                 // if the selected page is after the middle then set that page as middle and get the correct balance on left and right
                 // special handling when there are only 2 pageLinks to just drop to next if block so can lead to next numbers when moving to right
                 // when moving to the left then go into this block
             }
-            else if ((actualPageLinkCount > 2 || actualPageLinkCount <= 2 && this._hitEnd) && (this.page - middlePageLinks) > 0) {
-                this._pageLinks[x] = (this.page - middlePageLinks) + x;
+            else if ((actualPageLinkCount > 2 || (actualPageLinkCount <= 2 && this._hitEnd)) &&
+                this.page - middlePageLinks > 0) {
+                this._pageLinks[x] = this.page - middlePageLinks + x;
                 // if the selected page is before the middle then set the pages based on the x index leading up to and after selected page
             }
-            else if ((this.page - middlePageLinks) <= 0) {
+            else if (this.page - middlePageLinks <= 0) {
                 this._pageLinks[x] = x + 1;
                 // other wise just set the array in order starting from the selected page
             }
@@ -417,7 +418,7 @@ var TdPagingBarComponent = /** @class */ (function () {
         { type: Component, args: [{
                     changeDetection: ChangeDetectionStrategy.OnPush,
                     selector: 'td-paging-bar',
-                    template: "<div class=\"td-paging-bar\" (change)=\"$event.stopPropagation()\" >\n  <ng-content></ng-content>\n  <div class=\"td-paging-bar-navigation\">\n    <button mat-icon-button class=\"td-paging-bar-first-page\" type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMinPage()\" (click)=\"firstPage()\">\n      <mat-icon>{{ isRTL ? 'skip_next' : 'skip_previous' }}</mat-icon>\n    </button>\n    <button mat-icon-button class=\"td-paging-bar-prev-page\" type=\"button\" [disabled]=\"isMinPage()\" (click)=\"prevPage()\">\n      <mat-icon>{{ isRTL ? 'navigate_next' : 'navigate_before' }}</mat-icon>\n    </button>\n    <ng-template *ngIf=\"pageLinkCount > 0\" let-link let-index=\"index\" ngFor [ngForOf]=\"pageLinks\">\n      <button class=\"td-paging-bar-link-page\" mat-icon-button type=\"button\" [color]=\"page === link ? 'accent' : ''\" (click)=\"navigateToPage(link)\">{{link}}</button>\n    </ng-template>\n    <button mat-icon-button class=\"td-paging-bar-next-page\" type=\"button\" [disabled]=\"isMaxPage()\" (click)=\"nextPage()\">\n      <mat-icon>{{ isRTL ? 'navigate_before' : 'navigate_next' }}</mat-icon>\n    </button>\n    <button mat-icon-button class=\"td-paging-bar-last-page\" type=\"button\" *ngIf=\"firstLast\" [disabled]=\"isMaxPage()\" (click)=\"lastPage()\">\n      <mat-icon>{{ isRTL ? 'skip_previous' : 'skip_next' }}</mat-icon>\n    </button>\n  </div>\n</div>",
+                    template: "<div class=\"td-paging-bar\" (change)=\"$event.stopPropagation()\">\n  <ng-content></ng-content>\n  <div class=\"td-paging-bar-navigation\">\n    <button\n      mat-icon-button\n      class=\"td-paging-bar-first-page\"\n      type=\"button\"\n      *ngIf=\"firstLast\"\n      [disabled]=\"isMinPage()\"\n      (click)=\"firstPage()\"\n    >\n      <mat-icon>{{ isRTL ? 'skip_next' : 'skip_previous' }}</mat-icon>\n    </button>\n    <button mat-icon-button class=\"td-paging-bar-prev-page\" type=\"button\" [disabled]=\"isMinPage()\" (click)=\"prevPage()\">\n      <mat-icon>{{ isRTL ? 'navigate_next' : 'navigate_before' }}</mat-icon>\n    </button>\n    <ng-template *ngIf=\"pageLinkCount > 0\" let-link let-index=\"index\" ngFor [ngForOf]=\"pageLinks\">\n      <button\n        class=\"td-paging-bar-link-page\"\n        mat-icon-button\n        type=\"button\"\n        [color]=\"page === link ? 'accent' : ''\"\n        (click)=\"navigateToPage(link)\"\n      >\n        {{ link }}\n      </button>\n    </ng-template>\n    <button mat-icon-button class=\"td-paging-bar-next-page\" type=\"button\" [disabled]=\"isMaxPage()\" (click)=\"nextPage()\">\n      <mat-icon>{{ isRTL ? 'navigate_before' : 'navigate_next' }}</mat-icon>\n    </button>\n    <button\n      mat-icon-button\n      class=\"td-paging-bar-last-page\"\n      type=\"button\"\n      *ngIf=\"firstLast\"\n      [disabled]=\"isMaxPage()\"\n      (click)=\"lastPage()\"\n    >\n      <mat-icon>{{ isRTL ? 'skip_previous' : 'skip_next' }}</mat-icon>\n    </button>\n  </div>\n</div>\n",
                     styles: [":host{display:block}:host .td-paging-bar{height:48px;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}:host .td-paging-bar ::ng-deep>*{margin:0 10px}:host .td-paging-bar [mat-icon-button]{font-size:12px;font-weight:400}"]
                 }] }
     ];
@@ -446,17 +447,9 @@ var CovalentPagingModule = /** @class */ (function () {
     }
     CovalentPagingModule.decorators = [
         { type: NgModule, args: [{
-                    imports: [
-                        CommonModule,
-                        MatIconModule,
-                        MatButtonModule,
-                    ],
-                    declarations: [
-                        TdPagingBarComponent,
-                    ],
-                    exports: [
-                        TdPagingBarComponent,
-                    ],
+                    imports: [CommonModule, MatIconModule, MatButtonModule],
+                    declarations: [TdPagingBarComponent],
+                    exports: [TdPagingBarComponent],
                 },] }
     ];
     return CovalentPagingModule;

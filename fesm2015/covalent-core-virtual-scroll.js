@@ -173,7 +173,7 @@ class TdVirtualScrollContainerComponent {
      */
     handleScroll(event) {
         /** @type {?} */
-        let element = ((/** @type {?} */ (event.target)));
+        let element = (/** @type {?} */ (event.target));
         if (element) {
             /** @type {?} */
             let verticalScroll = element.scrollTop;
@@ -185,7 +185,7 @@ class TdVirtualScrollContainerComponent {
             }
             if (this._initialized) {
                 // check to see if bottom was hit to throw the bottom event
-                if ((this._data.length * this.rowHeight) - (verticalScroll + this._hostHeight) === 0) {
+                if (this._data.length * this.rowHeight - (verticalScroll + this._hostHeight) === 0) {
                     this._bottom.next();
                 }
             }
@@ -231,10 +231,10 @@ class TdVirtualScrollContainerComponent {
         if (this._data) {
             this._totalHeight = this._data.length * this.rowHeight;
             /** @type {?} */
-            let fromRow = Math.floor((this._scrollVerticalOffset / this.rowHeight)) - TD_VIRTUAL_OFFSET;
+            let fromRow = Math.floor(this._scrollVerticalOffset / this.rowHeight) - TD_VIRTUAL_OFFSET;
             this._fromRow = fromRow > 0 ? fromRow : 0;
             /** @type {?} */
-            let range = Math.floor((this._hostHeight / this.rowHeight)) + (TD_VIRTUAL_OFFSET * 2);
+            let range = Math.floor(this._hostHeight / this.rowHeight) + TD_VIRTUAL_OFFSET * 2;
             /** @type {?} */
             let toRow = range + this.fromRow;
             if (isFinite(toRow) && toRow > this._data.length) {
@@ -252,7 +252,7 @@ class TdVirtualScrollContainerComponent {
         }
         /** @type {?} */
         let offset = 0;
-        if (this._scrollVerticalOffset > (TD_VIRTUAL_OFFSET * this.rowHeight)) {
+        if (this._scrollVerticalOffset > TD_VIRTUAL_OFFSET * this.rowHeight) {
             offset = this.fromRow * this.rowHeight;
         }
         this._offsetTransform = this._domSanitizer.bypassSecurityTrustStyle('translateY(' + (offset - this.totalHeight) + 'px)');
@@ -269,7 +269,7 @@ class TdVirtualScrollContainerComponent {
 TdVirtualScrollContainerComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-virtual-scroll-container',
-                template: "<div [style.height.px]=\"totalHeight\"></div>\n<div [style.transform]=\"offsetTransform\"\n      [style.position]=\"'absolute'\"\n      [style.width.%]=\"100\">\n  <ng-template let-row\n                let-index=\"index\"\n                ngFor\n                [ngForOf]=\"virtualData\"\n                [ngForTrackBy]=\"trackBy\">\n    <div #rowElement\n         [style.width.%]=\"100\">\n      <ng-template *ngIf=\"_rowTemplate\"\n                  [ngTemplateOutlet]=\"_rowTemplate.templateRef\"\n                  [ngTemplateOutletContext]=\"{row: row,\n                                      index: (fromRow + index),\n                                      first: (fromRow + index) === 0,\n                                      last: (fromRow + index) === (data.length - 1),\n                                      odd: ((fromRow + index + 1) % 2) === 1,\n                                      even: ((fromRow + index + 1) % 2) === 0}\">\n      </ng-template>\n    </div>\n  </ng-template>\n</div>",
+                template: "<div [style.height.px]=\"totalHeight\"></div>\n<div [style.transform]=\"offsetTransform\" [style.position]=\"'absolute'\" [style.width.%]=\"100\">\n  <ng-template let-row let-index=\"index\" ngFor [ngForOf]=\"virtualData\" [ngForTrackBy]=\"trackBy\">\n    <div #rowElement [style.width.%]=\"100\">\n      <ng-template\n        *ngIf=\"_rowTemplate\"\n        [ngTemplateOutlet]=\"_rowTemplate.templateRef\"\n        [ngTemplateOutletContext]=\"{\n          row: row,\n          index: fromRow + index,\n          first: fromRow + index === 0,\n          last: fromRow + index === data.length - 1,\n          odd: (fromRow + index + 1) % 2 === 1,\n          even: (fromRow + index + 1) % 2 === 0\n        }\"\n      >\n      </ng-template>\n    </div>\n  </ng-template>\n</div>\n",
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 styles: [":host{display:block;height:100%;width:100%;overflow:auto;position:relative}"]
             }] }
@@ -295,23 +295,14 @@ TdVirtualScrollContainerComponent.propDecorators = {
  * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 /** @type {?} */
-const TD_VIRTUAL_SCROLL = [
-    TdVirtualScrollRowDirective,
-    TdVirtualScrollContainerComponent,
-];
+const TD_VIRTUAL_SCROLL = [TdVirtualScrollRowDirective, TdVirtualScrollContainerComponent];
 class CovalentVirtualScrollModule {
 }
 CovalentVirtualScrollModule.decorators = [
     { type: NgModule, args: [{
-                imports: [
-                    CommonModule,
-                ],
-                declarations: [
-                    TD_VIRTUAL_SCROLL,
-                ],
-                exports: [
-                    TD_VIRTUAL_SCROLL,
-                ],
+                imports: [CommonModule],
+                declarations: [TD_VIRTUAL_SCROLL],
+                exports: [TD_VIRTUAL_SCROLL],
             },] }
 ];
 

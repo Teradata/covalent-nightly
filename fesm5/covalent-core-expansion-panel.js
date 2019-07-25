@@ -263,12 +263,9 @@ var TdExpansionPanelComponent = /** @class */ (function (_super) {
     TdExpansionPanelComponent.decorators = [
         { type: Component, args: [{
                     selector: 'td-expansion-panel',
-                    template: "<div class=\"td-expansion-panel-header\"\n      [class.mat-disabled]=\"disabled\"\n      matRipple\n      [matRippleDisabled]=\"disabled || disableRipple\"\n      [tabIndex]=\"disabled? -1 : 0\"\n      (keydown.enter)=\"clickEvent()\"\n      (click)=\"clickEvent()\">\n  <ng-template [cdkPortalOutlet]=\"expansionPanelHeader\"></ng-template>\n  <div class=\"td-expansion-panel-header-content\"\n        [class.mat-disabled]=\"disabled\"\n        *ngIf=\"!expansionPanelHeader\">\n    <div *ngIf=\"label || expansionPanelLabel\" class=\"td-expansion-label\">\n      <ng-template [cdkPortalOutlet]=\"expansionPanelLabel\"></ng-template>\n      <ng-template [ngIf]=\"!expansionPanelLabel\">{{label}}</ng-template>\n    </div>\n    <div *ngIf=\"sublabel || expansionPanelSublabel\" class=\"td-expansion-sublabel\">\n      <ng-template [cdkPortalOutlet]=\"expansionPanelSublabel\"></ng-template>\n      <ng-template [ngIf]=\"!expansionPanelSublabel\">{{sublabel}}</ng-template>\n    </div>\n    <mat-icon class=\"td-expand-icon\" *ngIf=\"!disabled\" [@tdRotate]=\"expand\">keyboard_arrow_down</mat-icon>\n  </div>\n</div>\n<div class=\"td-expansion-content\"\n      [@tdCollapse]=\"!expand\">\n  <ng-content></ng-content>\n</div>\n<div class=\"td-expansion-summary\"\n      [@tdCollapse]=\"expand\">\n  <ng-content select=\"td-expansion-summary\"></ng-content>\n</div>\n",
+                    template: "<div\n  class=\"td-expansion-panel-header\"\n  [class.mat-disabled]=\"disabled\"\n  matRipple\n  [matRippleDisabled]=\"disabled || disableRipple\"\n  [tabIndex]=\"disabled ? -1 : 0\"\n  (keydown.enter)=\"clickEvent()\"\n  (click)=\"clickEvent()\"\n>\n  <ng-template [cdkPortalOutlet]=\"expansionPanelHeader\"></ng-template>\n  <div class=\"td-expansion-panel-header-content\" [class.mat-disabled]=\"disabled\" *ngIf=\"!expansionPanelHeader\">\n    <div *ngIf=\"label || expansionPanelLabel\" class=\"td-expansion-label\">\n      <ng-template [cdkPortalOutlet]=\"expansionPanelLabel\"></ng-template>\n      <ng-template [ngIf]=\"!expansionPanelLabel\">{{ label }}</ng-template>\n    </div>\n    <div *ngIf=\"sublabel || expansionPanelSublabel\" class=\"td-expansion-sublabel\">\n      <ng-template [cdkPortalOutlet]=\"expansionPanelSublabel\"></ng-template>\n      <ng-template [ngIf]=\"!expansionPanelSublabel\">{{ sublabel }}</ng-template>\n    </div>\n    <mat-icon class=\"td-expand-icon\" *ngIf=\"!disabled\" [@tdRotate]=\"expand\">keyboard_arrow_down</mat-icon>\n  </div>\n</div>\n<div class=\"td-expansion-content\" [@tdCollapse]=\"!expand\">\n  <ng-content></ng-content>\n</div>\n<div class=\"td-expansion-summary\" [@tdCollapse]=\"expand\">\n  <ng-content select=\"td-expansion-summary\"></ng-content>\n</div>\n",
                     inputs: ['disabled', 'disableRipple'],
-                    animations: [
-                        tdCollapseAnimation,
-                        tdRotateAnimation,
-                    ],
+                    animations: [tdCollapseAnimation, tdRotateAnimation],
                     styles: [":host{display:block}:host .td-expansion-panel-header{position:relative;outline:0}:host .td-expansion-panel-header:focus:not(.mat-disabled),:host .td-expansion-panel-header:hover:not(.mat-disabled){cursor:pointer}:host .td-expansion-panel-header .td-expansion-panel-header-content{height:48px;padding:0 24px;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-flex:1;-ms-flex:1;flex:1;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%}:host .td-expansion-panel-header .td-expansion-panel-header-content .td-expansion-label,:host .td-expansion-panel-header .td-expansion-panel-header-content .td-expansion-sublabel{-webkit-box-flex:1;-ms-flex:1;flex:1}:host .td-expansion-content.ng-animating,:host .td-expansion-summary.ng-animating{overflow:hidden}.td-expansion-label,.td-expansion-sublabel{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:16px}::ng-deep [dir=rtl] .td-expansion-label,::ng-deep [dir=rtl] .td-expansion-sublabel{margin-left:16px;margin-right:inherit}"]
                 }] }
     ];
@@ -413,9 +410,7 @@ var TdExpansionPanelGroupComponent = /** @class */ (function () {
         var _this = this;
         this._lastOpenedPanels = [];
         expansionPanels.forEach(function (expansionPanel) {
-            expansionPanel.expanded
-                .pipe(takeUntil(_this._stopWatchingPanels))
-                .subscribe(function () {
+            expansionPanel.expanded.pipe(takeUntil(_this._stopWatchingPanels)).subscribe(function () {
                 /** @type {?} */
                 var indexOfPanel = _this._lastOpenedPanels.indexOf(expansionPanel);
                 if (indexOfPanel !== -1) {
@@ -426,9 +421,7 @@ var TdExpansionPanelGroupComponent = /** @class */ (function () {
                     _this._closeAllExcept(expansionPanel);
                 }
             });
-            expansionPanel.collapsed
-                .pipe(takeUntil(_this._stopWatchingPanels))
-                .subscribe(function () {
+            expansionPanel.collapsed.pipe(takeUntil(_this._stopWatchingPanels)).subscribe(function () {
                 /** @type {?} */
                 var indexOfPanel = _this._lastOpenedPanels.indexOf(expansionPanel);
                 if (indexOfPanel !== -1) {
@@ -455,7 +448,7 @@ var TdExpansionPanelGroupComponent = /** @class */ (function () {
     TdExpansionPanelGroupComponent.decorators = [
         { type: Component, args: [{
                     selector: 'td-expansion-panel-group',
-                    template: "<ng-content></ng-content>",
+                    template: "<ng-content></ng-content>\n",
                     styles: [""]
                 }] }
     ];
@@ -489,18 +482,9 @@ var CovalentExpansionPanelModule = /** @class */ (function () {
     }
     CovalentExpansionPanelModule.decorators = [
         { type: NgModule, args: [{
-                    imports: [
-                        CommonModule,
-                        MatRippleModule,
-                        MatIconModule,
-                        PortalModule,
-                    ],
-                    declarations: [
-                        TD_EXPANSION_PANEL,
-                    ],
-                    exports: [
-                        TD_EXPANSION_PANEL,
-                    ],
+                    imports: [CommonModule, MatRippleModule, MatIconModule, PortalModule],
+                    declarations: [TD_EXPANSION_PANEL],
+                    exports: [TD_EXPANSION_PANEL],
                 },] }
     ];
     return CovalentExpansionPanelModule;

@@ -369,20 +369,14 @@
      * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
      */
     /** @type {?} */
-    var TD_MEDIA = [
-        TdMediaToggleDirective,
-    ];
+    var TD_MEDIA = [TdMediaToggleDirective];
     var CovalentMediaModule = /** @class */ (function () {
         function CovalentMediaModule() {
         }
         CovalentMediaModule.decorators = [
             { type: i0.NgModule, args: [{
-                        declarations: [
-                            TD_MEDIA,
-                        ],
-                        exports: [
-                            TD_MEDIA,
-                        ],
+                        declarations: [TD_MEDIA],
+                        exports: [TD_MEDIA],
                     },] }
         ];
         return CovalentMediaModule;

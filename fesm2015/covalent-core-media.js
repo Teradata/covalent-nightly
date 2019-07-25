@@ -270,19 +270,13 @@ TdMediaToggleDirective.propDecorators = {
  * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 /** @type {?} */
-const TD_MEDIA = [
-    TdMediaToggleDirective,
-];
+const TD_MEDIA = [TdMediaToggleDirective];
 class CovalentMediaModule {
 }
 CovalentMediaModule.decorators = [
     { type: NgModule, args: [{
-                declarations: [
-                    TD_MEDIA,
-                ],
-                exports: [
-                    TD_MEDIA,
-                ],
+                declarations: [TD_MEDIA],
+                exports: [TD_MEDIA],
             },] }
 ];
 

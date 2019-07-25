@@ -198,8 +198,8 @@ class TdLoadingComponent {
      */
     startInAnimation() {
         /* need to switch back to the selected mode, so we have saved it in another variable
-        *  and then recover it. (issue with protractor)
-        */
+         *  and then recover it. (issue with protractor)
+         */
         this._mode = this._defaultMode;
         // Set values before the animations starts
         this._setCircleDiameter();
@@ -215,8 +215,8 @@ class TdLoadingComponent {
     startOutAnimation() {
         this.animation = false;
         /* need to switch back and forth from determinate/indeterminate so the setInterval()
-        * inside mat-progress-spinner stops and protractor doesnt timeout waiting to sync.
-        */
+         * inside mat-progress-spinner stops and protractor doesnt timeout waiting to sync.
+         */
         this._mode = LoadingMode.Determinate;
         // Check for changes for `OnPush` change detection
         this._changeDetectorRef.markForCheck();
@@ -260,10 +260,8 @@ class TdLoadingComponent {
 TdLoadingComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-loading',
-                template: "<div class=\"td-loading-wrapper\"\n    [style.min-height]=\"getHeight()\"\n    [class.td-overlay-circular]=\"(isOverlay() || isFullScreen()) && !isLinear()\"\n    [class.td-overlay]=\"isOverlay() || isFullScreen()\" \n    [class.td-fullscreen]=\"isFullScreen()\">\n  <div [@tdFadeInOut]=\"animation\"\n     (@tdFadeInOut.done)=\"animationComplete($event)\"\n     [style.min-height]=\"getHeight()\"\n     class=\"td-loading\">\n    <mat-progress-spinner *ngIf=\"isCircular()\" \n                        [mode]=\"mode\"\n                        [value]=\"value\" \n                        [color]=\"color\" \n                        [diameter]=\"getCircleDiameter()\"\n                        [strokeWidth]=\"getCircleStrokeWidth()\">\n    </mat-progress-spinner>\n    <mat-progress-bar *ngIf=\"isLinear()\" \n                     [mode]=\"mode\"\n                     [value]=\"value\"\n                     [color]=\"color\">\n    </mat-progress-bar>\n  </div>\n  <ng-template [cdkPortalOutlet]=\"content\"></ng-template>\n</div>",
-                animations: [
-                    tdFadeInOutAnimation,
-                ],
+                template: "<div\n  class=\"td-loading-wrapper\"\n  [style.min-height]=\"getHeight()\"\n  [class.td-overlay-circular]=\"(isOverlay() || isFullScreen()) && !isLinear()\"\n  [class.td-overlay]=\"isOverlay() || isFullScreen()\"\n  [class.td-fullscreen]=\"isFullScreen()\"\n>\n  <div\n    [@tdFadeInOut]=\"animation\"\n    (@tdFadeInOut.done)=\"animationComplete($event)\"\n    [style.min-height]=\"getHeight()\"\n    class=\"td-loading\"\n  >\n    <mat-progress-spinner\n      *ngIf=\"isCircular()\"\n      [mode]=\"mode\"\n      [value]=\"value\"\n      [color]=\"color\"\n      [diameter]=\"getCircleDiameter()\"\n      [strokeWidth]=\"getCircleStrokeWidth()\"\n    >\n    </mat-progress-spinner>\n    <mat-progress-bar *ngIf=\"isLinear()\" [mode]=\"mode\" [value]=\"value\" [color]=\"color\"> </mat-progress-bar>\n  </div>\n  <ng-template [cdkPortalOutlet]=\"content\"></ng-template>\n</div>\n",
+                animations: [tdFadeInOutAnimation],
                 styles: [".td-loading-wrapper{position:relative;display:block}.td-loading-wrapper.td-fullscreen{position:inherit}.td-loading-wrapper .td-loading{-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-flex:1;-ms-flex:1;flex:1}.td-loading-wrapper.td-overlay .td-loading{position:absolute;margin:0;top:0;left:0;right:0;z-index:1000}.td-loading-wrapper.td-overlay .td-loading mat-progress-bar{position:absolute;top:0;left:0;right:0}.td-loading-wrapper.td-overlay-circular .td-loading{bottom:0}"]
             }] }
 ];
@@ -377,8 +375,9 @@ class TdLoadingFactory {
     createReplaceComponent(options, viewContainerRef, templateRef, context) {
         /** @type {?} */
         let nativeElement = (/** @type {?} */ (templateRef.elementRef.nativeElement));
-        ((/** @type {?} */ (options))).height = nativeElement.nextElementSibling ?
-            nativeElement.nextElementSibling.scrollHeight : undefined;
+        ((/** @type {?} */ (options))).height = nativeElement.nextElementSibling
+            ? nativeElement.nextElementSibling.scrollHeight
+            : undefined;
         ((/** @type {?} */ (options))).style = LoadingStyle.None;
         /** @type {?} */
         let loadingRef = this._createComponent(options);
@@ -430,7 +429,11 @@ class TdLoadingFactory {
         /** @type {?} */
         let state = new OverlayConfig();
         state.hasBackdrop = false;
-        state.positionStrategy = this._overlay.position().global().centerHorizontally().centerVertically();
+        state.positionStrategy = this._overlay
+            .position()
+            .global()
+            .centerHorizontally()
+            .centerVertically();
         return this._overlay.create(state);
     }
     /**
@@ -442,7 +445,8 @@ class TdLoadingFactory {
         /** @type {?} */
         let compRef = this._initializeContext();
         compRef.componentRef = this._componentFactoryResolver
-            .resolveComponentFactory(TdLoadingComponent).create(this._injector);
+            .resolveComponentFactory(TdLoadingComponent)
+            .create(this._injector);
         this._mapOptions(options, compRef.componentRef.instance);
         return compRef;
     }
@@ -940,38 +944,18 @@ TdLoadingDirective.propDecorators = {
  * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
  */
 /** @type {?} */
-const TD_LOADING = [
-    TdLoadingComponent,
-    TdLoadingDirective,
-];
+const TD_LOADING = [TdLoadingComponent, TdLoadingDirective];
 /** @type {?} */
-const TD_LOADING_ENTRY_COMPONENTS = [
-    TdLoadingComponent,
-];
+const TD_LOADING_ENTRY_COMPONENTS = [TdLoadingComponent];
 class CovalentLoadingModule {
 }
 CovalentLoadingModule.decorators = [
     { type: NgModule, args: [{
-                imports: [
-                    CommonModule,
-                    MatProgressBarModule,
-                    MatProgressSpinnerModule,
-                    OverlayModule,
-                    PortalModule,
-                ],
-                declarations: [
-                    TD_LOADING,
-                ],
-                exports: [
-                    TD_LOADING,
-                ],
-                providers: [
-                    LOADING_FACTORY_PROVIDER,
-                    LOADING_PROVIDER,
-                ],
-                entryComponents: [
-                    TD_LOADING_ENTRY_COMPONENTS,
-                ],
+                imports: [CommonModule, MatProgressBarModule, MatProgressSpinnerModule, OverlayModule, PortalModule],
+                declarations: [TD_LOADING],
+                exports: [TD_LOADING],
+                providers: [LOADING_FACTORY_PROVIDER, LOADING_PROVIDER],
+                entryComponents: [TD_LOADING_ENTRY_COMPONENTS],
             },] }
 ];
 
