@@ -27,7 +27,7 @@
   font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .mat-badge-small .mat-badge-content {
-  font-size: 6px; }
+  font-size: 9px; }
 
 .mat-badge-large .mat-badge-content {
   font-size: 24px; }
@@ -69,18 +69,18 @@
 
 .mat-display-4, .mat-typography .mat-display-4 {
   font: 300 112px/112px Roboto, "Helvetica Neue", sans-serif;
-  margin: 0 0 56px;
-  letter-spacing: -0.05em; }
+  letter-spacing: -0.05em;
+  margin: 0 0 56px; }
 
 .mat-display-3, .mat-typography .mat-display-3 {
   font: 400 56px/56px Roboto, "Helvetica Neue", sans-serif;
-  margin: 0 0 64px;
-  letter-spacing: -0.02em; }
+  letter-spacing: -0.02em;
+  margin: 0 0 64px; }
 
 .mat-display-2, .mat-typography .mat-display-2 {
   font: 400 45px/48px Roboto, "Helvetica Neue", sans-serif;
-  margin: 0 0 64px;
-  letter-spacing: -0.005em; }
+  letter-spacing: -0.005em;
+  margin: 0 0 64px; }
 
 .mat-display-1, .mat-typography .mat-display-1 {
   font: 400 34px/40px Roboto, "Helvetica Neue", sans-serif;
@@ -848,6 +848,11 @@ textarea.cdk-textarea-autosize-measuring {
   text-overflow: ellipsis;
   pointer-events: none; }
 
+.ng-animate-disabled .mat-badge-content,
+.mat-badge-content._mat-animation-noopable {
+  -webkit-transition: none;
+  transition: none; }
+
 .mat-badge-content.mat-badge-active {
   -webkit-transform: none;
       -ms-transform: none;
@@ -1164,14 +1169,20 @@ textarea.cdk-textarea-autosize-measuring {
   .mat-checkbox-background {
     background: none; } }
 
-.mat-checkbox:not(.mat-checkbox-disabled).mat-primary .mat-checkbox-ripple .mat-ripple-element {
-  background-color: #1976d2; }
+.mat-checkbox .mat-ripple-element {
+  background-color: black; }
 
-.mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
-  background-color: #ef6c00; }
+.mat-checkbox-checked:not(.mat-checkbox-disabled).mat-primary .mat-ripple-element,
+.mat-checkbox:active:not(.mat-checkbox-disabled).mat-primary .mat-ripple-element {
+  background: #1976d2; }
 
-.mat-checkbox:not(.mat-checkbox-disabled).mat-warn .mat-checkbox-ripple .mat-ripple-element {
-  background-color: #e53935; }
+.mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element,
+.mat-checkbox:active:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element {
+  background: #ef6c00; }
+
+.mat-checkbox-checked:not(.mat-checkbox-disabled).mat-warn .mat-ripple-element,
+.mat-checkbox:active:not(.mat-checkbox-disabled).mat-warn .mat-ripple-element {
+  background: #e53935; }
 
 .mat-chip.mat-standard-chip {
   background-color: #e0e0e0;
@@ -1945,7 +1956,7 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 .mat-tab-nav-bar.mat-background-primary .mat-tab-link.cdk-program-focused:not(.mat-tab-disabled) {
   background-color: rgba(187, 222, 251, 0.3); }
 
-.mat-tab-group.mat-background-primary .mat-tab-header, .mat-tab-group.mat-background-primary .mat-tab-links, .mat-tab-nav-bar.mat-background-primary .mat-tab-header, .mat-tab-nav-bar.mat-background-primary .mat-tab-links {
+.mat-tab-group.mat-background-primary .mat-tab-header, .mat-tab-group.mat-background-primary .mat-tab-links, .mat-tab-group.mat-background-primary .mat-tab-header-pagination, .mat-tab-nav-bar.mat-background-primary .mat-tab-header, .mat-tab-nav-bar.mat-background-primary .mat-tab-links, .mat-tab-nav-bar.mat-background-primary .mat-tab-header-pagination {
   background-color: #1976d2; }
 
 .mat-tab-group.mat-background-primary .mat-tab-label, .mat-tab-group.mat-background-primary .mat-tab-link, .mat-tab-nav-bar.mat-background-primary .mat-tab-label, .mat-tab-nav-bar.mat-background-primary .mat-tab-link {
@@ -1969,7 +1980,7 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 .mat-tab-nav-bar.mat-background-accent .mat-tab-link.cdk-program-focused:not(.mat-tab-disabled) {
   background-color: rgba(255, 209, 128, 0.3); }
 
-.mat-tab-group.mat-background-accent .mat-tab-header, .mat-tab-group.mat-background-accent .mat-tab-links, .mat-tab-nav-bar.mat-background-accent .mat-tab-header, .mat-tab-nav-bar.mat-background-accent .mat-tab-links {
+.mat-tab-group.mat-background-accent .mat-tab-header, .mat-tab-group.mat-background-accent .mat-tab-links, .mat-tab-group.mat-background-accent .mat-tab-header-pagination, .mat-tab-nav-bar.mat-background-accent .mat-tab-header, .mat-tab-nav-bar.mat-background-accent .mat-tab-links, .mat-tab-nav-bar.mat-background-accent .mat-tab-header-pagination {
   background-color: #ef6c00; }
 
 .mat-tab-group.mat-background-accent .mat-tab-label, .mat-tab-group.mat-background-accent .mat-tab-link, .mat-tab-nav-bar.mat-background-accent .mat-tab-label, .mat-tab-nav-bar.mat-background-accent .mat-tab-link {
@@ -1993,7 +2004,7 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 .mat-tab-nav-bar.mat-background-warn .mat-tab-link.cdk-program-focused:not(.mat-tab-disabled) {
   background-color: rgba(255, 205, 210, 0.3); }
 
-.mat-tab-group.mat-background-warn .mat-tab-header, .mat-tab-group.mat-background-warn .mat-tab-links, .mat-tab-nav-bar.mat-background-warn .mat-tab-header, .mat-tab-nav-bar.mat-background-warn .mat-tab-links {
+.mat-tab-group.mat-background-warn .mat-tab-header, .mat-tab-group.mat-background-warn .mat-tab-links, .mat-tab-group.mat-background-warn .mat-tab-header-pagination, .mat-tab-nav-bar.mat-background-warn .mat-tab-header, .mat-tab-nav-bar.mat-background-warn .mat-tab-links, .mat-tab-nav-bar.mat-background-warn .mat-tab-header-pagination {
   background-color: #e53935; }
 
 .mat-tab-group.mat-background-warn .mat-tab-label, .mat-tab-group.mat-background-warn .mat-tab-link, .mat-tab-nav-bar.mat-background-warn .mat-tab-label, .mat-tab-nav-bar.mat-background-warn .mat-tab-link {

@@ -1,12 +1,75 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/router'), require('rxjs/operators'), require('@angular/core'), require('@angular/animations'), require('rxjs'), require('@angular/cdk/coercion'), require('@angular/forms')) :
-    typeof define === 'function' && define.amd ? define('@covalent/core/common', ['exports', '@angular/common', '@angular/router', 'rxjs/operators', '@angular/core', '@angular/animations', 'rxjs', '@angular/cdk/coercion', '@angular/forms'], factory) :
-    (factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.common = {}),global.ng.common,global.ng.router,global.rxjs.operators,global.ng.core,global.ng.animations,global.rxjs,global.ng.cdk.coercion,global.ng.forms));
-}(this, (function (exports,common,router,operators,core,animations,rxjs,coercion,forms) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/router'), require('rxjs/operators'), require('@angular/animations'), require('rxjs'), require('@angular/cdk/coercion')) :
+    typeof define === 'function' && define.amd ? define('@covalent/core/common', ['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/router', 'rxjs/operators', '@angular/animations', 'rxjs', '@angular/cdk/coercion'], factory) :
+    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.common = {}), global.ng.core, global.ng.common, global.ng.forms, global.ng.router, global.rxjs.operators, global.ng.animations, global.rxjs, global.ng.cdk.coercion));
+}(this, function (exports, core, common, forms, router, operators, animations, rxjs, coercion) { 'use strict';
+
+    /*! *****************************************************************************
+    Copyright (c) Microsoft Corporation. All rights reserved.
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+    this file except in compliance with the License. You may obtain a copy of the
+    License at http://www.apache.org/licenses/LICENSE-2.0
+
+    THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+    WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+    MERCHANTABLITY OR NON-INFRINGEMENT.
+
+    See the Apache Version 2.0 License for specific language governing permissions
+    and limitations under the License.
+    ***************************************************************************** */
+    /* global Reflect, Promise */
+
+    var extendStatics = function(d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+
+    function __extends(d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    }
+
+    function __values(o) {
+        var m = typeof Symbol === "function" && o[Symbol.iterator], i = 0;
+        if (m) return m.call(o);
+        return {
+            next: function () {
+                if (o && i >= o.length) o = void 0;
+                return { value: o && o[i++], done: !o };
+            }
+        };
+    }
+
+    function __read(o, n) {
+        var m = typeof Symbol === "function" && o[Symbol.iterator];
+        if (!m) return o;
+        var i = m.call(o), r, ar = [], e;
+        try {
+            while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+        }
+        catch (error) { e = { error: error }; }
+        finally {
+            try {
+                if (r && !r.done && (m = i["return"])) m.call(i);
+            }
+            finally { if (e) throw e.error; }
+        }
+        return ar;
+    }
+
+    function __spread() {
+        for (var ar = [], i = 0; i < arguments.length; i++)
+            ar = ar.concat(__read(arguments[i]));
+        return ar;
+    }
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdAutoTrimDirective = /** @class */ (function () {
         function TdAutoTrimDirective(_model) {
@@ -25,101 +88,29 @@
          * @param {?} event
          * @return {?}
          */
-            function (event) {
-                if (this._model && this._model.value && typeof this._model.value === 'string') {
-                    this._model.update.emit(this._model.value.trim());
-                }
-            };
+        function (event) {
+            if (this._model && this._model.value && typeof this._model.value === 'string') {
+                this._model.update.emit(this._model.value.trim());
+            }
+        };
         TdAutoTrimDirective.decorators = [
             { type: core.Directive, args: [{
                         selector: '[tdAutoTrim]',
                     },] }
         ];
         /** @nocollapse */
-        TdAutoTrimDirective.ctorParameters = function () {
-            return [
-                { type: forms.NgModel, decorators: [{ type: core.Optional }, { type: core.Host }] }
-            ];
-        };
+        TdAutoTrimDirective.ctorParameters = function () { return [
+            { type: forms.NgModel, decorators: [{ type: core.Optional }, { type: core.Host }] }
+        ]; };
         TdAutoTrimDirective.propDecorators = {
             onBlur: [{ type: core.HostListener, args: ['blur', ['$event'],] }]
         };
         return TdAutoTrimDirective;
     }());
 
-    /*! *****************************************************************************
-    Copyright (c) Microsoft Corporation. All rights reserved.
-    Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-    this file except in compliance with the License. You may obtain a copy of the
-    License at http://www.apache.org/licenses/LICENSE-2.0
-
-    THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-    KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
-    WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
-    MERCHANTABLITY OR NON-INFRINGEMENT.
-
-    See the Apache Version 2.0 License for specific language governing permissions
-    and limitations under the License.
-    ***************************************************************************** */
-    /* global Reflect, Promise */
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b)
-                if (b.hasOwnProperty(p))
-                    d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    function __extends(d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    }
-    function __values(o) {
-        var m = typeof Symbol === "function" && o[Symbol.iterator], i = 0;
-        if (m)
-            return m.call(o);
-        return {
-            next: function () {
-                if (o && i >= o.length)
-                    o = void 0;
-                return { value: o && o[i++], done: !o };
-            }
-        };
-    }
-    function __read(o, n) {
-        var m = typeof Symbol === "function" && o[Symbol.iterator];
-        if (!m)
-            return o;
-        var i = m.call(o), r, ar = [], e;
-        try {
-            while ((n === void 0 || n-- > 0) && !(r = i.next()).done)
-                ar.push(r.value);
-        }
-        catch (error) {
-            e = { error: error };
-        }
-        finally {
-            try {
-                if (r && !r.done && (m = i["return"]))
-                    m.call(i);
-            }
-            finally {
-                if (e)
-                    throw e.error;
-            }
-        }
-        return ar;
-    }
-    function __spread() {
-        for (var ar = [], i = 0; i < arguments.length; i++)
-            ar = ar.concat(__read(arguments[i]));
-        return ar;
-    }
-
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdFullscreenDirective = /** @class */ (function () {
         function TdFullscreenDirective(_document, _el) {
@@ -135,141 +126,161 @@
          * @param {?} event
          * @return {?}
          */
-            function (event) {
-                this.fullScreenIsActive = event.srcElement === this._getFullScreenElement();
-            };
+        function (event) {
+            this.fullScreenIsActive = event.srcElement === this._getFullScreenElement();
+        };
         /**
          * @return {?}
          */
         TdFullscreenDirective.prototype.toggleFullScreen = /**
          * @return {?}
          */
-            function () {
-                this._getFullScreenElement() === this._el.nativeElement ? this.exitFullScreen() : this.enterFullScreen();
-            };
+        function () {
+            this._getFullScreenElement() === this._el.nativeElement ? this.exitFullScreen() : this.enterFullScreen();
+        };
         /**
          * @return {?}
          */
         TdFullscreenDirective.prototype.enterFullScreen = /**
          * @return {?}
          */
-            function () {
-                var e_1, _a;
-                var nativeElement = this._el.nativeElement;
-                /** @type {?} */
-                var enterFullScreenMap = {
-                    requestFullscreen: function () { return nativeElement.requestFullscreen(); },
-                    // Chrome
-                    webkitRequestFullscreen: function () { return nativeElement.webkitRequestFullscreen(); },
-                    // Safari
-                    mozRequestFullScreen: function () { return nativeElement.mozRequestFullScreen(); },
-                    // Firefox
-                    msRequestFullscreen: function () { return nativeElement.msRequestFullscreen(); },
-                };
-                try {
-                    for (var _b = __values(Object.keys(enterFullScreenMap)), _c = _b.next(); !_c.done; _c = _b.next()) {
-                        var handler = _c.value;
-                        if (nativeElement[handler]) {
-                            enterFullScreenMap[handler]();
-                        }
-                    }
-                }
-                catch (e_1_1) {
-                    e_1 = { error: e_1_1 };
-                }
-                finally {
-                    try {
-                        if (_c && !_c.done && (_a = _b.return))
-                            _a.call(_b);
-                    }
-                    finally {
-                        if (e_1)
-                            throw e_1.error;
-                    }
-                }
+        function () {
+            var e_1, _a;
+            var nativeElement = this._el.nativeElement;
+            /** @type {?} */
+            var enterFullScreenMap = {
+                requestFullscreen: (/**
+                 * @return {?}
+                 */
+                function () { return nativeElement.requestFullscreen(); }),
+                // Chrome
+                webkitRequestFullscreen: (/**
+                 * @return {?}
+                 */
+                function () { return nativeElement.webkitRequestFullscreen(); }),
+                // Safari
+                mozRequestFullScreen: (/**
+                 * @return {?}
+                 */
+                function () { return nativeElement.mozRequestFullScreen(); }),
+                // Firefox
+                msRequestFullscreen: (/**
+                 * @return {?}
+                 */
+                function () { return nativeElement.msRequestFullscreen(); }),
             };
+            try {
+                for (var _b = __values(Object.keys(enterFullScreenMap)), _c = _b.next(); !_c.done; _c = _b.next()) {
+                    var handler = _c.value;
+                    if (nativeElement[handler]) {
+                        enterFullScreenMap[handler]();
+                    }
+                }
+            }
+            catch (e_1_1) { e_1 = { error: e_1_1 }; }
+            finally {
+                try {
+                    if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+                }
+                finally { if (e_1) throw e_1.error; }
+            }
+        };
         /**
          * @return {?}
          */
         TdFullscreenDirective.prototype.exitFullScreen = /**
          * @return {?}
          */
-            function () {
-                var e_2, _a;
-                var _b = this, _document = _b._document, nativeElement = _b._el.nativeElement;
-                /** @type {?} */
-                var exitFullScreenMap = {
-                    exitFullscreen: function () { return _document.exitFullscreen(); },
-                    // Chrome
-                    webkitExitFullscreen: function () { return _document.webkitExitFullscreen(); },
-                    // Safari
-                    mozCancelFullScreen: function () { return _document.mozCancelFullScreen(); },
-                    // Firefox
-                    msExitFullscreen: function () { return _document.msExitFullscreen(); },
-                };
-                try {
-                    for (var _c = __values(Object.keys(exitFullScreenMap)), _d = _c.next(); !_d.done; _d = _c.next()) {
-                        var handler = _d.value;
-                        if (_document[handler] && this._getFullScreenElement() === nativeElement) {
-                            exitFullScreenMap[handler]();
-                        }
-                    }
-                }
-                catch (e_2_1) {
-                    e_2 = { error: e_2_1 };
-                }
-                finally {
-                    try {
-                        if (_d && !_d.done && (_a = _c.return))
-                            _a.call(_c);
-                    }
-                    finally {
-                        if (e_2)
-                            throw e_2.error;
-                    }
-                }
+        function () {
+            var e_2, _a;
+            var _b = this, _document = _b._document, nativeElement = _b._el.nativeElement;
+            /** @type {?} */
+            var exitFullScreenMap = {
+                exitFullscreen: (/**
+                 * @return {?}
+                 */
+                function () { return _document.exitFullscreen(); }),
+                // Chrome
+                webkitExitFullscreen: (/**
+                 * @return {?}
+                 */
+                function () { return _document.webkitExitFullscreen(); }),
+                // Safari
+                mozCancelFullScreen: (/**
+                 * @return {?}
+                 */
+                function () { return _document.mozCancelFullScreen(); }),
+                // Firefox
+                msExitFullscreen: (/**
+                 * @return {?}
+                 */
+                function () { return _document.msExitFullscreen(); }),
             };
+            try {
+                for (var _c = __values(Object.keys(exitFullScreenMap)), _d = _c.next(); !_d.done; _d = _c.next()) {
+                    var handler = _d.value;
+                    if (_document[handler] && this._getFullScreenElement() === nativeElement) {
+                        exitFullScreenMap[handler]();
+                    }
+                }
+            }
+            catch (e_2_1) { e_2 = { error: e_2_1 }; }
+            finally {
+                try {
+                    if (_d && !_d.done && (_a = _c.return)) _a.call(_c);
+                }
+                finally { if (e_2) throw e_2.error; }
+            }
+        };
         /**
+         * @private
          * @return {?}
          */
         TdFullscreenDirective.prototype._getFullScreenElement = /**
+         * @private
          * @return {?}
          */
-            function () {
-                var e_3, _a;
-                var _document = this._document;
-                /** @type {?} */
-                var tdFullScreenElementMap = {
-                    fullscreenElement: function () { return _document.fullscreenElement; },
-                    // Chrome, Opera
-                    webkitFullscreenElement: function () { return _document.webkitFullscreenElement; },
-                    // Safari
-                    mozFullscreenElement: function () { return _document.mozFullscreenElement; },
-                    // Firefox
-                    msFullscreenElement: function () { return _document.msFullscreenElement; },
-                };
-                try {
-                    for (var _b = __values(Object.keys(tdFullScreenElementMap)), _c = _b.next(); !_c.done; _c = _b.next()) {
-                        var props = _c.value;
-                        if (_document[props]) {
-                            return _document[props];
-                        }
-                    }
-                }
-                catch (e_3_1) {
-                    e_3 = { error: e_3_1 };
-                }
-                finally {
-                    try {
-                        if (_c && !_c.done && (_a = _b.return))
-                            _a.call(_b);
-                    }
-                    finally {
-                        if (e_3)
-                            throw e_3.error;
-                    }
-                }
+        function () {
+            var e_3, _a;
+            var _document = this._document;
+            /** @type {?} */
+            var tdFullScreenElementMap = {
+                fullscreenElement: (/**
+                 * @return {?}
+                 */
+                function () { return _document.fullscreenElement; }),
+                // Chrome, Opera
+                webkitFullscreenElement: (/**
+                 * @return {?}
+                 */
+                function () { return _document.webkitFullscreenElement; }),
+                // Safari
+                mozFullscreenElement: (/**
+                 * @return {?}
+                 */
+                function () { return _document.mozFullscreenElement; }),
+                // Firefox
+                msFullscreenElement: (/**
+                 * @return {?}
+                 */
+                function () { return _document.msFullscreenElement; }),
             };
+            try {
+                for (var _b = __values(Object.keys(tdFullScreenElementMap)), _c = _b.next(); !_c.done; _c = _b.next()) {
+                    var props = _c.value;
+                    if (_document[props]) {
+                        return _document[props];
+                    }
+                }
+            }
+            catch (e_3_1) { e_3 = { error: e_3_1 }; }
+            finally {
+                try {
+                    if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+                }
+                finally { if (e_3) throw e_3.error; }
+            }
+        };
         TdFullscreenDirective.decorators = [
             { type: core.Directive, args: [{
                         selector: '[tdFullScreen]',
@@ -277,12 +288,10 @@
                     },] }
         ];
         /** @nocollapse */
-        TdFullscreenDirective.ctorParameters = function () {
-            return [
-                { type: undefined, decorators: [{ type: core.Inject, args: [common.DOCUMENT,] }] },
-                { type: core.ElementRef }
-            ];
-        };
+        TdFullscreenDirective.ctorParameters = function () { return [
+            { type: undefined, decorators: [{ type: core.Inject, args: [common.DOCUMENT,] }] },
+            { type: core.ElementRef }
+        ]; };
         TdFullscreenDirective.propDecorators = {
             fsChangeHandler: [{ type: core.HostListener, args: ['document:fullscreenchange', ['$event'],] }, { type: core.HostListener, args: ['document:webkitfullscreenchange', ['$event'],] }, { type: core.HostListener, args: ['document:mozfullscreenchange', ['$event'],] }, { type: core.HostListener, args: ['document:msfullscreenchange', ['$event'],] }]
         };
@@ -291,7 +300,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdTimeAgoPipe = /** @class */ (function () {
         function TdTimeAgoPipe() {
@@ -306,68 +315,68 @@
          * @param {?=} reference
          * @return {?}
          */
-            function (time, reference) {
-                // Convert time to date object if not already
-                time = new Date(time);
-                /** @type {?} */
-                var ref = new Date(reference);
-                // If not a valid timestamp, return 'Invalid Date'
-                if (!time.getTime()) {
-                    return 'Invalid Date';
-                }
-                // For unit testing, we need to be able to declare a static start time
-                // for calculations, or else speed of tests can bork.
-                /** @type {?} */
-                var startTime = isNaN(ref.getTime()) ? Date.now() : ref.getTime();
-                /** @type {?} */
-                var diff = Math.floor((startTime - time.getTime()) / 1000);
-                if (diff < 2) {
-                    return '1 second ago';
-                }
-                if (diff < 60) {
-                    return Math.floor(diff) + ' seconds ago';
-                }
-                // Minutes
-                diff = diff / 60;
-                if (diff < 2) {
-                    return '1 minute ago';
-                }
-                if (diff < 60) {
-                    return Math.floor(diff) + ' minutes ago';
-                }
-                // Hours
-                diff = diff / 60;
-                if (diff < 2) {
-                    return '1 hour ago';
-                }
-                if (diff < 24) {
-                    return Math.floor(diff) + ' hours ago';
-                }
-                // Days
-                diff = diff / 24;
-                if (diff < 2) {
-                    return '1 day ago';
-                }
-                if (diff < 30) {
-                    return Math.floor(diff) + ' days ago';
-                }
-                // Months
-                diff = diff / 30;
-                if (diff < 2) {
-                    return '1 month ago';
-                }
-                if (diff < 12) {
-                    return Math.floor(diff) + ' months ago';
-                }
-                // Years
-                diff = diff / 12;
-                if (diff < 2) {
-                    return '1 year ago';
-                }
-                else {
-                    return Math.floor(diff) + ' years ago';
-                }
-            };
+        function (time, reference) {
+            // Convert time to date object if not already
+            time = new Date(time);
+            /** @type {?} */
+            var ref = new Date(reference);
+            // If not a valid timestamp, return 'Invalid Date'
+            if (!time.getTime()) {
+                return 'Invalid Date';
+            }
+            // For unit testing, we need to be able to declare a static start time
+            // for calculations, or else speed of tests can bork.
+            /** @type {?} */
+            var startTime = isNaN(ref.getTime()) ? Date.now() : ref.getTime();
+            /** @type {?} */
+            var diff = Math.floor((startTime - time.getTime()) / 1000);
+            if (diff < 2) {
+                return '1 second ago';
+            }
+            if (diff < 60) {
+                return Math.floor(diff) + ' seconds ago';
+            }
+            // Minutes
+            diff = diff / 60;
+            if (diff < 2) {
+                return '1 minute ago';
+            }
+            if (diff < 60) {
+                return Math.floor(diff) + ' minutes ago';
+            }
+            // Hours
+            diff = diff / 60;
+            if (diff < 2) {
+                return '1 hour ago';
+            }
+            if (diff < 24) {
+                return Math.floor(diff) + ' hours ago';
+            }
+            // Days
+            diff = diff / 24;
+            if (diff < 2) {
+                return '1 day ago';
+            }
+            if (diff < 30) {
+                return Math.floor(diff) + ' days ago';
+            }
+            // Months
+            diff = diff / 30;
+            if (diff < 2) {
+                return '1 month ago';
+            }
+            if (diff < 12) {
+                return Math.floor(diff) + ' months ago';
+            }
+            // Years
+            diff = diff / 12;
+            if (diff < 2) {
+                return '1 year ago';
+            }
+            else {
+                return Math.floor(diff) + ' years ago';
+            }
+        };
         TdTimeAgoPipe.decorators = [
             { type: core.Pipe, args: [{
                         name: 'timeAgo',
@@ -378,7 +387,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdTimeDifferencePipe = /** @class */ (function () {
         function TdTimeDifferencePipe() {
@@ -393,53 +402,53 @@
          * @param {?=} end
          * @return {?}
          */
-            function (start, end) {
-                /** @type {?} */
-                var startTime = new Date(start);
-                /** @type {?} */
-                var endTime;
-                if (end !== undefined) {
-                    endTime = new Date(end);
-                }
-                else {
-                    endTime = new Date();
-                }
-                if (!startTime.getTime() || !endTime.getTime()) {
-                    return 'Invalid Date';
-                }
-                /** @type {?} */
-                var diff = Math.floor((endTime.getTime() - startTime.getTime()) / 1000);
-                /** @type {?} */
-                var days = Math.floor(diff / (60 * 60 * 24));
-                diff = diff - days * (60 * 60 * 24);
-                /** @type {?} */
-                var hours = Math.floor(diff / (60 * 60));
-                diff = diff - hours * (60 * 60);
-                /** @type {?} */
-                var minutes = Math.floor(diff / 60);
-                diff -= minutes * 60;
-                /** @type {?} */
-                var seconds = diff;
-                /** @type {?} */
-                var pad = '00';
-                /** @type {?} */
-                var daysFormatted = '';
-                if (days > 0 && days < 2) {
-                    daysFormatted = ' day - ';
-                }
-                else if (days > 1) {
-                    daysFormatted = ' days - ';
-                }
-                return ((days > 0 ? days + daysFormatted : daysFormatted) +
-                    pad.substring(0, pad.length - (hours + '').length) +
-                    hours +
-                    ':' +
-                    pad.substring(0, pad.length - (minutes + '').length) +
-                    minutes +
-                    ':' +
-                    pad.substring(0, pad.length - (seconds + '').length) +
-                    seconds);
-            };
+        function (start, end) {
+            /** @type {?} */
+            var startTime = new Date(start);
+            /** @type {?} */
+            var endTime;
+            if (end !== undefined) {
+                endTime = new Date(end);
+            }
+            else {
+                endTime = new Date();
+            }
+            if (!startTime.getTime() || !endTime.getTime()) {
+                return 'Invalid Date';
+            }
+            /** @type {?} */
+            var diff = Math.floor((endTime.getTime() - startTime.getTime()) / 1000);
+            /** @type {?} */
+            var days = Math.floor(diff / (60 * 60 * 24));
+            diff = diff - days * (60 * 60 * 24);
+            /** @type {?} */
+            var hours = Math.floor(diff / (60 * 60));
+            diff = diff - hours * (60 * 60);
+            /** @type {?} */
+            var minutes = Math.floor(diff / 60);
+            diff -= minutes * 60;
+            /** @type {?} */
+            var seconds = diff;
+            /** @type {?} */
+            var pad = '00';
+            /** @type {?} */
+            var daysFormatted = '';
+            if (days > 0 && days < 2) {
+                daysFormatted = ' day - ';
+            }
+            else if (days > 1) {
+                daysFormatted = ' days - ';
+            }
+            return ((days > 0 ? days + daysFormatted : daysFormatted) +
+                pad.substring(0, pad.length - (hours + '').length) +
+                hours +
+                ':' +
+                pad.substring(0, pad.length - (minutes + '').length) +
+                minutes +
+                ':' +
+                pad.substring(0, pad.length - (seconds + '').length) +
+                seconds);
+        };
         TdTimeDifferencePipe.decorators = [
             { type: core.Pipe, args: [{
                         name: 'timeDifference',
@@ -450,7 +459,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdTimeUntilPipe = /** @class */ (function () {
         function TdTimeUntilPipe() {
@@ -465,68 +474,68 @@
          * @param {?=} reference
          * @return {?}
          */
-            function (time, reference) {
-                // Convert time to date object if not already
-                time = new Date(time);
-                /** @type {?} */
-                var ref = new Date(reference);
-                // If not a valid timestamp, return 'Invalid Date'
-                if (!time.getTime()) {
-                    return 'Invalid Date';
-                }
-                // For unit testing, we need to be able to declare a static start time
-                // for calculations, or else speed of tests can bork.
-                /** @type {?} */
-                var startTime = isNaN(ref.getTime()) ? Date.now() : ref.getTime();
-                /** @type {?} */
-                var diff = Math.floor((time.getTime() - startTime) / 1000);
-                if (diff < 2) {
-                    return 'in 1 second';
-                }
-                if (diff < 60) {
-                    return 'in ' + Math.floor(diff) + ' seconds';
-                }
-                // Minutes
-                diff = diff / 60;
-                if (diff < 2) {
-                    return 'in 1 minute';
-                }
-                if (diff < 60) {
-                    return 'in ' + Math.floor(diff) + ' minutes';
-                }
-                // Hours
-                diff = diff / 60;
-                if (diff < 2) {
-                    return 'in 1 hour';
-                }
-                if (diff < 24) {
-                    return 'in ' + Math.floor(diff) + ' hours';
-                }
-                // Days
-                diff = diff / 24;
-                if (diff < 2) {
-                    return 'in 1 day';
-                }
-                if (diff < 30) {
-                    return 'in ' + Math.floor(diff) + ' days';
-                }
-                // Months
-                diff = diff / 30;
-                if (diff < 2) {
-                    return 'in 1 month';
-                }
-                if (diff < 12) {
-                    return 'in ' + Math.floor(diff) + ' months';
-                }
-                // Years
-                diff = diff / 12;
-                if (diff < 2) {
-                    return 'in 1 year';
-                }
-                else {
-                    return 'in ' + Math.floor(diff) + ' years';
-                }
-            };
+        function (time, reference) {
+            // Convert time to date object if not already
+            time = new Date(time);
+            /** @type {?} */
+            var ref = new Date(reference);
+            // If not a valid timestamp, return 'Invalid Date'
+            if (!time.getTime()) {
+                return 'Invalid Date';
+            }
+            // For unit testing, we need to be able to declare a static start time
+            // for calculations, or else speed of tests can bork.
+            /** @type {?} */
+            var startTime = isNaN(ref.getTime()) ? Date.now() : ref.getTime();
+            /** @type {?} */
+            var diff = Math.floor((time.getTime() - startTime) / 1000);
+            if (diff < 2) {
+                return 'in 1 second';
+            }
+            if (diff < 60) {
+                return 'in ' + Math.floor(diff) + ' seconds';
+            }
+            // Minutes
+            diff = diff / 60;
+            if (diff < 2) {
+                return 'in 1 minute';
+            }
+            if (diff < 60) {
+                return 'in ' + Math.floor(diff) + ' minutes';
+            }
+            // Hours
+            diff = diff / 60;
+            if (diff < 2) {
+                return 'in 1 hour';
+            }
+            if (diff < 24) {
+                return 'in ' + Math.floor(diff) + ' hours';
+            }
+            // Days
+            diff = diff / 24;
+            if (diff < 2) {
+                return 'in 1 day';
+            }
+            if (diff < 30) {
+                return 'in ' + Math.floor(diff) + ' days';
+            }
+            // Months
+            diff = diff / 30;
+            if (diff < 2) {
+                return 'in 1 month';
+            }
+            if (diff < 12) {
+                return 'in ' + Math.floor(diff) + ' months';
+            }
+            // Years
+            diff = diff / 12;
+            if (diff < 2) {
+                return 'in 1 year';
+            }
+            else {
+                return 'in ' + Math.floor(diff) + ' years';
+            }
+        };
         TdTimeUntilPipe.decorators = [
             { type: core.Pipe, args: [{
                         name: 'timeUntil',
@@ -537,7 +546,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdBytesPipe = /** @class */ (function () {
         function TdBytesPipe() {
@@ -553,34 +562,32 @@
          */
         TdBytesPipe.prototype.transform = /* `bytes` needs to be `any` or TypeScript complains
           Tried both `number` and `number | string` */
-            /**
-             * @param {?} bytes
-             * @param {?=} precision
-             * @return {?}
-             */
-            function (bytes, precision) {
-                if (precision === void 0) {
-                    precision = 2;
-                }
-                if (bytes === 0) {
-                    return '0 B';
-                }
-                else if (isNaN(parseInt(bytes, 10))) {
-                    /* If not a valid number, return 'Invalid Number' */
-                    return 'Invalid Number';
-                }
-                /** @type {?} */
-                var k = 1024;
-                /** @type {?} */
-                var sizes = ['B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
-                /** @type {?} */
-                var i = Math.floor(Math.log(bytes) / Math.log(k));
-                // if less than 1
-                if (i < 0) {
-                    return 'Invalid Number';
-                }
-                return parseFloat((bytes / Math.pow(k, i)).toFixed(precision)) + ' ' + sizes[i];
-            };
+        /**
+         * @param {?} bytes
+         * @param {?=} precision
+         * @return {?}
+         */
+        function (bytes, precision) {
+            if (precision === void 0) { precision = 2; }
+            if (bytes === 0) {
+                return '0 B';
+            }
+            else if (isNaN(parseInt(bytes, 10))) {
+                /* If not a valid number, return 'Invalid Number' */
+                return 'Invalid Number';
+            }
+            /** @type {?} */
+            var k = 1024;
+            /** @type {?} */
+            var sizes = ['B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
+            /** @type {?} */
+            var i = Math.floor(Math.log(bytes) / Math.log(k));
+            // if less than 1
+            if (i < 0) {
+                return 'Invalid Number';
+            }
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(precision)) + ' ' + sizes[i];
+        };
         TdBytesPipe.decorators = [
             { type: core.Pipe, args: [{
                         name: 'bytes',
@@ -591,7 +598,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdDecimalBytesPipe = /** @class */ (function () {
         function TdDecimalBytesPipe() {
@@ -607,34 +614,32 @@
          */
         TdDecimalBytesPipe.prototype.transform = /* `bytes` needs to be `any` or TypeScript complains
           Tried both `number` and `number | string` */
-            /**
-             * @param {?} bytes
-             * @param {?=} precision
-             * @return {?}
-             */
-            function (bytes, precision) {
-                if (precision === void 0) {
-                    precision = 2;
-                }
-                if (bytes === 0) {
-                    return '0 B';
-                }
-                else if (isNaN(parseInt(bytes, 10))) {
-                    /* If not a valid number, return 'Invalid Number' */
-                    return 'Invalid Number';
-                }
-                /** @type {?} */
-                var k = 1000;
-                /** @type {?} */
-                var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-                /** @type {?} */
-                var i = Math.floor(Math.log(bytes) / Math.log(k));
-                // if less than 1
-                if (i < 0) {
-                    return 'Invalid Number';
-                }
-                return parseFloat((bytes / Math.pow(k, i)).toFixed(precision)) + ' ' + sizes[i];
-            };
+        /**
+         * @param {?} bytes
+         * @param {?=} precision
+         * @return {?}
+         */
+        function (bytes, precision) {
+            if (precision === void 0) { precision = 2; }
+            if (bytes === 0) {
+                return '0 B';
+            }
+            else if (isNaN(parseInt(bytes, 10))) {
+                /* If not a valid number, return 'Invalid Number' */
+                return 'Invalid Number';
+            }
+            /** @type {?} */
+            var k = 1000;
+            /** @type {?} */
+            var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+            /** @type {?} */
+            var i = Math.floor(Math.log(bytes) / Math.log(k));
+            // if less than 1
+            if (i < 0) {
+                return 'Invalid Number';
+            }
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(precision)) + ' ' + sizes[i];
+        };
         TdDecimalBytesPipe.decorators = [
             { type: core.Pipe, args: [{
                         name: 'decimalBytes',
@@ -645,13 +650,11 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdDigitsPipe = /** @class */ (function () {
         function TdDigitsPipe(_locale) {
-            if (_locale === void 0) {
-                _locale = 'en';
-            }
+            if (_locale === void 0) { _locale = 'en'; }
             this._locale = _locale;
             this._decimalPipe = new common.DecimalPipe(this._locale);
         }
@@ -663,52 +666,48 @@
          * @return {?}
          */
         TdDigitsPipe.prototype.transform = /* `digits` needs to be type `digits: any` or TypeScript complains */
-            /**
-             * @param {?} digits
-             * @param {?=} precision
-             * @return {?}
-             */
-            function (digits, precision) {
-                if (precision === void 0) {
-                    precision = 1;
-                }
-                if (digits === 0) {
-                    return '0';
-                }
-                else if (isNaN(parseInt(digits, 10))) {
-                    /* If not a valid number, return the value */
-                    return digits;
-                }
-                else if (digits < 1) {
-                    return this._decimalPipe.transform(digits.toFixed(precision));
-                }
-                /** @type {?} */
-                var k = 1000;
-                /** @type {?} */
-                var sizes = ['', 'K', 'M', 'B', 'T', 'Q'];
-                /** @type {?} */
-                var i = Math.floor(Math.log(digits) / Math.log(k));
-                /** @type {?} */
-                var size = sizes[i];
-                return (this._decimalPipe.transform(parseFloat((digits / Math.pow(k, i)).toFixed(precision))) + (size ? ' ' + size : ''));
-            };
+        /**
+         * @param {?} digits
+         * @param {?=} precision
+         * @return {?}
+         */
+        function (digits, precision) {
+            if (precision === void 0) { precision = 1; }
+            if (digits === 0) {
+                return '0';
+            }
+            else if (isNaN(parseInt(digits, 10))) {
+                /* If not a valid number, return the value */
+                return digits;
+            }
+            else if (digits < 1) {
+                return this._decimalPipe.transform(digits.toFixed(precision));
+            }
+            /** @type {?} */
+            var k = 1000;
+            /** @type {?} */
+            var sizes = ['', 'K', 'M', 'B', 'T', 'Q'];
+            /** @type {?} */
+            var i = Math.floor(Math.log(digits) / Math.log(k));
+            /** @type {?} */
+            var size = sizes[i];
+            return (this._decimalPipe.transform(parseFloat((digits / Math.pow(k, i)).toFixed(precision))) + (size ? ' ' + size : ''));
+        };
         TdDigitsPipe.decorators = [
             { type: core.Pipe, args: [{
                         name: 'digits',
                     },] }
         ];
         /** @nocollapse */
-        TdDigitsPipe.ctorParameters = function () {
-            return [
-                { type: String, decorators: [{ type: core.Inject, args: [core.LOCALE_ID,] }] }
-            ];
-        };
+        TdDigitsPipe.ctorParameters = function () { return [
+            { type: String, decorators: [{ type: core.Inject, args: [core.LOCALE_ID,] }] }
+        ]; };
         return TdDigitsPipe;
     }());
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdTruncatePipe = /** @class */ (function () {
         function TdTruncatePipe() {
@@ -723,21 +722,21 @@
          * @param {?} length
          * @return {?}
          */
-            function (text, length) {
-                if (typeof text !== 'string') {
-                    return '';
+        function (text, length) {
+            if (typeof text !== 'string') {
+                return '';
+            }
+            // Truncate
+            /** @type {?} */
+            var truncated = text.substr(0, length);
+            if (text.length > length) {
+                if (truncated.lastIndexOf(' ') > 0) {
+                    truncated = truncated.trim();
                 }
-                // Truncate
-                /** @type {?} */
-                var truncated = text.substr(0, length);
-                if (text.length > length) {
-                    if (truncated.lastIndexOf(' ') > 0) {
-                        truncated = truncated.trim();
-                    }
-                    truncated += '…';
-                }
-                return truncated;
-            };
+                truncated += '…';
+            }
+            return truncated;
+        };
         TdTruncatePipe.decorators = [
             { type: core.Pipe, args: [{
                         name: 'truncate',
@@ -748,16 +747,24 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var RouterPathService = /** @class */ (function () {
         function RouterPathService(_router) {
             this._router = _router;
             this._router.events
-                .pipe(operators.filter(function (e) { return e instanceof router.RoutesRecognized; }), operators.pairwise())
-                .subscribe(function (e) {
+                .pipe(operators.filter((/**
+             * @param {?} e
+             * @return {?}
+             */
+            function (e) { return e instanceof router.RoutesRecognized; })), operators.pairwise())
+                .subscribe((/**
+             * @param {?} e
+             * @return {?}
+             */
+            function (e) {
                 RouterPathService._previousRoute = e[0].urlAfterRedirects;
-            });
+            }));
         }
         /*
          * Utility function to get the route the user previously went to
@@ -774,28 +781,26 @@
            * Utility function to get the route the user previously went to
            * good for use in a "back button"
            */
-            /**
-             * @return {?}
-             */
-            function () {
-                return RouterPathService._previousRoute;
-            };
+        /**
+         * @return {?}
+         */
+        function () {
+            return RouterPathService._previousRoute;
+        };
         RouterPathService._previousRoute = '/';
         RouterPathService.decorators = [
             { type: core.Injectable }
         ];
         /** @nocollapse */
-        RouterPathService.ctorParameters = function () {
-            return [
-                { type: router.Router }
-            ];
-        };
+        RouterPathService.ctorParameters = function () { return [
+            { type: router.Router }
+        ]; };
         return RouterPathService;
     }());
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var IconService = /** @class */ (function () {
         function IconService() {
@@ -1580,7 +1585,8 @@
         Object.defineProperty(IconService.prototype, "icons", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._icons;
             },
             enumerable: true,
@@ -1594,11 +1600,15 @@
          * @param {?} query
          * @return {?}
          */
-            function (query) {
-                return this.icons.filter(function (el) {
-                    return el.toLowerCase().indexOf(query ? query.toLowerCase() : '') > -1;
-                });
-            };
+        function (query) {
+            return this.icons.filter((/**
+             * @param {?} el
+             * @return {?}
+             */
+            function (el) {
+                return el.toLowerCase().indexOf(query ? query.toLowerCase() : '') > -1;
+            }));
+        };
         IconService.decorators = [
             { type: core.Injectable }
         ];
@@ -1607,7 +1617,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
     var TD_DIRECTIVES = [TdAutoTrimDirective, TdFullscreenDirective];
@@ -1640,7 +1650,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
      * const tdRotateAnimation
@@ -1669,7 +1679,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
      * const tdCollapseAnimation
@@ -1724,7 +1734,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
      * const tdFadeInOutAnimation
@@ -1765,7 +1775,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
      * const tdBounceAnimation
@@ -1839,7 +1849,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
      * const tdFlashAnimation
@@ -1877,7 +1887,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
      * const tdHeadshakeAnimation
@@ -1916,7 +1926,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
      * const tdJelloAnimation
@@ -1958,7 +1968,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
      * const tdPulseAnimation
@@ -1994,12 +2004,15 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
-    var noop = function () {
+    var noop = (/**
+     * @return {?}
+     */
+    function () {
         // empty method
-    };
+    });
     /**
      * Mixin to augment a component with ngModel support.
      * @template T
@@ -2017,8 +2030,15 @@
                 }
                 var _this = _super.apply(this, __spread(args)) || this;
                 _this._value = initialValue instanceof Array ? Object.assign([], initialValue) : initialValue;
-                _this.onChange = function (_) { return noop; };
-                _this.onTouched = function () { return noop; };
+                _this.onChange = (/**
+                 * @param {?} _
+                 * @return {?}
+                 */
+                function (_) { return noop; });
+                _this.onTouched = (/**
+                 * @return {?}
+                 */
+                function () { return noop; });
                 _this._subjectValueChanges = new rxjs.Subject();
                 _this.valueChanges = _this._subjectValueChanges.asObservable();
                 return _this;
@@ -2026,13 +2046,15 @@
             Object.defineProperty(class_1.prototype, "value", {
                 get: /**
                  * @return {?}
-                 */ function () {
+                 */
+                function () {
                     return this._value;
                 },
                 set: /**
                  * @param {?} v
                  * @return {?}
-                 */ function (v) {
+                 */
+                function (v) {
                     if (v !== this._value) {
                         this._value = v;
                         this.onChange(v);
@@ -2051,10 +2073,10 @@
              * @param {?} value
              * @return {?}
              */
-                function (value) {
-                    this.value = value;
-                    this._changeDetectorRef.markForCheck();
-                };
+            function (value) {
+                this.value = value;
+                this._changeDetectorRef.markForCheck();
+            };
             /**
              * @param {?} fn
              * @return {?}
@@ -2063,9 +2085,9 @@
              * @param {?} fn
              * @return {?}
              */
-                function (fn) {
-                    this.onChange = fn;
-                };
+            function (fn) {
+                this.onChange = fn;
+            };
             /**
              * @param {?} fn
              * @return {?}
@@ -2074,16 +2096,16 @@
              * @param {?} fn
              * @return {?}
              */
-                function (fn) {
-                    this.onTouched = fn;
-                };
+            function (fn) {
+                this.onTouched = fn;
+            };
             return class_1;
         }(base));
     }
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
      * Mixin to augment a component or directive with a `disabled` property.
@@ -2106,13 +2128,15 @@
             Object.defineProperty(class_1.prototype, "disabled", {
                 get: /**
                  * @return {?}
-                 */ function () {
+                 */
+                function () {
                     return this._disabled;
                 },
                 set: /**
                  * @param {?} value
                  * @return {?}
-                 */ function (value) {
+                 */
+                function (value) {
                     /** @type {?} */
                     var newValue = coercion.coerceBooleanProperty(value);
                     if (this._disabled !== newValue) {
@@ -2131,16 +2155,16 @@
              * @param {?} v
              * @return {?}
              */
-                function (v) {
-                    /** NOT IMPLEMENTED, this needs to be overriden by subclasses if needed */
-                };
+            function (v) {
+                /** NOT IMPLEMENTED, this needs to be overriden by subclasses if needed */
+            };
             return class_1;
         }(base));
     }
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
      * Mixin to augment a component or directive with a `disabled` property.
@@ -2163,13 +2187,15 @@
             Object.defineProperty(class_1.prototype, "disableRipple", {
                 get: /**
                  * @return {?}
-                 */ function () {
+                 */
+                function () {
                     return this._disableRipple;
                 },
                 set: /**
                  * @param {?} value
                  * @return {?}
-                 */ function (value) {
+                 */
+                function (value) {
                     /** @type {?} */
                     var newValue = coercion.coerceBooleanProperty(value);
                     if (this._disableRipple !== newValue) {
@@ -2188,16 +2214,16 @@
              * @param {?} v
              * @return {?}
              */
-                function (v) {
-                    /** NOT IMPLEMENTED, this needs to be overriden by subclasses if needed */
-                };
+            function (v) {
+                /** NOT IMPLEMENTED, this needs to be overriden by subclasses if needed */
+            };
             return class_1;
         }(base));
     }
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var CovalentValidators = /** @class */ (function () {
         function CovalentValidators() {
@@ -2210,18 +2236,22 @@
          * @param {?} minValue
          * @return {?}
          */
-            function (minValue) {
+        function (minValue) {
+            /** @type {?} */
+            var func = (/**
+             * @param {?} c
+             * @return {?}
+             */
+            function (c) {
+                if (!!forms.Validators.required(c) || (!minValue && minValue !== 0)) {
+                    return undefined;
+                }
                 /** @type {?} */
-                var func = function (c) {
-                    if (!!forms.Validators.required(c) || (!minValue && minValue !== 0)) {
-                        return undefined;
-                    }
-                    /** @type {?} */
-                    var v = c.value;
-                    return v < minValue ? { min: { minValue: minValue, actualValue: v } } : undefined;
-                };
-                return func;
-            };
+                var v = c.value;
+                return v < minValue ? { min: { minValue: minValue, actualValue: v } } : undefined;
+            });
+            return func;
+        };
         /**
          * @param {?} maxValue
          * @return {?}
@@ -2230,18 +2260,22 @@
          * @param {?} maxValue
          * @return {?}
          */
-            function (maxValue) {
+        function (maxValue) {
+            /** @type {?} */
+            var func = (/**
+             * @param {?} c
+             * @return {?}
+             */
+            function (c) {
+                if (!!forms.Validators.required(c) || (!maxValue && maxValue !== 0)) {
+                    return undefined;
+                }
                 /** @type {?} */
-                var func = function (c) {
-                    if (!!forms.Validators.required(c) || (!maxValue && maxValue !== 0)) {
-                        return undefined;
-                    }
-                    /** @type {?} */
-                    var v = c.value;
-                    return v > maxValue ? { max: { maxValue: maxValue, actualValue: v } } : undefined;
-                };
-                return func;
-            };
+                var v = c.value;
+                return v > maxValue ? { max: { maxValue: maxValue, actualValue: v } } : undefined;
+            });
+            return func;
+        };
         /**
          * @param {?} c
          * @return {?}
@@ -2250,54 +2284,38 @@
          * @param {?} c
          * @return {?}
          */
-            function (c) {
-                return Number.isNaN(c.value) ? { required: true } : undefined;
-            };
+        function (c) {
+            return Number.isNaN(c.value) ? { required: true } : undefined;
+        };
         return CovalentValidators;
     }());
 
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
     exports.CovalentCommonModule = CovalentCommonModule;
-    exports.tdRotateAnimation = tdRotateAnimation;
+    exports.CovalentValidators = CovalentValidators;
+    exports.TdAutoTrimDirective = TdAutoTrimDirective;
+    exports.TdBytesPipe = TdBytesPipe;
+    exports.TdDecimalBytesPipe = TdDecimalBytesPipe;
+    exports.TdDigitsPipe = TdDigitsPipe;
+    exports.TdTimeAgoPipe = TdTimeAgoPipe;
+    exports.TdTimeDifferencePipe = TdTimeDifferencePipe;
+    exports.TdTruncatePipe = TdTruncatePipe;
+    exports.mixinControlValueAccessor = mixinControlValueAccessor;
+    exports.mixinDisableRipple = mixinDisableRipple;
+    exports.mixinDisabled = mixinDisabled;
+    exports.tdBounceAnimation = tdBounceAnimation;
     exports.tdCollapseAnimation = tdCollapseAnimation;
     exports.tdFadeInOutAnimation = tdFadeInOutAnimation;
-    exports.tdBounceAnimation = tdBounceAnimation;
     exports.tdFlashAnimation = tdFlashAnimation;
     exports.tdHeadshakeAnimation = tdHeadshakeAnimation;
     exports.tdJelloAnimation = tdJelloAnimation;
     exports.tdPulseAnimation = tdPulseAnimation;
-    exports.mixinControlValueAccessor = mixinControlValueAccessor;
-    exports.mixinDisabled = mixinDisabled;
-    exports.mixinDisableRipple = mixinDisableRipple;
-    exports.TdAutoTrimDirective = TdAutoTrimDirective;
-    exports.CovalentValidators = CovalentValidators;
-    exports.TdTimeAgoPipe = TdTimeAgoPipe;
-    exports.TdTimeDifferencePipe = TdTimeDifferencePipe;
-    exports.TdBytesPipe = TdBytesPipe;
-    exports.TdDigitsPipe = TdDigitsPipe;
-    exports.TdTruncatePipe = TdTruncatePipe;
-    exports.TdDecimalBytesPipe = TdDecimalBytesPipe;
+    exports.tdRotateAnimation = tdRotateAnimation;
     exports.ɵa = TdFullscreenDirective;
     exports.ɵb = TdTimeUntilPipe;
-    exports.ɵd = IconService;
     exports.ɵc = RouterPathService;
+    exports.ɵd = IconService;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
-
+}));
 //# sourceMappingURL=covalent-core-common.umd.js.map

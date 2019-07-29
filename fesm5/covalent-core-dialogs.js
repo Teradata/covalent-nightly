@@ -1,13 +1,13 @@
+import { Component, ContentChildren, Directive, ViewChild, Injectable, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MatDialogRef, MatDialogConfig, MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { Component, Directive, ContentChildren, ViewChild, Injectable, NgModule } from '@angular/core';
-import { MatDialogRef, MatDialog, MatDialogConfig, MatDialogModule } from '@angular/material/dialog';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdDialogTitleDirective = /** @class */ (function () {
     function TdDialogTitleDirective() {
@@ -70,7 +70,7 @@ var TdDialogComponent = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdAlertDialogComponent = /** @class */ (function () {
     function TdAlertDialogComponent(_dialogRef) {
@@ -102,7 +102,7 @@ var TdAlertDialogComponent = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdConfirmDialogComponent = /** @class */ (function () {
     function TdConfirmDialogComponent(_dialogRef) {
@@ -144,7 +144,7 @@ var TdConfirmDialogComponent = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdPromptDialogComponent = /** @class */ (function () {
     function TdPromptDialogComponent(_dialogRef) {
@@ -161,9 +161,12 @@ var TdPromptDialogComponent = /** @class */ (function () {
     function () {
         var _this = this;
         // focus input once everything is rendered and good to go
-        Promise.resolve().then(function () {
+        Promise.resolve().then((/**
+         * @return {?}
+         */
+        function () {
             ((/** @type {?} */ (_this._input.nativeElement))).focus();
-        });
+        }));
     };
     /**
      * Method executed when input is focused
@@ -212,14 +215,14 @@ var TdPromptDialogComponent = /** @class */ (function () {
         { type: MatDialogRef }
     ]; };
     TdPromptDialogComponent.propDecorators = {
-        _input: [{ type: ViewChild, args: ['input',] }]
+        _input: [{ type: ViewChild, args: ['input', { static: true },] }]
     };
     return TdPromptDialogComponent;
 }());
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdDialogService = /** @class */ (function () {
     function TdDialogService(_dialogService) {
@@ -453,10 +456,12 @@ var TdDialogService = /** @class */ (function () {
         return dialogRef;
     };
     /**
+     * @private
      * @param {?} config
      * @return {?}
      */
     TdDialogService.prototype._createConfig = /**
+     * @private
      * @param {?} config
      * @return {?}
      */
@@ -479,7 +484,7 @@ var TdDialogService = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 var TD_DIALOGS = [
@@ -512,21 +517,5 @@ var CovalentDialogsModule = /** @class */ (function () {
     return CovalentDialogsModule;
 }());
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-export { CovalentDialogsModule, TdDialogTitleDirective, TdDialogContentDirective, TdDialogActionsDirective, TdDialogComponent, TdAlertDialogComponent, TdConfirmDialogComponent, TdPromptDialogComponent, TdDialogService };
-
+export { CovalentDialogsModule, TdAlertDialogComponent, TdConfirmDialogComponent, TdDialogActionsDirective, TdDialogComponent, TdDialogContentDirective, TdDialogService, TdDialogTitleDirective, TdPromptDialogComponent };
 //# sourceMappingURL=covalent-core-dialogs.js.map

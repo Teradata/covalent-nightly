@@ -1,9 +1,9 @@
+import { Component, ChangeDetectionStrategy, ViewChild, Input, HostBinding, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component, Input, HostBinding, ChangeDetectionStrategy, ViewChild, NgModule } from '@angular/core';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @enum {string} */
 var TdNotificationCountPositionY = {
@@ -196,10 +196,12 @@ var TdNotificationCountComponent = /** @class */ (function () {
      */
     /**
      * Method to check if element has any kind of content (elements or text)
+     * @private
      * @return {?}
      */
     TdNotificationCountComponent.prototype._hasContent = /**
      * Method to check if element has any kind of content (elements or text)
+     * @private
      * @return {?}
      */
     function () {
@@ -219,7 +221,7 @@ var TdNotificationCountComponent = /** @class */ (function () {
                 }] }
     ];
     TdNotificationCountComponent.propDecorators = {
-        content: [{ type: ViewChild, args: ['content',] }],
+        content: [{ type: ViewChild, args: ['content', { static: true },] }],
         color: [{ type: Input }],
         positionX: [{ type: Input }],
         positionY: [{ type: Input }],
@@ -232,7 +234,7 @@ var TdNotificationCountComponent = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 var TD_NOTIFICATIONS = [TdNotificationCountComponent];
@@ -249,21 +251,5 @@ var CovalentNotificationsModule = /** @class */ (function () {
     return CovalentNotificationsModule;
 }());
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-export { CovalentNotificationsModule, TdNotificationCountPositionY, TdNotificationCountPositionX, DEFAULT_NOTIFICATION_LIMIT, TdNotificationCountComponent };
-
+export { CovalentNotificationsModule, DEFAULT_NOTIFICATION_LIMIT, TdNotificationCountComponent, TdNotificationCountPositionX, TdNotificationCountPositionY };
 //# sourceMappingURL=covalent-core-notifications.js.map

@@ -1,12 +1,12 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/material/icon'), require('@angular/material/button'), require('@angular/core'), require('@angular/cdk/coercion'), require('@angular/cdk/bidi')) :
-    typeof define === 'function' && define.amd ? define('@covalent/core/paging', ['exports', '@angular/common', '@angular/material/icon', '@angular/material/button', '@angular/core', '@angular/cdk/coercion', '@angular/cdk/bidi'], factory) :
-    (factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.paging = {}),global.ng.common,global.ng.material.icon,global.ng.material.button,global.ng.core,global.ng.cdk.coercion,global.ng.cdk.bidi));
-}(this, (function (exports,common,icon,button,core,coercion,bidi) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/material/icon'), require('@angular/material/button'), require('@angular/cdk/coercion'), require('@angular/cdk/bidi')) :
+    typeof define === 'function' && define.amd ? define('@covalent/core/paging', ['exports', '@angular/core', '@angular/common', '@angular/material/icon', '@angular/material/button', '@angular/cdk/coercion', '@angular/cdk/bidi'], factory) :
+    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.paging = {}), global.ng.core, global.ng.common, global.ng.material.icon, global.ng.material.button, global.ng.cdk.coercion, global.ng.cdk.bidi));
+}(this, function (exports, core, common, icon, button, coercion, bidi) { 'use strict';
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdPagingBarComponent = /** @class */ (function () {
         function TdPagingBarComponent(_dir, _changeDetectorRef) {
@@ -44,7 +44,8 @@
         Object.defineProperty(TdPagingBarComponent.prototype, "pageLinkCount", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._pageLinkCount;
             },
             /**
@@ -56,7 +57,8 @@
              * Amount of page navigation links for the paging bar. Defaults to '0'
              * @param {?} pageLinkCount
              * @return {?}
-             */ function (pageLinkCount) {
+             */
+            function (pageLinkCount) {
                 this._pageLinkCount = coercion.coerceNumberProperty(pageLinkCount);
                 this._calculatePageLinks();
                 this._changeDetectorRef.markForCheck();
@@ -67,7 +69,8 @@
         Object.defineProperty(TdPagingBarComponent.prototype, "pageSize", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._pageSize;
             },
             /**
@@ -79,7 +82,8 @@
              * Selected page size for the pagination. Defaults 50.
              * @param {?} pageSize
              * @return {?}
-             */ function (pageSize) {
+             */
+            function (pageSize) {
                 this._pageSize = coercion.coerceNumberProperty(pageSize);
                 this._page = 1;
                 if (this._initialized) {
@@ -93,7 +97,8 @@
         Object.defineProperty(TdPagingBarComponent.prototype, "total", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._total;
             },
             /**
@@ -105,7 +110,8 @@
              * Total rows for the pagination.
              * @param {?} total
              * @return {?}
-             */ function (total) {
+             */
+            function (total) {
                 this._total = coercion.coerceNumberProperty(total);
                 this._calculateRows();
                 this._calculatePageLinks();
@@ -123,7 +129,8 @@
              * pageLinks: number[]
              * Returns the pageLinks in an array
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._pageLinks;
             },
             enumerable: true,
@@ -138,7 +145,8 @@
              * range: string
              * Returns the range of the rows.
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return (!this._toRow ? 0 : this._fromRow) + "-" + this._toRow;
             },
             enumerable: true,
@@ -153,7 +161,8 @@
              * page: number
              * Returns the current page.
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._page;
             },
             enumerable: true,
@@ -168,7 +177,8 @@
              * page: number
              * Returns the max page for the current pageSize and total.
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return Math.ceil(this._total / this._pageSize);
             },
             enumerable: true,
@@ -177,7 +187,8 @@
         Object.defineProperty(TdPagingBarComponent.prototype, "isRTL", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 if (this._dir) {
                     return this._dir.dir === 'rtl';
                 }
@@ -192,13 +203,13 @@
         TdPagingBarComponent.prototype.ngOnInit = /**
          * @return {?}
          */
-            function () {
-                this._page = coercion.coerceNumberProperty(this.initialPage);
-                this._calculateRows();
-                this._calculatePageLinks();
-                this._initialized = true;
-                this._changeDetectorRef.markForCheck();
-            };
+        function () {
+            this._page = coercion.coerceNumberProperty(this.initialPage);
+            this._calculateRows();
+            this._calculatePageLinks();
+            this._initialized = true;
+            this._changeDetectorRef.markForCheck();
+        };
         /**
          * navigateToPage?: function
          * Navigates to a specific valid page. Returns 'true' if page is valid, else 'false'.
@@ -215,14 +226,14 @@
          * @param {?} page
          * @return {?}
          */
-            function (page) {
-                if (page === 1 || (page >= 1 && page <= this.maxPage)) {
-                    this._page = coercion.coerceNumberProperty(Math.floor(page));
-                    this._handleOnChange();
-                    return true;
-                }
-                return false;
-            };
+        function (page) {
+            if (page === 1 || (page >= 1 && page <= this.maxPage)) {
+                this._page = coercion.coerceNumberProperty(Math.floor(page));
+                this._handleOnChange();
+                return true;
+            }
+            return false;
+        };
         /**
          * firstPage?: function
          * Navigates to the first page. Returns 'true' if page is valid, else 'false'.
@@ -237,9 +248,9 @@
          * Navigates to the first page. Returns 'true' if page is valid, else 'false'.
          * @return {?}
          */
-            function () {
-                return this.navigateToPage(1);
-            };
+        function () {
+            return this.navigateToPage(1);
+        };
         /**
          * prevPage?: function
          * Navigates to the previous page. Returns 'true' if page is valid, else 'false'.
@@ -254,9 +265,9 @@
          * Navigates to the previous page. Returns 'true' if page is valid, else 'false'.
          * @return {?}
          */
-            function () {
-                return this.navigateToPage(this._page - 1);
-            };
+        function () {
+            return this.navigateToPage(this._page - 1);
+        };
         /**
          * nextPage?: function
          * Navigates to the next page. Returns 'true' if page is valid, else 'false'.
@@ -271,9 +282,9 @@
          * Navigates to the next page. Returns 'true' if page is valid, else 'false'.
          * @return {?}
          */
-            function () {
-                return this.navigateToPage(this._page + 1);
-            };
+        function () {
+            return this.navigateToPage(this._page + 1);
+        };
         /**
          * lastPage?: function
          * Navigates to the last page. Returns 'true' if page is valid, else 'false'.
@@ -288,39 +299,41 @@
          * Navigates to the last page. Returns 'true' if page is valid, else 'false'.
          * @return {?}
          */
-            function () {
-                return this.navigateToPage(this.maxPage);
-            };
+        function () {
+            return this.navigateToPage(this.maxPage);
+        };
         /**
          * @return {?}
          */
         TdPagingBarComponent.prototype.isMinPage = /**
          * @return {?}
          */
-            function () {
-                return this._page <= 1;
-            };
+        function () {
+            return this._page <= 1;
+        };
         /**
          * @return {?}
          */
         TdPagingBarComponent.prototype.isMaxPage = /**
          * @return {?}
          */
-            function () {
-                return this._page >= this.maxPage;
-            };
+        function () {
+            return this._page >= this.maxPage;
+        };
         /**
+         * @private
          * @return {?}
          */
         TdPagingBarComponent.prototype._calculateRows = /**
+         * @private
          * @return {?}
          */
-            function () {
-                /** @type {?} */
-                var top = this._pageSize * this._page;
-                this._fromRow = this._pageSize * (this._page - 1) + 1;
-                this._toRow = this._total > top ? top : this._total;
-            };
+        function () {
+            /** @type {?} */
+            var top = this._pageSize * this._page;
+            this._fromRow = this._pageSize * (this._page - 1) + 1;
+            this._toRow = this._total > top ? top : this._total;
+        };
         /**
          * _calculatePageLinks?: function
          * Calculates the page links that should be shown to the user based on the current state of the paginator
@@ -328,80 +341,84 @@
         /**
          * _calculatePageLinks?: function
          * Calculates the page links that should be shown to the user based on the current state of the paginator
+         * @private
          * @return {?}
          */
         TdPagingBarComponent.prototype._calculatePageLinks = /**
          * _calculatePageLinks?: function
          * Calculates the page links that should be shown to the user based on the current state of the paginator
+         * @private
          * @return {?}
          */
-            function () {
-                // special case when 2 pageLinks, detect when hit end of pages so can lead in correct direction
-                if (this.isMaxPage()) {
-                    this._hitEnd = true;
-                    this._hitStart = false;
+        function () {
+            // special case when 2 pageLinks, detect when hit end of pages so can lead in correct direction
+            if (this.isMaxPage()) {
+                this._hitEnd = true;
+                this._hitStart = false;
+            }
+            // special case when 2 pageLinks, detect when hit start of pages so can lead in correct direction
+            if (this.isMinPage()) {
+                this._hitEnd = false;
+                this._hitStart = true;
+            }
+            // If the pageLinkCount goes above max possible pages based on perpage setting then reset it to maxPage
+            /** @type {?} */
+            var actualPageLinkCount = this.pageLinkCount;
+            if (this.pageLinkCount > this.maxPage) {
+                actualPageLinkCount = this.maxPage;
+            }
+            // reset the pageLinks array
+            this._pageLinks = [];
+            // fill in the array with the pageLinks based on the current selected page
+            /** @type {?} */
+            var middlePageLinks = Math.floor(actualPageLinkCount / 2);
+            for (var x = 0; x < actualPageLinkCount; x++) {
+                // don't go past the maxPage in the pageLinks
+                // have to handle even and odd pageLinkCounts differently so can still lead to the next numbers
+                if ((actualPageLinkCount % 2 === 0 && this.page + middlePageLinks > this.maxPage) ||
+                    (actualPageLinkCount % 2 !== 0 && this.page + middlePageLinks >= this.maxPage)) {
+                    this._pageLinks[x] = this.maxPage - (actualPageLinkCount - (x + 1));
+                    // if the selected page is after the middle then set that page as middle and get the correct balance on left and right
+                    // special handling when there are only 2 pageLinks to just drop to next if block so can lead to next numbers when moving to right
+                    // when moving to the left then go into this block
                 }
-                // special case when 2 pageLinks, detect when hit start of pages so can lead in correct direction
-                if (this.isMinPage()) {
-                    this._hitEnd = false;
-                    this._hitStart = true;
+                else if ((actualPageLinkCount > 2 || (actualPageLinkCount <= 2 && this._hitEnd)) &&
+                    this.page - middlePageLinks > 0) {
+                    this._pageLinks[x] = this.page - middlePageLinks + x;
+                    // if the selected page is before the middle then set the pages based on the x index leading up to and after selected page
                 }
-                // If the pageLinkCount goes above max possible pages based on perpage setting then reset it to maxPage
-                /** @type {?} */
-                var actualPageLinkCount = this.pageLinkCount;
-                if (this.pageLinkCount > this.maxPage) {
-                    actualPageLinkCount = this.maxPage;
+                else if (this.page - middlePageLinks <= 0) {
+                    this._pageLinks[x] = x + 1;
+                    // other wise just set the array in order starting from the selected page
                 }
-                // reset the pageLinks array
-                this._pageLinks = [];
-                // fill in the array with the pageLinks based on the current selected page
-                /** @type {?} */
-                var middlePageLinks = Math.floor(actualPageLinkCount / 2);
-                for (var x = 0; x < actualPageLinkCount; x++) {
-                    // don't go past the maxPage in the pageLinks
-                    // have to handle even and odd pageLinkCounts differently so can still lead to the next numbers
-                    if ((actualPageLinkCount % 2 === 0 && this.page + middlePageLinks > this.maxPage) ||
-                        (actualPageLinkCount % 2 !== 0 && this.page + middlePageLinks >= this.maxPage)) {
-                        this._pageLinks[x] = this.maxPage - (actualPageLinkCount - (x + 1));
-                        // if the selected page is after the middle then set that page as middle and get the correct balance on left and right
-                        // special handling when there are only 2 pageLinks to just drop to next if block so can lead to next numbers when moving to right
-                        // when moving to the left then go into this block
-                    }
-                    else if ((actualPageLinkCount > 2 || (actualPageLinkCount <= 2 && this._hitEnd)) &&
-                        this.page - middlePageLinks > 0) {
-                        this._pageLinks[x] = this.page - middlePageLinks + x;
-                        // if the selected page is before the middle then set the pages based on the x index leading up to and after selected page
-                    }
-                    else if (this.page - middlePageLinks <= 0) {
-                        this._pageLinks[x] = x + 1;
-                        // other wise just set the array in order starting from the selected page
-                    }
-                    else {
-                        this._pageLinks[x] = this.page + x;
-                    }
+                else {
+                    this._pageLinks[x] = this.page + x;
                 }
-            };
+            }
+        };
         /**
+         * @private
          * @return {?}
          */
         TdPagingBarComponent.prototype._handleOnChange = /**
+         * @private
          * @return {?}
          */
-            function () {
-                this._calculateRows();
-                this._calculatePageLinks();
-                /** @type {?} */
-                var event = {
-                    page: this._page,
-                    maxPage: this.maxPage,
-                    pageSize: this._pageSize,
-                    total: this._total,
-                    fromRow: this._fromRow,
-                    toRow: this._toRow,
-                };
-                this._changeDetectorRef.markForCheck();
-                this.onChange.emit(event);
+        function () {
+            this._calculateRows();
+            this._calculatePageLinks();
+            /** @type {?} */
+            var event = {
+                page: this._page,
+                maxPage: this.maxPage,
+                pageSize: this._pageSize,
+                total: this._total,
+                fromRow: this._fromRow,
+                toRow: this._toRow,
             };
+            this._changeDetectorRef.markForCheck();
+            this.onChange.emit(event);
+        };
         TdPagingBarComponent.decorators = [
             { type: core.Component, args: [{
                         changeDetection: core.ChangeDetectionStrategy.OnPush,
@@ -411,12 +428,10 @@
                     }] }
         ];
         /** @nocollapse */
-        TdPagingBarComponent.ctorParameters = function () {
-            return [
-                { type: bidi.Dir, decorators: [{ type: core.Optional }] },
-                { type: core.ChangeDetectorRef }
-            ];
-        };
+        TdPagingBarComponent.ctorParameters = function () { return [
+            { type: bidi.Dir, decorators: [{ type: core.Optional }] },
+            { type: core.ChangeDetectorRef }
+        ]; };
         TdPagingBarComponent.propDecorators = {
             firstLast: [{ type: core.Input, args: ['firstLast',] }],
             initialPage: [{ type: core.Input, args: ['initialPage',] }],
@@ -430,7 +445,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var CovalentPagingModule = /** @class */ (function () {
         function CovalentPagingModule() {
@@ -445,26 +460,10 @@
         return CovalentPagingModule;
     }());
 
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
     exports.CovalentPagingModule = CovalentPagingModule;
     exports.TdPagingBarComponent = TdPagingBarComponent;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
-
+}));
 //# sourceMappingURL=covalent-core-paging.umd.js.map

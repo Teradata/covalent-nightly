@@ -1,15 +1,15 @@
+import { Component, ChangeDetectionStrategy, ViewContainerRef, ChangeDetectorRef, ViewChild, TemplateRef, Input, EventEmitter, forwardRef, ContentChildren, Output, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatTabsModule } from '@angular/material/tabs';
 import { NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
-import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { __extends } from 'tslib';
-import { Component, Input, ChangeDetectionStrategy, ChangeDetectorRef, ViewChild, TemplateRef, ViewContainerRef, ContentChildren, forwardRef, Output, EventEmitter, NgModule } from '@angular/core';
 import { TemplatePortal, PortalModule } from '@angular/cdk/portal';
+import { MatTabsModule } from '@angular/material/tabs';
+import { __extends } from 'tslib';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { mixinDisabled, mixinControlValueAccessor, mixinDisableRipple } from '@covalent/core/common';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdTabOptionBase = /** @class */ (function () {
     function TdTabOptionBase(_viewContainerRef, _changeDetectorRef) {
@@ -61,7 +61,7 @@ var TdTabOptionComponent = /** @class */ (function (_super) {
         { type: ChangeDetectorRef }
     ]; };
     TdTabOptionComponent.propDecorators = {
-        _content: [{ type: ViewChild, args: [TemplateRef,] }],
+        _content: [{ type: ViewChild, args: [TemplateRef, { static: true },] }],
         value: [{ type: Input, args: ['value',] }]
     };
     return TdTabOptionComponent;
@@ -69,7 +69,7 @@ var TdTabOptionComponent = /** @class */ (function (_super) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdTabSelectBase = /** @class */ (function () {
     function TdTabSelectBase(_changeDetectorRef) {
@@ -145,9 +145,13 @@ var TdTabSelectComponent = /** @class */ (function (_super) {
     function () {
         var _this = this;
         // subscribe to check if value changes and update the selectedIndex internally.
-        this._subs.push(this.valueChanges.subscribe(function (value) {
+        this._subs.push(this.valueChanges.subscribe((/**
+         * @param {?} value
+         * @return {?}
+         */
+        function (value) {
             _this._setValue(value);
-        }));
+        })));
     };
     /**
      * @return {?}
@@ -159,13 +163,19 @@ var TdTabSelectComponent = /** @class */ (function (_super) {
         var _this = this;
         // subscribe to listen to any tab changes.
         this._refreshValues();
-        this._subs.push(this._tabOptions.changes.subscribe(function () {
+        this._subs.push(this._tabOptions.changes.subscribe((/**
+         * @return {?}
+         */
+        function () {
             _this._refreshValues();
-        }));
+        })));
         // initialize value
-        Promise.resolve().then(function () {
+        Promise.resolve().then((/**
+         * @return {?}
+         */
+        function () {
             _this._setValue(_this.value);
-        });
+        }));
     };
     /**
      * @return {?}
@@ -175,9 +185,13 @@ var TdTabSelectComponent = /** @class */ (function (_super) {
      */
     function () {
         if (this._subs && this._subs.length) {
-            this._subs.forEach(function (sub) {
+            this._subs.forEach((/**
+             * @param {?} sub
+             * @return {?}
+             */
+            function (sub) {
                 sub.unsubscribe();
-            });
+            }));
         }
     };
     /**
@@ -209,16 +223,22 @@ var TdTabSelectComponent = /** @class */ (function (_super) {
      */
     /**
      * Refresh the values array whenever the number of tabs gets updated
+     * @private
      * @return {?}
      */
     TdTabSelectComponent.prototype._refreshValues = /**
      * Refresh the values array whenever the number of tabs gets updated
+     * @private
      * @return {?}
      */
     function () {
-        this._values = this.tabOptions.map(function (tabOption) {
+        this._values = this.tabOptions.map((/**
+         * @param {?} tabOption
+         * @return {?}
+         */
+        function (tabOption) {
             return tabOption.value;
-        });
+        }));
         this._changeDetectorRef.markForCheck();
     };
     /**
@@ -228,12 +248,14 @@ var TdTabSelectComponent = /** @class */ (function (_super) {
     /**
      * Try to set value depending if its part of our options
      * else set the value of the first tab.
+     * @private
      * @param {?} value
      * @return {?}
      */
     TdTabSelectComponent.prototype._setValue = /**
      * Try to set value depending if its part of our options
      * else set the value of the first tab.
+     * @private
      * @param {?} value
      * @return {?}
      */
@@ -255,7 +277,10 @@ var TdTabSelectComponent = /** @class */ (function (_super) {
                     providers: [
                         {
                             provide: NG_VALUE_ACCESSOR,
-                            useExisting: forwardRef(function () { return TdTabSelectComponent; }),
+                            useExisting: forwardRef((/**
+                             * @return {?}
+                             */
+                            function () { return TdTabSelectComponent; })),
                             multi: true,
                         },
                     ],
@@ -282,7 +307,7 @@ var TdTabSelectComponent = /** @class */ (function (_super) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var CovalentTabSelectModule = /** @class */ (function () {
     function CovalentTabSelectModule() {
@@ -306,21 +331,5 @@ var CovalentTabSelectModule = /** @class */ (function () {
     return CovalentTabSelectModule;
 }());
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-export { CovalentTabSelectModule, TdTabSelectBase, _TdTabSelectMixinBase, TdTabSelectComponent, TdTabOptionBase, _TdTabOptionMixinBase, TdTabOptionComponent };
-
+export { CovalentTabSelectModule, TdTabOptionBase, TdTabOptionComponent, TdTabSelectBase, TdTabSelectComponent, _TdTabOptionMixinBase, _TdTabSelectMixinBase };
 //# sourceMappingURL=covalent-core-tab-select.js.map

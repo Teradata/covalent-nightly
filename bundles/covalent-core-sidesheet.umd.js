@@ -1,12 +1,12 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/material/divider'), require('@angular/core')) :
-    typeof define === 'function' && define.amd ? define('@covalent/core/sidesheet', ['exports', '@angular/common', '@angular/material/divider', '@angular/core'], factory) :
-    (factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.sidesheet = {}),global.ng.common,global.ng.material.divider,global.ng.core));
-}(this, (function (exports,common,divider,core) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/material/divider')) :
+    typeof define === 'function' && define.amd ? define('@covalent/core/sidesheet', ['exports', '@angular/core', '@angular/common', '@angular/material/divider'], factory) :
+    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.sidesheet = {}), global.ng.core, global.ng.common, global.ng.material.divider));
+}(this, function (exports, core, common, divider) { 'use strict';
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdSidesheetContentDirective = /** @class */ (function () {
         function TdSidesheetContentDirective() {
@@ -70,15 +70,15 @@
                     }] }
         ];
         TdSidesheetComponent.propDecorators = {
-            headerExists: [{ type: core.ContentChild, args: [TdSidesheetHeaderComponent,] }],
-            actionsExist: [{ type: core.ContentChild, args: [TdSidesheetActionsDirective,] }]
+            headerExists: [{ type: core.ContentChild, args: [TdSidesheetHeaderComponent, { static: false },] }],
+            actionsExist: [{ type: core.ContentChild, args: [TdSidesheetActionsDirective, { static: false },] }]
         };
         return TdSidesheetComponent;
     }());
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
     var TD_SIDESHEET = [
@@ -101,30 +101,14 @@
         return CovalentSidesheetModule;
     }());
 
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
     exports.CovalentSidesheetModule = CovalentSidesheetModule;
-    exports.TdSidesheetContentDirective = TdSidesheetContentDirective;
-    exports.TdSidesheetTitleDirective = TdSidesheetTitleDirective;
     exports.TdSidesheetActionsDirective = TdSidesheetActionsDirective;
-    exports.TdSidesheetHeaderComponent = TdSidesheetHeaderComponent;
     exports.TdSidesheetComponent = TdSidesheetComponent;
+    exports.TdSidesheetContentDirective = TdSidesheetContentDirective;
+    exports.TdSidesheetHeaderComponent = TdSidesheetHeaderComponent;
+    exports.TdSidesheetTitleDirective = TdSidesheetTitleDirective;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
-
+}));
 //# sourceMappingURL=covalent-core-sidesheet.umd.js.map

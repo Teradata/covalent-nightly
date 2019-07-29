@@ -1,12 +1,41 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/cdk/scrolling'), require('@angular/material/toolbar'), require('@angular/material/button'), require('@angular/material/icon'), require('@angular/material/card'), require('@angular/material/divider'), require('@angular/material/sidenav'), require('@angular/core'), require('@angular/router'), require('@angular/platform-browser'), require('@covalent/core/common')) :
-    typeof define === 'function' && define.amd ? define('@covalent/core/layout', ['exports', '@angular/common', '@angular/cdk/scrolling', '@angular/material/toolbar', '@angular/material/button', '@angular/material/icon', '@angular/material/card', '@angular/material/divider', '@angular/material/sidenav', '@angular/core', '@angular/router', '@angular/platform-browser', '@covalent/core/common'], factory) :
-    (factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.layout = {}),global.ng.common,global.ng.cdk.scrolling,global.ng.material.toolbar,global.ng.material.button,global.ng.material.icon,global.ng.material.card,global.ng.material.divider,global.ng.material.sidenav,global.ng.core,global.ng.router,global.ng.platformBrowser,global.covalent.core.common));
-}(this, (function (exports,common,scrolling,toolbar,button,icon,card,divider,sidenav,core,router,platformBrowser,common$1) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/cdk/scrolling'), require('@angular/material/sidenav'), require('@angular/material/toolbar'), require('@angular/material/button'), require('@angular/material/icon'), require('@angular/material/card'), require('@angular/material/divider'), require('@covalent/core/common'), require('@angular/router'), require('@angular/platform-browser')) :
+    typeof define === 'function' && define.amd ? define('@covalent/core/layout', ['exports', '@angular/core', '@angular/common', '@angular/cdk/scrolling', '@angular/material/sidenav', '@angular/material/toolbar', '@angular/material/button', '@angular/material/icon', '@angular/material/card', '@angular/material/divider', '@covalent/core/common', '@angular/router', '@angular/platform-browser'], factory) :
+    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.layout = {}), global.ng.core, global.ng.common, global.ng.cdk.scrolling, global.ng.material.sidenav, global.ng.material.toolbar, global.ng.material.button, global.ng.material.icon, global.ng.material.card, global.ng.material.divider, global.covalent.core.common, global.ng.router, global.ng.platformBrowser));
+}(this, function (exports, core, common, scrolling, sidenav, toolbar, button, icon, card, divider, common$1, router, platformBrowser) { 'use strict';
+
+    /*! *****************************************************************************
+    Copyright (c) Microsoft Corporation. All rights reserved.
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+    this file except in compliance with the License. You may obtain a copy of the
+    License at http://www.apache.org/licenses/LICENSE-2.0
+
+    THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+    WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+    MERCHANTABLITY OR NON-INFRINGEMENT.
+
+    See the Apache Version 2.0 License for specific language governing permissions
+    and limitations under the License.
+    ***************************************************************************** */
+    /* global Reflect, Promise */
+
+    var extendStatics = function(d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+
+    function __extends(d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    }
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdLayoutComponent = /** @class */ (function () {
         function TdLayoutComponent() {
@@ -61,7 +90,8 @@
              * Checks if `ESC` should close the sidenav
              * Should only close it for `push` and `over` modes
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this.mode === 'side';
             },
             enumerable: true,
@@ -78,9 +108,9 @@
          * Proxy toggle method to access sidenav from outside (from td-layout template).
          * @return {?}
          */
-            function () {
-                return this.sidenav.toggle(!this.sidenav.opened);
-            };
+        function () {
+            return this.sidenav.toggle(!this.sidenav.opened);
+        };
         /**
          * Proxy open method to access sidenav from outside (from td-layout template).
          */
@@ -92,9 +122,9 @@
          * Proxy open method to access sidenav from outside (from td-layout template).
          * @return {?}
          */
-            function () {
-                return this.sidenav.open();
-            };
+        function () {
+            return this.sidenav.open();
+        };
         /**
          * Proxy close method to access sidenav from outside (from td-layout template).
          */
@@ -106,9 +136,9 @@
          * Proxy close method to access sidenav from outside (from td-layout template).
          * @return {?}
          */
-            function () {
-                return this.sidenav.close();
-            };
+        function () {
+            return this.sidenav.close();
+        };
         TdLayoutComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'td-layout',
@@ -117,7 +147,7 @@
                     }] }
         ];
         TdLayoutComponent.propDecorators = {
-            sidenav: [{ type: core.ViewChild, args: [sidenav.MatSidenav,] }],
+            sidenav: [{ type: core.ViewChild, args: [sidenav.MatSidenav, { static: true },] }],
             mode: [{ type: core.Input, args: ['mode',] }],
             opened: [{ type: core.Input, args: ['opened',] }],
             sidenavWidth: [{ type: core.Input, args: ['sidenavWidth',] }],
@@ -126,38 +156,9 @@
         return TdLayoutComponent;
     }());
 
-    /*! *****************************************************************************
-    Copyright (c) Microsoft Corporation. All rights reserved.
-    Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-    this file except in compliance with the License. You may obtain a copy of the
-    License at http://www.apache.org/licenses/LICENSE-2.0
-
-    THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-    KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
-    WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
-    MERCHANTABLITY OR NON-INFRINGEMENT.
-
-    See the Apache Version 2.0 License for specific language governing permissions
-    and limitations under the License.
-    ***************************************************************************** */
-    /* global Reflect, Promise */
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b)
-                if (b.hasOwnProperty(p))
-                    d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    function __extends(d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    }
-
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var LayoutToggleBase = /** @class */ (function () {
         function LayoutToggleBase() {
@@ -199,7 +200,8 @@
              * the sidenav is opened.
              * @param {?} hideWhenOpened
              * @return {?}
-             */ function (hideWhenOpened) {
+             */
+            function (hideWhenOpened) {
                 this._hideWhenOpened = hideWhenOpened;
                 if (this._initialized) {
                     this._toggleVisibility();
@@ -214,30 +216,33 @@
         LayoutToggle.prototype.ngAfterViewInit = /**
          * @return {?}
          */
-            function () {
-                var _this = this;
-                this._initialized = true;
-                if (this._layout && this._layout.sidenav) {
-                    this._toggleSubs = this._layout.sidenav._animationStarted.subscribe(function () {
-                        _this._toggleVisibility();
-                    });
-                }
-                // execute toggleVisibility since the onOpenStart and onCloseStart
-                // methods might not be executed always when the element is rendered
-                this._toggleVisibility();
-            };
+        function () {
+            var _this = this;
+            this._initialized = true;
+            if (this._layout && this._layout.sidenav) {
+                this._toggleSubs = this._layout.sidenav._animationStarted.subscribe((/**
+                 * @return {?}
+                 */
+                function () {
+                    _this._toggleVisibility();
+                }));
+            }
+            // execute toggleVisibility since the onOpenStart and onCloseStart
+            // methods might not be executed always when the element is rendered
+            this._toggleVisibility();
+        };
         /**
          * @return {?}
          */
         LayoutToggle.prototype.ngOnDestroy = /**
          * @return {?}
          */
-            function () {
-                if (this._toggleSubs) {
-                    this._toggleSubs.unsubscribe();
-                    this._toggleSubs = undefined;
-                }
-            };
+        function () {
+            if (this._toggleSubs) {
+                this._toggleSubs.unsubscribe();
+                this._toggleSubs = undefined;
+            }
+        };
         /**
          * Listens to host click event to trigger the layout toggle
          */
@@ -251,45 +256,49 @@
          * @param {?} event
          * @return {?}
          */
-            function (event) {
-                event.preventDefault();
-                if (!this.disabled) {
-                    // if layout has been provided, try triggering the click on it
-                    // else show warn message
-                    if (this._layout && this._layout.open) {
-                        this.onClick();
-                    }
-                    else {
-                        this._noLayoutMessage();
-                    }
+        function (event) {
+            event.preventDefault();
+            if (!this.disabled) {
+                // if layout has been provided, try triggering the click on it
+                // else show warn message
+                if (this._layout && this._layout.open) {
+                    this.onClick();
                 }
-            };
+                else {
+                    this._noLayoutMessage();
+                }
+            }
+        };
         /**
+         * @private
          * @return {?}
          */
         LayoutToggle.prototype._toggleVisibility = /**
+         * @private
          * @return {?}
          */
-            function () {
-                if (this._layout) {
-                    if (this._layout.sidenav.opened && this._hideWhenOpened) {
-                        this._renderer.setStyle(this._elementRef.nativeElement, 'display', 'none');
-                    }
-                    else {
-                        this._renderer.setStyle(this._elementRef.nativeElement, 'display', '');
-                    }
+        function () {
+            if (this._layout) {
+                if (this._layout.sidenav.opened && this._hideWhenOpened) {
+                    this._renderer.setStyle(this._elementRef.nativeElement, 'display', 'none');
                 }
-            };
+                else {
+                    this._renderer.setStyle(this._elementRef.nativeElement, 'display', '');
+                }
+            }
+        };
         /**
+         * @private
          * @return {?}
          */
         LayoutToggle.prototype._noLayoutMessage = /**
+         * @private
          * @return {?}
          */
-            function () {
-                /* tslint:disable-next-line */
-                console.warn('Covalent: Parent layout not found for layout toggle directive');
-            };
+        function () {
+            /* tslint:disable-next-line */
+            console.warn('Covalent: Parent layout not found for layout toggle directive');
+        };
         LayoutToggle.propDecorators = {
             hideWhenOpened: [{ type: core.Input, args: ['hideWhenOpened',] }],
             clickListener: [{ type: core.HostListener, args: ['click', ['$event'],] }]
@@ -299,7 +308,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdLayoutToggleDirective = /** @class */ (function (_super) {
         __extends(TdLayoutToggleDirective, _super);
@@ -310,8 +319,9 @@
             set: /**
              * @param {?} tdLayoutToggle
              * @return {?}
-             */ function (tdLayoutToggle) {
-                this.disabled = !(( /** @type {?} */(tdLayoutToggle)) === '' || tdLayoutToggle);
+             */
+            function (tdLayoutToggle) {
+                this.disabled = !((/** @type {?} */ (tdLayoutToggle)) === '' || tdLayoutToggle);
             },
             enumerable: true,
             configurable: true
@@ -322,22 +332,23 @@
         TdLayoutToggleDirective.prototype.onClick = /**
          * @return {?}
          */
-            function () {
-                this._layout.toggle();
-            };
+        function () {
+            this._layout.toggle();
+        };
         TdLayoutToggleDirective.decorators = [
             { type: core.Directive, args: [{
                         selector: '[tdLayoutToggle]',
                     },] }
         ];
         /** @nocollapse */
-        TdLayoutToggleDirective.ctorParameters = function () {
-            return [
-                { type: TdLayoutComponent, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core.forwardRef(function () { return TdLayoutComponent; }),] }] },
-                { type: core.Renderer2 },
-                { type: core.ElementRef }
-            ];
-        };
+        TdLayoutToggleDirective.ctorParameters = function () { return [
+            { type: TdLayoutComponent, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core.forwardRef((/**
+                             * @return {?}
+                             */
+                            function () { return TdLayoutComponent; })),] }] },
+            { type: core.Renderer2 },
+            { type: core.ElementRef }
+        ]; };
         TdLayoutToggleDirective.propDecorators = {
             tdLayoutToggle: [{ type: core.Input, args: ['tdLayoutToggle',] }]
         };
@@ -352,8 +363,9 @@
             set: /**
              * @param {?} tdLayoutClose
              * @return {?}
-             */ function (tdLayoutClose) {
-                this.disabled = !(( /** @type {?} */(tdLayoutClose)) === '' || tdLayoutClose);
+             */
+            function (tdLayoutClose) {
+                this.disabled = !((/** @type {?} */ (tdLayoutClose)) === '' || tdLayoutClose);
             },
             enumerable: true,
             configurable: true
@@ -364,22 +376,23 @@
         TdLayoutCloseDirective.prototype.onClick = /**
          * @return {?}
          */
-            function () {
-                this._layout.close();
-            };
+        function () {
+            this._layout.close();
+        };
         TdLayoutCloseDirective.decorators = [
             { type: core.Directive, args: [{
                         selector: '[tdLayoutClose]',
                     },] }
         ];
         /** @nocollapse */
-        TdLayoutCloseDirective.ctorParameters = function () {
-            return [
-                { type: TdLayoutComponent, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core.forwardRef(function () { return TdLayoutComponent; }),] }] },
-                { type: core.Renderer2 },
-                { type: core.ElementRef }
-            ];
-        };
+        TdLayoutCloseDirective.ctorParameters = function () { return [
+            { type: TdLayoutComponent, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core.forwardRef((/**
+                             * @return {?}
+                             */
+                            function () { return TdLayoutComponent; })),] }] },
+            { type: core.Renderer2 },
+            { type: core.ElementRef }
+        ]; };
         TdLayoutCloseDirective.propDecorators = {
             tdLayoutClose: [{ type: core.Input, args: ['tdLayoutClose',] }]
         };
@@ -394,8 +407,9 @@
             set: /**
              * @param {?} tdLayoutOpen
              * @return {?}
-             */ function (tdLayoutOpen) {
-                this.disabled = !(( /** @type {?} */(tdLayoutOpen)) === '' || tdLayoutOpen);
+             */
+            function (tdLayoutOpen) {
+                this.disabled = !((/** @type {?} */ (tdLayoutOpen)) === '' || tdLayoutOpen);
             },
             enumerable: true,
             configurable: true
@@ -406,22 +420,23 @@
         TdLayoutOpenDirective.prototype.onClick = /**
          * @return {?}
          */
-            function () {
-                this._layout.open();
-            };
+        function () {
+            this._layout.open();
+        };
         TdLayoutOpenDirective.decorators = [
             { type: core.Directive, args: [{
                         selector: '[tdLayoutOpen]',
                     },] }
         ];
         /** @nocollapse */
-        TdLayoutOpenDirective.ctorParameters = function () {
-            return [
-                { type: TdLayoutComponent, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core.forwardRef(function () { return TdLayoutComponent; }),] }] },
-                { type: core.Renderer2 },
-                { type: core.ElementRef }
-            ];
-        };
+        TdLayoutOpenDirective.ctorParameters = function () { return [
+            { type: TdLayoutComponent, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core.forwardRef((/**
+                             * @return {?}
+                             */
+                            function () { return TdLayoutComponent; })),] }] },
+            { type: core.Renderer2 },
+            { type: core.ElementRef }
+        ]; };
         TdLayoutOpenDirective.propDecorators = {
             tdLayoutClose: [{ type: core.Input, args: ['tdLayoutOpen',] }]
         };
@@ -430,7 +445,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdLayoutNavComponent = /** @class */ (function () {
         function TdLayoutNavComponent(_router) {
@@ -450,7 +465,8 @@
             get: /**
              * Checks if router was injected.
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return !!this._router && !!this.navigationRoute;
             },
             enumerable: true,
@@ -462,11 +478,11 @@
         TdLayoutNavComponent.prototype.handleNavigationClick = /**
          * @return {?}
          */
-            function () {
-                if (this.routerEnabled) {
-                    this._router.navigateByUrl(this.navigationRoute);
-                }
-            };
+        function () {
+            if (this.routerEnabled) {
+                this._router.navigateByUrl(this.navigationRoute);
+            }
+        };
         TdLayoutNavComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'td-layout-nav',
@@ -475,11 +491,9 @@
                     }] }
         ];
         /** @nocollapse */
-        TdLayoutNavComponent.ctorParameters = function () {
-            return [
-                { type: router.Router, decorators: [{ type: core.Optional }] }
-            ];
-        };
+        TdLayoutNavComponent.ctorParameters = function () { return [
+            { type: router.Router, decorators: [{ type: core.Optional }] }
+        ]; };
         TdLayoutNavComponent.propDecorators = {
             toolbarTitle: [{ type: core.Input, args: ['toolbarTitle',] }],
             icon: [{ type: core.Input, args: ['icon',] }],
@@ -492,7 +506,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdLayoutNavListComponent = /** @class */ (function () {
         function TdLayoutNavListComponent(_router) {
@@ -554,7 +568,8 @@
              * Checks if `ESC` should close the sidenav
              * Should only close it for `push` and `over` modes
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this.mode === 'side';
             },
             enumerable: true,
@@ -567,7 +582,8 @@
             get: /**
              * Checks if router was injected.
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return !!this._router && !!this.navigationRoute;
             },
             enumerable: true,
@@ -579,11 +595,11 @@
         TdLayoutNavListComponent.prototype.handleNavigationClick = /**
          * @return {?}
          */
-            function () {
-                if (this.routerEnabled) {
-                    this._router.navigateByUrl(this.navigationRoute);
-                }
-            };
+        function () {
+            if (this.routerEnabled) {
+                this._router.navigateByUrl(this.navigationRoute);
+            }
+        };
         /**
          * Proxy toggle method to access sidenav from outside (from td-layout template).
          */
@@ -595,9 +611,9 @@
          * Proxy toggle method to access sidenav from outside (from td-layout template).
          * @return {?}
          */
-            function () {
-                return this.sidenav.toggle(!this.sidenav.opened);
-            };
+        function () {
+            return this.sidenav.toggle(!this.sidenav.opened);
+        };
         /**
          * Proxy open method to access sidenav from outside (from td-layout template).
          */
@@ -609,9 +625,9 @@
          * Proxy open method to access sidenav from outside (from td-layout template).
          * @return {?}
          */
-            function () {
-                return this.sidenav.open();
-            };
+        function () {
+            return this.sidenav.open();
+        };
         /**
          * Proxy close method to access sidenav from outside (from td-layout template).
          */
@@ -623,9 +639,9 @@
          * Proxy close method to access sidenav from outside (from td-layout template).
          * @return {?}
          */
-            function () {
-                return this.sidenav.close();
-            };
+        function () {
+            return this.sidenav.close();
+        };
         TdLayoutNavListComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'td-layout-nav-list',
@@ -634,13 +650,11 @@
                     }] }
         ];
         /** @nocollapse */
-        TdLayoutNavListComponent.ctorParameters = function () {
-            return [
-                { type: router.Router, decorators: [{ type: core.Optional }] }
-            ];
-        };
+        TdLayoutNavListComponent.ctorParameters = function () { return [
+            { type: router.Router, decorators: [{ type: core.Optional }] }
+        ]; };
         TdLayoutNavListComponent.propDecorators = {
-            sidenav: [{ type: core.ViewChild, args: [sidenav.MatSidenav,] }],
+            sidenav: [{ type: core.ViewChild, args: [sidenav.MatSidenav, { static: true },] }],
             toolbarTitle: [{ type: core.Input, args: ['toolbarTitle',] }],
             icon: [{ type: core.Input, args: ['icon',] }],
             logo: [{ type: core.Input, args: ['logo',] }],
@@ -656,7 +670,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdLayoutNavListToggleDirective = /** @class */ (function (_super) {
         __extends(TdLayoutNavListToggleDirective, _super);
@@ -667,8 +681,9 @@
             set: /**
              * @param {?} tdLayoutNavListToggle
              * @return {?}
-             */ function (tdLayoutNavListToggle) {
-                this.disabled = !(( /** @type {?} */(tdLayoutNavListToggle)) === '' || tdLayoutNavListToggle);
+             */
+            function (tdLayoutNavListToggle) {
+                this.disabled = !((/** @type {?} */ (tdLayoutNavListToggle)) === '' || tdLayoutNavListToggle);
             },
             enumerable: true,
             configurable: true
@@ -679,22 +694,23 @@
         TdLayoutNavListToggleDirective.prototype.onClick = /**
          * @return {?}
          */
-            function () {
-                this._layout.toggle();
-            };
+        function () {
+            this._layout.toggle();
+        };
         TdLayoutNavListToggleDirective.decorators = [
             { type: core.Directive, args: [{
                         selector: '[tdLayoutNavListToggle]',
                     },] }
         ];
         /** @nocollapse */
-        TdLayoutNavListToggleDirective.ctorParameters = function () {
-            return [
-                { type: TdLayoutNavListComponent, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core.forwardRef(function () { return TdLayoutNavListComponent; }),] }] },
-                { type: core.Renderer2 },
-                { type: core.ElementRef }
-            ];
-        };
+        TdLayoutNavListToggleDirective.ctorParameters = function () { return [
+            { type: TdLayoutNavListComponent, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core.forwardRef((/**
+                             * @return {?}
+                             */
+                            function () { return TdLayoutNavListComponent; })),] }] },
+            { type: core.Renderer2 },
+            { type: core.ElementRef }
+        ]; };
         TdLayoutNavListToggleDirective.propDecorators = {
             tdLayoutNavListToggle: [{ type: core.Input, args: ['tdLayoutNavListToggle',] }]
         };
@@ -709,8 +725,9 @@
             set: /**
              * @param {?} tdLayoutNavListClose
              * @return {?}
-             */ function (tdLayoutNavListClose) {
-                this.disabled = !(( /** @type {?} */(tdLayoutNavListClose)) === '' || tdLayoutNavListClose);
+             */
+            function (tdLayoutNavListClose) {
+                this.disabled = !((/** @type {?} */ (tdLayoutNavListClose)) === '' || tdLayoutNavListClose);
             },
             enumerable: true,
             configurable: true
@@ -721,22 +738,23 @@
         TdLayoutNavListCloseDirective.prototype.onClick = /**
          * @return {?}
          */
-            function () {
-                this._layout.close();
-            };
+        function () {
+            this._layout.close();
+        };
         TdLayoutNavListCloseDirective.decorators = [
             { type: core.Directive, args: [{
                         selector: '[tdLayoutNavListClose]',
                     },] }
         ];
         /** @nocollapse */
-        TdLayoutNavListCloseDirective.ctorParameters = function () {
-            return [
-                { type: TdLayoutNavListComponent, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core.forwardRef(function () { return TdLayoutNavListComponent; }),] }] },
-                { type: core.Renderer2 },
-                { type: core.ElementRef }
-            ];
-        };
+        TdLayoutNavListCloseDirective.ctorParameters = function () { return [
+            { type: TdLayoutNavListComponent, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core.forwardRef((/**
+                             * @return {?}
+                             */
+                            function () { return TdLayoutNavListComponent; })),] }] },
+            { type: core.Renderer2 },
+            { type: core.ElementRef }
+        ]; };
         TdLayoutNavListCloseDirective.propDecorators = {
             tdLayoutNavListClose: [{ type: core.Input, args: ['tdLayoutNavListClose',] }]
         };
@@ -751,8 +769,9 @@
             set: /**
              * @param {?} tdLayoutNavListOpen
              * @return {?}
-             */ function (tdLayoutNavListOpen) {
-                this.disabled = !(( /** @type {?} */(tdLayoutNavListOpen)) === '' || tdLayoutNavListOpen);
+             */
+            function (tdLayoutNavListOpen) {
+                this.disabled = !((/** @type {?} */ (tdLayoutNavListOpen)) === '' || tdLayoutNavListOpen);
             },
             enumerable: true,
             configurable: true
@@ -763,22 +782,23 @@
         TdLayoutNavListOpenDirective.prototype.onClick = /**
          * @return {?}
          */
-            function () {
-                this._layout.open();
-            };
+        function () {
+            this._layout.open();
+        };
         TdLayoutNavListOpenDirective.decorators = [
             { type: core.Directive, args: [{
                         selector: '[tdLayoutNavListOpen]',
                     },] }
         ];
         /** @nocollapse */
-        TdLayoutNavListOpenDirective.ctorParameters = function () {
-            return [
-                { type: TdLayoutNavListComponent, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core.forwardRef(function () { return TdLayoutNavListComponent; }),] }] },
-                { type: core.Renderer2 },
-                { type: core.ElementRef }
-            ];
-        };
+        TdLayoutNavListOpenDirective.ctorParameters = function () { return [
+            { type: TdLayoutNavListComponent, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core.forwardRef((/**
+                             * @return {?}
+                             */
+                            function () { return TdLayoutNavListComponent; })),] }] },
+            { type: core.Renderer2 },
+            { type: core.ElementRef }
+        ]; };
         TdLayoutNavListOpenDirective.propDecorators = {
             tdLayoutNavListOpen: [{ type: core.Input, args: ['tdLayoutNavListOpen',] }]
         };
@@ -787,7 +807,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdLayoutCardOverComponent = /** @class */ (function () {
         function TdLayoutCardOverComponent() {
@@ -824,7 +844,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdLayoutManageListComponent = /** @class */ (function () {
         function TdLayoutManageListComponent() {
@@ -879,7 +899,8 @@
              * Checks if `ESC` should close the sidenav
              * Should only close it for `push` and `over` modes
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this.mode === 'side';
             },
             enumerable: true,
@@ -896,9 +917,9 @@
          * Proxy toggle method to access sidenav from outside (from td-layout template).
          * @return {?}
          */
-            function () {
-                return this.sidenav.toggle(!this.sidenav.opened);
-            };
+        function () {
+            return this.sidenav.toggle(!this.sidenav.opened);
+        };
         /**
          * Proxy open method to access sidenav from outside (from td-layout template).
          */
@@ -910,9 +931,9 @@
          * Proxy open method to access sidenav from outside (from td-layout template).
          * @return {?}
          */
-            function () {
-                return this.sidenav.open();
-            };
+        function () {
+            return this.sidenav.open();
+        };
         /**
          * Proxy close method to access sidenav from outside (from td-layout template).
          */
@@ -924,9 +945,9 @@
          * Proxy close method to access sidenav from outside (from td-layout template).
          * @return {?}
          */
-            function () {
-                return this.sidenav.close();
-            };
+        function () {
+            return this.sidenav.close();
+        };
         TdLayoutManageListComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'td-layout-manage-list',
@@ -935,7 +956,7 @@
                     }] }
         ];
         TdLayoutManageListComponent.propDecorators = {
-            sidenav: [{ type: core.ViewChild, args: [sidenav.MatSidenav,] }],
+            sidenav: [{ type: core.ViewChild, args: [sidenav.MatSidenav, { static: true },] }],
             mode: [{ type: core.Input, args: ['mode',] }],
             opened: [{ type: core.Input, args: ['opened',] }],
             sidenavWidth: [{ type: core.Input, args: ['sidenavWidth',] }],
@@ -946,7 +967,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdLayoutManageListToggleDirective = /** @class */ (function (_super) {
         __extends(TdLayoutManageListToggleDirective, _super);
@@ -957,8 +978,9 @@
             set: /**
              * @param {?} tdLayoutManageListToggle
              * @return {?}
-             */ function (tdLayoutManageListToggle) {
-                this.disabled = !(( /** @type {?} */(tdLayoutManageListToggle)) === '' || tdLayoutManageListToggle);
+             */
+            function (tdLayoutManageListToggle) {
+                this.disabled = !((/** @type {?} */ (tdLayoutManageListToggle)) === '' || tdLayoutManageListToggle);
             },
             enumerable: true,
             configurable: true
@@ -969,22 +991,23 @@
         TdLayoutManageListToggleDirective.prototype.onClick = /**
          * @return {?}
          */
-            function () {
-                this._layout.toggle();
-            };
+        function () {
+            this._layout.toggle();
+        };
         TdLayoutManageListToggleDirective.decorators = [
             { type: core.Directive, args: [{
                         selector: '[tdLayoutManageListToggle]',
                     },] }
         ];
         /** @nocollapse */
-        TdLayoutManageListToggleDirective.ctorParameters = function () {
-            return [
-                { type: TdLayoutManageListComponent, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core.forwardRef(function () { return TdLayoutManageListComponent; }),] }] },
-                { type: core.Renderer2 },
-                { type: core.ElementRef }
-            ];
-        };
+        TdLayoutManageListToggleDirective.ctorParameters = function () { return [
+            { type: TdLayoutManageListComponent, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core.forwardRef((/**
+                             * @return {?}
+                             */
+                            function () { return TdLayoutManageListComponent; })),] }] },
+            { type: core.Renderer2 },
+            { type: core.ElementRef }
+        ]; };
         TdLayoutManageListToggleDirective.propDecorators = {
             tdLayoutManageListToggle: [{ type: core.Input, args: ['tdLayoutManageListToggle',] }]
         };
@@ -999,8 +1022,9 @@
             set: /**
              * @param {?} tdLayoutManageListClose
              * @return {?}
-             */ function (tdLayoutManageListClose) {
-                this.disabled = !(( /** @type {?} */(tdLayoutManageListClose)) === '' || tdLayoutManageListClose);
+             */
+            function (tdLayoutManageListClose) {
+                this.disabled = !((/** @type {?} */ (tdLayoutManageListClose)) === '' || tdLayoutManageListClose);
             },
             enumerable: true,
             configurable: true
@@ -1011,22 +1035,23 @@
         TdLayoutManageListCloseDirective.prototype.onClick = /**
          * @return {?}
          */
-            function () {
-                this._layout.close();
-            };
+        function () {
+            this._layout.close();
+        };
         TdLayoutManageListCloseDirective.decorators = [
             { type: core.Directive, args: [{
                         selector: '[tdLayoutManageListClose]',
                     },] }
         ];
         /** @nocollapse */
-        TdLayoutManageListCloseDirective.ctorParameters = function () {
-            return [
-                { type: TdLayoutManageListComponent, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core.forwardRef(function () { return TdLayoutManageListComponent; }),] }] },
-                { type: core.Renderer2 },
-                { type: core.ElementRef }
-            ];
-        };
+        TdLayoutManageListCloseDirective.ctorParameters = function () { return [
+            { type: TdLayoutManageListComponent, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core.forwardRef((/**
+                             * @return {?}
+                             */
+                            function () { return TdLayoutManageListComponent; })),] }] },
+            { type: core.Renderer2 },
+            { type: core.ElementRef }
+        ]; };
         TdLayoutManageListCloseDirective.propDecorators = {
             tdLayoutManageListClose: [{ type: core.Input, args: ['tdLayoutManageListClose',] }]
         };
@@ -1041,8 +1066,9 @@
             set: /**
              * @param {?} tdLayoutManageListOpen
              * @return {?}
-             */ function (tdLayoutManageListOpen) {
-                this.disabled = !(( /** @type {?} */(tdLayoutManageListOpen)) === '' || tdLayoutManageListOpen);
+             */
+            function (tdLayoutManageListOpen) {
+                this.disabled = !((/** @type {?} */ (tdLayoutManageListOpen)) === '' || tdLayoutManageListOpen);
             },
             enumerable: true,
             configurable: true
@@ -1053,22 +1079,23 @@
         TdLayoutManageListOpenDirective.prototype.onClick = /**
          * @return {?}
          */
-            function () {
-                this._layout.open();
-            };
+        function () {
+            this._layout.open();
+        };
         TdLayoutManageListOpenDirective.decorators = [
             { type: core.Directive, args: [{
                         selector: '[tdLayoutManageListOpen]',
                     },] }
         ];
         /** @nocollapse */
-        TdLayoutManageListOpenDirective.ctorParameters = function () {
-            return [
-                { type: TdLayoutManageListComponent, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core.forwardRef(function () { return TdLayoutManageListComponent; }),] }] },
-                { type: core.Renderer2 },
-                { type: core.ElementRef }
-            ];
-        };
+        TdLayoutManageListOpenDirective.ctorParameters = function () { return [
+            { type: TdLayoutManageListComponent, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core.forwardRef((/**
+                             * @return {?}
+                             */
+                            function () { return TdLayoutManageListComponent; })),] }] },
+            { type: core.Renderer2 },
+            { type: core.ElementRef }
+        ]; };
         TdLayoutManageListOpenDirective.propDecorators = {
             tdLayoutManageListOpen: [{ type: core.Input, args: ['tdLayoutManageListOpen',] }]
         };
@@ -1077,7 +1104,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdLayoutFooterComponent = /** @class */ (function () {
         function TdLayoutFooterComponent(_renderer, _elementRef) {
@@ -1088,7 +1115,8 @@
         Object.defineProperty(TdLayoutFooterComponent.prototype, "color", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._color;
             },
             /**
@@ -1102,7 +1130,8 @@
              * Optional color option: primary | accent | warn.
              * @param {?} color
              * @return {?}
-             */ function (color) {
+             */
+            function (color) {
                 if (color) {
                     this._renderer.removeClass(this._elementRef.nativeElement, 'mat-' + this._color);
                     this._color = color;
@@ -1121,12 +1150,10 @@
                     }] }
         ];
         /** @nocollapse */
-        TdLayoutFooterComponent.ctorParameters = function () {
-            return [
-                { type: core.Renderer2 },
-                { type: core.ElementRef }
-            ];
-        };
+        TdLayoutFooterComponent.ctorParameters = function () { return [
+            { type: core.Renderer2 },
+            { type: core.ElementRef }
+        ]; };
         TdLayoutFooterComponent.propDecorators = {
             color: [{ type: core.Input, args: ['color',] }]
         };
@@ -1135,7 +1162,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdNavigationDrawerMenuDirective = /** @class */ (function () {
         function TdNavigationDrawerMenuDirective() {
@@ -1167,7 +1194,8 @@
         Object.defineProperty(TdNavigationDrawerComponent.prototype, "menuToggled", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._menuToggled;
             },
             enumerable: true,
@@ -1180,7 +1208,8 @@
             get: /**
              * Checks if there is a [TdNavigationDrawerMenuDirective] has content.
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._drawerMenu ? this._drawerMenu.length > 0 : false;
             },
             enumerable: true,
@@ -1193,7 +1222,8 @@
             get: /**
              * Checks if there is a [TdNavigationDrawerToolbarDirective] has content.
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._toolbar ? this._toolbar.length > 0 : false;
             },
             enumerable: true,
@@ -1206,7 +1236,8 @@
             get: /**
              * Checks if there is a background image for the toolbar.
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return !!this._backgroundImage;
             },
             enumerable: true,
@@ -1226,7 +1257,8 @@
              * URL used will be sanitized, but it should be always from a trusted source to avoid XSS.
              * @param {?} backgroundUrl
              * @return {?}
-             */ function (backgroundUrl) {
+             */
+            function (backgroundUrl) {
                 if (backgroundUrl) {
                     /** @type {?} */
                     var sanitizedUrl = this._sanitize.sanitize(core.SecurityContext.RESOURCE_URL, backgroundUrl);
@@ -1239,7 +1271,8 @@
         Object.defineProperty(TdNavigationDrawerComponent.prototype, "backgroundImage", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._backgroundImage;
             },
             enumerable: true,
@@ -1252,7 +1285,8 @@
             get: /**
              * Checks if router was injected.
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return !!this._router && !!this.navigationRoute;
             },
             enumerable: true,
@@ -1264,49 +1298,53 @@
         TdNavigationDrawerComponent.prototype.ngOnInit = /**
          * @return {?}
          */
-            function () {
-                var _this = this;
-                this._closeSubscription = this._layout.sidenav.openedChange.subscribe(function (opened) {
-                    if (!opened) {
-                        _this._menuToggled = false;
-                    }
-                });
-            };
+        function () {
+            var _this = this;
+            this._closeSubscription = this._layout.sidenav.openedChange.subscribe((/**
+             * @param {?} opened
+             * @return {?}
+             */
+            function (opened) {
+                if (!opened) {
+                    _this._menuToggled = false;
+                }
+            }));
+        };
         /**
          * @return {?}
          */
         TdNavigationDrawerComponent.prototype.ngOnDestroy = /**
          * @return {?}
          */
-            function () {
-                if (this._closeSubscription) {
-                    this._closeSubscription.unsubscribe();
-                    this._closeSubscription = undefined;
-                }
-            };
+        function () {
+            if (this._closeSubscription) {
+                this._closeSubscription.unsubscribe();
+                this._closeSubscription = undefined;
+            }
+        };
         /**
          * @return {?}
          */
         TdNavigationDrawerComponent.prototype.toggleMenu = /**
          * @return {?}
          */
-            function () {
-                if (this.isMenuAvailable) {
-                    this._menuToggled = !this._menuToggled;
-                }
-            };
+        function () {
+            if (this.isMenuAvailable) {
+                this._menuToggled = !this._menuToggled;
+            }
+        };
         /**
          * @return {?}
          */
         TdNavigationDrawerComponent.prototype.handleNavigationClick = /**
          * @return {?}
          */
-            function () {
-                if (this.routerEnabled) {
-                    this._router.navigateByUrl(this.navigationRoute);
-                    this.close();
-                }
-            };
+        function () {
+            if (this.routerEnabled) {
+                this._router.navigateByUrl(this.navigationRoute);
+                this.close();
+            }
+        };
         /**
          * Proxy toggle method to access sidenav from outside (from td-layout template).
          */
@@ -1318,9 +1356,9 @@
          * Proxy toggle method to access sidenav from outside (from td-layout template).
          * @return {?}
          */
-            function () {
-                return this._layout.toggle();
-            };
+        function () {
+            return this._layout.toggle();
+        };
         /**
          * Proxy open method to access sidenav from outside (from td-layout template).
          */
@@ -1332,9 +1370,9 @@
          * Proxy open method to access sidenav from outside (from td-layout template).
          * @return {?}
          */
-            function () {
-                return this._layout.open();
-            };
+        function () {
+            return this._layout.open();
+        };
         /**
          * Proxy close method to access sidenav from outside (from td-layout template).
          */
@@ -1346,9 +1384,9 @@
          * Proxy close method to access sidenav from outside (from td-layout template).
          * @return {?}
          */
-            function () {
-                return this._layout.close();
-            };
+        function () {
+            return this._layout.close();
+        };
         TdNavigationDrawerComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'td-navigation-drawer',
@@ -1358,13 +1396,14 @@
                     }] }
         ];
         /** @nocollapse */
-        TdNavigationDrawerComponent.ctorParameters = function () {
-            return [
-                { type: TdLayoutComponent, decorators: [{ type: core.Inject, args: [core.forwardRef(function () { return TdLayoutComponent; }),] }] },
-                { type: router.Router, decorators: [{ type: core.Optional }] },
-                { type: platformBrowser.DomSanitizer }
-            ];
-        };
+        TdNavigationDrawerComponent.ctorParameters = function () { return [
+            { type: TdLayoutComponent, decorators: [{ type: core.Inject, args: [core.forwardRef((/**
+                             * @return {?}
+                             */
+                            function () { return TdLayoutComponent; })),] }] },
+            { type: router.Router, decorators: [{ type: core.Optional }] },
+            { type: platformBrowser.DomSanitizer }
+        ]; };
         TdNavigationDrawerComponent.propDecorators = {
             _drawerMenu: [{ type: core.ContentChildren, args: [TdNavigationDrawerMenuDirective,] }],
             _toolbar: [{ type: core.ContentChildren, args: [TdNavigationDrawerToolbarDirective,] }],
@@ -1383,7 +1422,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
     var TD_LAYOUTS = [
@@ -1428,46 +1467,30 @@
         return CovalentLayoutModule;
     }());
 
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
     exports.CovalentLayoutModule = CovalentLayoutModule;
-    exports.TdLayoutComponent = TdLayoutComponent;
-    exports.TdLayoutToggleDirective = TdLayoutToggleDirective;
-    exports.TdLayoutCloseDirective = TdLayoutCloseDirective;
-    exports.TdLayoutOpenDirective = TdLayoutOpenDirective;
-    exports.LayoutToggleBase = LayoutToggleBase;
-    exports._TdLayoutToggleMixinBase = _TdLayoutToggleMixinBase;
     exports.LayoutToggle = LayoutToggle;
+    exports.LayoutToggleBase = LayoutToggleBase;
     exports.TdLayoutCardOverComponent = TdLayoutCardOverComponent;
+    exports.TdLayoutCloseDirective = TdLayoutCloseDirective;
+    exports.TdLayoutComponent = TdLayoutComponent;
     exports.TdLayoutFooterComponent = TdLayoutFooterComponent;
-    exports.TdLayoutManageListComponent = TdLayoutManageListComponent;
-    exports.TdLayoutManageListToggleDirective = TdLayoutManageListToggleDirective;
     exports.TdLayoutManageListCloseDirective = TdLayoutManageListCloseDirective;
+    exports.TdLayoutManageListComponent = TdLayoutManageListComponent;
     exports.TdLayoutManageListOpenDirective = TdLayoutManageListOpenDirective;
+    exports.TdLayoutManageListToggleDirective = TdLayoutManageListToggleDirective;
     exports.TdLayoutNavComponent = TdLayoutNavComponent;
-    exports.TdLayoutNavListComponent = TdLayoutNavListComponent;
-    exports.TdLayoutNavListToggleDirective = TdLayoutNavListToggleDirective;
     exports.TdLayoutNavListCloseDirective = TdLayoutNavListCloseDirective;
+    exports.TdLayoutNavListComponent = TdLayoutNavListComponent;
     exports.TdLayoutNavListOpenDirective = TdLayoutNavListOpenDirective;
+    exports.TdLayoutNavListToggleDirective = TdLayoutNavListToggleDirective;
+    exports.TdLayoutOpenDirective = TdLayoutOpenDirective;
+    exports.TdLayoutToggleDirective = TdLayoutToggleDirective;
+    exports.TdNavigationDrawerComponent = TdNavigationDrawerComponent;
     exports.TdNavigationDrawerMenuDirective = TdNavigationDrawerMenuDirective;
     exports.TdNavigationDrawerToolbarDirective = TdNavigationDrawerToolbarDirective;
-    exports.TdNavigationDrawerComponent = TdNavigationDrawerComponent;
+    exports._TdLayoutToggleMixinBase = _TdLayoutToggleMixinBase;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
-
+}));
 //# sourceMappingURL=covalent-core-layout.umd.js.map

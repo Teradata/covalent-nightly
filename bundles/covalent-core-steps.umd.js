@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/material/icon'), require('@angular/material/core'), require('@angular/cdk/portal'), require('@covalent/core/common'), require('@angular/cdk/bidi'), require('@angular/cdk/keycodes'), require('@angular/cdk/scrolling'), require('@angular/cdk/coercion'), require('@angular/core'), require('rxjs'), require('rxjs/operators')) :
-    typeof define === 'function' && define.amd ? define('@covalent/core/steps', ['exports', '@angular/common', '@angular/material/icon', '@angular/material/core', '@angular/cdk/portal', '@covalent/core/common', '@angular/cdk/bidi', '@angular/cdk/keycodes', '@angular/cdk/scrolling', '@angular/cdk/coercion', '@angular/core', 'rxjs', 'rxjs/operators'], factory) :
-    (factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.steps = {}),global.ng.common,global.ng.material.icon,global.ng.material.core,global.ng.cdk.portal,global.covalent.core.common,global.ng.cdk.bidi,global.ng.cdk.keycodes,global.ng.cdk.scrolling,global.ng.cdk.coercion,global.ng.core,global.rxjs,global.rxjs.operators));
-}(this, (function (exports,common,icon,core,portal,common$1,bidi,keycodes,scrolling,coercion,core$1,rxjs,operators) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/cdk/portal'), require('@angular/cdk/scrolling'), require('@angular/material/icon'), require('@angular/material/core'), require('@covalent/core/common'), require('@angular/cdk/coercion'), require('rxjs'), require('rxjs/operators'), require('@angular/cdk/bidi'), require('@angular/cdk/keycodes')) :
+    typeof define === 'function' && define.amd ? define('@covalent/core/steps', ['exports', '@angular/core', '@angular/common', '@angular/cdk/portal', '@angular/cdk/scrolling', '@angular/material/icon', '@angular/material/core', '@covalent/core/common', '@angular/cdk/coercion', 'rxjs', 'rxjs/operators', '@angular/cdk/bidi', '@angular/cdk/keycodes'], factory) :
+    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.steps = {}), global.ng.core, global.ng.common, global.ng.cdk.portal, global.ng.cdk.scrolling, global.ng.material.icon, global.ng.material.core, global.covalent.core.common, global.ng.cdk.coercion, global.rxjs, global.rxjs.operators, global.ng.cdk.bidi, global.ng.cdk.keycodes));
+}(this, function (exports, core, common, portal, scrolling, icon, core$1, common$1, coercion, rxjs, operators, bidi, keycodes) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -19,14 +19,14 @@
     and limitations under the License.
     ***************************************************************************** */
     /* global Reflect, Promise */
-    var extendStatics = function (d, b) {
+
+    var extendStatics = function(d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b)
-                if (b.hasOwnProperty(p))
-                    d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
+
     function __extends(d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -35,7 +35,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @enum {string} */
     var StepState = {
@@ -49,17 +49,15 @@
             return _super.call(this, templateRef, viewContainerRef) || this;
         }
         TdStepLabelDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: core.Directive, args: [{
                         selector: '[td-step-label]ng-template',
                     },] }
         ];
         /** @nocollapse */
-        TdStepLabelDirective.ctorParameters = function () {
-            return [
-                { type: core$1.TemplateRef },
-                { type: core$1.ViewContainerRef }
-            ];
-        };
+        TdStepLabelDirective.ctorParameters = function () { return [
+            { type: core.TemplateRef },
+            { type: core.ViewContainerRef }
+        ]; };
         return TdStepLabelDirective;
     }(portal.TemplatePortalDirective));
     var TdStepActionsDirective = /** @class */ (function (_super) {
@@ -68,17 +66,15 @@
             return _super.call(this, templateRef, viewContainerRef) || this;
         }
         TdStepActionsDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: core.Directive, args: [{
                         selector: '[td-step-actions]ng-template',
                     },] }
         ];
         /** @nocollapse */
-        TdStepActionsDirective.ctorParameters = function () {
-            return [
-                { type: core$1.TemplateRef },
-                { type: core$1.ViewContainerRef }
-            ];
-        };
+        TdStepActionsDirective.ctorParameters = function () { return [
+            { type: core.TemplateRef },
+            { type: core.ViewContainerRef }
+        ]; };
         return TdStepActionsDirective;
     }(portal.TemplatePortalDirective));
     var TdStepSummaryDirective = /** @class */ (function (_super) {
@@ -87,17 +83,15 @@
             return _super.call(this, templateRef, viewContainerRef) || this;
         }
         TdStepSummaryDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: core.Directive, args: [{
                         selector: '[td-step-summary]ng-template',
                     },] }
         ];
         /** @nocollapse */
-        TdStepSummaryDirective.ctorParameters = function () {
-            return [
-                { type: core$1.TemplateRef },
-                { type: core$1.ViewContainerRef }
-            ];
-        };
+        TdStepSummaryDirective.ctorParameters = function () { return [
+            { type: core.TemplateRef },
+            { type: core.ViewContainerRef }
+        ]; };
         return TdStepSummaryDirective;
     }(portal.TemplatePortalDirective));
     var TdStepBase = /** @class */ (function () {
@@ -119,18 +113,19 @@
              * activated?: function
              * Event emitted when [TdStepComponent] is activated.
              */
-            _this.onActivated = new core$1.EventEmitter();
+            _this.onActivated = new core.EventEmitter();
             /**
              * deactivated?: function
              * Event emitted when [TdStepComponent] is deactivated.
              */
-            _this.onDeactivated = new core$1.EventEmitter();
+            _this.onDeactivated = new core.EventEmitter();
             return _this;
         }
         Object.defineProperty(TdStepComponent.prototype, "stepContent", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._contentPortal;
             },
             enumerable: true,
@@ -139,7 +134,8 @@
         Object.defineProperty(TdStepComponent.prototype, "active", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._active;
             },
             /**
@@ -151,7 +147,8 @@
              * Toggles [TdStepComponent] between active/deactive.
              * @param {?} active
              * @return {?}
-             */ function (active) {
+             */
+            function (active) {
                 this._setActive(coercion.coerceBooleanProperty(active));
             },
             enumerable: true,
@@ -160,7 +157,8 @@
         Object.defineProperty(TdStepComponent.prototype, "state", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._state;
             },
             /**
@@ -174,7 +172,8 @@
              * Defaults to [StepState.None | 'none'].
              * @param {?} state
              * @return {?}
-             */ function (state) {
+             */
+            function (state) {
                 switch (state) {
                     case StepState.Complete:
                         this._state = StepState.Complete;
@@ -196,9 +195,9 @@
         TdStepComponent.prototype.ngOnInit = /**
          * @return {?}
          */
-            function () {
-                this._contentPortal = new portal.TemplatePortal(this._content, this._viewContainerRef);
-            };
+        function () {
+            this._contentPortal = new portal.TemplatePortal(this._content, this._viewContainerRef);
+        };
         /**
          * Toggle active state of [TdStepComponent]
          * retuns 'true' if successful, else 'false'.
@@ -213,9 +212,9 @@
          * retuns 'true' if successful, else 'false'.
          * @return {?}
          */
-            function () {
-                return this._setActive(!this._active);
-            };
+        function () {
+            return this._setActive(!this._active);
+        };
         /**
          * Opens [TdStepComponent]
          * retuns 'true' if successful, else 'false'.
@@ -230,9 +229,9 @@
          * retuns 'true' if successful, else 'false'.
          * @return {?}
          */
-            function () {
-                return this._setActive(true);
-            };
+        function () {
+            return this._setActive(true);
+        };
         /**
          * Closes [TdStepComponent]
          * retuns 'true' if successful, else 'false'.
@@ -247,9 +246,9 @@
          * retuns 'true' if successful, else 'false'.
          * @return {?}
          */
-            function () {
-                return this._setActive(false);
-            };
+        function () {
+            return this._setActive(false);
+        };
         /**
          * Returns 'true' if [state] equals to [StepState.Complete | 'complete'], else 'false'.
          */
@@ -261,9 +260,9 @@
          * Returns 'true' if [state] equals to [StepState.Complete | 'complete'], else 'false'.
          * @return {?}
          */
-            function () {
-                return this._state === StepState.Complete;
-            };
+        function () {
+            return this._state === StepState.Complete;
+        };
         /** Method executed when the disabled value changes */
         /**
          * Method executed when the disabled value changes
@@ -275,12 +274,12 @@
          * @param {?} v
          * @return {?}
          */
-            function (v) {
-                if (v && this._active) {
-                    this._active = false;
-                    this._onDeactivated();
-                }
-            };
+        function (v) {
+            if (v && this._active) {
+                this._active = false;
+                this._onDeactivated();
+            }
+        };
         /**
          * Method to change active state internally and emit the [onActivated] event if 'true' or [onDeactivated]
          * event if 'false'. (Blocked if [disabled] is 'true')
@@ -290,6 +289,7 @@
          * Method to change active state internally and emit the [onActivated] event if 'true' or [onDeactivated]
          * event if 'false'. (Blocked if [disabled] is 'true')
          * returns true if successfully changed state
+         * @private
          * @param {?} newActive
          * @return {?}
          */
@@ -297,74 +297,77 @@
          * Method to change active state internally and emit the [onActivated] event if 'true' or [onDeactivated]
          * event if 'false'. (Blocked if [disabled] is 'true')
          * returns true if successfully changed state
+         * @private
          * @param {?} newActive
          * @return {?}
          */
-            function (newActive) {
-                if (this.disabled) {
-                    return false;
-                }
-                if (this._active !== newActive) {
-                    this._active = newActive;
-                    if (newActive) {
-                        this._onActivated();
-                    }
-                    else {
-                        this._onDeactivated();
-                    }
-                    return true;
-                }
+        function (newActive) {
+            if (this.disabled) {
                 return false;
-            };
+            }
+            if (this._active !== newActive) {
+                this._active = newActive;
+                if (newActive) {
+                    this._onActivated();
+                }
+                else {
+                    this._onDeactivated();
+                }
+                return true;
+            }
+            return false;
+        };
         /**
+         * @private
          * @return {?}
          */
         TdStepComponent.prototype._onActivated = /**
+         * @private
          * @return {?}
          */
-            function () {
-                this.onActivated.emit(undefined);
-            };
+        function () {
+            this.onActivated.emit(undefined);
+        };
         /**
+         * @private
          * @return {?}
          */
         TdStepComponent.prototype._onDeactivated = /**
+         * @private
          * @return {?}
          */
-            function () {
-                this.onDeactivated.emit(undefined);
-            };
+        function () {
+            this.onDeactivated.emit(undefined);
+        };
         TdStepComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: core.Component, args: [{
                         selector: 'td-step',
                         inputs: ['disabled', 'disableRipple'],
                         template: "<ng-template>\n  <ng-content></ng-content>\n</ng-template>\n"
                     }] }
         ];
         /** @nocollapse */
-        TdStepComponent.ctorParameters = function () {
-            return [
-                { type: core$1.ViewContainerRef }
-            ];
-        };
+        TdStepComponent.ctorParameters = function () { return [
+            { type: core.ViewContainerRef }
+        ]; };
         TdStepComponent.propDecorators = {
-            _content: [{ type: core$1.ViewChild, args: [core$1.TemplateRef,] }],
-            stepLabel: [{ type: core$1.ContentChild, args: [TdStepLabelDirective,] }],
-            stepActions: [{ type: core$1.ContentChild, args: [TdStepActionsDirective,] }],
-            stepSummary: [{ type: core$1.ContentChild, args: [TdStepSummaryDirective,] }],
-            label: [{ type: core$1.Input, args: ['label',] }],
-            sublabel: [{ type: core$1.Input, args: ['sublabel',] }],
-            active: [{ type: core$1.Input, args: ['active',] }],
-            state: [{ type: core$1.Input, args: ['state',] }],
-            onActivated: [{ type: core$1.Output, args: ['activated',] }],
-            onDeactivated: [{ type: core$1.Output, args: ['deactivated',] }]
+            _content: [{ type: core.ViewChild, args: [core.TemplateRef, { static: true },] }],
+            stepLabel: [{ type: core.ContentChild, args: [TdStepLabelDirective, { static: false },] }],
+            stepActions: [{ type: core.ContentChild, args: [TdStepActionsDirective, { static: false },] }],
+            stepSummary: [{ type: core.ContentChild, args: [TdStepSummaryDirective, { static: false },] }],
+            label: [{ type: core.Input, args: ['label',] }],
+            sublabel: [{ type: core.Input, args: ['sublabel',] }],
+            active: [{ type: core.Input, args: ['active',] }],
+            state: [{ type: core.Input, args: ['state',] }],
+            onActivated: [{ type: core.Output, args: ['activated',] }],
+            onDeactivated: [{ type: core.Output, args: ['deactivated',] }]
         };
         return TdStepComponent;
     }(_TdStepMixinBase));
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @enum {string} */
     var StepMode = {
@@ -379,13 +382,14 @@
              * Method to be executed when [onStepChange] event is emitted.
              * Emits an [IStepChangeEvent] implemented object.
              */
-            this.onStepChange = new core$1.EventEmitter();
+            this.onStepChange = new core.EventEmitter();
         }
         Object.defineProperty(TdStepsComponent.prototype, "stepsContent", {
             set: /**
              * @param {?} steps
              * @return {?}
-             */ function (steps) {
+             */
+            function (steps) {
                 if (steps) {
                     this._steps = steps;
                     this._registerSteps();
@@ -397,7 +401,8 @@
         Object.defineProperty(TdStepsComponent.prototype, "steps", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._steps.toArray();
             },
             enumerable: true,
@@ -406,7 +411,8 @@
         Object.defineProperty(TdStepsComponent.prototype, "mode", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._mode;
             },
             /**
@@ -418,7 +424,8 @@
              * Defines if the mode of the [TdStepsComponent].  Defaults to [StepMode.Vertical | "vertical"]
              * @param {?} mode
              * @return {?}
-             */ function (mode) {
+             */
+            function (mode) {
                 switch (mode) {
                     case StepMode.Horizontal:
                         this._mode = StepMode.Horizontal;
@@ -444,9 +451,9 @@
          * assigns them a number and subscribes as an observer to their [onActivated] event.
          * @return {?}
          */
-            function () {
-                this._registerSteps();
-            };
+        function () {
+            this._registerSteps();
+        };
         /**
          * Unsubscribes from [TdStepComponent] children elements when component is destroyed.
          */
@@ -458,9 +465,9 @@
          * Unsubscribes from [TdStepComponent] children elements when component is destroyed.
          * @return {?}
          */
-            function () {
-                this._deregisterSteps();
-            };
+        function () {
+            this._deregisterSteps();
+        };
         /**
          * Returns 'true' if [mode] equals to [StepMode.Horizontal | 'horizontal'], else 'false'.
          */
@@ -472,9 +479,9 @@
          * Returns 'true' if [mode] equals to [StepMode.Horizontal | 'horizontal'], else 'false'.
          * @return {?}
          */
-            function () {
-                return this._mode === StepMode.Horizontal;
-            };
+        function () {
+            return this._mode === StepMode.Horizontal;
+        };
         /**
          * Returns 'true' if [mode] equals to [StepMode.Vertical | 'vertical'], else 'false'.
          */
@@ -486,20 +493,24 @@
          * Returns 'true' if [mode] equals to [StepMode.Vertical | 'vertical'], else 'false'.
          * @return {?}
          */
-            function () {
-                return this._mode === StepMode.Vertical;
-            };
+        function () {
+            return this._mode === StepMode.Vertical;
+        };
         /**
          * @return {?}
          */
         TdStepsComponent.prototype.areStepsActive = /**
          * @return {?}
          */
-            function () {
-                return (this._steps.filter(function (step) {
-                    return step.active;
-                }).length > 0);
-            };
+        function () {
+            return (this._steps.filter((/**
+             * @param {?} step
+             * @return {?}
+             */
+            function (step) {
+                return step.active;
+            })).length > 0);
+        };
         /**
          * Wraps previous and new [TdStepComponent] numbers in an object that implements [IStepChangeEvent]
          * and emits [onStepChange] event.
@@ -507,82 +518,109 @@
         /**
          * Wraps previous and new [TdStepComponent] numbers in an object that implements [IStepChangeEvent]
          * and emits [onStepChange] event.
+         * @private
          * @param {?} step
          * @return {?}
          */
         TdStepsComponent.prototype._onStepSelection = /**
          * Wraps previous and new [TdStepComponent] numbers in an object that implements [IStepChangeEvent]
          * and emits [onStepChange] event.
+         * @private
          * @param {?} step
          * @return {?}
          */
-            function (step) {
-                if (this.prevStep !== step) {
-                    /** @type {?} */
-                    var prevStep = this.prevStep;
-                    this.prevStep = step;
-                    /** @type {?} */
-                    var event_1 = {
-                        newStep: step,
-                        prevStep: prevStep,
-                    };
-                    this._deactivateAllBut(step);
-                    this.onStepChange.emit(event_1);
-                }
-            };
+        function (step) {
+            if (this.prevStep !== step) {
+                /** @type {?} */
+                var prevStep = this.prevStep;
+                this.prevStep = step;
+                /** @type {?} */
+                var event_1 = {
+                    newStep: step,
+                    prevStep: prevStep,
+                };
+                this._deactivateAllBut(step);
+                this.onStepChange.emit(event_1);
+            }
+        };
         /**
          * Loops through [TdStepComponent] children elements and deactivates them ignoring the one passed as an argument.
          */
         /**
          * Loops through [TdStepComponent] children elements and deactivates them ignoring the one passed as an argument.
+         * @private
          * @param {?} activeStep
          * @return {?}
          */
         TdStepsComponent.prototype._deactivateAllBut = /**
          * Loops through [TdStepComponent] children elements and deactivates them ignoring the one passed as an argument.
+         * @private
          * @param {?} activeStep
          * @return {?}
          */
-            function (activeStep) {
-                this._steps
-                    .filter(function (step) { return step !== activeStep; })
-                    .forEach(function (step) {
-                    step.active = false;
-                });
-            };
+        function (activeStep) {
+            this._steps
+                .filter((/**
+             * @param {?} step
+             * @return {?}
+             */
+            function (step) { return step !== activeStep; }))
+                .forEach((/**
+             * @param {?} step
+             * @return {?}
+             */
+            function (step) {
+                step.active = false;
+            }));
+        };
         /**
+         * @private
          * @return {?}
          */
         TdStepsComponent.prototype._registerSteps = /**
+         * @private
          * @return {?}
          */
-            function () {
-                var _this = this;
-                this._subcriptions = [];
-                this._steps.toArray().forEach(function (step) {
-                    /** @type {?} */
-                    var subscription = step.onActivated.asObservable().subscribe(function () {
-                        _this._onStepSelection(step);
-                    });
-                    _this._subcriptions.push(subscription);
-                });
-            };
+        function () {
+            var _this = this;
+            this._subcriptions = [];
+            this._steps.toArray().forEach((/**
+             * @param {?} step
+             * @return {?}
+             */
+            function (step) {
+                /** @type {?} */
+                var subscription = step.onActivated.asObservable().subscribe((/**
+                 * @return {?}
+                 */
+                function () {
+                    _this._onStepSelection(step);
+                }));
+                _this._subcriptions.push(subscription);
+            }));
+        };
         /**
+         * @private
          * @return {?}
          */
         TdStepsComponent.prototype._deregisterSteps = /**
+         * @private
          * @return {?}
          */
-            function () {
-                if (this._subcriptions) {
-                    this._subcriptions.forEach(function (subs) {
-                        subs.unsubscribe();
-                    });
-                    this._subcriptions = undefined;
-                }
-            };
+        function () {
+            if (this._subcriptions) {
+                this._subcriptions.forEach((/**
+                 * @param {?} subs
+                 * @return {?}
+                 */
+                function (subs) {
+                    subs.unsubscribe();
+                }));
+                this._subcriptions = undefined;
+            }
+        };
         TdStepsComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: core.Component, args: [{
                         selector: 'td-steps',
                         template: "<div *ngIf=\"isHorizontal()\" class=\"td-steps-header\">\n  <ng-template let-step let-index=\"index\" let-last=\"last\" ngFor [ngForOf]=\"steps\">\n    <td-step-header\n      class=\"td-step-horizontal-header\"\n      (keydown.enter)=\"step.open()\"\n      [number]=\"index + 1\"\n      [active]=\"step.active\"\n      [disableRipple]=\"step.disableRipple\"\n      [disabled]=\"step.disabled\"\n      [state]=\"step.state\"\n      (click)=\"step.open()\"\n    >\n      <ng-template td-step-header-label [cdkPortalOutlet]=\"step.stepLabel\"></ng-template>\n      <ng-template td-step-header-label [ngIf]=\"!step.stepLabel\">{{ step.label }}</ng-template>\n      <ng-template td-step-header-sublabel [ngIf]=\"true\">{{ step.sublabel | truncate: 30 }}</ng-template>\n    </td-step-header>\n    <span *ngIf=\"!last\" class=\"td-horizontal-line\"></span>\n  </ng-template>\n</div>\n<div *ngFor=\"let step of steps; let index = index; let last = last\" class=\"td-step\">\n  <td-step-header\n    class=\"td-step-vertical-header\"\n    (keydown.enter)=\"step.toggle()\"\n    [number]=\"index + 1\"\n    [active]=\"step.active\"\n    [disabled]=\"step.disabled\"\n    [disableRipple]=\"step.disableRipple\"\n    [state]=\"step.state\"\n    (click)=\"step.toggle()\"\n    *ngIf=\"isVertical()\"\n  >\n    <ng-template td-step-header-label [cdkPortalOutlet]=\"step.stepLabel\"></ng-template>\n    <ng-template td-step-header-label [ngIf]=\"!step.stepLabel\">{{ step.label }}</ng-template>\n    <ng-template td-step-header-sublabel [ngIf]=\"true\">{{ step.sublabel }}</ng-template>\n  </td-step-header>\n  <ng-template [ngIf]=\"isVertical() || step.active || (!areStepsActive() && prevStep === step)\">\n    <td-step-body [active]=\"step.active\" [state]=\"step.state\">\n      <div *ngIf=\"isVertical()\" class=\"td-line-wrapper\">\n        <div *ngIf=\"!last\" class=\"td-vertical-line\"></div>\n      </div>\n      <ng-template td-step-body-content [cdkPortalOutlet]=\"step.stepContent\"></ng-template>\n      <ng-template td-step-body-actions [cdkPortalOutlet]=\"step.stepActions\"></ng-template>\n      <ng-template td-step-body-summary [cdkPortalOutlet]=\"step.stepSummary\"></ng-template>\n    </td-step-body>\n  </ng-template>\n</div>\n",
                         /* tslint:disable-next-line */
@@ -593,16 +631,16 @@
                     }] }
         ];
         TdStepsComponent.propDecorators = {
-            stepsContent: [{ type: core$1.ContentChildren, args: [TdStepComponent,] }],
-            mode: [{ type: core$1.Input, args: ['mode',] }],
-            onStepChange: [{ type: core$1.Output, args: ['stepChange',] }]
+            stepsContent: [{ type: core.ContentChildren, args: [TdStepComponent,] }],
+            mode: [{ type: core.Input, args: ['mode',] }],
+            onStepChange: [{ type: core.Output, args: ['stepChange',] }]
         };
         return TdStepsComponent;
     }());
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdStepHeaderBase = /** @class */ (function () {
         function TdStepHeaderBase() {
@@ -635,9 +673,9 @@
          * Returns 'true' if [state] equals to [StepState.Complete | 'complete'], else 'false'.
          * @return {?}
          */
-            function () {
-                return this.state === StepState.Complete;
-            };
+        function () {
+            return this.state === StepState.Complete;
+        };
         /**
          * Returns 'true' if [state] equals to [StepState.Required | 'required'], else 'false'.
          */
@@ -649,11 +687,11 @@
          * Returns 'true' if [state] equals to [StepState.Required | 'required'], else 'false'.
          * @return {?}
          */
-            function () {
-                return this.state === StepState.Required;
-            };
+        function () {
+            return this.state === StepState.Required;
+        };
         TdStepHeaderComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: core.Component, args: [{
                         selector: 'td-step-header',
                         inputs: ['disabled', 'disableRipple'],
                         template: "<div\n  class=\"td-step-header\"\n  [class.mat-disabled]=\"disabled\"\n  matRipple\n  [matRippleDisabled]=\"disabled || disableRipple\"\n  [tabIndex]=\"disabled ? -1 : tabIndex || 0\"\n>\n  <div\n    class=\"td-circle\"\n    [class.mat-inactive]=\"(!active && !isComplete()) || disabled\"\n    [class.mat-active]=\"active && !disabled\"\n    *ngIf=\"!isRequired() && !isComplete()\"\n  >\n    <span *ngIf=\"active || !isComplete()\">{{ number || '' }}</span>\n  </div>\n  <div class=\"td-complete\" *ngIf=\"isComplete()\">\n    <mat-icon class=\"mat-complete\">check_circle</mat-icon>\n  </div>\n  <div class=\"td-triangle\" [class.bg-muted]=\"disabled\" *ngIf=\"isRequired()\">\n    <mat-icon class=\"mat-warn\">warning</mat-icon>\n  </div>\n  <div\n    class=\"td-step-label-wrapper\"\n    [class.mat-inactive]=\"(!active && !isComplete()) || disabled\"\n    [class.mat-warn]=\"isRequired() && !disabled\"\n  >\n    <div class=\"td-step-label\">\n      <ng-content select=\"[td-step-header-label]\"></ng-content>\n    </div>\n    <div class=\"td-step-sublabel\">\n      <ng-content select=\"[td-step-header-sublabel]\"></ng-content>\n    </div>\n  </div>\n  <span class=\"td-step-header-separator\"></span>\n  <mat-icon class=\"td-edit-icon\" *ngIf=\"isComplete() && !active && !disabled\">mode_edit</mat-icon>\n</div>\n",
@@ -661,17 +699,17 @@
                     }] }
         ];
         TdStepHeaderComponent.propDecorators = {
-            number: [{ type: core$1.Input, args: ['number',] }],
-            active: [{ type: core$1.Input, args: ['active',] }],
-            state: [{ type: core$1.Input, args: ['state',] }],
-            tabIndex: [{ type: core$1.Input, args: ['tabIndex',] }]
+            number: [{ type: core.Input, args: ['number',] }],
+            active: [{ type: core.Input, args: ['active',] }],
+            state: [{ type: core.Input, args: ['state',] }],
+            tabIndex: [{ type: core.Input, args: ['tabIndex',] }]
         };
         return TdStepHeaderComponent;
     }(_TdStepHeaderMixinBase));
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdStepBodyComponent = /** @class */ (function () {
         function TdStepBodyComponent() {
@@ -685,7 +723,8 @@
         Object.defineProperty(TdStepBodyComponent.prototype, "hasContent", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return (this.contentRef &&
                     (this.contentRef.nativeElement.children.length > 0 || !!this.contentRef.nativeElement.textContent.trim()));
             },
@@ -695,7 +734,8 @@
         Object.defineProperty(TdStepBodyComponent.prototype, "hasActions", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return (this.actionsRef &&
                     (this.actionsRef.nativeElement.children.length > 0 || !!this.actionsRef.nativeElement.textContent.trim()));
             },
@@ -705,7 +745,8 @@
         Object.defineProperty(TdStepBodyComponent.prototype, "hasSummary", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return (this.summaryRef &&
                     (this.summaryRef.nativeElement.children.length > 0 || !!this.summaryRef.nativeElement.textContent.trim()));
             },
@@ -723,11 +764,11 @@
          * Returns 'true' if [state] equals to [StepState.Complete | 'complete'], else 'false'.
          * @return {?}
          */
-            function () {
-                return this.state === StepState.Complete;
-            };
+        function () {
+            return this.state === StepState.Complete;
+        };
         TdStepBodyComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: core.Component, args: [{
                         selector: 'td-step-body',
                         template: "<ng-content></ng-content>\n<div class=\"td-step-body\">\n  <div class=\"td-step-content-wrapper\" [@tdCollapse]=\"!active\">\n    <div #contentRef cdkScrollable [class.td-step-content]=\"hasContent\">\n      <ng-content select=\"[td-step-body-content]\"></ng-content>\n    </div>\n    <div #actionsRef [class.td-step-actions]=\"hasActions\">\n      <ng-content select=\"[td-step-body-actions]\"></ng-content>\n    </div>\n  </div>\n  <div #summaryRef [@tdCollapse]=\"active || !isComplete()\" [class.td-step-summary]=\"hasSummary\">\n    <ng-content select=\"[td-step-body-summary]\"></ng-content>\n  </div>\n</div>\n",
                         animations: [common$1.tdCollapseAnimation],
@@ -735,18 +776,18 @@
                     }] }
         ];
         TdStepBodyComponent.propDecorators = {
-            contentRef: [{ type: core$1.ViewChild, args: ['contentRef', { read: core$1.ElementRef },] }],
-            actionsRef: [{ type: core$1.ViewChild, args: ['actionsRef', { read: core$1.ElementRef },] }],
-            summaryRef: [{ type: core$1.ViewChild, args: ['summaryRef', { read: core$1.ElementRef },] }],
-            active: [{ type: core$1.Input, args: ['active',] }],
-            state: [{ type: core$1.Input, args: ['state',] }]
+            contentRef: [{ type: core.ViewChild, args: ['contentRef', { read: core.ElementRef, static: true },] }],
+            actionsRef: [{ type: core.ViewChild, args: ['actionsRef', { read: core.ElementRef, static: true },] }],
+            summaryRef: [{ type: core.ViewChild, args: ['summaryRef', { read: core.ElementRef, static: true },] }],
+            active: [{ type: core.Input, args: ['active',] }],
+            state: [{ type: core.Input, args: ['state',] }]
         };
         return TdStepBodyComponent;
     }());
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdNavStepLinkComponent = /** @class */ (function (_super) {
         __extends(TdNavStepLinkComponent, _super);
@@ -761,7 +802,8 @@
         Object.defineProperty(TdNavStepLinkComponent.prototype, "state", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._state;
             },
             /**
@@ -775,7 +817,8 @@
              * Defaults to [StepState.None | 'none'].
              * @param {?} state
              * @return {?}
-             */ function (state) {
+             */
+            function (state) {
                 switch (state) {
                     case StepState.Complete:
                         this._state = StepState.Complete;
@@ -794,7 +837,8 @@
         Object.defineProperty(TdNavStepLinkComponent.prototype, "active", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._active;
             },
             /**
@@ -806,7 +850,8 @@
              * Toggles component between active/deactive.
              * @param {?} active
              * @return {?}
-             */ function (active) {
+             */
+            function (active) {
                 this._active = coercion.coerceBooleanProperty(active);
                 this._changeDetectorRef.markForCheck();
             },
@@ -821,18 +866,18 @@
          * @param {?} click
          * @return {?}
          */
-            function (click) {
-                if (this.disabled) {
-                    click.preventDefault();
-                    click.stopImmediatePropagation();
-                }
-            };
+        function (click) {
+            if (this.disabled) {
+                click.preventDefault();
+                click.stopImmediatePropagation();
+            }
+        };
         TdNavStepLinkComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: core.Component, args: [{
                         selector: '[td-step-link],[tdStepLink]',
                         template: "<td-step-header\n  class=\"td-step-header-wrapper\"\n  [tabIndex]=\"-1\"\n  [number]=\"number\"\n  [active]=\"active\"\n  [disableRipple]=\"disableRipple || disabled\"\n  [disabled]=\"disabled\"\n  [state]=\"state\"\n>\n  <ng-template td-step-header-label [ngIf]=\"true\">{{ label }}</ng-template>\n  <ng-template td-step-header-sublabel [ngIf]=\"true\">{{ sublabel | truncate: 30 }}</ng-template>\n  <ng-content></ng-content>\n</td-step-header>\n",
                         inputs: ['disabled', 'disableRipple'],
-                        changeDetection: core$1.ChangeDetectionStrategy.OnPush,
+                        changeDetection: core.ChangeDetectionStrategy.OnPush,
                         /* tslint:disable-next-line */
                         host: {
                             '[class.td-step-link]': 'true',
@@ -845,25 +890,23 @@
                     }] }
         ];
         /** @nocollapse */
-        TdNavStepLinkComponent.ctorParameters = function () {
-            return [
-                { type: core$1.ChangeDetectorRef },
-                { type: core$1.ElementRef }
-            ];
-        };
+        TdNavStepLinkComponent.ctorParameters = function () { return [
+            { type: core.ChangeDetectorRef },
+            { type: core.ElementRef }
+        ]; };
         TdNavStepLinkComponent.propDecorators = {
-            state: [{ type: core$1.Input, args: ['state',] }],
-            label: [{ type: core$1.Input, args: ['label',] }],
-            sublabel: [{ type: core$1.Input, args: ['sublabel',] }],
-            active: [{ type: core$1.Input, args: ['active',] }],
-            tabIndex: [{ type: core$1.Input, args: ['tabIndex',] }]
+            state: [{ type: core.Input, args: ['state',] }],
+            label: [{ type: core.Input, args: ['label',] }],
+            sublabel: [{ type: core.Input, args: ['sublabel',] }],
+            active: [{ type: core.Input, args: ['active',] }],
+            tabIndex: [{ type: core.Input, args: ['tabIndex',] }]
         };
         return TdNavStepLinkComponent;
     }(_TdStepMixinBase));
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdNavStepsHorizontalComponent = /** @class */ (function () {
         function TdNavStepsHorizontalComponent(_elementRef, _viewportRuler, _dir, _renderer, _changeDetectorRef) {
@@ -899,13 +942,13 @@
              */
             get: /*
                * Current width of the element container
-               */ 
+               */
             /**
              * @return {?}
              */
             function () {
                 /** @type {?} */
-                var element = ( /** @type {?} */(this._elementRef.nativeElement));
+                var element = (/** @type {?} */ (this._elementRef.nativeElement));
                 // Need to take into account border, margin and padding that might be around all the crumbs
                 /** @type {?} */
                 var style = window.getComputedStyle(element);
@@ -938,44 +981,47 @@
         TdNavStepsHorizontalComponent.prototype.ngAfterContentInit = /**
          * @return {?}
          */
+        function () {
+            var _this = this;
+            rxjs.merge(this._widthSubject.asObservable().pipe(operators.distinctUntilChanged()), this._viewportRuler.change(150), this._dir ? this._dir.change : rxjs.of(undefined), this._steps.changes)
+                .pipe(operators.takeUntil(this._destroyed))
+                .subscribe((/**
+             * @return {?}
+             */
             function () {
-                var _this = this;
-                rxjs.merge(this._widthSubject.asObservable().pipe(operators.distinctUntilChanged()), this._viewportRuler.change(150), this._dir ? this._dir.change : rxjs.of(undefined), this._steps.changes)
-                    .pipe(operators.takeUntil(this._destroyed))
-                    .subscribe(function () {
-                    _this._configureSteps();
-                    _this.updatePagination();
-                    _this._changeDetectorRef.markForCheck();
-                });
-                this._configureSteps();
-                this._changeDetectorRef.markForCheck();
-            };
+                _this._configureSteps();
+                _this.updatePagination();
+                _this._changeDetectorRef.markForCheck();
+            }));
+            this._configureSteps();
+            this._changeDetectorRef.markForCheck();
+        };
         /**
          * @return {?}
          */
         TdNavStepsHorizontalComponent.prototype.ngAfterContentChecked = /**
          * @return {?}
          */
-            function () {
-                if (this._elementRef && this._elementRef.nativeElement) {
-                    this._widthSubject.next(this.nativeElementWidth);
-                }
-                if (this._scrollDistanceChanged) {
-                    this._updateStepScrollPosition();
-                    this._scrollDistanceChanged = false;
-                    this._changeDetectorRef.markForCheck();
-                }
-            };
+        function () {
+            if (this._elementRef && this._elementRef.nativeElement) {
+                this._widthSubject.next(this.nativeElementWidth);
+            }
+            if (this._scrollDistanceChanged) {
+                this._updateStepScrollPosition();
+                this._scrollDistanceChanged = false;
+                this._changeDetectorRef.markForCheck();
+            }
+        };
         /**
          * @return {?}
          */
         TdNavStepsHorizontalComponent.prototype.ngOnDestroy = /**
          * @return {?}
          */
-            function () {
-                this._destroyed.next();
-                this._destroyed.complete();
-            };
+        function () {
+            this._destroyed.next();
+            this._destroyed.complete();
+        };
         /**
          * Listen to right and left key events to move the the viewport.
          */
@@ -989,20 +1035,20 @@
          * @param {?} event
          * @return {?}
          */
-            function (event) {
-                switch (event.keyCode) {
-                    case keycodes.LEFT_ARROW:
-                        this._scrollHeader('before');
-                        event.preventDefault();
-                        break;
-                    case keycodes.RIGHT_ARROW:
-                        this._scrollHeader('after');
-                        event.preventDefault();
-                        break;
-                    default:
-                    // do something
-                }
-            };
+        function (event) {
+            switch (event.keyCode) {
+                case keycodes.LEFT_ARROW:
+                    this._scrollHeader('before');
+                    event.preventDefault();
+                    break;
+                case keycodes.RIGHT_ARROW:
+                    this._scrollHeader('after');
+                    event.preventDefault();
+                    break;
+                default:
+                // do something
+            }
+        };
         /**
          * Updates the view whether pagination should be enabled or not.
          */
@@ -1014,11 +1060,11 @@
          * Updates the view whether pagination should be enabled or not.
          * @return {?}
          */
-            function () {
-                this._checkPaginationEnabled();
-                this._checkScrollingControls();
-                this._updateStepScrollPosition();
-            };
+        function () {
+            this._checkPaginationEnabled();
+            this._checkScrollingControls();
+            this._updateStepScrollPosition();
+        };
         /** The layout direction of the containing app. */
         /**
          * The layout direction of the containing app.
@@ -1028,9 +1074,9 @@
          * The layout direction of the containing app.
          * @return {?}
          */
-            function () {
-                return this._dir && this._dir.value === 'rtl' ? 'rtl' : 'ltr';
-            };
+        function () {
+            return this._dir && this._dir.value === 'rtl' ? 'rtl' : 'ltr';
+        };
         /** Performs the CSS transformation on the step list that will cause the list to scroll. */
         /**
          * Performs the CSS transformation on the step list that will cause the list to scroll.
@@ -1040,33 +1086,35 @@
          * Performs the CSS transformation on the step list that will cause the list to scroll.
          * @return {?}
          */
-            function () {
-                /** @type {?} */
-                var translateX = this._getLayoutDirection() === 'ltr' ? -this.scrollDistance : this.scrollDistance;
-                // Move step list the amount of pixels scrolled
-                this._stepList.nativeElement.style.transform = "translateX(" + Math.round(translateX) + "px)";
-                // Setting the `transform` on IE will change the scroll offset of the parent, causing the
-                // position to be thrown off in some cases. We have to reset it ourselves to ensure that
-                // it doesn't get thrown off.
-                if (this._getLayoutDirection() === 'ltr') {
-                    this._stepListContainer.nativeElement.scrollLeft = 0;
-                }
-                else {
-                    this._stepListContainer.nativeElement.scrollLeft = this._getMaxScrollDistance();
-                }
-            };
+        function () {
+            /** @type {?} */
+            var translateX = this._getLayoutDirection() === 'ltr' ? -this.scrollDistance : this.scrollDistance;
+            // Move step list the amount of pixels scrolled
+            this._stepList.nativeElement.style.transform = "translateX(" + Math.round(translateX) + "px)";
+            // Setting the `transform` on IE will change the scroll offset of the parent, causing the
+            // position to be thrown off in some cases. We have to reset it ourselves to ensure that
+            // it doesn't get thrown off.
+            if (this._getLayoutDirection() === 'ltr') {
+                this._stepListContainer.nativeElement.scrollLeft = 0;
+            }
+            else {
+                this._stepListContainer.nativeElement.scrollLeft = this._getMaxScrollDistance();
+            }
+        };
         Object.defineProperty(TdNavStepsHorizontalComponent.prototype, "scrollDistance", {
             /** Sets the distance in pixels that the step header should be transformed in the X-axis. */
             get: /**
              * Sets the distance in pixels that the step header should be transformed in the X-axis.
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._scrollDistance;
             },
             set: /**
              * @param {?} v
              * @return {?}
-             */ function (v) {
+             */
+            function (v) {
                 this._scrollDistance = Math.max(0, Math.min(this._getMaxScrollDistance(), v));
                 // Mark that the scroll distance has changed so that after the view is checked, the CSS
                 // transformation can move the header.
@@ -1092,10 +1140,10 @@
          * @param {?} scrollDir
          * @return {?}
          */
-            function (scrollDir) {
-                // Move the scroll distance one-half the length of the step list's viewport.
-                this.scrollDistance += ((scrollDir === 'before' ? -1 : 1) * this._stepListContainer.nativeElement.offsetWidth) / 2;
-            };
+        function (scrollDir) {
+            // Move the scroll distance one-half the length of the step list's viewport.
+            this.scrollDistance += ((scrollDir === 'before' ? -1 : 1) * this._stepListContainer.nativeElement.offsetWidth) / 2;
+        };
         /**
          * Evaluate whether the pagination controls should be displayed. If the scroll width of the
          * step list is wider than the size of the header container, then the pagination controls should
@@ -1113,17 +1161,17 @@
          * be shown.
          * @return {?}
          */
-            function () {
-                /** @type {?} */
-                var isEnabled = this._stepList.nativeElement.scrollWidth > this._elementRef.nativeElement.offsetWidth;
-                if (!isEnabled) {
-                    this.scrollDistance = 0;
-                }
-                if (isEnabled !== this._showPaginationControls) {
-                    this._changeDetectorRef.markForCheck();
-                }
-                this._showPaginationControls = isEnabled;
-            };
+        function () {
+            /** @type {?} */
+            var isEnabled = this._stepList.nativeElement.scrollWidth > this._elementRef.nativeElement.offsetWidth;
+            if (!isEnabled) {
+                this.scrollDistance = 0;
+            }
+            if (isEnabled !== this._showPaginationControls) {
+                this._changeDetectorRef.markForCheck();
+            }
+            this._showPaginationControls = isEnabled;
+        };
         /**
          * Evaluate whether the before and after controls should be enabled or disabled.
          * If the header is at the beginning of the list (scroll distance is equal to 0) then disable the
@@ -1144,12 +1192,12 @@
          * maximum distance we can scroll), then disable the after button.
          * @return {?}
          */
-            function () {
-                // Check if the pagination arrows should be activated.
-                this._disableScrollBefore = this.scrollDistance === 0;
-                this._disableScrollAfter = this.scrollDistance === this._getMaxScrollDistance();
-                this._changeDetectorRef.markForCheck();
-            };
+        function () {
+            // Check if the pagination arrows should be activated.
+            this._disableScrollBefore = this.scrollDistance === 0;
+            this._disableScrollAfter = this.scrollDistance === this._getMaxScrollDistance();
+            this._changeDetectorRef.markForCheck();
+        };
         /**
          * Determines what is the maximum length in pixels that can be set for the scroll distance. This
          * is equal to the difference in width between the step list container and step header container.
@@ -1164,74 +1212,83 @@
          * is equal to the difference in width between the step list container and step header container.
          * @return {?}
          */
-            function () {
-                return this._stepList.nativeElement.scrollWidth - this._stepListContainer.nativeElement.offsetWidth || 0;
-            };
+        function () {
+            return this._stepList.nativeElement.scrollWidth - this._stepListContainer.nativeElement.offsetWidth || 0;
+        };
         /**
          * Set the step line separators and display numbers
          */
         /**
          * Set the step line separators and display numbers
+         * @private
          * @return {?}
          */
         TdNavStepsHorizontalComponent.prototype._configureSteps = /**
          * Set the step line separators and display numbers
+         * @private
          * @return {?}
          */
-            function () {
-                var _this = this;
-                this._separators.forEach(function (separator) {
-                    _this._renderer.removeChild(_this._stepList.nativeElement, separator);
-                });
-                /** @type {?} */
-                var stepsArray = this._steps.toArray();
-                // set the index number of the step so can display that number in circle
-                stepsArray.forEach(function (step, index) {
-                    if (index > 0 && index < stepsArray.length) {
-                        /** @type {?} */
-                        var separator = _this._renderer.createElement('div');
-                        _this._renderer.addClass(separator, 'td-horizontal-line');
-                        _this._separators.push(separator);
-                        _this._renderer.insertBefore(_this._stepList.nativeElement, separator, step.elementRef.nativeElement);
-                    }
-                    step.number = index + 1;
-                });
-            };
+        function () {
+            var _this = this;
+            this._separators.forEach((/**
+             * @param {?} separator
+             * @return {?}
+             */
+            function (separator) {
+                _this._renderer.removeChild(_this._stepList.nativeElement, separator);
+            }));
+            /** @type {?} */
+            var stepsArray = this._steps.toArray();
+            // set the index number of the step so can display that number in circle
+            stepsArray.forEach((/**
+             * @param {?} step
+             * @param {?} index
+             * @return {?}
+             */
+            function (step, index) {
+                if (index > 0 && index < stepsArray.length) {
+                    /** @type {?} */
+                    var separator = _this._renderer.createElement('div');
+                    _this._renderer.addClass(separator, 'td-horizontal-line');
+                    _this._separators.push(separator);
+                    _this._renderer.insertBefore(_this._stepList.nativeElement, separator, step.elementRef.nativeElement);
+                }
+                step.number = index + 1;
+            }));
+        };
         TdNavStepsHorizontalComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: core.Component, args: [{
                         selector: 'nav[td-steps][horizontal]',
                         template: "<div class=\"td-steps-header\">\n  <div\n    class=\"td-step-header-pagination td-step-header-pagination-before mat-elevation-z4\"\n    aria-hidden=\"true\"\n    mat-ripple\n    [matRippleDisabled]=\"_disableScrollBefore\"\n    [class.td-step-header-pagination-disabled]=\"_disableScrollBefore\"\n    (click)=\"_scrollHeader('before')\"\n  >\n    <div class=\"td-step-header-pagination-chevron\"></div>\n  </div>\n  <div #stepListContainer class=\"td-steps-header-container\" (keydown)=\"_handleKeydown($event)\">\n    <div #stepList class=\"td-steps-header-list\">\n      <ng-content></ng-content>\n    </div>\n  </div>\n  <div\n    class=\"td-step-header-pagination td-step-header-pagination-after mat-elevation-z4\"\n    aria-hidden=\"true\"\n    mat-ripple\n    [matRippleDisabled]=\"_disableScrollAfter\"\n    [class.td-step-header-pagination-disabled]=\"_disableScrollAfter\"\n    (click)=\"_scrollHeader('after')\"\n  >\n    <div class=\"td-step-header-pagination-chevron\"></div>\n  </div>\n</div>\n",
-                        changeDetection: core$1.ChangeDetectionStrategy.OnPush,
+                        changeDetection: core.ChangeDetectionStrategy.OnPush,
                         /* tslint:disable-next-line */
                         host: {
                             class: 'td-steps td-steps-horizontal',
                             '[class.td-step-header-pagination-controls-enabled]': '_showPaginationControls',
                             '[class.td-step-header-rtl]': "_getLayoutDirection() == 'rtl'",
                         },
-                        styles: [":host{width:100%;display:block}.td-steps-header,.td-steps-header-list{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row}.td-steps-header-container{display:-ms-flexbox;display:flex;-ms-flex-positive:1;flex-grow:1;overflow:hidden;z-index:1}.td-steps-header-list{-ms-flex-positive:1;flex-grow:1;position:relative;transition:transform .5s cubic-bezier(.35,0,.25,1),-webkit-transform .5s cubic-bezier(.35,0,.25,1);-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:start;justify-content:flex-start}.td-step-header-pagination{position:relative;display:none;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;min-width:32px;cursor:pointer;z-index:2}:host.td-step-header-pagination-controls-enabled .td-step-header-pagination{display:-ms-flexbox;display:flex}.td-step-header-pagination-before,:host.td-step-header-rtl .td-step-header-pagination-after{padding-left:4px}.td-step-header-pagination-before .td-step-header-pagination-chevron,:host.td-step-header-rtl .td-step-header-pagination-after .td-step-header-pagination-chevron{-webkit-transform:rotate(-135deg);-ms-transform:rotate(-135deg);transform:rotate(-135deg)}.td-step-header-pagination-after,:host.td-step-header-rtl .td-step-header-pagination-before{padding-right:4px}.td-step-header-pagination-after .td-step-header-pagination-chevron,:host.td-step-header-rtl .td-step-header-pagination-before .td-step-header-pagination-chevron{-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}.td-step-header-pagination-chevron{border-style:solid;border-width:2px 2px 0 0;content:'';height:8px;width:8px}.td-step-header-pagination-disabled{box-shadow:none;cursor:default}.td-horizontal-line{border-bottom-width:1px;border-bottom-style:solid;height:1px;min-width:20px;-ms-flex:1;flex:1;box-sizing:border-box}"]
+                        styles: [":host{width:100%;display:block}.td-steps-header,.td-steps-header-list{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row}.td-steps-header-container{display:-ms-flexbox;display:flex;-ms-flex-positive:1;flex-grow:1;overflow:hidden;z-index:1}.td-steps-header-list{-ms-flex-positive:1;flex-grow:1;position:relative;transition:transform .5s cubic-bezier(.35,0,.25,1);-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:start;justify-content:flex-start}.td-step-header-pagination{position:relative;display:none;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;min-width:32px;cursor:pointer;z-index:2}:host.td-step-header-pagination-controls-enabled .td-step-header-pagination{display:-ms-flexbox;display:flex}.td-step-header-pagination-before,:host.td-step-header-rtl .td-step-header-pagination-after{padding-left:4px}.td-step-header-pagination-before .td-step-header-pagination-chevron,:host.td-step-header-rtl .td-step-header-pagination-after .td-step-header-pagination-chevron{-ms-transform:rotate(-135deg);transform:rotate(-135deg)}.td-step-header-pagination-after,:host.td-step-header-rtl .td-step-header-pagination-before{padding-right:4px}.td-step-header-pagination-after .td-step-header-pagination-chevron,:host.td-step-header-rtl .td-step-header-pagination-before .td-step-header-pagination-chevron{-ms-transform:rotate(45deg);transform:rotate(45deg)}.td-step-header-pagination-chevron{border-style:solid;border-width:2px 2px 0 0;content:'';height:8px;width:8px}.td-step-header-pagination-disabled{box-shadow:none;cursor:default}.td-horizontal-line{border-bottom-width:1px;border-bottom-style:solid;height:1px;min-width:20px;-ms-flex:1;flex:1;box-sizing:border-box}"]
                     }] }
         ];
         /** @nocollapse */
-        TdNavStepsHorizontalComponent.ctorParameters = function () {
-            return [
-                { type: core$1.ElementRef },
-                { type: scrolling.ViewportRuler },
-                { type: bidi.Directionality, decorators: [{ type: core$1.Optional }] },
-                { type: core$1.Renderer2 },
-                { type: core$1.ChangeDetectorRef }
-            ];
-        };
+        TdNavStepsHorizontalComponent.ctorParameters = function () { return [
+            { type: core.ElementRef },
+            { type: scrolling.ViewportRuler },
+            { type: bidi.Directionality, decorators: [{ type: core.Optional }] },
+            { type: core.Renderer2 },
+            { type: core.ChangeDetectorRef }
+        ]; };
         TdNavStepsHorizontalComponent.propDecorators = {
-            _steps: [{ type: core$1.ContentChildren, args: [TdNavStepLinkComponent,] }],
-            _stepListContainer: [{ type: core$1.ViewChild, args: ['stepListContainer',] }],
-            _stepList: [{ type: core$1.ViewChild, args: ['stepList',] }]
+            _steps: [{ type: core.ContentChildren, args: [TdNavStepLinkComponent,] }],
+            _stepListContainer: [{ type: core.ViewChild, args: ['stepListContainer', { static: true },] }],
+            _stepList: [{ type: core.ViewChild, args: ['stepList', { static: true },] }]
         };
         return TdNavStepsHorizontalComponent;
     }());
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdNavStepsVerticalComponent = /** @class */ (function () {
         function TdNavStepsVerticalComponent(_renderer, _changeDetectorRef) {
@@ -1249,64 +1306,78 @@
         TdNavStepsVerticalComponent.prototype.ngAfterContentInit = /**
          * @return {?}
          */
+        function () {
+            var _this = this;
+            this._steps.changes.pipe(operators.takeUntil(this._destroyed)).subscribe((/**
+             * @return {?}
+             */
             function () {
-                var _this = this;
-                this._steps.changes.pipe(operators.takeUntil(this._destroyed)).subscribe(function () {
-                    _this._configureSteps();
-                    _this._changeDetectorRef.markForCheck();
-                });
-                this._configureSteps();
-                this._changeDetectorRef.markForCheck();
-            };
+                _this._configureSteps();
+                _this._changeDetectorRef.markForCheck();
+            }));
+            this._configureSteps();
+            this._changeDetectorRef.markForCheck();
+        };
         /**
          * @return {?}
          */
         TdNavStepsVerticalComponent.prototype.ngOnDestroy = /**
          * @return {?}
          */
-            function () {
-                this._destroyed.next();
-                this._destroyed.complete();
-            };
+        function () {
+            this._destroyed.next();
+            this._destroyed.complete();
+        };
         /**
          * Set the step line separators and display numbers
          */
         /**
          * Set the step line separators and display numbers
+         * @private
          * @return {?}
          */
         TdNavStepsVerticalComponent.prototype._configureSteps = /**
          * Set the step line separators and display numbers
+         * @private
          * @return {?}
          */
-            function () {
-                var _this = this;
-                this._separators.forEach(function (separator) {
-                    _this._renderer.removeChild(_this._stepList.nativeElement, separator);
-                });
-                /** @type {?} */
-                var stepsArray = this._steps.toArray();
-                // set the index number of the step so can display that number in circle
-                stepsArray.forEach(function (step, index) {
-                    if (index > 0 && index < stepsArray.length) {
-                        /** @type {?} */
-                        var separator = _this._renderer.createElement('div');
-                        _this._renderer.addClass(separator, 'td-vertical-line-wrapper');
-                        /** @type {?} */
-                        var separatorChild = _this._renderer.createElement('div');
-                        _this._renderer.addClass(separatorChild, 'td-vertical-line');
-                        _this._renderer.appendChild(separator, separatorChild);
-                        _this._separators.push(separator);
-                        _this._renderer.insertBefore(_this._stepList.nativeElement, separator, step.elementRef.nativeElement);
-                    }
-                    step.number = index + 1;
-                });
-            };
+        function () {
+            var _this = this;
+            this._separators.forEach((/**
+             * @param {?} separator
+             * @return {?}
+             */
+            function (separator) {
+                _this._renderer.removeChild(_this._stepList.nativeElement, separator);
+            }));
+            /** @type {?} */
+            var stepsArray = this._steps.toArray();
+            // set the index number of the step so can display that number in circle
+            stepsArray.forEach((/**
+             * @param {?} step
+             * @param {?} index
+             * @return {?}
+             */
+            function (step, index) {
+                if (index > 0 && index < stepsArray.length) {
+                    /** @type {?} */
+                    var separator = _this._renderer.createElement('div');
+                    _this._renderer.addClass(separator, 'td-vertical-line-wrapper');
+                    /** @type {?} */
+                    var separatorChild = _this._renderer.createElement('div');
+                    _this._renderer.addClass(separatorChild, 'td-vertical-line');
+                    _this._renderer.appendChild(separator, separatorChild);
+                    _this._separators.push(separator);
+                    _this._renderer.insertBefore(_this._stepList.nativeElement, separator, step.elementRef.nativeElement);
+                }
+                step.number = index + 1;
+            }));
+        };
         TdNavStepsVerticalComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: core.Component, args: [{
                         selector: 'nav[td-steps][vertical]',
                         template: "<div class=\"td-steps-header\">\n  <div class=\"td-steps-header-container\">\n    <div #stepList class=\"td-steps-header-list\">\n      <ng-content></ng-content>\n    </div>\n  </div>\n</div>\n",
-                        changeDetection: core$1.ChangeDetectionStrategy.OnPush,
+                        changeDetection: core.ChangeDetectionStrategy.OnPush,
                         /* tslint:disable-next-line */
                         host: {
                             class: 'td-steps td-steps-vertical',
@@ -1315,22 +1386,20 @@
                     }] }
         ];
         /** @nocollapse */
-        TdNavStepsVerticalComponent.ctorParameters = function () {
-            return [
-                { type: core$1.Renderer2 },
-                { type: core$1.ChangeDetectorRef }
-            ];
-        };
+        TdNavStepsVerticalComponent.ctorParameters = function () { return [
+            { type: core.Renderer2 },
+            { type: core.ChangeDetectorRef }
+        ]; };
         TdNavStepsVerticalComponent.propDecorators = {
-            _steps: [{ type: core$1.ContentChildren, args: [TdNavStepLinkComponent,] }],
-            _stepList: [{ type: core$1.ViewChild, args: ['stepList',] }]
+            _steps: [{ type: core.ContentChildren, args: [TdNavStepLinkComponent,] }],
+            _stepList: [{ type: core.ViewChild, args: ['stepList', { static: true },] }]
         };
         return TdNavStepsVerticalComponent;
     }());
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
     var TD_STEPS = [
@@ -1349,8 +1418,8 @@
         function CovalentStepsModule() {
         }
         CovalentStepsModule.decorators = [
-            { type: core$1.NgModule, args: [{
-                        imports: [common.CommonModule, icon.MatIconModule, core.MatRippleModule, portal.PortalModule, scrolling.ScrollDispatchModule, common$1.CovalentCommonModule],
+            { type: core.NgModule, args: [{
+                        imports: [common.CommonModule, icon.MatIconModule, core$1.MatRippleModule, portal.PortalModule, scrolling.ScrollDispatchModule, common$1.CovalentCommonModule],
                         declarations: [TD_STEPS],
                         exports: [TD_STEPS],
                     },] }
@@ -1358,41 +1427,25 @@
         return CovalentStepsModule;
     }());
 
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
     exports.CovalentStepsModule = CovalentStepsModule;
-    exports.StepState = StepState;
-    exports.TdStepLabelDirective = TdStepLabelDirective;
-    exports.TdStepActionsDirective = TdStepActionsDirective;
-    exports.TdStepSummaryDirective = TdStepSummaryDirective;
-    exports.TdStepBase = TdStepBase;
-    exports._TdStepMixinBase = _TdStepMixinBase;
-    exports.TdStepComponent = TdStepComponent;
     exports.StepMode = StepMode;
-    exports.TdStepsComponent = TdStepsComponent;
+    exports.StepState = StepState;
+    exports.TdStepActionsDirective = TdStepActionsDirective;
+    exports.TdStepBase = TdStepBase;
     exports.TdStepBodyComponent = TdStepBodyComponent;
+    exports.TdStepComponent = TdStepComponent;
     exports.TdStepHeaderBase = TdStepHeaderBase;
-    exports._TdStepHeaderMixinBase = _TdStepHeaderMixinBase;
     exports.TdStepHeaderComponent = TdStepHeaderComponent;
-    exports.ɵb = TdNavStepLinkComponent;
+    exports.TdStepLabelDirective = TdStepLabelDirective;
+    exports.TdStepSummaryDirective = TdStepSummaryDirective;
+    exports.TdStepsComponent = TdStepsComponent;
+    exports._TdStepHeaderMixinBase = _TdStepHeaderMixinBase;
+    exports._TdStepMixinBase = _TdStepMixinBase;
     exports.ɵa = TdNavStepsHorizontalComponent;
+    exports.ɵb = TdNavStepLinkComponent;
     exports.ɵc = TdNavStepsVerticalComponent;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
-
+}));
 //# sourceMappingURL=covalent-core-steps.umd.js.map

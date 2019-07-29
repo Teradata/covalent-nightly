@@ -1,6 +1,6 @@
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 export { CovalentFileModule } from './file.module';
 export { TdFileDropBase, _TdFileDropMixinBase, TdFileDropDirective } from './directives/file-drop.directive';

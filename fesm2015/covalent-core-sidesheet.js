@@ -1,10 +1,10 @@
+import { Directive, Input, Component, ViewEncapsulation, ContentChild, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatDividerModule } from '@angular/material/divider';
-import { Component, ContentChild, Directive, Input, ViewEncapsulation, NgModule } from '@angular/core';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdSidesheetContentDirective {
 }
@@ -57,13 +57,13 @@ TdSidesheetComponent.decorators = [
             }] }
 ];
 TdSidesheetComponent.propDecorators = {
-    headerExists: [{ type: ContentChild, args: [TdSidesheetHeaderComponent,] }],
-    actionsExist: [{ type: ContentChild, args: [TdSidesheetActionsDirective,] }]
+    headerExists: [{ type: ContentChild, args: [TdSidesheetHeaderComponent, { static: false },] }],
+    actionsExist: [{ type: ContentChild, args: [TdSidesheetActionsDirective, { static: false },] }]
 };
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TD_SIDESHEET = [
@@ -83,21 +83,5 @@ CovalentSidesheetModule.decorators = [
             },] }
 ];
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-export { CovalentSidesheetModule, TdSidesheetContentDirective, TdSidesheetTitleDirective, TdSidesheetActionsDirective, TdSidesheetHeaderComponent, TdSidesheetComponent };
-
+export { CovalentSidesheetModule, TdSidesheetActionsDirective, TdSidesheetComponent, TdSidesheetContentDirective, TdSidesheetHeaderComponent, TdSidesheetTitleDirective };
 //# sourceMappingURL=covalent-core-sidesheet.js.map

@@ -1,12 +1,12 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/core')) :
-    typeof define === 'function' && define.amd ? define('@covalent/core/notifications', ['exports', '@angular/common', '@angular/core'], factory) :
-    (factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.notifications = {}),global.ng.common,global.ng.core));
-}(this, (function (exports,common,core) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common')) :
+    typeof define === 'function' && define.amd ? define('@covalent/core/notifications', ['exports', '@angular/core', '@angular/common'], factory) :
+    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.notifications = {}), global.ng.core, global.ng.common));
+}(this, function (exports, core, common) { 'use strict';
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @enum {string} */
     var TdNotificationCountPositionY = {
@@ -35,7 +35,8 @@
         Object.defineProperty(TdNotificationCountComponent.prototype, "positionX", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._positionX;
             },
             /**
@@ -49,7 +50,8 @@
              * Defaults to "after" if it has content, else 'center'.
              * @param {?} positionX
              * @return {?}
-             */ function (positionX) {
+             */
+            function (positionX) {
                 this._positionX = positionX;
             },
             enumerable: true,
@@ -58,7 +60,8 @@
         Object.defineProperty(TdNotificationCountComponent.prototype, "positionY", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._positionY;
             },
             /**
@@ -72,7 +75,8 @@
              * Defaults to "top" if it has content, else 'center'.
              * @param {?} positionY
              * @return {?}
-             */ function (positionY) {
+             */
+            function (positionY) {
                 this._positionY = positionY;
             },
             enumerable: true,
@@ -88,7 +92,8 @@
              * Number for the notification count. Shows component only if the input is a positive number or 'true'
              * @param {?} notifications
              * @return {?}
-             */ function (notifications) {
+             */
+            function (notifications) {
                 this._notifications = notifications;
             },
             enumerable: true,
@@ -104,7 +109,8 @@
              * Limit for notification count. If the number of notifications is greater than limit, then + will be added. Defaults to 99.
              * @param {?} limit
              * @return {?}
-             */ function (limit) {
+             */
+            function (limit) {
                 this._limit = limit;
             },
             enumerable: true,
@@ -113,7 +119,8 @@
         Object.defineProperty(TdNotificationCountComponent.prototype, "hideHost", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return !this.show && !this._hasContent();
             },
             enumerable: true,
@@ -128,7 +135,8 @@
              * Sets the component in its 'noCount' state if [notifications] is a boolean 'true'.
              * Makes the notification tip show without a count.
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._notifications === true;
             },
             enumerable: true,
@@ -143,7 +151,8 @@
              * Notification display string when a count is available.
              * Anything over 99 gets set as 99+
              * @return {?}
-             */ function () {
+             */
+            function () {
                 if (this._notifications > this._limit) {
                     return this._limit + "+";
                 }
@@ -159,8 +168,9 @@
             get: /**
              * Shows notification tip only when [notifications] is true or a positive integer.
              * @return {?}
-             */ function () {
-                return this._notifications === true || (!isNaN(( /** @type {?} */(this._notifications))) && this._notifications > 0);
+             */
+            function () {
+                return this._notifications === true || (!isNaN((/** @type {?} */ (this._notifications))) && this._notifications > 0);
             },
             enumerable: true,
             configurable: true
@@ -176,33 +186,35 @@
          * Check if [positionX] and [positionY] have been set as inputs, else use defaults depending on component content.
          * @return {?}
          */
-            function () {
-                if (!this._positionX) {
-                    this.positionX = this._hasContent() ? TdNotificationCountPositionX.After : TdNotificationCountPositionX.Center;
-                }
-                if (!this._positionY) {
-                    this.positionY = this._hasContent() ? TdNotificationCountPositionY.Top : TdNotificationCountPositionY.Center;
-                }
-            };
+        function () {
+            if (!this._positionX) {
+                this.positionX = this._hasContent() ? TdNotificationCountPositionX.After : TdNotificationCountPositionX.Center;
+            }
+            if (!this._positionY) {
+                this.positionY = this._hasContent() ? TdNotificationCountPositionY.Top : TdNotificationCountPositionY.Center;
+            }
+        };
         /**
          * Method to check if element has any kind of content (elements or text)
          */
         /**
          * Method to check if element has any kind of content (elements or text)
+         * @private
          * @return {?}
          */
         TdNotificationCountComponent.prototype._hasContent = /**
          * Method to check if element has any kind of content (elements or text)
+         * @private
          * @return {?}
          */
-            function () {
-                if (this.content) {
-                    /** @type {?} */
-                    var contentElement = this.content.nativeElement;
-                    return contentElement && (contentElement.children.length > 0 || !!contentElement.textContent.trim());
-                }
-                return false;
-            };
+        function () {
+            if (this.content) {
+                /** @type {?} */
+                var contentElement = this.content.nativeElement;
+                return contentElement && (contentElement.children.length > 0 || !!contentElement.textContent.trim());
+            }
+            return false;
+        };
         TdNotificationCountComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'td-notification-count',
@@ -212,7 +224,7 @@
                     }] }
         ];
         TdNotificationCountComponent.propDecorators = {
-            content: [{ type: core.ViewChild, args: ['content',] }],
+            content: [{ type: core.ViewChild, args: ['content', { static: true },] }],
             color: [{ type: core.Input }],
             positionX: [{ type: core.Input }],
             positionY: [{ type: core.Input }],
@@ -225,7 +237,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
     var TD_NOTIFICATIONS = [TdNotificationCountComponent];
@@ -242,29 +254,13 @@
         return CovalentNotificationsModule;
     }());
 
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
     exports.CovalentNotificationsModule = CovalentNotificationsModule;
-    exports.TdNotificationCountPositionY = TdNotificationCountPositionY;
-    exports.TdNotificationCountPositionX = TdNotificationCountPositionX;
     exports.DEFAULT_NOTIFICATION_LIMIT = DEFAULT_NOTIFICATION_LIMIT;
     exports.TdNotificationCountComponent = TdNotificationCountComponent;
+    exports.TdNotificationCountPositionX = TdNotificationCountPositionX;
+    exports.TdNotificationCountPositionY = TdNotificationCountPositionY;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
-
+}));
 //# sourceMappingURL=covalent-core-notifications.umd.js.map

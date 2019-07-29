@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/material/core'), require('@angular/material/icon'), require('@angular/cdk/portal'), require('@covalent/core/common'), require('@angular/core'), require('@angular/cdk/coercion'), require('rxjs/operators'), require('rxjs')) :
-    typeof define === 'function' && define.amd ? define('@covalent/core/expansion-panel', ['exports', '@angular/common', '@angular/material/core', '@angular/material/icon', '@angular/cdk/portal', '@covalent/core/common', '@angular/core', '@angular/cdk/coercion', 'rxjs/operators', 'rxjs'], factory) :
-    (factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core['expansion-panel'] = {}),global.ng.common,global.ng.material.core,global.ng.material.icon,global.ng.cdk.portal,global.covalent.core.common,global.ng.core,global.ng.cdk.coercion,global.rxjs.operators,global.rxjs));
-}(this, (function (exports,common,core,icon,portal,common$1,core$1,coercion,operators,rxjs) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/cdk/portal'), require('@angular/material/core'), require('@angular/material/icon'), require('@angular/cdk/coercion'), require('@covalent/core/common'), require('rxjs/operators'), require('rxjs')) :
+    typeof define === 'function' && define.amd ? define('@covalent/core/expansion-panel', ['exports', '@angular/core', '@angular/common', '@angular/cdk/portal', '@angular/material/core', '@angular/material/icon', '@angular/cdk/coercion', '@covalent/core/common', 'rxjs/operators', 'rxjs'], factory) :
+    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core['expansion-panel'] = {}), global.ng.core, global.ng.common, global.ng.cdk.portal, global.ng.material.core, global.ng.material.icon, global.ng.cdk.coercion, global.covalent.core.common, global.rxjs.operators, global.rxjs));
+}(this, function (exports, core, common, portal, core$1, icon, coercion, common$1, operators, rxjs) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -19,14 +19,14 @@
     and limitations under the License.
     ***************************************************************************** */
     /* global Reflect, Promise */
-    var extendStatics = function (d, b) {
+
+    var extendStatics = function(d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b)
-                if (b.hasOwnProperty(p))
-                    d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
+
     function __extends(d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -35,7 +35,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdExpansionPanelHeaderDirective = /** @class */ (function (_super) {
         __extends(TdExpansionPanelHeaderDirective, _super);
@@ -43,17 +43,15 @@
             return _super.call(this, templateRef, viewContainerRef) || this;
         }
         TdExpansionPanelHeaderDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: core.Directive, args: [{
                         selector: '[td-expansion-panel-header]ng-template',
                     },] }
         ];
         /** @nocollapse */
-        TdExpansionPanelHeaderDirective.ctorParameters = function () {
-            return [
-                { type: core$1.TemplateRef },
-                { type: core$1.ViewContainerRef }
-            ];
-        };
+        TdExpansionPanelHeaderDirective.ctorParameters = function () { return [
+            { type: core.TemplateRef },
+            { type: core.ViewContainerRef }
+        ]; };
         return TdExpansionPanelHeaderDirective;
     }(portal.TemplatePortalDirective));
     var TdExpansionPanelLabelDirective = /** @class */ (function (_super) {
@@ -62,17 +60,15 @@
             return _super.call(this, templateRef, viewContainerRef) || this;
         }
         TdExpansionPanelLabelDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: core.Directive, args: [{
                         selector: '[td-expansion-panel-label]ng-template',
                     },] }
         ];
         /** @nocollapse */
-        TdExpansionPanelLabelDirective.ctorParameters = function () {
-            return [
-                { type: core$1.TemplateRef },
-                { type: core$1.ViewContainerRef }
-            ];
-        };
+        TdExpansionPanelLabelDirective.ctorParameters = function () { return [
+            { type: core.TemplateRef },
+            { type: core.ViewContainerRef }
+        ]; };
         return TdExpansionPanelLabelDirective;
     }(portal.TemplatePortalDirective));
     var TdExpansionPanelSublabelDirective = /** @class */ (function (_super) {
@@ -81,24 +77,22 @@
             return _super.call(this, templateRef, viewContainerRef) || this;
         }
         TdExpansionPanelSublabelDirective.decorators = [
-            { type: core$1.Directive, args: [{
+            { type: core.Directive, args: [{
                         selector: '[td-expansion-panel-sublabel]ng-template',
                     },] }
         ];
         /** @nocollapse */
-        TdExpansionPanelSublabelDirective.ctorParameters = function () {
-            return [
-                { type: core$1.TemplateRef },
-                { type: core$1.ViewContainerRef }
-            ];
-        };
+        TdExpansionPanelSublabelDirective.ctorParameters = function () { return [
+            { type: core.TemplateRef },
+            { type: core.ViewContainerRef }
+        ]; };
         return TdExpansionPanelSublabelDirective;
     }(portal.TemplatePortalDirective));
     var TdExpansionPanelSummaryComponent = /** @class */ (function () {
         function TdExpansionPanelSummaryComponent() {
         }
         TdExpansionPanelSummaryComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: core.Component, args: [{
                         selector: 'td-expansion-summary',
                         template: '<ng-content></ng-content>'
                     }] }
@@ -124,19 +118,20 @@
              * expanded?: function
              * Event emitted when [TdExpansionPanelComponent] is expanded.
              */
-            _this.expanded = new core$1.EventEmitter();
+            _this.expanded = new core.EventEmitter();
             /**
              * collapsed?: function
              * Event emitted when [TdExpansionPanelComponent] is collapsed.
              */
-            _this.collapsed = new core$1.EventEmitter();
+            _this.collapsed = new core.EventEmitter();
             _this._renderer.addClass(_this._elementRef.nativeElement, 'td-expansion-panel');
             return _this;
         }
         Object.defineProperty(TdExpansionPanelComponent.prototype, "expand", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._expand;
             },
             /**
@@ -148,7 +143,8 @@
              * Toggles [TdExpansionPanelComponent] between expand/collapse.
              * @param {?} expand
              * @return {?}
-             */ function (expand) {
+             */
+            function (expand) {
                 this._setExpand(coercion.coerceBooleanProperty(expand));
             },
             enumerable: true,
@@ -165,9 +161,9 @@
          * Method executed when [TdExpansionPanelComponent] is clicked.
          * @return {?}
          */
-            function () {
-                this._setExpand(!this._expand);
-            };
+        function () {
+            this._setExpand(!this._expand);
+        };
         /**
          * Toggle expand state of [TdExpansionPanelComponent]
          * retuns 'true' if successful, else 'false'.
@@ -182,9 +178,9 @@
          * retuns 'true' if successful, else 'false'.
          * @return {?}
          */
-            function () {
-                return this._setExpand(!this._expand);
-            };
+        function () {
+            return this._setExpand(!this._expand);
+        };
         /**
          * Opens [TdExpansionPanelComponent]
          * retuns 'true' if successful, else 'false'.
@@ -199,9 +195,9 @@
          * retuns 'true' if successful, else 'false'.
          * @return {?}
          */
-            function () {
-                return this._setExpand(true);
-            };
+        function () {
+            return this._setExpand(true);
+        };
         /**
          * Closes [TdExpansionPanelComponent]
          * retuns 'true' if successful, else 'false'.
@@ -216,9 +212,9 @@
          * retuns 'true' if successful, else 'false'.
          * @return {?}
          */
-            function () {
-                return this._setExpand(false);
-            };
+        function () {
+            return this._setExpand(false);
+        };
         /** Method executed when the disabled value changes */
         /**
          * Method executed when the disabled value changes
@@ -230,12 +226,12 @@
          * @param {?} v
          * @return {?}
          */
-            function (v) {
-                if (v && this._expand) {
-                    this._expand = false;
-                    this._onCollapsed();
-                }
-            };
+        function (v) {
+            if (v && this._expand) {
+                this._expand = false;
+                this._onCollapsed();
+            }
+        };
         /**
          * Method to change expand state internally and emit the [onExpanded] event if 'true' or [onCollapsed]
          * event if 'false'. (Blocked if [disabled] is 'true')
@@ -243,53 +239,59 @@
         /**
          * Method to change expand state internally and emit the [onExpanded] event if 'true' or [onCollapsed]
          * event if 'false'. (Blocked if [disabled] is 'true')
+         * @private
          * @param {?} newExpand
          * @return {?}
          */
         TdExpansionPanelComponent.prototype._setExpand = /**
          * Method to change expand state internally and emit the [onExpanded] event if 'true' or [onCollapsed]
          * event if 'false'. (Blocked if [disabled] is 'true')
+         * @private
          * @param {?} newExpand
          * @return {?}
          */
-            function (newExpand) {
-                if (this.disabled) {
-                    return false;
-                }
-                if (this._expand !== newExpand) {
-                    this._expand = newExpand;
-                    if (newExpand) {
-                        this._renderer.addClass(this._elementRef.nativeElement, 'td-expanded');
-                        this._onExpanded();
-                    }
-                    else {
-                        this._renderer.removeClass(this._elementRef.nativeElement, 'td-expanded');
-                        this._onCollapsed();
-                    }
-                    return true;
-                }
+        function (newExpand) {
+            if (this.disabled) {
                 return false;
-            };
+            }
+            if (this._expand !== newExpand) {
+                this._expand = newExpand;
+                if (newExpand) {
+                    this._renderer.addClass(this._elementRef.nativeElement, 'td-expanded');
+                    this._onExpanded();
+                }
+                else {
+                    this._renderer.removeClass(this._elementRef.nativeElement, 'td-expanded');
+                    this._onCollapsed();
+                }
+                return true;
+            }
+            return false;
+        };
         /**
+         * @private
          * @return {?}
          */
         TdExpansionPanelComponent.prototype._onExpanded = /**
+         * @private
          * @return {?}
          */
-            function () {
-                this.expanded.emit(undefined);
-            };
+        function () {
+            this.expanded.emit(undefined);
+        };
         /**
+         * @private
          * @return {?}
          */
         TdExpansionPanelComponent.prototype._onCollapsed = /**
+         * @private
          * @return {?}
          */
-            function () {
-                this.collapsed.emit(undefined);
-            };
+        function () {
+            this.collapsed.emit(undefined);
+        };
         TdExpansionPanelComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: core.Component, args: [{
                         selector: 'td-expansion-panel',
                         template: "<div\n  class=\"td-expansion-panel-header\"\n  [class.mat-disabled]=\"disabled\"\n  matRipple\n  [matRippleDisabled]=\"disabled || disableRipple\"\n  [tabIndex]=\"disabled ? -1 : 0\"\n  (keydown.enter)=\"clickEvent()\"\n  (click)=\"clickEvent()\"\n>\n  <ng-template [cdkPortalOutlet]=\"expansionPanelHeader\"></ng-template>\n  <div class=\"td-expansion-panel-header-content\" [class.mat-disabled]=\"disabled\" *ngIf=\"!expansionPanelHeader\">\n    <div *ngIf=\"label || expansionPanelLabel\" class=\"td-expansion-label\">\n      <ng-template [cdkPortalOutlet]=\"expansionPanelLabel\"></ng-template>\n      <ng-template [ngIf]=\"!expansionPanelLabel\">{{ label }}</ng-template>\n    </div>\n    <div *ngIf=\"sublabel || expansionPanelSublabel\" class=\"td-expansion-sublabel\">\n      <ng-template [cdkPortalOutlet]=\"expansionPanelSublabel\"></ng-template>\n      <ng-template [ngIf]=\"!expansionPanelSublabel\">{{ sublabel }}</ng-template>\n    </div>\n    <mat-icon class=\"td-expand-icon\" *ngIf=\"!disabled\" [@tdRotate]=\"expand\">keyboard_arrow_down</mat-icon>\n  </div>\n</div>\n<div class=\"td-expansion-content\" [@tdCollapse]=\"!expand\">\n  <ng-content></ng-content>\n</div>\n<div class=\"td-expansion-summary\" [@tdCollapse]=\"expand\">\n  <ng-content select=\"td-expansion-summary\"></ng-content>\n</div>\n",
                         inputs: ['disabled', 'disableRipple'],
@@ -298,28 +300,26 @@
                     }] }
         ];
         /** @nocollapse */
-        TdExpansionPanelComponent.ctorParameters = function () {
-            return [
-                { type: core$1.Renderer2 },
-                { type: core$1.ElementRef }
-            ];
-        };
+        TdExpansionPanelComponent.ctorParameters = function () { return [
+            { type: core.Renderer2 },
+            { type: core.ElementRef }
+        ]; };
         TdExpansionPanelComponent.propDecorators = {
-            expansionPanelHeader: [{ type: core$1.ContentChild, args: [TdExpansionPanelHeaderDirective,] }],
-            expansionPanelLabel: [{ type: core$1.ContentChild, args: [TdExpansionPanelLabelDirective,] }],
-            expansionPanelSublabel: [{ type: core$1.ContentChild, args: [TdExpansionPanelSublabelDirective,] }],
-            label: [{ type: core$1.Input }],
-            sublabel: [{ type: core$1.Input }],
-            expand: [{ type: core$1.Input, args: ['expand',] }],
-            expanded: [{ type: core$1.Output }],
-            collapsed: [{ type: core$1.Output }]
+            expansionPanelHeader: [{ type: core.ContentChild, args: [TdExpansionPanelHeaderDirective, { static: false },] }],
+            expansionPanelLabel: [{ type: core.ContentChild, args: [TdExpansionPanelLabelDirective, { static: false },] }],
+            expansionPanelSublabel: [{ type: core.ContentChild, args: [TdExpansionPanelSublabelDirective, { static: false },] }],
+            label: [{ type: core.Input }],
+            sublabel: [{ type: core.Input }],
+            expand: [{ type: core.Input, args: ['expand',] }],
+            expanded: [{ type: core.Output }],
+            collapsed: [{ type: core.Output }]
         };
         return TdExpansionPanelComponent;
     }(_TdExpansionPanelMixinBase));
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdExpansionPanelGroupComponent = /** @class */ (function () {
         function TdExpansionPanelGroupComponent(_renderer, _elementRef) {
@@ -345,7 +345,8 @@
              * Defaults to false.
              * @param {?} multi
              * @return {?}
-             */ function (multi) {
+             */
+            function (multi) {
                 this._multi = coercion.coerceBooleanProperty(multi);
                 if (this._multi === false && this._lastOpenedPanels.length > 0) {
                     this._closeAllExcept(this._lastOpenedPanels[this._lastOpenedPanels.length - 1]);
@@ -360,39 +361,47 @@
         TdExpansionPanelGroupComponent.prototype.ngOnDestroy = /**
          * @return {?}
          */
-            function () {
-                this._destroyed.next(true);
-                this._destroyed.unsubscribe();
-                this._stopWatchingPanels.next(true);
-                this._stopWatchingPanels.unsubscribe();
-            };
+        function () {
+            this._destroyed.next(true);
+            this._destroyed.unsubscribe();
+            this._stopWatchingPanels.next(true);
+            this._stopWatchingPanels.unsubscribe();
+        };
         /**
          * @return {?}
          */
         TdExpansionPanelGroupComponent.prototype.ngAfterContentInit = /**
          * @return {?}
          */
-            function () {
-                var _this = this;
-                if (!this._multi) {
-                    /** @type {?} */
-                    var openedPanels = this.expansionPanels.filter(function (expansionPanel) { return expansionPanel.expand; });
-                    /** @type {?} */
-                    var numOpenedPanels = openedPanels.length;
-                    if (numOpenedPanels > 1) {
-                        this._closeAllExcept(openedPanels[numOpenedPanels - 1]);
-                    }
+        function () {
+            var _this = this;
+            if (!this._multi) {
+                /** @type {?} */
+                var openedPanels = this.expansionPanels.filter((/**
+                 * @param {?} expansionPanel
+                 * @return {?}
+                 */
+                function (expansionPanel) { return expansionPanel.expand; }));
+                /** @type {?} */
+                var numOpenedPanels = openedPanels.length;
+                if (numOpenedPanels > 1) {
+                    this._closeAllExcept(openedPanels[numOpenedPanels - 1]);
                 }
-                this._attachListeners(this.expansionPanels);
-                this.expansionPanels.changes
-                    .pipe(operators.takeUntil(this._destroyed))
-                    .subscribe(function (expansionPanels) {
-                    _this._stopWatchingPanels.next(true);
-                    _this._stopWatchingPanels.unsubscribe();
-                    _this._stopWatchingPanels = new rxjs.Subject();
-                    _this._attachListeners(expansionPanels);
-                });
-            };
+            }
+            this._attachListeners(this.expansionPanels);
+            this.expansionPanels.changes
+                .pipe(operators.takeUntil(this._destroyed))
+                .subscribe((/**
+             * @param {?} expansionPanels
+             * @return {?}
+             */
+            function (expansionPanels) {
+                _this._stopWatchingPanels.next(true);
+                _this._stopWatchingPanels.unsubscribe();
+                _this._stopWatchingPanels = new rxjs.Subject();
+                _this._attachListeners(expansionPanels);
+            }));
+        };
         /**
          * Opens all expansion panels, only if multi set set to true.
          */
@@ -404,13 +413,17 @@
          * Opens all expansion panels, only if multi set set to true.
          * @return {?}
          */
-            function () {
-                if (this._multi) {
-                    this.expansionPanels.forEach(function (expansionPanel) {
-                        expansionPanel.open();
-                    });
-                }
-            };
+        function () {
+            if (this._multi) {
+                this.expansionPanels.forEach((/**
+                 * @param {?} expansionPanel
+                 * @return {?}
+                 */
+                function (expansionPanel) {
+                    expansionPanel.open();
+                }));
+            }
+        };
         /**
          * Closes all expansion panels
          */
@@ -422,82 +435,102 @@
          * Closes all expansion panels
          * @return {?}
          */
-            function () {
-                this.expansionPanels.forEach(function (expansionPanel) {
-                    expansionPanel.close();
-                });
-            };
+        function () {
+            this.expansionPanels.forEach((/**
+             * @param {?} expansionPanel
+             * @return {?}
+             */
+            function (expansionPanel) {
+                expansionPanel.close();
+            }));
+        };
         /**
+         * @private
          * @param {?} expansionPanels
          * @return {?}
          */
         TdExpansionPanelGroupComponent.prototype._attachListeners = /**
+         * @private
          * @param {?} expansionPanels
          * @return {?}
          */
-            function (expansionPanels) {
-                var _this = this;
-                this._lastOpenedPanels = [];
-                expansionPanels.forEach(function (expansionPanel) {
-                    expansionPanel.expanded.pipe(operators.takeUntil(_this._stopWatchingPanels)).subscribe(function () {
-                        /** @type {?} */
-                        var indexOfPanel = _this._lastOpenedPanels.indexOf(expansionPanel);
-                        if (indexOfPanel !== -1) {
-                            _this._lastOpenedPanels.splice(indexOfPanel, 1);
-                        }
-                        _this._lastOpenedPanels.push(expansionPanel);
-                        if (!_this._multi) {
-                            _this._closeAllExcept(expansionPanel);
-                        }
-                    });
-                    expansionPanel.collapsed.pipe(operators.takeUntil(_this._stopWatchingPanels)).subscribe(function () {
-                        /** @type {?} */
-                        var indexOfPanel = _this._lastOpenedPanels.indexOf(expansionPanel);
-                        if (indexOfPanel !== -1) {
-                            _this._lastOpenedPanels.splice(indexOfPanel, 1);
-                        }
-                    });
-                });
-            };
+        function (expansionPanels) {
+            var _this = this;
+            this._lastOpenedPanels = [];
+            expansionPanels.forEach((/**
+             * @param {?} expansionPanel
+             * @return {?}
+             */
+            function (expansionPanel) {
+                expansionPanel.expanded.pipe(operators.takeUntil(_this._stopWatchingPanels)).subscribe((/**
+                 * @return {?}
+                 */
+                function () {
+                    /** @type {?} */
+                    var indexOfPanel = _this._lastOpenedPanels.indexOf(expansionPanel);
+                    if (indexOfPanel !== -1) {
+                        _this._lastOpenedPanels.splice(indexOfPanel, 1);
+                    }
+                    _this._lastOpenedPanels.push(expansionPanel);
+                    if (!_this._multi) {
+                        _this._closeAllExcept(expansionPanel);
+                    }
+                }));
+                expansionPanel.collapsed.pipe(operators.takeUntil(_this._stopWatchingPanels)).subscribe((/**
+                 * @return {?}
+                 */
+                function () {
+                    /** @type {?} */
+                    var indexOfPanel = _this._lastOpenedPanels.indexOf(expansionPanel);
+                    if (indexOfPanel !== -1) {
+                        _this._lastOpenedPanels.splice(indexOfPanel, 1);
+                    }
+                }));
+            }));
+        };
         /**
+         * @private
          * @param {?} expansionPanel
          * @return {?}
          */
         TdExpansionPanelGroupComponent.prototype._closeAllExcept = /**
+         * @private
          * @param {?} expansionPanel
          * @return {?}
          */
-            function (expansionPanel) {
-                this.expansionPanels.forEach(function (panel) {
-                    if (panel !== expansionPanel) {
-                        panel.close();
-                    }
-                });
-            };
+        function (expansionPanel) {
+            this.expansionPanels.forEach((/**
+             * @param {?} panel
+             * @return {?}
+             */
+            function (panel) {
+                if (panel !== expansionPanel) {
+                    panel.close();
+                }
+            }));
+        };
         TdExpansionPanelGroupComponent.decorators = [
-            { type: core$1.Component, args: [{
+            { type: core.Component, args: [{
                         selector: 'td-expansion-panel-group',
                         template: "<ng-content></ng-content>\n",
                         styles: [""]
                     }] }
         ];
         /** @nocollapse */
-        TdExpansionPanelGroupComponent.ctorParameters = function () {
-            return [
-                { type: core$1.Renderer2 },
-                { type: core$1.ElementRef }
-            ];
-        };
+        TdExpansionPanelGroupComponent.ctorParameters = function () { return [
+            { type: core.Renderer2 },
+            { type: core.ElementRef }
+        ]; };
         TdExpansionPanelGroupComponent.propDecorators = {
-            multi: [{ type: core$1.Input, args: ['multi',] }],
-            expansionPanels: [{ type: core$1.ContentChildren, args: [TdExpansionPanelComponent,] }]
+            multi: [{ type: core.Input, args: ['multi',] }],
+            expansionPanels: [{ type: core.ContentChildren, args: [TdExpansionPanelComponent,] }]
         };
         return TdExpansionPanelGroupComponent;
     }());
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
     var TD_EXPANSION_PANEL = [
@@ -512,8 +545,8 @@
         function CovalentExpansionPanelModule() {
         }
         CovalentExpansionPanelModule.decorators = [
-            { type: core$1.NgModule, args: [{
-                        imports: [common.CommonModule, core.MatRippleModule, icon.MatIconModule, portal.PortalModule],
+            { type: core.NgModule, args: [{
+                        imports: [common.CommonModule, core$1.MatRippleModule, icon.MatIconModule, portal.PortalModule],
                         declarations: [TD_EXPANSION_PANEL],
                         exports: [TD_EXPANSION_PANEL],
                     },] }
@@ -521,33 +554,17 @@
         return CovalentExpansionPanelModule;
     }());
 
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
     exports.CovalentExpansionPanelModule = CovalentExpansionPanelModule;
+    exports.TdExpansionPanelBase = TdExpansionPanelBase;
+    exports.TdExpansionPanelComponent = TdExpansionPanelComponent;
+    exports.TdExpansionPanelGroupComponent = TdExpansionPanelGroupComponent;
     exports.TdExpansionPanelHeaderDirective = TdExpansionPanelHeaderDirective;
     exports.TdExpansionPanelLabelDirective = TdExpansionPanelLabelDirective;
     exports.TdExpansionPanelSublabelDirective = TdExpansionPanelSublabelDirective;
     exports.TdExpansionPanelSummaryComponent = TdExpansionPanelSummaryComponent;
-    exports.TdExpansionPanelBase = TdExpansionPanelBase;
     exports._TdExpansionPanelMixinBase = _TdExpansionPanelMixinBase;
-    exports.TdExpansionPanelComponent = TdExpansionPanelComponent;
-    exports.TdExpansionPanelGroupComponent = TdExpansionPanelGroupComponent;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
-
+}));
 //# sourceMappingURL=covalent-core-expansion-panel.umd.js.map

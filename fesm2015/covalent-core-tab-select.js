@@ -1,14 +1,14 @@
+import { Component, ChangeDetectionStrategy, ViewContainerRef, ChangeDetectorRef, ViewChild, TemplateRef, Input, EventEmitter, forwardRef, ContentChildren, Output, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatTabsModule } from '@angular/material/tabs';
 import { NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
-import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { Component, Input, ChangeDetectionStrategy, ChangeDetectorRef, ViewChild, TemplateRef, ViewContainerRef, ContentChildren, forwardRef, Output, EventEmitter, NgModule } from '@angular/core';
 import { TemplatePortal, PortalModule } from '@angular/cdk/portal';
+import { MatTabsModule } from '@angular/material/tabs';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { mixinDisabled, mixinControlValueAccessor, mixinDisableRipple } from '@covalent/core/common';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdTabOptionBase {
     /**
@@ -60,13 +60,13 @@ TdTabOptionComponent.ctorParameters = () => [
     { type: ChangeDetectorRef }
 ];
 TdTabOptionComponent.propDecorators = {
-    _content: [{ type: ViewChild, args: [TemplateRef,] }],
+    _content: [{ type: ViewChild, args: [TemplateRef, { static: true },] }],
     value: [{ type: Input, args: ['value',] }]
 };
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdTabSelectBase {
     /**
@@ -126,9 +126,13 @@ class TdTabSelectComponent extends _TdTabSelectMixinBase {
      */
     ngOnInit() {
         // subscribe to check if value changes and update the selectedIndex internally.
-        this._subs.push(this.valueChanges.subscribe((value) => {
+        this._subs.push(this.valueChanges.subscribe((/**
+         * @param {?} value
+         * @return {?}
+         */
+        (value) => {
             this._setValue(value);
-        }));
+        })));
     }
     /**
      * @return {?}
@@ -136,22 +140,32 @@ class TdTabSelectComponent extends _TdTabSelectMixinBase {
     ngAfterContentInit() {
         // subscribe to listen to any tab changes.
         this._refreshValues();
-        this._subs.push(this._tabOptions.changes.subscribe(() => {
+        this._subs.push(this._tabOptions.changes.subscribe((/**
+         * @return {?}
+         */
+        () => {
             this._refreshValues();
-        }));
+        })));
         // initialize value
-        Promise.resolve().then(() => {
+        Promise.resolve().then((/**
+         * @return {?}
+         */
+        () => {
             this._setValue(this.value);
-        });
+        }));
     }
     /**
      * @return {?}
      */
     ngOnDestroy() {
         if (this._subs && this._subs.length) {
-            this._subs.forEach((sub) => {
+            this._subs.forEach((/**
+             * @param {?} sub
+             * @return {?}
+             */
+            (sub) => {
                 sub.unsubscribe();
-            });
+            }));
         }
     }
     /**
@@ -170,17 +184,23 @@ class TdTabSelectComponent extends _TdTabSelectMixinBase {
     }
     /**
      * Refresh the values array whenever the number of tabs gets updated
+     * @private
      * @return {?}
      */
     _refreshValues() {
-        this._values = this.tabOptions.map((tabOption) => {
+        this._values = this.tabOptions.map((/**
+         * @param {?} tabOption
+         * @return {?}
+         */
+        (tabOption) => {
             return tabOption.value;
-        });
+        }));
         this._changeDetectorRef.markForCheck();
     }
     /**
      * Try to set value depending if its part of our options
      * else set the value of the first tab.
+     * @private
      * @param {?} value
      * @return {?}
      */
@@ -203,7 +223,10 @@ TdTabSelectComponent.decorators = [
                 providers: [
                     {
                         provide: NG_VALUE_ACCESSOR,
-                        useExisting: forwardRef(() => TdTabSelectComponent),
+                        useExisting: forwardRef((/**
+                         * @return {?}
+                         */
+                        () => TdTabSelectComponent)),
                         multi: true,
                     },
                 ],
@@ -228,7 +251,7 @@ TdTabSelectComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class CovalentTabSelectModule {
 }
@@ -249,21 +272,5 @@ CovalentTabSelectModule.decorators = [
             },] }
 ];
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-export { CovalentTabSelectModule, TdTabSelectBase, _TdTabSelectMixinBase, TdTabSelectComponent, TdTabOptionBase, _TdTabOptionMixinBase, TdTabOptionComponent };
-
+export { CovalentTabSelectModule, TdTabOptionBase, TdTabOptionComponent, TdTabSelectBase, TdTabSelectComponent, _TdTabOptionMixinBase, _TdTabSelectMixinBase };
 //# sourceMappingURL=covalent-core-tab-select.js.map

@@ -1,19 +1,19 @@
+import { Directive, TemplateRef, ViewContainerRef, EventEmitter, Component, ViewChild, ContentChild, Input, Output, ContentChildren, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, Optional, Renderer2, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TemplatePortalDirective, TemplatePortal, PortalModule } from '@angular/cdk/portal';
+import { ViewportRuler, ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { MatIconModule } from '@angular/material/icon';
 import { MatRippleModule } from '@angular/material/core';
-import { TemplatePortalDirective, TemplatePortal, PortalModule } from '@angular/cdk/portal';
-import { mixinDisabled, mixinDisableRipple, tdCollapseAnimation, CovalentCommonModule } from '@covalent/core/common';
-import { Directionality } from '@angular/cdk/bidi';
-import { RIGHT_ARROW, LEFT_ARROW } from '@angular/cdk/keycodes';
-import { ViewportRuler, ScrollDispatchModule } from '@angular/cdk/scrolling';
+import { mixinDisableRipple, mixinDisabled, tdCollapseAnimation, CovalentCommonModule } from '@covalent/core/common';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { Component, Directive, Input, Output, TemplateRef, ViewChild, ViewContainerRef, ContentChild, EventEmitter, ContentChildren, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, Optional, Renderer2, NgModule } from '@angular/core';
 import { Subject, merge, of } from 'rxjs';
 import { distinctUntilChanged, takeUntil } from 'rxjs/operators';
+import { Directionality } from '@angular/cdk/bidi';
+import { LEFT_ARROW, RIGHT_ARROW } from '@angular/cdk/keycodes';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @enum {string} */
 const StepState = {
@@ -202,6 +202,7 @@ class TdStepComponent extends _TdStepMixinBase {
      * Method to change active state internally and emit the [onActivated] event if 'true' or [onDeactivated]
      * event if 'false'. (Blocked if [disabled] is 'true')
      * returns true if successfully changed state
+     * @private
      * @param {?} newActive
      * @return {?}
      */
@@ -222,12 +223,14 @@ class TdStepComponent extends _TdStepMixinBase {
         return false;
     }
     /**
+     * @private
      * @return {?}
      */
     _onActivated() {
         this.onActivated.emit(undefined);
     }
     /**
+     * @private
      * @return {?}
      */
     _onDeactivated() {
@@ -246,10 +249,10 @@ TdStepComponent.ctorParameters = () => [
     { type: ViewContainerRef }
 ];
 TdStepComponent.propDecorators = {
-    _content: [{ type: ViewChild, args: [TemplateRef,] }],
-    stepLabel: [{ type: ContentChild, args: [TdStepLabelDirective,] }],
-    stepActions: [{ type: ContentChild, args: [TdStepActionsDirective,] }],
-    stepSummary: [{ type: ContentChild, args: [TdStepSummaryDirective,] }],
+    _content: [{ type: ViewChild, args: [TemplateRef, { static: true },] }],
+    stepLabel: [{ type: ContentChild, args: [TdStepLabelDirective, { static: false },] }],
+    stepActions: [{ type: ContentChild, args: [TdStepActionsDirective, { static: false },] }],
+    stepSummary: [{ type: ContentChild, args: [TdStepSummaryDirective, { static: false },] }],
     label: [{ type: Input, args: ['label',] }],
     sublabel: [{ type: Input, args: ['sublabel',] }],
     active: [{ type: Input, args: ['active',] }],
@@ -260,7 +263,7 @@ TdStepComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @enum {string} */
 const StepMode = {
@@ -347,13 +350,18 @@ class TdStepsComponent {
      * @return {?}
      */
     areStepsActive() {
-        return (this._steps.filter((step) => {
+        return (this._steps.filter((/**
+         * @param {?} step
+         * @return {?}
+         */
+        (step) => {
             return step.active;
-        }).length > 0);
+        })).length > 0);
     }
     /**
      * Wraps previous and new [TdStepComponent] numbers in an object that implements [IStepChangeEvent]
      * and emits [onStepChange] event.
+     * @private
      * @param {?} step
      * @return {?}
      */
@@ -373,37 +381,59 @@ class TdStepsComponent {
     }
     /**
      * Loops through [TdStepComponent] children elements and deactivates them ignoring the one passed as an argument.
+     * @private
      * @param {?} activeStep
      * @return {?}
      */
     _deactivateAllBut(activeStep) {
         this._steps
-            .filter((step) => step !== activeStep)
-            .forEach((step) => {
+            .filter((/**
+         * @param {?} step
+         * @return {?}
+         */
+        (step) => step !== activeStep))
+            .forEach((/**
+         * @param {?} step
+         * @return {?}
+         */
+        (step) => {
             step.active = false;
-        });
+        }));
     }
     /**
+     * @private
      * @return {?}
      */
     _registerSteps() {
         this._subcriptions = [];
-        this._steps.toArray().forEach((step) => {
+        this._steps.toArray().forEach((/**
+         * @param {?} step
+         * @return {?}
+         */
+        (step) => {
             /** @type {?} */
-            let subscription = step.onActivated.asObservable().subscribe(() => {
+            let subscription = step.onActivated.asObservable().subscribe((/**
+             * @return {?}
+             */
+            () => {
                 this._onStepSelection(step);
-            });
+            }));
             this._subcriptions.push(subscription);
-        });
+        }));
     }
     /**
+     * @private
      * @return {?}
      */
     _deregisterSteps() {
         if (this._subcriptions) {
-            this._subcriptions.forEach((subs) => {
+            this._subcriptions.forEach((/**
+             * @param {?} subs
+             * @return {?}
+             */
+            (subs) => {
                 subs.unsubscribe();
-            });
+            }));
             this._subcriptions = undefined;
         }
     }
@@ -427,7 +457,7 @@ TdStepsComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdStepHeaderBase {
 }
@@ -476,7 +506,7 @@ TdStepHeaderComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdStepBodyComponent {
     constructor() {
@@ -525,16 +555,16 @@ TdStepBodyComponent.decorators = [
             }] }
 ];
 TdStepBodyComponent.propDecorators = {
-    contentRef: [{ type: ViewChild, args: ['contentRef', { read: ElementRef },] }],
-    actionsRef: [{ type: ViewChild, args: ['actionsRef', { read: ElementRef },] }],
-    summaryRef: [{ type: ViewChild, args: ['summaryRef', { read: ElementRef },] }],
+    contentRef: [{ type: ViewChild, args: ['contentRef', { read: ElementRef, static: true },] }],
+    actionsRef: [{ type: ViewChild, args: ['actionsRef', { read: ElementRef, static: true },] }],
+    summaryRef: [{ type: ViewChild, args: ['summaryRef', { read: ElementRef, static: true },] }],
     active: [{ type: Input, args: ['active',] }],
     state: [{ type: Input, args: ['state',] }]
 };
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdNavStepLinkComponent extends _TdStepMixinBase {
     /**
@@ -633,7 +663,7 @@ TdNavStepLinkComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdNavStepsHorizontalComponent {
     /**
@@ -708,11 +738,14 @@ class TdNavStepsHorizontalComponent {
     ngAfterContentInit() {
         merge(this._widthSubject.asObservable().pipe(distinctUntilChanged()), this._viewportRuler.change(150), this._dir ? this._dir.change : of(undefined), this._steps.changes)
             .pipe(takeUntil(this._destroyed))
-            .subscribe(() => {
+            .subscribe((/**
+         * @return {?}
+         */
+        () => {
             this._configureSteps();
             this.updatePagination();
             this._changeDetectorRef.markForCheck();
-        });
+        }));
         this._configureSteps();
         this._changeDetectorRef.markForCheck();
     }
@@ -858,16 +891,26 @@ class TdNavStepsHorizontalComponent {
     }
     /**
      * Set the step line separators and display numbers
+     * @private
      * @return {?}
      */
     _configureSteps() {
-        this._separators.forEach((separator) => {
+        this._separators.forEach((/**
+         * @param {?} separator
+         * @return {?}
+         */
+        (separator) => {
             this._renderer.removeChild(this._stepList.nativeElement, separator);
-        });
+        }));
         /** @type {?} */
         let stepsArray = this._steps.toArray();
         // set the index number of the step so can display that number in circle
-        stepsArray.forEach((step, index) => {
+        stepsArray.forEach((/**
+         * @param {?} step
+         * @param {?} index
+         * @return {?}
+         */
+        (step, index) => {
             if (index > 0 && index < stepsArray.length) {
                 /** @type {?} */
                 let separator = this._renderer.createElement('div');
@@ -876,7 +919,7 @@ class TdNavStepsHorizontalComponent {
                 this._renderer.insertBefore(this._stepList.nativeElement, separator, step.elementRef.nativeElement);
             }
             step.number = index + 1;
-        });
+        }));
     }
 }
 TdNavStepsHorizontalComponent.decorators = [
@@ -890,7 +933,7 @@ TdNavStepsHorizontalComponent.decorators = [
                     '[class.td-step-header-pagination-controls-enabled]': '_showPaginationControls',
                     '[class.td-step-header-rtl]': "_getLayoutDirection() == 'rtl'",
                 },
-                styles: [":host{width:100%;display:block}.td-steps-header,.td-steps-header-list{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row}.td-steps-header-container{display:-ms-flexbox;display:flex;-ms-flex-positive:1;flex-grow:1;overflow:hidden;z-index:1}.td-steps-header-list{-ms-flex-positive:1;flex-grow:1;position:relative;transition:transform .5s cubic-bezier(.35,0,.25,1),-webkit-transform .5s cubic-bezier(.35,0,.25,1);-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:start;justify-content:flex-start}.td-step-header-pagination{position:relative;display:none;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;min-width:32px;cursor:pointer;z-index:2}:host.td-step-header-pagination-controls-enabled .td-step-header-pagination{display:-ms-flexbox;display:flex}.td-step-header-pagination-before,:host.td-step-header-rtl .td-step-header-pagination-after{padding-left:4px}.td-step-header-pagination-before .td-step-header-pagination-chevron,:host.td-step-header-rtl .td-step-header-pagination-after .td-step-header-pagination-chevron{-webkit-transform:rotate(-135deg);-ms-transform:rotate(-135deg);transform:rotate(-135deg)}.td-step-header-pagination-after,:host.td-step-header-rtl .td-step-header-pagination-before{padding-right:4px}.td-step-header-pagination-after .td-step-header-pagination-chevron,:host.td-step-header-rtl .td-step-header-pagination-before .td-step-header-pagination-chevron{-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}.td-step-header-pagination-chevron{border-style:solid;border-width:2px 2px 0 0;content:'';height:8px;width:8px}.td-step-header-pagination-disabled{box-shadow:none;cursor:default}.td-horizontal-line{border-bottom-width:1px;border-bottom-style:solid;height:1px;min-width:20px;-ms-flex:1;flex:1;box-sizing:border-box}"]
+                styles: [":host{width:100%;display:block}.td-steps-header,.td-steps-header-list{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row}.td-steps-header-container{display:-ms-flexbox;display:flex;-ms-flex-positive:1;flex-grow:1;overflow:hidden;z-index:1}.td-steps-header-list{-ms-flex-positive:1;flex-grow:1;position:relative;transition:transform .5s cubic-bezier(.35,0,.25,1);-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:start;justify-content:flex-start}.td-step-header-pagination{position:relative;display:none;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;min-width:32px;cursor:pointer;z-index:2}:host.td-step-header-pagination-controls-enabled .td-step-header-pagination{display:-ms-flexbox;display:flex}.td-step-header-pagination-before,:host.td-step-header-rtl .td-step-header-pagination-after{padding-left:4px}.td-step-header-pagination-before .td-step-header-pagination-chevron,:host.td-step-header-rtl .td-step-header-pagination-after .td-step-header-pagination-chevron{-ms-transform:rotate(-135deg);transform:rotate(-135deg)}.td-step-header-pagination-after,:host.td-step-header-rtl .td-step-header-pagination-before{padding-right:4px}.td-step-header-pagination-after .td-step-header-pagination-chevron,:host.td-step-header-rtl .td-step-header-pagination-before .td-step-header-pagination-chevron{-ms-transform:rotate(45deg);transform:rotate(45deg)}.td-step-header-pagination-chevron{border-style:solid;border-width:2px 2px 0 0;content:'';height:8px;width:8px}.td-step-header-pagination-disabled{box-shadow:none;cursor:default}.td-horizontal-line{border-bottom-width:1px;border-bottom-style:solid;height:1px;min-width:20px;-ms-flex:1;flex:1;box-sizing:border-box}"]
             }] }
 ];
 /** @nocollapse */
@@ -903,13 +946,13 @@ TdNavStepsHorizontalComponent.ctorParameters = () => [
 ];
 TdNavStepsHorizontalComponent.propDecorators = {
     _steps: [{ type: ContentChildren, args: [TdNavStepLinkComponent,] }],
-    _stepListContainer: [{ type: ViewChild, args: ['stepListContainer',] }],
-    _stepList: [{ type: ViewChild, args: ['stepList',] }]
+    _stepListContainer: [{ type: ViewChild, args: ['stepListContainer', { static: true },] }],
+    _stepList: [{ type: ViewChild, args: ['stepList', { static: true },] }]
 };
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdNavStepsVerticalComponent {
     /**
@@ -929,10 +972,13 @@ class TdNavStepsVerticalComponent {
      * @return {?}
      */
     ngAfterContentInit() {
-        this._steps.changes.pipe(takeUntil(this._destroyed)).subscribe(() => {
+        this._steps.changes.pipe(takeUntil(this._destroyed)).subscribe((/**
+         * @return {?}
+         */
+        () => {
             this._configureSteps();
             this._changeDetectorRef.markForCheck();
-        });
+        }));
         this._configureSteps();
         this._changeDetectorRef.markForCheck();
     }
@@ -945,16 +991,26 @@ class TdNavStepsVerticalComponent {
     }
     /**
      * Set the step line separators and display numbers
+     * @private
      * @return {?}
      */
     _configureSteps() {
-        this._separators.forEach((separator) => {
+        this._separators.forEach((/**
+         * @param {?} separator
+         * @return {?}
+         */
+        (separator) => {
             this._renderer.removeChild(this._stepList.nativeElement, separator);
-        });
+        }));
         /** @type {?} */
         let stepsArray = this._steps.toArray();
         // set the index number of the step so can display that number in circle
-        stepsArray.forEach((step, index) => {
+        stepsArray.forEach((/**
+         * @param {?} step
+         * @param {?} index
+         * @return {?}
+         */
+        (step, index) => {
             if (index > 0 && index < stepsArray.length) {
                 /** @type {?} */
                 let separator = this._renderer.createElement('div');
@@ -967,7 +1023,7 @@ class TdNavStepsVerticalComponent {
                 this._renderer.insertBefore(this._stepList.nativeElement, separator, step.elementRef.nativeElement);
             }
             step.number = index + 1;
-        });
+        }));
     }
 }
 TdNavStepsVerticalComponent.decorators = [
@@ -989,12 +1045,12 @@ TdNavStepsVerticalComponent.ctorParameters = () => [
 ];
 TdNavStepsVerticalComponent.propDecorators = {
     _steps: [{ type: ContentChildren, args: [TdNavStepLinkComponent,] }],
-    _stepList: [{ type: ViewChild, args: ['stepList',] }]
+    _stepList: [{ type: ViewChild, args: ['stepList', { static: true },] }]
 };
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TD_STEPS = [
@@ -1019,21 +1075,5 @@ CovalentStepsModule.decorators = [
             },] }
 ];
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-export { CovalentStepsModule, StepState, TdStepLabelDirective, TdStepActionsDirective, TdStepSummaryDirective, TdStepBase, _TdStepMixinBase, TdStepComponent, StepMode, TdStepsComponent, TdStepBodyComponent, TdStepHeaderBase, _TdStepHeaderMixinBase, TdStepHeaderComponent, TdNavStepLinkComponent as ɵb, TdNavStepsHorizontalComponent as ɵa, TdNavStepsVerticalComponent as ɵc };
-
+export { CovalentStepsModule, StepMode, StepState, TdStepActionsDirective, TdStepBase, TdStepBodyComponent, TdStepComponent, TdStepHeaderBase, TdStepHeaderComponent, TdStepLabelDirective, TdStepSummaryDirective, TdStepsComponent, _TdStepHeaderMixinBase, _TdStepMixinBase, TdNavStepsHorizontalComponent as ɵa, TdNavStepLinkComponent as ɵb, TdNavStepsVerticalComponent as ɵc };
 //# sourceMappingURL=covalent-core-steps.js.map

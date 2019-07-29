@@ -1,12 +1,12 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/material/tooltip'), require('@angular/material/icon'), require('@angular/core'), require('@angular/cdk/bidi'), require('@covalent/core/common')) :
-    typeof define === 'function' && define.amd ? define('@covalent/core/json-formatter', ['exports', '@angular/common', '@angular/material/tooltip', '@angular/material/icon', '@angular/core', '@angular/cdk/bidi', '@covalent/core/common'], factory) :
-    (factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core['json-formatter'] = {}),global.ng.common,global.ng.material.tooltip,global.ng.material.icon,global.ng.core,global.ng.cdk.bidi,global.covalent.core.common));
-}(this, (function (exports,common,tooltip,icon,core,bidi,common$1) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/material/tooltip'), require('@angular/material/icon'), require('@angular/cdk/bidi'), require('@covalent/core/common')) :
+    typeof define === 'function' && define.amd ? define('@covalent/core/json-formatter', ['exports', '@angular/core', '@angular/common', '@angular/material/tooltip', '@angular/material/icon', '@angular/cdk/bidi', '@covalent/core/common'], factory) :
+    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core['json-formatter'] = {}), global.ng.core, global.ng.common, global.ng.material.tooltip, global.ng.material.icon, global.ng.cdk.bidi, global.covalent.core.common));
+}(this, function (exports, core, common, tooltip, icon, bidi, common$1) { 'use strict';
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdJsonFormatterComponent = /** @class */ (function () {
         function TdJsonFormatterComponent(_changeDetectorRef, _dir) {
@@ -18,7 +18,8 @@
         Object.defineProperty(TdJsonFormatterComponent.prototype, "levelsOpen", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._levelsOpen;
             },
             /**
@@ -30,7 +31,8 @@
              * Levels opened by default when JS object is formatted and rendered.
              * @param {?} levelsOpen
              * @return {?}
-             */ function (levelsOpen) {
+             */
+            function (levelsOpen) {
                 if (!Number.isInteger(levelsOpen)) {
                     throw new Error('[levelsOpen] needs to be an integer.');
                 }
@@ -43,7 +45,8 @@
         Object.defineProperty(TdJsonFormatterComponent.prototype, "open", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._open;
             },
             enumerable: true,
@@ -52,7 +55,8 @@
         Object.defineProperty(TdJsonFormatterComponent.prototype, "key", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 /** @type {?} */
                 var elipsis = this._key && this._key.length > TdJsonFormatterComponent.KEY_MAX_LENGTH ? '…' : '';
                 return this._key ? this._key.substring(0, TdJsonFormatterComponent.KEY_MAX_LENGTH) + elipsis : this._key;
@@ -66,7 +70,8 @@
              * Tag to be displayed next to formatted object.
              * @param {?} key
              * @return {?}
-             */ function (key) {
+             */
+            function (key) {
                 this._key = key;
             },
             enumerable: true,
@@ -75,7 +80,8 @@
         Object.defineProperty(TdJsonFormatterComponent.prototype, "data", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._data;
             },
             /**
@@ -87,7 +93,8 @@
              * JS object to be formatted.
              * @param {?} data
              * @return {?}
-             */ function (data) {
+             */
+            function (data) {
                 this._data = data;
                 this.parseChildren();
             },
@@ -97,7 +104,8 @@
         Object.defineProperty(TdJsonFormatterComponent.prototype, "children", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._children;
             },
             enumerable: true,
@@ -106,7 +114,8 @@
         Object.defineProperty(TdJsonFormatterComponent.prototype, "isRTL", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 if (this._dir) {
                     return this._dir.dir === 'rtl';
                 }
@@ -126,9 +135,9 @@
          * Refreshes json-formatter and rerenders [data]
          * @return {?}
          */
-            function () {
-                this._changeDetectorRef.markForCheck();
-            };
+        function () {
+            this._changeDetectorRef.markForCheck();
+        };
         /**
          * Toggles collapse/expanded state of component.
          */
@@ -140,36 +149,36 @@
          * Toggles collapse/expanded state of component.
          * @return {?}
          */
-            function () {
-                this._open = !this._open;
-            };
+        function () {
+            this._open = !this._open;
+        };
         /**
          * @return {?}
          */
         TdJsonFormatterComponent.prototype.isObject = /**
          * @return {?}
          */
-            function () {
-                return this.getType(this._data) === 'object';
-            };
+        function () {
+            return this.getType(this._data) === 'object';
+        };
         /**
          * @return {?}
          */
         TdJsonFormatterComponent.prototype.isArray = /**
          * @return {?}
          */
-            function () {
-                return Array.isArray(this._data);
-            };
+        function () {
+            return Array.isArray(this._data);
+        };
         /**
          * @return {?}
          */
         TdJsonFormatterComponent.prototype.hasChildren = /**
          * @return {?}
          */
-            function () {
-                return this._children && this._children.length > 0;
-            };
+        function () {
+            return this._children && this._children.length > 0;
+        };
         /**
          * Gets parsed value depending on value type.
          */
@@ -183,30 +192,30 @@
          * @param {?} value
          * @return {?}
          */
-            function (value) {
-                /** @type {?} */
-                var type = this.getType(value);
-                if (type === 'undefined' || type === 'null') {
-                    return type;
-                }
-                else if (type === 'date') {
-                    value = new Date(value).toString();
-                }
-                else if (type === 'string') {
-                    value = '"' + value + '"';
-                }
-                else if (type === 'function') {
-                    // Remove content of the function
-                    return (value
-                        .toString()
-                        .replace(/[\r\n]/g, '')
-                        .replace(/\{.*\}/, '') + '{…}');
-                }
-                else if (Array.isArray(value)) {
-                    return this.getObjectName() + ' [' + value.length + ']';
-                }
-                return value;
-            };
+        function (value) {
+            /** @type {?} */
+            var type = this.getType(value);
+            if (type === 'undefined' || type === 'null') {
+                return type;
+            }
+            else if (type === 'date') {
+                value = new Date(value).toString();
+            }
+            else if (type === 'string') {
+                value = '"' + value + '"';
+            }
+            else if (type === 'function') {
+                // Remove content of the function
+                return (value
+                    .toString()
+                    .replace(/[\r\n]/g, '')
+                    .replace(/\{.*\}/, '') + '{…}');
+            }
+            else if (Array.isArray(value)) {
+                return this.getObjectName() + ' [' + value.length + ']';
+            }
+            return value;
+        };
         /**
          * Gets type of object.
          * returns 'null' if object is null and 'date' if value is object and can be parsed to a date.
@@ -223,24 +232,24 @@
          * @param {?} object
          * @return {?}
          */
-            function (object) {
-                if (typeof object === 'object') {
-                    if (!object) {
-                        return 'null';
-                    }
-                    if (Array.isArray(object)) {
-                        return 'object';
-                    }
-                    /** @type {?} */
-                    var date = new Date(object);
-                    if (Object.prototype.toString.call(date) === '[object Date]') {
-                        if (!Number.isNaN(date.getTime())) {
-                            return 'date';
-                        }
+        function (object) {
+            if (typeof object === 'object') {
+                if (!object) {
+                    return 'null';
+                }
+                if (Array.isArray(object)) {
+                    return 'object';
+                }
+                /** @type {?} */
+                var date = new Date(object);
+                if (Object.prototype.toString.call(date) === '[object Date]') {
+                    if (!Number.isNaN(date.getTime())) {
+                        return 'date';
                     }
                 }
-                return typeof object;
-            };
+            }
+            return typeof object;
+        };
         /**
          * Generates string representation depending if its an object or function.
          * see: http://stackoverflow.com/a/332429
@@ -255,23 +264,23 @@
          * see: http://stackoverflow.com/a/332429
          * @return {?}
          */
-            function () {
-                /** @type {?} */
-                var object = this._data;
-                if (this.isObject() && !object.constructor) {
-                    return 'Object';
-                }
-                /** @type {?} */
-                var funcNameRegex = /function (.{1,})\(/;
-                /** @type {?} */
-                var results = funcNameRegex.exec(object.constructor.toString());
-                if (results && results.length > 1) {
-                    return results[1];
-                }
-                else {
-                    return '';
-                }
-            };
+        function () {
+            /** @type {?} */
+            var object = this._data;
+            if (this.isObject() && !object.constructor) {
+                return 'Object';
+            }
+            /** @type {?} */
+            var funcNameRegex = /function (.{1,})\(/;
+            /** @type {?} */
+            var results = funcNameRegex.exec(object.constructor.toString());
+            if (results && results.length > 1) {
+                return results[1];
+            }
+            else {
+                return '';
+            }
+        };
         /**
          * Creates preview of nodes children to render in tooltip depending if its an array or an object.
          */
@@ -283,53 +292,63 @@
          * Creates preview of nodes children to render in tooltip depending if its an array or an object.
          * @return {?}
          */
-            function () {
-                var _this = this;
+        function () {
+            var _this = this;
+            /** @type {?} */
+            var previewData;
+            /** @type {?} */
+            var startChar = '{ ';
+            /** @type {?} */
+            var endChar = ' }';
+            if (this.isArray()) {
                 /** @type {?} */
-                var previewData;
+                var previewArray = this._data.slice(0, TdJsonFormatterComponent.PREVIEW_LIMIT);
+                previewData = previewArray.map((/**
+                 * @param {?} obj
+                 * @return {?}
+                 */
+                function (obj) {
+                    return _this.getValue(obj);
+                }));
+                startChar = '[';
+                endChar = ']';
+            }
+            else {
                 /** @type {?} */
-                var startChar = '{ ';
-                /** @type {?} */
-                var endChar = ' }';
-                if (this.isArray()) {
-                    /** @type {?} */
-                    var previewArray = this._data.slice(0, TdJsonFormatterComponent.PREVIEW_LIMIT);
-                    previewData = previewArray.map(function (obj) {
-                        return _this.getValue(obj);
-                    });
-                    startChar = '[';
-                    endChar = ']';
-                }
-                else {
-                    /** @type {?} */
-                    var previewKeys = this._children.slice(0, TdJsonFormatterComponent.PREVIEW_LIMIT);
-                    previewData = previewKeys.map(function (key) {
-                        return key + ': ' + _this.getValue(_this._data[key]);
-                    });
-                }
-                /** @type {?} */
-                var previewString = previewData.join(', ');
-                /** @type {?} */
-                var ellipsis = previewData.length >= TdJsonFormatterComponent.PREVIEW_LIMIT ||
-                    previewString.length > TdJsonFormatterComponent.PREVIEW_STRING_MAX_LENGTH
-                    ? '…'
-                    : '';
-                return (startChar + previewString.substring(0, TdJsonFormatterComponent.PREVIEW_STRING_MAX_LENGTH) + ellipsis + endChar);
-            };
+                var previewKeys = this._children.slice(0, TdJsonFormatterComponent.PREVIEW_LIMIT);
+                previewData = previewKeys.map((/**
+                 * @param {?} key
+                 * @return {?}
+                 */
+                function (key) {
+                    return key + ': ' + _this.getValue(_this._data[key]);
+                }));
+            }
+            /** @type {?} */
+            var previewString = previewData.join(', ');
+            /** @type {?} */
+            var ellipsis = previewData.length >= TdJsonFormatterComponent.PREVIEW_LIMIT ||
+                previewString.length > TdJsonFormatterComponent.PREVIEW_STRING_MAX_LENGTH
+                ? '…'
+                : '';
+            return (startChar + previewString.substring(0, TdJsonFormatterComponent.PREVIEW_STRING_MAX_LENGTH) + ellipsis + endChar);
+        };
         /**
+         * @private
          * @return {?}
          */
         TdJsonFormatterComponent.prototype.parseChildren = /**
+         * @private
          * @return {?}
          */
-            function () {
-                if (this.isObject()) {
-                    this._children = [];
-                    for (var key in this._data) {
-                        this._children.push(key);
-                    }
+        function () {
+            if (this.isObject()) {
+                this._children = [];
+                for (var key in this._data) {
+                    this._children.push(key);
                 }
-            };
+            }
+        };
         /**
          * Max length for property names. Any names bigger than this get trunctated.
          */
@@ -352,12 +371,10 @@
                     }] }
         ];
         /** @nocollapse */
-        TdJsonFormatterComponent.ctorParameters = function () {
-            return [
-                { type: core.ChangeDetectorRef },
-                { type: bidi.Dir, decorators: [{ type: core.Optional }] }
-            ];
-        };
+        TdJsonFormatterComponent.ctorParameters = function () { return [
+            { type: core.ChangeDetectorRef },
+            { type: bidi.Dir, decorators: [{ type: core.Optional }] }
+        ]; };
         TdJsonFormatterComponent.propDecorators = {
             levelsOpen: [{ type: core.Input, args: ['levelsOpen',] }],
             key: [{ type: core.Input, args: ['key',] }],
@@ -368,7 +385,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var CovalentJsonFormatterModule = /** @class */ (function () {
         function CovalentJsonFormatterModule() {
@@ -383,26 +400,10 @@
         return CovalentJsonFormatterModule;
     }());
 
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
     exports.CovalentJsonFormatterModule = CovalentJsonFormatterModule;
     exports.TdJsonFormatterComponent = TdJsonFormatterComponent;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
-
+}));
 //# sourceMappingURL=covalent-core-json-formatter.umd.js.map

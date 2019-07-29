@@ -1,9 +1,9 @@
+import { Component, ChangeDetectionStrategy, ViewChild, Input, HostBinding, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component, Input, HostBinding, ChangeDetectionStrategy, ViewChild, NgModule } from '@angular/core';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @enum {string} */
 const TdNotificationCountPositionY = {
@@ -125,6 +125,7 @@ class TdNotificationCountComponent {
     }
     /**
      * Method to check if element has any kind of content (elements or text)
+     * @private
      * @return {?}
      */
     _hasContent() {
@@ -145,7 +146,7 @@ TdNotificationCountComponent.decorators = [
             }] }
 ];
 TdNotificationCountComponent.propDecorators = {
-    content: [{ type: ViewChild, args: ['content',] }],
+    content: [{ type: ViewChild, args: ['content', { static: true },] }],
     color: [{ type: Input }],
     positionX: [{ type: Input }],
     positionY: [{ type: Input }],
@@ -156,7 +157,7 @@ TdNotificationCountComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TD_NOTIFICATIONS = [TdNotificationCountComponent];
@@ -170,21 +171,5 @@ CovalentNotificationsModule.decorators = [
             },] }
 ];
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-export { CovalentNotificationsModule, TdNotificationCountPositionY, TdNotificationCountPositionX, DEFAULT_NOTIFICATION_LIMIT, TdNotificationCountComponent };
-
+export { CovalentNotificationsModule, DEFAULT_NOTIFICATION_LIMIT, TdNotificationCountComponent, TdNotificationCountPositionX, TdNotificationCountPositionY };
 //# sourceMappingURL=covalent-core-notifications.js.map

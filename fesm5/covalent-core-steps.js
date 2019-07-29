@@ -1,20 +1,20 @@
+import { Directive, TemplateRef, ViewContainerRef, EventEmitter, Component, ViewChild, ContentChild, Input, Output, ContentChildren, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, Optional, Renderer2, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TemplatePortalDirective, TemplatePortal, PortalModule } from '@angular/cdk/portal';
+import { ViewportRuler, ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { MatIconModule } from '@angular/material/icon';
 import { MatRippleModule } from '@angular/material/core';
-import { TemplatePortalDirective, TemplatePortal, PortalModule } from '@angular/cdk/portal';
-import { mixinDisabled, mixinDisableRipple, tdCollapseAnimation, CovalentCommonModule } from '@covalent/core/common';
-import { Directionality } from '@angular/cdk/bidi';
-import { RIGHT_ARROW, LEFT_ARROW } from '@angular/cdk/keycodes';
-import { ViewportRuler, ScrollDispatchModule } from '@angular/cdk/scrolling';
+import { mixinDisableRipple, mixinDisabled, tdCollapseAnimation, CovalentCommonModule } from '@covalent/core/common';
 import { __extends } from 'tslib';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { Component, Directive, Input, Output, TemplateRef, ViewChild, ViewContainerRef, ContentChild, EventEmitter, ContentChildren, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, Optional, Renderer2, NgModule } from '@angular/core';
-import { Subject, merge, of } from 'rxjs';
+import { merge, of, Subject } from 'rxjs';
 import { distinctUntilChanged, takeUntil } from 'rxjs/operators';
+import { Directionality } from '@angular/cdk/bidi';
+import { LEFT_ARROW, RIGHT_ARROW } from '@angular/cdk/keycodes';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @enum {string} */
 var StepState = {
@@ -268,6 +268,7 @@ var TdStepComponent = /** @class */ (function (_super) {
      * Method to change active state internally and emit the [onActivated] event if 'true' or [onDeactivated]
      * event if 'false'. (Blocked if [disabled] is 'true')
      * returns true if successfully changed state
+     * @private
      * @param {?} newActive
      * @return {?}
      */
@@ -275,6 +276,7 @@ var TdStepComponent = /** @class */ (function (_super) {
      * Method to change active state internally and emit the [onActivated] event if 'true' or [onDeactivated]
      * event if 'false'. (Blocked if [disabled] is 'true')
      * returns true if successfully changed state
+     * @private
      * @param {?} newActive
      * @return {?}
      */
@@ -295,18 +297,22 @@ var TdStepComponent = /** @class */ (function (_super) {
         return false;
     };
     /**
+     * @private
      * @return {?}
      */
     TdStepComponent.prototype._onActivated = /**
+     * @private
      * @return {?}
      */
     function () {
         this.onActivated.emit(undefined);
     };
     /**
+     * @private
      * @return {?}
      */
     TdStepComponent.prototype._onDeactivated = /**
+     * @private
      * @return {?}
      */
     function () {
@@ -324,10 +330,10 @@ var TdStepComponent = /** @class */ (function (_super) {
         { type: ViewContainerRef }
     ]; };
     TdStepComponent.propDecorators = {
-        _content: [{ type: ViewChild, args: [TemplateRef,] }],
-        stepLabel: [{ type: ContentChild, args: [TdStepLabelDirective,] }],
-        stepActions: [{ type: ContentChild, args: [TdStepActionsDirective,] }],
-        stepSummary: [{ type: ContentChild, args: [TdStepSummaryDirective,] }],
+        _content: [{ type: ViewChild, args: [TemplateRef, { static: true },] }],
+        stepLabel: [{ type: ContentChild, args: [TdStepLabelDirective, { static: false },] }],
+        stepActions: [{ type: ContentChild, args: [TdStepActionsDirective, { static: false },] }],
+        stepSummary: [{ type: ContentChild, args: [TdStepSummaryDirective, { static: false },] }],
         label: [{ type: Input, args: ['label',] }],
         sublabel: [{ type: Input, args: ['sublabel',] }],
         active: [{ type: Input, args: ['active',] }],
@@ -340,7 +346,7 @@ var TdStepComponent = /** @class */ (function (_super) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @enum {string} */
 var StepMode = {
@@ -476,9 +482,13 @@ var TdStepsComponent = /** @class */ (function () {
      * @return {?}
      */
     function () {
-        return (this._steps.filter(function (step) {
+        return (this._steps.filter((/**
+         * @param {?} step
+         * @return {?}
+         */
+        function (step) {
             return step.active;
-        }).length > 0);
+        })).length > 0);
     };
     /**
      * Wraps previous and new [TdStepComponent] numbers in an object that implements [IStepChangeEvent]
@@ -487,12 +497,14 @@ var TdStepsComponent = /** @class */ (function () {
     /**
      * Wraps previous and new [TdStepComponent] numbers in an object that implements [IStepChangeEvent]
      * and emits [onStepChange] event.
+     * @private
      * @param {?} step
      * @return {?}
      */
     TdStepsComponent.prototype._onStepSelection = /**
      * Wraps previous and new [TdStepComponent] numbers in an object that implements [IStepChangeEvent]
      * and emits [onStepChange] event.
+     * @private
      * @param {?} step
      * @return {?}
      */
@@ -515,49 +527,74 @@ var TdStepsComponent = /** @class */ (function () {
      */
     /**
      * Loops through [TdStepComponent] children elements and deactivates them ignoring the one passed as an argument.
+     * @private
      * @param {?} activeStep
      * @return {?}
      */
     TdStepsComponent.prototype._deactivateAllBut = /**
      * Loops through [TdStepComponent] children elements and deactivates them ignoring the one passed as an argument.
+     * @private
      * @param {?} activeStep
      * @return {?}
      */
     function (activeStep) {
         this._steps
-            .filter(function (step) { return step !== activeStep; })
-            .forEach(function (step) {
+            .filter((/**
+         * @param {?} step
+         * @return {?}
+         */
+        function (step) { return step !== activeStep; }))
+            .forEach((/**
+         * @param {?} step
+         * @return {?}
+         */
+        function (step) {
             step.active = false;
-        });
+        }));
     };
     /**
+     * @private
      * @return {?}
      */
     TdStepsComponent.prototype._registerSteps = /**
+     * @private
      * @return {?}
      */
     function () {
         var _this = this;
         this._subcriptions = [];
-        this._steps.toArray().forEach(function (step) {
+        this._steps.toArray().forEach((/**
+         * @param {?} step
+         * @return {?}
+         */
+        function (step) {
             /** @type {?} */
-            var subscription = step.onActivated.asObservable().subscribe(function () {
+            var subscription = step.onActivated.asObservable().subscribe((/**
+             * @return {?}
+             */
+            function () {
                 _this._onStepSelection(step);
-            });
+            }));
             _this._subcriptions.push(subscription);
-        });
+        }));
     };
     /**
+     * @private
      * @return {?}
      */
     TdStepsComponent.prototype._deregisterSteps = /**
+     * @private
      * @return {?}
      */
     function () {
         if (this._subcriptions) {
-            this._subcriptions.forEach(function (subs) {
+            this._subcriptions.forEach((/**
+             * @param {?} subs
+             * @return {?}
+             */
+            function (subs) {
                 subs.unsubscribe();
-            });
+            }));
             this._subcriptions = undefined;
         }
     };
@@ -582,7 +619,7 @@ var TdStepsComponent = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdStepHeaderBase = /** @class */ (function () {
     function TdStepHeaderBase() {
@@ -651,7 +688,7 @@ var TdStepHeaderComponent = /** @class */ (function (_super) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdStepBodyComponent = /** @class */ (function () {
     function TdStepBodyComponent() {
@@ -718,9 +755,9 @@ var TdStepBodyComponent = /** @class */ (function () {
                 }] }
     ];
     TdStepBodyComponent.propDecorators = {
-        contentRef: [{ type: ViewChild, args: ['contentRef', { read: ElementRef },] }],
-        actionsRef: [{ type: ViewChild, args: ['actionsRef', { read: ElementRef },] }],
-        summaryRef: [{ type: ViewChild, args: ['summaryRef', { read: ElementRef },] }],
+        contentRef: [{ type: ViewChild, args: ['contentRef', { read: ElementRef, static: true },] }],
+        actionsRef: [{ type: ViewChild, args: ['actionsRef', { read: ElementRef, static: true },] }],
+        summaryRef: [{ type: ViewChild, args: ['summaryRef', { read: ElementRef, static: true },] }],
         active: [{ type: Input, args: ['active',] }],
         state: [{ type: Input, args: ['state',] }]
     };
@@ -729,7 +766,7 @@ var TdStepBodyComponent = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdNavStepLinkComponent = /** @class */ (function (_super) {
     __extends(TdNavStepLinkComponent, _super);
@@ -848,7 +885,7 @@ var TdNavStepLinkComponent = /** @class */ (function (_super) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdNavStepsHorizontalComponent = /** @class */ (function () {
     function TdNavStepsHorizontalComponent(_elementRef, _viewportRuler, _dir, _renderer, _changeDetectorRef) {
@@ -927,11 +964,14 @@ var TdNavStepsHorizontalComponent = /** @class */ (function () {
         var _this = this;
         merge(this._widthSubject.asObservable().pipe(distinctUntilChanged()), this._viewportRuler.change(150), this._dir ? this._dir.change : of(undefined), this._steps.changes)
             .pipe(takeUntil(this._destroyed))
-            .subscribe(function () {
+            .subscribe((/**
+         * @return {?}
+         */
+        function () {
             _this._configureSteps();
             _this.updatePagination();
             _this._changeDetectorRef.markForCheck();
-        });
+        }));
         this._configureSteps();
         this._changeDetectorRef.markForCheck();
     };
@@ -1159,21 +1199,32 @@ var TdNavStepsHorizontalComponent = /** @class */ (function () {
      */
     /**
      * Set the step line separators and display numbers
+     * @private
      * @return {?}
      */
     TdNavStepsHorizontalComponent.prototype._configureSteps = /**
      * Set the step line separators and display numbers
+     * @private
      * @return {?}
      */
     function () {
         var _this = this;
-        this._separators.forEach(function (separator) {
+        this._separators.forEach((/**
+         * @param {?} separator
+         * @return {?}
+         */
+        function (separator) {
             _this._renderer.removeChild(_this._stepList.nativeElement, separator);
-        });
+        }));
         /** @type {?} */
         var stepsArray = this._steps.toArray();
         // set the index number of the step so can display that number in circle
-        stepsArray.forEach(function (step, index) {
+        stepsArray.forEach((/**
+         * @param {?} step
+         * @param {?} index
+         * @return {?}
+         */
+        function (step, index) {
             if (index > 0 && index < stepsArray.length) {
                 /** @type {?} */
                 var separator = _this._renderer.createElement('div');
@@ -1182,7 +1233,7 @@ var TdNavStepsHorizontalComponent = /** @class */ (function () {
                 _this._renderer.insertBefore(_this._stepList.nativeElement, separator, step.elementRef.nativeElement);
             }
             step.number = index + 1;
-        });
+        }));
     };
     TdNavStepsHorizontalComponent.decorators = [
         { type: Component, args: [{
@@ -1195,7 +1246,7 @@ var TdNavStepsHorizontalComponent = /** @class */ (function () {
                         '[class.td-step-header-pagination-controls-enabled]': '_showPaginationControls',
                         '[class.td-step-header-rtl]': "_getLayoutDirection() == 'rtl'",
                     },
-                    styles: [":host{width:100%;display:block}.td-steps-header,.td-steps-header-list{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row}.td-steps-header-container{display:-ms-flexbox;display:flex;-ms-flex-positive:1;flex-grow:1;overflow:hidden;z-index:1}.td-steps-header-list{-ms-flex-positive:1;flex-grow:1;position:relative;transition:transform .5s cubic-bezier(.35,0,.25,1),-webkit-transform .5s cubic-bezier(.35,0,.25,1);-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:start;justify-content:flex-start}.td-step-header-pagination{position:relative;display:none;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;min-width:32px;cursor:pointer;z-index:2}:host.td-step-header-pagination-controls-enabled .td-step-header-pagination{display:-ms-flexbox;display:flex}.td-step-header-pagination-before,:host.td-step-header-rtl .td-step-header-pagination-after{padding-left:4px}.td-step-header-pagination-before .td-step-header-pagination-chevron,:host.td-step-header-rtl .td-step-header-pagination-after .td-step-header-pagination-chevron{-webkit-transform:rotate(-135deg);-ms-transform:rotate(-135deg);transform:rotate(-135deg)}.td-step-header-pagination-after,:host.td-step-header-rtl .td-step-header-pagination-before{padding-right:4px}.td-step-header-pagination-after .td-step-header-pagination-chevron,:host.td-step-header-rtl .td-step-header-pagination-before .td-step-header-pagination-chevron{-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}.td-step-header-pagination-chevron{border-style:solid;border-width:2px 2px 0 0;content:'';height:8px;width:8px}.td-step-header-pagination-disabled{box-shadow:none;cursor:default}.td-horizontal-line{border-bottom-width:1px;border-bottom-style:solid;height:1px;min-width:20px;-ms-flex:1;flex:1;box-sizing:border-box}"]
+                    styles: [":host{width:100%;display:block}.td-steps-header,.td-steps-header-list{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row}.td-steps-header-container{display:-ms-flexbox;display:flex;-ms-flex-positive:1;flex-grow:1;overflow:hidden;z-index:1}.td-steps-header-list{-ms-flex-positive:1;flex-grow:1;position:relative;transition:transform .5s cubic-bezier(.35,0,.25,1);-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:start;justify-content:flex-start}.td-step-header-pagination{position:relative;display:none;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;min-width:32px;cursor:pointer;z-index:2}:host.td-step-header-pagination-controls-enabled .td-step-header-pagination{display:-ms-flexbox;display:flex}.td-step-header-pagination-before,:host.td-step-header-rtl .td-step-header-pagination-after{padding-left:4px}.td-step-header-pagination-before .td-step-header-pagination-chevron,:host.td-step-header-rtl .td-step-header-pagination-after .td-step-header-pagination-chevron{-ms-transform:rotate(-135deg);transform:rotate(-135deg)}.td-step-header-pagination-after,:host.td-step-header-rtl .td-step-header-pagination-before{padding-right:4px}.td-step-header-pagination-after .td-step-header-pagination-chevron,:host.td-step-header-rtl .td-step-header-pagination-before .td-step-header-pagination-chevron{-ms-transform:rotate(45deg);transform:rotate(45deg)}.td-step-header-pagination-chevron{border-style:solid;border-width:2px 2px 0 0;content:'';height:8px;width:8px}.td-step-header-pagination-disabled{box-shadow:none;cursor:default}.td-horizontal-line{border-bottom-width:1px;border-bottom-style:solid;height:1px;min-width:20px;-ms-flex:1;flex:1;box-sizing:border-box}"]
                 }] }
     ];
     /** @nocollapse */
@@ -1208,15 +1259,15 @@ var TdNavStepsHorizontalComponent = /** @class */ (function () {
     ]; };
     TdNavStepsHorizontalComponent.propDecorators = {
         _steps: [{ type: ContentChildren, args: [TdNavStepLinkComponent,] }],
-        _stepListContainer: [{ type: ViewChild, args: ['stepListContainer',] }],
-        _stepList: [{ type: ViewChild, args: ['stepList',] }]
+        _stepListContainer: [{ type: ViewChild, args: ['stepListContainer', { static: true },] }],
+        _stepList: [{ type: ViewChild, args: ['stepList', { static: true },] }]
     };
     return TdNavStepsHorizontalComponent;
 }());
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdNavStepsVerticalComponent = /** @class */ (function () {
     function TdNavStepsVerticalComponent(_renderer, _changeDetectorRef) {
@@ -1236,10 +1287,13 @@ var TdNavStepsVerticalComponent = /** @class */ (function () {
      */
     function () {
         var _this = this;
-        this._steps.changes.pipe(takeUntil(this._destroyed)).subscribe(function () {
+        this._steps.changes.pipe(takeUntil(this._destroyed)).subscribe((/**
+         * @return {?}
+         */
+        function () {
             _this._configureSteps();
             _this._changeDetectorRef.markForCheck();
-        });
+        }));
         this._configureSteps();
         this._changeDetectorRef.markForCheck();
     };
@@ -1258,21 +1312,32 @@ var TdNavStepsVerticalComponent = /** @class */ (function () {
      */
     /**
      * Set the step line separators and display numbers
+     * @private
      * @return {?}
      */
     TdNavStepsVerticalComponent.prototype._configureSteps = /**
      * Set the step line separators and display numbers
+     * @private
      * @return {?}
      */
     function () {
         var _this = this;
-        this._separators.forEach(function (separator) {
+        this._separators.forEach((/**
+         * @param {?} separator
+         * @return {?}
+         */
+        function (separator) {
             _this._renderer.removeChild(_this._stepList.nativeElement, separator);
-        });
+        }));
         /** @type {?} */
         var stepsArray = this._steps.toArray();
         // set the index number of the step so can display that number in circle
-        stepsArray.forEach(function (step, index) {
+        stepsArray.forEach((/**
+         * @param {?} step
+         * @param {?} index
+         * @return {?}
+         */
+        function (step, index) {
             if (index > 0 && index < stepsArray.length) {
                 /** @type {?} */
                 var separator = _this._renderer.createElement('div');
@@ -1285,7 +1350,7 @@ var TdNavStepsVerticalComponent = /** @class */ (function () {
                 _this._renderer.insertBefore(_this._stepList.nativeElement, separator, step.elementRef.nativeElement);
             }
             step.number = index + 1;
-        });
+        }));
     };
     TdNavStepsVerticalComponent.decorators = [
         { type: Component, args: [{
@@ -1306,14 +1371,14 @@ var TdNavStepsVerticalComponent = /** @class */ (function () {
     ]; };
     TdNavStepsVerticalComponent.propDecorators = {
         _steps: [{ type: ContentChildren, args: [TdNavStepLinkComponent,] }],
-        _stepList: [{ type: ViewChild, args: ['stepList',] }]
+        _stepList: [{ type: ViewChild, args: ['stepList', { static: true },] }]
     };
     return TdNavStepsVerticalComponent;
 }());
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 var TD_STEPS = [
@@ -1341,21 +1406,5 @@ var CovalentStepsModule = /** @class */ (function () {
     return CovalentStepsModule;
 }());
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-export { CovalentStepsModule, StepState, TdStepLabelDirective, TdStepActionsDirective, TdStepSummaryDirective, TdStepBase, _TdStepMixinBase, TdStepComponent, StepMode, TdStepsComponent, TdStepBodyComponent, TdStepHeaderBase, _TdStepHeaderMixinBase, TdStepHeaderComponent, TdNavStepLinkComponent as ɵb, TdNavStepsHorizontalComponent as ɵa, TdNavStepsVerticalComponent as ɵc };
-
+export { CovalentStepsModule, StepMode, StepState, TdStepActionsDirective, TdStepBase, TdStepBodyComponent, TdStepComponent, TdStepHeaderBase, TdStepHeaderComponent, TdStepLabelDirective, TdStepSummaryDirective, TdStepsComponent, _TdStepHeaderMixinBase, _TdStepMixinBase, TdNavStepsHorizontalComponent as ɵa, TdNavStepLinkComponent as ɵb, TdNavStepsVerticalComponent as ɵc };
 //# sourceMappingURL=covalent-core-steps.js.map

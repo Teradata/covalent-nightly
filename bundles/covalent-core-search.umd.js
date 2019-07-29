@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/material/icon'), require('@angular/material/button'), require('@angular/cdk/bidi'), require('@angular/material/input'), require('rxjs/operators'), require('@angular/core'), require('@angular/forms'), require('@angular/animations'), require('@covalent/core/common')) :
-    typeof define === 'function' && define.amd ? define('@covalent/core/search', ['exports', '@angular/common', '@angular/material/icon', '@angular/material/button', '@angular/cdk/bidi', '@angular/material/input', 'rxjs/operators', '@angular/core', '@angular/forms', '@angular/animations', '@covalent/core/common'], factory) :
-    (factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.search = {}),global.ng.common,global.ng.material.icon,global.ng.material.button,global.ng.cdk.bidi,global.ng.material.input,global.rxjs.operators,global.ng.core,global.ng.forms,global.ng.animations,global.covalent.core.common));
-}(this, (function (exports,common,icon,button,bidi,input,operators,core,forms,animations,common$1) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/material/input'), require('@angular/material/icon'), require('@angular/material/button'), require('@angular/animations'), require('@angular/cdk/bidi'), require('rxjs/operators'), require('@covalent/core/common')) :
+    typeof define === 'function' && define.amd ? define('@covalent/core/search', ['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/material/input', '@angular/material/icon', '@angular/material/button', '@angular/animations', '@angular/cdk/bidi', 'rxjs/operators', '@covalent/core/common'], factory) :
+    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.search = {}), global.ng.core, global.ng.common, global.ng.forms, global.ng.material.input, global.ng.material.icon, global.ng.material.button, global.ng.animations, global.ng.cdk.bidi, global.rxjs.operators, global.covalent.core.common));
+}(this, function (exports, core, common, forms, input, icon, button, animations, bidi, operators, common$1) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -19,14 +19,14 @@
     and limitations under the License.
     ***************************************************************************** */
     /* global Reflect, Promise */
-    var extendStatics = function (d, b) {
+
+    var extendStatics = function(d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b)
-                if (b.hasOwnProperty(p))
-                    d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
+
     function __extends(d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -35,7 +35,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdSearchInputBase = /** @class */ (function () {
         function TdSearchInputBase(_changeDetectorRef) {
@@ -92,7 +92,8 @@
         Object.defineProperty(TdSearchInputComponent.prototype, "isRTL", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 if (this._dir) {
                     return this._dir.dir === 'rtl';
                 }
@@ -107,14 +108,18 @@
         TdSearchInputComponent.prototype.ngOnInit = /**
          * @return {?}
          */
-            function () {
-                var _this = this;
-                this._input.ngControl.valueChanges
-                    .pipe(operators.debounceTime(this.debounce), operators.skip(1))
-                    .subscribe(function (value) {
-                    _this._searchTermChanged(value);
-                });
-            };
+        function () {
+            var _this = this;
+            this._input.ngControl.valueChanges
+                .pipe(operators.debounceTime(this.debounce), operators.skip(1))
+                .subscribe((/**
+             * @param {?} value
+             * @return {?}
+             */
+            function (value) {
+                _this._searchTermChanged(value);
+            }));
+        };
         /**
          * Method to focus to underlying input.
          */
@@ -126,18 +131,18 @@
          * Method to focus to underlying input.
          * @return {?}
          */
-            function () {
-                this._input.focus();
-            };
+        function () {
+            this._input.focus();
+        };
         /**
          * @return {?}
          */
         TdSearchInputComponent.prototype.handleBlur = /**
          * @return {?}
          */
-            function () {
-                this.onBlur.emit(undefined);
-            };
+        function () {
+            this.onBlur.emit(undefined);
+        };
         /**
          * @param {?} event
          * @return {?}
@@ -146,9 +151,9 @@
          * @param {?} event
          * @return {?}
          */
-            function (event) {
-                event.stopPropagation();
-            };
+        function (event) {
+            event.stopPropagation();
+        };
         /**
          * @param {?} event
          * @return {?}
@@ -157,10 +162,10 @@
          * @param {?} event
          * @return {?}
          */
-            function (event) {
-                this.stopPropagation(event);
-                this.onSearch.emit(this.value);
-            };
+        function (event) {
+            this.stopPropagation(event);
+            this.onSearch.emit(this.value);
+        };
         /**
          * Method to clear the underlying input.
          */
@@ -172,28 +177,33 @@
          * Method to clear the underlying input.
          * @return {?}
          */
-            function () {
-                this.value = '';
-                this._changeDetectorRef.markForCheck();
-                this.onClear.emit(undefined);
-            };
+        function () {
+            this.value = '';
+            this._changeDetectorRef.markForCheck();
+            this.onClear.emit(undefined);
+        };
         /**
+         * @private
          * @param {?} value
          * @return {?}
          */
         TdSearchInputComponent.prototype._searchTermChanged = /**
+         * @private
          * @param {?} value
          * @return {?}
          */
-            function (value) {
-                this.onSearchDebounce.emit(value);
-            };
+        function (value) {
+            this.onSearchDebounce.emit(value);
+        };
         TdSearchInputComponent.decorators = [
             { type: core.Component, args: [{
                         providers: [
                             {
                                 provide: forms.NG_VALUE_ACCESSOR,
-                                useExisting: core.forwardRef(function () { return TdSearchInputComponent; }),
+                                useExisting: core.forwardRef((/**
+                                 * @return {?}
+                                 */
+                                function () { return TdSearchInputComponent; })),
                                 multi: true,
                             },
                         ],
@@ -223,14 +233,12 @@
                     }] }
         ];
         /** @nocollapse */
-        TdSearchInputComponent.ctorParameters = function () {
-            return [
-                { type: bidi.Dir, decorators: [{ type: core.Optional }] },
-                { type: core.ChangeDetectorRef }
-            ];
-        };
+        TdSearchInputComponent.ctorParameters = function () { return [
+            { type: bidi.Dir, decorators: [{ type: core.Optional }] },
+            { type: core.ChangeDetectorRef }
+        ]; };
         TdSearchInputComponent.propDecorators = {
-            _input: [{ type: core.ViewChild, args: [input.MatInput,] }],
+            _input: [{ type: core.ViewChild, args: [input.MatInput, { static: true },] }],
             appearance: [{ type: core.Input, args: ['appearance',] }],
             showUnderline: [{ type: core.Input, args: ['showUnderline',] }],
             debounce: [{ type: core.Input, args: ['debounce',] }],
@@ -246,7 +254,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdSearchBoxBase = /** @class */ (function () {
         function TdSearchBoxBase(_changeDetectorRef) {
@@ -320,7 +328,8 @@
         Object.defineProperty(TdSearchBoxComponent.prototype, "searchVisible", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._searchVisible;
             },
             enumerable: true,
@@ -337,26 +346,26 @@
          * Method executed when the search icon is clicked.
          * @return {?}
          */
-            function () {
-                if (!this.alwaysVisible && this._searchVisible) {
-                    this.value = '';
-                    this.handleClear();
-                }
-                else if (this.alwaysVisible || !this._searchVisible) {
-                    this._searchInput.focus();
-                }
-                this.toggleVisibility();
-            };
+        function () {
+            if (!this.alwaysVisible && this._searchVisible) {
+                this.value = '';
+                this.handleClear();
+            }
+            else if (this.alwaysVisible || !this._searchVisible) {
+                this._searchInput.focus();
+            }
+            this.toggleVisibility();
+        };
         /**
          * @return {?}
          */
         TdSearchBoxComponent.prototype.toggleVisibility = /**
          * @return {?}
          */
-            function () {
-                this._searchVisible = !this._searchVisible;
-                this._changeDetectorRef.markForCheck();
-            };
+        function () {
+            this._searchVisible = !this._searchVisible;
+            this._changeDetectorRef.markForCheck();
+        };
         /**
          * @param {?} value
          * @return {?}
@@ -365,9 +374,9 @@
          * @param {?} value
          * @return {?}
          */
-            function (value) {
-                this.onSearchDebounce.emit(value);
-            };
+        function (value) {
+            this.onSearchDebounce.emit(value);
+        };
         /**
          * @param {?} value
          * @return {?}
@@ -376,33 +385,36 @@
          * @param {?} value
          * @return {?}
          */
-            function (value) {
-                this.onSearch.emit(value);
-            };
+        function (value) {
+            this.onSearch.emit(value);
+        };
         /**
          * @return {?}
          */
         TdSearchBoxComponent.prototype.handleClear = /**
          * @return {?}
          */
-            function () {
-                this.onClear.emit(undefined);
-            };
+        function () {
+            this.onClear.emit(undefined);
+        };
         /**
          * @return {?}
          */
         TdSearchBoxComponent.prototype.handleBlur = /**
          * @return {?}
          */
-            function () {
-                this.onBlur.emit(undefined);
-            };
+        function () {
+            this.onBlur.emit(undefined);
+        };
         TdSearchBoxComponent.decorators = [
             { type: core.Component, args: [{
                         providers: [
                             {
                                 provide: forms.NG_VALUE_ACCESSOR,
-                                useExisting: core.forwardRef(function () { return TdSearchBoxComponent; }),
+                                useExisting: core.forwardRef((/**
+                                 * @return {?}
+                                 */
+                                function () { return TdSearchBoxComponent; })),
                                 multi: true,
                             },
                         ],
@@ -428,13 +440,11 @@
                     }] }
         ];
         /** @nocollapse */
-        TdSearchBoxComponent.ctorParameters = function () {
-            return [
-                { type: core.ChangeDetectorRef }
-            ];
-        };
+        TdSearchBoxComponent.ctorParameters = function () { return [
+            { type: core.ChangeDetectorRef }
+        ]; };
         TdSearchBoxComponent.propDecorators = {
-            _searchInput: [{ type: core.ViewChild, args: [TdSearchInputComponent,] }],
+            _searchInput: [{ type: core.ViewChild, args: [TdSearchInputComponent, { static: true },] }],
             backIcon: [{ type: core.Input, args: ['backIcon',] }],
             searchIcon: [{ type: core.Input, args: ['searchIcon',] }],
             clearIcon: [{ type: core.Input, args: ['clearIcon',] }],
@@ -452,7 +462,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var CovalentSearchModule = /** @class */ (function () {
         function CovalentSearchModule() {
@@ -467,31 +477,15 @@
         return CovalentSearchModule;
     }());
 
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
     exports.CovalentSearchModule = CovalentSearchModule;
     exports.TdSearchBoxBase = TdSearchBoxBase;
-    exports._TdSearchBoxMixinBase = _TdSearchBoxMixinBase;
     exports.TdSearchBoxComponent = TdSearchBoxComponent;
     exports.TdSearchInputBase = TdSearchInputBase;
-    exports._TdSearchInputMixinBase = _TdSearchInputMixinBase;
     exports.TdSearchInputComponent = TdSearchInputComponent;
+    exports._TdSearchBoxMixinBase = _TdSearchBoxMixinBase;
+    exports._TdSearchInputMixinBase = _TdSearchInputMixinBase;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
-
+}));
 //# sourceMappingURL=covalent-core-search.umd.js.map

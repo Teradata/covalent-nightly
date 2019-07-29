@@ -1,13 +1,13 @@
+import { Component, ChangeDetectionStrategy, ChangeDetectorRef, Optional, Input, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
-import { Component, Input, ChangeDetectionStrategy, ChangeDetectorRef, Optional, NgModule } from '@angular/core';
 import { Dir } from '@angular/cdk/bidi';
 import { tdCollapseAnimation } from '@covalent/core/common';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdJsonFormatterComponent = /** @class */ (function () {
     function TdJsonFormatterComponent(_changeDetectorRef, _dir) {
@@ -304,18 +304,26 @@ var TdJsonFormatterComponent = /** @class */ (function () {
         if (this.isArray()) {
             /** @type {?} */
             var previewArray = this._data.slice(0, TdJsonFormatterComponent.PREVIEW_LIMIT);
-            previewData = previewArray.map(function (obj) {
+            previewData = previewArray.map((/**
+             * @param {?} obj
+             * @return {?}
+             */
+            function (obj) {
                 return _this.getValue(obj);
-            });
+            }));
             startChar = '[';
             endChar = ']';
         }
         else {
             /** @type {?} */
             var previewKeys = this._children.slice(0, TdJsonFormatterComponent.PREVIEW_LIMIT);
-            previewData = previewKeys.map(function (key) {
+            previewData = previewKeys.map((/**
+             * @param {?} key
+             * @return {?}
+             */
+            function (key) {
                 return key + ': ' + _this.getValue(_this._data[key]);
-            });
+            }));
         }
         /** @type {?} */
         var previewString = previewData.join(', ');
@@ -327,9 +335,11 @@ var TdJsonFormatterComponent = /** @class */ (function () {
         return (startChar + previewString.substring(0, TdJsonFormatterComponent.PREVIEW_STRING_MAX_LENGTH) + ellipsis + endChar);
     };
     /**
+     * @private
      * @return {?}
      */
     TdJsonFormatterComponent.prototype.parseChildren = /**
+     * @private
      * @return {?}
      */
     function () {
@@ -376,7 +386,7 @@ var TdJsonFormatterComponent = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var CovalentJsonFormatterModule = /** @class */ (function () {
     function CovalentJsonFormatterModule() {
@@ -391,21 +401,5 @@ var CovalentJsonFormatterModule = /** @class */ (function () {
     return CovalentJsonFormatterModule;
 }());
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
 export { CovalentJsonFormatterModule, TdJsonFormatterComponent };
-
 //# sourceMappingURL=covalent-core-json-formatter.js.map

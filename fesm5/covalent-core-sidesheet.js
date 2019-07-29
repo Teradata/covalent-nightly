@@ -1,10 +1,10 @@
+import { Component, ViewEncapsulation, ContentChild, Directive, Input, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatDividerModule } from '@angular/material/divider';
-import { Component, ContentChild, Directive, Input, ViewEncapsulation, NgModule } from '@angular/core';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdSidesheetContentDirective = /** @class */ (function () {
     function TdSidesheetContentDirective() {
@@ -68,15 +68,15 @@ var TdSidesheetComponent = /** @class */ (function () {
                 }] }
     ];
     TdSidesheetComponent.propDecorators = {
-        headerExists: [{ type: ContentChild, args: [TdSidesheetHeaderComponent,] }],
-        actionsExist: [{ type: ContentChild, args: [TdSidesheetActionsDirective,] }]
+        headerExists: [{ type: ContentChild, args: [TdSidesheetHeaderComponent, { static: false },] }],
+        actionsExist: [{ type: ContentChild, args: [TdSidesheetActionsDirective, { static: false },] }]
     };
     return TdSidesheetComponent;
 }());
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 var TD_SIDESHEET = [
@@ -99,21 +99,5 @@ var CovalentSidesheetModule = /** @class */ (function () {
     return CovalentSidesheetModule;
 }());
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-export { CovalentSidesheetModule, TdSidesheetContentDirective, TdSidesheetTitleDirective, TdSidesheetActionsDirective, TdSidesheetHeaderComponent, TdSidesheetComponent };
-
+export { CovalentSidesheetModule, TdSidesheetActionsDirective, TdSidesheetComponent, TdSidesheetContentDirective, TdSidesheetHeaderComponent, TdSidesheetTitleDirective };
 //# sourceMappingURL=covalent-core-sidesheet.js.map

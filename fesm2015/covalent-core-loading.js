@@ -1,16 +1,16 @@
+import { Component, ElementRef, ChangeDetectorRef, Injectable, ComponentFactoryResolver, Injector, Optional, SkipSelf, Directive, ViewContainerRef, TemplateRef, Input, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ComponentPortal, TemplatePortal, PortalModule } from '@angular/cdk/portal';
+import { OverlayConfig, Overlay, OverlayModule } from '@angular/cdk/overlay';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { tdFadeInOutAnimation } from '@covalent/core/common';
-import { TemplatePortal, ComponentPortal, PortalModule } from '@angular/cdk/portal';
-import { Overlay, OverlayConfig, OverlayModule } from '@angular/cdk/overlay';
 import { Subject } from 'rxjs';
+import { tdFadeInOutAnimation } from '@covalent/core/common';
 import { distinctUntilChanged } from 'rxjs/operators';
-import { Component, ChangeDetectorRef, ElementRef, Injectable, ComponentFactoryResolver, SkipSelf, Optional, Injector, Directive, Input, ViewContainerRef, TemplateRef, NgModule } from '@angular/core';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @enum {string} */
 const LoadingType = {
@@ -224,6 +224,7 @@ class TdLoadingComponent {
     }
     /**
      * Calculate the proper diameter for the circle and set it
+     * @private
      * @return {?}
      */
     _setCircleDiameter() {
@@ -248,6 +249,7 @@ class TdLoadingComponent {
     }
     /**
      * Returns the host height of the loading component
+     * @private
      * @return {?}
      */
     _hostHeight() {
@@ -273,7 +275,7 @@ TdLoadingComponent.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * NOTE: \@internal usage only.
@@ -306,7 +308,11 @@ class TdLoadingFactory {
         let loading = false;
         /** @type {?} */
         let overlayRef;
-        loadingRef.observable.pipe(distinctUntilChanged()).subscribe((registered) => {
+        loadingRef.observable.pipe(distinctUntilChanged()).subscribe((/**
+         * @param {?} registered
+         * @return {?}
+         */
+        (registered) => {
             if (registered > 0 && !loading) {
                 loading = true;
                 overlayRef = this._createOverlay();
@@ -318,14 +324,17 @@ class TdLoadingFactory {
             else if (registered <= 0 && loading) {
                 loading = false;
                 /** @type {?} */
-                let subs = loadingRef.componentRef.instance.startOutAnimation().subscribe(() => {
+                let subs = loadingRef.componentRef.instance.startOutAnimation().subscribe((/**
+                 * @return {?}
+                 */
+                () => {
                     subs.unsubscribe();
                     loadingRef.componentRef.destroy();
                     overlayRef.detach();
                     overlayRef.dispose();
-                });
+                }));
             }
-        });
+        }));
         return loadingRef;
     }
     /**
@@ -349,7 +358,11 @@ class TdLoadingFactory {
         loadingRef.componentRef.instance.content = new TemplatePortal(templateRef, viewContainerRef);
         viewContainerRef.clear();
         viewContainerRef.insert(loadingRef.componentRef.hostView, 0);
-        loadingRef.observable.pipe(distinctUntilChanged()).subscribe((registered) => {
+        loadingRef.observable.pipe(distinctUntilChanged()).subscribe((/**
+         * @param {?} registered
+         * @return {?}
+         */
+        (registered) => {
             if (registered > 0 && !loading) {
                 loading = true;
                 loadingRef.componentRef.instance.startInAnimation();
@@ -358,7 +371,7 @@ class TdLoadingFactory {
                 loading = false;
                 loadingRef.componentRef.instance.startOutAnimation();
             }
-        });
+        }));
         return loadingRef;
     }
     /**
@@ -386,7 +399,11 @@ class TdLoadingFactory {
         // passing context so when the template is attached, we can keep the reference of the variables
         /** @type {?} */
         let contentRef = viewContainerRef.createEmbeddedView(templateRef, context);
-        loadingRef.observable.pipe(distinctUntilChanged()).subscribe((registered) => {
+        loadingRef.observable.pipe(distinctUntilChanged()).subscribe((/**
+         * @param {?} registered
+         * @return {?}
+         */
+        (registered) => {
             if (registered > 0 && !loading) {
                 loading = true;
                 // detach the content and attach the loader if loader is there
@@ -401,7 +418,10 @@ class TdLoadingFactory {
             else if (registered <= 0 && loading) {
                 loading = false;
                 /** @type {?} */
-                let subs = loadingRef.componentRef.instance.startOutAnimation().subscribe(() => {
+                let subs = loadingRef.componentRef.instance.startOutAnimation().subscribe((/**
+                 * @return {?}
+                 */
+                () => {
                     subs.unsubscribe();
                     // detach loader and attach the content if content is there
                     /** @type {?} */
@@ -416,13 +436,14 @@ class TdLoadingFactory {
                      */
                     contentRef.detectChanges();
                     contentRef.markForCheck();
-                });
+                }));
             }
-        });
+        }));
         return loadingRef;
     }
     /**
      * Creates a fullscreen overlay for the loading usage.
+     * @private
      * @return {?}
      */
     _createOverlay() {
@@ -438,6 +459,7 @@ class TdLoadingFactory {
     }
     /**
      * Creates a generic component dynamically waiting to be attached to a viewContainerRef.
+     * @private
      * @param {?} options
      * @return {?}
      */
@@ -452,6 +474,7 @@ class TdLoadingFactory {
     }
     /**
      * Initialize context for loading component.
+     * @private
      * @return {?}
      */
     _initializeContext() {
@@ -466,6 +489,7 @@ class TdLoadingFactory {
     }
     /**
      * Maps configuration to the loading component instance.
+     * @private
      * @param {?} options
      * @param {?} instance
      * @return {?}
@@ -515,7 +539,7 @@ const LOADING_FACTORY_PROVIDER = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdLoadingConfig {
     /**
@@ -643,9 +667,12 @@ class TdLoadingService {
             // if it doesnt exist, set a timeout so its registered after change detection happens
             // this in case "register" occured on the `ngOnInit` lifehook cycle.
             if (!this._timeouts[name]) {
-                this._timeouts[name] = setTimeout(() => {
+                this._timeouts[name] = setTimeout((/**
+                 * @return {?}
+                 */
+                () => {
                     this.register(name, registers);
-                });
+                }));
             }
             else {
                 // if it timeout occured and still doesnt exist, it means the tiemout wasnt needed so we clear it.
@@ -734,6 +761,7 @@ class TdLoadingService {
     }
     /**
      * Clears timeout linked to the name.
+     * @private
      * @param {?} name Name of the loading component to be cleared
      * @return {?}
      */
@@ -767,7 +795,7 @@ const LOADING_PROVIDER = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Context class for variable reference
@@ -900,6 +928,7 @@ class TdLoadingDirective {
     /**
      * Creates [TdLoadingComponent] and attaches it to this directive's [ViewContainerRef].
      * Passes this directive's [TemplateRef] to modify DOM depending on loading `strategy`.
+     * @private
      * @return {?}
      */
     _registerComponent() {
@@ -941,7 +970,7 @@ TdLoadingDirective.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TD_LOADING = [TdLoadingComponent, TdLoadingDirective];
@@ -959,21 +988,5 @@ CovalentLoadingModule.decorators = [
             },] }
 ];
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-export { CovalentLoadingModule, LoadingType, LoadingMode, LoadingStrategy, LoadingStyle, TD_CIRCLE_DIAMETER, TdLoadingComponent, TdLoadingContext, TdLoadingDirective, LOADING_PROVIDER_FACTORY, TdLoadingConfig, TdLoadingDirectiveConfig, TdLoadingService, LOADING_PROVIDER, LOADING_FACTORY_PROVIDER_FACTORY, TdLoadingFactory, LOADING_FACTORY_PROVIDER };
-
+export { CovalentLoadingModule, LOADING_FACTORY_PROVIDER, LOADING_FACTORY_PROVIDER_FACTORY, LOADING_PROVIDER, LOADING_PROVIDER_FACTORY, LoadingMode, LoadingStrategy, LoadingStyle, LoadingType, TD_CIRCLE_DIAMETER, TdLoadingComponent, TdLoadingConfig, TdLoadingContext, TdLoadingDirective, TdLoadingDirectiveConfig, TdLoadingFactory, TdLoadingService };
 //# sourceMappingURL=covalent-core-loading.js.map

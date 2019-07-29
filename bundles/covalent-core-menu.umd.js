@@ -1,12 +1,12 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/material/menu'), require('@angular/material/divider'), require('@angular/core')) :
-    typeof define === 'function' && define.amd ? define('@covalent/core/menu', ['exports', '@angular/common', '@angular/material/menu', '@angular/material/divider', '@angular/core'], factory) :
-    (factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.menu = {}),global.ng.common,global.ng.material.menu,global.ng.material.divider,global.ng.core));
-}(this, (function (exports,common,menu,divider,core) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/material/menu'), require('@angular/material/divider')) :
+    typeof define === 'function' && define.amd ? define('@covalent/core/menu', ['exports', '@angular/core', '@angular/common', '@angular/material/menu', '@angular/material/divider'], factory) :
+    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.menu = {}), global.ng.core, global.ng.common, global.ng.material.menu, global.ng.material.divider));
+}(this, function (exports, core, common, menu, divider) { 'use strict';
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdMenuComponent = /** @class */ (function () {
         function TdMenuComponent() {
@@ -23,7 +23,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
     var TD_MENU = [TdMenuComponent];
@@ -40,26 +40,10 @@
         return CovalentMenuModule;
     }());
 
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
     exports.CovalentMenuModule = CovalentMenuModule;
     exports.TdMenuComponent = TdMenuComponent;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
-
+}));
 //# sourceMappingURL=covalent-core-menu.umd.js.map

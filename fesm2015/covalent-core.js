@@ -1,39 +1,39 @@
-import { MatChip, MatChipsModule } from '@angular/material/chips';
-import { MatAutocompleteTrigger, MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatDialogRef, MatDialog, MatDialogConfig, MatDialogModule } from '@angular/material/dialog';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatCardModule } from '@angular/material/card';
-import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
-import { Router, RoutesRecognized } from '@angular/router';
-import { DomSanitizer } from '@angular/platform-browser';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { Overlay, OverlayConfig, OverlayModule } from '@angular/cdk/overlay';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInput, MatInputModule } from '@angular/material/input';
-import { trigger, state, style, transition, animate, query, animateChild, group, AUTO_STYLE, keyframes } from '@angular/animations';
+import { EventEmitter, Component, ChangeDetectionStrategy, Optional, ChangeDetectorRef, Input, Output, NgModule, Directive, TemplateRef, ViewContainerRef, ElementRef, Renderer2, ViewChildren, ContentChild, HostListener, ViewChild, HostBinding, Host, Inject, Pipe, LOCALE_ID, Injectable, forwardRef, ContentChildren, ɵɵdefineInjectable, SecurityContext, ComponentFactoryResolver, Injector, SkipSelf, NgZone, ɵɵinject } from '@angular/core';
+import { CommonModule, DOCUMENT, DecimalPipe } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { MatOption, MatPseudoCheckboxModule, MatRippleModule } from '@angular/material/core';
+import { MatButtonModule } from '@angular/material/button';
+import { coerceNumberProperty, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Dir, Directionality } from '@angular/cdk/bidi';
-import { UP_ARROW, DOWN_ARROW, ESCAPE, LEFT_ARROW, RIGHT_ARROW, DELETE, BACKSPACE, TAB, ENTER, SPACE } from '@angular/cdk/keycodes';
-import { ScrollDispatchModule, ViewportRuler } from '@angular/cdk/scrolling';
+import { TemplatePortalDirective, PortalModule, ComponentPortal, TemplatePortal } from '@angular/cdk/portal';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Subject, Subscription, timer, merge, fromEvent, Observable, BehaviorSubject, of } from 'rxjs';
 import { debounceTime, filter, pairwise, takeUntil, distinctUntilChanged, skip } from 'rxjs/operators';
-import { CommonModule, DOCUMENT, DecimalPipe } from '@angular/common';
+import { NgModel, FormsModule, Validators, FormControl, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import { RoutesRecognized, Router } from '@angular/router';
+import { trigger, state, style, transition, group, query, animateChild, animate, AUTO_STYLE, keyframes } from '@angular/animations';
+import { tdCollapseAnimation as tdCollapseAnimation$1, mixinControlValueAccessor as mixinControlValueAccessor$1, mixinDisabled as mixinDisabled$1, mixinDisableRipple as mixinDisableRipple$1, tdRotateAnimation as tdRotateAnimation$1, tdFadeInOutAnimation as tdFadeInOutAnimation$1, CovalentCommonModule as CovalentCommonModule$1 } from '@covalent/core/common';
+import { MatInput, MatInputModule } from '@angular/material/input';
+import { MatAutocompleteTrigger, MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatChip, MatChipsModule } from '@angular/material/chips';
+import { TAB, ESCAPE, UP_ARROW, LEFT_ARROW, DELETE, BACKSPACE, RIGHT_ARROW, DOWN_ARROW, ENTER, SPACE } from '@angular/cdk/keycodes';
+import { MatOption, MatPseudoCheckboxModule, MatRippleModule } from '@angular/material/core';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogRef, MatDialogConfig, MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { ScrollDispatchModule, ViewportRuler } from '@angular/cdk/scrolling';
+import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { OverlayConfig, Overlay, OverlayModule } from '@angular/cdk/overlay';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatTabsModule } from '@angular/material/tabs';
-import { NgModel, FormsModule, Validators, NG_VALUE_ACCESSOR, FormControl, ReactiveFormsModule } from '@angular/forms';
-import { coerceNumberProperty, coerceBooleanProperty } from '@angular/cdk/coercion';
-import { Component, Input, Output, EventEmitter, Optional, ChangeDetectorRef, ChangeDetectionStrategy, NgModule, Directive, TemplateRef, ViewContainerRef, ContentChild, ViewChildren, ElementRef, HostListener, Renderer2, HostBinding, ViewChild, Host, Inject, Pipe, LOCALE_ID, Injectable, forwardRef, ContentChildren, NgZone, SecurityContext, SkipSelf, ComponentFactoryResolver, Injector, defineInjectable, inject } from '@angular/core';
-import { TemplatePortalDirective, PortalModule, TemplatePortal, ComponentPortal } from '@angular/cdk/portal';
-import { tdCollapseAnimation, mixinDisabled, mixinControlValueAccessor, mixinDisableRipple, tdRotateAnimation, tdFadeInOutAnimation, CovalentCommonModule } from '@covalent/core/common';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdPagingBarComponent {
     /**
@@ -237,6 +237,7 @@ class TdPagingBarComponent {
         return this._page >= this.maxPage;
     }
     /**
+     * @private
      * @return {?}
      */
     _calculateRows() {
@@ -248,6 +249,7 @@ class TdPagingBarComponent {
     /**
      * _calculatePageLinks?: function
      * Calculates the page links that should be shown to the user based on the current state of the paginator
+     * @private
      * @return {?}
      */
     _calculatePageLinks() {
@@ -297,6 +299,7 @@ class TdPagingBarComponent {
         }
     }
     /**
+     * @private
      * @return {?}
      */
     _handleOnChange() {
@@ -339,7 +342,7 @@ TdPagingBarComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class CovalentPagingModule {
 }
@@ -353,17 +356,7 @@ CovalentPagingModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdVirtualScrollRowDirective extends TemplatePortalDirective {
     /**
@@ -385,7 +378,7 @@ TdVirtualScrollRowDirective.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TD_VIRTUAL_OFFSET = 2;
@@ -422,9 +415,14 @@ class TdVirtualScrollContainerComponent {
          * This accepts the same trackBy function [ngFor] does.
          * https://angular.io/api/core/TrackByFunction
          */
-        this.trackBy = (index, item) => {
+        this.trackBy = (/**
+         * @param {?} index
+         * @param {?} item
+         * @return {?}
+         */
+        (index, item) => {
             return item;
-        };
+        });
     }
     /**
      * data: any[]
@@ -488,17 +486,23 @@ class TdVirtualScrollContainerComponent {
      * @return {?}
      */
     ngAfterViewInit() {
-        this._subs.push(this._rows.changes.subscribe(() => {
+        this._subs.push(this._rows.changes.subscribe((/**
+         * @return {?}
+         */
+        () => {
             this._calculateVirtualRows();
-        }));
+        })));
         this._initialized = true;
         this._calculateVirtualRows();
-        this._subs.push(this._bottom.pipe(debounceTime(SCROLL_DEBOUNCE)).subscribe(() => {
+        this._subs.push(this._bottom.pipe(debounceTime(SCROLL_DEBOUNCE)).subscribe((/**
+         * @return {?}
+         */
+        () => {
             this.bottom.emit({
                 lastRow: this._data[this._data.length - 1],
                 lastIndex: this.toRow,
             });
-        }));
+        })));
     }
     /**
      * @return {?}
@@ -518,9 +522,13 @@ class TdVirtualScrollContainerComponent {
      */
     ngOnDestroy() {
         if (this._subs) {
-            this._subs.forEach((sub) => {
+            this._subs.forEach((/**
+             * @param {?} sub
+             * @return {?}
+             */
+            (sub) => {
                 sub.unsubscribe();
-            });
+            }));
         }
     }
     /**
@@ -581,6 +589,7 @@ class TdVirtualScrollContainerComponent {
         this._changeDetectorRef.markForCheck();
     }
     /**
+     * @private
      * @return {?}
      */
     _calculateVirtualRows() {
@@ -617,9 +626,12 @@ class TdVirtualScrollContainerComponent {
         }
         // mark for check at the end of the queue so we are sure
         // that the changes will be marked
-        Promise.resolve().then(() => {
+        Promise.resolve().then((/**
+         * @return {?}
+         */
+        () => {
             this._changeDetectorRef.markForCheck();
-        });
+        }));
     }
 }
 TdVirtualScrollContainerComponent.decorators = [
@@ -641,14 +653,14 @@ TdVirtualScrollContainerComponent.propDecorators = {
     data: [{ type: Input, args: ['data',] }],
     bottom: [{ type: Output }],
     _rows: [{ type: ViewChildren, args: ['rowElement',] }],
-    _rowTemplate: [{ type: ContentChild, args: [TdVirtualScrollRowDirective,] }],
+    _rowTemplate: [{ type: ContentChild, args: [TdVirtualScrollRowDirective, { static: false },] }],
     trackBy: [{ type: Input, args: ['trackBy',] }],
     handleScroll: [{ type: HostListener, args: ['scroll', ['$event'],] }]
 };
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TD_VIRTUAL_SCROLL = [TdVirtualScrollRowDirective, TdVirtualScrollContainerComponent];
@@ -664,17 +676,7 @@ CovalentVirtualScrollModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @enum {string} */
 const TdNotificationCountPositionY = {
@@ -796,6 +798,7 @@ class TdNotificationCountComponent {
     }
     /**
      * Method to check if element has any kind of content (elements or text)
+     * @private
      * @return {?}
      */
     _hasContent() {
@@ -816,7 +819,7 @@ TdNotificationCountComponent.decorators = [
             }] }
 ];
 TdNotificationCountComponent.propDecorators = {
-    content: [{ type: ViewChild, args: ['content',] }],
+    content: [{ type: ViewChild, args: ['content', { static: true },] }],
     color: [{ type: Input }],
     positionX: [{ type: Input }],
     positionY: [{ type: Input }],
@@ -827,7 +830,7 @@ TdNotificationCountComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TD_NOTIFICATIONS = [TdNotificationCountComponent];
@@ -843,17 +846,7 @@ CovalentNotificationsModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdAutoTrimDirective {
     /**
@@ -888,7 +881,7 @@ TdAutoTrimDirective.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdFullscreenDirective {
     /**
@@ -920,13 +913,25 @@ class TdFullscreenDirective {
         const { _el: { nativeElement }, } = this;
         /** @type {?} */
         const enterFullScreenMap = {
-            requestFullscreen: () => nativeElement.requestFullscreen(),
+            requestFullscreen: (/**
+             * @return {?}
+             */
+            () => nativeElement.requestFullscreen()),
             // Chrome
-            webkitRequestFullscreen: () => nativeElement.webkitRequestFullscreen(),
+            webkitRequestFullscreen: (/**
+             * @return {?}
+             */
+            () => nativeElement.webkitRequestFullscreen()),
             // Safari
-            mozRequestFullScreen: () => nativeElement.mozRequestFullScreen(),
+            mozRequestFullScreen: (/**
+             * @return {?}
+             */
+            () => nativeElement.mozRequestFullScreen()),
             // Firefox
-            msRequestFullscreen: () => nativeElement.msRequestFullscreen(),
+            msRequestFullscreen: (/**
+             * @return {?}
+             */
+            () => nativeElement.msRequestFullscreen()),
         };
         for (const handler of Object.keys(enterFullScreenMap)) {
             if (nativeElement[handler]) {
@@ -941,13 +946,25 @@ class TdFullscreenDirective {
         const { _document, _el: { nativeElement }, } = this;
         /** @type {?} */
         const exitFullScreenMap = {
-            exitFullscreen: () => _document.exitFullscreen(),
+            exitFullscreen: (/**
+             * @return {?}
+             */
+            () => _document.exitFullscreen()),
             // Chrome
-            webkitExitFullscreen: () => _document.webkitExitFullscreen(),
+            webkitExitFullscreen: (/**
+             * @return {?}
+             */
+            () => _document.webkitExitFullscreen()),
             // Safari
-            mozCancelFullScreen: () => _document.mozCancelFullScreen(),
+            mozCancelFullScreen: (/**
+             * @return {?}
+             */
+            () => _document.mozCancelFullScreen()),
             // Firefox
-            msExitFullscreen: () => _document.msExitFullscreen(),
+            msExitFullscreen: (/**
+             * @return {?}
+             */
+            () => _document.msExitFullscreen()),
         };
         for (const handler of Object.keys(exitFullScreenMap)) {
             if (_document[handler] && this._getFullScreenElement() === nativeElement) {
@@ -956,19 +973,32 @@ class TdFullscreenDirective {
         }
     }
     /**
+     * @private
      * @return {?}
      */
     _getFullScreenElement() {
         const { _document } = this;
         /** @type {?} */
         const tdFullScreenElementMap = {
-            fullscreenElement: () => _document.fullscreenElement,
+            fullscreenElement: (/**
+             * @return {?}
+             */
+            () => _document.fullscreenElement),
             // Chrome, Opera
-            webkitFullscreenElement: () => _document.webkitFullscreenElement,
+            webkitFullscreenElement: (/**
+             * @return {?}
+             */
+            () => _document.webkitFullscreenElement),
             // Safari
-            mozFullscreenElement: () => _document.mozFullscreenElement,
+            mozFullscreenElement: (/**
+             * @return {?}
+             */
+            () => _document.mozFullscreenElement),
             // Firefox
-            msFullscreenElement: () => _document.msFullscreenElement,
+            msFullscreenElement: (/**
+             * @return {?}
+             */
+            () => _document.msFullscreenElement),
         };
         for (const props of Object.keys(tdFullScreenElementMap)) {
             if (_document[props]) {
@@ -994,7 +1024,7 @@ TdFullscreenDirective.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdTimeAgoPipe {
     /**
@@ -1073,7 +1103,7 @@ TdTimeAgoPipe.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdTimeDifferencePipe {
     /**
@@ -1137,7 +1167,7 @@ TdTimeDifferencePipe.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdTimeUntilPipe {
     /**
@@ -1216,7 +1246,7 @@ TdTimeUntilPipe.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdBytesPipe {
     /* `bytes` needs to be `any` or TypeScript complains
@@ -1255,7 +1285,7 @@ TdBytesPipe.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdDecimalBytesPipe {
     /* `bytes` needs to be `any` or TypeScript complains
@@ -1294,7 +1324,7 @@ TdDecimalBytesPipe.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdDigitsPipe {
     /**
@@ -1344,7 +1374,7 @@ TdDigitsPipe.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdTruncatePipe {
     /**
@@ -1376,7 +1406,7 @@ TdTruncatePipe.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class RouterPathService {
     /**
@@ -1385,10 +1415,18 @@ class RouterPathService {
     constructor(_router) {
         this._router = _router;
         this._router.events
-            .pipe(filter((e) => e instanceof RoutesRecognized), pairwise())
-            .subscribe((e) => {
+            .pipe(filter((/**
+         * @param {?} e
+         * @return {?}
+         */
+        (e) => e instanceof RoutesRecognized)), pairwise())
+            .subscribe((/**
+         * @param {?} e
+         * @return {?}
+         */
+        (e) => {
             RouterPathService._previousRoute = e[0].urlAfterRedirects;
-        });
+        }));
     }
     /*
        * Utility function to get the route the user previously went to
@@ -1412,7 +1450,7 @@ RouterPathService.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class IconService {
     constructor() {
@@ -2204,10 +2242,14 @@ class IconService {
      * @param {?} query
      * @return {?}
      */
-    filter(query$$1) {
-        return this.icons.filter((el) => {
-            return el.toLowerCase().indexOf(query$$1 ? query$$1.toLowerCase() : '') > -1;
-        });
+    filter(query) {
+        return this.icons.filter((/**
+         * @param {?} el
+         * @return {?}
+         */
+        (el) => {
+            return el.toLowerCase().indexOf(query ? query.toLowerCase() : '') > -1;
+        }));
     }
 }
 IconService.decorators = [
@@ -2216,7 +2258,7 @@ IconService.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TD_DIRECTIVES = [TdAutoTrimDirective, TdFullscreenDirective];
@@ -2233,9 +2275,9 @@ const TD_PIPES = [
     TdDigitsPipe,
     TdTruncatePipe,
 ];
-class CovalentCommonModule$1 {
+class CovalentCommonModule {
 }
-CovalentCommonModule$1.decorators = [
+CovalentCommonModule.decorators = [
     { type: NgModule, args: [{
                 imports: [FormsModule, CommonModule],
                 declarations: [TD_DIRECTIVES, TD_PIPES, TD_VALIDATORS],
@@ -2246,7 +2288,7 @@ CovalentCommonModule$1.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * const tdRotateAnimation
@@ -2263,7 +2305,7 @@ CovalentCommonModule$1.decorators = [
  * usage: [\@tdRotate]="{ value: true | false, params: { degreesEnd: 90 }}"
  * @type {?}
  */
-const tdRotateAnimation$1 = trigger('tdRotate', [
+const tdRotateAnimation = trigger('tdRotate', [
     state('0', style({
         transform: 'rotate({{ degressStart }}deg)',
     }), { params: { degressStart: 0 } }),
@@ -2275,7 +2317,7 @@ const tdRotateAnimation$1 = trigger('tdRotate', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * const tdCollapseAnimation
@@ -2291,7 +2333,7 @@ const tdRotateAnimation$1 = trigger('tdRotate', [
  * usage: [\@tdCollapse]="{ value: true | false, params: { duration: 500 }}"
  * @type {?}
  */
-const tdCollapseAnimation$1 = trigger('tdCollapse', [
+const tdCollapseAnimation = trigger('tdCollapse', [
     state('1', style({
         height: '0',
         overflow: 'hidden',
@@ -2330,7 +2372,7 @@ const tdCollapseAnimation$1 = trigger('tdCollapse', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * const tdFadeInOutAnimation
@@ -2346,7 +2388,7 @@ const tdCollapseAnimation$1 = trigger('tdCollapse', [
  * usage: [\@tdFadeInOut]="{ value: true | false, params: { duration: 200 }}"
  * @type {?}
  */
-const tdFadeInOutAnimation$1 = trigger('tdFadeInOut', [
+const tdFadeInOutAnimation = trigger('tdFadeInOut', [
     state('0', style({
         opacity: '0',
         visibility: 'hidden',
@@ -2371,7 +2413,7 @@ const tdFadeInOutAnimation$1 = trigger('tdFadeInOut', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * const tdBounceAnimation
@@ -2445,7 +2487,7 @@ const tdBounceAnimation = trigger('tdBounce', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * const tdFlashAnimation
@@ -2483,7 +2525,7 @@ const tdFlashAnimation = trigger('tdFlash', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * const tdHeadshakeAnimation
@@ -2522,7 +2564,7 @@ const tdHeadshakeAnimation = trigger('tdHeadshake', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * const tdJelloAnimation
@@ -2564,7 +2606,7 @@ const tdJelloAnimation = trigger('tdJello', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * const tdPulseAnimation
@@ -2600,12 +2642,15 @@ const tdPulseAnimation = trigger('tdPulse', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
-const noop = () => {
+const noop = (/**
+ * @return {?}
+ */
+() => {
     // empty method
-};
+});
 /**
  * Mixin to augment a component with ngModel support.
  * @template T
@@ -2613,7 +2658,7 @@ const noop = () => {
  * @param {?=} initialValue
  * @return {?}
  */
-function mixinControlValueAccessor$1(base, initialValue) {
+function mixinControlValueAccessor(base, initialValue) {
     return class extends base {
         /**
          * @param {...?} args
@@ -2621,8 +2666,15 @@ function mixinControlValueAccessor$1(base, initialValue) {
         constructor(...args) {
             super(...args);
             this._value = initialValue instanceof Array ? Object.assign([], initialValue) : initialValue;
-            this.onChange = (_) => noop;
-            this.onTouched = () => noop;
+            this.onChange = (/**
+             * @param {?} _
+             * @return {?}
+             */
+            (_) => noop);
+            this.onTouched = (/**
+             * @return {?}
+             */
+            () => noop);
             this._subjectValueChanges = new Subject();
             this.valueChanges = this._subjectValueChanges.asObservable();
         }
@@ -2671,7 +2723,7 @@ function mixinControlValueAccessor$1(base, initialValue) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Mixin to augment a component or directive with a `disabled` property.
@@ -2679,7 +2731,7 @@ function mixinControlValueAccessor$1(base, initialValue) {
  * @param {?} base
  * @return {?}
  */
-function mixinDisabled$1(base) {
+function mixinDisabled(base) {
     return class extends base {
         /**
          * @param {...?} args
@@ -2718,7 +2770,7 @@ function mixinDisabled$1(base) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Mixin to augment a component or directive with a `disabled` property.
@@ -2726,7 +2778,7 @@ function mixinDisabled$1(base) {
  * @param {?} base
  * @return {?}
  */
-function mixinDisableRipple$1(base) {
+function mixinDisableRipple(base) {
     return class extends base {
         /**
          * @param {...?} args
@@ -2765,7 +2817,7 @@ function mixinDisableRipple$1(base) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class CovalentValidators {
     /**
@@ -2774,14 +2826,18 @@ class CovalentValidators {
      */
     static min(minValue) {
         /** @type {?} */
-        let func = (c) => {
+        let func = (/**
+         * @param {?} c
+         * @return {?}
+         */
+        (c) => {
             if (!!Validators.required(c) || (!minValue && minValue !== 0)) {
                 return undefined;
             }
             /** @type {?} */
             let v = c.value;
             return v < minValue ? { min: { minValue: minValue, actualValue: v } } : undefined;
-        };
+        });
         return func;
     }
     /**
@@ -2790,14 +2846,18 @@ class CovalentValidators {
      */
     static max(maxValue) {
         /** @type {?} */
-        let func = (c) => {
+        let func = (/**
+         * @param {?} c
+         * @return {?}
+         */
+        (c) => {
             if (!!Validators.required(c) || (!maxValue && maxValue !== 0)) {
                 return undefined;
             }
             /** @type {?} */
             let v = c.value;
             return v > maxValue ? { max: { maxValue: maxValue, actualValue: v } } : undefined;
-        };
+        });
         return func;
     }
     /**
@@ -2811,17 +2871,7 @@ class CovalentValidators {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdMessageContainerDirective {
     /**
@@ -2950,12 +3000,15 @@ class TdMessageComponent {
      * @return {?}
      */
     ngAfterViewInit() {
-        Promise.resolve(undefined).then(() => {
+        Promise.resolve(undefined).then((/**
+         * @return {?}
+         */
+        () => {
             if (this._opened) {
                 this._attach();
             }
             this._initialized = true;
-        });
+        }));
     }
     /**
      * Renders the message on screen
@@ -2994,6 +3047,7 @@ class TdMessageComponent {
     }
     /**
      * Method to set the state before starting an animation
+     * @private
      * @return {?}
      */
     _startAnimationState() {
@@ -3003,6 +3057,7 @@ class TdMessageComponent {
     }
     /**
      * Method to attach template to DOM
+     * @private
      * @return {?}
      */
     _attach() {
@@ -3011,6 +3066,7 @@ class TdMessageComponent {
     }
     /**
      * Method to detach template from DOM
+     * @private
      * @return {?}
      */
     _detach() {
@@ -3022,7 +3078,7 @@ TdMessageComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-message',
                 template: "<div tdMessageContainer></div>\n<ng-template>\n  <div class=\"td-message-wrapper\">\n    <mat-icon class=\"td-message-icon\">{{ icon }}</mat-icon>\n    <div class=\"td-message-labels\">\n      <div *ngIf=\"label\" class=\"td-message-label\">{{ label }}</div>\n      <div *ngIf=\"sublabel\" class=\"td-message-sublabel\">{{ sublabel }}</div>\n    </div>\n    <ng-content select=\"[td-message-actions]\"></ng-content>\n  </div>\n</ng-template>\n",
-                animations: [tdCollapseAnimation],
+                animations: [tdCollapseAnimation$1],
                 styles: [":host{display:block}:host .td-message-wrapper{padding:8px 16px;min-height:52px;box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:start;justify-content:flex-start}:host .td-message-wrapper .td-message-labels{-ms-flex:1;flex:1}.td-message-icon{margin-right:16px}::ng-deep [dir=rtl] .td-message-icon{margin-left:16px;margin-right:0}"]
             }] }
 ];
@@ -3033,8 +3089,8 @@ TdMessageComponent.ctorParameters = () => [
     { type: ElementRef }
 ];
 TdMessageComponent.propDecorators = {
-    _childElement: [{ type: ViewChild, args: [TdMessageContainerDirective,] }],
-    _template: [{ type: ViewChild, args: [TemplateRef,] }],
+    _childElement: [{ type: ViewChild, args: [TdMessageContainerDirective, { static: true },] }],
+    _template: [{ type: ViewChild, args: [TemplateRef, { static: false },] }],
     collapsedAnimation: [{ type: HostBinding, args: ['@tdCollapse',] }],
     hidden: [{ type: HostBinding, args: ['style.display',] }],
     label: [{ type: Input, args: ['label',] }],
@@ -3047,7 +3103,7 @@ TdMessageComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TD_MESSAGE = [TdMessageComponent, TdMessageContainerDirective];
@@ -3063,17 +3119,7 @@ CovalentMessageModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdChipDirective extends TemplatePortalDirective {
     /**
@@ -3123,7 +3169,7 @@ class TdChipsBase {
 }
 /* tslint:disable-next-line */
 /** @type {?} */
-const _TdChipsMixinBase = mixinControlValueAccessor(mixinDisabled(TdChipsBase), []);
+const _TdChipsMixinBase = mixinControlValueAccessor$1(mixinDisabled$1(TdChipsBase), []);
 class TdChipsComponent extends _TdChipsMixinBase {
     /**
      * @param {?} _elementRef
@@ -3196,9 +3242,14 @@ class TdChipsComponent extends _TdChipsMixinBase {
          * Function used to check whether a chip value already exists.
          * Defaults to strict equality comparison ===
          */
-        this.compareWith = (o1, o2) => {
+        this.compareWith = (/**
+         * @param {?} o1
+         * @param {?} o2
+         * @return {?}
+         */
+        (o1, o2) => {
             return o1 === o2;
-        };
+        });
         this._renderer.addClass(this._elementRef.nativeElement, 'mat-' + this._color);
     }
     /**
@@ -3396,9 +3447,12 @@ class TdChipsComponent extends _TdChipsMixinBase {
         this._isMousedown = true;
         timer()
             .toPromise()
-            .then(() => {
+            .then((/**
+         * @return {?}
+         */
+        () => {
             this._isMousedown = false;
-        });
+        }));
     }
     /**
      * If clicking on :host or `td-chips-wrapper`, then we stop the click propagation so the autocomplete
@@ -3426,9 +3480,12 @@ class TdChipsComponent extends _TdChipsMixinBase {
                 // if tabing out, then unfocus the component
                 timer()
                     .toPromise()
-                    .then(() => {
+                    .then((/**
+                 * @return {?}
+                 */
+                () => {
                     this.removeFocusedState();
-                });
+                }));
                 break;
             case ESCAPE:
                 if (this._inputChild.focused) {
@@ -3450,9 +3507,13 @@ class TdChipsComponent extends _TdChipsMixinBase {
     ngOnInit() {
         this._inputValueChangesSubs = this.inputControl.valueChanges
             .pipe(debounceTime(this.debounce))
-            .subscribe((value) => {
+            .subscribe((/**
+         * @param {?} value
+         * @return {?}
+         */
+        (value) => {
             this.onInputChange.emit(value ? value : '');
-        });
+        }));
         this._changeDetectorRef.markForCheck();
     }
     /**
@@ -3505,9 +3566,13 @@ class TdChipsComponent extends _TdChipsMixinBase {
         let value;
         if (this.requireMatch) {
             /** @type {?} */
-            let selectedOptions = this._options.toArray().filter((option) => {
+            let selectedOptions = this._options.toArray().filter((/**
+             * @param {?} option
+             * @return {?}
+             */
+            (option) => {
                 return option.active;
-            });
+            }));
             if (selectedOptions.length > 0) {
                 value = selectedOptions[0].value;
                 selectedOptions[0].setInactiveStyles();
@@ -3546,14 +3611,21 @@ class TdChipsComponent extends _TdChipsMixinBase {
         this._closeAutocomplete();
         timer(this.debounce)
             .toPromise()
-            .then(() => {
+            .then((/**
+         * @return {?}
+         */
+        () => {
             this.setFocusedState();
             this._setFirstOptionActive();
             this._openAutocomplete();
-        });
+        }));
         this.inputControl.setValue('');
         // check if value is already part of the model
-        if (this.value.findIndex((item) => this.compareWith(item, value)) > -1) {
+        if (this.value.findIndex((/**
+         * @param {?} item
+         * @return {?}
+         */
+        (item) => this.compareWith(item, value))) > -1) {
             return false;
         }
         this.value.push(value);
@@ -3799,6 +3871,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
     }
     /**
      * Method to focus a desired chip by index
+     * @private
      * @param {?} index
      * @return {?}
      */
@@ -3810,6 +3883,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
     }
     /**
      * Method to focus first chip
+     * @private
      * @return {?}
      */
     _focusFirstChip() {
@@ -3817,6 +3891,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
     }
     /**
      * Method to focus last chip
+     * @private
      * @return {?}
      */
     _focusLastChip() {
@@ -3825,6 +3900,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
     /**
      * Method to toggle the disable state of input
      * Checks if not in disabled state and if chipAddition is set to 'true'
+     * @private
      * @return {?}
      */
     _toggleInput() {
@@ -3839,6 +3915,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
     /**
      * Sets first option as active to let the user know which one will be added when pressing enter
      * Only if [requireMatch] has been set
+     * @private
      * @return {?}
      */
     _setFirstOptionActive() {
@@ -3846,48 +3923,66 @@ class TdChipsComponent extends _TdChipsMixinBase {
             // need to use a timer here to wait until the autocomplete has been opened (end of queue)
             timer()
                 .toPromise()
-                .then(() => {
+                .then((/**
+             * @return {?}
+             */
+            () => {
                 if (this.focused && this._options && this._options.length > 0) {
                     // clean up of previously active options
-                    this._options.toArray().forEach((option) => {
+                    this._options.toArray().forEach((/**
+                     * @param {?} option
+                     * @return {?}
+                     */
+                    (option) => {
                         option.setInactiveStyles();
-                    });
+                    }));
                     // set the first one as active
                     this._options.toArray()[0].setActiveStyles();
                     this._internalActivateOption = true;
                     this._changeDetectorRef.markForCheck();
                 }
-            });
+            }));
         }
     }
     /**
      * Watches clicks outside of the component to remove the focus
      * The autocomplete panel is considered inside the component so we
      * need to use a flag to find out when its clicked.
+     * @private
      * @return {?}
      */
     _watchOutsideClick() {
         if (this._document) {
             this._outsideClickSubs = merge(fromEvent(this._document, 'click'), fromEvent(this._document, 'touchend'))
-                .pipe(debounceTime(this._touchendDebounce), filter((event) => {
+                .pipe(debounceTime(this._touchendDebounce), filter((/**
+             * @param {?} event
+             * @return {?}
+             */
+            (event) => {
                 /** @type {?} */
                 const clickTarget = (/** @type {?} */ (event.target));
-                setTimeout(() => {
+                setTimeout((/**
+                 * @return {?}
+                 */
+                () => {
                     this._internalClick = false;
-                });
+                }));
                 return (this.focused &&
                     clickTarget !== this._elementRef.nativeElement &&
                     !this._elementRef.nativeElement.contains(clickTarget) &&
                     !this._internalClick);
-            }))
-                .subscribe(() => {
+            })))
+                .subscribe((/**
+             * @return {?}
+             */
+            () => {
                 if (this.focused) {
                     this._autocompleteTrigger.closePanel();
                     this.removeFocusedState();
                     this.onTouched();
                     this._changeDetectorRef.markForCheck();
                 }
-            });
+            }));
         }
         return undefined;
     }
@@ -3897,7 +3992,10 @@ TdChipsComponent.decorators = [
                 providers: [
                     {
                         provide: NG_VALUE_ACCESSOR,
-                        useExisting: forwardRef(() => TdChipsComponent),
+                        useExisting: forwardRef((/**
+                         * @return {?}
+                         */
+                        () => TdChipsComponent)),
                         multi: true,
                     },
                 ],
@@ -3905,7 +4003,7 @@ TdChipsComponent.decorators = [
                 inputs: ['disabled', 'value'],
                 template: "<div\n  class=\"td-chips-wrapper\"\n  [class.td-chips-stacked]=\"stacked\"\n  [class.td-chips-input-before-position]=\"inputPosition === 'before'\"\n>\n  <ng-template let-chip let-first=\"first\" let-index=\"index\" ngFor [ngForOf]=\"value\">\n    <mat-basic-chip\n      [class.td-chip-disabled]=\"disabled\"\n      [class.td-chip-after-pad]=\"!canRemoveChip\"\n      [disableRipple]=\"true\"\n      [color]=\"color\"\n      (keydown)=\"_chipKeydown($event, index)\"\n      (blur)=\"_handleChipBlur($event, chip)\"\n      (focus)=\"_handleChipFocus($event, chip)\"\n    >\n      <div class=\"td-chip\" [class.td-chip-stacked]=\"stacked\">\n        <span class=\"td-chip-content\">\n          <span *ngIf=\"!_chipTemplate?.templateRef\">{{ chip }}</span>\n          <ng-template\n            *ngIf=\"_chipTemplate?.templateRef\"\n            [ngTemplateOutlet]=\"_chipTemplate?.templateRef\"\n            [ngTemplateOutletContext]=\"{ chip: chip }\"\n          >\n          </ng-template>\n        </span>\n        <mat-icon *ngIf=\"canRemoveChip\" class=\"td-chip-removal\" (click)=\"_internalClick = removeChip(index)\">\n          cancel\n        </mat-icon>\n      </div>\n    </mat-basic-chip>\n  </ng-template>\n  <mat-form-field\n    floatLabel=\"never\"\n    class=\"td-chips-form-field\"\n    [style.width.px]=\"canAddChip ? null : 0\"\n    [style.height.px]=\"canAddChip ? null : 0\"\n    [color]=\"color\"\n  >\n    <input\n      matInput\n      #input\n      [tabIndex]=\"-1\"\n      [matAutocomplete]=\"autocomplete\"\n      [formControl]=\"inputControl\"\n      [placeholder]=\"displayPlaceHolder\"\n      (keydown)=\"_inputKeydown($event)\"\n      (keyup.enter)=\"_handleAddChip()\"\n      (focus)=\"_handleFocus()\"\n    />\n  </mat-form-field>\n  <mat-autocomplete\n    #autocomplete=\"matAutocomplete\"\n    [displayWith]=\"_removeInputDisplay\"\n    (optionSelected)=\"addChip($event.option.value)\"\n  >\n    <ng-template let-item let-first=\"first\" ngFor [ngForOf]=\"items\">\n      <mat-option (click)=\"_setInternalClick()\" [value]=\"item\">\n        <span *ngIf=\"!_autocompleteOptionTemplate?.templateRef\">{{ item }}</span>\n        <ng-template\n          *ngIf=\"_autocompleteOptionTemplate?.templateRef\"\n          [ngTemplateOutlet]=\"_autocompleteOptionTemplate?.templateRef\"\n          [ngTemplateOutletContext]=\"{ option: item }\"\n        >\n        </ng-template>\n      </mat-option>\n    </ng-template>\n  </mat-autocomplete>\n</div>\n<div *ngIf=\"chipAddition\" class=\"mat-form-field-underline\" [class.mat-disabled]=\"disabled\">\n  <span class=\"mat-form-field-ripple\" [class.mat-focused]=\"focused\"></span>\n</div>\n<ng-content></ng-content>\n",
                 changeDetection: ChangeDetectionStrategy.OnPush,
-                styles: [":host{display:block;padding:0 5px;min-height:48px}:host .td-chips-wrapper{min-height:42px;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:wrap;flex-wrap:wrap;-ms-flex-align:start;align-items:flex-start}:host .td-chips-wrapper.td-chips-stacked .mat-basic-chip,:host .td-chips-wrapper.td-chips-stacked .td-chips-form-field{width:100%}:host .td-chips-wrapper.td-chips-input-before-position .td-chips-form-field{-ms-flex-order:-1;order:-1}:host .td-chip,:host .td-chip>.td-chip-content{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;max-width:100%;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;-ms-flex-pack:start;justify-content:flex-start;min-width:0}:host .td-chip.td-chip-stacked,:host .td-chip>.td-chip-content.td-chip-stacked{-ms-flex-pack:justify;justify-content:space-between}:host ::ng-deep .mat-form-field-wrapper{padding-bottom:2px}:host ::ng-deep .mat-basic-chip{display:inline-block;cursor:default;border-radius:16px;margin:8px 8px 0 0;box-sizing:border-box;max-width:100%;position:relative}html[dir=rtl] :host ::ng-deep .mat-basic-chip{margin:8px 0 0 8px;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip{margin:8px 0 0 8px;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip{margin:8px 0 0 8px;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip{min-height:32px;line-height:32px;font-size:13px;padding:0 0 0 12px}html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{padding:0 12px 0 0;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{padding:0 12px 0 0;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{padding:0 12px 0 0;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip .td-chip bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{display:inline-block;-ms-flex-order:-20;order:-20;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;text-align:center;height:32px;width:32px;margin:0 8px 0 -12px;border-radius:50%;-ms-flex:0 0 auto;flex:0 0 auto;box-sizing:border-box}html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{margin:0 -12px 0 8px;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{margin:0 -12px 0 8px;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{margin:0 -12px 0 8px;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 12px 0 0}html[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 0 0 12px;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 0 0 12px;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 0 0 12px;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal{margin:0 4px;font-size:21px;line-height:22px}:host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal:hover{cursor:pointer}:host ::ng-deep .td-chips-stacked .mat-basic-chip{margin:4px 0}:host ::ng-deep .td-chips-stacked .mat-basic-chip:first-of-type{margin:8px 0 4px}:host ::ng-deep .td-chips-stacked .mat-basic-chip:last-of-type{margin:4px 0 8px}:host .mat-form-field-underline{position:relative;height:1px;width:100%;bottom:0}:host .mat-form-field-underline.mat-disabled{background-position:0;bottom:-4px;background-color:transparent}:host .mat-form-field-underline .mat-form-field-ripple{position:absolute;height:2px;top:0;width:100%;-webkit-transform-origin:50%;-ms-transform-origin:50%;transform-origin:50%;-webkit-transform:scaleX(.5);-ms-transform:scaleX(.5);transform:scaleX(.5);visibility:hidden;opacity:0;transition:background-color .3s cubic-bezier(.55,0,.55,.2)}:host .mat-form-field-underline .mat-form-field-ripple.mat-focused{visibility:visible;opacity:1;-webkit-transform:scaleX(1);-ms-transform:scaleX(1);transform:scaleX(1);transition:transform 150ms linear,background-color .3s cubic-bezier(.55,0,.55,.2),-webkit-transform 150ms linear}:host.ng-invalid .mat-form-field-underline .mat-form-field-ripple{visibility:visible;opacity:1;-webkit-transform:scaleX(1);-ms-transform:scaleX(1);transform:scaleX(1);transition:transform 150ms linear,background-color .3s cubic-bezier(.55,0,.55,.2),-webkit-transform 150ms linear}:host ::ng-deep mat-form-field .mat-form-field-underline{display:none}"]
+                styles: [":host{display:block;padding:0 5px;min-height:48px}:host .td-chips-wrapper{min-height:42px;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:wrap;flex-wrap:wrap;-ms-flex-align:start;align-items:flex-start}:host .td-chips-wrapper.td-chips-stacked .mat-basic-chip,:host .td-chips-wrapper.td-chips-stacked .td-chips-form-field{width:100%}:host .td-chips-wrapper.td-chips-input-before-position .td-chips-form-field{-ms-flex-order:-1;order:-1}:host .td-chip,:host .td-chip>.td-chip-content{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;max-width:100%;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;-ms-flex-pack:start;justify-content:flex-start;min-width:0}:host .td-chip.td-chip-stacked,:host .td-chip>.td-chip-content.td-chip-stacked{-ms-flex-pack:justify;justify-content:space-between}:host ::ng-deep .mat-form-field-wrapper{padding-bottom:2px}:host ::ng-deep .mat-basic-chip{display:inline-block;cursor:default;border-radius:16px;margin:8px 8px 0 0;box-sizing:border-box;max-width:100%;position:relative}html[dir=rtl] :host ::ng-deep .mat-basic-chip{margin:8px 0 0 8px;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip{margin:8px 0 0 8px;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip{margin:8px 0 0 8px;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip{min-height:32px;line-height:32px;font-size:13px;padding:0 0 0 12px}html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{padding:0 12px 0 0;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{padding:0 12px 0 0;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{padding:0 12px 0 0;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip .td-chip bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{display:inline-block;-ms-flex-order:-20;order:-20;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;text-align:center;height:32px;width:32px;margin:0 8px 0 -12px;border-radius:50%;-ms-flex:0 0 auto;flex:0 0 auto;box-sizing:border-box}html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{margin:0 -12px 0 8px;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{margin:0 -12px 0 8px;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{margin:0 -12px 0 8px;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 12px 0 0}html[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 0 0 12px;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 0 0 12px;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 0 0 12px;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal{margin:0 4px;font-size:21px;line-height:22px}:host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal:hover{cursor:pointer}:host ::ng-deep .td-chips-stacked .mat-basic-chip{margin:4px 0}:host ::ng-deep .td-chips-stacked .mat-basic-chip:first-of-type{margin:8px 0 4px}:host ::ng-deep .td-chips-stacked .mat-basic-chip:last-of-type{margin:4px 0 8px}:host .mat-form-field-underline{position:relative;height:1px;width:100%;bottom:0}:host .mat-form-field-underline.mat-disabled{background-position:0;bottom:-4px;background-color:transparent}:host .mat-form-field-underline .mat-form-field-ripple{position:absolute;height:2px;top:0;width:100%;-ms-transform-origin:50%;transform-origin:50%;-ms-transform:scaleX(.5);transform:scaleX(.5);visibility:hidden;opacity:0;transition:background-color .3s cubic-bezier(.55,0,.55,.2)}:host .mat-form-field-underline .mat-form-field-ripple.mat-focused{visibility:visible;opacity:1;-ms-transform:scaleX(1);transform:scaleX(1);transition:transform 150ms linear,background-color .3s cubic-bezier(.55,0,.55,.2)}:host.ng-invalid .mat-form-field-underline .mat-form-field-ripple{visibility:visible;opacity:1;-ms-transform:scaleX(1);transform:scaleX(1);transition:transform 150ms linear,background-color .3s cubic-bezier(.55,0,.55,.2)}:host ::ng-deep mat-form-field .mat-form-field-underline{display:none}"]
             }] }
 ];
 /** @nocollapse */
@@ -3916,12 +4014,12 @@ TdChipsComponent.ctorParameters = () => [
     { type: ChangeDetectorRef }
 ];
 TdChipsComponent.propDecorators = {
-    _nativeInput: [{ type: ViewChild, args: ['input',] }],
-    _inputChild: [{ type: ViewChild, args: [MatInput,] }],
-    _autocompleteTrigger: [{ type: ViewChild, args: [MatAutocompleteTrigger,] }],
+    _nativeInput: [{ type: ViewChild, args: ['input', { static: true },] }],
+    _inputChild: [{ type: ViewChild, args: [MatInput, { static: true },] }],
+    _autocompleteTrigger: [{ type: ViewChild, args: [MatAutocompleteTrigger, { static: true },] }],
     _chipsChildren: [{ type: ViewChildren, args: [MatChip,] }],
-    _chipTemplate: [{ type: ContentChild, args: [TdChipDirective,] }],
-    _autocompleteOptionTemplate: [{ type: ContentChild, args: [TdAutocompleteOptionDirective,] }],
+    _chipTemplate: [{ type: ContentChild, args: [TdChipDirective, { static: false },] }],
+    _autocompleteOptionTemplate: [{ type: ContentChild, args: [TdAutocompleteOptionDirective, { static: false },] }],
     _options: [{ type: ViewChildren, args: [MatOption,] }],
     items: [{ type: Input, args: ['items',] }],
     stacked: [{ type: Input, args: ['stacked',] }],
@@ -3948,7 +4046,7 @@ TdChipsComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class CovalentChipsModule {
 }
@@ -3962,17 +4060,7 @@ CovalentChipsModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdDataTableColumnRowComponent {
     /**
@@ -4073,7 +4161,7 @@ TdDataTableRowComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdDataTableTemplateDirective extends TemplatePortalDirective {
     /**
@@ -4098,7 +4186,7 @@ TdDataTableTemplateDirective.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @enum {string} */
 const TdDataTableSortingOrder = {
@@ -4125,7 +4213,7 @@ class TdDataTableBase {
 }
 /* tslint:disable-next-line */
 /** @type {?} */
-const _TdDataTableMixinBase = mixinControlValueAccessor(TdDataTableBase, []);
+const _TdDataTableMixinBase = mixinControlValueAccessor$1(TdDataTableBase, []);
 class TdDataTableComponent extends _TdDataTableMixinBase {
     /**
      * @param {?} _document
@@ -4211,9 +4299,14 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
          * Allows custom comparison between row and model to see if row is selected or not
          * Default comparation is by reference
          */
-        this.compareWith = (row, model) => {
+        this.compareWith = (/**
+         * @param {?} row
+         * @param {?} model
+         * @return {?}
+         */
+        (row, model) => {
             return row === model;
-        };
+        });
     }
     /**
      * @return {?}
@@ -4292,11 +4385,14 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
     set data(data) {
         this._data = data;
         this._rowHeightCache = [];
-        Promise.resolve().then(() => {
+        Promise.resolve().then((/**
+         * @return {?}
+         */
+        () => {
             this.refresh();
             // scroll back to the top if the data has changed
             this._scrollableDiv.nativeElement.scrollTop = 0;
-        });
+        }));
     }
     /**
      * @return {?}
@@ -4332,11 +4428,19 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             // if columns is undefined, use key in [data] rows as name and label for column headers.
             /** @type {?} */
             let row = this._data[0];
-            Object.keys(row).forEach((k) => {
-                if (!this._columns.find((c) => c.name === k)) {
+            Object.keys(row).forEach((/**
+             * @param {?} k
+             * @return {?}
+             */
+            (k) => {
+                if (!this._columns.find((/**
+                 * @param {?} c
+                 * @return {?}
+                 */
+                (c) => c.name === k))) {
                     this._columns.push({ name: k, label: k });
                 }
-            });
+            }));
             return this._columns;
         }
         else {
@@ -4434,7 +4538,11 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             return;
         }
         /** @type {?} */
-        const column = this.columns.find((c) => c.name === columnName);
+        const column = this.columns.find((/**
+         * @param {?} c
+         * @return {?}
+         */
+        (c) => c.name === columnName));
         if (!column) {
             throw new Error('[sortBy] must be a valid column name');
         }
@@ -4479,38 +4587,62 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
      */
     ngOnInit() {
         // initialize observable for resize calculations
-        this._resizeSubs = this._onResize.asObservable().subscribe(() => {
+        this._resizeSubs = this._onResize.asObservable().subscribe((/**
+         * @return {?}
+         */
+        () => {
             if (this._rows) {
-                this._rows.toArray().forEach((row, index) => {
+                this._rows.toArray().forEach((/**
+                 * @param {?} row
+                 * @param {?} index
+                 * @return {?}
+                 */
+                (row, index) => {
                     this._rowHeightCache[this.fromRow + index] = row.height + 1;
-                });
+                }));
             }
             this._calculateWidths();
             this._calculateVirtualRows();
-        });
+        }));
         // initialize observable for column resize calculations
         this._columnResizeSubs = this._onColumnResize
             .asObservable()
             .pipe(debounceTime(0))
-            .subscribe((clientX) => {
+            .subscribe((/**
+         * @param {?} clientX
+         * @return {?}
+         */
+        (clientX) => {
             this._columnClientX = clientX;
             this._calculateWidths();
             this._changeDetectorRef.markForCheck();
-        });
+        }));
         // initialize observable for scroll column header reposition
-        this._horizontalScrollSubs = this._onHorizontalScroll.asObservable().subscribe((horizontalScroll) => {
+        this._horizontalScrollSubs = this._onHorizontalScroll.asObservable().subscribe((/**
+         * @param {?} horizontalScroll
+         * @return {?}
+         */
+        (horizontalScroll) => {
             this._scrollHorizontalOffset = horizontalScroll;
             this._changeDetectorRef.markForCheck();
-        });
+        }));
         // initialize observable for virtual scroll rendering
-        this._verticalScrollSubs = this._onVerticalScroll.asObservable().subscribe((verticalScroll) => {
+        this._verticalScrollSubs = this._onVerticalScroll.asObservable().subscribe((/**
+         * @param {?} verticalScroll
+         * @return {?}
+         */
+        (verticalScroll) => {
             this._scrollVerticalOffset = verticalScroll;
             this._calculateVirtualRows();
             this._changeDetectorRef.markForCheck();
-        });
-        this._valueChangesSubs = this.valueChanges.subscribe((value) => {
+        }));
+        this._valueChangesSubs = this.valueChanges.subscribe((/**
+         * @param {?} value
+         * @return {?}
+         */
+        (value) => {
             this.refresh();
-        });
+        }));
     }
     /**
      * Loads templates and sets them in a map for faster access.
@@ -4536,10 +4668,13 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             let newHostWidth = this._elementRef.nativeElement.getBoundingClientRect().width;
             // if the width has changed then we throw a resize event.
             if (this._hostWidth !== newHostWidth) {
-                setTimeout(() => {
+                setTimeout((/**
+                 * @return {?}
+                 */
+                () => {
                     this._hostWidth = newHostWidth;
                     this._onResize.next();
-                }, 0);
+                }), 0);
             }
         }
         if (this._scrollableDiv.nativeElement) {
@@ -4559,9 +4694,12 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
      * @return {?}
      */
     ngAfterViewInit() {
-        this._rowsChangedSubs = this._rows.changes.pipe(debounceTime(0)).subscribe(() => {
+        this._rowsChangedSubs = this._rows.changes.pipe(debounceTime(0)).subscribe((/**
+         * @return {?}
+         */
+        () => {
             this._onResize.next();
-        });
+        }));
         this._calculateVirtualRows();
     }
     /**
@@ -4666,33 +4804,45 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         /** @type {?} */
         let toggledRows = [];
         if (checked) {
-            this._data.forEach((row) => {
+            this._data.forEach((/**
+             * @param {?} row
+             * @return {?}
+             */
+            (row) => {
                 // skiping already selected rows
                 if (!this.isRowSelected(row)) {
                     this.value.push(row);
                     // checking which ones are being toggled
                     toggledRows.push(row);
                 }
-            });
+            }));
             this._allSelected = true;
             this._indeterminate = true;
         }
         else {
-            this._data.forEach((row) => {
+            this._data.forEach((/**
+             * @param {?} row
+             * @return {?}
+             */
+            (row) => {
                 // checking which ones are being toggled
                 if (this.isRowSelected(row)) {
                     toggledRows.push(row);
                     /** @type {?} */
-                    let modelRow = this.value.filter((val) => {
+                    let modelRow = this.value.filter((/**
+                     * @param {?} val
+                     * @return {?}
+                     */
+                    (val) => {
                         return this.compareWith(row, val);
-                    })[0];
+                    }))[0];
                     /** @type {?} */
                     let index = this.value.indexOf(modelRow);
                     if (index > -1) {
                         this.value.splice(index, 1);
                     }
                 }
-            });
+            }));
             this._allSelected = false;
             this._indeterminate = false;
         }
@@ -4707,9 +4857,13 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
     isRowSelected(row) {
         // compare items by [compareWith] function
         return this.value
-            ? this.value.filter((val) => {
+            ? this.value.filter((/**
+             * @param {?} val
+             * @return {?}
+             */
+            (val) => {
                 return this.compareWith(row, val);
-            }).length > 0
+            })).length > 0
             : false;
     }
     /**
@@ -4791,9 +4945,12 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
      */
     disableTextSelection() {
         if (this._document) {
-            this._document.onselectstart = function () {
+            this._document.onselectstart = (/**
+             * @return {?}
+             */
+            function () {
                 return false;
-            };
+            });
         }
     }
     /**
@@ -4946,6 +5103,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         event.preventDefault();
     }
     /**
+     * @private
      * @param {?} name
      * @param {?} value
      * @return {?}
@@ -4965,6 +5123,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
     }
     /**
      * Does the actual Row Selection
+     * @private
      * @param {?} row
      * @param {?} rowIndex
      * @return {?}
@@ -4980,9 +5139,13 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         }
         else {
             // compare items by [compareWith] function
-            row = this.value.filter((val) => {
+            row = this.value.filter((/**
+             * @param {?} val
+             * @return {?}
+             */
+            (val) => {
                 return this.compareWith(row, val);
-            })[0];
+            }))[0];
             /** @type {?} */
             let index = this.value.indexOf(row);
             if (index > -1) {
@@ -4996,11 +5159,16 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
     }
     /**
      * Calculate all the state of all checkboxes
+     * @private
      * @return {?}
      */
     _calculateCheckboxState() {
         if (this._data) {
-            this._allSelected = typeof this._data.find((d) => !this.isRowSelected(d)) === 'undefined';
+            this._allSelected = typeof this._data.find((/**
+             * @param {?} d
+             * @return {?}
+             */
+            (d) => !this.isRowSelected(d))) === 'undefined';
             this._indeterminate = false;
             for (let row of this._data) {
                 if (!this.isRowSelected(row)) {
@@ -5013,20 +5181,27 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
     }
     /**
      * Calculates the widths for columns and cells depending on content
+     * @private
      * @return {?}
      */
     _calculateWidths() {
         if (this._colElements && this._colElements.length) {
             this._widths = [];
-            this._colElements.forEach((col, index) => {
+            this._colElements.forEach((/**
+             * @param {?} col
+             * @param {?} index
+             * @return {?}
+             */
+            (col, index) => {
                 this._adjustColumnWidth(index, this._calculateWidth());
-            });
+            }));
             this._adjustColumnWidhts();
             this._changeDetectorRef.markForCheck();
         }
     }
     /**
      * Adjusts columns after calculation to see if they need to be recalculated.
+     * @private
      * @return {?}
      */
     _adjustColumnWidhts() {
@@ -5034,7 +5209,12 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         let fixedTotalWidth = 0;
         // get the number of total columns that have flexible widths (not fixed or hidden)
         /** @type {?} */
-        let flexibleWidths = this._widths.filter((width, index) => {
+        let flexibleWidths = this._widths.filter((/**
+         * @param {?} width
+         * @param {?} index
+         * @return {?}
+         */
+        (width, index) => {
             if (this.columns[index].hidden) {
                 return false;
             }
@@ -5042,7 +5222,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
                 fixedTotalWidth += width.value;
             }
             return !width.limit && !width.max && !width.min;
-        }).length;
+        })).length;
         // calculate how much pixes are left that could be spread across
         // the flexible columns
         /** @type {?} */
@@ -5058,19 +5238,27 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             /** @type {?} */
             let adjustedNumber = 0;
             // adjust the column widths with the spread pixels
-            this._widths.forEach((colWidth) => {
+            this._widths.forEach((/**
+             * @param {?} colWidth
+             * @return {?}
+             */
+            (colWidth) => {
                 if ((this._widths[colWidth.index].max && this._widths[colWidth.index].value > newValue) ||
                     (this._widths[colWidth.index].min && this._widths[colWidth.index].value < newValue) ||
                     !this._widths[colWidth.index].limit) {
                     this._adjustColumnWidth(colWidth.index, newValue);
                     adjustedNumber++;
                 }
-            });
+            }));
             // if there are still columns that need to be recalculated, we start over
             /** @type {?} */
-            let newFlexibleWidths = this._widths.filter((width) => {
+            let newFlexibleWidths = this._widths.filter((/**
+             * @param {?} width
+             * @return {?}
+             */
+            (width) => {
                 return !width.limit && !width.max;
-            }).length;
+            })).length;
             if (newFlexibleWidths !== adjustedNumber && newFlexibleWidths !== flexibleWidths) {
                 this._adjustColumnWidhts();
             }
@@ -5078,6 +5266,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
     }
     /**
      * Adjusts a single column to see if it can be recalculated
+     * @private
      * @param {?} index
      * @param {?} value
      * @return {?}
@@ -5126,15 +5315,21 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
     }
     /**
      * Generic method to calculate column width
+     * @private
      * @return {?}
      */
     _calculateWidth() {
         /** @type {?} */
-        let renderedColumns = this.columns.filter((col) => !col.hidden);
+        let renderedColumns = this.columns.filter((/**
+         * @param {?} col
+         * @return {?}
+         */
+        (col) => !col.hidden));
         return Math.floor(this.hostWidth / renderedColumns.length);
     }
     /**
      * Method to calculate the rows to be rendered in the viewport
+     * @private
      * @return {?}
      */
     _calculateVirtualRows() {
@@ -5146,7 +5341,12 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             let rowHeightSum = 0;
             // loop through all rows to see if we have their height cached
             // and sum them all to calculate the total height
-            this._data.forEach((d, i) => {
+            this._data.forEach((/**
+             * @param {?} d
+             * @param {?} i
+             * @return {?}
+             */
+            (d, i) => {
                 // iterate through all rows at first and assume all
                 // rows are the same height as the first one
                 if (!this._rowHeightCache[i]) {
@@ -5157,7 +5357,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
                 if (this._scrollVerticalOffset - rowHeightSum > 0) {
                     scrolledRows++;
                 }
-            });
+            }));
             this._totalHeight = rowHeightSum;
             // set the initial row to be rendered taking into account the row offset
             /** @type {?} */
@@ -5205,9 +5405,12 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         }
         // mark for check at the end of the queue so we are sure
         // that the changes will be marked
-        Promise.resolve().then(() => {
+        Promise.resolve().then((/**
+         * @return {?}
+         */
+        () => {
             this._changeDetectorRef.markForCheck();
-        });
+        }));
     }
 }
 TdDataTableComponent.decorators = [
@@ -5215,7 +5418,10 @@ TdDataTableComponent.decorators = [
                 providers: [
                     {
                         provide: NG_VALUE_ACCESSOR,
-                        useExisting: forwardRef(() => TdDataTableComponent),
+                        useExisting: forwardRef((/**
+                         * @return {?}
+                         */
+                        () => TdDataTableComponent)),
                         multi: true,
                     },
                 ],
@@ -5235,7 +5441,7 @@ TdDataTableComponent.ctorParameters = () => [
 ];
 TdDataTableComponent.propDecorators = {
     _templates: [{ type: ContentChildren, args: [TdDataTableTemplateDirective,] }],
-    _scrollableDiv: [{ type: ViewChild, args: ['scrollableDiv',] }],
+    _scrollableDiv: [{ type: ViewChild, args: ['scrollableDiv', { static: true },] }],
     _colElements: [{ type: ViewChildren, args: ['columnElement',] }],
     _rows: [{ type: ViewChildren, args: [TdDataTableRowComponent,] }],
     data: [{ type: Input, args: ['data',] }],
@@ -5256,7 +5462,7 @@ TdDataTableComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdDataTableColumnComponent {
     /**
@@ -5373,7 +5579,7 @@ TdDataTableColumnComponent.decorators = [
                 /* tslint:disable-next-line */
                 selector: 'th[td-data-table-column]',
                 template: "<span #columnContent class=\"td-data-table-heading\">\n  <mat-icon\n    class=\"td-data-table-sort-icon\"\n    *ngIf=\"sortable && numeric\"\n    [class.mat-asc]=\"isAscending()\"\n    [class.mat-desc]=\"isDescending()\"\n  >\n    arrow_upward\n  </mat-icon>\n  <span>\n    <ng-content></ng-content>\n  </span>\n  <mat-icon\n    class=\"td-data-table-sort-icon\"\n    *ngIf=\"sortable && !numeric\"\n    [class.mat-asc]=\"isAscending()\"\n    [class.mat-desc]=\"isDescending()\"\n  >\n    arrow_upward\n  </mat-icon>\n</span>\n<ng-content select=\"[td-column-resizer]\"></ng-content>\n",
-                styles: [":host{white-space:nowrap;position:relative;padding:0;vertical-align:middle;text-align:left}:host>.td-data-table-heading{padding:0 28px}:host:first-child>.td-data-table-heading{padding-left:24px;padding-right:initial}html[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}body[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}:host:first-child>.td-data-table-heading bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:first-child>.td-data-table-heading bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:last-child>.td-data-table-heading{padding-left:28px;padding-right:24px}html[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}body[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}:host:last-child>.td-data-table-heading bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:last-child>.td-data-table-heading bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host mat-icon{height:16px;width:16px;font-size:16px!important;line-height:16px!important}:host mat-icon.td-data-table-sort-icon{opacity:0;transition:transform .25s;transition:transform .25s,-webkit-transform .25s;position:absolute;top:0}:host mat-icon.td-data-table-sort-icon.mat-asc{-webkit-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0)}:host mat-icon.td-data-table-sort-icon.mat-desc{-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg)}:host.mat-active.mat-sortable mat-icon.td-data-table-sort-icon,:host:hover.mat-sortable mat-icon.td-data-table-sort-icon{opacity:1}html[dir=rtl] :host{text-align:right;unicode-bidi:embed}body[dir=rtl] :host{text-align:right;unicode-bidi:embed}[dir=rtl] :host{text-align:right;unicode-bidi:embed}:host bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host>*{vertical-align:middle}:host.mat-clickable{cursor:pointer}:host.mat-clickable:focus{outline:0}:host .td-data-table-heading{display:inline-block;position:relative}:host.mat-numeric{text-align:right}html[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}:host.mat-numeric bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:-22px;margin-right:initial}html[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}:host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:6px;margin-right:initial}html[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}body[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}"]
+                styles: [":host{white-space:nowrap;position:relative;padding:0;vertical-align:middle;text-align:left}:host>.td-data-table-heading{padding:0 28px}:host:first-child>.td-data-table-heading{padding-left:24px;padding-right:initial}html[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}body[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}:host:first-child>.td-data-table-heading bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:first-child>.td-data-table-heading bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:last-child>.td-data-table-heading{padding-left:28px;padding-right:24px}html[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}body[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}:host:last-child>.td-data-table-heading bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:last-child>.td-data-table-heading bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host mat-icon{height:16px;width:16px;font-size:16px!important;line-height:16px!important}:host mat-icon.td-data-table-sort-icon{opacity:0;transition:transform .25s;position:absolute;top:0}:host mat-icon.td-data-table-sort-icon.mat-asc{-ms-transform:rotate(0);transform:rotate(0)}:host mat-icon.td-data-table-sort-icon.mat-desc{-ms-transform:rotate(180deg);transform:rotate(180deg)}:host.mat-active.mat-sortable mat-icon.td-data-table-sort-icon,:host:hover.mat-sortable mat-icon.td-data-table-sort-icon{opacity:1}html[dir=rtl] :host{text-align:right;unicode-bidi:embed}body[dir=rtl] :host{text-align:right;unicode-bidi:embed}[dir=rtl] :host{text-align:right;unicode-bidi:embed}:host bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host>*{vertical-align:middle}:host.mat-clickable{cursor:pointer}:host.mat-clickable:focus{outline:0}:host .td-data-table-heading{display:inline-block;position:relative}:host.mat-numeric{text-align:right}html[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}:host.mat-numeric bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:-22px;margin-right:initial}html[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}:host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:6px;margin-right:initial}html[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}body[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}"]
             }] }
 ];
 /** @nocollapse */
@@ -5382,7 +5588,7 @@ TdDataTableColumnComponent.ctorParameters = () => [
     { type: Renderer2 }
 ];
 TdDataTableColumnComponent.propDecorators = {
-    _columnContent: [{ type: ViewChild, args: ['columnContent', { read: ElementRef },] }],
+    _columnContent: [{ type: ViewChild, args: ['columnContent', { read: ElementRef, static: true },] }],
     name: [{ type: Input, args: ['name',] }],
     sortable: [{ type: Input, args: ['sortable',] }],
     active: [{ type: Input, args: ['active',] }],
@@ -5398,7 +5604,7 @@ TdDataTableColumnComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdDataTableCellComponent {
     /**
@@ -5460,7 +5666,7 @@ TdDataTableCellComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdDataTableTableComponent {
     /**
@@ -5489,7 +5695,7 @@ TdDataTableTableComponent.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TD_DATA_TABLE = [
@@ -5513,7 +5719,7 @@ CovalentDataTableModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdDataTableService {
     /**
@@ -5532,21 +5738,29 @@ class TdDataTableService {
      */
     filterData(data, searchTerm, ignoreCase = false, excludedColumns) {
         /** @type {?} */
-        let filter$$1 = searchTerm ? (ignoreCase ? searchTerm.toLowerCase() : searchTerm) : '';
-        if (filter$$1) {
-            data = data.filter((item) => {
+        let filter = searchTerm ? (ignoreCase ? searchTerm.toLowerCase() : searchTerm) : '';
+        if (filter) {
+            data = data.filter((/**
+             * @param {?} item
+             * @return {?}
+             */
+            (item) => {
                 /** @type {?} */
-                const res = Object.keys(item).find((key) => {
+                const res = Object.keys(item).find((/**
+                 * @param {?} key
+                 * @return {?}
+                 */
+                (key) => {
                     if (!excludedColumns || excludedColumns.indexOf(key) === -1) {
                         /** @type {?} */
                         const preItemValue = '' + item[key];
                         /** @type {?} */
                         const itemValue = ignoreCase ? preItemValue.toLowerCase() : preItemValue;
-                        return itemValue.indexOf(filter$$1) > -1;
+                        return itemValue.indexOf(filter) > -1;
                     }
-                });
+                }));
                 return !(typeof res === 'undefined');
-            });
+            }));
         }
         return data;
     }
@@ -5565,7 +5779,12 @@ class TdDataTableService {
     sortData(data, sortBy, sortOrder = TdDataTableSortingOrder.Ascending) {
         if (sortBy) {
             data = Array.from(data); // Change the array reference to trigger OnPush and not mutate original array
-            data.sort((a, b) => {
+            data.sort((/**
+             * @param {?} a
+             * @param {?} b
+             * @return {?}
+             */
+            (a, b) => {
                 /** @type {?} */
                 let compA = a[sortBy];
                 /** @type {?} */
@@ -5584,7 +5803,7 @@ class TdDataTableService {
                     }
                 }
                 return direction * (sortOrder === TdDataTableSortingOrder.Descending ? -1 : 1);
-            });
+            }));
         }
         return data;
     }
@@ -5612,21 +5831,11 @@ TdDataTableService.decorators = [
                 providedIn: 'root',
             },] }
 ];
-/** @nocollapse */ TdDataTableService.ngInjectableDef = defineInjectable({ factory: function TdDataTableService_Factory() { return new TdDataTableService(); }, token: TdDataTableService, providedIn: "root" });
+/** @nocollapse */ TdDataTableService.ngInjectableDef = ɵɵdefineInjectable({ factory: function TdDataTableService_Factory() { return new TdDataTableService(); }, token: TdDataTableService, providedIn: "root" });
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdDialogTitleDirective {
 }
@@ -5674,7 +5883,7 @@ TdDialogComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdAlertDialogComponent {
     /**
@@ -5705,7 +5914,7 @@ TdAlertDialogComponent.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdConfirmDialogComponent {
     /**
@@ -5743,7 +5952,7 @@ TdConfirmDialogComponent.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdPromptDialogComponent {
     /**
@@ -5759,9 +5968,12 @@ class TdPromptDialogComponent {
      */
     ngAfterViewInit() {
         // focus input once everything is rendered and good to go
-        Promise.resolve().then(() => {
+        Promise.resolve().then((/**
+         * @return {?}
+         */
+        () => {
             ((/** @type {?} */ (this._input.nativeElement))).focus();
-        });
+        }));
     }
     /**
      * Method executed when input is focused
@@ -5796,12 +6008,12 @@ TdPromptDialogComponent.ctorParameters = () => [
     { type: MatDialogRef }
 ];
 TdPromptDialogComponent.propDecorators = {
-    _input: [{ type: ViewChild, args: ['input',] }]
+    _input: [{ type: ViewChild, args: ['input', { static: true },] }]
 };
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdDialogService {
     /**
@@ -5927,6 +6139,7 @@ class TdDialogService {
         return dialogRef;
     }
     /**
+     * @private
      * @param {?} config
      * @return {?}
      */
@@ -5948,7 +6161,7 @@ TdDialogService.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TD_DIALOGS = [
@@ -5980,17 +6193,7 @@ CovalentDialogsModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdExpansionPanelHeaderDirective extends TemplatePortalDirective {
     /**
@@ -6061,7 +6264,7 @@ class TdExpansionPanelBase {
 }
 /* tslint:disable-next-line */
 /** @type {?} */
-const _TdExpansionPanelMixinBase = mixinDisableRipple(mixinDisabled(TdExpansionPanelBase));
+const _TdExpansionPanelMixinBase = mixinDisableRipple$1(mixinDisabled$1(TdExpansionPanelBase));
 class TdExpansionPanelComponent extends _TdExpansionPanelMixinBase {
     /**
      * @param {?} _renderer
@@ -6144,6 +6347,7 @@ class TdExpansionPanelComponent extends _TdExpansionPanelMixinBase {
     /**
      * Method to change expand state internally and emit the [onExpanded] event if 'true' or [onCollapsed]
      * event if 'false'. (Blocked if [disabled] is 'true')
+     * @private
      * @param {?} newExpand
      * @return {?}
      */
@@ -6166,12 +6370,14 @@ class TdExpansionPanelComponent extends _TdExpansionPanelMixinBase {
         return false;
     }
     /**
+     * @private
      * @return {?}
      */
     _onExpanded() {
         this.expanded.emit(undefined);
     }
     /**
+     * @private
      * @return {?}
      */
     _onCollapsed() {
@@ -6183,7 +6389,7 @@ TdExpansionPanelComponent.decorators = [
                 selector: 'td-expansion-panel',
                 template: "<div\n  class=\"td-expansion-panel-header\"\n  [class.mat-disabled]=\"disabled\"\n  matRipple\n  [matRippleDisabled]=\"disabled || disableRipple\"\n  [tabIndex]=\"disabled ? -1 : 0\"\n  (keydown.enter)=\"clickEvent()\"\n  (click)=\"clickEvent()\"\n>\n  <ng-template [cdkPortalOutlet]=\"expansionPanelHeader\"></ng-template>\n  <div class=\"td-expansion-panel-header-content\" [class.mat-disabled]=\"disabled\" *ngIf=\"!expansionPanelHeader\">\n    <div *ngIf=\"label || expansionPanelLabel\" class=\"td-expansion-label\">\n      <ng-template [cdkPortalOutlet]=\"expansionPanelLabel\"></ng-template>\n      <ng-template [ngIf]=\"!expansionPanelLabel\">{{ label }}</ng-template>\n    </div>\n    <div *ngIf=\"sublabel || expansionPanelSublabel\" class=\"td-expansion-sublabel\">\n      <ng-template [cdkPortalOutlet]=\"expansionPanelSublabel\"></ng-template>\n      <ng-template [ngIf]=\"!expansionPanelSublabel\">{{ sublabel }}</ng-template>\n    </div>\n    <mat-icon class=\"td-expand-icon\" *ngIf=\"!disabled\" [@tdRotate]=\"expand\">keyboard_arrow_down</mat-icon>\n  </div>\n</div>\n<div class=\"td-expansion-content\" [@tdCollapse]=\"!expand\">\n  <ng-content></ng-content>\n</div>\n<div class=\"td-expansion-summary\" [@tdCollapse]=\"expand\">\n  <ng-content select=\"td-expansion-summary\"></ng-content>\n</div>\n",
                 inputs: ['disabled', 'disableRipple'],
-                animations: [tdCollapseAnimation, tdRotateAnimation],
+                animations: [tdCollapseAnimation$1, tdRotateAnimation$1],
                 styles: [":host{display:block}:host .td-expansion-panel-header{position:relative;outline:0}:host .td-expansion-panel-header:focus:not(.mat-disabled),:host .td-expansion-panel-header:hover:not(.mat-disabled){cursor:pointer}:host .td-expansion-panel-header .td-expansion-panel-header-content{height:48px;padding:0 24px;box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex:1;flex:1;-ms-flex-pack:start;justify-content:flex-start;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%}:host .td-expansion-panel-header .td-expansion-panel-header-content .td-expansion-label,:host .td-expansion-panel-header .td-expansion-panel-header-content .td-expansion-sublabel{-ms-flex:1;flex:1}:host .td-expansion-content.ng-animating,:host .td-expansion-summary.ng-animating{overflow:hidden}.td-expansion-label,.td-expansion-sublabel{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:16px}::ng-deep [dir=rtl] .td-expansion-label,::ng-deep [dir=rtl] .td-expansion-sublabel{margin-left:16px;margin-right:inherit}"]
             }] }
 ];
@@ -6193,9 +6399,9 @@ TdExpansionPanelComponent.ctorParameters = () => [
     { type: ElementRef }
 ];
 TdExpansionPanelComponent.propDecorators = {
-    expansionPanelHeader: [{ type: ContentChild, args: [TdExpansionPanelHeaderDirective,] }],
-    expansionPanelLabel: [{ type: ContentChild, args: [TdExpansionPanelLabelDirective,] }],
-    expansionPanelSublabel: [{ type: ContentChild, args: [TdExpansionPanelSublabelDirective,] }],
+    expansionPanelHeader: [{ type: ContentChild, args: [TdExpansionPanelHeaderDirective, { static: false },] }],
+    expansionPanelLabel: [{ type: ContentChild, args: [TdExpansionPanelLabelDirective, { static: false },] }],
+    expansionPanelSublabel: [{ type: ContentChild, args: [TdExpansionPanelSublabelDirective, { static: false },] }],
     label: [{ type: Input }],
     sublabel: [{ type: Input }],
     expand: [{ type: Input, args: ['expand',] }],
@@ -6205,7 +6411,7 @@ TdExpansionPanelComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdExpansionPanelGroupComponent {
     /**
@@ -6250,7 +6456,11 @@ class TdExpansionPanelGroupComponent {
     ngAfterContentInit() {
         if (!this._multi) {
             /** @type {?} */
-            const openedPanels = this.expansionPanels.filter((expansionPanel) => expansionPanel.expand);
+            const openedPanels = this.expansionPanels.filter((/**
+             * @param {?} expansionPanel
+             * @return {?}
+             */
+            (expansionPanel) => expansionPanel.expand));
             /** @type {?} */
             const numOpenedPanels = openedPanels.length;
             if (numOpenedPanels > 1) {
@@ -6260,12 +6470,16 @@ class TdExpansionPanelGroupComponent {
         this._attachListeners(this.expansionPanels);
         this.expansionPanels.changes
             .pipe(takeUntil(this._destroyed))
-            .subscribe((expansionPanels) => {
+            .subscribe((/**
+         * @param {?} expansionPanels
+         * @return {?}
+         */
+        (expansionPanels) => {
             this._stopWatchingPanels.next(true);
             this._stopWatchingPanels.unsubscribe();
             this._stopWatchingPanels = new Subject();
             this._attachListeners(expansionPanels);
-        });
+        }));
     }
     /**
      * Opens all expansion panels, only if multi set set to true.
@@ -6273,9 +6487,13 @@ class TdExpansionPanelGroupComponent {
      */
     openAll() {
         if (this._multi) {
-            this.expansionPanels.forEach((expansionPanel) => {
+            this.expansionPanels.forEach((/**
+             * @param {?} expansionPanel
+             * @return {?}
+             */
+            (expansionPanel) => {
                 expansionPanel.open();
-            });
+            }));
         }
     }
     /**
@@ -6283,18 +6501,30 @@ class TdExpansionPanelGroupComponent {
      * @return {?}
      */
     closeAll() {
-        this.expansionPanels.forEach((expansionPanel) => {
+        this.expansionPanels.forEach((/**
+         * @param {?} expansionPanel
+         * @return {?}
+         */
+        (expansionPanel) => {
             expansionPanel.close();
-        });
+        }));
     }
     /**
+     * @private
      * @param {?} expansionPanels
      * @return {?}
      */
     _attachListeners(expansionPanels) {
         this._lastOpenedPanels = [];
-        expansionPanels.forEach((expansionPanel) => {
-            expansionPanel.expanded.pipe(takeUntil(this._stopWatchingPanels)).subscribe(() => {
+        expansionPanels.forEach((/**
+         * @param {?} expansionPanel
+         * @return {?}
+         */
+        (expansionPanel) => {
+            expansionPanel.expanded.pipe(takeUntil(this._stopWatchingPanels)).subscribe((/**
+             * @return {?}
+             */
+            () => {
                 /** @type {?} */
                 const indexOfPanel = this._lastOpenedPanels.indexOf(expansionPanel);
                 if (indexOfPanel !== -1) {
@@ -6304,26 +6534,34 @@ class TdExpansionPanelGroupComponent {
                 if (!this._multi) {
                     this._closeAllExcept(expansionPanel);
                 }
-            });
-            expansionPanel.collapsed.pipe(takeUntil(this._stopWatchingPanels)).subscribe(() => {
+            }));
+            expansionPanel.collapsed.pipe(takeUntil(this._stopWatchingPanels)).subscribe((/**
+             * @return {?}
+             */
+            () => {
                 /** @type {?} */
                 const indexOfPanel = this._lastOpenedPanels.indexOf(expansionPanel);
                 if (indexOfPanel !== -1) {
                     this._lastOpenedPanels.splice(indexOfPanel, 1);
                 }
-            });
-        });
+            }));
+        }));
     }
     /**
+     * @private
      * @param {?} expansionPanel
      * @return {?}
      */
     _closeAllExcept(expansionPanel) {
-        this.expansionPanels.forEach((panel) => {
+        this.expansionPanels.forEach((/**
+         * @param {?} panel
+         * @return {?}
+         */
+        (panel) => {
             if (panel !== expansionPanel) {
                 panel.close();
             }
-        });
+        }));
     }
 }
 TdExpansionPanelGroupComponent.decorators = [
@@ -6345,7 +6583,7 @@ TdExpansionPanelGroupComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TD_EXPANSION_PANEL = [
@@ -6368,17 +6606,7 @@ CovalentExpansionPanelModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdFileSelectDirective {
     /**
@@ -6451,13 +6679,13 @@ TdFileSelectDirective.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdFileDropBase {
 }
 /* tslint:disable-next-line */
 /** @type {?} */
-const _TdFileDropMixinBase = mixinDisabled(TdFileDropBase);
+const _TdFileDropMixinBase = mixinDisabled$1(TdFileDropBase);
 class TdFileDropDirective extends _TdFileDropMixinBase {
     /**
      * @param {?} _renderer
@@ -6565,6 +6793,7 @@ class TdFileDropDirective extends _TdFileDropMixinBase {
     }
     /**
      * Validates if the transfer item types are 'Files'.
+     * @private
      * @param {?} types
      * @return {?}
      */
@@ -6580,6 +6809,7 @@ class TdFileDropDirective extends _TdFileDropMixinBase {
         return dropEffect;
     }
     /**
+     * @private
      * @param {?} event
      * @return {?}
      */
@@ -6612,7 +6842,7 @@ TdFileDropDirective.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdFileInputLabelDirective extends TemplatePortalDirective {
     /**
@@ -6643,7 +6873,7 @@ class TdFileInputBase {
 }
 /* tslint:disable-next-line */
 /** @type {?} */
-const _TdFileInputMixinBase = mixinControlValueAccessor(mixinDisabled(TdFileInputBase));
+const _TdFileInputMixinBase = mixinControlValueAccessor$1(mixinDisabled$1(TdFileInputBase));
 class TdFileInputComponent extends _TdFileInputMixinBase {
     /**
      * @param {?} _renderer
@@ -6723,7 +6953,10 @@ TdFileInputComponent.decorators = [
                 providers: [
                     {
                         provide: NG_VALUE_ACCESSOR,
-                        useExisting: forwardRef(() => TdFileInputComponent),
+                        useExisting: forwardRef((/**
+                         * @return {?}
+                         */
+                        () => TdFileInputComponent)),
                         multi: true,
                     },
                 ],
@@ -6739,7 +6972,7 @@ TdFileInputComponent.ctorParameters = () => [
     { type: ChangeDetectorRef }
 ];
 TdFileInputComponent.propDecorators = {
-    _inputElement: [{ type: ViewChild, args: ['fileInput',] }],
+    _inputElement: [{ type: ViewChild, args: ['fileInput', { static: true },] }],
     color: [{ type: Input, args: ['color',] }],
     multiple: [{ type: Input, args: ['multiple',] }],
     accept: [{ type: Input, args: ['accept',] }],
@@ -6748,7 +6981,7 @@ TdFileInputComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdFileUploadBase {
     /**
@@ -6760,7 +6993,7 @@ class TdFileUploadBase {
 }
 /* tslint:disable-next-line */
 /** @type {?} */
-const _TdFileUploadMixinBase = mixinControlValueAccessor(mixinDisabled(TdFileUploadBase));
+const _TdFileUploadMixinBase = mixinControlValueAccessor$1(mixinDisabled$1(TdFileUploadBase));
 class TdFileUploadComponent extends _TdFileUploadMixinBase {
     /**
      * @param {?} _changeDetectorRef
@@ -6881,7 +7114,10 @@ TdFileUploadComponent.decorators = [
                 providers: [
                     {
                         provide: NG_VALUE_ACCESSOR,
-                        useExisting: forwardRef(() => TdFileUploadComponent),
+                        useExisting: forwardRef((/**
+                         * @return {?}
+                         */
+                        () => TdFileUploadComponent)),
                         multi: true,
                     },
                 ],
@@ -6896,8 +7132,8 @@ TdFileUploadComponent.ctorParameters = () => [
     { type: ChangeDetectorRef }
 ];
 TdFileUploadComponent.propDecorators = {
-    fileInput: [{ type: ViewChild, args: [TdFileInputComponent,] }],
-    inputLabel: [{ type: ContentChild, args: [TdFileInputLabelDirective,] }],
+    fileInput: [{ type: ViewChild, args: [TdFileInputComponent, { static: false },] }],
+    inputLabel: [{ type: ContentChild, args: [TdFileInputLabelDirective, { static: false },] }],
     defaultColor: [{ type: Input, args: ['defaultColor',] }],
     activeColor: [{ type: Input, args: ['activeColor',] }],
     cancelColor: [{ type: Input, args: ['cancelColor',] }],
@@ -6911,7 +7147,7 @@ TdFileUploadComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdFileService {
     constructor() {
@@ -6942,7 +7178,11 @@ class TdFileService {
      * @return {?}
      */
     upload(options) {
-        return new Observable((subscriber) => {
+        return new Observable((/**
+         * @param {?} subscriber
+         * @return {?}
+         */
+        (subscriber) => {
             /** @type {?} */
             let xhr = new XMLHttpRequest();
             /** @type {?} */
@@ -6956,15 +7196,22 @@ class TdFileService {
             else {
                 return subscriber.error('For [IUploadOptions] you have to set either the [file] or the [formData] property.');
             }
-            xhr.upload.onprogress = (event) => {
+            xhr.upload.onprogress = (/**
+             * @param {?} event
+             * @return {?}
+             */
+            (event) => {
                 /** @type {?} */
                 let progress = 0;
                 if (event.lengthComputable) {
                     progress = Math.round((event.loaded / event.total) * 100);
                 }
                 this._progressSubject.next(progress);
-            };
-            xhr.onreadystatechange = () => {
+            });
+            xhr.onreadystatechange = (/**
+             * @return {?}
+             */
+            () => {
                 if (xhr.readyState === 4) {
                     if (xhr.status >= 200 && xhr.status < 300) {
                         subscriber.next(xhr.response);
@@ -6974,7 +7221,7 @@ class TdFileService {
                         subscriber.error(xhr.response);
                     }
                 }
-            };
+            });
             xhr.open(options.method, options.url, true);
             xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
             if (options.headers) {
@@ -6983,7 +7230,7 @@ class TdFileService {
                 }
             }
             xhr.send(formData);
-        });
+        }));
     }
 }
 TdFileService.decorators = [
@@ -6994,7 +7241,7 @@ TdFileService.ctorParameters = () => [];
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TD_FILE = [
@@ -7017,17 +7264,7 @@ CovalentFileModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdJsonFormatterComponent {
     /**
@@ -7234,18 +7471,26 @@ class TdJsonFormatterComponent {
         if (this.isArray()) {
             /** @type {?} */
             let previewArray = this._data.slice(0, TdJsonFormatterComponent.PREVIEW_LIMIT);
-            previewData = previewArray.map((obj) => {
+            previewData = previewArray.map((/**
+             * @param {?} obj
+             * @return {?}
+             */
+            (obj) => {
                 return this.getValue(obj);
-            });
+            }));
             startChar = '[';
             endChar = ']';
         }
         else {
             /** @type {?} */
             let previewKeys = this._children.slice(0, TdJsonFormatterComponent.PREVIEW_LIMIT);
-            previewData = previewKeys.map((key) => {
+            previewData = previewKeys.map((/**
+             * @param {?} key
+             * @return {?}
+             */
+            (key) => {
                 return key + ': ' + this.getValue(this._data[key]);
-            });
+            }));
         }
         /** @type {?} */
         let previewString = previewData.join(', ');
@@ -7257,6 +7502,7 @@ class TdJsonFormatterComponent {
         return (startChar + previewString.substring(0, TdJsonFormatterComponent.PREVIEW_STRING_MAX_LENGTH) + ellipsis + endChar);
     }
     /**
+     * @private
      * @return {?}
      */
     parseChildren() {
@@ -7285,7 +7531,7 @@ TdJsonFormatterComponent.decorators = [
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 selector: 'td-json-formatter',
                 template: "<div class=\"td-json-formatter-wrapper\">\n  <a\n    class=\"td-key\"\n    [class.td-key-node]=\"hasChildren()\"\n    [class.td-key-leaf]=\"!hasChildren()\"\n    [tabIndex]=\"isObject() ? 0 : -1\"\n    (keydown.enter)=\"toggle()\"\n    (click)=\"toggle()\"\n  >\n    <mat-icon class=\"td-node-icon\" *ngIf=\"hasChildren()\">{{\n      open ? 'keyboard_arrow_down' : isRTL ? 'keyboard_arrow_left' : 'keyboard_arrow_right'\n    }}</mat-icon>\n    <span *ngIf=\"key\" class=\"key\">{{ key }}:</span>\n    <span class=\"value\">\n      <span [class.td-empty]=\"!hasChildren()\" *ngIf=\"isObject()\" [matTooltip]=\"getPreview()\" matTooltipPosition=\"after\">\n        <span class=\"td-object-name\">{{ getObjectName() }}</span>\n        <span class=\"td-array-length\" *ngIf=\"isArray()\">[{{ data.length }}]</span>\n      </span>\n      <span *ngIf=\"!isObject()\" [class]=\"getType(data)\">{{ getValue(data) }}</span>\n    </span>\n  </a>\n  <div class=\"td-object-children\" [@tdCollapse]=\"!(hasChildren() && open)\">\n    <ng-template let-key ngFor [ngForOf]=\"children\">\n      <td-json-formatter [key]=\"key\" [data]=\"data[key]\" [levelsOpen]=\"levelsOpen - 1\"></td-json-formatter>\n    </ng-template>\n  </div>\n</div>\n",
-                animations: [tdCollapseAnimation],
+                animations: [tdCollapseAnimation$1],
                 styles: [":host{display:block}.td-json-formatter-wrapper{padding-top:2px;padding-bottom:2px}.td-json-formatter-wrapper .td-key{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:start;align-items:flex-start;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:start;justify-content:flex-start}.td-json-formatter-wrapper .td-key.td-key-node:hover{cursor:pointer}.td-json-formatter-wrapper .td-object-children.ng-animating{overflow:hidden}.td-json-formatter-wrapper .td-object-children .td-key,.td-json-formatter-wrapper .td-object-children .td-object-children{padding-left:24px}::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-key,::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-object-children{padding-right:24px;padding-left:0}.td-json-formatter-wrapper .td-object-children .td-key.td-key-leaf,.td-json-formatter-wrapper .td-object-children .td-object-children.td-key-leaf{padding-left:48px}::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-key.td-key-leaf,::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-object-children.td-key-leaf{padding-right:48px;padding-left:0}.td-json-formatter-wrapper .value{margin-left:5px}::ng-deep [dir=rtl] .td-json-formatter-wrapper .value{padding-right:5px;padding-left:0}.td-json-formatter-wrapper .value .td-empty{opacity:.5;text-decoration:line-through}.td-json-formatter-wrapper .value .date,.td-json-formatter-wrapper .value .string{word-break:break-word}"]
             }] }
 ];
@@ -7302,7 +7548,7 @@ TdJsonFormatterComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class CovalentJsonFormatterModule {
 }
@@ -7316,17 +7562,7 @@ CovalentJsonFormatterModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdLayoutComponent {
     constructor() {
@@ -7410,7 +7646,7 @@ TdLayoutComponent.decorators = [
             }] }
 ];
 TdLayoutComponent.propDecorators = {
-    sidenav: [{ type: ViewChild, args: [MatSidenav,] }],
+    sidenav: [{ type: ViewChild, args: [MatSidenav, { static: true },] }],
     mode: [{ type: Input, args: ['mode',] }],
     opened: [{ type: Input, args: ['opened',] }],
     sidenavWidth: [{ type: Input, args: ['sidenavWidth',] }],
@@ -7419,13 +7655,13 @@ TdLayoutComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class LayoutToggleBase {
 }
 /* tslint:disable-next-line */
 /** @type {?} */
-const _TdLayoutToggleMixinBase = mixinDisabled(LayoutToggleBase);
+const _TdLayoutToggleMixinBase = mixinDisabled$1(LayoutToggleBase);
 /**
  * @abstract
  */
@@ -7468,9 +7704,12 @@ class LayoutToggle extends _TdLayoutToggleMixinBase {
     ngAfterViewInit() {
         this._initialized = true;
         if (this._layout && this._layout.sidenav) {
-            this._toggleSubs = this._layout.sidenav._animationStarted.subscribe(() => {
+            this._toggleSubs = this._layout.sidenav._animationStarted.subscribe((/**
+             * @return {?}
+             */
+            () => {
                 this._toggleVisibility();
-            });
+            }));
         }
         // execute toggleVisibility since the onOpenStart and onCloseStart
         // methods might not be executed always when the element is rendered
@@ -7504,6 +7743,7 @@ class LayoutToggle extends _TdLayoutToggleMixinBase {
         }
     }
     /**
+     * @private
      * @return {?}
      */
     _toggleVisibility() {
@@ -7517,6 +7757,7 @@ class LayoutToggle extends _TdLayoutToggleMixinBase {
         }
     }
     /**
+     * @private
      * @return {?}
      */
     _noLayoutMessage() {
@@ -7531,7 +7772,7 @@ LayoutToggle.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdLayoutToggleDirective extends LayoutToggle {
     /**
@@ -7563,7 +7804,10 @@ TdLayoutToggleDirective.decorators = [
 ];
 /** @nocollapse */
 TdLayoutToggleDirective.ctorParameters = () => [
-    { type: TdLayoutComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef(() => TdLayoutComponent),] }] },
+    { type: TdLayoutComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef((/**
+                     * @return {?}
+                     */
+                    () => TdLayoutComponent)),] }] },
     { type: Renderer2 },
     { type: ElementRef }
 ];
@@ -7600,7 +7844,10 @@ TdLayoutCloseDirective.decorators = [
 ];
 /** @nocollapse */
 TdLayoutCloseDirective.ctorParameters = () => [
-    { type: TdLayoutComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef(() => TdLayoutComponent),] }] },
+    { type: TdLayoutComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef((/**
+                     * @return {?}
+                     */
+                    () => TdLayoutComponent)),] }] },
     { type: Renderer2 },
     { type: ElementRef }
 ];
@@ -7637,7 +7884,10 @@ TdLayoutOpenDirective.decorators = [
 ];
 /** @nocollapse */
 TdLayoutOpenDirective.ctorParameters = () => [
-    { type: TdLayoutComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef(() => TdLayoutComponent),] }] },
+    { type: TdLayoutComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef((/**
+                     * @return {?}
+                     */
+                    () => TdLayoutComponent)),] }] },
     { type: Renderer2 },
     { type: ElementRef }
 ];
@@ -7647,7 +7897,7 @@ TdLayoutOpenDirective.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdLayoutNavComponent {
     /**
@@ -7700,7 +7950,7 @@ TdLayoutNavComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdLayoutNavListComponent {
     /**
@@ -7813,7 +8063,7 @@ TdLayoutNavListComponent.ctorParameters = () => [
     { type: Router, decorators: [{ type: Optional }] }
 ];
 TdLayoutNavListComponent.propDecorators = {
-    sidenav: [{ type: ViewChild, args: [MatSidenav,] }],
+    sidenav: [{ type: ViewChild, args: [MatSidenav, { static: true },] }],
     toolbarTitle: [{ type: Input, args: ['toolbarTitle',] }],
     icon: [{ type: Input, args: ['icon',] }],
     logo: [{ type: Input, args: ['logo',] }],
@@ -7827,7 +8077,7 @@ TdLayoutNavListComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdLayoutNavListToggleDirective extends LayoutToggle {
     /**
@@ -7859,7 +8109,10 @@ TdLayoutNavListToggleDirective.decorators = [
 ];
 /** @nocollapse */
 TdLayoutNavListToggleDirective.ctorParameters = () => [
-    { type: TdLayoutNavListComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef(() => TdLayoutNavListComponent),] }] },
+    { type: TdLayoutNavListComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef((/**
+                     * @return {?}
+                     */
+                    () => TdLayoutNavListComponent)),] }] },
     { type: Renderer2 },
     { type: ElementRef }
 ];
@@ -7896,7 +8149,10 @@ TdLayoutNavListCloseDirective.decorators = [
 ];
 /** @nocollapse */
 TdLayoutNavListCloseDirective.ctorParameters = () => [
-    { type: TdLayoutNavListComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef(() => TdLayoutNavListComponent),] }] },
+    { type: TdLayoutNavListComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef((/**
+                     * @return {?}
+                     */
+                    () => TdLayoutNavListComponent)),] }] },
     { type: Renderer2 },
     { type: ElementRef }
 ];
@@ -7933,7 +8189,10 @@ TdLayoutNavListOpenDirective.decorators = [
 ];
 /** @nocollapse */
 TdLayoutNavListOpenDirective.ctorParameters = () => [
-    { type: TdLayoutNavListComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef(() => TdLayoutNavListComponent),] }] },
+    { type: TdLayoutNavListComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef((/**
+                     * @return {?}
+                     */
+                    () => TdLayoutNavListComponent)),] }] },
     { type: Renderer2 },
     { type: ElementRef }
 ];
@@ -7943,7 +8202,7 @@ TdLayoutNavListOpenDirective.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdLayoutCardOverComponent {
     constructor() {
@@ -7979,7 +8238,7 @@ TdLayoutCardOverComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdLayoutManageListComponent {
     constructor() {
@@ -8063,7 +8322,7 @@ TdLayoutManageListComponent.decorators = [
             }] }
 ];
 TdLayoutManageListComponent.propDecorators = {
-    sidenav: [{ type: ViewChild, args: [MatSidenav,] }],
+    sidenav: [{ type: ViewChild, args: [MatSidenav, { static: true },] }],
     mode: [{ type: Input, args: ['mode',] }],
     opened: [{ type: Input, args: ['opened',] }],
     sidenavWidth: [{ type: Input, args: ['sidenavWidth',] }],
@@ -8072,7 +8331,7 @@ TdLayoutManageListComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdLayoutManageListToggleDirective extends LayoutToggle {
     /**
@@ -8104,7 +8363,10 @@ TdLayoutManageListToggleDirective.decorators = [
 ];
 /** @nocollapse */
 TdLayoutManageListToggleDirective.ctorParameters = () => [
-    { type: TdLayoutManageListComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef(() => TdLayoutManageListComponent),] }] },
+    { type: TdLayoutManageListComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef((/**
+                     * @return {?}
+                     */
+                    () => TdLayoutManageListComponent)),] }] },
     { type: Renderer2 },
     { type: ElementRef }
 ];
@@ -8141,7 +8403,10 @@ TdLayoutManageListCloseDirective.decorators = [
 ];
 /** @nocollapse */
 TdLayoutManageListCloseDirective.ctorParameters = () => [
-    { type: TdLayoutManageListComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef(() => TdLayoutManageListComponent),] }] },
+    { type: TdLayoutManageListComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef((/**
+                     * @return {?}
+                     */
+                    () => TdLayoutManageListComponent)),] }] },
     { type: Renderer2 },
     { type: ElementRef }
 ];
@@ -8178,7 +8443,10 @@ TdLayoutManageListOpenDirective.decorators = [
 ];
 /** @nocollapse */
 TdLayoutManageListOpenDirective.ctorParameters = () => [
-    { type: TdLayoutManageListComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef(() => TdLayoutManageListComponent),] }] },
+    { type: TdLayoutManageListComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef((/**
+                     * @return {?}
+                     */
+                    () => TdLayoutManageListComponent)),] }] },
     { type: Renderer2 },
     { type: ElementRef }
 ];
@@ -8188,7 +8456,7 @@ TdLayoutManageListOpenDirective.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdLayoutFooterComponent {
     /**
@@ -8240,7 +8508,7 @@ TdLayoutFooterComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdNavigationDrawerMenuDirective {
 }
@@ -8327,11 +8595,15 @@ class TdNavigationDrawerComponent {
      * @return {?}
      */
     ngOnInit() {
-        this._closeSubscription = this._layout.sidenav.openedChange.subscribe((opened) => {
+        this._closeSubscription = this._layout.sidenav.openedChange.subscribe((/**
+         * @param {?} opened
+         * @return {?}
+         */
+        (opened) => {
             if (!opened) {
                 this._menuToggled = false;
             }
-        });
+        }));
     }
     /**
      * @return {?}
@@ -8385,13 +8657,16 @@ TdNavigationDrawerComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-navigation-drawer',
                 template: "<mat-toolbar\n  [color]=\"color\"\n  [style.background-image]=\"backgroundImage\"\n  [class.td-toolbar-background]=\"!!isBackgroundAvailable\"\n  class=\"td-nagivation-drawer-toolbar\"\n>\n  <ng-content select=\"[td-navigation-drawer-toolbar]\"></ng-content>\n  <ng-container *ngIf=\"!isCustomToolbar\">\n    <div\n      *ngIf=\"icon || logo || sidenavTitle || avatar\"\n      class=\"td-navigation-drawer-toolbar-content\"\n      [class.cursor-pointer]=\"routerEnabled\"\n      (click)=\"handleNavigationClick()\"\n    >\n      <mat-icon *ngIf=\"icon\">{{ icon }}</mat-icon>\n      <mat-icon *ngIf=\"logo && !icon\" class=\"mat-icon-logo\" [svgIcon]=\"logo\"></mat-icon>\n      <img *ngIf=\"avatar && !logo && !icon\" class=\"td-nagivation-drawer-toolbar-avatar\" [attr.src]=\"avatar\" />\n      <span *ngIf=\"sidenavTitle\" class=\"td-navigation-drawer-title\">{{ sidenavTitle }}</span>\n    </div>\n    <div class=\"td-navigation-drawer-name\" *ngIf=\"email && name\">{{ name }}</div>\n    <div class=\"td-navigation-drawer-menu-toggle\" href *ngIf=\"email || name\" (click)=\"toggleMenu()\">\n      <span class=\"td-navigation-drawer-label\">{{ email || name }}</span>\n      <button mat-icon-button class=\"td-navigation-drawer-menu-button\" *ngIf=\"isMenuAvailable\">\n        <mat-icon *ngIf=\"!menuToggled\">arrow_drop_down</mat-icon>\n        <mat-icon *ngIf=\"menuToggled\">arrow_drop_up</mat-icon>\n      </button>\n    </div>\n  </ng-container>\n</mat-toolbar>\n<div class=\"td-navigation-drawer-content\" [@tdCollapse]=\"menuToggled\">\n  <ng-content></ng-content>\n</div>\n<div class=\"td-navigation-drawer-menu-content\" [@tdCollapse]=\"!menuToggled\">\n  <ng-content select=\"[td-navigation-drawer-menu]\"></ng-content>\n</div>\n",
-                animations: [tdCollapseAnimation],
+                animations: [tdCollapseAnimation$1],
                 styles: [":host{width:100%}:host .td-navigation-drawer-content.ng-animating,:host .td-navigation-drawer-menu-content.ng-animating{overflow:hidden}:host mat-toolbar{padding:16px}:host mat-toolbar.td-toolbar-background{background-repeat:no-repeat;background-size:cover}:host mat-toolbar.td-nagivation-drawer-toolbar{-ms-flex-direction:column;flex-direction:column;height:auto!important;display:block!important}:host mat-toolbar .td-navigation-drawer-toolbar-content{-ms-flex-direction:row;flex-direction:row;box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:start;justify-content:flex-start}:host mat-toolbar .td-navigation-drawer-toolbar-content .td-nagivation-drawer-toolbar-avatar{border-radius:50%;height:60px;width:60px;margin:0 12px 12px 0}:host mat-toolbar .td-navigation-drawer-menu-toggle{-ms-flex-direction:row;flex-direction:row;box-sizing:border-box;display:-ms-flexbox;display:flex}:host mat-toolbar .td-navigation-drawer-menu-toggle .td-navigation-drawer-label{-ms-flex:1;flex:1}:host mat-toolbar .td-navigation-drawer-menu-toggle .td-navigation-drawer-menu-button{height:24px;line-height:24px;width:24px}:host>div{overflow:hidden}"]
             }] }
 ];
 /** @nocollapse */
 TdNavigationDrawerComponent.ctorParameters = () => [
-    { type: TdLayoutComponent, decorators: [{ type: Inject, args: [forwardRef(() => TdLayoutComponent),] }] },
+    { type: TdLayoutComponent, decorators: [{ type: Inject, args: [forwardRef((/**
+                     * @return {?}
+                     */
+                    () => TdLayoutComponent)),] }] },
     { type: Router, decorators: [{ type: Optional }] },
     { type: DomSanitizer }
 ];
@@ -8411,7 +8686,7 @@ TdNavigationDrawerComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TD_LAYOUTS = [
@@ -8455,17 +8730,7 @@ CovalentLayoutModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @enum {string} */
 const LoadingType = {
@@ -8679,6 +8944,7 @@ class TdLoadingComponent {
     }
     /**
      * Calculate the proper diameter for the circle and set it
+     * @private
      * @return {?}
      */
     _setCircleDiameter() {
@@ -8703,6 +8969,7 @@ class TdLoadingComponent {
     }
     /**
      * Returns the host height of the loading component
+     * @private
      * @return {?}
      */
     _hostHeight() {
@@ -8716,7 +8983,7 @@ TdLoadingComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-loading',
                 template: "<div\n  class=\"td-loading-wrapper\"\n  [style.min-height]=\"getHeight()\"\n  [class.td-overlay-circular]=\"(isOverlay() || isFullScreen()) && !isLinear()\"\n  [class.td-overlay]=\"isOverlay() || isFullScreen()\"\n  [class.td-fullscreen]=\"isFullScreen()\"\n>\n  <div\n    [@tdFadeInOut]=\"animation\"\n    (@tdFadeInOut.done)=\"animationComplete($event)\"\n    [style.min-height]=\"getHeight()\"\n    class=\"td-loading\"\n  >\n    <mat-progress-spinner\n      *ngIf=\"isCircular()\"\n      [mode]=\"mode\"\n      [value]=\"value\"\n      [color]=\"color\"\n      [diameter]=\"getCircleDiameter()\"\n      [strokeWidth]=\"getCircleStrokeWidth()\"\n    >\n    </mat-progress-spinner>\n    <mat-progress-bar *ngIf=\"isLinear()\" [mode]=\"mode\" [value]=\"value\" [color]=\"color\"> </mat-progress-bar>\n  </div>\n  <ng-template [cdkPortalOutlet]=\"content\"></ng-template>\n</div>\n",
-                animations: [tdFadeInOutAnimation],
+                animations: [tdFadeInOutAnimation$1],
                 styles: [".td-loading-wrapper{position:relative;display:block}.td-loading-wrapper.td-fullscreen{position:inherit}.td-loading-wrapper .td-loading{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:center;justify-content:center;-ms-flex:1;flex:1}.td-loading-wrapper.td-overlay .td-loading{position:absolute;margin:0;top:0;left:0;right:0;z-index:1000}.td-loading-wrapper.td-overlay .td-loading mat-progress-bar{position:absolute;top:0;left:0;right:0}.td-loading-wrapper.td-overlay-circular .td-loading{bottom:0}"]
             }] }
 ];
@@ -8728,7 +8995,7 @@ TdLoadingComponent.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * NOTE: \@internal usage only.
@@ -8761,7 +9028,11 @@ class TdLoadingFactory {
         let loading = false;
         /** @type {?} */
         let overlayRef;
-        loadingRef.observable.pipe(distinctUntilChanged()).subscribe((registered) => {
+        loadingRef.observable.pipe(distinctUntilChanged()).subscribe((/**
+         * @param {?} registered
+         * @return {?}
+         */
+        (registered) => {
             if (registered > 0 && !loading) {
                 loading = true;
                 overlayRef = this._createOverlay();
@@ -8773,14 +9044,17 @@ class TdLoadingFactory {
             else if (registered <= 0 && loading) {
                 loading = false;
                 /** @type {?} */
-                let subs = loadingRef.componentRef.instance.startOutAnimation().subscribe(() => {
+                let subs = loadingRef.componentRef.instance.startOutAnimation().subscribe((/**
+                 * @return {?}
+                 */
+                () => {
                     subs.unsubscribe();
                     loadingRef.componentRef.destroy();
                     overlayRef.detach();
                     overlayRef.dispose();
-                });
+                }));
             }
-        });
+        }));
         return loadingRef;
     }
     /**
@@ -8804,7 +9078,11 @@ class TdLoadingFactory {
         loadingRef.componentRef.instance.content = new TemplatePortal(templateRef, viewContainerRef);
         viewContainerRef.clear();
         viewContainerRef.insert(loadingRef.componentRef.hostView, 0);
-        loadingRef.observable.pipe(distinctUntilChanged()).subscribe((registered) => {
+        loadingRef.observable.pipe(distinctUntilChanged()).subscribe((/**
+         * @param {?} registered
+         * @return {?}
+         */
+        (registered) => {
             if (registered > 0 && !loading) {
                 loading = true;
                 loadingRef.componentRef.instance.startInAnimation();
@@ -8813,7 +9091,7 @@ class TdLoadingFactory {
                 loading = false;
                 loadingRef.componentRef.instance.startOutAnimation();
             }
-        });
+        }));
         return loadingRef;
     }
     /**
@@ -8841,7 +9119,11 @@ class TdLoadingFactory {
         // passing context so when the template is attached, we can keep the reference of the variables
         /** @type {?} */
         let contentRef = viewContainerRef.createEmbeddedView(templateRef, context);
-        loadingRef.observable.pipe(distinctUntilChanged()).subscribe((registered) => {
+        loadingRef.observable.pipe(distinctUntilChanged()).subscribe((/**
+         * @param {?} registered
+         * @return {?}
+         */
+        (registered) => {
             if (registered > 0 && !loading) {
                 loading = true;
                 // detach the content and attach the loader if loader is there
@@ -8856,7 +9138,10 @@ class TdLoadingFactory {
             else if (registered <= 0 && loading) {
                 loading = false;
                 /** @type {?} */
-                let subs = loadingRef.componentRef.instance.startOutAnimation().subscribe(() => {
+                let subs = loadingRef.componentRef.instance.startOutAnimation().subscribe((/**
+                 * @return {?}
+                 */
+                () => {
                     subs.unsubscribe();
                     // detach loader and attach the content if content is there
                     /** @type {?} */
@@ -8871,28 +9156,30 @@ class TdLoadingFactory {
                      */
                     contentRef.detectChanges();
                     contentRef.markForCheck();
-                });
+                }));
             }
-        });
+        }));
         return loadingRef;
     }
     /**
      * Creates a fullscreen overlay for the loading usage.
+     * @private
      * @return {?}
      */
     _createOverlay() {
         /** @type {?} */
-        let state$$1 = new OverlayConfig();
-        state$$1.hasBackdrop = false;
-        state$$1.positionStrategy = this._overlay
+        let state = new OverlayConfig();
+        state.hasBackdrop = false;
+        state.positionStrategy = this._overlay
             .position()
             .global()
             .centerHorizontally()
             .centerVertically();
-        return this._overlay.create(state$$1);
+        return this._overlay.create(state);
     }
     /**
      * Creates a generic component dynamically waiting to be attached to a viewContainerRef.
+     * @private
      * @param {?} options
      * @return {?}
      */
@@ -8907,6 +9194,7 @@ class TdLoadingFactory {
     }
     /**
      * Initialize context for loading component.
+     * @private
      * @return {?}
      */
     _initializeContext() {
@@ -8921,6 +9209,7 @@ class TdLoadingFactory {
     }
     /**
      * Maps configuration to the loading component instance.
+     * @private
      * @param {?} options
      * @param {?} instance
      * @return {?}
@@ -8970,7 +9259,7 @@ const LOADING_FACTORY_PROVIDER = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdLoadingConfig {
     /**
@@ -9098,9 +9387,12 @@ class TdLoadingService {
             // if it doesnt exist, set a timeout so its registered after change detection happens
             // this in case "register" occured on the `ngOnInit` lifehook cycle.
             if (!this._timeouts[name]) {
-                this._timeouts[name] = setTimeout(() => {
+                this._timeouts[name] = setTimeout((/**
+                 * @return {?}
+                 */
+                () => {
                     this.register(name, registers);
-                });
+                }));
             }
             else {
                 // if it timeout occured and still doesnt exist, it means the tiemout wasnt needed so we clear it.
@@ -9189,6 +9481,7 @@ class TdLoadingService {
     }
     /**
      * Clears timeout linked to the name.
+     * @private
      * @param {?} name Name of the loading component to be cleared
      * @return {?}
      */
@@ -9222,7 +9515,7 @@ const LOADING_PROVIDER = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Context class for variable reference
@@ -9355,6 +9648,7 @@ class TdLoadingDirective {
     /**
      * Creates [TdLoadingComponent] and attaches it to this directive's [ViewContainerRef].
      * Passes this directive's [TemplateRef] to modify DOM depending on loading `strategy`.
+     * @private
      * @return {?}
      */
     _registerComponent() {
@@ -9396,7 +9690,7 @@ TdLoadingDirective.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TD_LOADING = [TdLoadingComponent, TdLoadingDirective];
@@ -9416,17 +9710,7 @@ CovalentLoadingModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdMediaService {
     /**
@@ -9452,44 +9736,56 @@ class TdMediaService {
         this._queryMap.set('print', 'print');
         this._resizing = false;
         // we make sure that the resize checking happend outside of Angular since it happens often
-        this._globalSubscription = this._ngZone.runOutsideAngular(() => {
-            return fromEvent(window, 'resize').subscribe(() => {
+        this._globalSubscription = this._ngZone.runOutsideAngular((/**
+         * @return {?}
+         */
+        () => {
+            return fromEvent(window, 'resize').subscribe((/**
+             * @return {?}
+             */
+            () => {
                 // way to prevent the resize event from triggering the match media if there is already one event running already.
                 if (!this._resizing) {
                     this._resizing = true;
-                    setTimeout(() => {
+                    setTimeout((/**
+                     * @return {?}
+                     */
+                    () => {
                         this._onResize();
                         this._resizing = false;
-                    }, 100);
+                    }), 100);
                 }
-            });
-        });
+            }));
+        }));
     }
     /**
      * Deregisters a query so its stops being notified or used.
      * @param {?} query
      * @return {?}
      */
-    deregisterQuery(query$$1) {
-        if (this._queryMap.get(query$$1.toLowerCase())) {
-            query$$1 = this._queryMap.get(query$$1.toLowerCase());
+    deregisterQuery(query) {
+        if (this._queryMap.get(query.toLowerCase())) {
+            query = this._queryMap.get(query.toLowerCase());
         }
-        this._querySources[query$$1].unsubscribe();
-        delete this._querySources[query$$1];
-        delete this._queryObservables[query$$1];
+        this._querySources[query].unsubscribe();
+        delete this._querySources[query];
+        delete this._queryObservables[query];
     }
     /**
      * Used to evaluate whether a given media query is true or false given the current device's screen / window size.
      * @param {?} query
      * @return {?}
      */
-    query(query$$1) {
-        if (this._queryMap.get(query$$1.toLowerCase())) {
-            query$$1 = this._queryMap.get(query$$1.toLowerCase());
+    query(query) {
+        if (this._queryMap.get(query.toLowerCase())) {
+            query = this._queryMap.get(query.toLowerCase());
         }
-        return this._ngZone.run(() => {
-            return matchMedia(query$$1).matches;
-        });
+        return this._ngZone.run((/**
+         * @return {?}
+         */
+        () => {
+            return matchMedia(query).matches;
+        }));
     }
     /**
      * Registers a media query and returns an [Observable] that will re-evaluate and
@@ -9498,15 +9794,15 @@ class TdMediaService {
      * @param {?} query
      * @return {?}
      */
-    registerQuery(query$$1) {
-        if (this._queryMap.get(query$$1.toLowerCase())) {
-            query$$1 = this._queryMap.get(query$$1.toLowerCase());
+    registerQuery(query) {
+        if (this._queryMap.get(query.toLowerCase())) {
+            query = this._queryMap.get(query.toLowerCase());
         }
-        if (!this._querySources[query$$1]) {
-            this._querySources[query$$1] = new BehaviorSubject(matchMedia(query$$1).matches);
-            this._queryObservables[query$$1] = this._querySources[query$$1].asObservable();
+        if (!this._querySources[query]) {
+            this._querySources[query] = new BehaviorSubject(matchMedia(query).matches);
+            this._queryObservables[query] = this._querySources[query].asObservable();
         }
-        return this._queryObservables[query$$1];
+        return this._queryObservables[query];
     }
     /**
      * Trigger a match media event on all subscribed observables.
@@ -9516,21 +9812,26 @@ class TdMediaService {
         this._onResize();
     }
     /**
+     * @private
      * @return {?}
      */
     _onResize() {
-        for (let query$$1 in this._querySources) {
-            this._ngZone.run(() => {
-                this._matchMediaTrigger(query$$1);
-            });
+        for (let query in this._querySources) {
+            this._ngZone.run((/**
+             * @return {?}
+             */
+            () => {
+                this._matchMediaTrigger(query);
+            }));
         }
     }
     /**
+     * @private
      * @param {?} query
      * @return {?}
      */
-    _matchMediaTrigger(query$$1) {
-        this._querySources[query$$1].next(matchMedia(query$$1).matches);
+    _matchMediaTrigger(query) {
+        this._querySources[query].next(matchMedia(query).matches);
     }
 }
 TdMediaService.decorators = [
@@ -9542,11 +9843,11 @@ TdMediaService.decorators = [
 TdMediaService.ctorParameters = () => [
     { type: NgZone }
 ];
-/** @nocollapse */ TdMediaService.ngInjectableDef = defineInjectable({ factory: function TdMediaService_Factory() { return new TdMediaService(inject(NgZone)); }, token: TdMediaService, providedIn: "root" });
+/** @nocollapse */ TdMediaService.ngInjectableDef = ɵɵdefineInjectable({ factory: function TdMediaService_Factory() { return new TdMediaService(ɵɵinject(NgZone)); }, token: TdMediaService, providedIn: "root" });
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdMediaToggleDirective {
     /**
@@ -9570,11 +9871,11 @@ class TdMediaToggleDirective {
      * @param {?} query
      * @return {?}
      */
-    set query(query$$1) {
-        if (!query$$1) {
+    set query(query) {
+        if (!query) {
             throw new Error('Query needed for [tdMediaToggle] directive.');
         }
-        this._query = query$$1;
+        this._query = query;
     }
     /**
      * mediaAttributes: {[key: string]: string}
@@ -9608,9 +9909,13 @@ class TdMediaToggleDirective {
      */
     ngOnInit() {
         this._mediaChange(this._mediaService.query(this._query));
-        this._subscription = this._mediaService.registerQuery(this._query).subscribe((matches) => {
+        this._subscription = this._mediaService.registerQuery(this._query).subscribe((/**
+         * @param {?} matches
+         * @return {?}
+         */
+        (matches) => {
             this._mediaChange(matches);
-        });
+        }));
     }
     /**
      * @return {?}
@@ -9621,6 +9926,7 @@ class TdMediaToggleDirective {
         }
     }
     /**
+     * @private
      * @param {?} matches
      * @return {?}
      */
@@ -9631,6 +9937,7 @@ class TdMediaToggleDirective {
         this._changeStyles();
     }
     /**
+     * @private
      * @return {?}
      */
     _changeAttributes() {
@@ -9644,28 +9951,34 @@ class TdMediaToggleDirective {
         }
     }
     /**
+     * @private
      * @return {?}
      */
     _changeClasses() {
-        this._classes.forEach((className) => {
+        this._classes.forEach((/**
+         * @param {?} className
+         * @return {?}
+         */
+        (className) => {
             if (this._matches) {
                 this._renderer.addClass(this._elementRef.nativeElement, className);
             }
             else {
                 this._renderer.removeClass(this._elementRef.nativeElement, className);
             }
-        });
+        }));
     }
     /**
+     * @private
      * @return {?}
      */
     _changeStyles() {
-        for (let style$$1 in this._styles) {
+        for (let style in this._styles) {
             if (this._matches) {
-                this._renderer.setStyle(this._elementRef.nativeElement, style$$1, this._styles[style$$1]);
+                this._renderer.setStyle(this._elementRef.nativeElement, style, this._styles[style]);
             }
             else {
-                this._renderer.removeStyle(this._elementRef.nativeElement, style$$1);
+                this._renderer.removeStyle(this._elementRef.nativeElement, style);
             }
         }
     }
@@ -9690,7 +10003,7 @@ TdMediaToggleDirective.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TD_MEDIA = [TdMediaToggleDirective];
@@ -9705,17 +10018,7 @@ CovalentMediaModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdMenuComponent {
 }
@@ -9729,7 +10032,7 @@ TdMenuComponent.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TD_MENU = [TdMenuComponent];
@@ -9745,17 +10048,7 @@ CovalentMenuModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdSearchInputBase {
     /**
@@ -9767,7 +10060,7 @@ class TdSearchInputBase {
 }
 /* tslint:disable-next-line */
 /** @type {?} */
-const _TdSearchInputMixinBase = mixinControlValueAccessor(TdSearchInputBase);
+const _TdSearchInputMixinBase = mixinControlValueAccessor$1(TdSearchInputBase);
 class TdSearchInputComponent extends _TdSearchInputMixinBase {
     /**
      * @param {?} _dir
@@ -9828,9 +10121,13 @@ class TdSearchInputComponent extends _TdSearchInputMixinBase {
     ngOnInit() {
         this._input.ngControl.valueChanges
             .pipe(debounceTime(this.debounce), skip(1))
-            .subscribe((value) => {
+            .subscribe((/**
+         * @param {?} value
+         * @return {?}
+         */
+        (value) => {
             this._searchTermChanged(value);
-        });
+        }));
     }
     /**
      * Method to focus to underlying input.
@@ -9870,6 +10167,7 @@ class TdSearchInputComponent extends _TdSearchInputMixinBase {
         this.onClear.emit(undefined);
     }
     /**
+     * @private
      * @param {?} value
      * @return {?}
      */
@@ -9882,7 +10180,10 @@ TdSearchInputComponent.decorators = [
                 providers: [
                     {
                         provide: NG_VALUE_ACCESSOR,
-                        useExisting: forwardRef(() => TdSearchInputComponent),
+                        useExisting: forwardRef((/**
+                         * @return {?}
+                         */
+                        () => TdSearchInputComponent)),
                         multi: true,
                     },
                 ],
@@ -9917,7 +10218,7 @@ TdSearchInputComponent.ctorParameters = () => [
     { type: ChangeDetectorRef }
 ];
 TdSearchInputComponent.propDecorators = {
-    _input: [{ type: ViewChild, args: [MatInput,] }],
+    _input: [{ type: ViewChild, args: [MatInput, { static: true },] }],
     appearance: [{ type: Input, args: ['appearance',] }],
     showUnderline: [{ type: Input, args: ['showUnderline',] }],
     debounce: [{ type: Input, args: ['debounce',] }],
@@ -9931,7 +10232,7 @@ TdSearchInputComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdSearchBoxBase {
     /**
@@ -9943,7 +10244,7 @@ class TdSearchBoxBase {
 }
 /* tslint:disable-next-line */
 /** @type {?} */
-const _TdSearchBoxMixinBase = mixinControlValueAccessor(TdSearchBoxBase);
+const _TdSearchBoxMixinBase = mixinControlValueAccessor$1(TdSearchBoxBase);
 class TdSearchBoxComponent extends _TdSearchBoxMixinBase {
     /**
      * @param {?} _changeDetectorRef
@@ -10064,7 +10365,10 @@ TdSearchBoxComponent.decorators = [
                 providers: [
                     {
                         provide: NG_VALUE_ACCESSOR,
-                        useExisting: forwardRef(() => TdSearchBoxComponent),
+                        useExisting: forwardRef((/**
+                         * @return {?}
+                         */
+                        () => TdSearchBoxComponent)),
                         multi: true,
                     },
                 ],
@@ -10094,7 +10398,7 @@ TdSearchBoxComponent.ctorParameters = () => [
     { type: ChangeDetectorRef }
 ];
 TdSearchBoxComponent.propDecorators = {
-    _searchInput: [{ type: ViewChild, args: [TdSearchInputComponent,] }],
+    _searchInput: [{ type: ViewChild, args: [TdSearchInputComponent, { static: true },] }],
     backIcon: [{ type: Input, args: ['backIcon',] }],
     searchIcon: [{ type: Input, args: ['searchIcon',] }],
     clearIcon: [{ type: Input, args: ['clearIcon',] }],
@@ -10110,7 +10414,7 @@ TdSearchBoxComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class CovalentSearchModule {
 }
@@ -10124,17 +10428,7 @@ CovalentSearchModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdBreadcrumbComponent {
     /**
@@ -10187,10 +10481,13 @@ class TdBreadcrumbComponent {
      */
     ngAfterViewInit() {
         // set the width from the actual rendered DOM element
-        setTimeout(() => {
+        setTimeout((/**
+         * @return {?}
+         */
+        () => {
             this._width = ((/** @type {?} */ (this._elementRef.nativeElement))).getBoundingClientRect().width;
             this._changeDetectorRef.markForCheck();
-        });
+        }));
     }
     /**
      * Stop click propagation when clicking on icon
@@ -10225,7 +10522,7 @@ TdBreadcrumbComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdBreadcrumbsComponent {
     /**
@@ -10249,16 +10546,22 @@ class TdBreadcrumbsComponent {
      * @return {?}
      */
     ngOnInit() {
-        this._resizeSubscription = merge(fromEvent(window, 'resize').pipe(debounceTime(10)), this._widthSubject.asObservable().pipe(distinctUntilChanged())).subscribe(() => {
+        this._resizeSubscription = merge(fromEvent(window, 'resize').pipe(debounceTime(10)), this._widthSubject.asObservable().pipe(distinctUntilChanged())).subscribe((/**
+         * @return {?}
+         */
+        () => {
             if (!this._resizing) {
                 this._resizing = true;
-                setTimeout(() => {
+                setTimeout((/**
+                 * @return {?}
+                 */
+                () => {
                     this._calculateVisibility();
                     this._resizing = false;
                     this._changeDetectorRef.markForCheck();
-                }, 100);
+                }), 100);
             }
-        });
+        }));
     }
     /**
      * @return {?}
@@ -10292,19 +10595,19 @@ class TdBreadcrumbsComponent {
         let element = (/** @type {?} */ (this._elementRef.nativeElement));
         // Need to take into account border, margin and padding that might be around all the crumbs
         /** @type {?} */
-        let style$$1 = window.getComputedStyle(element);
+        let style = window.getComputedStyle(element);
         /** @type {?} */
-        let borderLeft = parseInt(style$$1.borderLeft, 10);
+        let borderLeft = parseInt(style.borderLeft, 10);
         /** @type {?} */
-        let borderRight = parseInt(style$$1.borderRight, 10);
+        let borderRight = parseInt(style.borderRight, 10);
         /** @type {?} */
-        let marginLeft = parseInt(style$$1.marginLeft, 10);
+        let marginLeft = parseInt(style.marginLeft, 10);
         /** @type {?} */
-        let marginRight = parseInt(style$$1.marginRight, 10);
+        let marginRight = parseInt(style.marginRight, 10);
         /** @type {?} */
-        let paddingLeft = parseInt(style$$1.paddingLeft, 10);
+        let paddingLeft = parseInt(style.paddingLeft, 10);
         /** @type {?} */
-        let paddingRight = parseInt(style$$1.paddingRight, 10);
+        let paddingRight = parseInt(style.paddingRight, 10);
         return (element.getBoundingClientRect().width -
             borderLeft -
             borderRight -
@@ -10322,6 +10625,7 @@ class TdBreadcrumbsComponent {
     }
     /**
      * Set the crumb icon separators
+     * @private
      * @return {?}
      */
     setCrumbIcons() {
@@ -10331,11 +10635,16 @@ class TdBreadcrumbsComponent {
             // don't show the icon on the last breadcrumb
             breadcrumbArray[breadcrumbArray.length - 1]._displayIcon = false;
         }
-        breadcrumbArray.forEach((breadcrumb) => {
+        breadcrumbArray.forEach((/**
+         * @param {?} breadcrumb
+         * @return {?}
+         */
+        (breadcrumb) => {
             breadcrumb.separatorIcon = this.separatorIcon;
-        });
+        }));
     }
     /**
+     * @private
      * @return {?}
      */
     _calculateVisibility() {
@@ -10389,7 +10698,7 @@ TdBreadcrumbsComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class CovalentBreadcrumbsModule {
 }
@@ -10403,17 +10712,7 @@ CovalentBreadcrumbsModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @enum {string} */
 const StepState = {
@@ -10482,7 +10781,7 @@ class TdStepBase {
 }
 /* tslint:disable-next-line */
 /** @type {?} */
-const _TdStepMixinBase = mixinDisableRipple(mixinDisabled(TdStepBase));
+const _TdStepMixinBase = mixinDisableRipple$1(mixinDisabled$1(TdStepBase));
 class TdStepComponent extends _TdStepMixinBase {
     /**
      * @param {?} _viewContainerRef
@@ -10531,8 +10830,8 @@ class TdStepComponent extends _TdStepMixinBase {
      * @param {?} state
      * @return {?}
      */
-    set state(state$$1) {
-        switch (state$$1) {
+    set state(state) {
+        switch (state) {
             case StepState.Complete:
                 this._state = StepState.Complete;
                 break;
@@ -10602,6 +10901,7 @@ class TdStepComponent extends _TdStepMixinBase {
      * Method to change active state internally and emit the [onActivated] event if 'true' or [onDeactivated]
      * event if 'false'. (Blocked if [disabled] is 'true')
      * returns true if successfully changed state
+     * @private
      * @param {?} newActive
      * @return {?}
      */
@@ -10622,12 +10922,14 @@ class TdStepComponent extends _TdStepMixinBase {
         return false;
     }
     /**
+     * @private
      * @return {?}
      */
     _onActivated() {
         this.onActivated.emit(undefined);
     }
     /**
+     * @private
      * @return {?}
      */
     _onDeactivated() {
@@ -10646,10 +10948,10 @@ TdStepComponent.ctorParameters = () => [
     { type: ViewContainerRef }
 ];
 TdStepComponent.propDecorators = {
-    _content: [{ type: ViewChild, args: [TemplateRef,] }],
-    stepLabel: [{ type: ContentChild, args: [TdStepLabelDirective,] }],
-    stepActions: [{ type: ContentChild, args: [TdStepActionsDirective,] }],
-    stepSummary: [{ type: ContentChild, args: [TdStepSummaryDirective,] }],
+    _content: [{ type: ViewChild, args: [TemplateRef, { static: true },] }],
+    stepLabel: [{ type: ContentChild, args: [TdStepLabelDirective, { static: false },] }],
+    stepActions: [{ type: ContentChild, args: [TdStepActionsDirective, { static: false },] }],
+    stepSummary: [{ type: ContentChild, args: [TdStepSummaryDirective, { static: false },] }],
     label: [{ type: Input, args: ['label',] }],
     sublabel: [{ type: Input, args: ['sublabel',] }],
     active: [{ type: Input, args: ['active',] }],
@@ -10660,7 +10962,7 @@ TdStepComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @enum {string} */
 const StepMode = {
@@ -10747,13 +11049,18 @@ class TdStepsComponent {
      * @return {?}
      */
     areStepsActive() {
-        return (this._steps.filter((step) => {
+        return (this._steps.filter((/**
+         * @param {?} step
+         * @return {?}
+         */
+        (step) => {
             return step.active;
-        }).length > 0);
+        })).length > 0);
     }
     /**
      * Wraps previous and new [TdStepComponent] numbers in an object that implements [IStepChangeEvent]
      * and emits [onStepChange] event.
+     * @private
      * @param {?} step
      * @return {?}
      */
@@ -10773,37 +11080,59 @@ class TdStepsComponent {
     }
     /**
      * Loops through [TdStepComponent] children elements and deactivates them ignoring the one passed as an argument.
+     * @private
      * @param {?} activeStep
      * @return {?}
      */
     _deactivateAllBut(activeStep) {
         this._steps
-            .filter((step) => step !== activeStep)
-            .forEach((step) => {
+            .filter((/**
+         * @param {?} step
+         * @return {?}
+         */
+        (step) => step !== activeStep))
+            .forEach((/**
+         * @param {?} step
+         * @return {?}
+         */
+        (step) => {
             step.active = false;
-        });
+        }));
     }
     /**
+     * @private
      * @return {?}
      */
     _registerSteps() {
         this._subcriptions = [];
-        this._steps.toArray().forEach((step) => {
+        this._steps.toArray().forEach((/**
+         * @param {?} step
+         * @return {?}
+         */
+        (step) => {
             /** @type {?} */
-            let subscription = step.onActivated.asObservable().subscribe(() => {
+            let subscription = step.onActivated.asObservable().subscribe((/**
+             * @return {?}
+             */
+            () => {
                 this._onStepSelection(step);
-            });
+            }));
             this._subcriptions.push(subscription);
-        });
+        }));
     }
     /**
+     * @private
      * @return {?}
      */
     _deregisterSteps() {
         if (this._subcriptions) {
-            this._subcriptions.forEach((subs) => {
+            this._subcriptions.forEach((/**
+             * @param {?} subs
+             * @return {?}
+             */
+            (subs) => {
                 subs.unsubscribe();
-            });
+            }));
             this._subcriptions = undefined;
         }
     }
@@ -10827,13 +11156,13 @@ TdStepsComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdStepHeaderBase {
 }
 /* tslint:disable-next-line */
 /** @type {?} */
-const _TdStepHeaderMixinBase = mixinDisableRipple(mixinDisabled(TdStepHeaderBase));
+const _TdStepHeaderMixinBase = mixinDisableRipple$1(mixinDisabled$1(TdStepHeaderBase));
 class TdStepHeaderComponent extends _TdStepHeaderMixinBase {
     constructor() {
         super(...arguments);
@@ -10876,7 +11205,7 @@ TdStepHeaderComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdStepBodyComponent {
     constructor() {
@@ -10920,21 +11249,21 @@ TdStepBodyComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-step-body',
                 template: "<ng-content></ng-content>\n<div class=\"td-step-body\">\n  <div class=\"td-step-content-wrapper\" [@tdCollapse]=\"!active\">\n    <div #contentRef cdkScrollable [class.td-step-content]=\"hasContent\">\n      <ng-content select=\"[td-step-body-content]\"></ng-content>\n    </div>\n    <div #actionsRef [class.td-step-actions]=\"hasActions\">\n      <ng-content select=\"[td-step-body-actions]\"></ng-content>\n    </div>\n  </div>\n  <div #summaryRef [@tdCollapse]=\"active || !isComplete()\" [class.td-step-summary]=\"hasSummary\">\n    <ng-content select=\"[td-step-body-summary]\"></ng-content>\n  </div>\n</div>\n",
-                animations: [tdCollapseAnimation],
+                animations: [tdCollapseAnimation$1],
                 styles: [":host{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row}:host .td-step-body{overflow-x:hidden;-ms-flex:1;flex:1;box-sizing:border-box}:host .td-step-body .td-step-content-wrapper.ng-animating,:host .td-step-body .td-step-summary.ng-animating{overflow:hidden}:host .td-step-body .td-step-content{overflow-x:auto}:host .td-step-body .td-step-actions{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row}"]
             }] }
 ];
 TdStepBodyComponent.propDecorators = {
-    contentRef: [{ type: ViewChild, args: ['contentRef', { read: ElementRef },] }],
-    actionsRef: [{ type: ViewChild, args: ['actionsRef', { read: ElementRef },] }],
-    summaryRef: [{ type: ViewChild, args: ['summaryRef', { read: ElementRef },] }],
+    contentRef: [{ type: ViewChild, args: ['contentRef', { read: ElementRef, static: true },] }],
+    actionsRef: [{ type: ViewChild, args: ['actionsRef', { read: ElementRef, static: true },] }],
+    summaryRef: [{ type: ViewChild, args: ['summaryRef', { read: ElementRef, static: true },] }],
     active: [{ type: Input, args: ['active',] }],
     state: [{ type: Input, args: ['state',] }]
 };
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdNavStepLinkComponent extends _TdStepMixinBase {
     /**
@@ -10955,8 +11284,8 @@ class TdNavStepLinkComponent extends _TdStepMixinBase {
      * @param {?} state
      * @return {?}
      */
-    set state(state$$1) {
-        switch (state$$1) {
+    set state(state) {
+        switch (state) {
             case StepState.Complete:
                 this._state = StepState.Complete;
                 break;
@@ -11033,7 +11362,7 @@ TdNavStepLinkComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdNavStepsHorizontalComponent {
     /**
@@ -11081,19 +11410,19 @@ class TdNavStepsHorizontalComponent {
         let element = (/** @type {?} */ (this._elementRef.nativeElement));
         // Need to take into account border, margin and padding that might be around all the crumbs
         /** @type {?} */
-        let style$$1 = window.getComputedStyle(element);
+        let style = window.getComputedStyle(element);
         /** @type {?} */
-        let borderLeft = parseInt(style$$1.borderLeft, 10);
+        let borderLeft = parseInt(style.borderLeft, 10);
         /** @type {?} */
-        let borderRight = parseInt(style$$1.borderRight, 10);
+        let borderRight = parseInt(style.borderRight, 10);
         /** @type {?} */
-        let marginLeft = parseInt(style$$1.marginLeft, 10);
+        let marginLeft = parseInt(style.marginLeft, 10);
         /** @type {?} */
-        let marginRight = parseInt(style$$1.marginRight, 10);
+        let marginRight = parseInt(style.marginRight, 10);
         /** @type {?} */
-        let paddingLeft = parseInt(style$$1.paddingLeft, 10);
+        let paddingLeft = parseInt(style.paddingLeft, 10);
         /** @type {?} */
-        let paddingRight = parseInt(style$$1.paddingRight, 10);
+        let paddingRight = parseInt(style.paddingRight, 10);
         return (element.getBoundingClientRect().width -
             borderLeft -
             borderRight -
@@ -11108,11 +11437,14 @@ class TdNavStepsHorizontalComponent {
     ngAfterContentInit() {
         merge(this._widthSubject.asObservable().pipe(distinctUntilChanged()), this._viewportRuler.change(150), this._dir ? this._dir.change : of(undefined), this._steps.changes)
             .pipe(takeUntil(this._destroyed))
-            .subscribe(() => {
+            .subscribe((/**
+         * @return {?}
+         */
+        () => {
             this._configureSteps();
             this.updatePagination();
             this._changeDetectorRef.markForCheck();
-        });
+        }));
         this._configureSteps();
         this._changeDetectorRef.markForCheck();
     }
@@ -11258,16 +11590,26 @@ class TdNavStepsHorizontalComponent {
     }
     /**
      * Set the step line separators and display numbers
+     * @private
      * @return {?}
      */
     _configureSteps() {
-        this._separators.forEach((separator) => {
+        this._separators.forEach((/**
+         * @param {?} separator
+         * @return {?}
+         */
+        (separator) => {
             this._renderer.removeChild(this._stepList.nativeElement, separator);
-        });
+        }));
         /** @type {?} */
         let stepsArray = this._steps.toArray();
         // set the index number of the step so can display that number in circle
-        stepsArray.forEach((step, index) => {
+        stepsArray.forEach((/**
+         * @param {?} step
+         * @param {?} index
+         * @return {?}
+         */
+        (step, index) => {
             if (index > 0 && index < stepsArray.length) {
                 /** @type {?} */
                 let separator = this._renderer.createElement('div');
@@ -11276,7 +11618,7 @@ class TdNavStepsHorizontalComponent {
                 this._renderer.insertBefore(this._stepList.nativeElement, separator, step.elementRef.nativeElement);
             }
             step.number = index + 1;
-        });
+        }));
     }
 }
 TdNavStepsHorizontalComponent.decorators = [
@@ -11290,7 +11632,7 @@ TdNavStepsHorizontalComponent.decorators = [
                     '[class.td-step-header-pagination-controls-enabled]': '_showPaginationControls',
                     '[class.td-step-header-rtl]': "_getLayoutDirection() == 'rtl'",
                 },
-                styles: [":host{width:100%;display:block}.td-steps-header,.td-steps-header-list{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row}.td-steps-header-container{display:-ms-flexbox;display:flex;-ms-flex-positive:1;flex-grow:1;overflow:hidden;z-index:1}.td-steps-header-list{-ms-flex-positive:1;flex-grow:1;position:relative;transition:transform .5s cubic-bezier(.35,0,.25,1),-webkit-transform .5s cubic-bezier(.35,0,.25,1);-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:start;justify-content:flex-start}.td-step-header-pagination{position:relative;display:none;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;min-width:32px;cursor:pointer;z-index:2}:host.td-step-header-pagination-controls-enabled .td-step-header-pagination{display:-ms-flexbox;display:flex}.td-step-header-pagination-before,:host.td-step-header-rtl .td-step-header-pagination-after{padding-left:4px}.td-step-header-pagination-before .td-step-header-pagination-chevron,:host.td-step-header-rtl .td-step-header-pagination-after .td-step-header-pagination-chevron{-webkit-transform:rotate(-135deg);-ms-transform:rotate(-135deg);transform:rotate(-135deg)}.td-step-header-pagination-after,:host.td-step-header-rtl .td-step-header-pagination-before{padding-right:4px}.td-step-header-pagination-after .td-step-header-pagination-chevron,:host.td-step-header-rtl .td-step-header-pagination-before .td-step-header-pagination-chevron{-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}.td-step-header-pagination-chevron{border-style:solid;border-width:2px 2px 0 0;content:'';height:8px;width:8px}.td-step-header-pagination-disabled{box-shadow:none;cursor:default}.td-horizontal-line{border-bottom-width:1px;border-bottom-style:solid;height:1px;min-width:20px;-ms-flex:1;flex:1;box-sizing:border-box}"]
+                styles: [":host{width:100%;display:block}.td-steps-header,.td-steps-header-list{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row}.td-steps-header-container{display:-ms-flexbox;display:flex;-ms-flex-positive:1;flex-grow:1;overflow:hidden;z-index:1}.td-steps-header-list{-ms-flex-positive:1;flex-grow:1;position:relative;transition:transform .5s cubic-bezier(.35,0,.25,1);-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:start;justify-content:flex-start}.td-step-header-pagination{position:relative;display:none;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;min-width:32px;cursor:pointer;z-index:2}:host.td-step-header-pagination-controls-enabled .td-step-header-pagination{display:-ms-flexbox;display:flex}.td-step-header-pagination-before,:host.td-step-header-rtl .td-step-header-pagination-after{padding-left:4px}.td-step-header-pagination-before .td-step-header-pagination-chevron,:host.td-step-header-rtl .td-step-header-pagination-after .td-step-header-pagination-chevron{-ms-transform:rotate(-135deg);transform:rotate(-135deg)}.td-step-header-pagination-after,:host.td-step-header-rtl .td-step-header-pagination-before{padding-right:4px}.td-step-header-pagination-after .td-step-header-pagination-chevron,:host.td-step-header-rtl .td-step-header-pagination-before .td-step-header-pagination-chevron{-ms-transform:rotate(45deg);transform:rotate(45deg)}.td-step-header-pagination-chevron{border-style:solid;border-width:2px 2px 0 0;content:'';height:8px;width:8px}.td-step-header-pagination-disabled{box-shadow:none;cursor:default}.td-horizontal-line{border-bottom-width:1px;border-bottom-style:solid;height:1px;min-width:20px;-ms-flex:1;flex:1;box-sizing:border-box}"]
             }] }
 ];
 /** @nocollapse */
@@ -11303,13 +11645,13 @@ TdNavStepsHorizontalComponent.ctorParameters = () => [
 ];
 TdNavStepsHorizontalComponent.propDecorators = {
     _steps: [{ type: ContentChildren, args: [TdNavStepLinkComponent,] }],
-    _stepListContainer: [{ type: ViewChild, args: ['stepListContainer',] }],
-    _stepList: [{ type: ViewChild, args: ['stepList',] }]
+    _stepListContainer: [{ type: ViewChild, args: ['stepListContainer', { static: true },] }],
+    _stepList: [{ type: ViewChild, args: ['stepList', { static: true },] }]
 };
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdNavStepsVerticalComponent {
     /**
@@ -11329,10 +11671,13 @@ class TdNavStepsVerticalComponent {
      * @return {?}
      */
     ngAfterContentInit() {
-        this._steps.changes.pipe(takeUntil(this._destroyed)).subscribe(() => {
+        this._steps.changes.pipe(takeUntil(this._destroyed)).subscribe((/**
+         * @return {?}
+         */
+        () => {
             this._configureSteps();
             this._changeDetectorRef.markForCheck();
-        });
+        }));
         this._configureSteps();
         this._changeDetectorRef.markForCheck();
     }
@@ -11345,16 +11690,26 @@ class TdNavStepsVerticalComponent {
     }
     /**
      * Set the step line separators and display numbers
+     * @private
      * @return {?}
      */
     _configureSteps() {
-        this._separators.forEach((separator) => {
+        this._separators.forEach((/**
+         * @param {?} separator
+         * @return {?}
+         */
+        (separator) => {
             this._renderer.removeChild(this._stepList.nativeElement, separator);
-        });
+        }));
         /** @type {?} */
         let stepsArray = this._steps.toArray();
         // set the index number of the step so can display that number in circle
-        stepsArray.forEach((step, index) => {
+        stepsArray.forEach((/**
+         * @param {?} step
+         * @param {?} index
+         * @return {?}
+         */
+        (step, index) => {
             if (index > 0 && index < stepsArray.length) {
                 /** @type {?} */
                 let separator = this._renderer.createElement('div');
@@ -11367,7 +11722,7 @@ class TdNavStepsVerticalComponent {
                 this._renderer.insertBefore(this._stepList.nativeElement, separator, step.elementRef.nativeElement);
             }
             step.number = index + 1;
-        });
+        }));
     }
 }
 TdNavStepsVerticalComponent.decorators = [
@@ -11389,12 +11744,12 @@ TdNavStepsVerticalComponent.ctorParameters = () => [
 ];
 TdNavStepsVerticalComponent.propDecorators = {
     _steps: [{ type: ContentChildren, args: [TdNavStepLinkComponent,] }],
-    _stepList: [{ type: ViewChild, args: ['stepList',] }]
+    _stepList: [{ type: ViewChild, args: ['stepList', { static: true },] }]
 };
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TD_STEPS = [
@@ -11413,7 +11768,7 @@ class CovalentStepsModule {
 }
 CovalentStepsModule.decorators = [
     { type: NgModule, args: [{
-                imports: [CommonModule, MatIconModule, MatRippleModule, PortalModule, ScrollDispatchModule, CovalentCommonModule],
+                imports: [CommonModule, MatIconModule, MatRippleModule, PortalModule, ScrollDispatchModule, CovalentCommonModule$1],
                 declarations: [TD_STEPS],
                 exports: [TD_STEPS],
             },] }
@@ -11421,17 +11776,7 @@ CovalentStepsModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdTabOptionBase {
     /**
@@ -11445,7 +11790,7 @@ class TdTabOptionBase {
 }
 /* tslint:disable-next-line */
 /** @type {?} */
-const _TdTabOptionMixinBase = mixinDisabled(TdTabOptionBase);
+const _TdTabOptionMixinBase = mixinDisabled$1(TdTabOptionBase);
 class TdTabOptionComponent extends _TdTabOptionMixinBase {
     /**
      * @param {?} _viewContainerRef
@@ -11483,13 +11828,13 @@ TdTabOptionComponent.ctorParameters = () => [
     { type: ChangeDetectorRef }
 ];
 TdTabOptionComponent.propDecorators = {
-    _content: [{ type: ViewChild, args: [TemplateRef,] }],
+    _content: [{ type: ViewChild, args: [TemplateRef, { static: true },] }],
     value: [{ type: Input, args: ['value',] }]
 };
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdTabSelectBase {
     /**
@@ -11501,7 +11846,7 @@ class TdTabSelectBase {
 }
 /* tslint:disable-next-line */
 /** @type {?} */
-const _TdTabSelectMixinBase = mixinControlValueAccessor(mixinDisabled(mixinDisableRipple(TdTabSelectBase)));
+const _TdTabSelectMixinBase = mixinControlValueAccessor$1(mixinDisabled$1(mixinDisableRipple$1(TdTabSelectBase)));
 class TdTabSelectComponent extends _TdTabSelectMixinBase {
     /**
      * @param {?} _changeDetectorRef
@@ -11549,9 +11894,13 @@ class TdTabSelectComponent extends _TdTabSelectMixinBase {
      */
     ngOnInit() {
         // subscribe to check if value changes and update the selectedIndex internally.
-        this._subs.push(this.valueChanges.subscribe((value) => {
+        this._subs.push(this.valueChanges.subscribe((/**
+         * @param {?} value
+         * @return {?}
+         */
+        (value) => {
             this._setValue(value);
-        }));
+        })));
     }
     /**
      * @return {?}
@@ -11559,22 +11908,32 @@ class TdTabSelectComponent extends _TdTabSelectMixinBase {
     ngAfterContentInit() {
         // subscribe to listen to any tab changes.
         this._refreshValues();
-        this._subs.push(this._tabOptions.changes.subscribe(() => {
+        this._subs.push(this._tabOptions.changes.subscribe((/**
+         * @return {?}
+         */
+        () => {
             this._refreshValues();
-        }));
+        })));
         // initialize value
-        Promise.resolve().then(() => {
+        Promise.resolve().then((/**
+         * @return {?}
+         */
+        () => {
             this._setValue(this.value);
-        });
+        }));
     }
     /**
      * @return {?}
      */
     ngOnDestroy() {
         if (this._subs && this._subs.length) {
-            this._subs.forEach((sub) => {
+            this._subs.forEach((/**
+             * @param {?} sub
+             * @return {?}
+             */
+            (sub) => {
                 sub.unsubscribe();
-            });
+            }));
         }
     }
     /**
@@ -11593,17 +11952,23 @@ class TdTabSelectComponent extends _TdTabSelectMixinBase {
     }
     /**
      * Refresh the values array whenever the number of tabs gets updated
+     * @private
      * @return {?}
      */
     _refreshValues() {
-        this._values = this.tabOptions.map((tabOption) => {
+        this._values = this.tabOptions.map((/**
+         * @param {?} tabOption
+         * @return {?}
+         */
+        (tabOption) => {
             return tabOption.value;
-        });
+        }));
         this._changeDetectorRef.markForCheck();
     }
     /**
      * Try to set value depending if its part of our options
      * else set the value of the first tab.
+     * @private
      * @param {?} value
      * @return {?}
      */
@@ -11626,7 +11991,10 @@ TdTabSelectComponent.decorators = [
                 providers: [
                     {
                         provide: NG_VALUE_ACCESSOR,
-                        useExisting: forwardRef(() => TdTabSelectComponent),
+                        useExisting: forwardRef((/**
+                         * @return {?}
+                         */
+                        () => TdTabSelectComponent)),
                         multi: true,
                     },
                 ],
@@ -11651,7 +12019,7 @@ TdTabSelectComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class CovalentTabSelectModule {
 }
@@ -11672,31 +12040,5 @@ CovalentTabSelectModule.decorators = [
             },] }
 ];
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-export { CovalentPagingModule, TdPagingBarComponent, CovalentVirtualScrollModule, TdVirtualScrollContainerComponent, TdVirtualScrollRowDirective, CovalentNotificationsModule, TdNotificationCountPositionY, TdNotificationCountPositionX, DEFAULT_NOTIFICATION_LIMIT, TdNotificationCountComponent, CovalentCommonModule$1 as CovalentCommonModule, tdRotateAnimation$1 as tdRotateAnimation, tdCollapseAnimation$1 as tdCollapseAnimation, tdFadeInOutAnimation$1 as tdFadeInOutAnimation, tdBounceAnimation, tdFlashAnimation, tdHeadshakeAnimation, tdJelloAnimation, tdPulseAnimation, mixinControlValueAccessor$1 as mixinControlValueAccessor, mixinDisabled$1 as mixinDisabled, mixinDisableRipple$1 as mixinDisableRipple, TdAutoTrimDirective, CovalentValidators, TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTruncatePipe, TdDecimalBytesPipe, CovalentMessageModule, TdMessageContainerDirective, TdMessageComponent, CovalentChipsModule, TdChipDirective, TdAutocompleteOptionDirective, TdChipsBase, _TdChipsMixinBase, TdChipsComponent, CovalentDataTableModule, TdDataTableSortingOrder, TdDataTableBase, _TdDataTableMixinBase, TdDataTableComponent, TdDataTableCellComponent, TdDataTableColumnComponent, TdDataTableColumnRowComponent, TdDataTableRowComponent, TdDataTableTableComponent, TdDataTableTemplateDirective, TdDataTableService, CovalentDialogsModule, TdDialogTitleDirective, TdDialogContentDirective, TdDialogActionsDirective, TdDialogComponent, TdAlertDialogComponent, TdConfirmDialogComponent, TdPromptDialogComponent, TdDialogService, CovalentExpansionPanelModule, TdExpansionPanelHeaderDirective, TdExpansionPanelLabelDirective, TdExpansionPanelSublabelDirective, TdExpansionPanelSummaryComponent, TdExpansionPanelBase, _TdExpansionPanelMixinBase, TdExpansionPanelComponent, TdExpansionPanelGroupComponent, CovalentFileModule, TdFileDropBase, _TdFileDropMixinBase, TdFileDropDirective, TdFileSelectDirective, TdFileInputLabelDirective, TdFileInputBase, _TdFileInputMixinBase, TdFileInputComponent, TdFileUploadBase, _TdFileUploadMixinBase, TdFileUploadComponent, TdFileService, CovalentJsonFormatterModule, TdJsonFormatterComponent, CovalentLayoutModule, TdLayoutComponent, TdLayoutToggleDirective, TdLayoutCloseDirective, TdLayoutOpenDirective, LayoutToggleBase, _TdLayoutToggleMixinBase, LayoutToggle, TdLayoutCardOverComponent, TdLayoutFooterComponent, TdLayoutManageListComponent, TdLayoutManageListToggleDirective, TdLayoutManageListCloseDirective, TdLayoutManageListOpenDirective, TdLayoutNavComponent, TdLayoutNavListComponent, TdLayoutNavListToggleDirective, TdLayoutNavListCloseDirective, TdLayoutNavListOpenDirective, TdNavigationDrawerMenuDirective, TdNavigationDrawerToolbarDirective, TdNavigationDrawerComponent, CovalentLoadingModule, LoadingType, LoadingMode, LoadingStrategy, LoadingStyle, TD_CIRCLE_DIAMETER, TdLoadingComponent, TdLoadingContext, TdLoadingDirective, LOADING_PROVIDER_FACTORY, TdLoadingConfig, TdLoadingDirectiveConfig, TdLoadingService, LOADING_PROVIDER, LOADING_FACTORY_PROVIDER_FACTORY, TdLoadingFactory, LOADING_FACTORY_PROVIDER, CovalentMediaModule, TdMediaToggleDirective, TdMediaService, CovalentMenuModule, TdMenuComponent, CovalentSearchModule, TdSearchBoxBase, _TdSearchBoxMixinBase, TdSearchBoxComponent, TdSearchInputBase, _TdSearchInputMixinBase, TdSearchInputComponent, CovalentBreadcrumbsModule, TdBreadcrumbsComponent, CovalentStepsModule, StepState, TdStepLabelDirective, TdStepActionsDirective, TdStepSummaryDirective, TdStepBase, _TdStepMixinBase, TdStepComponent, StepMode, TdStepsComponent, TdStepBodyComponent, TdStepHeaderBase, _TdStepHeaderMixinBase, TdStepHeaderComponent, CovalentTabSelectModule, TdTabSelectBase, _TdTabSelectMixinBase, TdTabSelectComponent, TdTabOptionBase, _TdTabOptionMixinBase, TdTabOptionComponent, TdBreadcrumbComponent as ɵe, TdFullscreenDirective as ɵa, TdTimeUntilPipe as ɵb, IconService as ɵd, RouterPathService as ɵc, TdNavStepLinkComponent as ɵg, TdNavStepsHorizontalComponent as ɵf, TdNavStepsVerticalComponent as ɵh };
-
+export { CovalentBreadcrumbsModule, CovalentChipsModule, CovalentCommonModule, CovalentDataTableModule, CovalentDialogsModule, CovalentExpansionPanelModule, CovalentFileModule, CovalentJsonFormatterModule, CovalentLayoutModule, CovalentLoadingModule, CovalentMediaModule, CovalentMenuModule, CovalentMessageModule, CovalentNotificationsModule, CovalentPagingModule, CovalentSearchModule, CovalentStepsModule, CovalentTabSelectModule, CovalentValidators, CovalentVirtualScrollModule, DEFAULT_NOTIFICATION_LIMIT, LOADING_FACTORY_PROVIDER, LOADING_FACTORY_PROVIDER_FACTORY, LOADING_PROVIDER, LOADING_PROVIDER_FACTORY, LayoutToggle, LayoutToggleBase, LoadingMode, LoadingStrategy, LoadingStyle, LoadingType, StepMode, StepState, TD_CIRCLE_DIAMETER, TdAlertDialogComponent, TdAutoTrimDirective, TdAutocompleteOptionDirective, TdBreadcrumbsComponent, TdBytesPipe, TdChipDirective, TdChipsBase, TdChipsComponent, TdConfirmDialogComponent, TdDataTableBase, TdDataTableCellComponent, TdDataTableColumnComponent, TdDataTableColumnRowComponent, TdDataTableComponent, TdDataTableRowComponent, TdDataTableService, TdDataTableSortingOrder, TdDataTableTableComponent, TdDataTableTemplateDirective, TdDecimalBytesPipe, TdDialogActionsDirective, TdDialogComponent, TdDialogContentDirective, TdDialogService, TdDialogTitleDirective, TdDigitsPipe, TdExpansionPanelBase, TdExpansionPanelComponent, TdExpansionPanelGroupComponent, TdExpansionPanelHeaderDirective, TdExpansionPanelLabelDirective, TdExpansionPanelSublabelDirective, TdExpansionPanelSummaryComponent, TdFileDropBase, TdFileDropDirective, TdFileInputBase, TdFileInputComponent, TdFileInputLabelDirective, TdFileSelectDirective, TdFileService, TdFileUploadBase, TdFileUploadComponent, TdJsonFormatterComponent, TdLayoutCardOverComponent, TdLayoutCloseDirective, TdLayoutComponent, TdLayoutFooterComponent, TdLayoutManageListCloseDirective, TdLayoutManageListComponent, TdLayoutManageListOpenDirective, TdLayoutManageListToggleDirective, TdLayoutNavComponent, TdLayoutNavListCloseDirective, TdLayoutNavListComponent, TdLayoutNavListOpenDirective, TdLayoutNavListToggleDirective, TdLayoutOpenDirective, TdLayoutToggleDirective, TdLoadingComponent, TdLoadingConfig, TdLoadingContext, TdLoadingDirective, TdLoadingDirectiveConfig, TdLoadingFactory, TdLoadingService, TdMediaService, TdMediaToggleDirective, TdMenuComponent, TdMessageComponent, TdMessageContainerDirective, TdNavigationDrawerComponent, TdNavigationDrawerMenuDirective, TdNavigationDrawerToolbarDirective, TdNotificationCountComponent, TdNotificationCountPositionX, TdNotificationCountPositionY, TdPagingBarComponent, TdPromptDialogComponent, TdSearchBoxBase, TdSearchBoxComponent, TdSearchInputBase, TdSearchInputComponent, TdStepActionsDirective, TdStepBase, TdStepBodyComponent, TdStepComponent, TdStepHeaderBase, TdStepHeaderComponent, TdStepLabelDirective, TdStepSummaryDirective, TdStepsComponent, TdTabOptionBase, TdTabOptionComponent, TdTabSelectBase, TdTabSelectComponent, TdTimeAgoPipe, TdTimeDifferencePipe, TdTruncatePipe, TdVirtualScrollContainerComponent, TdVirtualScrollRowDirective, _TdChipsMixinBase, _TdDataTableMixinBase, _TdExpansionPanelMixinBase, _TdFileDropMixinBase, _TdFileInputMixinBase, _TdFileUploadMixinBase, _TdLayoutToggleMixinBase, _TdSearchBoxMixinBase, _TdSearchInputMixinBase, _TdStepHeaderMixinBase, _TdStepMixinBase, _TdTabOptionMixinBase, _TdTabSelectMixinBase, mixinControlValueAccessor, mixinDisableRipple, mixinDisabled, tdBounceAnimation, tdCollapseAnimation, tdFadeInOutAnimation, tdFlashAnimation, tdHeadshakeAnimation, tdJelloAnimation, tdPulseAnimation, tdRotateAnimation, TdFullscreenDirective as ɵa, TdTimeUntilPipe as ɵb, RouterPathService as ɵc, IconService as ɵd, TdBreadcrumbComponent as ɵe, TdNavStepsHorizontalComponent as ɵf, TdNavStepLinkComponent as ɵg, TdNavStepsVerticalComponent as ɵh };
 //# sourceMappingURL=covalent-core.js.map

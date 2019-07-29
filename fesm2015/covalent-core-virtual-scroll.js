@@ -1,13 +1,13 @@
+import { Directive, TemplateRef, ViewContainerRef, EventEmitter, Component, ChangeDetectionStrategy, ElementRef, Renderer2, ChangeDetectorRef, Input, Output, ViewChildren, ContentChild, HostListener, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TemplatePortalDirective } from '@angular/cdk/portal';
-import { Directive, TemplateRef, ViewContainerRef, Component, Input, Output, EventEmitter, ContentChild, ChangeDetectionStrategy, ChangeDetectorRef, ViewChildren, ElementRef, HostListener, Renderer2, NgModule } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdVirtualScrollRowDirective extends TemplatePortalDirective {
     /**
@@ -29,7 +29,7 @@ TdVirtualScrollRowDirective.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TD_VIRTUAL_OFFSET = 2;
@@ -66,9 +66,14 @@ class TdVirtualScrollContainerComponent {
          * This accepts the same trackBy function [ngFor] does.
          * https://angular.io/api/core/TrackByFunction
          */
-        this.trackBy = (index, item) => {
+        this.trackBy = (/**
+         * @param {?} index
+         * @param {?} item
+         * @return {?}
+         */
+        (index, item) => {
             return item;
-        };
+        });
     }
     /**
      * data: any[]
@@ -132,17 +137,23 @@ class TdVirtualScrollContainerComponent {
      * @return {?}
      */
     ngAfterViewInit() {
-        this._subs.push(this._rows.changes.subscribe(() => {
+        this._subs.push(this._rows.changes.subscribe((/**
+         * @return {?}
+         */
+        () => {
             this._calculateVirtualRows();
-        }));
+        })));
         this._initialized = true;
         this._calculateVirtualRows();
-        this._subs.push(this._bottom.pipe(debounceTime(SCROLL_DEBOUNCE)).subscribe(() => {
+        this._subs.push(this._bottom.pipe(debounceTime(SCROLL_DEBOUNCE)).subscribe((/**
+         * @return {?}
+         */
+        () => {
             this.bottom.emit({
                 lastRow: this._data[this._data.length - 1],
                 lastIndex: this.toRow,
             });
-        }));
+        })));
     }
     /**
      * @return {?}
@@ -162,9 +173,13 @@ class TdVirtualScrollContainerComponent {
      */
     ngOnDestroy() {
         if (this._subs) {
-            this._subs.forEach((sub) => {
+            this._subs.forEach((/**
+             * @param {?} sub
+             * @return {?}
+             */
+            (sub) => {
                 sub.unsubscribe();
-            });
+            }));
         }
     }
     /**
@@ -225,6 +240,7 @@ class TdVirtualScrollContainerComponent {
         this._changeDetectorRef.markForCheck();
     }
     /**
+     * @private
      * @return {?}
      */
     _calculateVirtualRows() {
@@ -261,9 +277,12 @@ class TdVirtualScrollContainerComponent {
         }
         // mark for check at the end of the queue so we are sure
         // that the changes will be marked
-        Promise.resolve().then(() => {
+        Promise.resolve().then((/**
+         * @return {?}
+         */
+        () => {
             this._changeDetectorRef.markForCheck();
-        });
+        }));
     }
 }
 TdVirtualScrollContainerComponent.decorators = [
@@ -285,14 +304,14 @@ TdVirtualScrollContainerComponent.propDecorators = {
     data: [{ type: Input, args: ['data',] }],
     bottom: [{ type: Output }],
     _rows: [{ type: ViewChildren, args: ['rowElement',] }],
-    _rowTemplate: [{ type: ContentChild, args: [TdVirtualScrollRowDirective,] }],
+    _rowTemplate: [{ type: ContentChild, args: [TdVirtualScrollRowDirective, { static: false },] }],
     trackBy: [{ type: Input, args: ['trackBy',] }],
     handleScroll: [{ type: HostListener, args: ['scroll', ['$event'],] }]
 };
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TD_VIRTUAL_SCROLL = [TdVirtualScrollRowDirective, TdVirtualScrollContainerComponent];
@@ -306,21 +325,5 @@ CovalentVirtualScrollModule.decorators = [
             },] }
 ];
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
 export { CovalentVirtualScrollModule, TdVirtualScrollContainerComponent, TdVirtualScrollRowDirective };
-
 //# sourceMappingURL=covalent-core-virtual-scroll.js.map

@@ -1,12 +1,12 @@
+import { Component, ChangeDetectionStrategy, ElementRef, ChangeDetectorRef, HostBinding, ContentChildren, Input, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { Subscription, Subject, fromEvent, merge } from 'rxjs';
+import { Subscription, Subject, merge, fromEvent } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { Component, ElementRef, HostBinding, ChangeDetectionStrategy, ChangeDetectorRef, ContentChildren, Input, NgModule } from '@angular/core';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdBreadcrumbComponent {
     /**
@@ -59,10 +59,13 @@ class TdBreadcrumbComponent {
      */
     ngAfterViewInit() {
         // set the width from the actual rendered DOM element
-        setTimeout(() => {
+        setTimeout((/**
+         * @return {?}
+         */
+        () => {
             this._width = ((/** @type {?} */ (this._elementRef.nativeElement))).getBoundingClientRect().width;
             this._changeDetectorRef.markForCheck();
-        });
+        }));
     }
     /**
      * Stop click propagation when clicking on icon
@@ -97,7 +100,7 @@ TdBreadcrumbComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdBreadcrumbsComponent {
     /**
@@ -121,16 +124,22 @@ class TdBreadcrumbsComponent {
      * @return {?}
      */
     ngOnInit() {
-        this._resizeSubscription = merge(fromEvent(window, 'resize').pipe(debounceTime(10)), this._widthSubject.asObservable().pipe(distinctUntilChanged())).subscribe(() => {
+        this._resizeSubscription = merge(fromEvent(window, 'resize').pipe(debounceTime(10)), this._widthSubject.asObservable().pipe(distinctUntilChanged())).subscribe((/**
+         * @return {?}
+         */
+        () => {
             if (!this._resizing) {
                 this._resizing = true;
-                setTimeout(() => {
+                setTimeout((/**
+                 * @return {?}
+                 */
+                () => {
                     this._calculateVisibility();
                     this._resizing = false;
                     this._changeDetectorRef.markForCheck();
-                }, 100);
+                }), 100);
             }
-        });
+        }));
     }
     /**
      * @return {?}
@@ -194,6 +203,7 @@ class TdBreadcrumbsComponent {
     }
     /**
      * Set the crumb icon separators
+     * @private
      * @return {?}
      */
     setCrumbIcons() {
@@ -203,11 +213,16 @@ class TdBreadcrumbsComponent {
             // don't show the icon on the last breadcrumb
             breadcrumbArray[breadcrumbArray.length - 1]._displayIcon = false;
         }
-        breadcrumbArray.forEach((breadcrumb) => {
+        breadcrumbArray.forEach((/**
+         * @param {?} breadcrumb
+         * @return {?}
+         */
+        (breadcrumb) => {
             breadcrumb.separatorIcon = this.separatorIcon;
-        });
+        }));
     }
     /**
+     * @private
      * @return {?}
      */
     _calculateVisibility() {
@@ -261,7 +276,7 @@ TdBreadcrumbsComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class CovalentBreadcrumbsModule {
 }
@@ -273,21 +288,5 @@ CovalentBreadcrumbsModule.decorators = [
             },] }
 ];
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
 export { CovalentBreadcrumbsModule, TdBreadcrumbsComponent, TdBreadcrumbComponent as ɵa };
-
 //# sourceMappingURL=covalent-core-breadcrumbs.js.map

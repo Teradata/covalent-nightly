@@ -1,16 +1,16 @@
+import { EventEmitter, Directive, Optional, Host, Input, Output, HostBinding, HostListener, Renderer2, ElementRef, TemplateRef, ViewContainerRef, Component, ChangeDetectionStrategy, forwardRef, ChangeDetectorRef, ViewChild, ContentChild, Injectable, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModel, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
+import { TemplatePortalDirective, PortalModule } from '@angular/cdk/portal';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { TemplatePortalDirective, PortalModule } from '@angular/cdk/portal';
 import { mixinDisabled, mixinControlValueAccessor } from '@covalent/core/common';
-import { NgModel, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
-import { Directive, Input, Output, EventEmitter, HostListener, HostBinding, Host, Optional, ElementRef, Renderer2, Component, ChangeDetectionStrategy, ViewChild, TemplateRef, ViewContainerRef, ChangeDetectorRef, forwardRef, ContentChild, Injectable, NgModule } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdFileSelectDirective {
     /**
@@ -83,7 +83,7 @@ TdFileSelectDirective.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdFileDropBase {
 }
@@ -197,6 +197,7 @@ class TdFileDropDirective extends _TdFileDropMixinBase {
     }
     /**
      * Validates if the transfer item types are 'Files'.
+     * @private
      * @param {?} types
      * @return {?}
      */
@@ -212,6 +213,7 @@ class TdFileDropDirective extends _TdFileDropMixinBase {
         return dropEffect;
     }
     /**
+     * @private
      * @param {?} event
      * @return {?}
      */
@@ -244,7 +246,7 @@ TdFileDropDirective.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdFileInputLabelDirective extends TemplatePortalDirective {
     /**
@@ -355,7 +357,10 @@ TdFileInputComponent.decorators = [
                 providers: [
                     {
                         provide: NG_VALUE_ACCESSOR,
-                        useExisting: forwardRef(() => TdFileInputComponent),
+                        useExisting: forwardRef((/**
+                         * @return {?}
+                         */
+                        () => TdFileInputComponent)),
                         multi: true,
                     },
                 ],
@@ -371,7 +376,7 @@ TdFileInputComponent.ctorParameters = () => [
     { type: ChangeDetectorRef }
 ];
 TdFileInputComponent.propDecorators = {
-    _inputElement: [{ type: ViewChild, args: ['fileInput',] }],
+    _inputElement: [{ type: ViewChild, args: ['fileInput', { static: true },] }],
     color: [{ type: Input, args: ['color',] }],
     multiple: [{ type: Input, args: ['multiple',] }],
     accept: [{ type: Input, args: ['accept',] }],
@@ -380,7 +385,7 @@ TdFileInputComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdFileUploadBase {
     /**
@@ -513,7 +518,10 @@ TdFileUploadComponent.decorators = [
                 providers: [
                     {
                         provide: NG_VALUE_ACCESSOR,
-                        useExisting: forwardRef(() => TdFileUploadComponent),
+                        useExisting: forwardRef((/**
+                         * @return {?}
+                         */
+                        () => TdFileUploadComponent)),
                         multi: true,
                     },
                 ],
@@ -528,8 +536,8 @@ TdFileUploadComponent.ctorParameters = () => [
     { type: ChangeDetectorRef }
 ];
 TdFileUploadComponent.propDecorators = {
-    fileInput: [{ type: ViewChild, args: [TdFileInputComponent,] }],
-    inputLabel: [{ type: ContentChild, args: [TdFileInputLabelDirective,] }],
+    fileInput: [{ type: ViewChild, args: [TdFileInputComponent, { static: false },] }],
+    inputLabel: [{ type: ContentChild, args: [TdFileInputLabelDirective, { static: false },] }],
     defaultColor: [{ type: Input, args: ['defaultColor',] }],
     activeColor: [{ type: Input, args: ['activeColor',] }],
     cancelColor: [{ type: Input, args: ['cancelColor',] }],
@@ -543,7 +551,7 @@ TdFileUploadComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdFileService {
     constructor() {
@@ -574,7 +582,11 @@ class TdFileService {
      * @return {?}
      */
     upload(options) {
-        return new Observable((subscriber) => {
+        return new Observable((/**
+         * @param {?} subscriber
+         * @return {?}
+         */
+        (subscriber) => {
             /** @type {?} */
             let xhr = new XMLHttpRequest();
             /** @type {?} */
@@ -588,15 +600,22 @@ class TdFileService {
             else {
                 return subscriber.error('For [IUploadOptions] you have to set either the [file] or the [formData] property.');
             }
-            xhr.upload.onprogress = (event) => {
+            xhr.upload.onprogress = (/**
+             * @param {?} event
+             * @return {?}
+             */
+            (event) => {
                 /** @type {?} */
                 let progress = 0;
                 if (event.lengthComputable) {
                     progress = Math.round((event.loaded / event.total) * 100);
                 }
                 this._progressSubject.next(progress);
-            };
-            xhr.onreadystatechange = () => {
+            });
+            xhr.onreadystatechange = (/**
+             * @return {?}
+             */
+            () => {
                 if (xhr.readyState === 4) {
                     if (xhr.status >= 200 && xhr.status < 300) {
                         subscriber.next(xhr.response);
@@ -606,7 +625,7 @@ class TdFileService {
                         subscriber.error(xhr.response);
                     }
                 }
-            };
+            });
             xhr.open(options.method, options.url, true);
             xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
             if (options.headers) {
@@ -615,7 +634,7 @@ class TdFileService {
                 }
             }
             xhr.send(formData);
-        });
+        }));
     }
 }
 TdFileService.decorators = [
@@ -626,7 +645,7 @@ TdFileService.ctorParameters = () => [];
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TD_FILE = [
@@ -647,21 +666,5 @@ CovalentFileModule.decorators = [
             },] }
 ];
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-export { CovalentFileModule, TdFileDropBase, _TdFileDropMixinBase, TdFileDropDirective, TdFileSelectDirective, TdFileInputLabelDirective, TdFileInputBase, _TdFileInputMixinBase, TdFileInputComponent, TdFileUploadBase, _TdFileUploadMixinBase, TdFileUploadComponent, TdFileService };
-
+export { CovalentFileModule, TdFileDropBase, TdFileDropDirective, TdFileInputBase, TdFileInputComponent, TdFileInputLabelDirective, TdFileSelectDirective, TdFileService, TdFileUploadBase, TdFileUploadComponent, _TdFileDropMixinBase, _TdFileInputMixinBase, _TdFileUploadMixinBase };
 //# sourceMappingURL=covalent-core-file.js.map

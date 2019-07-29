@@ -1,20 +1,20 @@
+import { Component, ViewChild, Input, HostListener, Directive, Optional, Inject, forwardRef, Renderer2, ElementRef, SecurityContext, ContentChildren, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
+import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { __extends } from 'tslib';
-import { Component, Input, ViewChild, HostListener, Optional, Directive, Renderer2, ElementRef, Inject, forwardRef, ContentChildren, SecurityContext, NgModule } from '@angular/core';
+import { mixinDisabled, tdCollapseAnimation } from '@covalent/core/common';
 import { Router } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
-import { mixinDisabled, tdCollapseAnimation } from '@covalent/core/common';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdLayoutComponent = /** @class */ (function () {
     function TdLayoutComponent() {
@@ -126,7 +126,7 @@ var TdLayoutComponent = /** @class */ (function () {
                 }] }
     ];
     TdLayoutComponent.propDecorators = {
-        sidenav: [{ type: ViewChild, args: [MatSidenav,] }],
+        sidenav: [{ type: ViewChild, args: [MatSidenav, { static: true },] }],
         mode: [{ type: Input, args: ['mode',] }],
         opened: [{ type: Input, args: ['opened',] }],
         sidenavWidth: [{ type: Input, args: ['sidenavWidth',] }],
@@ -137,7 +137,7 @@ var TdLayoutComponent = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var LayoutToggleBase = /** @class */ (function () {
     function LayoutToggleBase() {
@@ -199,9 +199,12 @@ var LayoutToggle = /** @class */ (function (_super) {
         var _this = this;
         this._initialized = true;
         if (this._layout && this._layout.sidenav) {
-            this._toggleSubs = this._layout.sidenav._animationStarted.subscribe(function () {
+            this._toggleSubs = this._layout.sidenav._animationStarted.subscribe((/**
+             * @return {?}
+             */
+            function () {
                 _this._toggleVisibility();
-            });
+            }));
         }
         // execute toggleVisibility since the onOpenStart and onCloseStart
         // methods might not be executed always when the element is rendered
@@ -246,9 +249,11 @@ var LayoutToggle = /** @class */ (function (_super) {
         }
     };
     /**
+     * @private
      * @return {?}
      */
     LayoutToggle.prototype._toggleVisibility = /**
+     * @private
      * @return {?}
      */
     function () {
@@ -262,9 +267,11 @@ var LayoutToggle = /** @class */ (function (_super) {
         }
     };
     /**
+     * @private
      * @return {?}
      */
     LayoutToggle.prototype._noLayoutMessage = /**
+     * @private
      * @return {?}
      */
     function () {
@@ -280,7 +287,7 @@ var LayoutToggle = /** @class */ (function (_super) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdLayoutToggleDirective = /** @class */ (function (_super) {
     __extends(TdLayoutToggleDirective, _super);
@@ -314,7 +321,10 @@ var TdLayoutToggleDirective = /** @class */ (function (_super) {
     ];
     /** @nocollapse */
     TdLayoutToggleDirective.ctorParameters = function () { return [
-        { type: TdLayoutComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef(function () { return TdLayoutComponent; }),] }] },
+        { type: TdLayoutComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef((/**
+                         * @return {?}
+                         */
+                        function () { return TdLayoutComponent; })),] }] },
         { type: Renderer2 },
         { type: ElementRef }
     ]; };
@@ -355,7 +365,10 @@ var TdLayoutCloseDirective = /** @class */ (function (_super) {
     ];
     /** @nocollapse */
     TdLayoutCloseDirective.ctorParameters = function () { return [
-        { type: TdLayoutComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef(function () { return TdLayoutComponent; }),] }] },
+        { type: TdLayoutComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef((/**
+                         * @return {?}
+                         */
+                        function () { return TdLayoutComponent; })),] }] },
         { type: Renderer2 },
         { type: ElementRef }
     ]; };
@@ -396,7 +409,10 @@ var TdLayoutOpenDirective = /** @class */ (function (_super) {
     ];
     /** @nocollapse */
     TdLayoutOpenDirective.ctorParameters = function () { return [
-        { type: TdLayoutComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef(function () { return TdLayoutComponent; }),] }] },
+        { type: TdLayoutComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef((/**
+                         * @return {?}
+                         */
+                        function () { return TdLayoutComponent; })),] }] },
         { type: Renderer2 },
         { type: ElementRef }
     ]; };
@@ -408,7 +424,7 @@ var TdLayoutOpenDirective = /** @class */ (function (_super) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdLayoutNavComponent = /** @class */ (function () {
     function TdLayoutNavComponent(_router) {
@@ -469,7 +485,7 @@ var TdLayoutNavComponent = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdLayoutNavListComponent = /** @class */ (function () {
     function TdLayoutNavListComponent(_router) {
@@ -617,7 +633,7 @@ var TdLayoutNavListComponent = /** @class */ (function () {
         { type: Router, decorators: [{ type: Optional }] }
     ]; };
     TdLayoutNavListComponent.propDecorators = {
-        sidenav: [{ type: ViewChild, args: [MatSidenav,] }],
+        sidenav: [{ type: ViewChild, args: [MatSidenav, { static: true },] }],
         toolbarTitle: [{ type: Input, args: ['toolbarTitle',] }],
         icon: [{ type: Input, args: ['icon',] }],
         logo: [{ type: Input, args: ['logo',] }],
@@ -633,7 +649,7 @@ var TdLayoutNavListComponent = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdLayoutNavListToggleDirective = /** @class */ (function (_super) {
     __extends(TdLayoutNavListToggleDirective, _super);
@@ -667,7 +683,10 @@ var TdLayoutNavListToggleDirective = /** @class */ (function (_super) {
     ];
     /** @nocollapse */
     TdLayoutNavListToggleDirective.ctorParameters = function () { return [
-        { type: TdLayoutNavListComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef(function () { return TdLayoutNavListComponent; }),] }] },
+        { type: TdLayoutNavListComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef((/**
+                         * @return {?}
+                         */
+                        function () { return TdLayoutNavListComponent; })),] }] },
         { type: Renderer2 },
         { type: ElementRef }
     ]; };
@@ -708,7 +727,10 @@ var TdLayoutNavListCloseDirective = /** @class */ (function (_super) {
     ];
     /** @nocollapse */
     TdLayoutNavListCloseDirective.ctorParameters = function () { return [
-        { type: TdLayoutNavListComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef(function () { return TdLayoutNavListComponent; }),] }] },
+        { type: TdLayoutNavListComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef((/**
+                         * @return {?}
+                         */
+                        function () { return TdLayoutNavListComponent; })),] }] },
         { type: Renderer2 },
         { type: ElementRef }
     ]; };
@@ -749,7 +771,10 @@ var TdLayoutNavListOpenDirective = /** @class */ (function (_super) {
     ];
     /** @nocollapse */
     TdLayoutNavListOpenDirective.ctorParameters = function () { return [
-        { type: TdLayoutNavListComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef(function () { return TdLayoutNavListComponent; }),] }] },
+        { type: TdLayoutNavListComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef((/**
+                         * @return {?}
+                         */
+                        function () { return TdLayoutNavListComponent; })),] }] },
         { type: Renderer2 },
         { type: ElementRef }
     ]; };
@@ -761,7 +786,7 @@ var TdLayoutNavListOpenDirective = /** @class */ (function (_super) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdLayoutCardOverComponent = /** @class */ (function () {
     function TdLayoutCardOverComponent() {
@@ -798,7 +823,7 @@ var TdLayoutCardOverComponent = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdLayoutManageListComponent = /** @class */ (function () {
     function TdLayoutManageListComponent() {
@@ -910,7 +935,7 @@ var TdLayoutManageListComponent = /** @class */ (function () {
                 }] }
     ];
     TdLayoutManageListComponent.propDecorators = {
-        sidenav: [{ type: ViewChild, args: [MatSidenav,] }],
+        sidenav: [{ type: ViewChild, args: [MatSidenav, { static: true },] }],
         mode: [{ type: Input, args: ['mode',] }],
         opened: [{ type: Input, args: ['opened',] }],
         sidenavWidth: [{ type: Input, args: ['sidenavWidth',] }],
@@ -921,7 +946,7 @@ var TdLayoutManageListComponent = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdLayoutManageListToggleDirective = /** @class */ (function (_super) {
     __extends(TdLayoutManageListToggleDirective, _super);
@@ -955,7 +980,10 @@ var TdLayoutManageListToggleDirective = /** @class */ (function (_super) {
     ];
     /** @nocollapse */
     TdLayoutManageListToggleDirective.ctorParameters = function () { return [
-        { type: TdLayoutManageListComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef(function () { return TdLayoutManageListComponent; }),] }] },
+        { type: TdLayoutManageListComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef((/**
+                         * @return {?}
+                         */
+                        function () { return TdLayoutManageListComponent; })),] }] },
         { type: Renderer2 },
         { type: ElementRef }
     ]; };
@@ -996,7 +1024,10 @@ var TdLayoutManageListCloseDirective = /** @class */ (function (_super) {
     ];
     /** @nocollapse */
     TdLayoutManageListCloseDirective.ctorParameters = function () { return [
-        { type: TdLayoutManageListComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef(function () { return TdLayoutManageListComponent; }),] }] },
+        { type: TdLayoutManageListComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef((/**
+                         * @return {?}
+                         */
+                        function () { return TdLayoutManageListComponent; })),] }] },
         { type: Renderer2 },
         { type: ElementRef }
     ]; };
@@ -1037,7 +1068,10 @@ var TdLayoutManageListOpenDirective = /** @class */ (function (_super) {
     ];
     /** @nocollapse */
     TdLayoutManageListOpenDirective.ctorParameters = function () { return [
-        { type: TdLayoutManageListComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef(function () { return TdLayoutManageListComponent; }),] }] },
+        { type: TdLayoutManageListComponent, decorators: [{ type: Optional }, { type: Inject, args: [forwardRef((/**
+                         * @return {?}
+                         */
+                        function () { return TdLayoutManageListComponent; })),] }] },
         { type: Renderer2 },
         { type: ElementRef }
     ]; };
@@ -1049,7 +1083,7 @@ var TdLayoutManageListOpenDirective = /** @class */ (function (_super) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdLayoutFooterComponent = /** @class */ (function () {
     function TdLayoutFooterComponent(_renderer, _elementRef) {
@@ -1107,7 +1141,7 @@ var TdLayoutFooterComponent = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdNavigationDrawerMenuDirective = /** @class */ (function () {
     function TdNavigationDrawerMenuDirective() {
@@ -1245,11 +1279,15 @@ var TdNavigationDrawerComponent = /** @class */ (function () {
      */
     function () {
         var _this = this;
-        this._closeSubscription = this._layout.sidenav.openedChange.subscribe(function (opened) {
+        this._closeSubscription = this._layout.sidenav.openedChange.subscribe((/**
+         * @param {?} opened
+         * @return {?}
+         */
+        function (opened) {
             if (!opened) {
                 _this._menuToggled = false;
             }
-        });
+        }));
     };
     /**
      * @return {?}
@@ -1338,7 +1376,10 @@ var TdNavigationDrawerComponent = /** @class */ (function () {
     ];
     /** @nocollapse */
     TdNavigationDrawerComponent.ctorParameters = function () { return [
-        { type: TdLayoutComponent, decorators: [{ type: Inject, args: [forwardRef(function () { return TdLayoutComponent; }),] }] },
+        { type: TdLayoutComponent, decorators: [{ type: Inject, args: [forwardRef((/**
+                         * @return {?}
+                         */
+                        function () { return TdLayoutComponent; })),] }] },
         { type: Router, decorators: [{ type: Optional }] },
         { type: DomSanitizer }
     ]; };
@@ -1360,7 +1401,7 @@ var TdNavigationDrawerComponent = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 var TD_LAYOUTS = [
@@ -1405,21 +1446,5 @@ var CovalentLayoutModule = /** @class */ (function () {
     return CovalentLayoutModule;
 }());
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-export { CovalentLayoutModule, TdLayoutComponent, TdLayoutToggleDirective, TdLayoutCloseDirective, TdLayoutOpenDirective, LayoutToggleBase, _TdLayoutToggleMixinBase, LayoutToggle, TdLayoutCardOverComponent, TdLayoutFooterComponent, TdLayoutManageListComponent, TdLayoutManageListToggleDirective, TdLayoutManageListCloseDirective, TdLayoutManageListOpenDirective, TdLayoutNavComponent, TdLayoutNavListComponent, TdLayoutNavListToggleDirective, TdLayoutNavListCloseDirective, TdLayoutNavListOpenDirective, TdNavigationDrawerMenuDirective, TdNavigationDrawerToolbarDirective, TdNavigationDrawerComponent };
-
+export { CovalentLayoutModule, LayoutToggle, LayoutToggleBase, TdLayoutCardOverComponent, TdLayoutCloseDirective, TdLayoutComponent, TdLayoutFooterComponent, TdLayoutManageListCloseDirective, TdLayoutManageListComponent, TdLayoutManageListOpenDirective, TdLayoutManageListToggleDirective, TdLayoutNavComponent, TdLayoutNavListCloseDirective, TdLayoutNavListComponent, TdLayoutNavListOpenDirective, TdLayoutNavListToggleDirective, TdLayoutOpenDirective, TdLayoutToggleDirective, TdNavigationDrawerComponent, TdNavigationDrawerMenuDirective, TdNavigationDrawerToolbarDirective, _TdLayoutToggleMixinBase };
 //# sourceMappingURL=covalent-core-layout.js.map

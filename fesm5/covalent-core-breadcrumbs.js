@@ -1,12 +1,12 @@
+import { Component, ChangeDetectionStrategy, ElementRef, ChangeDetectorRef, HostBinding, ContentChildren, Input, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { Subscription, Subject, fromEvent, merge } from 'rxjs';
+import { merge, fromEvent, Subscription, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { Component, ElementRef, HostBinding, ChangeDetectionStrategy, ChangeDetectorRef, ContentChildren, Input, NgModule } from '@angular/core';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdBreadcrumbComponent = /** @class */ (function () {
     function TdBreadcrumbComponent(_elementRef, _changeDetectorRef) {
@@ -80,10 +80,13 @@ var TdBreadcrumbComponent = /** @class */ (function () {
     function () {
         var _this = this;
         // set the width from the actual rendered DOM element
-        setTimeout(function () {
+        setTimeout((/**
+         * @return {?}
+         */
+        function () {
             _this._width = ((/** @type {?} */ (_this._elementRef.nativeElement))).getBoundingClientRect().width;
             _this._changeDetectorRef.markForCheck();
-        });
+        }));
     };
     /**
      * Stop click propagation when clicking on icon
@@ -127,7 +130,7 @@ var TdBreadcrumbComponent = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdBreadcrumbsComponent = /** @class */ (function () {
     function TdBreadcrumbsComponent(_elementRef, _changeDetectorRef) {
@@ -151,16 +154,22 @@ var TdBreadcrumbsComponent = /** @class */ (function () {
      */
     function () {
         var _this = this;
-        this._resizeSubscription = merge(fromEvent(window, 'resize').pipe(debounceTime(10)), this._widthSubject.asObservable().pipe(distinctUntilChanged())).subscribe(function () {
+        this._resizeSubscription = merge(fromEvent(window, 'resize').pipe(debounceTime(10)), this._widthSubject.asObservable().pipe(distinctUntilChanged())).subscribe((/**
+         * @return {?}
+         */
+        function () {
             if (!_this._resizing) {
                 _this._resizing = true;
-                setTimeout(function () {
+                setTimeout((/**
+                 * @return {?}
+                 */
+                function () {
                     _this._calculateVisibility();
                     _this._resizing = false;
                     _this._changeDetectorRef.markForCheck();
-                }, 100);
+                }), 100);
             }
-        });
+        }));
     };
     /**
      * @return {?}
@@ -250,10 +259,12 @@ var TdBreadcrumbsComponent = /** @class */ (function () {
      */
     /**
      * Set the crumb icon separators
+     * @private
      * @return {?}
      */
     TdBreadcrumbsComponent.prototype.setCrumbIcons = /**
      * Set the crumb icon separators
+     * @private
      * @return {?}
      */
     function () {
@@ -264,14 +275,20 @@ var TdBreadcrumbsComponent = /** @class */ (function () {
             // don't show the icon on the last breadcrumb
             breadcrumbArray[breadcrumbArray.length - 1]._displayIcon = false;
         }
-        breadcrumbArray.forEach(function (breadcrumb) {
+        breadcrumbArray.forEach((/**
+         * @param {?} breadcrumb
+         * @return {?}
+         */
+        function (breadcrumb) {
             breadcrumb.separatorIcon = _this.separatorIcon;
-        });
+        }));
     };
     /**
+     * @private
      * @return {?}
      */
     TdBreadcrumbsComponent.prototype._calculateVisibility = /**
+     * @private
      * @return {?}
      */
     function () {
@@ -326,7 +343,7 @@ var TdBreadcrumbsComponent = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var CovalentBreadcrumbsModule = /** @class */ (function () {
     function CovalentBreadcrumbsModule() {
@@ -341,21 +358,5 @@ var CovalentBreadcrumbsModule = /** @class */ (function () {
     return CovalentBreadcrumbsModule;
 }());
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
 export { CovalentBreadcrumbsModule, TdBreadcrumbsComponent, TdBreadcrumbComponent as ɵa };
-
 //# sourceMappingURL=covalent-core-breadcrumbs.js.map

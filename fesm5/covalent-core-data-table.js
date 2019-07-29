@@ -1,22 +1,22 @@
+import { Component, ElementRef, Renderer2, Input, HostListener, Directive, TemplateRef, ViewContainerRef, EventEmitter, forwardRef, ChangeDetectionStrategy, Optional, Inject, ChangeDetectorRef, ContentChildren, ViewChild, ViewChildren, Output, HostBinding, NgModule, Injectable, ɵɵdefineInjectable } from '@angular/core';
+import { DOCUMENT, CommonModule } from '@angular/common';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPseudoCheckboxModule } from '@angular/material/core';
-import { DOCUMENT, CommonModule } from '@angular/common';
+import { __extends, __values } from 'tslib';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { ENTER, SPACE, UP_ARROW, DOWN_ARROW } from '@angular/cdk/keycodes';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
-import { __extends, __values } from 'tslib';
 import { TemplatePortalDirective } from '@angular/cdk/portal';
 import { mixinControlValueAccessor } from '@covalent/core/common';
-import { Component, Input, Renderer2, ElementRef, HostListener, Directive, TemplateRef, ViewContainerRef, Output, EventEmitter, forwardRef, ChangeDetectionStrategy, ChangeDetectorRef, ViewChild, ContentChildren, Inject, Optional, ViewChildren, HostBinding, NgModule, Injectable, defineInjectable } from '@angular/core';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdDataTableColumnRowComponent = /** @class */ (function () {
     function TdDataTableColumnRowComponent(_elementRef, _renderer) {
@@ -129,7 +129,7 @@ var TdDataTableRowComponent = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdDataTableTemplateDirective = /** @class */ (function (_super) {
     __extends(TdDataTableTemplateDirective, _super);
@@ -152,7 +152,7 @@ var TdDataTableTemplateDirective = /** @class */ (function (_super) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @enum {string} */
 var TdDataTableSortingOrder = {
@@ -258,9 +258,14 @@ var TdDataTableComponent = /** @class */ (function (_super) {
          * Allows custom comparison between row and model to see if row is selected or not
          * Default comparation is by reference
          */
-        _this.compareWith = function (row, model) {
+        _this.compareWith = (/**
+         * @param {?} row
+         * @param {?} model
+         * @return {?}
+         */
+        function (row, model) {
             return row === model;
-        };
+        });
         return _this;
     }
     Object.defineProperty(TdDataTableComponent.prototype, "resizingColumn", {
@@ -411,11 +416,14 @@ var TdDataTableComponent = /** @class */ (function (_super) {
             var _this = this;
             this._data = data;
             this._rowHeightCache = [];
-            Promise.resolve().then(function () {
+            Promise.resolve().then((/**
+             * @return {?}
+             */
+            function () {
                 _this.refresh();
                 // scroll back to the top if the data has changed
                 _this._scrollableDiv.nativeElement.scrollTop = 0;
-            });
+            }));
         },
         enumerable: true,
         configurable: true
@@ -444,11 +452,19 @@ var TdDataTableComponent = /** @class */ (function (_super) {
                 // if columns is undefined, use key in [data] rows as name and label for column headers.
                 /** @type {?} */
                 var row = this._data[0];
-                Object.keys(row).forEach(function (k) {
-                    if (!_this._columns.find(function (c) { return c.name === k; })) {
+                Object.keys(row).forEach((/**
+                 * @param {?} k
+                 * @return {?}
+                 */
+                function (k) {
+                    if (!_this._columns.find((/**
+                     * @param {?} c
+                     * @return {?}
+                     */
+                    function (c) { return c.name === k; }))) {
                         _this._columns.push({ name: k, label: k });
                     }
-                });
+                }));
                 return this._columns;
             }
             else {
@@ -614,7 +630,11 @@ var TdDataTableComponent = /** @class */ (function (_super) {
                 return;
             }
             /** @type {?} */
-            var column = this.columns.find(function (c) { return c.name === columnName; });
+            var column = this.columns.find((/**
+             * @param {?} c
+             * @return {?}
+             */
+            function (c) { return c.name === columnName; }));
             if (!column) {
                 throw new Error('[sortBy] must be a valid column name');
             }
@@ -691,38 +711,62 @@ var TdDataTableComponent = /** @class */ (function (_super) {
     function () {
         var _this = this;
         // initialize observable for resize calculations
-        this._resizeSubs = this._onResize.asObservable().subscribe(function () {
+        this._resizeSubs = this._onResize.asObservable().subscribe((/**
+         * @return {?}
+         */
+        function () {
             if (_this._rows) {
-                _this._rows.toArray().forEach(function (row, index) {
+                _this._rows.toArray().forEach((/**
+                 * @param {?} row
+                 * @param {?} index
+                 * @return {?}
+                 */
+                function (row, index) {
                     _this._rowHeightCache[_this.fromRow + index] = row.height + 1;
-                });
+                }));
             }
             _this._calculateWidths();
             _this._calculateVirtualRows();
-        });
+        }));
         // initialize observable for column resize calculations
         this._columnResizeSubs = this._onColumnResize
             .asObservable()
             .pipe(debounceTime(0))
-            .subscribe(function (clientX) {
+            .subscribe((/**
+         * @param {?} clientX
+         * @return {?}
+         */
+        function (clientX) {
             _this._columnClientX = clientX;
             _this._calculateWidths();
             _this._changeDetectorRef.markForCheck();
-        });
+        }));
         // initialize observable for scroll column header reposition
-        this._horizontalScrollSubs = this._onHorizontalScroll.asObservable().subscribe(function (horizontalScroll) {
+        this._horizontalScrollSubs = this._onHorizontalScroll.asObservable().subscribe((/**
+         * @param {?} horizontalScroll
+         * @return {?}
+         */
+        function (horizontalScroll) {
             _this._scrollHorizontalOffset = horizontalScroll;
             _this._changeDetectorRef.markForCheck();
-        });
+        }));
         // initialize observable for virtual scroll rendering
-        this._verticalScrollSubs = this._onVerticalScroll.asObservable().subscribe(function (verticalScroll) {
+        this._verticalScrollSubs = this._onVerticalScroll.asObservable().subscribe((/**
+         * @param {?} verticalScroll
+         * @return {?}
+         */
+        function (verticalScroll) {
             _this._scrollVerticalOffset = verticalScroll;
             _this._calculateVirtualRows();
             _this._changeDetectorRef.markForCheck();
-        });
-        this._valueChangesSubs = this.valueChanges.subscribe(function (value) {
+        }));
+        this._valueChangesSubs = this.valueChanges.subscribe((/**
+         * @param {?} value
+         * @return {?}
+         */
+        function (value) {
             _this.refresh();
-        });
+        }));
     };
     /**
      * Loads templates and sets them in a map for faster access.
@@ -763,10 +807,13 @@ var TdDataTableComponent = /** @class */ (function (_super) {
             var newHostWidth_1 = this._elementRef.nativeElement.getBoundingClientRect().width;
             // if the width has changed then we throw a resize event.
             if (this._hostWidth !== newHostWidth_1) {
-                setTimeout(function () {
+                setTimeout((/**
+                 * @return {?}
+                 */
+                function () {
                     _this._hostWidth = newHostWidth_1;
                     _this._onResize.next();
-                }, 0);
+                }), 0);
             }
         }
         if (this._scrollableDiv.nativeElement) {
@@ -796,9 +843,12 @@ var TdDataTableComponent = /** @class */ (function (_super) {
      */
     function () {
         var _this = this;
-        this._rowsChangedSubs = this._rows.changes.pipe(debounceTime(0)).subscribe(function () {
+        this._rowsChangedSubs = this._rows.changes.pipe(debounceTime(0)).subscribe((/**
+         * @return {?}
+         */
+        function () {
             _this._onResize.next();
-        });
+        }));
         this._calculateVirtualRows();
     };
     /**
@@ -964,33 +1014,45 @@ var TdDataTableComponent = /** @class */ (function (_super) {
         /** @type {?} */
         var toggledRows = [];
         if (checked) {
-            this._data.forEach(function (row) {
+            this._data.forEach((/**
+             * @param {?} row
+             * @return {?}
+             */
+            function (row) {
                 // skiping already selected rows
                 if (!_this.isRowSelected(row)) {
                     _this.value.push(row);
                     // checking which ones are being toggled
                     toggledRows.push(row);
                 }
-            });
+            }));
             this._allSelected = true;
             this._indeterminate = true;
         }
         else {
-            this._data.forEach(function (row) {
+            this._data.forEach((/**
+             * @param {?} row
+             * @return {?}
+             */
+            function (row) {
                 // checking which ones are being toggled
                 if (_this.isRowSelected(row)) {
                     toggledRows.push(row);
                     /** @type {?} */
-                    var modelRow = _this.value.filter(function (val) {
+                    var modelRow = _this.value.filter((/**
+                     * @param {?} val
+                     * @return {?}
+                     */
+                    function (val) {
                         return _this.compareWith(row, val);
-                    })[0];
+                    }))[0];
                     /** @type {?} */
                     var index = _this.value.indexOf(modelRow);
                     if (index > -1) {
                         _this.value.splice(index, 1);
                     }
                 }
-            });
+            }));
             this._allSelected = false;
             this._indeterminate = false;
         }
@@ -1014,9 +1076,13 @@ var TdDataTableComponent = /** @class */ (function (_super) {
         var _this = this;
         // compare items by [compareWith] function
         return this.value
-            ? this.value.filter(function (val) {
+            ? this.value.filter((/**
+             * @param {?} val
+             * @return {?}
+             */
+            function (val) {
                 return _this.compareWith(row, val);
-            }).length > 0
+            })).length > 0
             : false;
     };
     /**
@@ -1119,9 +1185,12 @@ var TdDataTableComponent = /** @class */ (function (_super) {
      */
     function () {
         if (this._document) {
-            this._document.onselectstart = function () {
+            this._document.onselectstart = (/**
+             * @return {?}
+             */
+            function () {
                 return false;
-            };
+            });
         }
     };
     /**
@@ -1343,11 +1412,13 @@ var TdDataTableComponent = /** @class */ (function (_super) {
         event.preventDefault();
     };
     /**
+     * @private
      * @param {?} name
      * @param {?} value
      * @return {?}
      */
     TdDataTableComponent.prototype._getNestedValue = /**
+     * @private
      * @param {?} name
      * @param {?} value
      * @return {?}
@@ -1370,12 +1441,14 @@ var TdDataTableComponent = /** @class */ (function (_super) {
      */
     /**
      * Does the actual Row Selection
+     * @private
      * @param {?} row
      * @param {?} rowIndex
      * @return {?}
      */
     TdDataTableComponent.prototype._doSelection = /**
      * Does the actual Row Selection
+     * @private
      * @param {?} row
      * @param {?} rowIndex
      * @return {?}
@@ -1392,9 +1465,13 @@ var TdDataTableComponent = /** @class */ (function (_super) {
         }
         else {
             // compare items by [compareWith] function
-            row = this.value.filter(function (val) {
+            row = this.value.filter((/**
+             * @param {?} val
+             * @return {?}
+             */
+            function (val) {
                 return _this.compareWith(row, val);
-            })[0];
+            }))[0];
             /** @type {?} */
             var index = this.value.indexOf(row);
             if (index > -1) {
@@ -1411,17 +1488,23 @@ var TdDataTableComponent = /** @class */ (function (_super) {
      */
     /**
      * Calculate all the state of all checkboxes
+     * @private
      * @return {?}
      */
     TdDataTableComponent.prototype._calculateCheckboxState = /**
      * Calculate all the state of all checkboxes
+     * @private
      * @return {?}
      */
     function () {
         var _this = this;
         var e_1, _a;
         if (this._data) {
-            this._allSelected = typeof this._data.find(function (d) { return !_this.isRowSelected(d); }) === 'undefined';
+            this._allSelected = typeof this._data.find((/**
+             * @param {?} d
+             * @return {?}
+             */
+            function (d) { return !_this.isRowSelected(d); })) === 'undefined';
             this._indeterminate = false;
             try {
                 for (var _b = __values(this._data), _c = _b.next(); !_c.done; _c = _b.next()) {
@@ -1447,19 +1530,26 @@ var TdDataTableComponent = /** @class */ (function (_super) {
      */
     /**
      * Calculates the widths for columns and cells depending on content
+     * @private
      * @return {?}
      */
     TdDataTableComponent.prototype._calculateWidths = /**
      * Calculates the widths for columns and cells depending on content
+     * @private
      * @return {?}
      */
     function () {
         var _this = this;
         if (this._colElements && this._colElements.length) {
             this._widths = [];
-            this._colElements.forEach(function (col, index) {
+            this._colElements.forEach((/**
+             * @param {?} col
+             * @param {?} index
+             * @return {?}
+             */
+            function (col, index) {
                 _this._adjustColumnWidth(index, _this._calculateWidth());
-            });
+            }));
             this._adjustColumnWidhts();
             this._changeDetectorRef.markForCheck();
         }
@@ -1469,10 +1559,12 @@ var TdDataTableComponent = /** @class */ (function (_super) {
      */
     /**
      * Adjusts columns after calculation to see if they need to be recalculated.
+     * @private
      * @return {?}
      */
     TdDataTableComponent.prototype._adjustColumnWidhts = /**
      * Adjusts columns after calculation to see if they need to be recalculated.
+     * @private
      * @return {?}
      */
     function () {
@@ -1481,7 +1573,12 @@ var TdDataTableComponent = /** @class */ (function (_super) {
         var fixedTotalWidth = 0;
         // get the number of total columns that have flexible widths (not fixed or hidden)
         /** @type {?} */
-        var flexibleWidths = this._widths.filter(function (width, index) {
+        var flexibleWidths = this._widths.filter((/**
+         * @param {?} width
+         * @param {?} index
+         * @return {?}
+         */
+        function (width, index) {
             if (_this.columns[index].hidden) {
                 return false;
             }
@@ -1489,7 +1586,7 @@ var TdDataTableComponent = /** @class */ (function (_super) {
                 fixedTotalWidth += width.value;
             }
             return !width.limit && !width.max && !width.min;
-        }).length;
+        })).length;
         // calculate how much pixes are left that could be spread across
         // the flexible columns
         /** @type {?} */
@@ -1505,19 +1602,27 @@ var TdDataTableComponent = /** @class */ (function (_super) {
             /** @type {?} */
             var adjustedNumber_1 = 0;
             // adjust the column widths with the spread pixels
-            this._widths.forEach(function (colWidth) {
+            this._widths.forEach((/**
+             * @param {?} colWidth
+             * @return {?}
+             */
+            function (colWidth) {
                 if ((_this._widths[colWidth.index].max && _this._widths[colWidth.index].value > newValue_1) ||
                     (_this._widths[colWidth.index].min && _this._widths[colWidth.index].value < newValue_1) ||
                     !_this._widths[colWidth.index].limit) {
                     _this._adjustColumnWidth(colWidth.index, newValue_1);
                     adjustedNumber_1++;
                 }
-            });
+            }));
             // if there are still columns that need to be recalculated, we start over
             /** @type {?} */
-            var newFlexibleWidths = this._widths.filter(function (width) {
+            var newFlexibleWidths = this._widths.filter((/**
+             * @param {?} width
+             * @return {?}
+             */
+            function (width) {
                 return !width.limit && !width.max;
-            }).length;
+            })).length;
             if (newFlexibleWidths !== adjustedNumber_1 && newFlexibleWidths !== flexibleWidths) {
                 this._adjustColumnWidhts();
             }
@@ -1528,12 +1633,14 @@ var TdDataTableComponent = /** @class */ (function (_super) {
      */
     /**
      * Adjusts a single column to see if it can be recalculated
+     * @private
      * @param {?} index
      * @param {?} value
      * @return {?}
      */
     TdDataTableComponent.prototype._adjustColumnWidth = /**
      * Adjusts a single column to see if it can be recalculated
+     * @private
      * @param {?} index
      * @param {?} value
      * @return {?}
@@ -1585,15 +1692,21 @@ var TdDataTableComponent = /** @class */ (function (_super) {
      */
     /**
      * Generic method to calculate column width
+     * @private
      * @return {?}
      */
     TdDataTableComponent.prototype._calculateWidth = /**
      * Generic method to calculate column width
+     * @private
      * @return {?}
      */
     function () {
         /** @type {?} */
-        var renderedColumns = this.columns.filter(function (col) { return !col.hidden; });
+        var renderedColumns = this.columns.filter((/**
+         * @param {?} col
+         * @return {?}
+         */
+        function (col) { return !col.hidden; }));
         return Math.floor(this.hostWidth / renderedColumns.length);
     };
     /**
@@ -1601,10 +1714,12 @@ var TdDataTableComponent = /** @class */ (function (_super) {
      */
     /**
      * Method to calculate the rows to be rendered in the viewport
+     * @private
      * @return {?}
      */
     TdDataTableComponent.prototype._calculateVirtualRows = /**
      * Method to calculate the rows to be rendered in the viewport
+     * @private
      * @return {?}
      */
     function () {
@@ -1617,7 +1732,12 @@ var TdDataTableComponent = /** @class */ (function (_super) {
             var rowHeightSum_1 = 0;
             // loop through all rows to see if we have their height cached
             // and sum them all to calculate the total height
-            this._data.forEach(function (d, i) {
+            this._data.forEach((/**
+             * @param {?} d
+             * @param {?} i
+             * @return {?}
+             */
+            function (d, i) {
                 // iterate through all rows at first and assume all
                 // rows are the same height as the first one
                 if (!_this._rowHeightCache[i]) {
@@ -1628,7 +1748,7 @@ var TdDataTableComponent = /** @class */ (function (_super) {
                 if (_this._scrollVerticalOffset - rowHeightSum_1 > 0) {
                     scrolledRows++;
                 }
-            });
+            }));
             this._totalHeight = rowHeightSum_1;
             // set the initial row to be rendered taking into account the row offset
             /** @type {?} */
@@ -1676,16 +1796,22 @@ var TdDataTableComponent = /** @class */ (function (_super) {
         }
         // mark for check at the end of the queue so we are sure
         // that the changes will be marked
-        Promise.resolve().then(function () {
+        Promise.resolve().then((/**
+         * @return {?}
+         */
+        function () {
             _this._changeDetectorRef.markForCheck();
-        });
+        }));
     };
     TdDataTableComponent.decorators = [
         { type: Component, args: [{
                     providers: [
                         {
                             provide: NG_VALUE_ACCESSOR,
-                            useExisting: forwardRef(function () { return TdDataTableComponent; }),
+                            useExisting: forwardRef((/**
+                             * @return {?}
+                             */
+                            function () { return TdDataTableComponent; })),
                             multi: true,
                         },
                     ],
@@ -1705,7 +1831,7 @@ var TdDataTableComponent = /** @class */ (function (_super) {
     ]; };
     TdDataTableComponent.propDecorators = {
         _templates: [{ type: ContentChildren, args: [TdDataTableTemplateDirective,] }],
-        _scrollableDiv: [{ type: ViewChild, args: ['scrollableDiv',] }],
+        _scrollableDiv: [{ type: ViewChild, args: ['scrollableDiv', { static: true },] }],
         _colElements: [{ type: ViewChildren, args: ['columnElement',] }],
         _rows: [{ type: ViewChildren, args: [TdDataTableRowComponent,] }],
         data: [{ type: Input, args: ['data',] }],
@@ -1728,7 +1854,7 @@ var TdDataTableComponent = /** @class */ (function (_super) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdDataTableColumnComponent = /** @class */ (function () {
     function TdDataTableColumnComponent(_elementRef, _renderer) {
@@ -1882,7 +2008,7 @@ var TdDataTableColumnComponent = /** @class */ (function () {
                     /* tslint:disable-next-line */
                     selector: 'th[td-data-table-column]',
                     template: "<span #columnContent class=\"td-data-table-heading\">\n  <mat-icon\n    class=\"td-data-table-sort-icon\"\n    *ngIf=\"sortable && numeric\"\n    [class.mat-asc]=\"isAscending()\"\n    [class.mat-desc]=\"isDescending()\"\n  >\n    arrow_upward\n  </mat-icon>\n  <span>\n    <ng-content></ng-content>\n  </span>\n  <mat-icon\n    class=\"td-data-table-sort-icon\"\n    *ngIf=\"sortable && !numeric\"\n    [class.mat-asc]=\"isAscending()\"\n    [class.mat-desc]=\"isDescending()\"\n  >\n    arrow_upward\n  </mat-icon>\n</span>\n<ng-content select=\"[td-column-resizer]\"></ng-content>\n",
-                    styles: [":host{white-space:nowrap;position:relative;padding:0;vertical-align:middle;text-align:left}:host>.td-data-table-heading{padding:0 28px}:host:first-child>.td-data-table-heading{padding-left:24px;padding-right:initial}html[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}body[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}:host:first-child>.td-data-table-heading bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:first-child>.td-data-table-heading bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:last-child>.td-data-table-heading{padding-left:28px;padding-right:24px}html[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}body[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}:host:last-child>.td-data-table-heading bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:last-child>.td-data-table-heading bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host mat-icon{height:16px;width:16px;font-size:16px!important;line-height:16px!important}:host mat-icon.td-data-table-sort-icon{opacity:0;transition:transform .25s;transition:transform .25s,-webkit-transform .25s;position:absolute;top:0}:host mat-icon.td-data-table-sort-icon.mat-asc{-webkit-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0)}:host mat-icon.td-data-table-sort-icon.mat-desc{-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg)}:host.mat-active.mat-sortable mat-icon.td-data-table-sort-icon,:host:hover.mat-sortable mat-icon.td-data-table-sort-icon{opacity:1}html[dir=rtl] :host{text-align:right;unicode-bidi:embed}body[dir=rtl] :host{text-align:right;unicode-bidi:embed}[dir=rtl] :host{text-align:right;unicode-bidi:embed}:host bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host>*{vertical-align:middle}:host.mat-clickable{cursor:pointer}:host.mat-clickable:focus{outline:0}:host .td-data-table-heading{display:inline-block;position:relative}:host.mat-numeric{text-align:right}html[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}:host.mat-numeric bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:-22px;margin-right:initial}html[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}:host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:6px;margin-right:initial}html[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}body[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}"]
+                    styles: [":host{white-space:nowrap;position:relative;padding:0;vertical-align:middle;text-align:left}:host>.td-data-table-heading{padding:0 28px}:host:first-child>.td-data-table-heading{padding-left:24px;padding-right:initial}html[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}body[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}:host:first-child>.td-data-table-heading bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:first-child>.td-data-table-heading bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:last-child>.td-data-table-heading{padding-left:28px;padding-right:24px}html[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}body[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}:host:last-child>.td-data-table-heading bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:last-child>.td-data-table-heading bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host mat-icon{height:16px;width:16px;font-size:16px!important;line-height:16px!important}:host mat-icon.td-data-table-sort-icon{opacity:0;transition:transform .25s;position:absolute;top:0}:host mat-icon.td-data-table-sort-icon.mat-asc{-ms-transform:rotate(0);transform:rotate(0)}:host mat-icon.td-data-table-sort-icon.mat-desc{-ms-transform:rotate(180deg);transform:rotate(180deg)}:host.mat-active.mat-sortable mat-icon.td-data-table-sort-icon,:host:hover.mat-sortable mat-icon.td-data-table-sort-icon{opacity:1}html[dir=rtl] :host{text-align:right;unicode-bidi:embed}body[dir=rtl] :host{text-align:right;unicode-bidi:embed}[dir=rtl] :host{text-align:right;unicode-bidi:embed}:host bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host>*{vertical-align:middle}:host.mat-clickable{cursor:pointer}:host.mat-clickable:focus{outline:0}:host .td-data-table-heading{display:inline-block;position:relative}:host.mat-numeric{text-align:right}html[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}:host.mat-numeric bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:-22px;margin-right:initial}html[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}:host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:6px;margin-right:initial}html[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}body[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}"]
                 }] }
     ];
     /** @nocollapse */
@@ -1891,7 +2017,7 @@ var TdDataTableColumnComponent = /** @class */ (function () {
         { type: Renderer2 }
     ]; };
     TdDataTableColumnComponent.propDecorators = {
-        _columnContent: [{ type: ViewChild, args: ['columnContent', { read: ElementRef },] }],
+        _columnContent: [{ type: ViewChild, args: ['columnContent', { read: ElementRef, static: true },] }],
         name: [{ type: Input, args: ['name',] }],
         sortable: [{ type: Input, args: ['sortable',] }],
         active: [{ type: Input, args: ['active',] }],
@@ -1909,7 +2035,7 @@ var TdDataTableColumnComponent = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdDataTableCellComponent = /** @class */ (function () {
     function TdDataTableCellComponent(_elementRef, _renderer) {
@@ -1981,7 +2107,7 @@ var TdDataTableCellComponent = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdDataTableTableComponent = /** @class */ (function () {
     function TdDataTableTableComponent(_elementRef, _renderer) {
@@ -2007,7 +2133,7 @@ var TdDataTableTableComponent = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 var TD_DATA_TABLE = [
@@ -2034,7 +2160,7 @@ var CovalentDataTableModule = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdDataTableService = /** @class */ (function () {
     function TdDataTableService() {
@@ -2081,9 +2207,17 @@ var TdDataTableService = /** @class */ (function () {
         /** @type {?} */
         var filter = searchTerm ? (ignoreCase ? searchTerm.toLowerCase() : searchTerm) : '';
         if (filter) {
-            data = data.filter(function (item) {
+            data = data.filter((/**
+             * @param {?} item
+             * @return {?}
+             */
+            function (item) {
                 /** @type {?} */
-                var res = Object.keys(item).find(function (key) {
+                var res = Object.keys(item).find((/**
+                 * @param {?} key
+                 * @return {?}
+                 */
+                function (key) {
                     if (!excludedColumns || excludedColumns.indexOf(key) === -1) {
                         /** @type {?} */
                         var preItemValue = '' + item[key];
@@ -2091,9 +2225,9 @@ var TdDataTableService = /** @class */ (function () {
                         var itemValue = ignoreCase ? preItemValue.toLowerCase() : preItemValue;
                         return itemValue.indexOf(filter) > -1;
                     }
-                });
+                }));
                 return !(typeof res === 'undefined');
-            });
+            }));
         }
         return data;
     };
@@ -2133,7 +2267,12 @@ var TdDataTableService = /** @class */ (function () {
         if (sortOrder === void 0) { sortOrder = TdDataTableSortingOrder.Ascending; }
         if (sortBy) {
             data = Array.from(data); // Change the array reference to trigger OnPush and not mutate original array
-            data.sort(function (a, b) {
+            data.sort((/**
+             * @param {?} a
+             * @param {?} b
+             * @return {?}
+             */
+            function (a, b) {
                 /** @type {?} */
                 var compA = a[sortBy];
                 /** @type {?} */
@@ -2152,7 +2291,7 @@ var TdDataTableService = /** @class */ (function () {
                     }
                 }
                 return direction * (sortOrder === TdDataTableSortingOrder.Descending ? -1 : 1);
-            });
+            }));
         }
         return data;
     };
@@ -2199,25 +2338,9 @@ var TdDataTableService = /** @class */ (function () {
                     providedIn: 'root',
                 },] }
     ];
-    /** @nocollapse */ TdDataTableService.ngInjectableDef = defineInjectable({ factory: function TdDataTableService_Factory() { return new TdDataTableService(); }, token: TdDataTableService, providedIn: "root" });
+    /** @nocollapse */ TdDataTableService.ngInjectableDef = ɵɵdefineInjectable({ factory: function TdDataTableService_Factory() { return new TdDataTableService(); }, token: TdDataTableService, providedIn: "root" });
     return TdDataTableService;
 }());
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-export { CovalentDataTableModule, TdDataTableSortingOrder, TdDataTableBase, _TdDataTableMixinBase, TdDataTableComponent, TdDataTableCellComponent, TdDataTableColumnComponent, TdDataTableColumnRowComponent, TdDataTableRowComponent, TdDataTableTableComponent, TdDataTableTemplateDirective, TdDataTableService };
-
+export { CovalentDataTableModule, TdDataTableBase, TdDataTableCellComponent, TdDataTableColumnComponent, TdDataTableColumnRowComponent, TdDataTableComponent, TdDataTableRowComponent, TdDataTableService, TdDataTableSortingOrder, TdDataTableTableComponent, TdDataTableTemplateDirective, _TdDataTableMixinBase };
 //# sourceMappingURL=covalent-core-data-table.js.map

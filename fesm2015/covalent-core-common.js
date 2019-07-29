@@ -1,15 +1,15 @@
+import { Directive, Optional, Host, HostListener, Inject, ElementRef, Pipe, LOCALE_ID, Injectable, NgModule } from '@angular/core';
 import { DOCUMENT, DecimalPipe, CommonModule } from '@angular/common';
-import { Router, RoutesRecognized } from '@angular/router';
+import { NgModel, FormsModule, Validators } from '@angular/forms';
+import { RoutesRecognized, Router } from '@angular/router';
 import { filter, pairwise } from 'rxjs/operators';
-import { Directive, HostListener, Host, Optional, ElementRef, Inject, Pipe, LOCALE_ID, Injectable, NgModule } from '@angular/core';
-import { trigger, state, style, transition, animate, query, animateChild, group, AUTO_STYLE, keyframes } from '@angular/animations';
+import { trigger, state, style, transition, group, query, animateChild, animate, AUTO_STYLE, keyframes } from '@angular/animations';
 import { Subject } from 'rxjs';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { NgModel, FormsModule, Validators } from '@angular/forms';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdAutoTrimDirective {
     /**
@@ -44,7 +44,7 @@ TdAutoTrimDirective.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdFullscreenDirective {
     /**
@@ -76,13 +76,25 @@ class TdFullscreenDirective {
         const { _el: { nativeElement }, } = this;
         /** @type {?} */
         const enterFullScreenMap = {
-            requestFullscreen: () => nativeElement.requestFullscreen(),
+            requestFullscreen: (/**
+             * @return {?}
+             */
+            () => nativeElement.requestFullscreen()),
             // Chrome
-            webkitRequestFullscreen: () => nativeElement.webkitRequestFullscreen(),
+            webkitRequestFullscreen: (/**
+             * @return {?}
+             */
+            () => nativeElement.webkitRequestFullscreen()),
             // Safari
-            mozRequestFullScreen: () => nativeElement.mozRequestFullScreen(),
+            mozRequestFullScreen: (/**
+             * @return {?}
+             */
+            () => nativeElement.mozRequestFullScreen()),
             // Firefox
-            msRequestFullscreen: () => nativeElement.msRequestFullscreen(),
+            msRequestFullscreen: (/**
+             * @return {?}
+             */
+            () => nativeElement.msRequestFullscreen()),
         };
         for (const handler of Object.keys(enterFullScreenMap)) {
             if (nativeElement[handler]) {
@@ -97,13 +109,25 @@ class TdFullscreenDirective {
         const { _document, _el: { nativeElement }, } = this;
         /** @type {?} */
         const exitFullScreenMap = {
-            exitFullscreen: () => _document.exitFullscreen(),
+            exitFullscreen: (/**
+             * @return {?}
+             */
+            () => _document.exitFullscreen()),
             // Chrome
-            webkitExitFullscreen: () => _document.webkitExitFullscreen(),
+            webkitExitFullscreen: (/**
+             * @return {?}
+             */
+            () => _document.webkitExitFullscreen()),
             // Safari
-            mozCancelFullScreen: () => _document.mozCancelFullScreen(),
+            mozCancelFullScreen: (/**
+             * @return {?}
+             */
+            () => _document.mozCancelFullScreen()),
             // Firefox
-            msExitFullscreen: () => _document.msExitFullscreen(),
+            msExitFullscreen: (/**
+             * @return {?}
+             */
+            () => _document.msExitFullscreen()),
         };
         for (const handler of Object.keys(exitFullScreenMap)) {
             if (_document[handler] && this._getFullScreenElement() === nativeElement) {
@@ -112,19 +136,32 @@ class TdFullscreenDirective {
         }
     }
     /**
+     * @private
      * @return {?}
      */
     _getFullScreenElement() {
         const { _document } = this;
         /** @type {?} */
         const tdFullScreenElementMap = {
-            fullscreenElement: () => _document.fullscreenElement,
+            fullscreenElement: (/**
+             * @return {?}
+             */
+            () => _document.fullscreenElement),
             // Chrome, Opera
-            webkitFullscreenElement: () => _document.webkitFullscreenElement,
+            webkitFullscreenElement: (/**
+             * @return {?}
+             */
+            () => _document.webkitFullscreenElement),
             // Safari
-            mozFullscreenElement: () => _document.mozFullscreenElement,
+            mozFullscreenElement: (/**
+             * @return {?}
+             */
+            () => _document.mozFullscreenElement),
             // Firefox
-            msFullscreenElement: () => _document.msFullscreenElement,
+            msFullscreenElement: (/**
+             * @return {?}
+             */
+            () => _document.msFullscreenElement),
         };
         for (const props of Object.keys(tdFullScreenElementMap)) {
             if (_document[props]) {
@@ -150,7 +187,7 @@ TdFullscreenDirective.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdTimeAgoPipe {
     /**
@@ -229,7 +266,7 @@ TdTimeAgoPipe.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdTimeDifferencePipe {
     /**
@@ -293,7 +330,7 @@ TdTimeDifferencePipe.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdTimeUntilPipe {
     /**
@@ -372,7 +409,7 @@ TdTimeUntilPipe.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdBytesPipe {
     /* `bytes` needs to be `any` or TypeScript complains
@@ -411,7 +448,7 @@ TdBytesPipe.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdDecimalBytesPipe {
     /* `bytes` needs to be `any` or TypeScript complains
@@ -450,7 +487,7 @@ TdDecimalBytesPipe.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdDigitsPipe {
     /**
@@ -500,7 +537,7 @@ TdDigitsPipe.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdTruncatePipe {
     /**
@@ -532,7 +569,7 @@ TdTruncatePipe.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class RouterPathService {
     /**
@@ -541,10 +578,18 @@ class RouterPathService {
     constructor(_router) {
         this._router = _router;
         this._router.events
-            .pipe(filter((e) => e instanceof RoutesRecognized), pairwise())
-            .subscribe((e) => {
+            .pipe(filter((/**
+         * @param {?} e
+         * @return {?}
+         */
+        (e) => e instanceof RoutesRecognized)), pairwise())
+            .subscribe((/**
+         * @param {?} e
+         * @return {?}
+         */
+        (e) => {
             RouterPathService._previousRoute = e[0].urlAfterRedirects;
-        });
+        }));
     }
     /*
        * Utility function to get the route the user previously went to
@@ -568,7 +613,7 @@ RouterPathService.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class IconService {
     constructor() {
@@ -1360,10 +1405,14 @@ class IconService {
      * @param {?} query
      * @return {?}
      */
-    filter(query$$1) {
-        return this.icons.filter((el) => {
-            return el.toLowerCase().indexOf(query$$1 ? query$$1.toLowerCase() : '') > -1;
-        });
+    filter(query) {
+        return this.icons.filter((/**
+         * @param {?} el
+         * @return {?}
+         */
+        (el) => {
+            return el.toLowerCase().indexOf(query ? query.toLowerCase() : '') > -1;
+        }));
     }
 }
 IconService.decorators = [
@@ -1372,7 +1421,7 @@ IconService.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TD_DIRECTIVES = [TdAutoTrimDirective, TdFullscreenDirective];
@@ -1402,7 +1451,7 @@ CovalentCommonModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * const tdRotateAnimation
@@ -1431,7 +1480,7 @@ const tdRotateAnimation = trigger('tdRotate', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * const tdCollapseAnimation
@@ -1486,7 +1535,7 @@ const tdCollapseAnimation = trigger('tdCollapse', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * const tdFadeInOutAnimation
@@ -1527,7 +1576,7 @@ const tdFadeInOutAnimation = trigger('tdFadeInOut', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * const tdBounceAnimation
@@ -1601,7 +1650,7 @@ const tdBounceAnimation = trigger('tdBounce', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * const tdFlashAnimation
@@ -1639,7 +1688,7 @@ const tdFlashAnimation = trigger('tdFlash', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * const tdHeadshakeAnimation
@@ -1678,7 +1727,7 @@ const tdHeadshakeAnimation = trigger('tdHeadshake', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * const tdJelloAnimation
@@ -1720,7 +1769,7 @@ const tdJelloAnimation = trigger('tdJello', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * const tdPulseAnimation
@@ -1756,12 +1805,15 @@ const tdPulseAnimation = trigger('tdPulse', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
-const noop = () => {
+const noop = (/**
+ * @return {?}
+ */
+() => {
     // empty method
-};
+});
 /**
  * Mixin to augment a component with ngModel support.
  * @template T
@@ -1777,8 +1829,15 @@ function mixinControlValueAccessor(base, initialValue) {
         constructor(...args) {
             super(...args);
             this._value = initialValue instanceof Array ? Object.assign([], initialValue) : initialValue;
-            this.onChange = (_) => noop;
-            this.onTouched = () => noop;
+            this.onChange = (/**
+             * @param {?} _
+             * @return {?}
+             */
+            (_) => noop);
+            this.onTouched = (/**
+             * @return {?}
+             */
+            () => noop);
             this._subjectValueChanges = new Subject();
             this.valueChanges = this._subjectValueChanges.asObservable();
         }
@@ -1827,7 +1886,7 @@ function mixinControlValueAccessor(base, initialValue) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Mixin to augment a component or directive with a `disabled` property.
@@ -1874,7 +1933,7 @@ function mixinDisabled(base) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Mixin to augment a component or directive with a `disabled` property.
@@ -1921,7 +1980,7 @@ function mixinDisableRipple(base) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class CovalentValidators {
     /**
@@ -1930,14 +1989,18 @@ class CovalentValidators {
      */
     static min(minValue) {
         /** @type {?} */
-        let func = (c) => {
+        let func = (/**
+         * @param {?} c
+         * @return {?}
+         */
+        (c) => {
             if (!!Validators.required(c) || (!minValue && minValue !== 0)) {
                 return undefined;
             }
             /** @type {?} */
             let v = c.value;
             return v < minValue ? { min: { minValue: minValue, actualValue: v } } : undefined;
-        };
+        });
         return func;
     }
     /**
@@ -1946,14 +2009,18 @@ class CovalentValidators {
      */
     static max(maxValue) {
         /** @type {?} */
-        let func = (c) => {
+        let func = (/**
+         * @param {?} c
+         * @return {?}
+         */
+        (c) => {
             if (!!Validators.required(c) || (!maxValue && maxValue !== 0)) {
                 return undefined;
             }
             /** @type {?} */
             let v = c.value;
             return v > maxValue ? { max: { maxValue: maxValue, actualValue: v } } : undefined;
-        };
+        });
         return func;
     }
     /**
@@ -1965,21 +2032,5 @@ class CovalentValidators {
     }
 }
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-export { CovalentCommonModule, tdRotateAnimation, tdCollapseAnimation, tdFadeInOutAnimation, tdBounceAnimation, tdFlashAnimation, tdHeadshakeAnimation, tdJelloAnimation, tdPulseAnimation, mixinControlValueAccessor, mixinDisabled, mixinDisableRipple, TdAutoTrimDirective, CovalentValidators, TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTruncatePipe, TdDecimalBytesPipe, TdFullscreenDirective as ɵa, TdTimeUntilPipe as ɵb, IconService as ɵd, RouterPathService as ɵc };
-
+export { CovalentCommonModule, CovalentValidators, TdAutoTrimDirective, TdBytesPipe, TdDecimalBytesPipe, TdDigitsPipe, TdTimeAgoPipe, TdTimeDifferencePipe, TdTruncatePipe, mixinControlValueAccessor, mixinDisableRipple, mixinDisabled, tdBounceAnimation, tdCollapseAnimation, tdFadeInOutAnimation, tdFlashAnimation, tdHeadshakeAnimation, tdJelloAnimation, tdPulseAnimation, tdRotateAnimation, TdFullscreenDirective as ɵa, TdTimeUntilPipe as ɵb, RouterPathService as ɵc, IconService as ɵd };
 //# sourceMappingURL=covalent-core-common.js.map

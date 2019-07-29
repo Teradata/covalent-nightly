@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/material/tabs'), require('@angular/forms'), require('@angular/cdk/coercion'), require('@angular/core'), require('@angular/cdk/portal'), require('@covalent/core/common')) :
-    typeof define === 'function' && define.amd ? define('@covalent/core/tab-select', ['exports', '@angular/common', '@angular/material/tabs', '@angular/forms', '@angular/cdk/coercion', '@angular/core', '@angular/cdk/portal', '@covalent/core/common'], factory) :
-    (factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core['tab-select'] = {}),global.ng.common,global.ng.material.tabs,global.ng.forms,global.ng.cdk.coercion,global.ng.core,global.ng.cdk.portal,global.covalent.core.common));
-}(this, (function (exports,common,tabs,forms,coercion,core,portal,common$1) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/cdk/portal'), require('@angular/material/tabs'), require('@angular/cdk/coercion'), require('@covalent/core/common')) :
+    typeof define === 'function' && define.amd ? define('@covalent/core/tab-select', ['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/cdk/portal', '@angular/material/tabs', '@angular/cdk/coercion', '@covalent/core/common'], factory) :
+    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core['tab-select'] = {}), global.ng.core, global.ng.common, global.ng.forms, global.ng.cdk.portal, global.ng.material.tabs, global.ng.cdk.coercion, global.covalent.core.common));
+}(this, function (exports, core, common, forms, portal, tabs, coercion, common$1) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -19,14 +19,14 @@
     and limitations under the License.
     ***************************************************************************** */
     /* global Reflect, Promise */
-    var extendStatics = function (d, b) {
+
+    var extendStatics = function(d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b)
-                if (b.hasOwnProperty(p))
-                    d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
+
     function __extends(d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -35,7 +35,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdTabOptionBase = /** @class */ (function () {
         function TdTabOptionBase(_viewContainerRef, _changeDetectorRef) {
@@ -55,7 +55,8 @@
         Object.defineProperty(TdTabOptionComponent.prototype, "content", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._contentPortal;
             },
             enumerable: true,
@@ -67,9 +68,9 @@
         TdTabOptionComponent.prototype.ngOnInit = /**
          * @return {?}
          */
-            function () {
-                this._contentPortal = new portal.TemplatePortal(this._content, this._viewContainerRef);
-            };
+        function () {
+            this._contentPortal = new portal.TemplatePortal(this._content, this._viewContainerRef);
+        };
         TdTabOptionComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'td-tab-option',
@@ -81,14 +82,12 @@
                     }] }
         ];
         /** @nocollapse */
-        TdTabOptionComponent.ctorParameters = function () {
-            return [
-                { type: core.ViewContainerRef },
-                { type: core.ChangeDetectorRef }
-            ];
-        };
+        TdTabOptionComponent.ctorParameters = function () { return [
+            { type: core.ViewContainerRef },
+            { type: core.ChangeDetectorRef }
+        ]; };
         TdTabOptionComponent.propDecorators = {
-            _content: [{ type: core.ViewChild, args: [core.TemplateRef,] }],
+            _content: [{ type: core.ViewChild, args: [core.TemplateRef, { static: true },] }],
             value: [{ type: core.Input, args: ['value',] }]
         };
         return TdTabOptionComponent;
@@ -96,7 +95,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdTabSelectBase = /** @class */ (function () {
         function TdTabSelectBase(_changeDetectorRef) {
@@ -125,7 +124,8 @@
         Object.defineProperty(TdTabSelectComponent.prototype, "selectedIndex", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._selectedIndex;
             },
             enumerable: true,
@@ -134,7 +134,8 @@
         Object.defineProperty(TdTabSelectComponent.prototype, "tabOptions", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._tabOptions ? this._tabOptions.toArray() : undefined;
             },
             enumerable: true,
@@ -143,7 +144,8 @@
         Object.defineProperty(TdTabSelectComponent.prototype, "stretchTabs", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._stretchTabs;
             },
             /**
@@ -153,7 +155,8 @@
              * Makes the tabs stretch to fit the parent container.
              * @param {?} stretchTabs
              * @return {?}
-             */ function (stretchTabs) {
+             */
+            function (stretchTabs) {
                 this._stretchTabs = coercion.coerceBooleanProperty(stretchTabs);
             },
             enumerable: true,
@@ -165,44 +168,58 @@
         TdTabSelectComponent.prototype.ngOnInit = /**
          * @return {?}
          */
-            function () {
-                var _this = this;
-                // subscribe to check if value changes and update the selectedIndex internally.
-                this._subs.push(this.valueChanges.subscribe(function (value) {
-                    _this._setValue(value);
-                }));
-            };
+        function () {
+            var _this = this;
+            // subscribe to check if value changes and update the selectedIndex internally.
+            this._subs.push(this.valueChanges.subscribe((/**
+             * @param {?} value
+             * @return {?}
+             */
+            function (value) {
+                _this._setValue(value);
+            })));
+        };
         /**
          * @return {?}
          */
         TdTabSelectComponent.prototype.ngAfterContentInit = /**
          * @return {?}
          */
+        function () {
+            var _this = this;
+            // subscribe to listen to any tab changes.
+            this._refreshValues();
+            this._subs.push(this._tabOptions.changes.subscribe((/**
+             * @return {?}
+             */
             function () {
-                var _this = this;
-                // subscribe to listen to any tab changes.
-                this._refreshValues();
-                this._subs.push(this._tabOptions.changes.subscribe(function () {
-                    _this._refreshValues();
-                }));
-                // initialize value
-                Promise.resolve().then(function () {
-                    _this._setValue(_this.value);
-                });
-            };
+                _this._refreshValues();
+            })));
+            // initialize value
+            Promise.resolve().then((/**
+             * @return {?}
+             */
+            function () {
+                _this._setValue(_this.value);
+            }));
+        };
         /**
          * @return {?}
          */
         TdTabSelectComponent.prototype.ngOnDestroy = /**
          * @return {?}
          */
-            function () {
-                if (this._subs && this._subs.length) {
-                    this._subs.forEach(function (sub) {
-                        sub.unsubscribe();
-                    });
-                }
-            };
+        function () {
+            if (this._subs && this._subs.length) {
+                this._subs.forEach((/**
+                 * @param {?} sub
+                 * @return {?}
+                 */
+                function (sub) {
+                    sub.unsubscribe();
+                }));
+            }
+        };
         /**
          * Method executed when user selects a different tab
          * This updates the new selectedIndex and infers what value should be mapped to.
@@ -219,31 +236,37 @@
          * @param {?} selectedIndex
          * @return {?}
          */
-            function (selectedIndex) {
-                this._selectedIndex = selectedIndex;
-                /** @type {?} */
-                var value = this._values[selectedIndex];
-                this.value = value;
-                this.valueChange.emit(value);
-                this.onChange(value);
-            };
+        function (selectedIndex) {
+            this._selectedIndex = selectedIndex;
+            /** @type {?} */
+            var value = this._values[selectedIndex];
+            this.value = value;
+            this.valueChange.emit(value);
+            this.onChange(value);
+        };
         /**
          * Refresh the values array whenever the number of tabs gets updated
          */
         /**
          * Refresh the values array whenever the number of tabs gets updated
+         * @private
          * @return {?}
          */
         TdTabSelectComponent.prototype._refreshValues = /**
          * Refresh the values array whenever the number of tabs gets updated
+         * @private
          * @return {?}
          */
-            function () {
-                this._values = this.tabOptions.map(function (tabOption) {
-                    return tabOption.value;
-                });
-                this._changeDetectorRef.markForCheck();
-            };
+        function () {
+            this._values = this.tabOptions.map((/**
+             * @param {?} tabOption
+             * @return {?}
+             */
+            function (tabOption) {
+                return tabOption.value;
+            }));
+            this._changeDetectorRef.markForCheck();
+        };
         /**
          * Try to set value depending if its part of our options
          * else set the value of the first tab.
@@ -251,34 +274,39 @@
         /**
          * Try to set value depending if its part of our options
          * else set the value of the first tab.
+         * @private
          * @param {?} value
          * @return {?}
          */
         TdTabSelectComponent.prototype._setValue = /**
          * Try to set value depending if its part of our options
          * else set the value of the first tab.
+         * @private
          * @param {?} value
          * @return {?}
          */
-            function (value) {
-                /** @type {?} */
-                var index = this._values.indexOf(value);
-                if (index > -1) {
-                    this._selectedIndex = index;
-                }
-                else {
-                    this.value = this._values.length ? this._values[0] : undefined;
-                    this._selectedIndex = 0;
-                }
-                this._changeDetectorRef.markForCheck();
-            };
+        function (value) {
+            /** @type {?} */
+            var index = this._values.indexOf(value);
+            if (index > -1) {
+                this._selectedIndex = index;
+            }
+            else {
+                this.value = this._values.length ? this._values[0] : undefined;
+                this._selectedIndex = 0;
+            }
+            this._changeDetectorRef.markForCheck();
+        };
         TdTabSelectComponent.decorators = [
             { type: core.Component, args: [{
                         changeDetection: core.ChangeDetectionStrategy.OnPush,
                         providers: [
                             {
                                 provide: forms.NG_VALUE_ACCESSOR,
-                                useExisting: core.forwardRef(function () { return TdTabSelectComponent; }),
+                                useExisting: core.forwardRef((/**
+                                 * @return {?}
+                                 */
+                                function () { return TdTabSelectComponent; })),
                                 multi: true,
                             },
                         ],
@@ -290,11 +318,9 @@
                     }] }
         ];
         /** @nocollapse */
-        TdTabSelectComponent.ctorParameters = function () {
-            return [
-                { type: core.ChangeDetectorRef }
-            ];
-        };
+        TdTabSelectComponent.ctorParameters = function () { return [
+            { type: core.ChangeDetectorRef }
+        ]; };
         TdTabSelectComponent.propDecorators = {
             _tabOptions: [{ type: core.ContentChildren, args: [TdTabOptionComponent,] }],
             stretchTabs: [{ type: core.Input, args: ['stretchTabs',] }],
@@ -307,7 +333,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var CovalentTabSelectModule = /** @class */ (function () {
         function CovalentTabSelectModule() {
@@ -331,31 +357,15 @@
         return CovalentTabSelectModule;
     }());
 
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
     exports.CovalentTabSelectModule = CovalentTabSelectModule;
-    exports.TdTabSelectBase = TdTabSelectBase;
-    exports._TdTabSelectMixinBase = _TdTabSelectMixinBase;
-    exports.TdTabSelectComponent = TdTabSelectComponent;
     exports.TdTabOptionBase = TdTabOptionBase;
-    exports._TdTabOptionMixinBase = _TdTabOptionMixinBase;
     exports.TdTabOptionComponent = TdTabOptionComponent;
+    exports.TdTabSelectBase = TdTabSelectBase;
+    exports.TdTabSelectComponent = TdTabSelectComponent;
+    exports._TdTabOptionMixinBase = _TdTabOptionMixinBase;
+    exports._TdTabSelectMixinBase = _TdTabSelectMixinBase;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
-
+}));
 //# sourceMappingURL=covalent-core-tab-select.umd.js.map

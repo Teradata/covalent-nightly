@@ -1,11 +1,11 @@
+import { Component, Renderer2, ChangeDetectorRef, ElementRef, ViewChild, TemplateRef, HostBinding, Input, HostListener, Directive, ViewContainerRef, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { Component, Directive, Input, Renderer2, ElementRef, ViewContainerRef, TemplateRef, ViewChild, HostBinding, HostListener, ChangeDetectorRef, NgModule } from '@angular/core';
 import { tdCollapseAnimation } from '@covalent/core/common';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdMessageContainerDirective = /** @class */ (function () {
     function TdMessageContainerDirective(viewContainer) {
@@ -178,12 +178,15 @@ var TdMessageComponent = /** @class */ (function () {
      */
     function () {
         var _this = this;
-        Promise.resolve(undefined).then(function () {
+        Promise.resolve(undefined).then((/**
+         * @return {?}
+         */
+        function () {
             if (_this._opened) {
                 _this._attach();
             }
             _this._initialized = true;
-        });
+        }));
     };
     /**
      * Renders the message on screen
@@ -250,10 +253,12 @@ var TdMessageComponent = /** @class */ (function () {
      */
     /**
      * Method to set the state before starting an animation
+     * @private
      * @return {?}
      */
     TdMessageComponent.prototype._startAnimationState = /**
      * Method to set the state before starting an animation
+     * @private
      * @return {?}
      */
     function () {
@@ -266,10 +271,12 @@ var TdMessageComponent = /** @class */ (function () {
      */
     /**
      * Method to attach template to DOM
+     * @private
      * @return {?}
      */
     TdMessageComponent.prototype._attach = /**
      * Method to attach template to DOM
+     * @private
      * @return {?}
      */
     function () {
@@ -281,10 +288,12 @@ var TdMessageComponent = /** @class */ (function () {
      */
     /**
      * Method to detach template from DOM
+     * @private
      * @return {?}
      */
     TdMessageComponent.prototype._detach = /**
      * Method to detach template from DOM
+     * @private
      * @return {?}
      */
     function () {
@@ -306,8 +315,8 @@ var TdMessageComponent = /** @class */ (function () {
         { type: ElementRef }
     ]; };
     TdMessageComponent.propDecorators = {
-        _childElement: [{ type: ViewChild, args: [TdMessageContainerDirective,] }],
-        _template: [{ type: ViewChild, args: [TemplateRef,] }],
+        _childElement: [{ type: ViewChild, args: [TdMessageContainerDirective, { static: true },] }],
+        _template: [{ type: ViewChild, args: [TemplateRef, { static: false },] }],
         collapsedAnimation: [{ type: HostBinding, args: ['@tdCollapse',] }],
         hidden: [{ type: HostBinding, args: ['style.display',] }],
         label: [{ type: Input, args: ['label',] }],
@@ -322,7 +331,7 @@ var TdMessageComponent = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 var TD_MESSAGE = [TdMessageComponent, TdMessageContainerDirective];
@@ -339,21 +348,5 @@ var CovalentMessageModule = /** @class */ (function () {
     return CovalentMessageModule;
 }());
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-export { CovalentMessageModule, TdMessageContainerDirective, TdMessageComponent };
-
+export { CovalentMessageModule, TdMessageComponent, TdMessageContainerDirective };
 //# sourceMappingURL=covalent-core-message.js.map

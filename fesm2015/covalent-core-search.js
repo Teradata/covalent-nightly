@@ -1,17 +1,17 @@
+import { EventEmitter, Component, forwardRef, ChangeDetectionStrategy, Optional, ChangeDetectorRef, ViewChild, Input, Output, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
+import { MatInput, MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { Dir } from '@angular/cdk/bidi';
-import { MatInput, MatInputModule } from '@angular/material/input';
-import { debounceTime, skip } from 'rxjs/operators';
-import { Component, ViewChild, Input, Output, EventEmitter, Optional, ChangeDetectionStrategy, ChangeDetectorRef, forwardRef, NgModule } from '@angular/core';
-import { NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
 import { trigger, state, style, transition, animate, AUTO_STYLE } from '@angular/animations';
+import { Dir } from '@angular/cdk/bidi';
+import { debounceTime, skip } from 'rxjs/operators';
 import { mixinControlValueAccessor } from '@covalent/core/common';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdSearchInputBase {
     /**
@@ -84,9 +84,13 @@ class TdSearchInputComponent extends _TdSearchInputMixinBase {
     ngOnInit() {
         this._input.ngControl.valueChanges
             .pipe(debounceTime(this.debounce), skip(1))
-            .subscribe((value) => {
+            .subscribe((/**
+         * @param {?} value
+         * @return {?}
+         */
+        (value) => {
             this._searchTermChanged(value);
-        });
+        }));
     }
     /**
      * Method to focus to underlying input.
@@ -126,6 +130,7 @@ class TdSearchInputComponent extends _TdSearchInputMixinBase {
         this.onClear.emit(undefined);
     }
     /**
+     * @private
      * @param {?} value
      * @return {?}
      */
@@ -138,7 +143,10 @@ TdSearchInputComponent.decorators = [
                 providers: [
                     {
                         provide: NG_VALUE_ACCESSOR,
-                        useExisting: forwardRef(() => TdSearchInputComponent),
+                        useExisting: forwardRef((/**
+                         * @return {?}
+                         */
+                        () => TdSearchInputComponent)),
                         multi: true,
                     },
                 ],
@@ -173,7 +181,7 @@ TdSearchInputComponent.ctorParameters = () => [
     { type: ChangeDetectorRef }
 ];
 TdSearchInputComponent.propDecorators = {
-    _input: [{ type: ViewChild, args: [MatInput,] }],
+    _input: [{ type: ViewChild, args: [MatInput, { static: true },] }],
     appearance: [{ type: Input, args: ['appearance',] }],
     showUnderline: [{ type: Input, args: ['showUnderline',] }],
     debounce: [{ type: Input, args: ['debounce',] }],
@@ -187,7 +195,7 @@ TdSearchInputComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdSearchBoxBase {
     /**
@@ -320,7 +328,10 @@ TdSearchBoxComponent.decorators = [
                 providers: [
                     {
                         provide: NG_VALUE_ACCESSOR,
-                        useExisting: forwardRef(() => TdSearchBoxComponent),
+                        useExisting: forwardRef((/**
+                         * @return {?}
+                         */
+                        () => TdSearchBoxComponent)),
                         multi: true,
                     },
                 ],
@@ -350,7 +361,7 @@ TdSearchBoxComponent.ctorParameters = () => [
     { type: ChangeDetectorRef }
 ];
 TdSearchBoxComponent.propDecorators = {
-    _searchInput: [{ type: ViewChild, args: [TdSearchInputComponent,] }],
+    _searchInput: [{ type: ViewChild, args: [TdSearchInputComponent, { static: true },] }],
     backIcon: [{ type: Input, args: ['backIcon',] }],
     searchIcon: [{ type: Input, args: ['searchIcon',] }],
     clearIcon: [{ type: Input, args: ['clearIcon',] }],
@@ -366,7 +377,7 @@ TdSearchBoxComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class CovalentSearchModule {
 }
@@ -378,21 +389,5 @@ CovalentSearchModule.decorators = [
             },] }
 ];
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-export { CovalentSearchModule, TdSearchBoxBase, _TdSearchBoxMixinBase, TdSearchBoxComponent, TdSearchInputBase, _TdSearchInputMixinBase, TdSearchInputComponent };
-
+export { CovalentSearchModule, TdSearchBoxBase, TdSearchBoxComponent, TdSearchInputBase, TdSearchInputComponent, _TdSearchBoxMixinBase, _TdSearchInputMixinBase };
 //# sourceMappingURL=covalent-core-search.js.map

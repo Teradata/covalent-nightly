@@ -1,12 +1,12 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/material/icon'), require('rxjs'), require('rxjs/operators'), require('@angular/core')) :
-    typeof define === 'function' && define.amd ? define('@covalent/core/breadcrumbs', ['exports', '@angular/common', '@angular/material/icon', 'rxjs', 'rxjs/operators', '@angular/core'], factory) :
-    (factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.breadcrumbs = {}),global.ng.common,global.ng.material.icon,global.rxjs,global.rxjs.operators,global.ng.core));
-}(this, (function (exports,common,icon,rxjs,operators,core) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/material/icon'), require('rxjs'), require('rxjs/operators')) :
+    typeof define === 'function' && define.amd ? define('@covalent/core/breadcrumbs', ['exports', '@angular/core', '@angular/common', '@angular/material/icon', 'rxjs', 'rxjs/operators'], factory) :
+    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.breadcrumbs = {}), global.ng.core, global.ng.common, global.ng.material.icon, global.rxjs, global.rxjs.operators));
+}(this, function (exports, core, common, icon, rxjs, operators) { 'use strict';
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdBreadcrumbComponent = /** @class */ (function () {
         function TdBreadcrumbComponent(_elementRef, _changeDetectorRef) {
@@ -22,7 +22,8 @@
         Object.defineProperty(TdBreadcrumbComponent.prototype, "displayCrumb", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._displayCrumb;
             },
             /**
@@ -32,7 +33,8 @@
              * Whether to display the crumb or not
              * @param {?} shouldDisplay
              * @return {?}
-             */ function (shouldDisplay) {
+             */
+            function (shouldDisplay) {
                 this._displayCrumb = shouldDisplay;
                 this._changeDetectorRef.markForCheck();
             },
@@ -46,7 +48,8 @@
             get: /**
              * Width of the DOM element of the crumb
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._width;
             },
             enumerable: true,
@@ -59,7 +62,8 @@
             get: /**
              * Gets the display style of the crumb
              * @return {?}
-             */ function () {
+             */
+            function () {
                 // Set the display to none on the component, just in case the end user is hiding
                 // and showing them instead of the component doing itself for reasons like responsive
                 return this._displayCrumb ? undefined : 'none';
@@ -73,14 +77,17 @@
         TdBreadcrumbComponent.prototype.ngAfterViewInit = /**
          * @return {?}
          */
+        function () {
+            var _this = this;
+            // set the width from the actual rendered DOM element
+            setTimeout((/**
+             * @return {?}
+             */
             function () {
-                var _this = this;
-                // set the width from the actual rendered DOM element
-                setTimeout(function () {
-                    _this._width = (( /** @type {?} */(_this._elementRef.nativeElement))).getBoundingClientRect().width;
-                    _this._changeDetectorRef.markForCheck();
-                });
-            };
+                _this._width = ((/** @type {?} */ (_this._elementRef.nativeElement))).getBoundingClientRect().width;
+                _this._changeDetectorRef.markForCheck();
+            }));
+        };
         /**
          * Stop click propagation when clicking on icon
          */
@@ -94,10 +101,10 @@
          * @param {?} event
          * @return {?}
          */
-            function (event) {
-                event.stopPropagation();
-                event.preventDefault();
-            };
+        function (event) {
+            event.stopPropagation();
+            event.preventDefault();
+        };
         TdBreadcrumbComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'td-breadcrumb, a[td-breadcrumb]',
@@ -111,12 +118,10 @@
                     }] }
         ];
         /** @nocollapse */
-        TdBreadcrumbComponent.ctorParameters = function () {
-            return [
-                { type: core.ElementRef },
-                { type: core.ChangeDetectorRef }
-            ];
-        };
+        TdBreadcrumbComponent.ctorParameters = function () { return [
+            { type: core.ElementRef },
+            { type: core.ChangeDetectorRef }
+        ]; };
         TdBreadcrumbComponent.propDecorators = {
             displayBinding: [{ type: core.HostBinding, args: ['style.display',] }]
         };
@@ -125,7 +130,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdBreadcrumbsComponent = /** @class */ (function () {
         function TdBreadcrumbsComponent(_elementRef, _changeDetectorRef) {
@@ -147,62 +152,68 @@
         TdBreadcrumbsComponent.prototype.ngOnInit = /**
          * @return {?}
          */
+        function () {
+            var _this = this;
+            this._resizeSubscription = rxjs.merge(rxjs.fromEvent(window, 'resize').pipe(operators.debounceTime(10)), this._widthSubject.asObservable().pipe(operators.distinctUntilChanged())).subscribe((/**
+             * @return {?}
+             */
             function () {
-                var _this = this;
-                this._resizeSubscription = rxjs.merge(rxjs.fromEvent(window, 'resize').pipe(operators.debounceTime(10)), this._widthSubject.asObservable().pipe(operators.distinctUntilChanged())).subscribe(function () {
-                    if (!_this._resizing) {
-                        _this._resizing = true;
-                        setTimeout(function () {
-                            _this._calculateVisibility();
-                            _this._resizing = false;
-                            _this._changeDetectorRef.markForCheck();
-                        }, 100);
-                    }
-                });
-            };
+                if (!_this._resizing) {
+                    _this._resizing = true;
+                    setTimeout((/**
+                     * @return {?}
+                     */
+                    function () {
+                        _this._calculateVisibility();
+                        _this._resizing = false;
+                        _this._changeDetectorRef.markForCheck();
+                    }), 100);
+                }
+            }));
+        };
         /**
          * @return {?}
          */
         TdBreadcrumbsComponent.prototype.ngDoCheck = /**
          * @return {?}
          */
-            function () {
-                if (this._elementRef && this._elementRef.nativeElement) {
-                    this._widthSubject.next(this.nativeElementWidth);
-                }
-            };
+        function () {
+            if (this._elementRef && this._elementRef.nativeElement) {
+                this._widthSubject.next(this.nativeElementWidth);
+            }
+        };
         /**
          * @return {?}
          */
         TdBreadcrumbsComponent.prototype.ngAfterContentInit = /**
          * @return {?}
          */
-            function () {
-                this.setCrumbIcons();
-                this._changeDetectorRef.markForCheck();
-            };
+        function () {
+            this.setCrumbIcons();
+            this._changeDetectorRef.markForCheck();
+        };
         /**
          * @return {?}
          */
         TdBreadcrumbsComponent.prototype.ngOnDestroy = /**
          * @return {?}
          */
-            function () {
-                this._resizeSubscription.unsubscribe();
-            };
+        function () {
+            this._resizeSubscription.unsubscribe();
+        };
         Object.defineProperty(TdBreadcrumbsComponent.prototype, "nativeElementWidth", {
             /*
              * Current width of the element container
              */
             get: /*
                * Current width of the element container
-               */ 
+               */
             /**
              * @return {?}
              */
             function () {
                 /** @type {?} */
-                var element = ( /** @type {?} */(this._elementRef.nativeElement));
+                var element = (/** @type {?} */ (this._elementRef.nativeElement));
                 // Need to take into account border, margin and padding that might be around all the crumbs
                 /** @type {?} */
                 var style = window.getComputedStyle(element);
@@ -236,7 +247,8 @@
             get: /**
              * The total count of individual breadcrumbs
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._breadcrumbs ? this._breadcrumbs.length : 0;
             },
             enumerable: true,
@@ -247,56 +259,64 @@
          */
         /**
          * Set the crumb icon separators
+         * @private
          * @return {?}
          */
         TdBreadcrumbsComponent.prototype.setCrumbIcons = /**
          * Set the crumb icon separators
+         * @private
          * @return {?}
          */
-            function () {
-                var _this = this;
-                /** @type {?} */
-                var breadcrumbArray = this._breadcrumbs.toArray();
-                if (breadcrumbArray.length > 0) {
-                    // don't show the icon on the last breadcrumb
-                    breadcrumbArray[breadcrumbArray.length - 1]._displayIcon = false;
-                }
-                breadcrumbArray.forEach(function (breadcrumb) {
-                    breadcrumb.separatorIcon = _this.separatorIcon;
-                });
-            };
+        function () {
+            var _this = this;
+            /** @type {?} */
+            var breadcrumbArray = this._breadcrumbs.toArray();
+            if (breadcrumbArray.length > 0) {
+                // don't show the icon on the last breadcrumb
+                breadcrumbArray[breadcrumbArray.length - 1]._displayIcon = false;
+            }
+            breadcrumbArray.forEach((/**
+             * @param {?} breadcrumb
+             * @return {?}
+             */
+            function (breadcrumb) {
+                breadcrumb.separatorIcon = _this.separatorIcon;
+            }));
+        };
         /**
+         * @private
          * @return {?}
          */
         TdBreadcrumbsComponent.prototype._calculateVisibility = /**
+         * @private
          * @return {?}
          */
-            function () {
+        function () {
+            /** @type {?} */
+            var crumbsArray = this._breadcrumbs.toArray();
+            /** @type {?} */
+            var crumbWidthSum = 0;
+            /** @type {?} */
+            var hiddenCrumbs = [];
+            // loop through crumbs in reverse order to calculate which ones should be removed
+            for (var i = crumbsArray.length - 1; i >= 0; i--) {
                 /** @type {?} */
-                var crumbsArray = this._breadcrumbs.toArray();
-                /** @type {?} */
-                var crumbWidthSum = 0;
-                /** @type {?} */
-                var hiddenCrumbs = [];
-                // loop through crumbs in reverse order to calculate which ones should be removed
-                for (var i = crumbsArray.length - 1; i >= 0; i--) {
-                    /** @type {?} */
-                    var breadcrumb = crumbsArray[i];
-                    // if crumb exceeds width, then we skip it from the sum and add it into the hiddencrumbs array
-                    // and hide it
-                    if (crumbWidthSum + breadcrumb.width > this.nativeElementWidth) {
-                        breadcrumb.displayCrumb = false;
-                        hiddenCrumbs.push(breadcrumb);
-                    }
-                    else {
-                        // else we show it
-                        breadcrumb.displayCrumb = true;
-                    }
-                    crumbWidthSum += breadcrumb.width;
+                var breadcrumb = crumbsArray[i];
+                // if crumb exceeds width, then we skip it from the sum and add it into the hiddencrumbs array
+                // and hide it
+                if (crumbWidthSum + breadcrumb.width > this.nativeElementWidth) {
+                    breadcrumb.displayCrumb = false;
+                    hiddenCrumbs.push(breadcrumb);
                 }
-                this.hiddenBreadcrumbs = hiddenCrumbs;
-                this._changeDetectorRef.markForCheck();
-            };
+                else {
+                    // else we show it
+                    breadcrumb.displayCrumb = true;
+                }
+                crumbWidthSum += breadcrumb.width;
+            }
+            this.hiddenBreadcrumbs = hiddenCrumbs;
+            this._changeDetectorRef.markForCheck();
+        };
         TdBreadcrumbsComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'td-breadcrumbs',
@@ -310,12 +330,10 @@
                     }] }
         ];
         /** @nocollapse */
-        TdBreadcrumbsComponent.ctorParameters = function () {
-            return [
-                { type: core.ElementRef },
-                { type: core.ChangeDetectorRef }
-            ];
-        };
+        TdBreadcrumbsComponent.ctorParameters = function () { return [
+            { type: core.ElementRef },
+            { type: core.ChangeDetectorRef }
+        ]; };
         TdBreadcrumbsComponent.propDecorators = {
             _breadcrumbs: [{ type: core.ContentChildren, args: [TdBreadcrumbComponent,] }],
             separatorIcon: [{ type: core.Input, args: ['separatorIcon',] }]
@@ -325,7 +343,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var CovalentBreadcrumbsModule = /** @class */ (function () {
         function CovalentBreadcrumbsModule() {
@@ -340,27 +358,11 @@
         return CovalentBreadcrumbsModule;
     }());
 
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
     exports.CovalentBreadcrumbsModule = CovalentBreadcrumbsModule;
     exports.TdBreadcrumbsComponent = TdBreadcrumbsComponent;
     exports.ɵa = TdBreadcrumbComponent;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
-
+}));
 //# sourceMappingURL=covalent-core-breadcrumbs.umd.js.map

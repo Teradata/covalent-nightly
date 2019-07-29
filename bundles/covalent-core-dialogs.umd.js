@@ -1,12 +1,12 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/forms'), require('@angular/material/input'), require('@angular/material/button'), require('@angular/core'), require('@angular/material/dialog')) :
-    typeof define === 'function' && define.amd ? define('@covalent/core/dialogs', ['exports', '@angular/common', '@angular/forms', '@angular/material/input', '@angular/material/button', '@angular/core', '@angular/material/dialog'], factory) :
-    (factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.dialogs = {}),global.ng.common,global.ng.forms,global.ng.material.input,global.ng.material.button,global.ng.core,global.ng.material.dialog));
-}(this, (function (exports,common,forms,input,button,core,dialog) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/material/dialog'), require('@angular/material/input'), require('@angular/material/button')) :
+    typeof define === 'function' && define.amd ? define('@covalent/core/dialogs', ['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/material/dialog', '@angular/material/input', '@angular/material/button'], factory) :
+    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.dialogs = {}), global.ng.core, global.ng.common, global.ng.forms, global.ng.material.dialog, global.ng.material.input, global.ng.material.button));
+}(this, function (exports, core, common, forms, dialog, input, button) { 'use strict';
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdDialogTitleDirective = /** @class */ (function () {
         function TdDialogTitleDirective() {
@@ -41,17 +41,17 @@
         TdDialogComponent.prototype.ngAfterContentInit = /**
          * @return {?}
          */
-            function () {
-                if (this.dialogTitle.length > 1) {
-                    throw new Error('Duplicate td-dialog-title component at in td-dialog.');
-                }
-                if (this.dialogContent.length > 1) {
-                    throw new Error('Duplicate td-dialog-content component at in td-dialog.');
-                }
-                if (this.dialogActions.length > 1) {
-                    throw new Error('Duplicate td-dialog-actions component at in td-dialog.');
-                }
-            };
+        function () {
+            if (this.dialogTitle.length > 1) {
+                throw new Error('Duplicate td-dialog-title component at in td-dialog.');
+            }
+            if (this.dialogContent.length > 1) {
+                throw new Error('Duplicate td-dialog-content component at in td-dialog.');
+            }
+            if (this.dialogActions.length > 1) {
+                throw new Error('Duplicate td-dialog-actions component at in td-dialog.');
+            }
+        };
         TdDialogComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'td-dialog',
@@ -69,7 +69,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdAlertDialogComponent = /** @class */ (function () {
         function TdAlertDialogComponent(_dialogRef) {
@@ -82,9 +82,9 @@
         TdAlertDialogComponent.prototype.close = /**
          * @return {?}
          */
-            function () {
-                this._dialogRef.close();
-            };
+        function () {
+            this._dialogRef.close();
+        };
         TdAlertDialogComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'td-alert-dialog',
@@ -93,17 +93,15 @@
                     }] }
         ];
         /** @nocollapse */
-        TdAlertDialogComponent.ctorParameters = function () {
-            return [
-                { type: dialog.MatDialogRef }
-            ];
-        };
+        TdAlertDialogComponent.ctorParameters = function () { return [
+            { type: dialog.MatDialogRef }
+        ]; };
         return TdAlertDialogComponent;
     }());
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdConfirmDialogComponent = /** @class */ (function () {
         function TdConfirmDialogComponent(_dialogRef) {
@@ -117,18 +115,18 @@
         TdConfirmDialogComponent.prototype.cancel = /**
          * @return {?}
          */
-            function () {
-                this._dialogRef.close(false);
-            };
+        function () {
+            this._dialogRef.close(false);
+        };
         /**
          * @return {?}
          */
         TdConfirmDialogComponent.prototype.accept = /**
          * @return {?}
          */
-            function () {
-                this._dialogRef.close(true);
-            };
+        function () {
+            this._dialogRef.close(true);
+        };
         TdConfirmDialogComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'td-confirm-dialog',
@@ -137,17 +135,15 @@
                     }] }
         ];
         /** @nocollapse */
-        TdConfirmDialogComponent.ctorParameters = function () {
-            return [
-                { type: dialog.MatDialogRef }
-            ];
-        };
+        TdConfirmDialogComponent.ctorParameters = function () { return [
+            { type: dialog.MatDialogRef }
+        ]; };
         return TdConfirmDialogComponent;
     }());
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdPromptDialogComponent = /** @class */ (function () {
         function TdPromptDialogComponent(_dialogRef) {
@@ -161,13 +157,16 @@
         TdPromptDialogComponent.prototype.ngAfterViewInit = /**
          * @return {?}
          */
+        function () {
+            var _this = this;
+            // focus input once everything is rendered and good to go
+            Promise.resolve().then((/**
+             * @return {?}
+             */
             function () {
-                var _this = this;
-                // focus input once everything is rendered and good to go
-                Promise.resolve().then(function () {
-                    (( /** @type {?} */(_this._input.nativeElement))).focus();
-                });
-            };
+                ((/** @type {?} */ (_this._input.nativeElement))).focus();
+            }));
+        };
         /**
          * Method executed when input is focused
          * Selects all text
@@ -182,27 +181,27 @@
          * Selects all text
          * @return {?}
          */
-            function () {
-                (( /** @type {?} */(this._input.nativeElement))).select();
-            };
+        function () {
+            ((/** @type {?} */ (this._input.nativeElement))).select();
+        };
         /**
          * @return {?}
          */
         TdPromptDialogComponent.prototype.cancel = /**
          * @return {?}
          */
-            function () {
-                this._dialogRef.close(undefined);
-            };
+        function () {
+            this._dialogRef.close(undefined);
+        };
         /**
          * @return {?}
          */
         TdPromptDialogComponent.prototype.accept = /**
          * @return {?}
          */
-            function () {
-                this._dialogRef.close(this.value);
-            };
+        function () {
+            this._dialogRef.close(this.value);
+        };
         TdPromptDialogComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'td-prompt-dialog',
@@ -211,20 +210,18 @@
                     }] }
         ];
         /** @nocollapse */
-        TdPromptDialogComponent.ctorParameters = function () {
-            return [
-                { type: dialog.MatDialogRef }
-            ];
-        };
+        TdPromptDialogComponent.ctorParameters = function () { return [
+            { type: dialog.MatDialogRef }
+        ]; };
         TdPromptDialogComponent.propDecorators = {
-            _input: [{ type: core.ViewChild, args: ['input',] }]
+            _input: [{ type: core.ViewChild, args: ['input', { static: true },] }]
         };
         return TdPromptDialogComponent;
     }());
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdDialogService = /** @class */ (function () {
         function TdDialogService(_dialogService) {
@@ -259,9 +256,9 @@
          * @param {?=} config
          * @return {?}
          */
-            function (component, config) {
-                return this._dialogService.open(component, config);
-            };
+        function (component, config) {
+            return this._dialogService.open(component, config);
+        };
         /**
          * Wrapper function over the closeAll() method in MatDialog.
          * Closes all of the currently-open dialogs.
@@ -276,9 +273,9 @@
          * Closes all of the currently-open dialogs.
          * @return {?}
          */
-            function () {
-                this._dialogService.closeAll();
-            };
+        function () {
+            this._dialogService.closeAll();
+        };
         /**
          * params:
          * - config: IAlertConfig {
@@ -319,20 +316,20 @@
          * @param {?} config
          * @return {?}
          */
-            function (config) {
-                /** @type {?} */
-                var dialogConfig = this._createConfig(config);
-                /** @type {?} */
-                var dialogRef = this._dialogService.open(TdAlertDialogComponent, dialogConfig);
-                /** @type {?} */
-                var alertDialogComponent = dialogRef.componentInstance;
-                alertDialogComponent.title = config.title;
-                alertDialogComponent.message = config.message;
-                if (config.closeButton) {
-                    alertDialogComponent.closeButton = config.closeButton;
-                }
-                return dialogRef;
-            };
+        function (config) {
+            /** @type {?} */
+            var dialogConfig = this._createConfig(config);
+            /** @type {?} */
+            var dialogRef = this._dialogService.open(TdAlertDialogComponent, dialogConfig);
+            /** @type {?} */
+            var alertDialogComponent = dialogRef.componentInstance;
+            alertDialogComponent.title = config.title;
+            alertDialogComponent.message = config.message;
+            if (config.closeButton) {
+                alertDialogComponent.closeButton = config.closeButton;
+            }
+            return dialogRef;
+        };
         /**
          * params:
          * - config: IConfirmConfig {
@@ -376,23 +373,23 @@
          * @param {?} config
          * @return {?}
          */
-            function (config) {
-                /** @type {?} */
-                var dialogConfig = this._createConfig(config);
-                /** @type {?} */
-                var dialogRef = this._dialogService.open(TdConfirmDialogComponent, dialogConfig);
-                /** @type {?} */
-                var confirmDialogComponent = dialogRef.componentInstance;
-                confirmDialogComponent.title = config.title;
-                confirmDialogComponent.message = config.message;
-                if (config.acceptButton) {
-                    confirmDialogComponent.acceptButton = config.acceptButton;
-                }
-                if (config.cancelButton) {
-                    confirmDialogComponent.cancelButton = config.cancelButton;
-                }
-                return dialogRef;
-            };
+        function (config) {
+            /** @type {?} */
+            var dialogConfig = this._createConfig(config);
+            /** @type {?} */
+            var dialogRef = this._dialogService.open(TdConfirmDialogComponent, dialogConfig);
+            /** @type {?} */
+            var confirmDialogComponent = dialogRef.componentInstance;
+            confirmDialogComponent.title = config.title;
+            confirmDialogComponent.message = config.message;
+            if (config.acceptButton) {
+                confirmDialogComponent.acceptButton = config.acceptButton;
+            }
+            if (config.cancelButton) {
+                confirmDialogComponent.cancelButton = config.cancelButton;
+            }
+            return dialogRef;
+        };
         /**
          * params:
          * - config: IPromptConfig {
@@ -439,54 +436,54 @@
          * @param {?} config
          * @return {?}
          */
-            function (config) {
-                /** @type {?} */
-                var dialogConfig = this._createConfig(config);
-                /** @type {?} */
-                var dialogRef = this._dialogService.open(TdPromptDialogComponent, dialogConfig);
-                /** @type {?} */
-                var promptDialogComponent = dialogRef.componentInstance;
-                promptDialogComponent.title = config.title;
-                promptDialogComponent.message = config.message;
-                promptDialogComponent.value = config.value;
-                if (config.acceptButton) {
-                    promptDialogComponent.acceptButton = config.acceptButton;
-                }
-                if (config.cancelButton) {
-                    promptDialogComponent.cancelButton = config.cancelButton;
-                }
-                return dialogRef;
-            };
+        function (config) {
+            /** @type {?} */
+            var dialogConfig = this._createConfig(config);
+            /** @type {?} */
+            var dialogRef = this._dialogService.open(TdPromptDialogComponent, dialogConfig);
+            /** @type {?} */
+            var promptDialogComponent = dialogRef.componentInstance;
+            promptDialogComponent.title = config.title;
+            promptDialogComponent.message = config.message;
+            promptDialogComponent.value = config.value;
+            if (config.acceptButton) {
+                promptDialogComponent.acceptButton = config.acceptButton;
+            }
+            if (config.cancelButton) {
+                promptDialogComponent.cancelButton = config.cancelButton;
+            }
+            return dialogRef;
+        };
         /**
+         * @private
          * @param {?} config
          * @return {?}
          */
         TdDialogService.prototype._createConfig = /**
+         * @private
          * @param {?} config
          * @return {?}
          */
-            function (config) {
-                /** @type {?} */
-                var dialogConfig = new dialog.MatDialogConfig();
-                dialogConfig.width = '400px';
-                Object.assign(dialogConfig, config);
-                return dialogConfig;
-            };
+        function (config) {
+            /** @type {?} */
+            var dialogConfig = new dialog.MatDialogConfig();
+            dialogConfig.width = '400px';
+            Object.assign(dialogConfig, config);
+            return dialogConfig;
+        };
         TdDialogService.decorators = [
             { type: core.Injectable }
         ];
         /** @nocollapse */
-        TdDialogService.ctorParameters = function () {
-            return [
-                { type: dialog.MatDialog }
-            ];
-        };
+        TdDialogService.ctorParameters = function () { return [
+            { type: dialog.MatDialog }
+        ]; };
         return TdDialogService;
     }());
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
     var TD_DIALOGS = [
@@ -519,33 +516,17 @@
         return CovalentDialogsModule;
     }());
 
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
     exports.CovalentDialogsModule = CovalentDialogsModule;
-    exports.TdDialogTitleDirective = TdDialogTitleDirective;
-    exports.TdDialogContentDirective = TdDialogContentDirective;
-    exports.TdDialogActionsDirective = TdDialogActionsDirective;
-    exports.TdDialogComponent = TdDialogComponent;
     exports.TdAlertDialogComponent = TdAlertDialogComponent;
     exports.TdConfirmDialogComponent = TdConfirmDialogComponent;
-    exports.TdPromptDialogComponent = TdPromptDialogComponent;
+    exports.TdDialogActionsDirective = TdDialogActionsDirective;
+    exports.TdDialogComponent = TdDialogComponent;
+    exports.TdDialogContentDirective = TdDialogContentDirective;
     exports.TdDialogService = TdDialogService;
+    exports.TdDialogTitleDirective = TdDialogTitleDirective;
+    exports.TdPromptDialogComponent = TdPromptDialogComponent;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
-
+}));
 //# sourceMappingURL=covalent-core-dialogs.umd.js.map

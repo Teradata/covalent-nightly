@@ -1,8 +1,9 @@
+import { Component, ElementRef, Renderer2, Input, HostListener, Directive, TemplateRef, ViewContainerRef, EventEmitter, forwardRef, ChangeDetectionStrategy, Optional, Inject, ChangeDetectorRef, ContentChildren, ViewChild, ViewChildren, Output, HostBinding, NgModule, Injectable, ɵɵdefineInjectable } from '@angular/core';
+import { DOCUMENT, CommonModule } from '@angular/common';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPseudoCheckboxModule } from '@angular/material/core';
-import { DOCUMENT, CommonModule } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
@@ -11,11 +12,10 @@ import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { TemplatePortalDirective } from '@angular/cdk/portal';
 import { mixinControlValueAccessor } from '@covalent/core/common';
-import { Component, Input, Renderer2, ElementRef, HostListener, Directive, TemplateRef, ViewContainerRef, Output, EventEmitter, forwardRef, ChangeDetectionStrategy, ChangeDetectorRef, ViewChild, ContentChildren, Inject, Optional, ViewChildren, HostBinding, NgModule, Injectable, defineInjectable } from '@angular/core';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdDataTableColumnRowComponent {
     /**
@@ -116,7 +116,7 @@ TdDataTableRowComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdDataTableTemplateDirective extends TemplatePortalDirective {
     /**
@@ -141,7 +141,7 @@ TdDataTableTemplateDirective.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @enum {string} */
 const TdDataTableSortingOrder = {
@@ -254,9 +254,14 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
          * Allows custom comparison between row and model to see if row is selected or not
          * Default comparation is by reference
          */
-        this.compareWith = (row, model) => {
+        this.compareWith = (/**
+         * @param {?} row
+         * @param {?} model
+         * @return {?}
+         */
+        (row, model) => {
             return row === model;
-        };
+        });
     }
     /**
      * @return {?}
@@ -335,11 +340,14 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
     set data(data) {
         this._data = data;
         this._rowHeightCache = [];
-        Promise.resolve().then(() => {
+        Promise.resolve().then((/**
+         * @return {?}
+         */
+        () => {
             this.refresh();
             // scroll back to the top if the data has changed
             this._scrollableDiv.nativeElement.scrollTop = 0;
-        });
+        }));
     }
     /**
      * @return {?}
@@ -375,11 +383,19 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             // if columns is undefined, use key in [data] rows as name and label for column headers.
             /** @type {?} */
             let row = this._data[0];
-            Object.keys(row).forEach((k) => {
-                if (!this._columns.find((c) => c.name === k)) {
+            Object.keys(row).forEach((/**
+             * @param {?} k
+             * @return {?}
+             */
+            (k) => {
+                if (!this._columns.find((/**
+                 * @param {?} c
+                 * @return {?}
+                 */
+                (c) => c.name === k))) {
                     this._columns.push({ name: k, label: k });
                 }
-            });
+            }));
             return this._columns;
         }
         else {
@@ -477,7 +493,11 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             return;
         }
         /** @type {?} */
-        const column = this.columns.find((c) => c.name === columnName);
+        const column = this.columns.find((/**
+         * @param {?} c
+         * @return {?}
+         */
+        (c) => c.name === columnName));
         if (!column) {
             throw new Error('[sortBy] must be a valid column name');
         }
@@ -522,38 +542,62 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
      */
     ngOnInit() {
         // initialize observable for resize calculations
-        this._resizeSubs = this._onResize.asObservable().subscribe(() => {
+        this._resizeSubs = this._onResize.asObservable().subscribe((/**
+         * @return {?}
+         */
+        () => {
             if (this._rows) {
-                this._rows.toArray().forEach((row, index) => {
+                this._rows.toArray().forEach((/**
+                 * @param {?} row
+                 * @param {?} index
+                 * @return {?}
+                 */
+                (row, index) => {
                     this._rowHeightCache[this.fromRow + index] = row.height + 1;
-                });
+                }));
             }
             this._calculateWidths();
             this._calculateVirtualRows();
-        });
+        }));
         // initialize observable for column resize calculations
         this._columnResizeSubs = this._onColumnResize
             .asObservable()
             .pipe(debounceTime(0))
-            .subscribe((clientX) => {
+            .subscribe((/**
+         * @param {?} clientX
+         * @return {?}
+         */
+        (clientX) => {
             this._columnClientX = clientX;
             this._calculateWidths();
             this._changeDetectorRef.markForCheck();
-        });
+        }));
         // initialize observable for scroll column header reposition
-        this._horizontalScrollSubs = this._onHorizontalScroll.asObservable().subscribe((horizontalScroll) => {
+        this._horizontalScrollSubs = this._onHorizontalScroll.asObservable().subscribe((/**
+         * @param {?} horizontalScroll
+         * @return {?}
+         */
+        (horizontalScroll) => {
             this._scrollHorizontalOffset = horizontalScroll;
             this._changeDetectorRef.markForCheck();
-        });
+        }));
         // initialize observable for virtual scroll rendering
-        this._verticalScrollSubs = this._onVerticalScroll.asObservable().subscribe((verticalScroll) => {
+        this._verticalScrollSubs = this._onVerticalScroll.asObservable().subscribe((/**
+         * @param {?} verticalScroll
+         * @return {?}
+         */
+        (verticalScroll) => {
             this._scrollVerticalOffset = verticalScroll;
             this._calculateVirtualRows();
             this._changeDetectorRef.markForCheck();
-        });
-        this._valueChangesSubs = this.valueChanges.subscribe((value) => {
+        }));
+        this._valueChangesSubs = this.valueChanges.subscribe((/**
+         * @param {?} value
+         * @return {?}
+         */
+        (value) => {
             this.refresh();
-        });
+        }));
     }
     /**
      * Loads templates and sets them in a map for faster access.
@@ -579,10 +623,13 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             let newHostWidth = this._elementRef.nativeElement.getBoundingClientRect().width;
             // if the width has changed then we throw a resize event.
             if (this._hostWidth !== newHostWidth) {
-                setTimeout(() => {
+                setTimeout((/**
+                 * @return {?}
+                 */
+                () => {
                     this._hostWidth = newHostWidth;
                     this._onResize.next();
-                }, 0);
+                }), 0);
             }
         }
         if (this._scrollableDiv.nativeElement) {
@@ -602,9 +649,12 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
      * @return {?}
      */
     ngAfterViewInit() {
-        this._rowsChangedSubs = this._rows.changes.pipe(debounceTime(0)).subscribe(() => {
+        this._rowsChangedSubs = this._rows.changes.pipe(debounceTime(0)).subscribe((/**
+         * @return {?}
+         */
+        () => {
             this._onResize.next();
-        });
+        }));
         this._calculateVirtualRows();
     }
     /**
@@ -709,33 +759,45 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         /** @type {?} */
         let toggledRows = [];
         if (checked) {
-            this._data.forEach((row) => {
+            this._data.forEach((/**
+             * @param {?} row
+             * @return {?}
+             */
+            (row) => {
                 // skiping already selected rows
                 if (!this.isRowSelected(row)) {
                     this.value.push(row);
                     // checking which ones are being toggled
                     toggledRows.push(row);
                 }
-            });
+            }));
             this._allSelected = true;
             this._indeterminate = true;
         }
         else {
-            this._data.forEach((row) => {
+            this._data.forEach((/**
+             * @param {?} row
+             * @return {?}
+             */
+            (row) => {
                 // checking which ones are being toggled
                 if (this.isRowSelected(row)) {
                     toggledRows.push(row);
                     /** @type {?} */
-                    let modelRow = this.value.filter((val) => {
+                    let modelRow = this.value.filter((/**
+                     * @param {?} val
+                     * @return {?}
+                     */
+                    (val) => {
                         return this.compareWith(row, val);
-                    })[0];
+                    }))[0];
                     /** @type {?} */
                     let index = this.value.indexOf(modelRow);
                     if (index > -1) {
                         this.value.splice(index, 1);
                     }
                 }
-            });
+            }));
             this._allSelected = false;
             this._indeterminate = false;
         }
@@ -750,9 +812,13 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
     isRowSelected(row) {
         // compare items by [compareWith] function
         return this.value
-            ? this.value.filter((val) => {
+            ? this.value.filter((/**
+             * @param {?} val
+             * @return {?}
+             */
+            (val) => {
                 return this.compareWith(row, val);
-            }).length > 0
+            })).length > 0
             : false;
     }
     /**
@@ -834,9 +900,12 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
      */
     disableTextSelection() {
         if (this._document) {
-            this._document.onselectstart = function () {
+            this._document.onselectstart = (/**
+             * @return {?}
+             */
+            function () {
                 return false;
-            };
+            });
         }
     }
     /**
@@ -989,6 +1058,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         event.preventDefault();
     }
     /**
+     * @private
      * @param {?} name
      * @param {?} value
      * @return {?}
@@ -1008,6 +1078,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
     }
     /**
      * Does the actual Row Selection
+     * @private
      * @param {?} row
      * @param {?} rowIndex
      * @return {?}
@@ -1023,9 +1094,13 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         }
         else {
             // compare items by [compareWith] function
-            row = this.value.filter((val) => {
+            row = this.value.filter((/**
+             * @param {?} val
+             * @return {?}
+             */
+            (val) => {
                 return this.compareWith(row, val);
-            })[0];
+            }))[0];
             /** @type {?} */
             let index = this.value.indexOf(row);
             if (index > -1) {
@@ -1039,11 +1114,16 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
     }
     /**
      * Calculate all the state of all checkboxes
+     * @private
      * @return {?}
      */
     _calculateCheckboxState() {
         if (this._data) {
-            this._allSelected = typeof this._data.find((d) => !this.isRowSelected(d)) === 'undefined';
+            this._allSelected = typeof this._data.find((/**
+             * @param {?} d
+             * @return {?}
+             */
+            (d) => !this.isRowSelected(d))) === 'undefined';
             this._indeterminate = false;
             for (let row of this._data) {
                 if (!this.isRowSelected(row)) {
@@ -1056,20 +1136,27 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
     }
     /**
      * Calculates the widths for columns and cells depending on content
+     * @private
      * @return {?}
      */
     _calculateWidths() {
         if (this._colElements && this._colElements.length) {
             this._widths = [];
-            this._colElements.forEach((col, index) => {
+            this._colElements.forEach((/**
+             * @param {?} col
+             * @param {?} index
+             * @return {?}
+             */
+            (col, index) => {
                 this._adjustColumnWidth(index, this._calculateWidth());
-            });
+            }));
             this._adjustColumnWidhts();
             this._changeDetectorRef.markForCheck();
         }
     }
     /**
      * Adjusts columns after calculation to see if they need to be recalculated.
+     * @private
      * @return {?}
      */
     _adjustColumnWidhts() {
@@ -1077,7 +1164,12 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         let fixedTotalWidth = 0;
         // get the number of total columns that have flexible widths (not fixed or hidden)
         /** @type {?} */
-        let flexibleWidths = this._widths.filter((width, index) => {
+        let flexibleWidths = this._widths.filter((/**
+         * @param {?} width
+         * @param {?} index
+         * @return {?}
+         */
+        (width, index) => {
             if (this.columns[index].hidden) {
                 return false;
             }
@@ -1085,7 +1177,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
                 fixedTotalWidth += width.value;
             }
             return !width.limit && !width.max && !width.min;
-        }).length;
+        })).length;
         // calculate how much pixes are left that could be spread across
         // the flexible columns
         /** @type {?} */
@@ -1101,19 +1193,27 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             /** @type {?} */
             let adjustedNumber = 0;
             // adjust the column widths with the spread pixels
-            this._widths.forEach((colWidth) => {
+            this._widths.forEach((/**
+             * @param {?} colWidth
+             * @return {?}
+             */
+            (colWidth) => {
                 if ((this._widths[colWidth.index].max && this._widths[colWidth.index].value > newValue) ||
                     (this._widths[colWidth.index].min && this._widths[colWidth.index].value < newValue) ||
                     !this._widths[colWidth.index].limit) {
                     this._adjustColumnWidth(colWidth.index, newValue);
                     adjustedNumber++;
                 }
-            });
+            }));
             // if there are still columns that need to be recalculated, we start over
             /** @type {?} */
-            let newFlexibleWidths = this._widths.filter((width) => {
+            let newFlexibleWidths = this._widths.filter((/**
+             * @param {?} width
+             * @return {?}
+             */
+            (width) => {
                 return !width.limit && !width.max;
-            }).length;
+            })).length;
             if (newFlexibleWidths !== adjustedNumber && newFlexibleWidths !== flexibleWidths) {
                 this._adjustColumnWidhts();
             }
@@ -1121,6 +1221,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
     }
     /**
      * Adjusts a single column to see if it can be recalculated
+     * @private
      * @param {?} index
      * @param {?} value
      * @return {?}
@@ -1169,15 +1270,21 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
     }
     /**
      * Generic method to calculate column width
+     * @private
      * @return {?}
      */
     _calculateWidth() {
         /** @type {?} */
-        let renderedColumns = this.columns.filter((col) => !col.hidden);
+        let renderedColumns = this.columns.filter((/**
+         * @param {?} col
+         * @return {?}
+         */
+        (col) => !col.hidden));
         return Math.floor(this.hostWidth / renderedColumns.length);
     }
     /**
      * Method to calculate the rows to be rendered in the viewport
+     * @private
      * @return {?}
      */
     _calculateVirtualRows() {
@@ -1189,7 +1296,12 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             let rowHeightSum = 0;
             // loop through all rows to see if we have their height cached
             // and sum them all to calculate the total height
-            this._data.forEach((d, i) => {
+            this._data.forEach((/**
+             * @param {?} d
+             * @param {?} i
+             * @return {?}
+             */
+            (d, i) => {
                 // iterate through all rows at first and assume all
                 // rows are the same height as the first one
                 if (!this._rowHeightCache[i]) {
@@ -1200,7 +1312,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
                 if (this._scrollVerticalOffset - rowHeightSum > 0) {
                     scrolledRows++;
                 }
-            });
+            }));
             this._totalHeight = rowHeightSum;
             // set the initial row to be rendered taking into account the row offset
             /** @type {?} */
@@ -1248,9 +1360,12 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         }
         // mark for check at the end of the queue so we are sure
         // that the changes will be marked
-        Promise.resolve().then(() => {
+        Promise.resolve().then((/**
+         * @return {?}
+         */
+        () => {
             this._changeDetectorRef.markForCheck();
-        });
+        }));
     }
 }
 TdDataTableComponent.decorators = [
@@ -1258,7 +1373,10 @@ TdDataTableComponent.decorators = [
                 providers: [
                     {
                         provide: NG_VALUE_ACCESSOR,
-                        useExisting: forwardRef(() => TdDataTableComponent),
+                        useExisting: forwardRef((/**
+                         * @return {?}
+                         */
+                        () => TdDataTableComponent)),
                         multi: true,
                     },
                 ],
@@ -1278,7 +1396,7 @@ TdDataTableComponent.ctorParameters = () => [
 ];
 TdDataTableComponent.propDecorators = {
     _templates: [{ type: ContentChildren, args: [TdDataTableTemplateDirective,] }],
-    _scrollableDiv: [{ type: ViewChild, args: ['scrollableDiv',] }],
+    _scrollableDiv: [{ type: ViewChild, args: ['scrollableDiv', { static: true },] }],
     _colElements: [{ type: ViewChildren, args: ['columnElement',] }],
     _rows: [{ type: ViewChildren, args: [TdDataTableRowComponent,] }],
     data: [{ type: Input, args: ['data',] }],
@@ -1299,7 +1417,7 @@ TdDataTableComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdDataTableColumnComponent {
     /**
@@ -1416,7 +1534,7 @@ TdDataTableColumnComponent.decorators = [
                 /* tslint:disable-next-line */
                 selector: 'th[td-data-table-column]',
                 template: "<span #columnContent class=\"td-data-table-heading\">\n  <mat-icon\n    class=\"td-data-table-sort-icon\"\n    *ngIf=\"sortable && numeric\"\n    [class.mat-asc]=\"isAscending()\"\n    [class.mat-desc]=\"isDescending()\"\n  >\n    arrow_upward\n  </mat-icon>\n  <span>\n    <ng-content></ng-content>\n  </span>\n  <mat-icon\n    class=\"td-data-table-sort-icon\"\n    *ngIf=\"sortable && !numeric\"\n    [class.mat-asc]=\"isAscending()\"\n    [class.mat-desc]=\"isDescending()\"\n  >\n    arrow_upward\n  </mat-icon>\n</span>\n<ng-content select=\"[td-column-resizer]\"></ng-content>\n",
-                styles: [":host{white-space:nowrap;position:relative;padding:0;vertical-align:middle;text-align:left}:host>.td-data-table-heading{padding:0 28px}:host:first-child>.td-data-table-heading{padding-left:24px;padding-right:initial}html[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}body[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}:host:first-child>.td-data-table-heading bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:first-child>.td-data-table-heading bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:last-child>.td-data-table-heading{padding-left:28px;padding-right:24px}html[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}body[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}:host:last-child>.td-data-table-heading bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:last-child>.td-data-table-heading bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host mat-icon{height:16px;width:16px;font-size:16px!important;line-height:16px!important}:host mat-icon.td-data-table-sort-icon{opacity:0;transition:transform .25s;transition:transform .25s,-webkit-transform .25s;position:absolute;top:0}:host mat-icon.td-data-table-sort-icon.mat-asc{-webkit-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0)}:host mat-icon.td-data-table-sort-icon.mat-desc{-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg)}:host.mat-active.mat-sortable mat-icon.td-data-table-sort-icon,:host:hover.mat-sortable mat-icon.td-data-table-sort-icon{opacity:1}html[dir=rtl] :host{text-align:right;unicode-bidi:embed}body[dir=rtl] :host{text-align:right;unicode-bidi:embed}[dir=rtl] :host{text-align:right;unicode-bidi:embed}:host bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host>*{vertical-align:middle}:host.mat-clickable{cursor:pointer}:host.mat-clickable:focus{outline:0}:host .td-data-table-heading{display:inline-block;position:relative}:host.mat-numeric{text-align:right}html[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}:host.mat-numeric bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:-22px;margin-right:initial}html[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}:host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:6px;margin-right:initial}html[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}body[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}"]
+                styles: [":host{white-space:nowrap;position:relative;padding:0;vertical-align:middle;text-align:left}:host>.td-data-table-heading{padding:0 28px}:host:first-child>.td-data-table-heading{padding-left:24px;padding-right:initial}html[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}body[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}:host:first-child>.td-data-table-heading bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:first-child>.td-data-table-heading bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:last-child>.td-data-table-heading{padding-left:28px;padding-right:24px}html[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}body[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}:host:last-child>.td-data-table-heading bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:last-child>.td-data-table-heading bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host mat-icon{height:16px;width:16px;font-size:16px!important;line-height:16px!important}:host mat-icon.td-data-table-sort-icon{opacity:0;transition:transform .25s;position:absolute;top:0}:host mat-icon.td-data-table-sort-icon.mat-asc{-ms-transform:rotate(0);transform:rotate(0)}:host mat-icon.td-data-table-sort-icon.mat-desc{-ms-transform:rotate(180deg);transform:rotate(180deg)}:host.mat-active.mat-sortable mat-icon.td-data-table-sort-icon,:host:hover.mat-sortable mat-icon.td-data-table-sort-icon{opacity:1}html[dir=rtl] :host{text-align:right;unicode-bidi:embed}body[dir=rtl] :host{text-align:right;unicode-bidi:embed}[dir=rtl] :host{text-align:right;unicode-bidi:embed}:host bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host>*{vertical-align:middle}:host.mat-clickable{cursor:pointer}:host.mat-clickable:focus{outline:0}:host .td-data-table-heading{display:inline-block;position:relative}:host.mat-numeric{text-align:right}html[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}:host.mat-numeric bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:-22px;margin-right:initial}html[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}:host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:6px;margin-right:initial}html[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}body[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}"]
             }] }
 ];
 /** @nocollapse */
@@ -1425,7 +1543,7 @@ TdDataTableColumnComponent.ctorParameters = () => [
     { type: Renderer2 }
 ];
 TdDataTableColumnComponent.propDecorators = {
-    _columnContent: [{ type: ViewChild, args: ['columnContent', { read: ElementRef },] }],
+    _columnContent: [{ type: ViewChild, args: ['columnContent', { read: ElementRef, static: true },] }],
     name: [{ type: Input, args: ['name',] }],
     sortable: [{ type: Input, args: ['sortable',] }],
     active: [{ type: Input, args: ['active',] }],
@@ -1441,7 +1559,7 @@ TdDataTableColumnComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdDataTableCellComponent {
     /**
@@ -1503,7 +1621,7 @@ TdDataTableCellComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdDataTableTableComponent {
     /**
@@ -1532,7 +1650,7 @@ TdDataTableTableComponent.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TD_DATA_TABLE = [
@@ -1556,7 +1674,7 @@ CovalentDataTableModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdDataTableService {
     /**
@@ -1577,9 +1695,17 @@ class TdDataTableService {
         /** @type {?} */
         let filter = searchTerm ? (ignoreCase ? searchTerm.toLowerCase() : searchTerm) : '';
         if (filter) {
-            data = data.filter((item) => {
+            data = data.filter((/**
+             * @param {?} item
+             * @return {?}
+             */
+            (item) => {
                 /** @type {?} */
-                const res = Object.keys(item).find((key) => {
+                const res = Object.keys(item).find((/**
+                 * @param {?} key
+                 * @return {?}
+                 */
+                (key) => {
                     if (!excludedColumns || excludedColumns.indexOf(key) === -1) {
                         /** @type {?} */
                         const preItemValue = '' + item[key];
@@ -1587,9 +1713,9 @@ class TdDataTableService {
                         const itemValue = ignoreCase ? preItemValue.toLowerCase() : preItemValue;
                         return itemValue.indexOf(filter) > -1;
                     }
-                });
+                }));
                 return !(typeof res === 'undefined');
-            });
+            }));
         }
         return data;
     }
@@ -1608,7 +1734,12 @@ class TdDataTableService {
     sortData(data, sortBy, sortOrder = TdDataTableSortingOrder.Ascending) {
         if (sortBy) {
             data = Array.from(data); // Change the array reference to trigger OnPush and not mutate original array
-            data.sort((a, b) => {
+            data.sort((/**
+             * @param {?} a
+             * @param {?} b
+             * @return {?}
+             */
+            (a, b) => {
                 /** @type {?} */
                 let compA = a[sortBy];
                 /** @type {?} */
@@ -1627,7 +1758,7 @@ class TdDataTableService {
                     }
                 }
                 return direction * (sortOrder === TdDataTableSortingOrder.Descending ? -1 : 1);
-            });
+            }));
         }
         return data;
     }
@@ -1655,23 +1786,7 @@ TdDataTableService.decorators = [
                 providedIn: 'root',
             },] }
 ];
-/** @nocollapse */ TdDataTableService.ngInjectableDef = defineInjectable({ factory: function TdDataTableService_Factory() { return new TdDataTableService(); }, token: TdDataTableService, providedIn: "root" });
+/** @nocollapse */ TdDataTableService.ngInjectableDef = ɵɵdefineInjectable({ factory: function TdDataTableService_Factory() { return new TdDataTableService(); }, token: TdDataTableService, providedIn: "root" });
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-export { CovalentDataTableModule, TdDataTableSortingOrder, TdDataTableBase, _TdDataTableMixinBase, TdDataTableComponent, TdDataTableCellComponent, TdDataTableColumnComponent, TdDataTableColumnRowComponent, TdDataTableRowComponent, TdDataTableTableComponent, TdDataTableTemplateDirective, TdDataTableService };
-
+export { CovalentDataTableModule, TdDataTableBase, TdDataTableCellComponent, TdDataTableColumnComponent, TdDataTableColumnRowComponent, TdDataTableComponent, TdDataTableRowComponent, TdDataTableService, TdDataTableSortingOrder, TdDataTableTableComponent, TdDataTableTemplateDirective, _TdDataTableMixinBase };
 //# sourceMappingURL=covalent-core-data-table.js.map

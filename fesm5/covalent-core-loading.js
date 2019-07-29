@@ -1,17 +1,17 @@
+import { Component, ElementRef, ChangeDetectorRef, Injectable, ComponentFactoryResolver, Injector, Optional, SkipSelf, Directive, ViewContainerRef, TemplateRef, Input, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ComponentPortal, TemplatePortal, PortalModule } from '@angular/cdk/portal';
+import { OverlayConfig, Overlay, OverlayModule } from '@angular/cdk/overlay';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { __extends } from 'tslib';
-import { tdFadeInOutAnimation } from '@covalent/core/common';
-import { TemplatePortal, ComponentPortal, PortalModule } from '@angular/cdk/portal';
-import { Overlay, OverlayConfig, OverlayModule } from '@angular/cdk/overlay';
 import { Subject } from 'rxjs';
+import { tdFadeInOutAnimation } from '@covalent/core/common';
 import { distinctUntilChanged } from 'rxjs/operators';
-import { Component, ChangeDetectorRef, ElementRef, Injectable, ComponentFactoryResolver, SkipSelf, Optional, Injector, Directive, Input, ViewContainerRef, TemplateRef, NgModule } from '@angular/core';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @enum {string} */
 var LoadingType = {
@@ -286,10 +286,12 @@ var TdLoadingComponent = /** @class */ (function () {
      */
     /**
      * Calculate the proper diameter for the circle and set it
+     * @private
      * @return {?}
      */
     TdLoadingComponent.prototype._setCircleDiameter = /**
      * Calculate the proper diameter for the circle and set it
+     * @private
      * @return {?}
      */
     function () {
@@ -317,10 +319,12 @@ var TdLoadingComponent = /** @class */ (function () {
      */
     /**
      * Returns the host height of the loading component
+     * @private
      * @return {?}
      */
     TdLoadingComponent.prototype._hostHeight = /**
      * Returns the host height of the loading component
+     * @private
      * @return {?}
      */
     function () {
@@ -347,7 +351,7 @@ var TdLoadingComponent = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * NOTE: \@internal usage only.
@@ -390,7 +394,11 @@ var TdLoadingFactory = /** @class */ (function () {
         var loading = false;
         /** @type {?} */
         var overlayRef;
-        loadingRef.observable.pipe(distinctUntilChanged()).subscribe(function (registered) {
+        loadingRef.observable.pipe(distinctUntilChanged()).subscribe((/**
+         * @param {?} registered
+         * @return {?}
+         */
+        function (registered) {
             if (registered > 0 && !loading) {
                 loading = true;
                 overlayRef = _this._createOverlay();
@@ -402,14 +410,17 @@ var TdLoadingFactory = /** @class */ (function () {
             else if (registered <= 0 && loading) {
                 loading = false;
                 /** @type {?} */
-                var subs_1 = loadingRef.componentRef.instance.startOutAnimation().subscribe(function () {
+                var subs_1 = loadingRef.componentRef.instance.startOutAnimation().subscribe((/**
+                 * @return {?}
+                 */
+                function () {
                     subs_1.unsubscribe();
                     loadingRef.componentRef.destroy();
                     overlayRef.detach();
                     overlayRef.dispose();
-                });
+                }));
             }
-        });
+        }));
         return loadingRef;
     };
     /**
@@ -451,7 +462,11 @@ var TdLoadingFactory = /** @class */ (function () {
         loadingRef.componentRef.instance.content = new TemplatePortal(templateRef, viewContainerRef);
         viewContainerRef.clear();
         viewContainerRef.insert(loadingRef.componentRef.hostView, 0);
-        loadingRef.observable.pipe(distinctUntilChanged()).subscribe(function (registered) {
+        loadingRef.observable.pipe(distinctUntilChanged()).subscribe((/**
+         * @param {?} registered
+         * @return {?}
+         */
+        function (registered) {
             if (registered > 0 && !loading) {
                 loading = true;
                 loadingRef.componentRef.instance.startInAnimation();
@@ -460,7 +475,7 @@ var TdLoadingFactory = /** @class */ (function () {
                 loading = false;
                 loadingRef.componentRef.instance.startOutAnimation();
             }
-        });
+        }));
         return loadingRef;
     };
     /**
@@ -505,7 +520,11 @@ var TdLoadingFactory = /** @class */ (function () {
         // passing context so when the template is attached, we can keep the reference of the variables
         /** @type {?} */
         var contentRef = viewContainerRef.createEmbeddedView(templateRef, context);
-        loadingRef.observable.pipe(distinctUntilChanged()).subscribe(function (registered) {
+        loadingRef.observable.pipe(distinctUntilChanged()).subscribe((/**
+         * @param {?} registered
+         * @return {?}
+         */
+        function (registered) {
             if (registered > 0 && !loading) {
                 loading = true;
                 // detach the content and attach the loader if loader is there
@@ -520,7 +539,10 @@ var TdLoadingFactory = /** @class */ (function () {
             else if (registered <= 0 && loading) {
                 loading = false;
                 /** @type {?} */
-                var subs_2 = loadingRef.componentRef.instance.startOutAnimation().subscribe(function () {
+                var subs_2 = loadingRef.componentRef.instance.startOutAnimation().subscribe((/**
+                 * @return {?}
+                 */
+                function () {
                     subs_2.unsubscribe();
                     // detach loader and attach the content if content is there
                     /** @type {?} */
@@ -535,9 +557,9 @@ var TdLoadingFactory = /** @class */ (function () {
                      */
                     contentRef.detectChanges();
                     contentRef.markForCheck();
-                });
+                }));
             }
-        });
+        }));
         return loadingRef;
     };
     /**
@@ -545,10 +567,12 @@ var TdLoadingFactory = /** @class */ (function () {
      */
     /**
      * Creates a fullscreen overlay for the loading usage.
+     * @private
      * @return {?}
      */
     TdLoadingFactory.prototype._createOverlay = /**
      * Creates a fullscreen overlay for the loading usage.
+     * @private
      * @return {?}
      */
     function () {
@@ -567,11 +591,13 @@ var TdLoadingFactory = /** @class */ (function () {
      */
     /**
      * Creates a generic component dynamically waiting to be attached to a viewContainerRef.
+     * @private
      * @param {?} options
      * @return {?}
      */
     TdLoadingFactory.prototype._createComponent = /**
      * Creates a generic component dynamically waiting to be attached to a viewContainerRef.
+     * @private
      * @param {?} options
      * @return {?}
      */
@@ -589,10 +615,12 @@ var TdLoadingFactory = /** @class */ (function () {
      */
     /**
      * Initialize context for loading component.
+     * @private
      * @return {?}
      */
     TdLoadingFactory.prototype._initializeContext = /**
      * Initialize context for loading component.
+     * @private
      * @return {?}
      */
     function () {
@@ -610,12 +638,14 @@ var TdLoadingFactory = /** @class */ (function () {
      */
     /**
      * Maps configuration to the loading component instance.
+     * @private
      * @param {?} options
      * @param {?} instance
      * @return {?}
      */
     TdLoadingFactory.prototype._mapOptions = /**
      * Maps configuration to the loading component instance.
+     * @private
      * @param {?} options
      * @param {?} instance
      * @return {?}
@@ -666,7 +696,7 @@ var LOADING_FACTORY_PROVIDER = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdLoadingConfig = /** @class */ (function () {
     function TdLoadingConfig(config) {
@@ -878,9 +908,12 @@ var TdLoadingService = /** @class */ (function () {
             // if it doesnt exist, set a timeout so its registered after change detection happens
             // this in case "register" occured on the `ngOnInit` lifehook cycle.
             if (!this._timeouts[name]) {
-                this._timeouts[name] = setTimeout(function () {
+                this._timeouts[name] = setTimeout((/**
+                 * @return {?}
+                 */
+                function () {
                     _this.register(name, registers);
-                });
+                }));
             }
             else {
                 // if it timeout occured and still doesnt exist, it means the tiemout wasnt needed so we clear it.
@@ -1050,11 +1083,13 @@ var TdLoadingService = /** @class */ (function () {
      */
     /**
      * Clears timeout linked to the name.
+     * @private
      * @param {?} name Name of the loading component to be cleared
      * @return {?}
      */
     TdLoadingService.prototype._clearTimeout = /**
      * Clears timeout linked to the name.
+     * @private
      * @param {?} name Name of the loading component to be cleared
      * @return {?}
      */
@@ -1089,7 +1124,7 @@ var LOADING_PROVIDER = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Context class for variable reference
@@ -1284,11 +1319,13 @@ var TdLoadingDirective = /** @class */ (function () {
     /**
      * Creates [TdLoadingComponent] and attaches it to this directive's [ViewContainerRef].
      * Passes this directive's [TemplateRef] to modify DOM depending on loading `strategy`.
+     * @private
      * @return {?}
      */
     TdLoadingDirective.prototype._registerComponent = /**
      * Creates [TdLoadingComponent] and attaches it to this directive's [ViewContainerRef].
      * Passes this directive's [TemplateRef] to modify DOM depending on loading `strategy`.
+     * @private
      * @return {?}
      */
     function () {
@@ -1331,7 +1368,7 @@ var TdLoadingDirective = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 var TD_LOADING = [TdLoadingComponent, TdLoadingDirective];
@@ -1352,21 +1389,5 @@ var CovalentLoadingModule = /** @class */ (function () {
     return CovalentLoadingModule;
 }());
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-export { CovalentLoadingModule, LoadingType, LoadingMode, LoadingStrategy, LoadingStyle, TD_CIRCLE_DIAMETER, TdLoadingComponent, TdLoadingContext, TdLoadingDirective, LOADING_PROVIDER_FACTORY, TdLoadingConfig, TdLoadingDirectiveConfig, TdLoadingService, LOADING_PROVIDER, LOADING_FACTORY_PROVIDER_FACTORY, TdLoadingFactory, LOADING_FACTORY_PROVIDER };
-
+export { CovalentLoadingModule, LOADING_FACTORY_PROVIDER, LOADING_FACTORY_PROVIDER_FACTORY, LOADING_PROVIDER, LOADING_PROVIDER_FACTORY, LoadingMode, LoadingStrategy, LoadingStyle, LoadingType, TD_CIRCLE_DIAMETER, TdLoadingComponent, TdLoadingConfig, TdLoadingContext, TdLoadingDirective, TdLoadingDirectiveConfig, TdLoadingFactory, TdLoadingService };
 //# sourceMappingURL=covalent-core-loading.js.map

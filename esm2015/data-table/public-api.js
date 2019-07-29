@@ -1,6 +1,6 @@
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 export { CovalentDataTableModule } from './data-table.module';
 export { TdDataTableSortingOrder, TdDataTableBase, _TdDataTableMixinBase, TdDataTableComponent } from './data-table.component';

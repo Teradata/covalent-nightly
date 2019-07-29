@@ -1,9 +1,9 @@
-import { Injectable, NgZone, NgModule, Directive, ElementRef, Input, Renderer2, defineInjectable, inject } from '@angular/core';
-import { BehaviorSubject, fromEvent } from 'rxjs';
+import { Injectable, NgZone, ɵɵdefineInjectable, ɵɵinject, Directive, Renderer2, ElementRef, Input, NgModule } from '@angular/core';
+import { fromEvent, BehaviorSubject } from 'rxjs';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdMediaService {
     /**
@@ -29,18 +29,27 @@ class TdMediaService {
         this._queryMap.set('print', 'print');
         this._resizing = false;
         // we make sure that the resize checking happend outside of Angular since it happens often
-        this._globalSubscription = this._ngZone.runOutsideAngular(() => {
-            return fromEvent(window, 'resize').subscribe(() => {
+        this._globalSubscription = this._ngZone.runOutsideAngular((/**
+         * @return {?}
+         */
+        () => {
+            return fromEvent(window, 'resize').subscribe((/**
+             * @return {?}
+             */
+            () => {
                 // way to prevent the resize event from triggering the match media if there is already one event running already.
                 if (!this._resizing) {
                     this._resizing = true;
-                    setTimeout(() => {
+                    setTimeout((/**
+                     * @return {?}
+                     */
+                    () => {
                         this._onResize();
                         this._resizing = false;
-                    }, 100);
+                    }), 100);
                 }
-            });
-        });
+            }));
+        }));
     }
     /**
      * Deregisters a query so its stops being notified or used.
@@ -64,9 +73,12 @@ class TdMediaService {
         if (this._queryMap.get(query.toLowerCase())) {
             query = this._queryMap.get(query.toLowerCase());
         }
-        return this._ngZone.run(() => {
+        return this._ngZone.run((/**
+         * @return {?}
+         */
+        () => {
             return matchMedia(query).matches;
-        });
+        }));
     }
     /**
      * Registers a media query and returns an [Observable] that will re-evaluate and
@@ -93,16 +105,21 @@ class TdMediaService {
         this._onResize();
     }
     /**
+     * @private
      * @return {?}
      */
     _onResize() {
         for (let query in this._querySources) {
-            this._ngZone.run(() => {
+            this._ngZone.run((/**
+             * @return {?}
+             */
+            () => {
                 this._matchMediaTrigger(query);
-            });
+            }));
         }
     }
     /**
+     * @private
      * @param {?} query
      * @return {?}
      */
@@ -119,11 +136,11 @@ TdMediaService.decorators = [
 TdMediaService.ctorParameters = () => [
     { type: NgZone }
 ];
-/** @nocollapse */ TdMediaService.ngInjectableDef = defineInjectable({ factory: function TdMediaService_Factory() { return new TdMediaService(inject(NgZone)); }, token: TdMediaService, providedIn: "root" });
+/** @nocollapse */ TdMediaService.ngInjectableDef = ɵɵdefineInjectable({ factory: function TdMediaService_Factory() { return new TdMediaService(ɵɵinject(NgZone)); }, token: TdMediaService, providedIn: "root" });
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdMediaToggleDirective {
     /**
@@ -185,9 +202,13 @@ class TdMediaToggleDirective {
      */
     ngOnInit() {
         this._mediaChange(this._mediaService.query(this._query));
-        this._subscription = this._mediaService.registerQuery(this._query).subscribe((matches) => {
+        this._subscription = this._mediaService.registerQuery(this._query).subscribe((/**
+         * @param {?} matches
+         * @return {?}
+         */
+        (matches) => {
             this._mediaChange(matches);
-        });
+        }));
     }
     /**
      * @return {?}
@@ -198,6 +219,7 @@ class TdMediaToggleDirective {
         }
     }
     /**
+     * @private
      * @param {?} matches
      * @return {?}
      */
@@ -208,6 +230,7 @@ class TdMediaToggleDirective {
         this._changeStyles();
     }
     /**
+     * @private
      * @return {?}
      */
     _changeAttributes() {
@@ -221,19 +244,25 @@ class TdMediaToggleDirective {
         }
     }
     /**
+     * @private
      * @return {?}
      */
     _changeClasses() {
-        this._classes.forEach((className) => {
+        this._classes.forEach((/**
+         * @param {?} className
+         * @return {?}
+         */
+        (className) => {
             if (this._matches) {
                 this._renderer.addClass(this._elementRef.nativeElement, className);
             }
             else {
                 this._renderer.removeClass(this._elementRef.nativeElement, className);
             }
-        });
+        }));
     }
     /**
+     * @private
      * @return {?}
      */
     _changeStyles() {
@@ -267,7 +296,7 @@ TdMediaToggleDirective.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TD_MEDIA = [TdMediaToggleDirective];
@@ -280,21 +309,5 @@ CovalentMediaModule.decorators = [
             },] }
 ];
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-export { CovalentMediaModule, TdMediaToggleDirective, TdMediaService };
-
+export { CovalentMediaModule, TdMediaService, TdMediaToggleDirective };
 //# sourceMappingURL=covalent-core-media.js.map

@@ -1,16 +1,16 @@
+import { Directive, TemplateRef, ViewContainerRef, Component, EventEmitter, Renderer2, ElementRef, ContentChild, Input, Output, ContentChildren, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TemplatePortalDirective, PortalModule } from '@angular/cdk/portal';
 import { MatRippleModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
-import { TemplatePortalDirective, PortalModule } from '@angular/cdk/portal';
-import { tdCollapseAnimation, mixinDisabled, mixinDisableRipple, tdRotateAnimation } from '@covalent/core/common';
-import { Component, Directive, Input, Output, TemplateRef, ViewContainerRef, ContentChild, ElementRef, Renderer2, EventEmitter, ContentChildren, NgModule } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { mixinDisableRipple, mixinDisabled, tdCollapseAnimation, tdRotateAnimation } from '@covalent/core/common';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdExpansionPanelHeaderDirective extends TemplatePortalDirective {
     /**
@@ -164,6 +164,7 @@ class TdExpansionPanelComponent extends _TdExpansionPanelMixinBase {
     /**
      * Method to change expand state internally and emit the [onExpanded] event if 'true' or [onCollapsed]
      * event if 'false'. (Blocked if [disabled] is 'true')
+     * @private
      * @param {?} newExpand
      * @return {?}
      */
@@ -186,12 +187,14 @@ class TdExpansionPanelComponent extends _TdExpansionPanelMixinBase {
         return false;
     }
     /**
+     * @private
      * @return {?}
      */
     _onExpanded() {
         this.expanded.emit(undefined);
     }
     /**
+     * @private
      * @return {?}
      */
     _onCollapsed() {
@@ -213,9 +216,9 @@ TdExpansionPanelComponent.ctorParameters = () => [
     { type: ElementRef }
 ];
 TdExpansionPanelComponent.propDecorators = {
-    expansionPanelHeader: [{ type: ContentChild, args: [TdExpansionPanelHeaderDirective,] }],
-    expansionPanelLabel: [{ type: ContentChild, args: [TdExpansionPanelLabelDirective,] }],
-    expansionPanelSublabel: [{ type: ContentChild, args: [TdExpansionPanelSublabelDirective,] }],
+    expansionPanelHeader: [{ type: ContentChild, args: [TdExpansionPanelHeaderDirective, { static: false },] }],
+    expansionPanelLabel: [{ type: ContentChild, args: [TdExpansionPanelLabelDirective, { static: false },] }],
+    expansionPanelSublabel: [{ type: ContentChild, args: [TdExpansionPanelSublabelDirective, { static: false },] }],
     label: [{ type: Input }],
     sublabel: [{ type: Input }],
     expand: [{ type: Input, args: ['expand',] }],
@@ -225,7 +228,7 @@ TdExpansionPanelComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdExpansionPanelGroupComponent {
     /**
@@ -270,7 +273,11 @@ class TdExpansionPanelGroupComponent {
     ngAfterContentInit() {
         if (!this._multi) {
             /** @type {?} */
-            const openedPanels = this.expansionPanels.filter((expansionPanel) => expansionPanel.expand);
+            const openedPanels = this.expansionPanels.filter((/**
+             * @param {?} expansionPanel
+             * @return {?}
+             */
+            (expansionPanel) => expansionPanel.expand));
             /** @type {?} */
             const numOpenedPanels = openedPanels.length;
             if (numOpenedPanels > 1) {
@@ -280,12 +287,16 @@ class TdExpansionPanelGroupComponent {
         this._attachListeners(this.expansionPanels);
         this.expansionPanels.changes
             .pipe(takeUntil(this._destroyed))
-            .subscribe((expansionPanels) => {
+            .subscribe((/**
+         * @param {?} expansionPanels
+         * @return {?}
+         */
+        (expansionPanels) => {
             this._stopWatchingPanels.next(true);
             this._stopWatchingPanels.unsubscribe();
             this._stopWatchingPanels = new Subject();
             this._attachListeners(expansionPanels);
-        });
+        }));
     }
     /**
      * Opens all expansion panels, only if multi set set to true.
@@ -293,9 +304,13 @@ class TdExpansionPanelGroupComponent {
      */
     openAll() {
         if (this._multi) {
-            this.expansionPanels.forEach((expansionPanel) => {
+            this.expansionPanels.forEach((/**
+             * @param {?} expansionPanel
+             * @return {?}
+             */
+            (expansionPanel) => {
                 expansionPanel.open();
-            });
+            }));
         }
     }
     /**
@@ -303,18 +318,30 @@ class TdExpansionPanelGroupComponent {
      * @return {?}
      */
     closeAll() {
-        this.expansionPanels.forEach((expansionPanel) => {
+        this.expansionPanels.forEach((/**
+         * @param {?} expansionPanel
+         * @return {?}
+         */
+        (expansionPanel) => {
             expansionPanel.close();
-        });
+        }));
     }
     /**
+     * @private
      * @param {?} expansionPanels
      * @return {?}
      */
     _attachListeners(expansionPanels) {
         this._lastOpenedPanels = [];
-        expansionPanels.forEach((expansionPanel) => {
-            expansionPanel.expanded.pipe(takeUntil(this._stopWatchingPanels)).subscribe(() => {
+        expansionPanels.forEach((/**
+         * @param {?} expansionPanel
+         * @return {?}
+         */
+        (expansionPanel) => {
+            expansionPanel.expanded.pipe(takeUntil(this._stopWatchingPanels)).subscribe((/**
+             * @return {?}
+             */
+            () => {
                 /** @type {?} */
                 const indexOfPanel = this._lastOpenedPanels.indexOf(expansionPanel);
                 if (indexOfPanel !== -1) {
@@ -324,26 +351,34 @@ class TdExpansionPanelGroupComponent {
                 if (!this._multi) {
                     this._closeAllExcept(expansionPanel);
                 }
-            });
-            expansionPanel.collapsed.pipe(takeUntil(this._stopWatchingPanels)).subscribe(() => {
+            }));
+            expansionPanel.collapsed.pipe(takeUntil(this._stopWatchingPanels)).subscribe((/**
+             * @return {?}
+             */
+            () => {
                 /** @type {?} */
                 const indexOfPanel = this._lastOpenedPanels.indexOf(expansionPanel);
                 if (indexOfPanel !== -1) {
                     this._lastOpenedPanels.splice(indexOfPanel, 1);
                 }
-            });
-        });
+            }));
+        }));
     }
     /**
+     * @private
      * @param {?} expansionPanel
      * @return {?}
      */
     _closeAllExcept(expansionPanel) {
-        this.expansionPanels.forEach((panel) => {
+        this.expansionPanels.forEach((/**
+         * @param {?} panel
+         * @return {?}
+         */
+        (panel) => {
             if (panel !== expansionPanel) {
                 panel.close();
             }
-        });
+        }));
     }
 }
 TdExpansionPanelGroupComponent.decorators = [
@@ -365,7 +400,7 @@ TdExpansionPanelGroupComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TD_EXPANSION_PANEL = [
@@ -386,21 +421,5 @@ CovalentExpansionPanelModule.decorators = [
             },] }
 ];
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-export { CovalentExpansionPanelModule, TdExpansionPanelHeaderDirective, TdExpansionPanelLabelDirective, TdExpansionPanelSublabelDirective, TdExpansionPanelSummaryComponent, TdExpansionPanelBase, _TdExpansionPanelMixinBase, TdExpansionPanelComponent, TdExpansionPanelGroupComponent };
-
+export { CovalentExpansionPanelModule, TdExpansionPanelBase, TdExpansionPanelComponent, TdExpansionPanelGroupComponent, TdExpansionPanelHeaderDirective, TdExpansionPanelLabelDirective, TdExpansionPanelSublabelDirective, TdExpansionPanelSummaryComponent, _TdExpansionPanelMixinBase };
 //# sourceMappingURL=covalent-core-expansion-panel.js.map

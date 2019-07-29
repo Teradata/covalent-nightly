@@ -1,13 +1,13 @@
+import { Component, ChangeDetectionStrategy, Optional, ChangeDetectorRef, Input, Output, EventEmitter, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { Component, Input, Output, EventEmitter, Optional, ChangeDetectorRef, ChangeDetectionStrategy, NgModule } from '@angular/core';
 import { coerceNumberProperty } from '@angular/cdk/coercion';
 import { Dir } from '@angular/cdk/bidi';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdPagingBarComponent = /** @class */ (function () {
     function TdPagingBarComponent(_dir, _changeDetectorRef) {
@@ -322,9 +322,11 @@ var TdPagingBarComponent = /** @class */ (function () {
         return this._page >= this.maxPage;
     };
     /**
+     * @private
      * @return {?}
      */
     TdPagingBarComponent.prototype._calculateRows = /**
+     * @private
      * @return {?}
      */
     function () {
@@ -340,11 +342,13 @@ var TdPagingBarComponent = /** @class */ (function () {
     /**
      * _calculatePageLinks?: function
      * Calculates the page links that should be shown to the user based on the current state of the paginator
+     * @private
      * @return {?}
      */
     TdPagingBarComponent.prototype._calculatePageLinks = /**
      * _calculatePageLinks?: function
      * Calculates the page links that should be shown to the user based on the current state of the paginator
+     * @private
      * @return {?}
      */
     function () {
@@ -394,9 +398,11 @@ var TdPagingBarComponent = /** @class */ (function () {
         }
     };
     /**
+     * @private
      * @return {?}
      */
     TdPagingBarComponent.prototype._handleOnChange = /**
+     * @private
      * @return {?}
      */
     function () {
@@ -440,7 +446,7 @@ var TdPagingBarComponent = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var CovalentPagingModule = /** @class */ (function () {
     function CovalentPagingModule() {
@@ -455,21 +461,5 @@ var CovalentPagingModule = /** @class */ (function () {
     return CovalentPagingModule;
 }());
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
 export { CovalentPagingModule, TdPagingBarComponent };
-
 //# sourceMappingURL=covalent-core-paging.js.map

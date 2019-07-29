@@ -1,21 +1,21 @@
-import { MatIconModule } from '@angular/material/icon';
-import { Component, Input, Output, forwardRef, ViewChild, ViewChildren, HostListener, ElementRef, Optional, Inject, Directive, TemplateRef, ViewContainerRef, ContentChild, ChangeDetectionStrategy, ChangeDetectorRef, HostBinding, Renderer2, EventEmitter, NgModule } from '@angular/core';
+import { Directive, TemplateRef, ViewContainerRef, EventEmitter, Component, forwardRef, ChangeDetectionStrategy, ElementRef, Renderer2, Optional, Inject, ChangeDetectorRef, ViewChild, ViewChildren, ContentChild, Input, Output, HostBinding, HostListener, NgModule } from '@angular/core';
+import { FormControl, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { DOCUMENT, CommonModule } from '@angular/common';
-import { NG_VALUE_ACCESSOR, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { MatInput, MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatAutocompleteTrigger, MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatChip, MatChipsModule } from '@angular/material/chips';
 import { TemplatePortalDirective } from '@angular/cdk/portal';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { UP_ARROW, DOWN_ARROW, ESCAPE, LEFT_ARROW, RIGHT_ARROW, DELETE, BACKSPACE, TAB } from '@angular/cdk/keycodes';
-import { MatChip, MatChipsModule } from '@angular/material/chips';
-import { MatInput, MatInputModule } from '@angular/material/input';
+import { TAB, ESCAPE, UP_ARROW, LEFT_ARROW, DELETE, BACKSPACE, RIGHT_ARROW, DOWN_ARROW } from '@angular/cdk/keycodes';
 import { MatOption } from '@angular/material/core';
-import { MatAutocompleteTrigger, MatAutocompleteModule } from '@angular/material/autocomplete';
 import { Subscription, timer, merge, fromEvent } from 'rxjs';
-import { filter, debounceTime } from 'rxjs/operators';
-import { mixinDisabled, mixinControlValueAccessor } from '@covalent/core/common';
+import { debounceTime, filter } from 'rxjs/operators';
+import { mixinControlValueAccessor, mixinDisabled } from '@covalent/core/common';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdChipDirective extends TemplatePortalDirective {
     /**
@@ -138,9 +138,14 @@ class TdChipsComponent extends _TdChipsMixinBase {
          * Function used to check whether a chip value already exists.
          * Defaults to strict equality comparison ===
          */
-        this.compareWith = (o1, o2) => {
+        this.compareWith = (/**
+         * @param {?} o1
+         * @param {?} o2
+         * @return {?}
+         */
+        (o1, o2) => {
             return o1 === o2;
-        };
+        });
         this._renderer.addClass(this._elementRef.nativeElement, 'mat-' + this._color);
     }
     /**
@@ -338,9 +343,12 @@ class TdChipsComponent extends _TdChipsMixinBase {
         this._isMousedown = true;
         timer()
             .toPromise()
-            .then(() => {
+            .then((/**
+         * @return {?}
+         */
+        () => {
             this._isMousedown = false;
-        });
+        }));
     }
     /**
      * If clicking on :host or `td-chips-wrapper`, then we stop the click propagation so the autocomplete
@@ -368,9 +376,12 @@ class TdChipsComponent extends _TdChipsMixinBase {
                 // if tabing out, then unfocus the component
                 timer()
                     .toPromise()
-                    .then(() => {
+                    .then((/**
+                 * @return {?}
+                 */
+                () => {
                     this.removeFocusedState();
-                });
+                }));
                 break;
             case ESCAPE:
                 if (this._inputChild.focused) {
@@ -392,9 +403,13 @@ class TdChipsComponent extends _TdChipsMixinBase {
     ngOnInit() {
         this._inputValueChangesSubs = this.inputControl.valueChanges
             .pipe(debounceTime(this.debounce))
-            .subscribe((value) => {
+            .subscribe((/**
+         * @param {?} value
+         * @return {?}
+         */
+        (value) => {
             this.onInputChange.emit(value ? value : '');
-        });
+        }));
         this._changeDetectorRef.markForCheck();
     }
     /**
@@ -447,9 +462,13 @@ class TdChipsComponent extends _TdChipsMixinBase {
         let value;
         if (this.requireMatch) {
             /** @type {?} */
-            let selectedOptions = this._options.toArray().filter((option) => {
+            let selectedOptions = this._options.toArray().filter((/**
+             * @param {?} option
+             * @return {?}
+             */
+            (option) => {
                 return option.active;
-            });
+            }));
             if (selectedOptions.length > 0) {
                 value = selectedOptions[0].value;
                 selectedOptions[0].setInactiveStyles();
@@ -488,14 +507,21 @@ class TdChipsComponent extends _TdChipsMixinBase {
         this._closeAutocomplete();
         timer(this.debounce)
             .toPromise()
-            .then(() => {
+            .then((/**
+         * @return {?}
+         */
+        () => {
             this.setFocusedState();
             this._setFirstOptionActive();
             this._openAutocomplete();
-        });
+        }));
         this.inputControl.setValue('');
         // check if value is already part of the model
-        if (this.value.findIndex((item) => this.compareWith(item, value)) > -1) {
+        if (this.value.findIndex((/**
+         * @param {?} item
+         * @return {?}
+         */
+        (item) => this.compareWith(item, value))) > -1) {
             return false;
         }
         this.value.push(value);
@@ -741,6 +767,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
     }
     /**
      * Method to focus a desired chip by index
+     * @private
      * @param {?} index
      * @return {?}
      */
@@ -752,6 +779,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
     }
     /**
      * Method to focus first chip
+     * @private
      * @return {?}
      */
     _focusFirstChip() {
@@ -759,6 +787,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
     }
     /**
      * Method to focus last chip
+     * @private
      * @return {?}
      */
     _focusLastChip() {
@@ -767,6 +796,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
     /**
      * Method to toggle the disable state of input
      * Checks if not in disabled state and if chipAddition is set to 'true'
+     * @private
      * @return {?}
      */
     _toggleInput() {
@@ -781,6 +811,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
     /**
      * Sets first option as active to let the user know which one will be added when pressing enter
      * Only if [requireMatch] has been set
+     * @private
      * @return {?}
      */
     _setFirstOptionActive() {
@@ -788,48 +819,66 @@ class TdChipsComponent extends _TdChipsMixinBase {
             // need to use a timer here to wait until the autocomplete has been opened (end of queue)
             timer()
                 .toPromise()
-                .then(() => {
+                .then((/**
+             * @return {?}
+             */
+            () => {
                 if (this.focused && this._options && this._options.length > 0) {
                     // clean up of previously active options
-                    this._options.toArray().forEach((option) => {
+                    this._options.toArray().forEach((/**
+                     * @param {?} option
+                     * @return {?}
+                     */
+                    (option) => {
                         option.setInactiveStyles();
-                    });
+                    }));
                     // set the first one as active
                     this._options.toArray()[0].setActiveStyles();
                     this._internalActivateOption = true;
                     this._changeDetectorRef.markForCheck();
                 }
-            });
+            }));
         }
     }
     /**
      * Watches clicks outside of the component to remove the focus
      * The autocomplete panel is considered inside the component so we
      * need to use a flag to find out when its clicked.
+     * @private
      * @return {?}
      */
     _watchOutsideClick() {
         if (this._document) {
             this._outsideClickSubs = merge(fromEvent(this._document, 'click'), fromEvent(this._document, 'touchend'))
-                .pipe(debounceTime(this._touchendDebounce), filter((event) => {
+                .pipe(debounceTime(this._touchendDebounce), filter((/**
+             * @param {?} event
+             * @return {?}
+             */
+            (event) => {
                 /** @type {?} */
                 const clickTarget = (/** @type {?} */ (event.target));
-                setTimeout(() => {
+                setTimeout((/**
+                 * @return {?}
+                 */
+                () => {
                     this._internalClick = false;
-                });
+                }));
                 return (this.focused &&
                     clickTarget !== this._elementRef.nativeElement &&
                     !this._elementRef.nativeElement.contains(clickTarget) &&
                     !this._internalClick);
-            }))
-                .subscribe(() => {
+            })))
+                .subscribe((/**
+             * @return {?}
+             */
+            () => {
                 if (this.focused) {
                     this._autocompleteTrigger.closePanel();
                     this.removeFocusedState();
                     this.onTouched();
                     this._changeDetectorRef.markForCheck();
                 }
-            });
+            }));
         }
         return undefined;
     }
@@ -839,7 +888,10 @@ TdChipsComponent.decorators = [
                 providers: [
                     {
                         provide: NG_VALUE_ACCESSOR,
-                        useExisting: forwardRef(() => TdChipsComponent),
+                        useExisting: forwardRef((/**
+                         * @return {?}
+                         */
+                        () => TdChipsComponent)),
                         multi: true,
                     },
                 ],
@@ -847,7 +899,7 @@ TdChipsComponent.decorators = [
                 inputs: ['disabled', 'value'],
                 template: "<div\n  class=\"td-chips-wrapper\"\n  [class.td-chips-stacked]=\"stacked\"\n  [class.td-chips-input-before-position]=\"inputPosition === 'before'\"\n>\n  <ng-template let-chip let-first=\"first\" let-index=\"index\" ngFor [ngForOf]=\"value\">\n    <mat-basic-chip\n      [class.td-chip-disabled]=\"disabled\"\n      [class.td-chip-after-pad]=\"!canRemoveChip\"\n      [disableRipple]=\"true\"\n      [color]=\"color\"\n      (keydown)=\"_chipKeydown($event, index)\"\n      (blur)=\"_handleChipBlur($event, chip)\"\n      (focus)=\"_handleChipFocus($event, chip)\"\n    >\n      <div class=\"td-chip\" [class.td-chip-stacked]=\"stacked\">\n        <span class=\"td-chip-content\">\n          <span *ngIf=\"!_chipTemplate?.templateRef\">{{ chip }}</span>\n          <ng-template\n            *ngIf=\"_chipTemplate?.templateRef\"\n            [ngTemplateOutlet]=\"_chipTemplate?.templateRef\"\n            [ngTemplateOutletContext]=\"{ chip: chip }\"\n          >\n          </ng-template>\n        </span>\n        <mat-icon *ngIf=\"canRemoveChip\" class=\"td-chip-removal\" (click)=\"_internalClick = removeChip(index)\">\n          cancel\n        </mat-icon>\n      </div>\n    </mat-basic-chip>\n  </ng-template>\n  <mat-form-field\n    floatLabel=\"never\"\n    class=\"td-chips-form-field\"\n    [style.width.px]=\"canAddChip ? null : 0\"\n    [style.height.px]=\"canAddChip ? null : 0\"\n    [color]=\"color\"\n  >\n    <input\n      matInput\n      #input\n      [tabIndex]=\"-1\"\n      [matAutocomplete]=\"autocomplete\"\n      [formControl]=\"inputControl\"\n      [placeholder]=\"displayPlaceHolder\"\n      (keydown)=\"_inputKeydown($event)\"\n      (keyup.enter)=\"_handleAddChip()\"\n      (focus)=\"_handleFocus()\"\n    />\n  </mat-form-field>\n  <mat-autocomplete\n    #autocomplete=\"matAutocomplete\"\n    [displayWith]=\"_removeInputDisplay\"\n    (optionSelected)=\"addChip($event.option.value)\"\n  >\n    <ng-template let-item let-first=\"first\" ngFor [ngForOf]=\"items\">\n      <mat-option (click)=\"_setInternalClick()\" [value]=\"item\">\n        <span *ngIf=\"!_autocompleteOptionTemplate?.templateRef\">{{ item }}</span>\n        <ng-template\n          *ngIf=\"_autocompleteOptionTemplate?.templateRef\"\n          [ngTemplateOutlet]=\"_autocompleteOptionTemplate?.templateRef\"\n          [ngTemplateOutletContext]=\"{ option: item }\"\n        >\n        </ng-template>\n      </mat-option>\n    </ng-template>\n  </mat-autocomplete>\n</div>\n<div *ngIf=\"chipAddition\" class=\"mat-form-field-underline\" [class.mat-disabled]=\"disabled\">\n  <span class=\"mat-form-field-ripple\" [class.mat-focused]=\"focused\"></span>\n</div>\n<ng-content></ng-content>\n",
                 changeDetection: ChangeDetectionStrategy.OnPush,
-                styles: [":host{display:block;padding:0 5px;min-height:48px}:host .td-chips-wrapper{min-height:42px;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:wrap;flex-wrap:wrap;-ms-flex-align:start;align-items:flex-start}:host .td-chips-wrapper.td-chips-stacked .mat-basic-chip,:host .td-chips-wrapper.td-chips-stacked .td-chips-form-field{width:100%}:host .td-chips-wrapper.td-chips-input-before-position .td-chips-form-field{-ms-flex-order:-1;order:-1}:host .td-chip,:host .td-chip>.td-chip-content{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;max-width:100%;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;-ms-flex-pack:start;justify-content:flex-start;min-width:0}:host .td-chip.td-chip-stacked,:host .td-chip>.td-chip-content.td-chip-stacked{-ms-flex-pack:justify;justify-content:space-between}:host ::ng-deep .mat-form-field-wrapper{padding-bottom:2px}:host ::ng-deep .mat-basic-chip{display:inline-block;cursor:default;border-radius:16px;margin:8px 8px 0 0;box-sizing:border-box;max-width:100%;position:relative}html[dir=rtl] :host ::ng-deep .mat-basic-chip{margin:8px 0 0 8px;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip{margin:8px 0 0 8px;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip{margin:8px 0 0 8px;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip{min-height:32px;line-height:32px;font-size:13px;padding:0 0 0 12px}html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{padding:0 12px 0 0;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{padding:0 12px 0 0;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{padding:0 12px 0 0;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip .td-chip bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{display:inline-block;-ms-flex-order:-20;order:-20;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;text-align:center;height:32px;width:32px;margin:0 8px 0 -12px;border-radius:50%;-ms-flex:0 0 auto;flex:0 0 auto;box-sizing:border-box}html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{margin:0 -12px 0 8px;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{margin:0 -12px 0 8px;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{margin:0 -12px 0 8px;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 12px 0 0}html[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 0 0 12px;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 0 0 12px;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 0 0 12px;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal{margin:0 4px;font-size:21px;line-height:22px}:host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal:hover{cursor:pointer}:host ::ng-deep .td-chips-stacked .mat-basic-chip{margin:4px 0}:host ::ng-deep .td-chips-stacked .mat-basic-chip:first-of-type{margin:8px 0 4px}:host ::ng-deep .td-chips-stacked .mat-basic-chip:last-of-type{margin:4px 0 8px}:host .mat-form-field-underline{position:relative;height:1px;width:100%;bottom:0}:host .mat-form-field-underline.mat-disabled{background-position:0;bottom:-4px;background-color:transparent}:host .mat-form-field-underline .mat-form-field-ripple{position:absolute;height:2px;top:0;width:100%;-webkit-transform-origin:50%;-ms-transform-origin:50%;transform-origin:50%;-webkit-transform:scaleX(.5);-ms-transform:scaleX(.5);transform:scaleX(.5);visibility:hidden;opacity:0;transition:background-color .3s cubic-bezier(.55,0,.55,.2)}:host .mat-form-field-underline .mat-form-field-ripple.mat-focused{visibility:visible;opacity:1;-webkit-transform:scaleX(1);-ms-transform:scaleX(1);transform:scaleX(1);transition:transform 150ms linear,background-color .3s cubic-bezier(.55,0,.55,.2),-webkit-transform 150ms linear}:host.ng-invalid .mat-form-field-underline .mat-form-field-ripple{visibility:visible;opacity:1;-webkit-transform:scaleX(1);-ms-transform:scaleX(1);transform:scaleX(1);transition:transform 150ms linear,background-color .3s cubic-bezier(.55,0,.55,.2),-webkit-transform 150ms linear}:host ::ng-deep mat-form-field .mat-form-field-underline{display:none}"]
+                styles: [":host{display:block;padding:0 5px;min-height:48px}:host .td-chips-wrapper{min-height:42px;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:wrap;flex-wrap:wrap;-ms-flex-align:start;align-items:flex-start}:host .td-chips-wrapper.td-chips-stacked .mat-basic-chip,:host .td-chips-wrapper.td-chips-stacked .td-chips-form-field{width:100%}:host .td-chips-wrapper.td-chips-input-before-position .td-chips-form-field{-ms-flex-order:-1;order:-1}:host .td-chip,:host .td-chip>.td-chip-content{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;max-width:100%;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;-ms-flex-pack:start;justify-content:flex-start;min-width:0}:host .td-chip.td-chip-stacked,:host .td-chip>.td-chip-content.td-chip-stacked{-ms-flex-pack:justify;justify-content:space-between}:host ::ng-deep .mat-form-field-wrapper{padding-bottom:2px}:host ::ng-deep .mat-basic-chip{display:inline-block;cursor:default;border-radius:16px;margin:8px 8px 0 0;box-sizing:border-box;max-width:100%;position:relative}html[dir=rtl] :host ::ng-deep .mat-basic-chip{margin:8px 0 0 8px;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip{margin:8px 0 0 8px;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip{margin:8px 0 0 8px;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip{min-height:32px;line-height:32px;font-size:13px;padding:0 0 0 12px}html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{padding:0 12px 0 0;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{padding:0 12px 0 0;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{padding:0 12px 0 0;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip .td-chip bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{display:inline-block;-ms-flex-order:-20;order:-20;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;text-align:center;height:32px;width:32px;margin:0 8px 0 -12px;border-radius:50%;-ms-flex:0 0 auto;flex:0 0 auto;box-sizing:border-box}html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{margin:0 -12px 0 8px;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{margin:0 -12px 0 8px;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{margin:0 -12px 0 8px;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 12px 0 0}html[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 0 0 12px;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 0 0 12px;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 0 0 12px;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal{margin:0 4px;font-size:21px;line-height:22px}:host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal:hover{cursor:pointer}:host ::ng-deep .td-chips-stacked .mat-basic-chip{margin:4px 0}:host ::ng-deep .td-chips-stacked .mat-basic-chip:first-of-type{margin:8px 0 4px}:host ::ng-deep .td-chips-stacked .mat-basic-chip:last-of-type{margin:4px 0 8px}:host .mat-form-field-underline{position:relative;height:1px;width:100%;bottom:0}:host .mat-form-field-underline.mat-disabled{background-position:0;bottom:-4px;background-color:transparent}:host .mat-form-field-underline .mat-form-field-ripple{position:absolute;height:2px;top:0;width:100%;-ms-transform-origin:50%;transform-origin:50%;-ms-transform:scaleX(.5);transform:scaleX(.5);visibility:hidden;opacity:0;transition:background-color .3s cubic-bezier(.55,0,.55,.2)}:host .mat-form-field-underline .mat-form-field-ripple.mat-focused{visibility:visible;opacity:1;-ms-transform:scaleX(1);transform:scaleX(1);transition:transform 150ms linear,background-color .3s cubic-bezier(.55,0,.55,.2)}:host.ng-invalid .mat-form-field-underline .mat-form-field-ripple{visibility:visible;opacity:1;-ms-transform:scaleX(1);transform:scaleX(1);transition:transform 150ms linear,background-color .3s cubic-bezier(.55,0,.55,.2)}:host ::ng-deep mat-form-field .mat-form-field-underline{display:none}"]
             }] }
 ];
 /** @nocollapse */
@@ -858,12 +910,12 @@ TdChipsComponent.ctorParameters = () => [
     { type: ChangeDetectorRef }
 ];
 TdChipsComponent.propDecorators = {
-    _nativeInput: [{ type: ViewChild, args: ['input',] }],
-    _inputChild: [{ type: ViewChild, args: [MatInput,] }],
-    _autocompleteTrigger: [{ type: ViewChild, args: [MatAutocompleteTrigger,] }],
+    _nativeInput: [{ type: ViewChild, args: ['input', { static: true },] }],
+    _inputChild: [{ type: ViewChild, args: [MatInput, { static: true },] }],
+    _autocompleteTrigger: [{ type: ViewChild, args: [MatAutocompleteTrigger, { static: true },] }],
     _chipsChildren: [{ type: ViewChildren, args: [MatChip,] }],
-    _chipTemplate: [{ type: ContentChild, args: [TdChipDirective,] }],
-    _autocompleteOptionTemplate: [{ type: ContentChild, args: [TdAutocompleteOptionDirective,] }],
+    _chipTemplate: [{ type: ContentChild, args: [TdChipDirective, { static: false },] }],
+    _autocompleteOptionTemplate: [{ type: ContentChild, args: [TdAutocompleteOptionDirective, { static: false },] }],
     _options: [{ type: ViewChildren, args: [MatOption,] }],
     items: [{ type: Input, args: ['items',] }],
     stacked: [{ type: Input, args: ['stacked',] }],
@@ -890,7 +942,7 @@ TdChipsComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class CovalentChipsModule {
 }
@@ -902,21 +954,5 @@ CovalentChipsModule.decorators = [
             },] }
 ];
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-export { CovalentChipsModule, TdChipDirective, TdAutocompleteOptionDirective, TdChipsBase, _TdChipsMixinBase, TdChipsComponent };
-
+export { CovalentChipsModule, TdAutocompleteOptionDirective, TdChipDirective, TdChipsBase, TdChipsComponent, _TdChipsMixinBase };
 //# sourceMappingURL=covalent-core-chips.js.map

@@ -1,16 +1,16 @@
+import { Directive, Optional, Host, HostListener, Inject, ElementRef, Pipe, LOCALE_ID, Injectable, NgModule } from '@angular/core';
 import { DOCUMENT, DecimalPipe, CommonModule } from '@angular/common';
+import { NgModel, FormsModule, Validators } from '@angular/forms';
+import { __values, __extends, __spread } from 'tslib';
 import { Router, RoutesRecognized } from '@angular/router';
 import { filter, pairwise } from 'rxjs/operators';
-import { Directive, HostListener, Host, Optional, ElementRef, Inject, Pipe, LOCALE_ID, Injectable, NgModule } from '@angular/core';
-import { trigger, state, style, transition, animate, query, animateChild, group, AUTO_STYLE, keyframes } from '@angular/animations';
+import { trigger, state, style, transition, group, query, animateChild, animate, AUTO_STYLE, keyframes } from '@angular/animations';
 import { Subject } from 'rxjs';
-import { __values, __extends, __spread } from 'tslib';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { NgModel, FormsModule, Validators } from '@angular/forms';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdAutoTrimDirective = /** @class */ (function () {
     function TdAutoTrimDirective(_model) {
@@ -51,7 +51,7 @@ var TdAutoTrimDirective = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdFullscreenDirective = /** @class */ (function () {
     function TdFullscreenDirective(_document, _el) {
@@ -90,13 +90,25 @@ var TdFullscreenDirective = /** @class */ (function () {
         var nativeElement = this._el.nativeElement;
         /** @type {?} */
         var enterFullScreenMap = {
-            requestFullscreen: function () { return nativeElement.requestFullscreen(); },
+            requestFullscreen: (/**
+             * @return {?}
+             */
+            function () { return nativeElement.requestFullscreen(); }),
             // Chrome
-            webkitRequestFullscreen: function () { return nativeElement.webkitRequestFullscreen(); },
+            webkitRequestFullscreen: (/**
+             * @return {?}
+             */
+            function () { return nativeElement.webkitRequestFullscreen(); }),
             // Safari
-            mozRequestFullScreen: function () { return nativeElement.mozRequestFullScreen(); },
+            mozRequestFullScreen: (/**
+             * @return {?}
+             */
+            function () { return nativeElement.mozRequestFullScreen(); }),
             // Firefox
-            msRequestFullscreen: function () { return nativeElement.msRequestFullscreen(); },
+            msRequestFullscreen: (/**
+             * @return {?}
+             */
+            function () { return nativeElement.msRequestFullscreen(); }),
         };
         try {
             for (var _b = __values(Object.keys(enterFullScreenMap)), _c = _b.next(); !_c.done; _c = _b.next()) {
@@ -125,13 +137,25 @@ var TdFullscreenDirective = /** @class */ (function () {
         var _b = this, _document = _b._document, nativeElement = _b._el.nativeElement;
         /** @type {?} */
         var exitFullScreenMap = {
-            exitFullscreen: function () { return _document.exitFullscreen(); },
+            exitFullscreen: (/**
+             * @return {?}
+             */
+            function () { return _document.exitFullscreen(); }),
             // Chrome
-            webkitExitFullscreen: function () { return _document.webkitExitFullscreen(); },
+            webkitExitFullscreen: (/**
+             * @return {?}
+             */
+            function () { return _document.webkitExitFullscreen(); }),
             // Safari
-            mozCancelFullScreen: function () { return _document.mozCancelFullScreen(); },
+            mozCancelFullScreen: (/**
+             * @return {?}
+             */
+            function () { return _document.mozCancelFullScreen(); }),
             // Firefox
-            msExitFullscreen: function () { return _document.msExitFullscreen(); },
+            msExitFullscreen: (/**
+             * @return {?}
+             */
+            function () { return _document.msExitFullscreen(); }),
         };
         try {
             for (var _c = __values(Object.keys(exitFullScreenMap)), _d = _c.next(); !_d.done; _d = _c.next()) {
@@ -150,9 +174,11 @@ var TdFullscreenDirective = /** @class */ (function () {
         }
     };
     /**
+     * @private
      * @return {?}
      */
     TdFullscreenDirective.prototype._getFullScreenElement = /**
+     * @private
      * @return {?}
      */
     function () {
@@ -160,13 +186,25 @@ var TdFullscreenDirective = /** @class */ (function () {
         var _document = this._document;
         /** @type {?} */
         var tdFullScreenElementMap = {
-            fullscreenElement: function () { return _document.fullscreenElement; },
+            fullscreenElement: (/**
+             * @return {?}
+             */
+            function () { return _document.fullscreenElement; }),
             // Chrome, Opera
-            webkitFullscreenElement: function () { return _document.webkitFullscreenElement; },
+            webkitFullscreenElement: (/**
+             * @return {?}
+             */
+            function () { return _document.webkitFullscreenElement; }),
             // Safari
-            mozFullscreenElement: function () { return _document.mozFullscreenElement; },
+            mozFullscreenElement: (/**
+             * @return {?}
+             */
+            function () { return _document.mozFullscreenElement; }),
             // Firefox
-            msFullscreenElement: function () { return _document.msFullscreenElement; },
+            msFullscreenElement: (/**
+             * @return {?}
+             */
+            function () { return _document.msFullscreenElement; }),
         };
         try {
             for (var _b = __values(Object.keys(tdFullScreenElementMap)), _c = _b.next(); !_c.done; _c = _b.next()) {
@@ -203,7 +241,7 @@ var TdFullscreenDirective = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdTimeAgoPipe = /** @class */ (function () {
     function TdTimeAgoPipe() {
@@ -290,7 +328,7 @@ var TdTimeAgoPipe = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdTimeDifferencePipe = /** @class */ (function () {
     function TdTimeDifferencePipe() {
@@ -362,7 +400,7 @@ var TdTimeDifferencePipe = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdTimeUntilPipe = /** @class */ (function () {
     function TdTimeUntilPipe() {
@@ -449,7 +487,7 @@ var TdTimeUntilPipe = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdBytesPipe = /** @class */ (function () {
     function TdBytesPipe() {
@@ -501,7 +539,7 @@ var TdBytesPipe = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdDecimalBytesPipe = /** @class */ (function () {
     function TdDecimalBytesPipe() {
@@ -553,7 +591,7 @@ var TdDecimalBytesPipe = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdDigitsPipe = /** @class */ (function () {
     function TdDigitsPipe(_locale) {
@@ -610,7 +648,7 @@ var TdDigitsPipe = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdTruncatePipe = /** @class */ (function () {
     function TdTruncatePipe() {
@@ -650,16 +688,24 @@ var TdTruncatePipe = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var RouterPathService = /** @class */ (function () {
     function RouterPathService(_router) {
         this._router = _router;
         this._router.events
-            .pipe(filter(function (e) { return e instanceof RoutesRecognized; }), pairwise())
-            .subscribe(function (e) {
+            .pipe(filter((/**
+         * @param {?} e
+         * @return {?}
+         */
+        function (e) { return e instanceof RoutesRecognized; })), pairwise())
+            .subscribe((/**
+         * @param {?} e
+         * @return {?}
+         */
+        function (e) {
             RouterPathService._previousRoute = e[0].urlAfterRedirects;
-        });
+        }));
     }
     /*
      * Utility function to get the route the user previously went to
@@ -695,7 +741,7 @@ var RouterPathService = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var IconService = /** @class */ (function () {
     function IconService() {
@@ -1495,10 +1541,14 @@ var IconService = /** @class */ (function () {
      * @param {?} query
      * @return {?}
      */
-    function (query$$1) {
-        return this.icons.filter(function (el) {
-            return el.toLowerCase().indexOf(query$$1 ? query$$1.toLowerCase() : '') > -1;
-        });
+    function (query) {
+        return this.icons.filter((/**
+         * @param {?} el
+         * @return {?}
+         */
+        function (el) {
+            return el.toLowerCase().indexOf(query ? query.toLowerCase() : '') > -1;
+        }));
     };
     IconService.decorators = [
         { type: Injectable }
@@ -1508,7 +1558,7 @@ var IconService = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 var TD_DIRECTIVES = [TdAutoTrimDirective, TdFullscreenDirective];
@@ -1541,7 +1591,7 @@ var CovalentCommonModule = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * const tdRotateAnimation
@@ -1570,7 +1620,7 @@ var tdRotateAnimation = trigger('tdRotate', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * const tdCollapseAnimation
@@ -1625,7 +1675,7 @@ var tdCollapseAnimation = trigger('tdCollapse', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * const tdFadeInOutAnimation
@@ -1666,7 +1716,7 @@ var tdFadeInOutAnimation = trigger('tdFadeInOut', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * const tdBounceAnimation
@@ -1740,7 +1790,7 @@ var tdBounceAnimation = trigger('tdBounce', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * const tdFlashAnimation
@@ -1778,7 +1828,7 @@ var tdFlashAnimation = trigger('tdFlash', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * const tdHeadshakeAnimation
@@ -1817,7 +1867,7 @@ var tdHeadshakeAnimation = trigger('tdHeadshake', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * const tdJelloAnimation
@@ -1859,7 +1909,7 @@ var tdJelloAnimation = trigger('tdJello', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * const tdPulseAnimation
@@ -1895,12 +1945,15 @@ var tdPulseAnimation = trigger('tdPulse', [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
-var noop = function () {
+var noop = (/**
+ * @return {?}
+ */
+function () {
     // empty method
-};
+});
 /**
  * Mixin to augment a component with ngModel support.
  * @template T
@@ -1918,8 +1971,15 @@ function mixinControlValueAccessor(base, initialValue) {
             }
             var _this = _super.apply(this, __spread(args)) || this;
             _this._value = initialValue instanceof Array ? Object.assign([], initialValue) : initialValue;
-            _this.onChange = function (_) { return noop; };
-            _this.onTouched = function () { return noop; };
+            _this.onChange = (/**
+             * @param {?} _
+             * @return {?}
+             */
+            function (_) { return noop; });
+            _this.onTouched = (/**
+             * @return {?}
+             */
+            function () { return noop; });
             _this._subjectValueChanges = new Subject();
             _this.valueChanges = _this._subjectValueChanges.asObservable();
             return _this;
@@ -1986,7 +2046,7 @@ function mixinControlValueAccessor(base, initialValue) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Mixin to augment a component or directive with a `disabled` property.
@@ -2045,7 +2105,7 @@ function mixinDisabled(base) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Mixin to augment a component or directive with a `disabled` property.
@@ -2104,7 +2164,7 @@ function mixinDisableRipple(base) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var CovalentValidators = /** @class */ (function () {
     function CovalentValidators() {
@@ -2119,14 +2179,18 @@ var CovalentValidators = /** @class */ (function () {
      */
     function (minValue) {
         /** @type {?} */
-        var func = function (c) {
+        var func = (/**
+         * @param {?} c
+         * @return {?}
+         */
+        function (c) {
             if (!!Validators.required(c) || (!minValue && minValue !== 0)) {
                 return undefined;
             }
             /** @type {?} */
             var v = c.value;
             return v < minValue ? { min: { minValue: minValue, actualValue: v } } : undefined;
-        };
+        });
         return func;
     };
     /**
@@ -2139,14 +2203,18 @@ var CovalentValidators = /** @class */ (function () {
      */
     function (maxValue) {
         /** @type {?} */
-        var func = function (c) {
+        var func = (/**
+         * @param {?} c
+         * @return {?}
+         */
+        function (c) {
             if (!!Validators.required(c) || (!maxValue && maxValue !== 0)) {
                 return undefined;
             }
             /** @type {?} */
             var v = c.value;
             return v > maxValue ? { max: { maxValue: maxValue, actualValue: v } } : undefined;
-        };
+        });
         return func;
     };
     /**
@@ -2163,21 +2231,5 @@ var CovalentValidators = /** @class */ (function () {
     return CovalentValidators;
 }());
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-export { CovalentCommonModule, tdRotateAnimation, tdCollapseAnimation, tdFadeInOutAnimation, tdBounceAnimation, tdFlashAnimation, tdHeadshakeAnimation, tdJelloAnimation, tdPulseAnimation, mixinControlValueAccessor, mixinDisabled, mixinDisableRipple, TdAutoTrimDirective, CovalentValidators, TdTimeAgoPipe, TdTimeDifferencePipe, TdBytesPipe, TdDigitsPipe, TdTruncatePipe, TdDecimalBytesPipe, TdFullscreenDirective as ɵa, TdTimeUntilPipe as ɵb, IconService as ɵd, RouterPathService as ɵc };
-
+export { CovalentCommonModule, CovalentValidators, TdAutoTrimDirective, TdBytesPipe, TdDecimalBytesPipe, TdDigitsPipe, TdTimeAgoPipe, TdTimeDifferencePipe, TdTruncatePipe, mixinControlValueAccessor, mixinDisableRipple, mixinDisabled, tdBounceAnimation, tdCollapseAnimation, tdFadeInOutAnimation, tdFlashAnimation, tdHeadshakeAnimation, tdJelloAnimation, tdPulseAnimation, tdRotateAnimation, TdFullscreenDirective as ɵa, TdTimeUntilPipe as ɵb, RouterPathService as ɵc, IconService as ɵd };
 //# sourceMappingURL=covalent-core-common.js.map

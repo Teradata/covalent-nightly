@@ -1,13 +1,13 @@
+import { Directive, Component, ContentChildren, ViewChild, Injectable, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MatDialogRef, MatDialogConfig, MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { Component, Directive, ContentChildren, ViewChild, Injectable, NgModule } from '@angular/core';
-import { MatDialogRef, MatDialog, MatDialogConfig, MatDialogModule } from '@angular/material/dialog';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdDialogTitleDirective {
 }
@@ -55,7 +55,7 @@ TdDialogComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdAlertDialogComponent {
     /**
@@ -86,7 +86,7 @@ TdAlertDialogComponent.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdConfirmDialogComponent {
     /**
@@ -124,7 +124,7 @@ TdConfirmDialogComponent.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdPromptDialogComponent {
     /**
@@ -140,9 +140,12 @@ class TdPromptDialogComponent {
      */
     ngAfterViewInit() {
         // focus input once everything is rendered and good to go
-        Promise.resolve().then(() => {
+        Promise.resolve().then((/**
+         * @return {?}
+         */
+        () => {
             ((/** @type {?} */ (this._input.nativeElement))).focus();
-        });
+        }));
     }
     /**
      * Method executed when input is focused
@@ -177,12 +180,12 @@ TdPromptDialogComponent.ctorParameters = () => [
     { type: MatDialogRef }
 ];
 TdPromptDialogComponent.propDecorators = {
-    _input: [{ type: ViewChild, args: ['input',] }]
+    _input: [{ type: ViewChild, args: ['input', { static: true },] }]
 };
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdDialogService {
     /**
@@ -308,6 +311,7 @@ class TdDialogService {
         return dialogRef;
     }
     /**
+     * @private
      * @param {?} config
      * @return {?}
      */
@@ -329,7 +333,7 @@ TdDialogService.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TD_DIALOGS = [
@@ -359,21 +363,5 @@ CovalentDialogsModule.decorators = [
             },] }
 ];
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-export { CovalentDialogsModule, TdDialogTitleDirective, TdDialogContentDirective, TdDialogActionsDirective, TdDialogComponent, TdAlertDialogComponent, TdConfirmDialogComponent, TdPromptDialogComponent, TdDialogService };
-
+export { CovalentDialogsModule, TdAlertDialogComponent, TdConfirmDialogComponent, TdDialogActionsDirective, TdDialogComponent, TdDialogContentDirective, TdDialogService, TdDialogTitleDirective, TdPromptDialogComponent };
 //# sourceMappingURL=covalent-core-dialogs.js.map

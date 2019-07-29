@@ -1,6 +1,6 @@
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 export { CovalentSidesheetModule } from './sidesheet.module';
 export { TdSidesheetContentDirective, TdSidesheetTitleDirective, TdSidesheetActionsDirective, TdSidesheetHeaderComponent, TdSidesheetComponent } from './sidesheet.component';

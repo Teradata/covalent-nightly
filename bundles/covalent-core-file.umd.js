@@ -1,12 +1,41 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/material/icon'), require('@angular/material/button'), require('@angular/cdk/coercion'), require('@angular/cdk/portal'), require('@covalent/core/common'), require('@angular/forms'), require('@angular/core'), require('rxjs')) :
-    typeof define === 'function' && define.amd ? define('@covalent/core/file', ['exports', '@angular/common', '@angular/material/icon', '@angular/material/button', '@angular/cdk/coercion', '@angular/cdk/portal', '@covalent/core/common', '@angular/forms', '@angular/core', 'rxjs'], factory) :
-    (factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.file = {}),global.ng.common,global.ng.material.icon,global.ng.material.button,global.ng.cdk.coercion,global.ng.cdk.portal,global.covalent.core.common,global.ng.forms,global.ng.core,global.rxjs));
-}(this, (function (exports,common,icon,button,coercion,portal,common$1,forms,core,rxjs) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/cdk/portal'), require('@angular/material/icon'), require('@angular/material/button'), require('@angular/cdk/coercion'), require('@covalent/core/common'), require('rxjs')) :
+    typeof define === 'function' && define.amd ? define('@covalent/core/file', ['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/cdk/portal', '@angular/material/icon', '@angular/material/button', '@angular/cdk/coercion', '@covalent/core/common', 'rxjs'], factory) :
+    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.file = {}), global.ng.core, global.ng.common, global.ng.forms, global.ng.cdk.portal, global.ng.material.icon, global.ng.material.button, global.ng.cdk.coercion, global.covalent.core.common, global.rxjs));
+}(this, function (exports, core, common, forms, portal, icon, button, coercion, common$1, rxjs) { 'use strict';
+
+    /*! *****************************************************************************
+    Copyright (c) Microsoft Corporation. All rights reserved.
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+    this file except in compliance with the License. You may obtain a copy of the
+    License at http://www.apache.org/licenses/LICENSE-2.0
+
+    THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+    WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+    MERCHANTABLITY OR NON-INFRINGEMENT.
+
+    See the Apache Version 2.0 License for specific language governing permissions
+    and limitations under the License.
+    ***************************************************************************** */
+    /* global Reflect, Promise */
+
+    var extendStatics = function(d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+
+    function __extends(d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    }
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdFileSelectDirective = /** @class */ (function () {
         function TdFileSelectDirective(model) {
@@ -32,7 +61,8 @@
              * Can also be 'multiple' native attribute.
              * @param {?} multiple
              * @return {?}
-             */ function (multiple) {
+             */
+            function (multiple) {
                 this._multiple = coercion.coerceBooleanProperty(multiple);
             },
             enumerable: true,
@@ -45,7 +75,8 @@
             get: /**
              * Binds native 'multiple' attribute if [multiple] property is 'true'.
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._multiple ? '' : undefined;
             },
             enumerable: true,
@@ -70,30 +101,28 @@
          * @param {?} event
          * @return {?}
          */
-            function (event) {
-                if (event.target instanceof HTMLInputElement) {
+        function (event) {
+            if (event.target instanceof HTMLInputElement) {
+                /** @type {?} */
+                var fileInputEl = (/** @type {?} */ (event.target));
+                /** @type {?} */
+                var files = fileInputEl.files;
+                if (files.length) {
                     /** @type {?} */
-                    var fileInputEl = ( /** @type {?} */(event.target));
-                    /** @type {?} */
-                    var files = fileInputEl.files;
-                    if (files.length) {
-                        /** @type {?} */
-                        var value = this._multiple ? (files.length > 1 ? files : files[0]) : files[0];
-                        this.model ? this.model.update.emit(value) : this.onFileSelect.emit(value);
-                    }
+                    var value = this._multiple ? (files.length > 1 ? files : files[0]) : files[0];
+                    this.model ? this.model.update.emit(value) : this.onFileSelect.emit(value);
                 }
-            };
+            }
+        };
         TdFileSelectDirective.decorators = [
             { type: core.Directive, args: [{
                         selector: '[tdFileSelect]',
                     },] }
         ];
         /** @nocollapse */
-        TdFileSelectDirective.ctorParameters = function () {
-            return [
-                { type: forms.NgModel, decorators: [{ type: core.Optional }, { type: core.Host }] }
-            ];
-        };
+        TdFileSelectDirective.ctorParameters = function () { return [
+            { type: forms.NgModel, decorators: [{ type: core.Optional }, { type: core.Host }] }
+        ]; };
         TdFileSelectDirective.propDecorators = {
             multiple: [{ type: core.Input, args: ['multiple',] }],
             onFileSelect: [{ type: core.Output, args: ['fileSelect',] }],
@@ -103,38 +132,9 @@
         return TdFileSelectDirective;
     }());
 
-    /*! *****************************************************************************
-    Copyright (c) Microsoft Corporation. All rights reserved.
-    Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-    this file except in compliance with the License. You may obtain a copy of the
-    License at http://www.apache.org/licenses/LICENSE-2.0
-
-    THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-    KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
-    WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
-    MERCHANTABLITY OR NON-INFRINGEMENT.
-
-    See the Apache Version 2.0 License for specific language governing permissions
-    and limitations under the License.
-    ***************************************************************************** */
-    /* global Reflect, Promise */
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b)
-                if (b.hasOwnProperty(p))
-                    d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    function __extends(d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    }
-
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdFileDropBase = /** @class */ (function () {
         function TdFileDropBase() {
@@ -171,7 +171,8 @@
              * Can also be 'multiple' native attribute.
              * @param {?} multiple
              * @return {?}
-             */ function (multiple) {
+             */
+            function (multiple) {
                 this._multiple = coercion.coerceBooleanProperty(multiple);
             },
             enumerable: true,
@@ -184,7 +185,8 @@
             get: /**
              * Binds native 'multiple' attribute if [multiple] property is 'true'.
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._multiple ? '' : undefined;
             },
             enumerable: true,
@@ -197,7 +199,8 @@
             get: /**
              * Binds native 'disabled' attribute if [disabled] property is 'true'.
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this.disabled ? '' : undefined;
             },
             enumerable: true,
@@ -222,21 +225,21 @@
          * @param {?} event
          * @return {?}
          */
-            function (event) {
-                if (!this.disabled) {
+        function (event) {
+            if (!this.disabled) {
+                /** @type {?} */
+                var transfer = ((/** @type {?} */ (event))).dataTransfer;
+                /** @type {?} */
+                var files = transfer.files;
+                if (files.length) {
                     /** @type {?} */
-                    var transfer = (( /** @type {?} */(event))).dataTransfer;
-                    /** @type {?} */
-                    var files = transfer.files;
-                    if (files.length) {
-                        /** @type {?} */
-                        var value = this._multiple ? (files.length > 1 ? files : files[0]) : files[0];
-                        this.onFileDrop.emit(value);
-                    }
+                    var value = this._multiple ? (files.length > 1 ? files : files[0]) : files[0];
+                    this.onFileDrop.emit(value);
                 }
-                this._renderer.removeClass(this._element.nativeElement, 'drop-zone');
-                this._stopEvent(event);
-            };
+            }
+            this._renderer.removeClass(this._element.nativeElement, 'drop-zone');
+            this._stopEvent(event);
+        };
         /**
          * Listens to 'dragover' host event to validate transfer items.
          * Checks if 'multiple' attr exists in host to allow multiple file drops.
@@ -256,19 +259,19 @@
          * @param {?} event
          * @return {?}
          */
-            function (event) {
-                /** @type {?} */
-                var transfer = (( /** @type {?} */(event))).dataTransfer;
-                transfer.dropEffect = this._typeCheck(transfer.types);
-                if (this.disabled ||
-                    (!this._multiple && ((transfer.items && transfer.items.length > 1) || (( /** @type {?} */(transfer))).mozItemCount > 1))) {
-                    transfer.dropEffect = 'none';
-                }
-                else {
-                    transfer.dropEffect = 'copy';
-                }
-                this._stopEvent(event);
-            };
+        function (event) {
+            /** @type {?} */
+            var transfer = ((/** @type {?} */ (event))).dataTransfer;
+            transfer.dropEffect = this._typeCheck(transfer.types);
+            if (this.disabled ||
+                (!this._multiple && ((transfer.items && transfer.items.length > 1) || ((/** @type {?} */ (transfer))).mozItemCount > 1))) {
+                transfer.dropEffect = 'none';
+            }
+            else {
+                transfer.dropEffect = 'copy';
+            }
+            this._stopEvent(event);
+        };
         /**
          * Listens to 'dragenter' host event to add animation class 'drop-zone' which can be overriden in host.
          * Stops event propagation and default action from browser for 'dragenter' event.
@@ -285,12 +288,12 @@
          * @param {?} event
          * @return {?}
          */
-            function (event) {
-                if (!this.disabled) {
-                    this._renderer.addClass(this._element.nativeElement, 'drop-zone');
-                }
-                this._stopEvent(event);
-            };
+        function (event) {
+            if (!this.disabled) {
+                this._renderer.addClass(this._element.nativeElement, 'drop-zone');
+            }
+            this._stopEvent(event);
+        };
         /**
          * Listens to 'dragleave' host event to remove animation class 'drop-zone'.
          * Stops event propagation and default action from browser for 'dragleave' event.
@@ -307,46 +310,50 @@
          * @param {?} event
          * @return {?}
          */
-            function (event) {
-                this._renderer.removeClass(this._element.nativeElement, 'drop-zone');
-                this._stopEvent(event);
-            };
+        function (event) {
+            this._renderer.removeClass(this._element.nativeElement, 'drop-zone');
+            this._stopEvent(event);
+        };
         /**
          * Validates if the transfer item types are 'Files'.
          */
         /**
          * Validates if the transfer item types are 'Files'.
+         * @private
          * @param {?} types
          * @return {?}
          */
         TdFileDropDirective.prototype._typeCheck = /**
          * Validates if the transfer item types are 'Files'.
+         * @private
          * @param {?} types
          * @return {?}
          */
-            function (types) {
-                /** @type {?} */
-                var dropEffect = 'none';
-                if (types) {
-                    if (((( /** @type {?} */(types))).contains && (( /** @type {?} */(types))).contains('Files')) ||
-                        ((( /** @type {?} */(types))).indexOf && (( /** @type {?} */(types))).indexOf('Files') !== -1)) {
-                        dropEffect = 'copy';
-                    }
+        function (types) {
+            /** @type {?} */
+            var dropEffect = 'none';
+            if (types) {
+                if ((((/** @type {?} */ (types))).contains && ((/** @type {?} */ (types))).contains('Files')) ||
+                    (((/** @type {?} */ (types))).indexOf && ((/** @type {?} */ (types))).indexOf('Files') !== -1)) {
+                    dropEffect = 'copy';
                 }
-                return dropEffect;
-            };
+            }
+            return dropEffect;
+        };
         /**
+         * @private
          * @param {?} event
          * @return {?}
          */
         TdFileDropDirective.prototype._stopEvent = /**
+         * @private
          * @param {?} event
          * @return {?}
          */
-            function (event) {
-                event.preventDefault();
-                event.stopPropagation();
-            };
+        function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+        };
         TdFileDropDirective.decorators = [
             { type: core.Directive, args: [{
                         selector: '[tdFileDrop]',
@@ -354,12 +361,10 @@
                     },] }
         ];
         /** @nocollapse */
-        TdFileDropDirective.ctorParameters = function () {
-            return [
-                { type: core.Renderer2 },
-                { type: core.ElementRef }
-            ];
-        };
+        TdFileDropDirective.ctorParameters = function () { return [
+            { type: core.Renderer2 },
+            { type: core.ElementRef }
+        ]; };
         TdFileDropDirective.propDecorators = {
             multiple: [{ type: core.Input, args: ['multiple',] }],
             onFileDrop: [{ type: core.Output, args: ['fileDrop',] }],
@@ -375,7 +380,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdFileInputLabelDirective = /** @class */ (function (_super) {
         __extends(TdFileInputLabelDirective, _super);
@@ -388,12 +393,10 @@
                     },] }
         ];
         /** @nocollapse */
-        TdFileInputLabelDirective.ctorParameters = function () {
-            return [
-                { type: core.TemplateRef },
-                { type: core.ViewContainerRef }
-            ];
-        };
+        TdFileInputLabelDirective.ctorParameters = function () { return [
+            { type: core.TemplateRef },
+            { type: core.ViewContainerRef }
+        ]; };
         return TdFileInputLabelDirective;
     }(portal.TemplatePortalDirective));
     var TdFileInputBase = /** @class */ (function () {
@@ -422,7 +425,8 @@
         Object.defineProperty(TdFileInputComponent.prototype, "inputElement", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._inputElement.nativeElement;
             },
             enumerable: true,
@@ -431,7 +435,8 @@
         Object.defineProperty(TdFileInputComponent.prototype, "multiple", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._multiple;
             },
             /**
@@ -443,7 +448,8 @@
              * Sets if multiple files can be dropped/selected at once in [TdFileInputComponent].
              * @param {?} multiple
              * @return {?}
-             */ function (multiple) {
+             */
+            function (multiple) {
                 this._multiple = coercion.coerceBooleanProperty(multiple);
             },
             enumerable: true,
@@ -462,10 +468,10 @@
          * @param {?} files
          * @return {?}
          */
-            function (files) {
-                this.writeValue(files);
-                this.onSelect.emit(files);
-            };
+        function (files) {
+            this.writeValue(files);
+            this.onSelect.emit(files);
+        };
         /**
          * Used to clear the selected files from the [TdFileInputComponent].
          */
@@ -477,10 +483,10 @@
          * Used to clear the selected files from the [TdFileInputComponent].
          * @return {?}
          */
-            function () {
-                this.writeValue(undefined);
-                this._renderer.setProperty(this.inputElement, 'value', '');
-            };
+        function () {
+            this.writeValue(undefined);
+            this._renderer.setProperty(this.inputElement, 'value', '');
+        };
         /** Method executed when the disabled value changes */
         /**
          * Method executed when the disabled value changes
@@ -492,11 +498,11 @@
          * @param {?} v
          * @return {?}
          */
-            function (v) {
-                if (v) {
-                    this.clear();
-                }
-            };
+        function (v) {
+            if (v) {
+                this.clear();
+            }
+        };
         /**
          * Sets disable to the component. Implemented as part of ControlValueAccessor.
          */
@@ -510,16 +516,19 @@
          * @param {?} isDisabled
          * @return {?}
          */
-            function (isDisabled) {
-                this.disabled = isDisabled;
-            };
+        function (isDisabled) {
+            this.disabled = isDisabled;
+        };
         TdFileInputComponent.decorators = [
             { type: core.Component, args: [{
                         changeDetection: core.ChangeDetectionStrategy.OnPush,
                         providers: [
                             {
                                 provide: forms.NG_VALUE_ACCESSOR,
-                                useExisting: core.forwardRef(function () { return TdFileInputComponent; }),
+                                useExisting: core.forwardRef((/**
+                                 * @return {?}
+                                 */
+                                function () { return TdFileInputComponent; })),
                                 multi: true,
                             },
                         ],
@@ -530,14 +539,12 @@
                     }] }
         ];
         /** @nocollapse */
-        TdFileInputComponent.ctorParameters = function () {
-            return [
-                { type: core.Renderer2 },
-                { type: core.ChangeDetectorRef }
-            ];
-        };
+        TdFileInputComponent.ctorParameters = function () { return [
+            { type: core.Renderer2 },
+            { type: core.ChangeDetectorRef }
+        ]; };
         TdFileInputComponent.propDecorators = {
-            _inputElement: [{ type: core.ViewChild, args: ['fileInput',] }],
+            _inputElement: [{ type: core.ViewChild, args: ['fileInput', { static: true },] }],
             color: [{ type: core.Input, args: ['color',] }],
             multiple: [{ type: core.Input, args: ['multiple',] }],
             accept: [{ type: core.Input, args: ['accept',] }],
@@ -548,7 +555,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdFileUploadBase = /** @class */ (function () {
         function TdFileUploadBase(_changeDetectorRef) {
@@ -602,7 +609,8 @@
         Object.defineProperty(TdFileUploadComponent.prototype, "multiple", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._multiple;
             },
             /**
@@ -614,7 +622,8 @@
              * Sets if multiple files can be dropped/selected at once in [TdFileUploadComponent].
              * @param {?} multiple
              * @return {?}
-             */ function (multiple) {
+             */
+            function (multiple) {
                 this._multiple = coercion.coerceBooleanProperty(multiple);
             },
             enumerable: true,
@@ -623,7 +632,8 @@
         Object.defineProperty(TdFileUploadComponent.prototype, "required", {
             get: /**
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._required;
             },
             /**
@@ -637,7 +647,8 @@
              * Defaults to 'false'
              * @param {?} required
              * @return {?}
-             */ function (required) {
+             */
+            function (required) {
                 this._required = coercion.coerceBooleanProperty(required);
             },
             enumerable: true,
@@ -654,11 +665,11 @@
          * Method executed when upload button is clicked.
          * @return {?}
          */
-            function () {
-                if (this.value) {
-                    this.onUpload.emit(this.value);
-                }
-            };
+        function () {
+            if (this.value) {
+                this.onUpload.emit(this.value);
+            }
+        };
         /**
          * Method executed when a file is selected.
          */
@@ -672,10 +683,10 @@
          * @param {?} value
          * @return {?}
          */
-            function (value) {
-                this.value = value;
-                this.onSelect.emit(value);
-            };
+        function (value) {
+            this.value = value;
+            this.onSelect.emit(value);
+        };
         /**
          * Methods executed when cancel button is clicked.
          * Clears files.
@@ -690,14 +701,14 @@
          * Clears files.
          * @return {?}
          */
-            function () {
-                this.value = undefined;
-                this.onCancel.emit(undefined);
-                // check if the file input is rendered before clearing it
-                if (this.fileInput) {
-                    this.fileInput.clear();
-                }
-            };
+        function () {
+            this.value = undefined;
+            this.onCancel.emit(undefined);
+            // check if the file input is rendered before clearing it
+            if (this.fileInput) {
+                this.fileInput.clear();
+            }
+        };
         /** Method executed when the disabled value changes */
         /**
          * Method executed when the disabled value changes
@@ -709,18 +720,21 @@
          * @param {?} v
          * @return {?}
          */
-            function (v) {
-                if (v) {
-                    this.cancel();
-                }
-            };
+        function (v) {
+            if (v) {
+                this.cancel();
+            }
+        };
         TdFileUploadComponent.decorators = [
             { type: core.Component, args: [{
                         changeDetection: core.ChangeDetectionStrategy.OnPush,
                         providers: [
                             {
                                 provide: forms.NG_VALUE_ACCESSOR,
-                                useExisting: core.forwardRef(function () { return TdFileUploadComponent; }),
+                                useExisting: core.forwardRef((/**
+                                 * @return {?}
+                                 */
+                                function () { return TdFileUploadComponent; })),
                                 multi: true,
                             },
                         ],
@@ -731,14 +745,12 @@
                     }] }
         ];
         /** @nocollapse */
-        TdFileUploadComponent.ctorParameters = function () {
-            return [
-                { type: core.ChangeDetectorRef }
-            ];
-        };
+        TdFileUploadComponent.ctorParameters = function () { return [
+            { type: core.ChangeDetectorRef }
+        ]; };
         TdFileUploadComponent.propDecorators = {
-            fileInput: [{ type: core.ViewChild, args: [TdFileInputComponent,] }],
-            inputLabel: [{ type: core.ContentChild, args: [TdFileInputLabelDirective,] }],
+            fileInput: [{ type: core.ViewChild, args: [TdFileInputComponent, { static: false },] }],
+            inputLabel: [{ type: core.ContentChild, args: [TdFileInputLabelDirective, { static: false },] }],
             defaultColor: [{ type: core.Input, args: ['defaultColor',] }],
             activeColor: [{ type: core.Input, args: ['activeColor',] }],
             cancelColor: [{ type: core.Input, args: ['cancelColor',] }],
@@ -754,7 +766,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdFileService = /** @class */ (function () {
         function TdFileService() {
@@ -770,7 +782,8 @@
              * Gets progress observable to keep track of the files being uploaded.
              * Needs to be supported by backend.
              * @return {?}
-             */ function () {
+             */
+            function () {
                 return this._progressObservable;
             },
             enumerable: true,
@@ -819,51 +832,62 @@
          * @param {?} options
          * @return {?}
          */
-            function (options) {
-                var _this = this;
-                return new rxjs.Observable(function (subscriber) {
+        function (options) {
+            var _this = this;
+            return new rxjs.Observable((/**
+             * @param {?} subscriber
+             * @return {?}
+             */
+            function (subscriber) {
+                /** @type {?} */
+                var xhr = new XMLHttpRequest();
+                /** @type {?} */
+                var formData = new FormData();
+                if (options.file !== undefined) {
+                    formData.append('file', options.file);
+                }
+                else if (options.formData !== undefined) {
+                    formData = options.formData;
+                }
+                else {
+                    return subscriber.error('For [IUploadOptions] you have to set either the [file] or the [formData] property.');
+                }
+                xhr.upload.onprogress = (/**
+                 * @param {?} event
+                 * @return {?}
+                 */
+                function (event) {
                     /** @type {?} */
-                    var xhr = new XMLHttpRequest();
-                    /** @type {?} */
-                    var formData = new FormData();
-                    if (options.file !== undefined) {
-                        formData.append('file', options.file);
+                    var progress = 0;
+                    if (event.lengthComputable) {
+                        progress = Math.round((event.loaded / event.total) * 100);
                     }
-                    else if (options.formData !== undefined) {
-                        formData = options.formData;
-                    }
-                    else {
-                        return subscriber.error('For [IUploadOptions] you have to set either the [file] or the [formData] property.');
-                    }
-                    xhr.upload.onprogress = function (event) {
-                        /** @type {?} */
-                        var progress = 0;
-                        if (event.lengthComputable) {
-                            progress = Math.round((event.loaded / event.total) * 100);
-                        }
-                        _this._progressSubject.next(progress);
-                    };
-                    xhr.onreadystatechange = function () {
-                        if (xhr.readyState === 4) {
-                            if (xhr.status >= 200 && xhr.status < 300) {
-                                subscriber.next(xhr.response);
-                                subscriber.complete();
-                            }
-                            else {
-                                subscriber.error(xhr.response);
-                            }
-                        }
-                    };
-                    xhr.open(options.method, options.url, true);
-                    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-                    if (options.headers) {
-                        for (var key in options.headers) {
-                            xhr.setRequestHeader(key, options.headers[key]);
-                        }
-                    }
-                    xhr.send(formData);
+                    _this._progressSubject.next(progress);
                 });
-            };
+                xhr.onreadystatechange = (/**
+                 * @return {?}
+                 */
+                function () {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status >= 200 && xhr.status < 300) {
+                            subscriber.next(xhr.response);
+                            subscriber.complete();
+                        }
+                        else {
+                            subscriber.error(xhr.response);
+                        }
+                    }
+                });
+                xhr.open(options.method, options.url, true);
+                xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+                if (options.headers) {
+                    for (var key in options.headers) {
+                        xhr.setRequestHeader(key, options.headers[key]);
+                    }
+                }
+                xhr.send(formData);
+            }));
+        };
         TdFileService.decorators = [
             { type: core.Injectable }
         ];
@@ -874,7 +898,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
     var TD_FILE = [
@@ -898,37 +922,21 @@
         return CovalentFileModule;
     }());
 
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
     exports.CovalentFileModule = CovalentFileModule;
     exports.TdFileDropBase = TdFileDropBase;
-    exports._TdFileDropMixinBase = _TdFileDropMixinBase;
     exports.TdFileDropDirective = TdFileDropDirective;
-    exports.TdFileSelectDirective = TdFileSelectDirective;
-    exports.TdFileInputLabelDirective = TdFileInputLabelDirective;
     exports.TdFileInputBase = TdFileInputBase;
-    exports._TdFileInputMixinBase = _TdFileInputMixinBase;
     exports.TdFileInputComponent = TdFileInputComponent;
-    exports.TdFileUploadBase = TdFileUploadBase;
-    exports._TdFileUploadMixinBase = _TdFileUploadMixinBase;
-    exports.TdFileUploadComponent = TdFileUploadComponent;
+    exports.TdFileInputLabelDirective = TdFileInputLabelDirective;
+    exports.TdFileSelectDirective = TdFileSelectDirective;
     exports.TdFileService = TdFileService;
+    exports.TdFileUploadBase = TdFileUploadBase;
+    exports.TdFileUploadComponent = TdFileUploadComponent;
+    exports._TdFileDropMixinBase = _TdFileDropMixinBase;
+    exports._TdFileInputMixinBase = _TdFileInputMixinBase;
+    exports._TdFileUploadMixinBase = _TdFileUploadMixinBase;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
-
+}));
 //# sourceMappingURL=covalent-core-file.umd.js.map

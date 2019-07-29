@@ -1,17 +1,17 @@
+import { Directive, TemplateRef, ViewContainerRef, EventEmitter, Component, Renderer2, ElementRef, ContentChild, Input, Output, ContentChildren, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TemplatePortalDirective, PortalModule } from '@angular/cdk/portal';
 import { MatRippleModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { __extends } from 'tslib';
-import { TemplatePortalDirective, PortalModule } from '@angular/cdk/portal';
-import { tdCollapseAnimation, mixinDisabled, mixinDisableRipple, tdRotateAnimation } from '@covalent/core/common';
-import { Component, Directive, Input, Output, TemplateRef, ViewContainerRef, ContentChild, ElementRef, Renderer2, EventEmitter, ContentChildren, NgModule } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { mixinDisableRipple, mixinDisabled, tdCollapseAnimation, tdRotateAnimation } from '@covalent/core/common';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdExpansionPanelHeaderDirective = /** @class */ (function (_super) {
     __extends(TdExpansionPanelHeaderDirective, _super);
@@ -215,12 +215,14 @@ var TdExpansionPanelComponent = /** @class */ (function (_super) {
     /**
      * Method to change expand state internally and emit the [onExpanded] event if 'true' or [onCollapsed]
      * event if 'false'. (Blocked if [disabled] is 'true')
+     * @private
      * @param {?} newExpand
      * @return {?}
      */
     TdExpansionPanelComponent.prototype._setExpand = /**
      * Method to change expand state internally and emit the [onExpanded] event if 'true' or [onCollapsed]
      * event if 'false'. (Blocked if [disabled] is 'true')
+     * @private
      * @param {?} newExpand
      * @return {?}
      */
@@ -243,18 +245,22 @@ var TdExpansionPanelComponent = /** @class */ (function (_super) {
         return false;
     };
     /**
+     * @private
      * @return {?}
      */
     TdExpansionPanelComponent.prototype._onExpanded = /**
+     * @private
      * @return {?}
      */
     function () {
         this.expanded.emit(undefined);
     };
     /**
+     * @private
      * @return {?}
      */
     TdExpansionPanelComponent.prototype._onCollapsed = /**
+     * @private
      * @return {?}
      */
     function () {
@@ -275,9 +281,9 @@ var TdExpansionPanelComponent = /** @class */ (function (_super) {
         { type: ElementRef }
     ]; };
     TdExpansionPanelComponent.propDecorators = {
-        expansionPanelHeader: [{ type: ContentChild, args: [TdExpansionPanelHeaderDirective,] }],
-        expansionPanelLabel: [{ type: ContentChild, args: [TdExpansionPanelLabelDirective,] }],
-        expansionPanelSublabel: [{ type: ContentChild, args: [TdExpansionPanelSublabelDirective,] }],
+        expansionPanelHeader: [{ type: ContentChild, args: [TdExpansionPanelHeaderDirective, { static: false },] }],
+        expansionPanelLabel: [{ type: ContentChild, args: [TdExpansionPanelLabelDirective, { static: false },] }],
+        expansionPanelSublabel: [{ type: ContentChild, args: [TdExpansionPanelSublabelDirective, { static: false },] }],
         label: [{ type: Input }],
         sublabel: [{ type: Input }],
         expand: [{ type: Input, args: ['expand',] }],
@@ -289,7 +295,7 @@ var TdExpansionPanelComponent = /** @class */ (function (_super) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdExpansionPanelGroupComponent = /** @class */ (function () {
     function TdExpansionPanelGroupComponent(_renderer, _elementRef) {
@@ -347,7 +353,11 @@ var TdExpansionPanelGroupComponent = /** @class */ (function () {
         var _this = this;
         if (!this._multi) {
             /** @type {?} */
-            var openedPanels = this.expansionPanels.filter(function (expansionPanel) { return expansionPanel.expand; });
+            var openedPanels = this.expansionPanels.filter((/**
+             * @param {?} expansionPanel
+             * @return {?}
+             */
+            function (expansionPanel) { return expansionPanel.expand; }));
             /** @type {?} */
             var numOpenedPanels = openedPanels.length;
             if (numOpenedPanels > 1) {
@@ -357,12 +367,16 @@ var TdExpansionPanelGroupComponent = /** @class */ (function () {
         this._attachListeners(this.expansionPanels);
         this.expansionPanels.changes
             .pipe(takeUntil(this._destroyed))
-            .subscribe(function (expansionPanels) {
+            .subscribe((/**
+         * @param {?} expansionPanels
+         * @return {?}
+         */
+        function (expansionPanels) {
             _this._stopWatchingPanels.next(true);
             _this._stopWatchingPanels.unsubscribe();
             _this._stopWatchingPanels = new Subject();
             _this._attachListeners(expansionPanels);
-        });
+        }));
     };
     /**
      * Opens all expansion panels, only if multi set set to true.
@@ -377,9 +391,13 @@ var TdExpansionPanelGroupComponent = /** @class */ (function () {
      */
     function () {
         if (this._multi) {
-            this.expansionPanels.forEach(function (expansionPanel) {
+            this.expansionPanels.forEach((/**
+             * @param {?} expansionPanel
+             * @return {?}
+             */
+            function (expansionPanel) {
                 expansionPanel.open();
-            });
+            }));
         }
     };
     /**
@@ -394,23 +412,36 @@ var TdExpansionPanelGroupComponent = /** @class */ (function () {
      * @return {?}
      */
     function () {
-        this.expansionPanels.forEach(function (expansionPanel) {
+        this.expansionPanels.forEach((/**
+         * @param {?} expansionPanel
+         * @return {?}
+         */
+        function (expansionPanel) {
             expansionPanel.close();
-        });
+        }));
     };
     /**
+     * @private
      * @param {?} expansionPanels
      * @return {?}
      */
     TdExpansionPanelGroupComponent.prototype._attachListeners = /**
+     * @private
      * @param {?} expansionPanels
      * @return {?}
      */
     function (expansionPanels) {
         var _this = this;
         this._lastOpenedPanels = [];
-        expansionPanels.forEach(function (expansionPanel) {
-            expansionPanel.expanded.pipe(takeUntil(_this._stopWatchingPanels)).subscribe(function () {
+        expansionPanels.forEach((/**
+         * @param {?} expansionPanel
+         * @return {?}
+         */
+        function (expansionPanel) {
+            expansionPanel.expanded.pipe(takeUntil(_this._stopWatchingPanels)).subscribe((/**
+             * @return {?}
+             */
+            function () {
                 /** @type {?} */
                 var indexOfPanel = _this._lastOpenedPanels.indexOf(expansionPanel);
                 if (indexOfPanel !== -1) {
@@ -420,30 +451,39 @@ var TdExpansionPanelGroupComponent = /** @class */ (function () {
                 if (!_this._multi) {
                     _this._closeAllExcept(expansionPanel);
                 }
-            });
-            expansionPanel.collapsed.pipe(takeUntil(_this._stopWatchingPanels)).subscribe(function () {
+            }));
+            expansionPanel.collapsed.pipe(takeUntil(_this._stopWatchingPanels)).subscribe((/**
+             * @return {?}
+             */
+            function () {
                 /** @type {?} */
                 var indexOfPanel = _this._lastOpenedPanels.indexOf(expansionPanel);
                 if (indexOfPanel !== -1) {
                     _this._lastOpenedPanels.splice(indexOfPanel, 1);
                 }
-            });
-        });
+            }));
+        }));
     };
     /**
+     * @private
      * @param {?} expansionPanel
      * @return {?}
      */
     TdExpansionPanelGroupComponent.prototype._closeAllExcept = /**
+     * @private
      * @param {?} expansionPanel
      * @return {?}
      */
     function (expansionPanel) {
-        this.expansionPanels.forEach(function (panel) {
+        this.expansionPanels.forEach((/**
+         * @param {?} panel
+         * @return {?}
+         */
+        function (panel) {
             if (panel !== expansionPanel) {
                 panel.close();
             }
-        });
+        }));
     };
     TdExpansionPanelGroupComponent.decorators = [
         { type: Component, args: [{
@@ -466,7 +506,7 @@ var TdExpansionPanelGroupComponent = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 var TD_EXPANSION_PANEL = [
@@ -490,21 +530,5 @@ var CovalentExpansionPanelModule = /** @class */ (function () {
     return CovalentExpansionPanelModule;
 }());
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-export { CovalentExpansionPanelModule, TdExpansionPanelHeaderDirective, TdExpansionPanelLabelDirective, TdExpansionPanelSublabelDirective, TdExpansionPanelSummaryComponent, TdExpansionPanelBase, _TdExpansionPanelMixinBase, TdExpansionPanelComponent, TdExpansionPanelGroupComponent };
-
+export { CovalentExpansionPanelModule, TdExpansionPanelBase, TdExpansionPanelComponent, TdExpansionPanelGroupComponent, TdExpansionPanelHeaderDirective, TdExpansionPanelLabelDirective, TdExpansionPanelSublabelDirective, TdExpansionPanelSummaryComponent, _TdExpansionPanelMixinBase };
 //# sourceMappingURL=covalent-core-expansion-panel.js.map

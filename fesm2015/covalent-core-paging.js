@@ -1,13 +1,13 @@
+import { EventEmitter, Component, ChangeDetectionStrategy, Optional, ChangeDetectorRef, Input, Output, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { Component, Input, Output, EventEmitter, Optional, ChangeDetectorRef, ChangeDetectionStrategy, NgModule } from '@angular/core';
 import { coerceNumberProperty } from '@angular/cdk/coercion';
 import { Dir } from '@angular/cdk/bidi';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdPagingBarComponent {
     /**
@@ -211,6 +211,7 @@ class TdPagingBarComponent {
         return this._page >= this.maxPage;
     }
     /**
+     * @private
      * @return {?}
      */
     _calculateRows() {
@@ -222,6 +223,7 @@ class TdPagingBarComponent {
     /**
      * _calculatePageLinks?: function
      * Calculates the page links that should be shown to the user based on the current state of the paginator
+     * @private
      * @return {?}
      */
     _calculatePageLinks() {
@@ -271,6 +273,7 @@ class TdPagingBarComponent {
         }
     }
     /**
+     * @private
      * @return {?}
      */
     _handleOnChange() {
@@ -313,7 +316,7 @@ TdPagingBarComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class CovalentPagingModule {
 }
@@ -325,21 +328,5 @@ CovalentPagingModule.decorators = [
             },] }
 ];
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
-
 export { CovalentPagingModule, TdPagingBarComponent };
-
 //# sourceMappingURL=covalent-core-paging.js.map

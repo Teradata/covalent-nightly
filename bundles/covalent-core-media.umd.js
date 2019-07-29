@@ -1,12 +1,12 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('rxjs')) :
     typeof define === 'function' && define.amd ? define('@covalent/core/media', ['exports', '@angular/core', 'rxjs'], factory) :
-    (factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.media = {}),global.ng.core,global.rxjs));
-}(this, (function (exports,i0,rxjs) { 'use strict';
+    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.media = {}), global.ng.core, global.rxjs));
+}(this, function (exports, core, rxjs) { 'use strict';
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdMediaService = /** @class */ (function () {
         function TdMediaService(_ngZone) {
@@ -30,18 +30,27 @@
             this._queryMap.set('print', 'print');
             this._resizing = false;
             // we make sure that the resize checking happend outside of Angular since it happens often
-            this._globalSubscription = this._ngZone.runOutsideAngular(function () {
-                return rxjs.fromEvent(window, 'resize').subscribe(function () {
+            this._globalSubscription = this._ngZone.runOutsideAngular((/**
+             * @return {?}
+             */
+            function () {
+                return rxjs.fromEvent(window, 'resize').subscribe((/**
+                 * @return {?}
+                 */
+                function () {
                     // way to prevent the resize event from triggering the match media if there is already one event running already.
                     if (!_this._resizing) {
                         _this._resizing = true;
-                        setTimeout(function () {
+                        setTimeout((/**
+                         * @return {?}
+                         */
+                        function () {
                             _this._onResize();
                             _this._resizing = false;
-                        }, 100);
+                        }), 100);
                     }
-                });
-            });
+                }));
+            }));
         }
         /**
          * Deregisters a query so its stops being notified or used.
@@ -56,14 +65,14 @@
          * @param {?} query
          * @return {?}
          */
-            function (query) {
-                if (this._queryMap.get(query.toLowerCase())) {
-                    query = this._queryMap.get(query.toLowerCase());
-                }
-                this._querySources[query].unsubscribe();
-                delete this._querySources[query];
-                delete this._queryObservables[query];
-            };
+        function (query) {
+            if (this._queryMap.get(query.toLowerCase())) {
+                query = this._queryMap.get(query.toLowerCase());
+            }
+            this._querySources[query].unsubscribe();
+            delete this._querySources[query];
+            delete this._queryObservables[query];
+        };
         /**
          * Used to evaluate whether a given media query is true or false given the current device's screen / window size.
          */
@@ -77,14 +86,17 @@
          * @param {?} query
          * @return {?}
          */
-            function (query) {
-                if (this._queryMap.get(query.toLowerCase())) {
-                    query = this._queryMap.get(query.toLowerCase());
-                }
-                return this._ngZone.run(function () {
-                    return matchMedia(query).matches;
-                });
-            };
+        function (query) {
+            if (this._queryMap.get(query.toLowerCase())) {
+                query = this._queryMap.get(query.toLowerCase());
+            }
+            return this._ngZone.run((/**
+             * @return {?}
+             */
+            function () {
+                return matchMedia(query).matches;
+            }));
+        };
         /**
          * Registers a media query and returns an [Observable] that will re-evaluate and
          * return if the given media query matches on window resize.
@@ -104,16 +116,16 @@
          * @param {?} query
          * @return {?}
          */
-            function (query) {
-                if (this._queryMap.get(query.toLowerCase())) {
-                    query = this._queryMap.get(query.toLowerCase());
-                }
-                if (!this._querySources[query]) {
-                    this._querySources[query] = new rxjs.BehaviorSubject(matchMedia(query).matches);
-                    this._queryObservables[query] = this._querySources[query].asObservable();
-                }
-                return this._queryObservables[query];
-            };
+        function (query) {
+            if (this._queryMap.get(query.toLowerCase())) {
+                query = this._queryMap.get(query.toLowerCase());
+            }
+            if (!this._querySources[query]) {
+                this._querySources[query] = new rxjs.BehaviorSubject(matchMedia(query).matches);
+                this._queryObservables[query] = this._querySources[query].asObservable();
+            }
+            return this._queryObservables[query];
+        };
         /**
          * Trigger a match media event on all subscribed observables.
          */
@@ -125,56 +137,61 @@
          * Trigger a match media event on all subscribed observables.
          * @return {?}
          */
-            function () {
-                this._onResize();
-            };
+        function () {
+            this._onResize();
+        };
         /**
+         * @private
          * @return {?}
          */
         TdMediaService.prototype._onResize = /**
+         * @private
          * @return {?}
          */
-            function () {
-                var _this = this;
-                var _loop_1 = function (query) {
-                    this_1._ngZone.run(function () {
-                        _this._matchMediaTrigger(query);
-                    });
-                };
-                var this_1 = this;
-                for (var query in this._querySources) {
-                    _loop_1(query);
-                }
+        function () {
+            var _this = this;
+            var _loop_1 = function (query) {
+                this_1._ngZone.run((/**
+                 * @return {?}
+                 */
+                function () {
+                    _this._matchMediaTrigger(query);
+                }));
             };
+            var this_1 = this;
+            for (var query in this._querySources) {
+                _loop_1(query);
+            }
+        };
         /**
+         * @private
          * @param {?} query
          * @return {?}
          */
         TdMediaService.prototype._matchMediaTrigger = /**
+         * @private
          * @param {?} query
          * @return {?}
          */
-            function (query) {
-                this._querySources[query].next(matchMedia(query).matches);
-            };
+        function (query) {
+            this._querySources[query].next(matchMedia(query).matches);
+        };
         TdMediaService.decorators = [
-            { type: i0.Injectable, args: [{
+            { type: core.Injectable, args: [{
                         providedIn: 'root',
                     },] }
         ];
         /** @nocollapse */
-        TdMediaService.ctorParameters = function () {
-            return [
-                { type: i0.NgZone }
-            ];
-        };
-        /** @nocollapse */ TdMediaService.ngInjectableDef = i0.defineInjectable({ factory: function TdMediaService_Factory() { return new TdMediaService(i0.inject(i0.NgZone)); }, token: TdMediaService, providedIn: "root" });
+        TdMediaService.ctorParameters = function () { return [
+            { type: core.NgZone }
+        ]; };
+        /** @nocollapse */ TdMediaService.ngInjectableDef = core.ɵɵdefineInjectable({ factory: function TdMediaService_Factory() { return new TdMediaService(core.ɵɵinject(core.NgZone)); }, token: TdMediaService, providedIn: "root" });
         return TdMediaService;
     }());
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdMediaToggleDirective = /** @class */ (function () {
         function TdMediaToggleDirective(_renderer, _elementRef, _mediaService) {
@@ -198,7 +215,8 @@
              * Toggles attributes, classes and styles if media query is matched.
              * @param {?} query
              * @return {?}
-             */ function (query) {
+             */
+            function (query) {
                 if (!query) {
                     throw new Error('Query needed for [tdMediaToggle] directive.');
                 }
@@ -217,7 +235,8 @@
              * Attributes to be toggled when media query matches.
              * @param {?} attributes
              * @return {?}
-             */ function (attributes) {
+             */
+            function (attributes) {
                 this._attributes = attributes;
             },
             enumerable: true,
@@ -233,7 +252,8 @@
              * CSS Classes to be toggled when media query matches.
              * @param {?} classes
              * @return {?}
-             */ function (classes) {
+             */
+            function (classes) {
                 this._classes = classes;
             },
             enumerable: true,
@@ -249,7 +269,8 @@
              * CSS Styles to be toggled when media query matches.
              * @param {?} styles
              * @return {?}
-             */ function (styles) {
+             */
+            function (styles) {
                 this._styles = styles;
             },
             enumerable: true,
@@ -261,112 +282,126 @@
         TdMediaToggleDirective.prototype.ngOnInit = /**
          * @return {?}
          */
-            function () {
-                var _this = this;
-                this._mediaChange(this._mediaService.query(this._query));
-                this._subscription = this._mediaService.registerQuery(this._query).subscribe(function (matches) {
-                    _this._mediaChange(matches);
-                });
-            };
+        function () {
+            var _this = this;
+            this._mediaChange(this._mediaService.query(this._query));
+            this._subscription = this._mediaService.registerQuery(this._query).subscribe((/**
+             * @param {?} matches
+             * @return {?}
+             */
+            function (matches) {
+                _this._mediaChange(matches);
+            }));
+        };
         /**
          * @return {?}
          */
         TdMediaToggleDirective.prototype.ngOnDestroy = /**
          * @return {?}
          */
-            function () {
-                if (this._subscription) {
-                    this._subscription.unsubscribe();
-                }
-            };
+        function () {
+            if (this._subscription) {
+                this._subscription.unsubscribe();
+            }
+        };
         /**
+         * @private
          * @param {?} matches
          * @return {?}
          */
         TdMediaToggleDirective.prototype._mediaChange = /**
+         * @private
          * @param {?} matches
          * @return {?}
          */
-            function (matches) {
-                this._matches = matches;
-                this._changeAttributes();
-                this._changeClasses();
-                this._changeStyles();
-            };
+        function (matches) {
+            this._matches = matches;
+            this._changeAttributes();
+            this._changeClasses();
+            this._changeStyles();
+        };
         /**
+         * @private
          * @return {?}
          */
         TdMediaToggleDirective.prototype._changeAttributes = /**
+         * @private
          * @return {?}
          */
-            function () {
-                for (var attr in this._attributes) {
-                    if (this._matches) {
-                        this._renderer.setAttribute(this._elementRef.nativeElement, attr, this._attributes[attr]);
-                    }
-                    else {
-                        this._renderer.removeAttribute(this._elementRef.nativeElement, attr);
-                    }
+        function () {
+            for (var attr in this._attributes) {
+                if (this._matches) {
+                    this._renderer.setAttribute(this._elementRef.nativeElement, attr, this._attributes[attr]);
                 }
-            };
+                else {
+                    this._renderer.removeAttribute(this._elementRef.nativeElement, attr);
+                }
+            }
+        };
         /**
+         * @private
          * @return {?}
          */
         TdMediaToggleDirective.prototype._changeClasses = /**
+         * @private
          * @return {?}
          */
-            function () {
-                var _this = this;
-                this._classes.forEach(function (className) {
-                    if (_this._matches) {
-                        _this._renderer.addClass(_this._elementRef.nativeElement, className);
-                    }
-                    else {
-                        _this._renderer.removeClass(_this._elementRef.nativeElement, className);
-                    }
-                });
-            };
+        function () {
+            var _this = this;
+            this._classes.forEach((/**
+             * @param {?} className
+             * @return {?}
+             */
+            function (className) {
+                if (_this._matches) {
+                    _this._renderer.addClass(_this._elementRef.nativeElement, className);
+                }
+                else {
+                    _this._renderer.removeClass(_this._elementRef.nativeElement, className);
+                }
+            }));
+        };
         /**
+         * @private
          * @return {?}
          */
         TdMediaToggleDirective.prototype._changeStyles = /**
+         * @private
          * @return {?}
          */
-            function () {
-                for (var style in this._styles) {
-                    if (this._matches) {
-                        this._renderer.setStyle(this._elementRef.nativeElement, style, this._styles[style]);
-                    }
-                    else {
-                        this._renderer.removeStyle(this._elementRef.nativeElement, style);
-                    }
+        function () {
+            for (var style in this._styles) {
+                if (this._matches) {
+                    this._renderer.setStyle(this._elementRef.nativeElement, style, this._styles[style]);
                 }
-            };
+                else {
+                    this._renderer.removeStyle(this._elementRef.nativeElement, style);
+                }
+            }
+        };
         TdMediaToggleDirective.decorators = [
-            { type: i0.Directive, args: [{
+            { type: core.Directive, args: [{
                         selector: '[tdMediaToggle]',
                     },] }
         ];
         /** @nocollapse */
-        TdMediaToggleDirective.ctorParameters = function () {
-            return [
-                { type: i0.Renderer2 },
-                { type: i0.ElementRef },
-                { type: TdMediaService }
-            ];
-        };
+        TdMediaToggleDirective.ctorParameters = function () { return [
+            { type: core.Renderer2 },
+            { type: core.ElementRef },
+            { type: TdMediaService }
+        ]; };
         TdMediaToggleDirective.propDecorators = {
-            query: [{ type: i0.Input, args: ['tdMediaToggle',] }],
-            attributes: [{ type: i0.Input, args: ['mediaAttributes',] }],
-            classes: [{ type: i0.Input, args: ['mediaClasses',] }],
-            styles: [{ type: i0.Input, args: ['mediaStyles',] }]
+            query: [{ type: core.Input, args: ['tdMediaToggle',] }],
+            attributes: [{ type: core.Input, args: ['mediaAttributes',] }],
+            classes: [{ type: core.Input, args: ['mediaClasses',] }],
+            styles: [{ type: core.Input, args: ['mediaStyles',] }]
         };
         return TdMediaToggleDirective;
     }());
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
     var TD_MEDIA = [TdMediaToggleDirective];
@@ -374,7 +409,7 @@
         function CovalentMediaModule() {
         }
         CovalentMediaModule.decorators = [
-            { type: i0.NgModule, args: [{
+            { type: core.NgModule, args: [{
                         declarations: [TD_MEDIA],
                         exports: [TD_MEDIA],
                     },] }
@@ -382,27 +417,11 @@
         return CovalentMediaModule;
     }());
 
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
-     */
-
     exports.CovalentMediaModule = CovalentMediaModule;
-    exports.TdMediaToggleDirective = TdMediaToggleDirective;
     exports.TdMediaService = TdMediaService;
+    exports.TdMediaToggleDirective = TdMediaToggleDirective;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
-
+}));
 //# sourceMappingURL=covalent-core-media.umd.js.map
