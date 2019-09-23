@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/cdk/portal'), require('@angular/material/icon'), require('@angular/material/button'), require('@angular/cdk/coercion'), require('@covalent/core/common'), require('rxjs')) :
-    typeof define === 'function' && define.amd ? define('@covalent/core/file', ['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/cdk/portal', '@angular/material/icon', '@angular/material/button', '@angular/cdk/coercion', '@covalent/core/common', 'rxjs'], factory) :
-    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.file = {}), global.ng.core, global.ng.common, global.ng.forms, global.ng.cdk.portal, global.ng.material.icon, global.ng.material.button, global.ng.cdk.coercion, global.covalent.core.common, global.rxjs));
-}(this, function (exports, core, common, forms, portal, icon, button, coercion, common$1, rxjs) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/cdk/portal'), require('@angular/material/icon'), require('@angular/material/button'), require('@angular/cdk/coercion'), require('@covalent/core/common'), require('@angular/common/http'), require('rxjs'), require('rxjs/operators')) :
+    typeof define === 'function' && define.amd ? define('@covalent/core/file', ['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/cdk/portal', '@angular/material/icon', '@angular/material/button', '@angular/cdk/coercion', '@covalent/core/common', '@angular/common/http', 'rxjs', 'rxjs/operators'], factory) :
+    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.file = {}), global.ng.core, global.ng.common, global.ng.forms, global.ng.cdk.portal, global.ng.material.icon, global.ng.material.button, global.ng.cdk.coercion, global.covalent.core.common, global.ng.common.http, global.rxjs, global.rxjs.operators));
+}(this, function (exports, core, common, forms, portal, icon, button, coercion, common$1, http, rxjs, operators) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -769,7 +769,13 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdFileService = /** @class */ (function () {
-        function TdFileService() {
+        /**
+         * Creates a new instance
+         * @param _http the http client instance
+         * @breaking-change 3.0.0 remove 'Optional' decorator once the legay upload method is removed
+         */
+        function TdFileService(_http) {
+            this._http = _http;
             this._progressSubject = new rxjs.Subject();
             this._progressObservable = this._progressSubject.asObservable();
         }
@@ -790,6 +796,43 @@
             configurable: true
         });
         /**
+         * Uploads a file to URL.
+         */
+        /**
+         * Uploads a file to URL.
+         * @param {?} url
+         * @param {?} method
+         * @param {?} body
+         * @param {?=} __3
+         * @return {?}
+         */
+        TdFileService.prototype.send = /**
+         * Uploads a file to URL.
+         * @param {?} url
+         * @param {?} method
+         * @param {?} body
+         * @param {?=} __3
+         * @return {?}
+         */
+        function (url, method, body, _a) {
+            var _this = this;
+            var _b = _a === void 0 ? {} : _a, headers = _b.headers, params = _b.params;
+            if (!this._http) {
+                throw new Error('The HttpClient module needs to be imported at root module level');
+            }
+            /** @type {?} */
+            var req = new http.HttpRequest(method.toUpperCase(), url, body, {
+                reportProgress: true,
+                headers: new http.HttpHeaders(headers || {}),
+                params: new http.HttpParams({ fromObject: params || {} }),
+            });
+            return this._http.request(req).pipe(operators.tap((/**
+             * @param {?} event
+             * @return {?}
+             */
+            function (event) { return _this.handleEvent(event); })));
+        };
+        /**
          * params:
          * - options: IUploadOptions {
          *     url: string,
@@ -800,7 +843,8 @@
          * }
          *
          * Uses underlying [XMLHttpRequest] to upload a file to a url.
-         * Will be depricated when Angular fixes [Http] to allow [FormData] as body.
+         * @deprecated use send instead
+         * @breaking-change 3.0.0
          */
         /**
          * params:
@@ -813,7 +857,8 @@
          * }
          *
          * Uses underlying [XMLHttpRequest] to upload a file to a url.
-         * Will be depricated when Angular fixes [Http] to allow [FormData] as body.
+         * @deprecated use send instead
+         * \@breaking-change 3.0.0
          * @param {?} options
          * @return {?}
          */
@@ -828,7 +873,8 @@
          * }
          *
          * Uses underlying [XMLHttpRequest] to upload a file to a url.
-         * Will be depricated when Angular fixes [Http] to allow [FormData] as body.
+         * @deprecated use send instead
+         * \@breaking-change 3.0.0
          * @param {?} options
          * @return {?}
          */
@@ -888,11 +934,40 @@
                 xhr.send(formData);
             }));
         };
+        /**
+         * @private
+         * @template T
+         * @param {?} event
+         * @return {?}
+         */
+        TdFileService.prototype.handleEvent = /**
+         * @private
+         * @template T
+         * @param {?} event
+         * @return {?}
+         */
+        function (event) {
+            switch (event.type) {
+                case http.HttpEventType.Sent:
+                    this._progressSubject.next(0);
+                    break;
+                case http.HttpEventType.UploadProgress:
+                    this._progressSubject.next(Math.round((100 * event.loaded) / event.total));
+                    break;
+                case http.HttpEventType.Response:
+                    this._progressSubject.next(100);
+                    break;
+                default:
+                    break;
+            }
+        };
         TdFileService.decorators = [
             { type: core.Injectable }
         ];
         /** @nocollapse */
-        TdFileService.ctorParameters = function () { return []; };
+        TdFileService.ctorParameters = function () { return [
+            { type: http.HttpClient, decorators: [{ type: core.Optional }] }
+        ]; };
         return TdFileService;
     }());
 

@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/material/icon'), require('@angular/material/button'), require('@angular/cdk/coercion'), require('@angular/cdk/bidi'), require('@angular/cdk/portal'), require('@angular/platform-browser'), require('rxjs'), require('rxjs/operators'), require('@angular/forms'), require('@angular/router'), require('@angular/animations'), require('@covalent/core/common'), require('@angular/material/input'), require('@angular/material/autocomplete'), require('@angular/material/chips'), require('@angular/cdk/keycodes'), require('@angular/material/core'), require('@angular/material/checkbox'), require('@angular/material/tooltip'), require('@angular/material/dialog'), require('@angular/cdk/scrolling'), require('@angular/material/sidenav'), require('@angular/material/toolbar'), require('@angular/material/card'), require('@angular/material/divider'), require('@angular/cdk/overlay'), require('@angular/material/progress-bar'), require('@angular/material/progress-spinner'), require('@angular/material/menu'), require('@angular/material/tabs')) :
-    typeof define === 'function' && define.amd ? define('@covalent/core', ['exports', '@angular/core', '@angular/common', '@angular/material/icon', '@angular/material/button', '@angular/cdk/coercion', '@angular/cdk/bidi', '@angular/cdk/portal', '@angular/platform-browser', 'rxjs', 'rxjs/operators', '@angular/forms', '@angular/router', '@angular/animations', '@covalent/core/common', '@angular/material/input', '@angular/material/autocomplete', '@angular/material/chips', '@angular/cdk/keycodes', '@angular/material/core', '@angular/material/checkbox', '@angular/material/tooltip', '@angular/material/dialog', '@angular/cdk/scrolling', '@angular/material/sidenav', '@angular/material/toolbar', '@angular/material/card', '@angular/material/divider', '@angular/cdk/overlay', '@angular/material/progress-bar', '@angular/material/progress-spinner', '@angular/material/menu', '@angular/material/tabs'], factory) :
-    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = {}), global.ng.core, global.ng.common, global.ng.material.icon, global.ng.material.button, global.ng.cdk.coercion, global.ng.cdk.bidi, global.ng.cdk.portal, global.ng.platformBrowser, global.rxjs, global.rxjs.operators, global.ng.forms, global.ng.router, global.ng.animations, global.covalent.core.common, global.ng.material.input, global.ng.material.autocomplete, global.ng.material.chips, global.ng.cdk.keycodes, global.ng.material.core, global.ng.material.checkbox, global.ng.material.tooltip, global.ng.material.dialog, global.ng.cdk.scrolling, global.ng.material.sidenav, global.ng.material.toolbar, global.ng.material.card, global.ng.material.divider, global.ng.cdk.overlay, global.ng.material['progress-bar'], global.ng.material['progress-spinner'], global.ng.material.menu, global.ng.material.tabs));
-}(this, function (exports, core, common, icon, button, coercion, bidi, portal, platformBrowser, rxjs, operators, forms, router, animations, common$1, input, autocomplete, chips, keycodes, core$1, checkbox, tooltip, dialog, scrolling, sidenav, toolbar, card, divider, overlay, progressBar, progressSpinner, menu, tabs) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/material/icon'), require('@angular/material/button'), require('@angular/cdk/coercion'), require('@angular/cdk/bidi'), require('@angular/cdk/portal'), require('@angular/platform-browser'), require('rxjs'), require('rxjs/operators'), require('@angular/forms'), require('@angular/router'), require('@angular/animations'), require('@covalent/core/common'), require('@angular/material/input'), require('@angular/material/autocomplete'), require('@angular/material/chips'), require('@angular/cdk/keycodes'), require('@angular/material/core'), require('@angular/material/checkbox'), require('@angular/material/tooltip'), require('@angular/material/dialog'), require('@angular/common/http'), require('@angular/cdk/scrolling'), require('@angular/material/sidenav'), require('@angular/material/toolbar'), require('@angular/material/card'), require('@angular/material/divider'), require('@angular/cdk/overlay'), require('@angular/material/progress-bar'), require('@angular/material/progress-spinner'), require('@angular/material/menu'), require('@angular/material/tabs')) :
+    typeof define === 'function' && define.amd ? define('@covalent/core', ['exports', '@angular/core', '@angular/common', '@angular/material/icon', '@angular/material/button', '@angular/cdk/coercion', '@angular/cdk/bidi', '@angular/cdk/portal', '@angular/platform-browser', 'rxjs', 'rxjs/operators', '@angular/forms', '@angular/router', '@angular/animations', '@covalent/core/common', '@angular/material/input', '@angular/material/autocomplete', '@angular/material/chips', '@angular/cdk/keycodes', '@angular/material/core', '@angular/material/checkbox', '@angular/material/tooltip', '@angular/material/dialog', '@angular/common/http', '@angular/cdk/scrolling', '@angular/material/sidenav', '@angular/material/toolbar', '@angular/material/card', '@angular/material/divider', '@angular/cdk/overlay', '@angular/material/progress-bar', '@angular/material/progress-spinner', '@angular/material/menu', '@angular/material/tabs'], factory) :
+    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = {}), global.ng.core, global.ng.common, global.ng.material.icon, global.ng.material.button, global.ng.cdk.coercion, global.ng.cdk.bidi, global.ng.cdk.portal, global.ng.platformBrowser, global.rxjs, global.rxjs.operators, global.ng.forms, global.ng.router, global.ng.animations, global.covalent.core.common, global.ng.material.input, global.ng.material.autocomplete, global.ng.material.chips, global.ng.cdk.keycodes, global.ng.material.core, global.ng.material.checkbox, global.ng.material.tooltip, global.ng.material.dialog, global.ng.common.http, global.ng.cdk.scrolling, global.ng.material.sidenav, global.ng.material.toolbar, global.ng.material.card, global.ng.material.divider, global.ng.cdk.overlay, global.ng.material['progress-bar'], global.ng.material['progress-spinner'], global.ng.material.menu, global.ng.material.tabs));
+}(this, function (exports, core, common, icon, button, coercion, bidi, portal, platformBrowser, rxjs, operators, forms, router, animations, common$1, input, autocomplete, chips, keycodes, core$1, checkbox, tooltip, dialog, http, scrolling, sidenav, toolbar, card, divider, overlay, progressBar, progressSpinner, menu, tabs) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -9114,7 +9114,13 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdFileService = /** @class */ (function () {
-        function TdFileService() {
+        /**
+         * Creates a new instance
+         * @param _http the http client instance
+         * @breaking-change 3.0.0 remove 'Optional' decorator once the legay upload method is removed
+         */
+        function TdFileService(_http) {
+            this._http = _http;
             this._progressSubject = new rxjs.Subject();
             this._progressObservable = this._progressSubject.asObservable();
         }
@@ -9135,6 +9141,43 @@
             configurable: true
         });
         /**
+         * Uploads a file to URL.
+         */
+        /**
+         * Uploads a file to URL.
+         * @param {?} url
+         * @param {?} method
+         * @param {?} body
+         * @param {?=} __3
+         * @return {?}
+         */
+        TdFileService.prototype.send = /**
+         * Uploads a file to URL.
+         * @param {?} url
+         * @param {?} method
+         * @param {?} body
+         * @param {?=} __3
+         * @return {?}
+         */
+        function (url, method, body, _a) {
+            var _this = this;
+            var _b = _a === void 0 ? {} : _a, headers = _b.headers, params = _b.params;
+            if (!this._http) {
+                throw new Error('The HttpClient module needs to be imported at root module level');
+            }
+            /** @type {?} */
+            var req = new http.HttpRequest(method.toUpperCase(), url, body, {
+                reportProgress: true,
+                headers: new http.HttpHeaders(headers || {}),
+                params: new http.HttpParams({ fromObject: params || {} }),
+            });
+            return this._http.request(req).pipe(operators.tap((/**
+             * @param {?} event
+             * @return {?}
+             */
+            function (event) { return _this.handleEvent(event); })));
+        };
+        /**
          * params:
          * - options: IUploadOptions {
          *     url: string,
@@ -9145,7 +9188,8 @@
          * }
          *
          * Uses underlying [XMLHttpRequest] to upload a file to a url.
-         * Will be depricated when Angular fixes [Http] to allow [FormData] as body.
+         * @deprecated use send instead
+         * @breaking-change 3.0.0
          */
         /**
          * params:
@@ -9158,7 +9202,8 @@
          * }
          *
          * Uses underlying [XMLHttpRequest] to upload a file to a url.
-         * Will be depricated when Angular fixes [Http] to allow [FormData] as body.
+         * @deprecated use send instead
+         * \@breaking-change 3.0.0
          * @param {?} options
          * @return {?}
          */
@@ -9173,7 +9218,8 @@
          * }
          *
          * Uses underlying [XMLHttpRequest] to upload a file to a url.
-         * Will be depricated when Angular fixes [Http] to allow [FormData] as body.
+         * @deprecated use send instead
+         * \@breaking-change 3.0.0
          * @param {?} options
          * @return {?}
          */
@@ -9233,11 +9279,40 @@
                 xhr.send(formData);
             }));
         };
+        /**
+         * @private
+         * @template T
+         * @param {?} event
+         * @return {?}
+         */
+        TdFileService.prototype.handleEvent = /**
+         * @private
+         * @template T
+         * @param {?} event
+         * @return {?}
+         */
+        function (event) {
+            switch (event.type) {
+                case http.HttpEventType.Sent:
+                    this._progressSubject.next(0);
+                    break;
+                case http.HttpEventType.UploadProgress:
+                    this._progressSubject.next(Math.round((100 * event.loaded) / event.total));
+                    break;
+                case http.HttpEventType.Response:
+                    this._progressSubject.next(100);
+                    break;
+                default:
+                    break;
+            }
+        };
         TdFileService.decorators = [
             { type: core.Injectable }
         ];
         /** @nocollapse */
-        TdFileService.ctorParameters = function () { return []; };
+        TdFileService.ctorParameters = function () { return [
+            { type: http.HttpClient, decorators: [{ type: core.Optional }] }
+        ]; };
         return TdFileService;
     }());
 

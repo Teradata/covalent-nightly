@@ -6,7 +6,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { mixinDisabled, mixinControlValueAccessor } from '@covalent/core/common';
+import { HttpRequest, HttpHeaders, HttpParams, HttpEventType, HttpClient } from '@angular/common/http';
 import { Subject, Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 /**
  * @fileoverview added by tsickle
@@ -554,7 +556,13 @@ TdFileUploadComponent.propDecorators = {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TdFileService {
-    constructor() {
+    /**
+     * Creates a new instance
+     * \@breaking-change 3.0.0 remove 'Optional' decorator once the legay upload method is removed
+     * @param {?} _http the http client instance
+     */
+    constructor(_http) {
+        this._http = _http;
         this._progressSubject = new Subject();
         this._progressObservable = this._progressSubject.asObservable();
     }
@@ -567,6 +575,30 @@ class TdFileService {
         return this._progressObservable;
     }
     /**
+     * Uploads a file to URL.
+     * @param {?} url
+     * @param {?} method
+     * @param {?} body
+     * @param {?=} __3
+     * @return {?}
+     */
+    send(url, method, body, { headers, params } = {}) {
+        if (!this._http) {
+            throw new Error('The HttpClient module needs to be imported at root module level');
+        }
+        /** @type {?} */
+        const req = new HttpRequest(method.toUpperCase(), url, body, {
+            reportProgress: true,
+            headers: new HttpHeaders(headers || {}),
+            params: new HttpParams({ fromObject: params || {} }),
+        });
+        return this._http.request(req).pipe(tap((/**
+         * @param {?} event
+         * @return {?}
+         */
+        (event) => this.handleEvent(event))));
+    }
+    /**
      * params:
      * - options: IUploadOptions {
      *     url: string,
@@ -577,7 +609,8 @@ class TdFileService {
      * }
      *
      * Uses underlying [XMLHttpRequest] to upload a file to a url.
-     * Will be depricated when Angular fixes [Http] to allow [FormData] as body.
+     * @deprecated use send instead
+     * \@breaking-change 3.0.0
      * @param {?} options
      * @return {?}
      */
@@ -636,12 +669,35 @@ class TdFileService {
             xhr.send(formData);
         }));
     }
+    /**
+     * @private
+     * @template T
+     * @param {?} event
+     * @return {?}
+     */
+    handleEvent(event) {
+        switch (event.type) {
+            case HttpEventType.Sent:
+                this._progressSubject.next(0);
+                break;
+            case HttpEventType.UploadProgress:
+                this._progressSubject.next(Math.round((100 * event.loaded) / event.total));
+                break;
+            case HttpEventType.Response:
+                this._progressSubject.next(100);
+                break;
+            default:
+                break;
+        }
+    }
 }
 TdFileService.decorators = [
     { type: Injectable }
 ];
 /** @nocollapse */
-TdFileService.ctorParameters = () => [];
+TdFileService.ctorParameters = () => [
+    { type: HttpClient, decorators: [{ type: Optional }] }
+];
 
 /**
  * @fileoverview added by tsickle

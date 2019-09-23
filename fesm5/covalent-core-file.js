@@ -7,7 +7,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { __extends } from 'tslib';
 import { mixinDisabled, mixinControlValueAccessor } from '@covalent/core/common';
+import { HttpRequest, HttpHeaders, HttpParams, HttpEventType, HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 /**
  * @fileoverview added by tsickle
@@ -745,7 +747,13 @@ var TdFileUploadComponent = /** @class */ (function (_super) {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdFileService = /** @class */ (function () {
-    function TdFileService() {
+    /**
+     * Creates a new instance
+     * @param _http the http client instance
+     * @breaking-change 3.0.0 remove 'Optional' decorator once the legay upload method is removed
+     */
+    function TdFileService(_http) {
+        this._http = _http;
         this._progressSubject = new Subject();
         this._progressObservable = this._progressSubject.asObservable();
     }
@@ -766,6 +774,43 @@ var TdFileService = /** @class */ (function () {
         configurable: true
     });
     /**
+     * Uploads a file to URL.
+     */
+    /**
+     * Uploads a file to URL.
+     * @param {?} url
+     * @param {?} method
+     * @param {?} body
+     * @param {?=} __3
+     * @return {?}
+     */
+    TdFileService.prototype.send = /**
+     * Uploads a file to URL.
+     * @param {?} url
+     * @param {?} method
+     * @param {?} body
+     * @param {?=} __3
+     * @return {?}
+     */
+    function (url, method, body, _a) {
+        var _this = this;
+        var _b = _a === void 0 ? {} : _a, headers = _b.headers, params = _b.params;
+        if (!this._http) {
+            throw new Error('The HttpClient module needs to be imported at root module level');
+        }
+        /** @type {?} */
+        var req = new HttpRequest(method.toUpperCase(), url, body, {
+            reportProgress: true,
+            headers: new HttpHeaders(headers || {}),
+            params: new HttpParams({ fromObject: params || {} }),
+        });
+        return this._http.request(req).pipe(tap((/**
+         * @param {?} event
+         * @return {?}
+         */
+        function (event) { return _this.handleEvent(event); })));
+    };
+    /**
      * params:
      * - options: IUploadOptions {
      *     url: string,
@@ -776,7 +821,8 @@ var TdFileService = /** @class */ (function () {
      * }
      *
      * Uses underlying [XMLHttpRequest] to upload a file to a url.
-     * Will be depricated when Angular fixes [Http] to allow [FormData] as body.
+     * @deprecated use send instead
+     * @breaking-change 3.0.0
      */
     /**
      * params:
@@ -789,7 +835,8 @@ var TdFileService = /** @class */ (function () {
      * }
      *
      * Uses underlying [XMLHttpRequest] to upload a file to a url.
-     * Will be depricated when Angular fixes [Http] to allow [FormData] as body.
+     * @deprecated use send instead
+     * \@breaking-change 3.0.0
      * @param {?} options
      * @return {?}
      */
@@ -804,7 +851,8 @@ var TdFileService = /** @class */ (function () {
      * }
      *
      * Uses underlying [XMLHttpRequest] to upload a file to a url.
-     * Will be depricated when Angular fixes [Http] to allow [FormData] as body.
+     * @deprecated use send instead
+     * \@breaking-change 3.0.0
      * @param {?} options
      * @return {?}
      */
@@ -864,11 +912,40 @@ var TdFileService = /** @class */ (function () {
             xhr.send(formData);
         }));
     };
+    /**
+     * @private
+     * @template T
+     * @param {?} event
+     * @return {?}
+     */
+    TdFileService.prototype.handleEvent = /**
+     * @private
+     * @template T
+     * @param {?} event
+     * @return {?}
+     */
+    function (event) {
+        switch (event.type) {
+            case HttpEventType.Sent:
+                this._progressSubject.next(0);
+                break;
+            case HttpEventType.UploadProgress:
+                this._progressSubject.next(Math.round((100 * event.loaded) / event.total));
+                break;
+            case HttpEventType.Response:
+                this._progressSubject.next(100);
+                break;
+            default:
+                break;
+        }
+    };
     TdFileService.decorators = [
         { type: Injectable }
     ];
     /** @nocollapse */
-    TdFileService.ctorParameters = function () { return []; };
+    TdFileService.ctorParameters = function () { return [
+        { type: HttpClient, decorators: [{ type: Optional }] }
+    ]; };
     return TdFileService;
 }());
 
