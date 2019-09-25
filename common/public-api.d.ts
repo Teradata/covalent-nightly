@@ -19,6 +19,10 @@ export * from './behaviors/disable-ripple.mixin';
 export * from './forms/auto-trim/auto-trim.directive';
 export * from './forms/validators/validators';
 /**
+ * FUNCTIONS
+ */
+export * from './functions/clipboard';
+/**
  * PIPES
  */
 export * from './pipes/time-ago/time-ago.pipe';

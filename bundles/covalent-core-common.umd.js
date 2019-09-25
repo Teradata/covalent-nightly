@@ -2290,6 +2290,38 @@
         return CovalentValidators;
     }());
 
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /**
+     * Utility function to facilitate assigning a text value
+     * to the system clipboard.
+     * Note: The copy will succeed only if this method is performed
+     * as a result of a user action (eg. user clicks a button in
+     * the UI). Due to browser security restrictions, this method
+     * will not succeed if executed strictly programmatically.
+     *
+     * @param {?} value text value to be assigned to clipboard.
+     * @return {?} boolean indicating success/failure of copy operation.
+     */
+    function copyToClipboard(value) {
+        // Create a temporary textarea element and append to DOM
+        /** @type {?} */
+        var fakeTextArea = document.createElement('textarea');
+        document.body.appendChild(fakeTextArea);
+        // Assign value to be copied to clipboard
+        fakeTextArea.value = value;
+        fakeTextArea.select();
+        // Copy to clipboard
+        /** @type {?} */
+        var success = document.execCommand('copy');
+        // Remove temporary textarea
+        document.body.removeChild(fakeTextArea);
+        // Return boolean indicating if exec command succeeded
+        return success;
+    }
+
     exports.CovalentCommonModule = CovalentCommonModule;
     exports.CovalentValidators = CovalentValidators;
     exports.TdAutoTrimDirective = TdAutoTrimDirective;
@@ -2299,6 +2331,7 @@
     exports.TdTimeAgoPipe = TdTimeAgoPipe;
     exports.TdTimeDifferencePipe = TdTimeDifferencePipe;
     exports.TdTruncatePipe = TdTruncatePipe;
+    exports.copyToClipboard = copyToClipboard;
     exports.mixinControlValueAccessor = mixinControlValueAccessor;
     exports.mixinDisableRipple = mixinDisableRipple;
     exports.mixinDisabled = mixinDisabled;
