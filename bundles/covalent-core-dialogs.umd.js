@@ -1,8 +1,46 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/material/dialog'), require('@angular/material/input'), require('@angular/material/button')) :
-    typeof define === 'function' && define.amd ? define('@covalent/core/dialogs', ['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/material/dialog', '@angular/material/input', '@angular/material/button'], factory) :
-    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.dialogs = {}), global.ng.core, global.ng.common, global.ng.forms, global.ng.material.dialog, global.ng.material.input, global.ng.material.button));
-}(this, function (exports, core, common, forms, dialog, input, button) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/material/dialog'), require('@angular/material/input'), require('@angular/material/button'), require('@angular/cdk/drag-drop')) :
+    typeof define === 'function' && define.amd ? define('@covalent/core/dialogs', ['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/material/dialog', '@angular/material/input', '@angular/material/button', '@angular/cdk/drag-drop'], factory) :
+    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.dialogs = {}), global.ng.core, global.ng.common, global.ng.forms, global.ng.material.dialog, global.ng.material.input, global.ng.material.button, global.ng.cdk['drag-drop']));
+}(this, function (exports, core, common, forms, dialog, input, button, dragDrop) { 'use strict';
+
+    /*! *****************************************************************************
+    Copyright (c) Microsoft Corporation. All rights reserved.
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+    this file except in compliance with the License. You may obtain a copy of the
+    License at http://www.apache.org/licenses/LICENSE-2.0
+
+    THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+    WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+    MERCHANTABLITY OR NON-INFRINGEMENT.
+
+    See the Apache Version 2.0 License for specific language governing permissions
+    and limitations under the License.
+    ***************************************************************************** */
+
+    function __read(o, n) {
+        var m = typeof Symbol === "function" && o[Symbol.iterator];
+        if (!m) return o;
+        var i = m.call(o), r, ar = [], e;
+        try {
+            while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+        }
+        catch (error) { e = { error: error }; }
+        finally {
+            try {
+                if (r && !r.done && (m = i["return"])) m.call(i);
+            }
+            finally { if (e) throw e.error; }
+        }
+        return ar;
+    }
+
+    function __spread() {
+        for (var ar = [], i = 0; i < arguments.length; i++)
+            ar = ar.concat(__read(arguments[i]));
+        return ar;
+    }
 
     /**
      * @fileoverview added by tsickle
@@ -224,8 +262,10 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdDialogService = /** @class */ (function () {
-        function TdDialogService(_dialogService) {
+        function TdDialogService(_document, _dialogService, _dragDrop) {
+            this._document = _document;
             this._dialogService = _dialogService;
+            this._dragDrop = _dragDrop;
         }
         /**
          * params:
@@ -455,6 +495,66 @@
             return dialogRef;
         };
         /**
+         * Opens a draggable dialog containing the given component.
+         */
+        /**
+         * Opens a draggable dialog containing the given component.
+         * @template T
+         * @param {?} component
+         * @param {?=} config
+         * @param {?=} dragHandleSelectors
+         * @return {?}
+         */
+        TdDialogService.prototype.openDraggable = /**
+         * Opens a draggable dialog containing the given component.
+         * @template T
+         * @param {?} component
+         * @param {?=} config
+         * @param {?=} dragHandleSelectors
+         * @return {?}
+         */
+        function (component, config, dragHandleSelectors) {
+            var _this = this;
+            /** @type {?} */
+            var dialogRef = this._dialogService.open(component, config);
+            /** @type {?} */
+            var CDK_OVERLAY_PANE_SELECTOR = '.cdk-overlay-pane';
+            /** @type {?} */
+            var CDK_OVERLAY_CONTAINER_SELECTOR = '.cdk-overlay-container';
+            dialogRef.afterOpened().subscribe((/**
+             * @return {?}
+             */
+            function () {
+                /** @type {?} */
+                var dialogElement = (/** @type {?} */ (_this._document.getElementById(dialogRef.id)));
+                /** @type {?} */
+                var draggableElement = _this._dragDrop.createDrag(dialogElement);
+                if (dragHandleSelectors && dragHandleSelectors.length) {
+                    /** @type {?} */
+                    var dragHandles = dragHandleSelectors.reduce((/**
+                     * @param {?} acc
+                     * @param {?} curr
+                     * @return {?}
+                     */
+                    function (acc, curr) { return __spread(acc, Array.from(dialogElement.querySelectorAll(curr))); }), []);
+                    if (dragHandles.length > 0) {
+                        draggableElement.withHandles((/** @type {?} */ (dragHandles)));
+                    }
+                }
+                /** @type {?} */
+                var rootElement = dialogElement.closest(CDK_OVERLAY_PANE_SELECTOR);
+                if (rootElement) {
+                    draggableElement.withRootElement((/** @type {?} */ (rootElement)));
+                }
+                /** @type {?} */
+                var boundaryElement = dialogElement.closest(CDK_OVERLAY_CONTAINER_SELECTOR);
+                if (boundaryElement) {
+                    draggableElement.withBoundaryElement((/** @type {?} */ (boundaryElement)));
+                }
+            }));
+            return dialogRef;
+        };
+        /**
          * @private
          * @param {?} config
          * @return {?}
@@ -476,7 +576,9 @@
         ];
         /** @nocollapse */
         TdDialogService.ctorParameters = function () { return [
-            { type: dialog.MatDialog }
+            { type: undefined, decorators: [{ type: core.Inject, args: [common.DOCUMENT,] }] },
+            { type: dialog.MatDialog },
+            { type: dragDrop.DragDrop }
         ]; };
         return TdDialogService;
     }());

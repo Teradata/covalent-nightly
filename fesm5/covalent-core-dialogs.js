@@ -1,9 +1,11 @@
-import { Component, ContentChildren, Directive, ViewChild, Injectable, NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, ContentChildren, Directive, ViewChild, Injectable, Inject, NgModule } from '@angular/core';
+import { DOCUMENT, CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatDialogRef, MatDialogConfig, MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { __spread } from 'tslib';
+import { DragDrop } from '@angular/cdk/drag-drop';
 
 /**
  * @fileoverview added by tsickle
@@ -225,8 +227,10 @@ var TdPromptDialogComponent = /** @class */ (function () {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdDialogService = /** @class */ (function () {
-    function TdDialogService(_dialogService) {
+    function TdDialogService(_document, _dialogService, _dragDrop) {
+        this._document = _document;
         this._dialogService = _dialogService;
+        this._dragDrop = _dragDrop;
     }
     /**
      * params:
@@ -456,6 +460,66 @@ var TdDialogService = /** @class */ (function () {
         return dialogRef;
     };
     /**
+     * Opens a draggable dialog containing the given component.
+     */
+    /**
+     * Opens a draggable dialog containing the given component.
+     * @template T
+     * @param {?} component
+     * @param {?=} config
+     * @param {?=} dragHandleSelectors
+     * @return {?}
+     */
+    TdDialogService.prototype.openDraggable = /**
+     * Opens a draggable dialog containing the given component.
+     * @template T
+     * @param {?} component
+     * @param {?=} config
+     * @param {?=} dragHandleSelectors
+     * @return {?}
+     */
+    function (component, config, dragHandleSelectors) {
+        var _this = this;
+        /** @type {?} */
+        var dialogRef = this._dialogService.open(component, config);
+        /** @type {?} */
+        var CDK_OVERLAY_PANE_SELECTOR = '.cdk-overlay-pane';
+        /** @type {?} */
+        var CDK_OVERLAY_CONTAINER_SELECTOR = '.cdk-overlay-container';
+        dialogRef.afterOpened().subscribe((/**
+         * @return {?}
+         */
+        function () {
+            /** @type {?} */
+            var dialogElement = (/** @type {?} */ (_this._document.getElementById(dialogRef.id)));
+            /** @type {?} */
+            var draggableElement = _this._dragDrop.createDrag(dialogElement);
+            if (dragHandleSelectors && dragHandleSelectors.length) {
+                /** @type {?} */
+                var dragHandles = dragHandleSelectors.reduce((/**
+                 * @param {?} acc
+                 * @param {?} curr
+                 * @return {?}
+                 */
+                function (acc, curr) { return __spread(acc, Array.from(dialogElement.querySelectorAll(curr))); }), []);
+                if (dragHandles.length > 0) {
+                    draggableElement.withHandles((/** @type {?} */ (dragHandles)));
+                }
+            }
+            /** @type {?} */
+            var rootElement = dialogElement.closest(CDK_OVERLAY_PANE_SELECTOR);
+            if (rootElement) {
+                draggableElement.withRootElement((/** @type {?} */ (rootElement)));
+            }
+            /** @type {?} */
+            var boundaryElement = dialogElement.closest(CDK_OVERLAY_CONTAINER_SELECTOR);
+            if (boundaryElement) {
+                draggableElement.withBoundaryElement((/** @type {?} */ (boundaryElement)));
+            }
+        }));
+        return dialogRef;
+    };
+    /**
      * @private
      * @param {?} config
      * @return {?}
@@ -477,7 +541,9 @@ var TdDialogService = /** @class */ (function () {
     ];
     /** @nocollapse */
     TdDialogService.ctorParameters = function () { return [
-        { type: MatDialog }
+        { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] },
+        { type: MatDialog },
+        { type: DragDrop }
     ]; };
     return TdDialogService;
 }());

@@ -20,6 +20,7 @@ import { MatOption, MatPseudoCheckboxModule, MatRippleModule } from '@angular/ma
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogRef, MatDialogConfig, MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { DragDrop } from '@angular/cdk/drag-drop';
 import { HttpRequest, HttpHeaders, HttpParams, HttpEventType, HttpClient } from '@angular/common/http';
 import { ScrollDispatchModule, ViewportRuler } from '@angular/cdk/scrolling';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
@@ -6018,10 +6019,14 @@ TdPromptDialogComponent.propDecorators = {
  */
 class TdDialogService {
     /**
+     * @param {?} _document
      * @param {?} _dialogService
+     * @param {?} _dragDrop
      */
-    constructor(_dialogService) {
+    constructor(_document, _dialogService, _dragDrop) {
+        this._document = _document;
         this._dialogService = _dialogService;
+        this._dragDrop = _dragDrop;
     }
     /**
      * params:
@@ -6140,6 +6145,54 @@ class TdDialogService {
         return dialogRef;
     }
     /**
+     * Opens a draggable dialog containing the given component.
+     * @template T
+     * @param {?} component
+     * @param {?=} config
+     * @param {?=} dragHandleSelectors
+     * @return {?}
+     */
+    openDraggable(component, config, dragHandleSelectors) {
+        /** @type {?} */
+        const dialogRef = this._dialogService.open(component, config);
+        /** @type {?} */
+        const CDK_OVERLAY_PANE_SELECTOR = '.cdk-overlay-pane';
+        /** @type {?} */
+        const CDK_OVERLAY_CONTAINER_SELECTOR = '.cdk-overlay-container';
+        dialogRef.afterOpened().subscribe((/**
+         * @return {?}
+         */
+        () => {
+            /** @type {?} */
+            const dialogElement = (/** @type {?} */ (this._document.getElementById(dialogRef.id)));
+            /** @type {?} */
+            const draggableElement = this._dragDrop.createDrag(dialogElement);
+            if (dragHandleSelectors && dragHandleSelectors.length) {
+                /** @type {?} */
+                const dragHandles = dragHandleSelectors.reduce((/**
+                 * @param {?} acc
+                 * @param {?} curr
+                 * @return {?}
+                 */
+                (acc, curr) => [...acc, ...Array.from(dialogElement.querySelectorAll(curr))]), []);
+                if (dragHandles.length > 0) {
+                    draggableElement.withHandles((/** @type {?} */ (dragHandles)));
+                }
+            }
+            /** @type {?} */
+            const rootElement = dialogElement.closest(CDK_OVERLAY_PANE_SELECTOR);
+            if (rootElement) {
+                draggableElement.withRootElement((/** @type {?} */ (rootElement)));
+            }
+            /** @type {?} */
+            const boundaryElement = dialogElement.closest(CDK_OVERLAY_CONTAINER_SELECTOR);
+            if (boundaryElement) {
+                draggableElement.withBoundaryElement((/** @type {?} */ (boundaryElement)));
+            }
+        }));
+        return dialogRef;
+    }
+    /**
      * @private
      * @param {?} config
      * @return {?}
@@ -6157,7 +6210,9 @@ TdDialogService.decorators = [
 ];
 /** @nocollapse */
 TdDialogService.ctorParameters = () => [
-    { type: MatDialog }
+    { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] },
+    { type: MatDialog },
+    { type: DragDrop }
 ];
 
 /**

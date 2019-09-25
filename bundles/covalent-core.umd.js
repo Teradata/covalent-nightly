@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/material/icon'), require('@angular/material/button'), require('@angular/cdk/coercion'), require('@angular/cdk/bidi'), require('@angular/cdk/portal'), require('@angular/platform-browser'), require('rxjs'), require('rxjs/operators'), require('@angular/forms'), require('@angular/router'), require('@angular/animations'), require('@covalent/core/common'), require('@angular/material/input'), require('@angular/material/autocomplete'), require('@angular/material/chips'), require('@angular/cdk/keycodes'), require('@angular/material/core'), require('@angular/material/checkbox'), require('@angular/material/tooltip'), require('@angular/material/dialog'), require('@angular/common/http'), require('@angular/cdk/scrolling'), require('@angular/material/sidenav'), require('@angular/material/toolbar'), require('@angular/material/card'), require('@angular/material/divider'), require('@angular/cdk/overlay'), require('@angular/material/progress-bar'), require('@angular/material/progress-spinner'), require('@angular/material/menu'), require('@angular/material/tabs')) :
-    typeof define === 'function' && define.amd ? define('@covalent/core', ['exports', '@angular/core', '@angular/common', '@angular/material/icon', '@angular/material/button', '@angular/cdk/coercion', '@angular/cdk/bidi', '@angular/cdk/portal', '@angular/platform-browser', 'rxjs', 'rxjs/operators', '@angular/forms', '@angular/router', '@angular/animations', '@covalent/core/common', '@angular/material/input', '@angular/material/autocomplete', '@angular/material/chips', '@angular/cdk/keycodes', '@angular/material/core', '@angular/material/checkbox', '@angular/material/tooltip', '@angular/material/dialog', '@angular/common/http', '@angular/cdk/scrolling', '@angular/material/sidenav', '@angular/material/toolbar', '@angular/material/card', '@angular/material/divider', '@angular/cdk/overlay', '@angular/material/progress-bar', '@angular/material/progress-spinner', '@angular/material/menu', '@angular/material/tabs'], factory) :
-    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = {}), global.ng.core, global.ng.common, global.ng.material.icon, global.ng.material.button, global.ng.cdk.coercion, global.ng.cdk.bidi, global.ng.cdk.portal, global.ng.platformBrowser, global.rxjs, global.rxjs.operators, global.ng.forms, global.ng.router, global.ng.animations, global.covalent.core.common, global.ng.material.input, global.ng.material.autocomplete, global.ng.material.chips, global.ng.cdk.keycodes, global.ng.material.core, global.ng.material.checkbox, global.ng.material.tooltip, global.ng.material.dialog, global.ng.common.http, global.ng.cdk.scrolling, global.ng.material.sidenav, global.ng.material.toolbar, global.ng.material.card, global.ng.material.divider, global.ng.cdk.overlay, global.ng.material['progress-bar'], global.ng.material['progress-spinner'], global.ng.material.menu, global.ng.material.tabs));
-}(this, function (exports, core, common, icon, button, coercion, bidi, portal, platformBrowser, rxjs, operators, forms, router, animations, common$1, input, autocomplete, chips, keycodes, core$1, checkbox, tooltip, dialog, http, scrolling, sidenav, toolbar, card, divider, overlay, progressBar, progressSpinner, menu, tabs) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/material/icon'), require('@angular/material/button'), require('@angular/cdk/coercion'), require('@angular/cdk/bidi'), require('@angular/cdk/portal'), require('@angular/platform-browser'), require('rxjs'), require('rxjs/operators'), require('@angular/forms'), require('@angular/router'), require('@angular/animations'), require('@covalent/core/common'), require('@angular/material/input'), require('@angular/material/autocomplete'), require('@angular/material/chips'), require('@angular/cdk/keycodes'), require('@angular/material/core'), require('@angular/material/checkbox'), require('@angular/material/tooltip'), require('@angular/material/dialog'), require('@angular/cdk/drag-drop'), require('@angular/common/http'), require('@angular/cdk/scrolling'), require('@angular/material/sidenav'), require('@angular/material/toolbar'), require('@angular/material/card'), require('@angular/material/divider'), require('@angular/cdk/overlay'), require('@angular/material/progress-bar'), require('@angular/material/progress-spinner'), require('@angular/material/menu'), require('@angular/material/tabs')) :
+    typeof define === 'function' && define.amd ? define('@covalent/core', ['exports', '@angular/core', '@angular/common', '@angular/material/icon', '@angular/material/button', '@angular/cdk/coercion', '@angular/cdk/bidi', '@angular/cdk/portal', '@angular/platform-browser', 'rxjs', 'rxjs/operators', '@angular/forms', '@angular/router', '@angular/animations', '@covalent/core/common', '@angular/material/input', '@angular/material/autocomplete', '@angular/material/chips', '@angular/cdk/keycodes', '@angular/material/core', '@angular/material/checkbox', '@angular/material/tooltip', '@angular/material/dialog', '@angular/cdk/drag-drop', '@angular/common/http', '@angular/cdk/scrolling', '@angular/material/sidenav', '@angular/material/toolbar', '@angular/material/card', '@angular/material/divider', '@angular/cdk/overlay', '@angular/material/progress-bar', '@angular/material/progress-spinner', '@angular/material/menu', '@angular/material/tabs'], factory) :
+    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = {}), global.ng.core, global.ng.common, global.ng.material.icon, global.ng.material.button, global.ng.cdk.coercion, global.ng.cdk.bidi, global.ng.cdk.portal, global.ng.platformBrowser, global.rxjs, global.rxjs.operators, global.ng.forms, global.ng.router, global.ng.animations, global.covalent.core.common, global.ng.material.input, global.ng.material.autocomplete, global.ng.material.chips, global.ng.cdk.keycodes, global.ng.material.core, global.ng.material.checkbox, global.ng.material.tooltip, global.ng.material.dialog, global.ng.cdk['drag-drop'], global.ng.common.http, global.ng.cdk.scrolling, global.ng.material.sidenav, global.ng.material.toolbar, global.ng.material.card, global.ng.material.divider, global.ng.cdk.overlay, global.ng.material['progress-bar'], global.ng.material['progress-spinner'], global.ng.material.menu, global.ng.material.tabs));
+}(this, function (exports, core, common, icon, button, coercion, bidi, portal, platformBrowser, rxjs, operators, forms, router, animations, common$1, input, autocomplete, chips, keycodes, core$1, checkbox, tooltip, dialog, dragDrop, http, scrolling, sidenav, toolbar, card, divider, overlay, progressBar, progressSpinner, menu, tabs) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -7565,8 +7565,10 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdDialogService = /** @class */ (function () {
-        function TdDialogService(_dialogService) {
+        function TdDialogService(_document, _dialogService, _dragDrop) {
+            this._document = _document;
             this._dialogService = _dialogService;
+            this._dragDrop = _dragDrop;
         }
         /**
          * params:
@@ -7796,6 +7798,66 @@
             return dialogRef;
         };
         /**
+         * Opens a draggable dialog containing the given component.
+         */
+        /**
+         * Opens a draggable dialog containing the given component.
+         * @template T
+         * @param {?} component
+         * @param {?=} config
+         * @param {?=} dragHandleSelectors
+         * @return {?}
+         */
+        TdDialogService.prototype.openDraggable = /**
+         * Opens a draggable dialog containing the given component.
+         * @template T
+         * @param {?} component
+         * @param {?=} config
+         * @param {?=} dragHandleSelectors
+         * @return {?}
+         */
+        function (component, config, dragHandleSelectors) {
+            var _this = this;
+            /** @type {?} */
+            var dialogRef = this._dialogService.open(component, config);
+            /** @type {?} */
+            var CDK_OVERLAY_PANE_SELECTOR = '.cdk-overlay-pane';
+            /** @type {?} */
+            var CDK_OVERLAY_CONTAINER_SELECTOR = '.cdk-overlay-container';
+            dialogRef.afterOpened().subscribe((/**
+             * @return {?}
+             */
+            function () {
+                /** @type {?} */
+                var dialogElement = (/** @type {?} */ (_this._document.getElementById(dialogRef.id)));
+                /** @type {?} */
+                var draggableElement = _this._dragDrop.createDrag(dialogElement);
+                if (dragHandleSelectors && dragHandleSelectors.length) {
+                    /** @type {?} */
+                    var dragHandles = dragHandleSelectors.reduce((/**
+                     * @param {?} acc
+                     * @param {?} curr
+                     * @return {?}
+                     */
+                    function (acc, curr) { return __spread(acc, Array.from(dialogElement.querySelectorAll(curr))); }), []);
+                    if (dragHandles.length > 0) {
+                        draggableElement.withHandles((/** @type {?} */ (dragHandles)));
+                    }
+                }
+                /** @type {?} */
+                var rootElement = dialogElement.closest(CDK_OVERLAY_PANE_SELECTOR);
+                if (rootElement) {
+                    draggableElement.withRootElement((/** @type {?} */ (rootElement)));
+                }
+                /** @type {?} */
+                var boundaryElement = dialogElement.closest(CDK_OVERLAY_CONTAINER_SELECTOR);
+                if (boundaryElement) {
+                    draggableElement.withBoundaryElement((/** @type {?} */ (boundaryElement)));
+                }
+            }));
+            return dialogRef;
+        };
+        /**
          * @private
          * @param {?} config
          * @return {?}
@@ -7817,7 +7879,9 @@
         ];
         /** @nocollapse */
         TdDialogService.ctorParameters = function () { return [
-            { type: dialog.MatDialog }
+            { type: undefined, decorators: [{ type: core.Inject, args: [common.DOCUMENT,] }] },
+            { type: dialog.MatDialog },
+            { type: dragDrop.DragDrop }
         ]; };
         return TdDialogService;
     }());

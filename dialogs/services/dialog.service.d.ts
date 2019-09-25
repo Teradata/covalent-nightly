@@ -3,6 +3,7 @@ import { ComponentType } from '@angular/cdk/portal';
 import { TdAlertDialogComponent } from '../alert-dialog/alert-dialog.component';
 import { TdConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { TdPromptDialogComponent } from '../prompt-dialog/prompt-dialog.component';
+import { DragDrop } from '@angular/cdk/drag-drop';
 export interface IDialogConfig extends MatDialogConfig {
     title?: string;
     message: string;
@@ -18,8 +19,10 @@ export interface IPromptConfig extends IConfirmConfig {
     value?: string;
 }
 export declare class TdDialogService {
+    private _document;
     private _dialogService;
-    constructor(_dialogService: MatDialog);
+    private _dragDrop;
+    constructor(_document: any, _dialogService: MatDialog, _dragDrop: DragDrop);
     /**
      * params:
      * - component: ComponentType<T>
@@ -75,5 +78,9 @@ export declare class TdDialogService {
      * Returns an MatDialogRef<TdPromptDialogComponent> object.
      */
     openPrompt(config: IPromptConfig): MatDialogRef<TdPromptDialogComponent>;
+    /**
+     * Opens a draggable dialog containing the given component.
+     */
+    openDraggable<T>(component: ComponentType<T>, config?: MatDialogConfig, dragHandleSelectors?: string[]): MatDialogRef<T>;
     private _createConfig;
 }
