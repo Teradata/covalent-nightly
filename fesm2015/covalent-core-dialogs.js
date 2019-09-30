@@ -1,4 +1,4 @@
-import { Directive, Component, ContentChildren, ViewChild, Injectable, Inject, NgModule } from '@angular/core';
+import { Directive, Component, ContentChildren, ViewChild, Injectable, Inject, RendererFactory2, NgModule } from '@angular/core';
 import { DOCUMENT, CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatDialogRef, MatDialogConfig, MatDialog, MatDialogModule } from '@angular/material/dialog';
@@ -193,11 +193,14 @@ class TdDialogService {
      * @param {?} _document
      * @param {?} _dialogService
      * @param {?} _dragDrop
+     * @param {?} rendererFactory
      */
-    constructor(_document, _dialogService, _dragDrop) {
+    constructor(_document, _dialogService, _dragDrop, rendererFactory) {
         this._document = _document;
         this._dialogService = _dialogService;
         this._dragDrop = _dragDrop;
+        this.rendererFactory = rendererFactory;
+        this._renderer2 = rendererFactory.createRenderer(undefined, undefined);
     }
     /**
      * params:
@@ -318,12 +321,10 @@ class TdDialogService {
     /**
      * Opens a draggable dialog containing the given component.
      * @template T
-     * @param {?} component
-     * @param {?=} config
-     * @param {?=} dragHandleSelectors
+     * @param {?} __0
      * @return {?}
      */
-    openDraggable(component, config, dragHandleSelectors) {
+    openDraggable({ component, config, dragHandleSelectors, draggableClass, }) {
         /** @type {?} */
         const dialogRef = this._dialogService.open(component, config);
         /** @type {?} */
@@ -338,6 +339,11 @@ class TdDialogService {
             const dialogElement = (/** @type {?} */ (this._document.getElementById(dialogRef.id)));
             /** @type {?} */
             const draggableElement = this._dragDrop.createDrag(dialogElement);
+            if (draggableClass) {
+                /** @type {?} */
+                const childComponent = dialogElement.firstElementChild;
+                this._renderer2.addClass(childComponent, draggableClass);
+            }
             if (dragHandleSelectors && dragHandleSelectors.length) {
                 /** @type {?} */
                 const dragHandles = dragHandleSelectors.reduce((/**
@@ -383,7 +389,8 @@ TdDialogService.decorators = [
 TdDialogService.ctorParameters = () => [
     { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] },
     { type: MatDialog },
-    { type: DragDrop }
+    { type: DragDrop },
+    { type: RendererFactory2 }
 ];
 
 /**

@@ -1,3 +1,4 @@
+import { RendererFactory2 } from '@angular/core';
 import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material/dialog';
 import { ComponentType } from '@angular/cdk/portal';
 import { TdAlertDialogComponent } from '../alert-dialog/alert-dialog.component';
@@ -18,11 +19,19 @@ export interface IConfirmConfig extends IDialogConfig {
 export interface IPromptConfig extends IConfirmConfig {
     value?: string;
 }
+export interface IDraggableConfig<T> {
+    component: ComponentType<T>;
+    config?: MatDialogConfig;
+    dragHandleSelectors?: string[];
+    draggableClass?: string;
+}
 export declare class TdDialogService {
     private _document;
     private _dialogService;
     private _dragDrop;
-    constructor(_document: any, _dialogService: MatDialog, _dragDrop: DragDrop);
+    private rendererFactory;
+    private _renderer2;
+    constructor(_document: any, _dialogService: MatDialog, _dragDrop: DragDrop, rendererFactory: RendererFactory2);
     /**
      * params:
      * - component: ComponentType<T>
@@ -81,6 +90,6 @@ export declare class TdDialogService {
     /**
      * Opens a draggable dialog containing the given component.
      */
-    openDraggable<T>(component: ComponentType<T>, config?: MatDialogConfig, dragHandleSelectors?: string[]): MatDialogRef<T>;
+    openDraggable<T>({ component, config, dragHandleSelectors, draggableClass, }: IDraggableConfig<T>): MatDialogRef<T>;
     private _createConfig;
 }

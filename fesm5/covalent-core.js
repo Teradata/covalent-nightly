@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Optional, ChangeDetectorRef, Input, Output, EventEmitter, NgModule, Directive, TemplateRef, ViewContainerRef, ElementRef, Renderer2, ViewChildren, ContentChild, HostListener, ViewChild, HostBinding, Host, Inject, Pipe, LOCALE_ID, Injectable, forwardRef, ContentChildren, ɵɵdefineInjectable, SecurityContext, ComponentFactoryResolver, Injector, SkipSelf, NgZone, ɵɵinject } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Optional, ChangeDetectorRef, Input, Output, EventEmitter, NgModule, Directive, TemplateRef, ViewContainerRef, ElementRef, Renderer2, ViewChildren, ContentChild, HostListener, ViewChild, HostBinding, Host, Inject, Pipe, LOCALE_ID, Injectable, forwardRef, ContentChildren, ɵɵdefineInjectable, RendererFactory2, SecurityContext, ComponentFactoryResolver, Injector, SkipSelf, NgZone, ɵɵinject } from '@angular/core';
 import { CommonModule, DOCUMENT, DecimalPipe } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -7564,10 +7564,12 @@ var TdPromptDialogComponent = /** @class */ (function () {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TdDialogService = /** @class */ (function () {
-    function TdDialogService(_document, _dialogService, _dragDrop) {
+    function TdDialogService(_document, _dialogService, _dragDrop, rendererFactory) {
         this._document = _document;
         this._dialogService = _dialogService;
         this._dragDrop = _dragDrop;
+        this.rendererFactory = rendererFactory;
+        this._renderer2 = rendererFactory.createRenderer(undefined, undefined);
     }
     /**
      * params:
@@ -7802,21 +7804,18 @@ var TdDialogService = /** @class */ (function () {
     /**
      * Opens a draggable dialog containing the given component.
      * @template T
-     * @param {?} component
-     * @param {?=} config
-     * @param {?=} dragHandleSelectors
+     * @param {?} __0
      * @return {?}
      */
     TdDialogService.prototype.openDraggable = /**
      * Opens a draggable dialog containing the given component.
      * @template T
-     * @param {?} component
-     * @param {?=} config
-     * @param {?=} dragHandleSelectors
+     * @param {?} __0
      * @return {?}
      */
-    function (component, config, dragHandleSelectors) {
+    function (_a) {
         var _this = this;
+        var component = _a.component, config = _a.config, dragHandleSelectors = _a.dragHandleSelectors, draggableClass = _a.draggableClass;
         /** @type {?} */
         var dialogRef = this._dialogService.open(component, config);
         /** @type {?} */
@@ -7831,6 +7830,11 @@ var TdDialogService = /** @class */ (function () {
             var dialogElement = (/** @type {?} */ (_this._document.getElementById(dialogRef.id)));
             /** @type {?} */
             var draggableElement = _this._dragDrop.createDrag(dialogElement);
+            if (draggableClass) {
+                /** @type {?} */
+                var childComponent = dialogElement.firstElementChild;
+                _this._renderer2.addClass(childComponent, draggableClass);
+            }
             if (dragHandleSelectors && dragHandleSelectors.length) {
                 /** @type {?} */
                 var dragHandles = dragHandleSelectors.reduce((/**
@@ -7880,7 +7884,8 @@ var TdDialogService = /** @class */ (function () {
     TdDialogService.ctorParameters = function () { return [
         { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] },
         { type: MatDialog },
-        { type: DragDrop }
+        { type: DragDrop },
+        { type: RendererFactory2 }
     ]; };
     return TdDialogService;
 }());
