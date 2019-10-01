@@ -2037,12 +2037,9 @@ class CovalentValidators {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
- * Utility function to facilitate assigning a text value
- * to the system clipboard.
- * Note: The copy will succeed only if this method is performed
- * as a result of a user action (eg. user clicks a button in
- * the UI). Due to browser security restrictions, this method
- * will not succeed if executed strictly programmatically.
+ * Assign a text value to the system clipboard. Note: Due to browser
+ * security restrictions, the copy will only succeed if this method
+ * is invoked as a result of a user action (eg. user button click).
  *
  * @param {?} value text value to be assigned to clipboard.
  * @return {?} boolean indicating success/failure of copy operation.
@@ -2064,5 +2061,193 @@ function copyToClipboard(value) {
     return success;
 }
 
-export { CovalentCommonModule, CovalentValidators, TdAutoTrimDirective, TdBytesPipe, TdDecimalBytesPipe, TdDigitsPipe, TdTimeAgoPipe, TdTimeDifferencePipe, TdTruncatePipe, copyToClipboard, mixinControlValueAccessor, mixinDisableRipple, mixinDisabled, tdBounceAnimation, tdCollapseAnimation, tdFadeInOutAnimation, tdFlashAnimation, tdHeadshakeAnimation, tdJelloAnimation, tdPulseAnimation, tdRotateAnimation, TdFullscreenDirective as ɵa, TdTimeUntilPipe as ɵb, RouterPathService as ɵc, IconService as ɵd };
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Conversion function that takes an array of objects and converts
+ * them to CSV format. Custom key and line separators can be specified.
+ *
+ * @param {?} objects list of strings in JSON format or actual objects
+ * @param {?=} keySeparator optional parameter to specify custom value separator
+ * @param {?=} lineSeparator optional parameter to specify custom end of line separator
+ * @return {?} CSV formatted string
+ */
+function convertObjectsToCSV(objects, keySeparator = ',', lineSeparator = '\r\n') {
+    if (!objects) {
+        return '';
+    }
+    /** @type {?} */
+    let outputString = '';
+    // Iterate through array, creating one output line per object
+    objects.forEach((/**
+     * @param {?} value
+     * @param {?} key
+     * @return {?}
+     */
+    (value, key) => {
+        /** @type {?} */
+        let line = '';
+        for (const index in objects[key]) {
+            if (line !== '') {
+                line += keySeparator;
+            }
+            if (objects[key][index] === null || objects[key][index] === undefined) {
+                objects[key][index] = '';
+            }
+            line += objects[key][index];
+        }
+        outputString += `${line}${lineSeparator}`;
+    }));
+    // Append header row identifying keys into output
+    if (objects[0]) {
+        /** @type {?} */
+        const headers = Object.keys(objects[0]).join(keySeparator);
+        outputString = `${headers}${lineSeparator}${outputString}`;
+    }
+    return outputString;
+}
+/**
+ * Conversion function that takes a CSV representation
+ * of objects and converts them to JSON.
+ * The first row in the input must be the object keys.
+ * Custom key separator and line separator can be specified.
+ * Indentation size for output JSON can be specified.
+ *
+ * @param {?} csv list of strings in JSON format or actual objects
+ * @param {?=} keySeparator optional parameter to specify custom value separator
+ * @param {?=} lineSeparator optional parameter to specify custom end of line separator
+ * @param {?=} indent optional parameter indicating space indentation for pretty output. Default is 2.
+ * @return {?} JSON formatted string
+ */
+function convertCSVToJSON(csv, keySeparator = ',', lineSeparator = '\r\n', indent = 2) {
+    if (!csv) {
+        return '';
+    }
+    /** @type {?} */
+    const csvArray = csv.split(lineSeparator);
+    // Input CSV must have a minimum of two rows
+    if (csvArray.length < 2) {
+        return '';
+    }
+    /** @type {?} */
+    let newObjects = [];
+    // Extract object keys from header row
+    /** @type {?} */
+    const keys = csvArray[0].split(keySeparator);
+    // Iterate through array, creating one output line per object
+    for (let i = 1; i < csvArray.length; i++) {
+        /** @type {?} */
+        let newObject = {};
+        /** @type {?} */
+        let values = csvArray[i].split(keySeparator);
+        if (values.length !== keys.length) {
+            continue;
+        }
+        for (let j = 0; j < keys.length; j++) {
+            newObject[keys[j]] = values[j];
+        }
+        newObjects.push(newObject);
+    }
+    return formatJSON(newObjects, indent);
+}
+/**
+ * Convert object to JSON using stringify. Indentation size for output JSON can be specified.
+ *
+ * @param {?} json object to be converted
+ * @param {?=} indent optional parameter indicating space indentation for pretty output. Default is 2.
+ * @return {?}
+ */
+function formatJSON(json, indent = 2) {
+    return JSON.stringify(json, undefined, indent);
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Download CSV content to the specified file with .csv extension
+ * appended to the provided base file name.
+ *
+ * @param {?} fileBaseName base name of destination file
+ * @param {?} csv CSV contents
+ * @return {?}
+ */
+function downloadCSV(fileBaseName, csv) {
+    downloadFile(`${fileBaseName}.csv`, csv, 'text/csv');
+}
+/**
+ * Download JSON content to the specified file with .json extension
+ * appended to the provided base file name.
+ *
+ * @param {?} fileBaseName base name of destination file
+ * @param {?} json JSON contents
+ * @param {?=} format indicates if JSON should be prettied
+ * @param {?=} indent optional parameter indicating space indentation for pretty output. Default is 2
+ * @return {?}
+ */
+function downloadJSON(fileBaseName, json, format = false, indent = 2) {
+    downloadFile(`${fileBaseName}.json`, format ? formatJSON(JSON.parse(json), indent) : json, 'application/json');
+}
+/**
+ * Convert objects to CSV format and download to file with .csv
+ * extension appended to the provided base file name. Custom key
+ * separator and line separator can be specified.
+ *
+ * @param {?} fileBaseName base name of destination file
+ * @param {?} objects object array to be converted to CSV format
+ *   prior to writing to download destination
+ * @param {?=} keySeparator optional parameter to specify custom value separator
+ * @param {?=} lineSeparator optional parameter to specify custom end of line separator
+ * @return {?}
+ */
+function downloadObjectsToCSV(fileBaseName, objects, keySeparator = ',', lineSeparator = '\r\n') {
+    downloadFile(`${fileBaseName}.csv`, convertObjectsToCSV(objects, keySeparator, lineSeparator), 'text/csv');
+}
+/**
+ * Convert objects to JSON format and download to file with .json
+ * extension appended to the provided base file name.
+ *
+ * @param {?} fileBaseName base name of destination file
+ * @param {?} objects object array to be converted to JSON format
+ *   prior to writing to download destination
+ * @param {?=} indent optional parameter indicating space indentation for pretty output. Default is 2
+ * @return {?}
+ */
+function downloadObjectsToJSON(fileBaseName, objects, indent = 2) {
+    downloadFile(`${fileBaseName}.json`, formatJSON(objects, indent), 'application/json');
+}
+/**
+ * Download string content to the specified file with desired mime type.
+ *
+ * @param {?} fileName full filename (including appropriate extension) of destination file
+ * @param {?} contents string contents to be written to download destination
+ * @param {?=} mimeType mime type appropriate to file content to support consumption of destination file
+ * @return {?}
+ */
+function downloadFile(fileName, contents, mimeType = 'text/plain') {
+    if (!fileName || !contents) {
+        return;
+    }
+    // Create blob object and assign URL
+    /** @type {?} */
+    const blob = new Blob([contents], { type: mimeType });
+    /** @type {?} */
+    const url = window.URL.createObjectURL(blob);
+    // Construct anchor for URL, append to DOM, click and cleanup.
+    /** @type {?} */
+    const a = document.createElement('a');
+    a.setAttribute('style', 'display: none');
+    a.setAttribute('download', fileName);
+    a.href = url;
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+}
+
+export { CovalentCommonModule, CovalentValidators, TdAutoTrimDirective, TdBytesPipe, TdDecimalBytesPipe, TdDigitsPipe, TdTimeAgoPipe, TdTimeDifferencePipe, TdTruncatePipe, convertCSVToJSON, convertObjectsToCSV, copyToClipboard, downloadCSV, downloadFile, downloadJSON, downloadObjectsToCSV, downloadObjectsToJSON, formatJSON, mixinControlValueAccessor, mixinDisableRipple, mixinDisabled, tdBounceAnimation, tdCollapseAnimation, tdFadeInOutAnimation, tdFlashAnimation, tdHeadshakeAnimation, tdJelloAnimation, tdPulseAnimation, tdRotateAnimation, TdFullscreenDirective as ɵa, TdTimeUntilPipe as ɵb, RouterPathService as ɵc, IconService as ɵd };
 //# sourceMappingURL=covalent-core-common.js.map
