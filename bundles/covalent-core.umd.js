@@ -3627,6 +3627,34 @@
      * @fileoverview added by tsickle
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
+    /**
+     * Read file as UTF-8 text. Return string contents on read completion.
+     *
+     * @param {?} file filename or File object
+     * @return {?} promise that resolves to file content string
+     */
+    function readFile(file) {
+        return new Promise((/**
+         * @param {?} resolve
+         * @return {?}
+         */
+        function (resolve) {
+            /** @type {?} */
+            var reader = new FileReader();
+            reader.readAsText(file, 'UTF-8');
+            reader.onload = (/**
+             * @return {?}
+             */
+            function () {
+                resolve((/** @type {?} */ (reader.result)));
+            });
+        }));
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
     var TdMessageContainerDirective = /** @class */ (function () {
         function TdMessageContainerDirective(viewContainer) {
             this.viewContainer = viewContainer;
@@ -15974,6 +16002,7 @@
     exports.mixinControlValueAccessor = mixinControlValueAccessor;
     exports.mixinDisableRipple = mixinDisableRipple;
     exports.mixinDisabled = mixinDisabled;
+    exports.readFile = readFile;
     exports.tdBounceAnimation = tdBounceAnimation;
     exports.tdCollapseAnimation = tdCollapseAnimation;
     exports.tdFadeInOutAnimation = tdFadeInOutAnimation;

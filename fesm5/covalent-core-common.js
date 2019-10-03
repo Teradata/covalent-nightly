@@ -2460,5 +2460,33 @@ function downloadFile(fileName, contents, mimeType) {
     window.URL.revokeObjectURL(url);
 }
 
-export { CovalentCommonModule, CovalentValidators, TdAutoTrimDirective, TdBytesPipe, TdDecimalBytesPipe, TdDigitsPipe, TdTimeAgoPipe, TdTimeDifferencePipe, TdTruncatePipe, convertCSVToJSON, convertObjectsToCSV, copyToClipboard, downloadCSV, downloadFile, downloadJSON, downloadObjectsToCSV, downloadObjectsToJSON, formatJSON, mixinControlValueAccessor, mixinDisableRipple, mixinDisabled, tdBounceAnimation, tdCollapseAnimation, tdFadeInOutAnimation, tdFlashAnimation, tdHeadshakeAnimation, tdJelloAnimation, tdPulseAnimation, tdRotateAnimation, TdFullscreenDirective as ɵa, TdTimeUntilPipe as ɵb, RouterPathService as ɵc, IconService as ɵd };
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Read file as UTF-8 text. Return string contents on read completion.
+ *
+ * @param {?} file filename or File object
+ * @return {?} promise that resolves to file content string
+ */
+function readFile(file) {
+    return new Promise((/**
+     * @param {?} resolve
+     * @return {?}
+     */
+    function (resolve) {
+        /** @type {?} */
+        var reader = new FileReader();
+        reader.readAsText(file, 'UTF-8');
+        reader.onload = (/**
+         * @return {?}
+         */
+        function () {
+            resolve((/** @type {?} */ (reader.result)));
+        });
+    }));
+}
+
+export { CovalentCommonModule, CovalentValidators, TdAutoTrimDirective, TdBytesPipe, TdDecimalBytesPipe, TdDigitsPipe, TdTimeAgoPipe, TdTimeDifferencePipe, TdTruncatePipe, convertCSVToJSON, convertObjectsToCSV, copyToClipboard, downloadCSV, downloadFile, downloadJSON, downloadObjectsToCSV, downloadObjectsToJSON, formatJSON, mixinControlValueAccessor, mixinDisableRipple, mixinDisabled, readFile, tdBounceAnimation, tdCollapseAnimation, tdFadeInOutAnimation, tdFlashAnimation, tdHeadshakeAnimation, tdJelloAnimation, tdPulseAnimation, tdRotateAnimation, TdFullscreenDirective as ɵa, TdTimeUntilPipe as ɵb, RouterPathService as ɵc, IconService as ɵd };
 //# sourceMappingURL=covalent-core-common.js.map
