@@ -3,8 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = require("tslib");
 var schematics_1 = require("@angular-devkit/schematics");
 var package_config_1 = require("@angular/material/schematics/ng-add/package-config");
-var version_names_1 = require("./version-names");
-var components_1 = require("./components");
+var version_names_1 = require("../version-names");
+var components_1 = require("../components");
 var core_1 = require("@angular-devkit/core");
 var schematics_2 = require("@angular/cdk/schematics");
 var config_1 = require("@schematics/angular/utility/config");
@@ -13,18 +13,7 @@ function addDependenciesAndFiles(options) {
         function (host) {
             package_config_1.addPackageToPackageJson(host, '@angular/material', "~" + version_names_1.materialVersion);
             package_config_1.addPackageToPackageJson(host, '@covalent/core', "~" + version_names_1.covalentCoreVersion);
-            var components = [
-                new components_1.DynamicForms(),
-                new components_1.Http(),
-                new components_1.Highlight(),
-                new components_1.Markdown(),
-                new components_1.FlavoredMarkdown(),
-                new components_1.Echarts(),
-                new components_1.TextEditor(),
-                new components_1.CodeEditor(),
-                new components_1.MarkdownNavigator(),
-            ];
-            components.forEach(function (component) {
+            components_1.components.forEach(function (component) {
                 if (component.enabled(options)) {
                     package_config_1.addPackageToPackageJson(host, component.dependency(), "~" + version_names_1.covalentCoreVersion);
                 }

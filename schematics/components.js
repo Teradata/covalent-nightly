@@ -108,4 +108,16 @@ var MarkdownNavigator = /** @class */ (function () {
     return MarkdownNavigator;
 }());
 exports.MarkdownNavigator = MarkdownNavigator;
+exports.components = [
+    new DynamicForms(),
+    new Http(),
+    new Highlight(),
+    new Markdown(),
+    new FlavoredMarkdown(),
+    new Echarts(),
+    new TextEditor(),
+    new CodeEditor(),
+    new MarkdownNavigator(),
+];
+exports.covalentPackages = exports.components.map(function (c) { return c.dependency(); });
 //# sourceMappingURL=components.js.map
