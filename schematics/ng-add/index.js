@@ -22,6 +22,7 @@ function addDependenciesAndFiles(options) {
                 new components_1.Echarts(),
                 new components_1.TextEditor(),
                 new components_1.CodeEditor(),
+                new components_1.MarkdownNavigator(),
             ];
             components.forEach(function (component) {
                 if (component.enabled(options)) {

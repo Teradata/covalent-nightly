@@ -96,4 +96,16 @@ var CodeEditor = /** @class */ (function () {
     return CodeEditor;
 }());
 exports.CodeEditor = CodeEditor;
+var MarkdownNavigator = /** @class */ (function () {
+    function MarkdownNavigator() {
+    }
+    MarkdownNavigator.prototype.enabled = function (options) {
+        return options.markdownNavigator;
+    };
+    MarkdownNavigator.prototype.dependency = function () {
+        return '@covalent/markdown-navigator';
+    };
+    return MarkdownNavigator;
+}());
+exports.MarkdownNavigator = MarkdownNavigator;
 //# sourceMappingURL=components.js.map
