@@ -1263,7 +1263,7 @@
                         changeDetection: core.ChangeDetectionStrategy.OnPush,
                         /* tslint:disable-next-line */
                         host: {
-                            class: 'td-steps td-steps-horizontal',
+                            'class': 'td-steps td-steps-horizontal',
                             '[class.td-step-header-pagination-controls-enabled]': '_showPaginationControls',
                             '[class.td-step-header-rtl]': "_getLayoutDirection() == 'rtl'",
                         },
