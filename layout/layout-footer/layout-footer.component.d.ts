@@ -4,7 +4,7 @@ export declare class TdLayoutFooterComponent {
     private _elementRef;
     private _color;
     /**
-     * color?: string
+     * color?: 'accent' | 'primary' | 'warn'
      *
      * Optional color option: primary | accent | warn.
      */

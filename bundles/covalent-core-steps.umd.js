@@ -1430,6 +1430,9 @@
     exports.CovalentStepsModule = CovalentStepsModule;
     exports.StepMode = StepMode;
     exports.StepState = StepState;
+    exports.TdNavStepLinkComponent = TdNavStepLinkComponent;
+    exports.TdNavStepsHorizontalComponent = TdNavStepsHorizontalComponent;
+    exports.TdNavStepsVerticalComponent = TdNavStepsVerticalComponent;
     exports.TdStepActionsDirective = TdStepActionsDirective;
     exports.TdStepBase = TdStepBase;
     exports.TdStepBodyComponent = TdStepBodyComponent;
@@ -1441,9 +1444,6 @@
     exports.TdStepsComponent = TdStepsComponent;
     exports._TdStepHeaderMixinBase = _TdStepHeaderMixinBase;
     exports._TdStepMixinBase = _TdStepMixinBase;
-    exports.ɵa = TdNavStepsHorizontalComponent;
-    exports.ɵb = TdNavStepLinkComponent;
-    exports.ɵc = TdNavStepsVerticalComponent;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

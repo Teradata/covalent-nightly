@@ -1685,8 +1685,10 @@
     exports.TdBytesPipe = TdBytesPipe;
     exports.TdDecimalBytesPipe = TdDecimalBytesPipe;
     exports.TdDigitsPipe = TdDigitsPipe;
+    exports.TdFullscreenDirective = TdFullscreenDirective;
     exports.TdTimeAgoPipe = TdTimeAgoPipe;
     exports.TdTimeDifferencePipe = TdTimeDifferencePipe;
+    exports.TdTimeUntilPipe = TdTimeUntilPipe;
     exports.TdTruncatePipe = TdTruncatePipe;
     exports.convertCSVToJSON = convertCSVToJSON;
     exports.convertObjectsToCSV = convertObjectsToCSV;
@@ -1709,8 +1711,6 @@
     exports.tdJelloAnimation = tdJelloAnimation;
     exports.tdPulseAnimation = tdPulseAnimation;
     exports.tdRotateAnimation = tdRotateAnimation;
-    exports.ɵa = TdFullscreenDirective;
-    exports.ɵb = TdTimeUntilPipe;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

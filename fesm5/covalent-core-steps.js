@@ -1406,5 +1406,5 @@ var CovalentStepsModule = /** @class */ (function () {
     return CovalentStepsModule;
 }());
 
-export { CovalentStepsModule, StepMode, StepState, TdStepActionsDirective, TdStepBase, TdStepBodyComponent, TdStepComponent, TdStepHeaderBase, TdStepHeaderComponent, TdStepLabelDirective, TdStepSummaryDirective, TdStepsComponent, _TdStepHeaderMixinBase, _TdStepMixinBase, TdNavStepsHorizontalComponent as ɵa, TdNavStepLinkComponent as ɵb, TdNavStepsVerticalComponent as ɵc };
+export { CovalentStepsModule, StepMode, StepState, TdNavStepLinkComponent, TdNavStepsHorizontalComponent, TdNavStepsVerticalComponent, TdStepActionsDirective, TdStepBase, TdStepBodyComponent, TdStepComponent, TdStepHeaderBase, TdStepHeaderComponent, TdStepLabelDirective, TdStepSummaryDirective, TdStepsComponent, _TdStepHeaderMixinBase, _TdStepMixinBase };
 //# sourceMappingURL=covalent-core-steps.js.map

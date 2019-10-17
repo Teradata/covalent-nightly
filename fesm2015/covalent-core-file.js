@@ -409,17 +409,17 @@ class TdFileUploadComponent extends _TdFileUploadMixinBase {
         this._multiple = false;
         this._required = false;
         /**
-         * defaultColor?: string
+         * defaultColor?: 'accent' | 'primary' | 'warn'
          * Sets browse button color. Uses same color palette accepted as [MatButton] and defaults to 'primary'.
          */
         this.defaultColor = 'primary';
         /**
-         * activeColor?: string
+         * activeColor?: 'accent' | 'primary' | 'warn'
          * Sets upload button color. Uses same color palette accepted as [MatButton] and defaults to 'accent'.
          */
         this.activeColor = 'accent';
         /**
-         * cancelColor?: string
+         * cancelColor?: 'accent' | 'primary' | 'warn'
          * Sets cancel button color. Uses same color palette accepted as [MatButton] and defaults to 'warn'.
          */
         this.cancelColor = 'warn';

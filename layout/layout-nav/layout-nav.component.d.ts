@@ -21,12 +21,12 @@ export declare class TdLayoutNavComponent {
      */
     logo: string;
     /**
-     * color?: string
+     * color?: 'accent' | 'primary' | 'warn'
      *
      * toolbar color option: primary | accent | warn.
      * If [color] is not set, primary is used.
      */
-    color: string;
+    color: 'accent' | 'primary' | 'warn';
     /**
      * navigationRoute?: string
      *

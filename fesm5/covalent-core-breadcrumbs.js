@@ -358,5 +358,5 @@ var CovalentBreadcrumbsModule = /** @class */ (function () {
     return CovalentBreadcrumbsModule;
 }());
 
-export { CovalentBreadcrumbsModule, TdBreadcrumbsComponent, TdBreadcrumbComponent as ɵa };
+export { CovalentBreadcrumbsModule, TdBreadcrumbComponent, TdBreadcrumbsComponent };
 //# sourceMappingURL=covalent-core-breadcrumbs.js.map

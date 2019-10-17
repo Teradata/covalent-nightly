@@ -357,7 +357,7 @@ class TdLayoutNavComponent {
     constructor(_router) {
         this._router = _router;
         /**
-         * color?: string
+         * color?: 'accent' | 'primary' | 'warn'
          *
          * toolbar color option: primary | accent | warn.
          * If [color] is not set, primary is used.
@@ -410,7 +410,7 @@ class TdLayoutNavListComponent {
     constructor(_router) {
         this._router = _router;
         /**
-         * color?: string
+         * color?: 'accent' | 'primary' | 'warn'
          *
          * toolbar color option: primary | accent | warn.
          * If [color] is not set, primary is used.
@@ -556,6 +556,7 @@ class TdLayoutNavListToggleDirective extends LayoutToggle {
 TdLayoutNavListToggleDirective.decorators = [
     { type: Directive, args: [{
                 selector: '[tdLayoutNavListToggle]',
+                inputs: ['hideWhenOpened'],
             },] }
 ];
 /** @nocollapse */
@@ -596,6 +597,7 @@ class TdLayoutNavListCloseDirective extends LayoutToggle {
 TdLayoutNavListCloseDirective.decorators = [
     { type: Directive, args: [{
                 selector: '[tdLayoutNavListClose]',
+                inputs: ['hideWhenOpened'],
             },] }
 ];
 /** @nocollapse */
@@ -636,6 +638,7 @@ class TdLayoutNavListOpenDirective extends LayoutToggle {
 TdLayoutNavListOpenDirective.decorators = [
     { type: Directive, args: [{
                 selector: '[tdLayoutNavListOpen]',
+                inputs: ['hideWhenOpened'],
             },] }
 ];
 /** @nocollapse */
@@ -665,7 +668,7 @@ class TdLayoutCardOverComponent {
          */
         this.cardWidth = 70;
         /**
-         * color?: string
+         * color?: 'accent' | 'primary' | 'warn'
          *
          * toolbar color option: primary | accent | warn.
          * If [color] is not set, primary is used.
@@ -810,6 +813,7 @@ class TdLayoutManageListToggleDirective extends LayoutToggle {
 TdLayoutManageListToggleDirective.decorators = [
     { type: Directive, args: [{
                 selector: '[tdLayoutManageListToggle]',
+                inputs: ['hideWhenOpened'],
             },] }
 ];
 /** @nocollapse */
@@ -850,6 +854,7 @@ class TdLayoutManageListCloseDirective extends LayoutToggle {
 TdLayoutManageListCloseDirective.decorators = [
     { type: Directive, args: [{
                 selector: '[tdLayoutManageListClose]',
+                inputs: ['hideWhenOpened'],
             },] }
 ];
 /** @nocollapse */
@@ -890,6 +895,7 @@ class TdLayoutManageListOpenDirective extends LayoutToggle {
 TdLayoutManageListOpenDirective.decorators = [
     { type: Directive, args: [{
                 selector: '[tdLayoutManageListOpen]',
+                inputs: ['hideWhenOpened'],
             },] }
 ];
 /** @nocollapse */
@@ -920,7 +926,7 @@ class TdLayoutFooterComponent {
         this._renderer.addClass(this._elementRef.nativeElement, 'td-layout-footer');
     }
     /**
-     * color?: string
+     * color?: 'accent' | 'primary' | 'warn'
      *
      * Optional color option: primary | accent | warn.
      * @param {?} color

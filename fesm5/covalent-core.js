@@ -27,12 +27,14 @@ import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { OverlayConfig, Overlay, OverlayModule } from '@angular/cdk/overlay';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatListModule } from '@angular/material/list';
+import { CovalentExpansionPanelModule as CovalentExpansionPanelModule$1 } from '@covalent/core/expansion-panel';
 
 /**
  * @fileoverview added by tsickle
@@ -453,7 +455,7 @@ var TdPagingBarComponent = /** @class */ (function () {
         { type: Component, args: [{
                     changeDetection: ChangeDetectionStrategy.OnPush,
                     selector: 'td-paging-bar',
-                    template: "<div class=\"td-paging-bar\" (change)=\"$event.stopPropagation()\">\n  <ng-content></ng-content>\n  <div class=\"td-paging-bar-navigation\">\n    <button\n      mat-icon-button\n      class=\"td-paging-bar-first-page\"\n      type=\"button\"\n      *ngIf=\"firstLast\"\n      [disabled]=\"isMinPage()\"\n      (click)=\"firstPage()\"\n    >\n      <mat-icon>{{ isRTL ? 'skip_next' : 'skip_previous' }}</mat-icon>\n    </button>\n    <button mat-icon-button class=\"td-paging-bar-prev-page\" type=\"button\" [disabled]=\"isMinPage()\" (click)=\"prevPage()\">\n      <mat-icon>{{ isRTL ? 'navigate_next' : 'navigate_before' }}</mat-icon>\n    </button>\n    <ng-template *ngIf=\"pageLinkCount > 0\" let-link let-index=\"index\" ngFor [ngForOf]=\"pageLinks\">\n      <button\n        class=\"td-paging-bar-link-page\"\n        mat-icon-button\n        type=\"button\"\n        [color]=\"page === link ? 'accent' : ''\"\n        (click)=\"navigateToPage(link)\"\n      >\n        {{ link }}\n      </button>\n    </ng-template>\n    <button mat-icon-button class=\"td-paging-bar-next-page\" type=\"button\" [disabled]=\"isMaxPage()\" (click)=\"nextPage()\">\n      <mat-icon>{{ isRTL ? 'navigate_before' : 'navigate_next' }}</mat-icon>\n    </button>\n    <button\n      mat-icon-button\n      class=\"td-paging-bar-last-page\"\n      type=\"button\"\n      *ngIf=\"firstLast\"\n      [disabled]=\"isMaxPage()\"\n      (click)=\"lastPage()\"\n    >\n      <mat-icon>{{ isRTL ? 'skip_previous' : 'skip_next' }}</mat-icon>\n    </button>\n  </div>\n</div>\n",
+                    template: "<div class=\"td-paging-bar\" (change)=\"$event.stopPropagation()\">\n  <ng-content></ng-content>\n  <div class=\"td-paging-bar-navigation\">\n    <button\n      mat-icon-button\n      class=\"td-paging-bar-first-page\"\n      type=\"button\"\n      *ngIf=\"firstLast\"\n      [disabled]=\"isMinPage()\"\n      (click)=\"firstPage()\"\n    >\n      <mat-icon>{{ isRTL ? 'skip_next' : 'skip_previous' }}</mat-icon>\n    </button>\n    <button mat-icon-button class=\"td-paging-bar-prev-page\" type=\"button\" [disabled]=\"isMinPage()\" (click)=\"prevPage()\">\n      <mat-icon>{{ isRTL ? 'navigate_next' : 'navigate_before' }}</mat-icon>\n    </button>\n    <ng-template *ngIf=\"pageLinkCount > 0\" let-link let-index=\"index\" ngFor [ngForOf]=\"pageLinks\">\n      <button\n        class=\"td-paging-bar-link-page\"\n        mat-icon-button\n        type=\"button\"\n        [color]=\"page === link ? 'accent' : undefined\"\n        (click)=\"navigateToPage(link)\"\n      >\n        {{ link }}\n      </button>\n    </ng-template>\n    <button mat-icon-button class=\"td-paging-bar-next-page\" type=\"button\" [disabled]=\"isMaxPage()\" (click)=\"nextPage()\">\n      <mat-icon>{{ isRTL ? 'navigate_before' : 'navigate_next' }}</mat-icon>\n    </button>\n    <button\n      mat-icon-button\n      class=\"td-paging-bar-last-page\"\n      type=\"button\"\n      *ngIf=\"firstLast\"\n      [disabled]=\"isMaxPage()\"\n      (click)=\"lastPage()\"\n    >\n      <mat-icon>{{ isRTL ? 'skip_previous' : 'skip_next' }}</mat-icon>\n    </button>\n  </div>\n</div>\n",
                     styles: [":host{display:block}:host .td-paging-bar{height:48px;box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:end;justify-content:flex-end}:host .td-paging-bar ::ng-deep>*{margin:0 10px}:host .td-paging-bar [mat-icon-button]{font-size:12px;font-weight:400}"]
                 }] }
     ];
@@ -8345,17 +8347,17 @@ var TdFileUploadComponent = /** @class */ (function (_super) {
         _this._multiple = false;
         _this._required = false;
         /**
-         * defaultColor?: string
+         * defaultColor?: 'accent' | 'primary' | 'warn'
          * Sets browse button color. Uses same color palette accepted as [MatButton] and defaults to 'primary'.
          */
         _this.defaultColor = 'primary';
         /**
-         * activeColor?: string
+         * activeColor?: 'accent' | 'primary' | 'warn'
          * Sets upload button color. Uses same color palette accepted as [MatButton] and defaults to 'accent'.
          */
         _this.activeColor = 'accent';
         /**
-         * cancelColor?: string
+         * cancelColor?: 'accent' | 'primary' | 'warn'
          * Sets cancel button color. Uses same color palette accepted as [MatButton] and defaults to 'warn'.
          */
         _this.cancelColor = 'warn';
@@ -9585,7 +9587,7 @@ var TdLayoutNavComponent = /** @class */ (function () {
     function TdLayoutNavComponent(_router) {
         this._router = _router;
         /**
-         * color?: string
+         * color?: 'accent' | 'primary' | 'warn'
          *
          * toolbar color option: primary | accent | warn.
          * If [color] is not set, primary is used.
@@ -9646,7 +9648,7 @@ var TdLayoutNavListComponent = /** @class */ (function () {
     function TdLayoutNavListComponent(_router) {
         this._router = _router;
         /**
-         * color?: string
+         * color?: 'accent' | 'primary' | 'warn'
          *
          * toolbar color option: primary | accent | warn.
          * If [color] is not set, primary is used.
@@ -9834,6 +9836,7 @@ var TdLayoutNavListToggleDirective = /** @class */ (function (_super) {
     TdLayoutNavListToggleDirective.decorators = [
         { type: Directive, args: [{
                     selector: '[tdLayoutNavListToggle]',
+                    inputs: ['hideWhenOpened'],
                 },] }
     ];
     /** @nocollapse */
@@ -9878,6 +9881,7 @@ var TdLayoutNavListCloseDirective = /** @class */ (function (_super) {
     TdLayoutNavListCloseDirective.decorators = [
         { type: Directive, args: [{
                     selector: '[tdLayoutNavListClose]',
+                    inputs: ['hideWhenOpened'],
                 },] }
     ];
     /** @nocollapse */
@@ -9922,6 +9926,7 @@ var TdLayoutNavListOpenDirective = /** @class */ (function (_super) {
     TdLayoutNavListOpenDirective.decorators = [
         { type: Directive, args: [{
                     selector: '[tdLayoutNavListOpen]',
+                    inputs: ['hideWhenOpened'],
                 },] }
     ];
     /** @nocollapse */
@@ -9953,7 +9958,7 @@ var TdLayoutCardOverComponent = /** @class */ (function () {
          */
         this.cardWidth = 70;
         /**
-         * color?: string
+         * color?: 'accent' | 'primary' | 'warn'
          *
          * toolbar color option: primary | accent | warn.
          * If [color] is not set, primary is used.
@@ -10131,6 +10136,7 @@ var TdLayoutManageListToggleDirective = /** @class */ (function (_super) {
     TdLayoutManageListToggleDirective.decorators = [
         { type: Directive, args: [{
                     selector: '[tdLayoutManageListToggle]',
+                    inputs: ['hideWhenOpened'],
                 },] }
     ];
     /** @nocollapse */
@@ -10175,6 +10181,7 @@ var TdLayoutManageListCloseDirective = /** @class */ (function (_super) {
     TdLayoutManageListCloseDirective.decorators = [
         { type: Directive, args: [{
                     selector: '[tdLayoutManageListClose]',
+                    inputs: ['hideWhenOpened'],
                 },] }
     ];
     /** @nocollapse */
@@ -10219,6 +10226,7 @@ var TdLayoutManageListOpenDirective = /** @class */ (function (_super) {
     TdLayoutManageListOpenDirective.decorators = [
         { type: Directive, args: [{
                     selector: '[tdLayoutManageListOpen]',
+                    inputs: ['hideWhenOpened'],
                 },] }
     ];
     /** @nocollapse */
@@ -10254,12 +10262,12 @@ var TdLayoutFooterComponent = /** @class */ (function () {
             return this._color;
         },
         /**
-         * color?: string
+         * color?: 'accent' | 'primary' | 'warn'
          *
          * Optional color option: primary | accent | warn.
          */
         set: /**
-         * color?: string
+         * color?: 'accent' | 'primary' | 'warn'
          *
          * Optional color option: primary | accent | warn.
          * @param {?} color
@@ -14946,5 +14954,92 @@ var CovalentTabSelectModule = /** @class */ (function () {
     return CovalentTabSelectModule;
 }());
 
-export { CovalentBreadcrumbsModule, CovalentChipsModule, CovalentCommonModule, CovalentDataTableModule, CovalentDialogsModule, CovalentExpansionPanelModule, CovalentFileModule, CovalentJsonFormatterModule, CovalentLayoutModule, CovalentLoadingModule, CovalentMediaModule, CovalentMenuModule, CovalentMessageModule, CovalentNotificationsModule, CovalentPagingModule, CovalentSearchModule, CovalentStepsModule, CovalentTabSelectModule, CovalentValidators, CovalentVirtualScrollModule, DEFAULT_NOTIFICATION_LIMIT, LOADING_FACTORY_PROVIDER, LOADING_FACTORY_PROVIDER_FACTORY, LOADING_PROVIDER, LOADING_PROVIDER_FACTORY, LayoutToggle, LayoutToggleBase, LoadingMode, LoadingStrategy, LoadingStyle, LoadingType, StepMode, StepState, TD_CIRCLE_DIAMETER, TdAlertDialogComponent, TdAutoTrimDirective, TdAutocompleteOptionDirective, TdBreadcrumbsComponent, TdBytesPipe, TdChipDirective, TdChipsBase, TdChipsComponent, TdConfirmDialogComponent, TdDataTableBase, TdDataTableCellComponent, TdDataTableColumnComponent, TdDataTableColumnRowComponent, TdDataTableComponent, TdDataTableRowComponent, TdDataTableService, TdDataTableSortingOrder, TdDataTableTableComponent, TdDataTableTemplateDirective, TdDecimalBytesPipe, TdDialogActionsDirective, TdDialogComponent, TdDialogContentDirective, TdDialogService, TdDialogTitleDirective, TdDigitsPipe, TdExpansionPanelBase, TdExpansionPanelComponent, TdExpansionPanelGroupComponent, TdExpansionPanelHeaderDirective, TdExpansionPanelLabelDirective, TdExpansionPanelSublabelDirective, TdExpansionPanelSummaryComponent, TdFileDropBase, TdFileDropDirective, TdFileInputBase, TdFileInputComponent, TdFileInputLabelDirective, TdFileSelectDirective, TdFileService, TdFileUploadBase, TdFileUploadComponent, TdJsonFormatterComponent, TdLayoutCardOverComponent, TdLayoutCloseDirective, TdLayoutComponent, TdLayoutFooterComponent, TdLayoutManageListCloseDirective, TdLayoutManageListComponent, TdLayoutManageListOpenDirective, TdLayoutManageListToggleDirective, TdLayoutNavComponent, TdLayoutNavListCloseDirective, TdLayoutNavListComponent, TdLayoutNavListOpenDirective, TdLayoutNavListToggleDirective, TdLayoutOpenDirective, TdLayoutToggleDirective, TdLoadingComponent, TdLoadingConfig, TdLoadingContext, TdLoadingDirective, TdLoadingDirectiveConfig, TdLoadingFactory, TdLoadingService, TdMediaService, TdMediaToggleDirective, TdMenuComponent, TdMessageComponent, TdMessageContainerDirective, TdNavigationDrawerComponent, TdNavigationDrawerMenuDirective, TdNavigationDrawerToolbarDirective, TdNotificationCountComponent, TdNotificationCountPositionX, TdNotificationCountPositionY, TdPagingBarComponent, TdPromptDialogComponent, TdSearchBoxBase, TdSearchBoxComponent, TdSearchInputBase, TdSearchInputComponent, TdStepActionsDirective, TdStepBase, TdStepBodyComponent, TdStepComponent, TdStepHeaderBase, TdStepHeaderComponent, TdStepLabelDirective, TdStepSummaryDirective, TdStepsComponent, TdTabOptionBase, TdTabOptionComponent, TdTabSelectBase, TdTabSelectComponent, TdTimeAgoPipe, TdTimeDifferencePipe, TdTruncatePipe, TdVirtualScrollContainerComponent, TdVirtualScrollRowDirective, _TdChipsMixinBase, _TdDataTableMixinBase, _TdExpansionPanelMixinBase, _TdFileDropMixinBase, _TdFileInputMixinBase, _TdFileUploadMixinBase, _TdLayoutToggleMixinBase, _TdSearchBoxMixinBase, _TdSearchInputMixinBase, _TdStepHeaderMixinBase, _TdStepMixinBase, _TdTabOptionMixinBase, _TdTabSelectMixinBase, convertCSVToJSON, convertObjectsToCSV, copyToClipboard, downloadCSV, downloadFile, downloadJSON, downloadObjectsToCSV, downloadObjectsToJSON, formatJSON, mixinControlValueAccessor, mixinDisableRipple, mixinDisabled, readFile, tdBounceAnimation, tdCollapseAnimation, tdFadeInOutAnimation, tdFlashAnimation, tdHeadshakeAnimation, tdJelloAnimation, tdPulseAnimation, tdRotateAnimation, TdFullscreenDirective as ɵa, TdTimeUntilPipe as ɵb, TdBreadcrumbComponent as ɵc, TdNavStepsHorizontalComponent as ɵd, TdNavStepLinkComponent as ɵe, TdNavStepsVerticalComponent as ɵf };
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+var nextUniqueId = 0;
+var TdNavLinksComponent = /** @class */ (function () {
+    function TdNavLinksComponent() {
+        this._uniqueId = "td-nav-links-" + ++nextUniqueId;
+        this.id = this._uniqueId;
+        this.afterClick = new EventEmitter();
+    }
+    /**
+     * @param {?} link
+     * @return {?}
+     */
+    TdNavLinksComponent.prototype.linkClicked = /**
+     * @param {?} link
+     * @return {?}
+     */
+    function (link) {
+        this.afterClick.emit(link);
+    };
+    /**
+     * @param {?} link
+     * @return {?}
+     */
+    TdNavLinksComponent.prototype.getHref = /**
+     * @param {?} link
+     * @return {?}
+     */
+    function (link) {
+        return link.linkTo && ((/** @type {?} */ (link.linkTo))).href;
+    };
+    /**
+     * @param {?} link
+     * @return {?}
+     */
+    TdNavLinksComponent.prototype.getRouterLink = /**
+     * @param {?} link
+     * @return {?}
+     */
+    function (link) {
+        return link.linkTo && ((/** @type {?} */ (link.linkTo))).routerLink;
+    };
+    TdNavLinksComponent.decorators = [
+        { type: Component, args: [{
+                    selector: 'td-nav-links',
+                    template: "<mat-nav-list dense *ngIf=\"links && links.length > 0\">\n  <ng-template ngFor [ngForOf]=\"links\" let-linkGroup let-indexGroup=\"index\">\n    <td-expansion-panel\n      *ngIf=\"linkGroup.name && linkGroup.links.length\"\n      class=\"td-nav-group\"\n      [sublabel]=\"linkGroup.name\"\n      [expand]=\"true\"\n    >\n      <mat-divider></mat-divider>\n      <ng-template [ngTemplateOutlet]=\"links\"></ng-template>\n    </td-expansion-panel>\n    <ng-template *ngIf=\"!linkGroup.name && linkGroup.links.length\" [ngTemplateOutlet]=\"links\"></ng-template>\n    <ng-template #links>\n      <ng-template ngFor [ngForOf]=\"linkGroup.links\" let-link let-indexLink=\"index\">\n        <a\n          mat-list-item\n          *ngIf=\"getHref(link) && (link.show === undefined || link.show)\"\n          [href]=\"getHref(link)\"\n          [target]=\"link.openInNewTab ? '_blank' : '_self'\"\n          id=\"{{ id }}-{{ indexGroup }}-{{ indexLink }}\"\n          class=\"td-nav-link\"\n          (click)=\"linkClicked(link)\"\n        >\n          <mat-icon matListIcon [fontSet]=\"link.fontSet\">{{ link.icon }}</mat-icon>\n          <span matLine>{{ link.label }}</span>\n        </a>\n\n        <a\n          mat-list-item\n          *ngIf=\"getRouterLink(link) && (link.show === undefined || link.show)\"\n          [routerLink]=\"getRouterLink(link)\"\n          [target]=\"link.openInNewTab ? '_blank' : null\"\n          id=\"{{ id }}-{{ indexGroup }}-{{ indexLink }}\"\n          class=\"td-nav-link\"\n          (click)=\"linkClicked(link)\"\n        >\n          <mat-icon matListIcon [fontSet]=\"link.fontSet\">{{ link.icon }}</mat-icon>\n          <span matLine>{{ link.label }}</span>\n        </a>\n      </ng-template>\n    </ng-template>\n  </ng-template>\n</mat-nav-list>\n",
+                    changeDetection: ChangeDetectionStrategy.OnPush,
+                    styles: [":host{display:block}:host .mat-nav-list.mat-list-base{padding-top:2px}:host .mat-icon{margin-right:0}"]
+                }] }
+    ];
+    TdNavLinksComponent.propDecorators = {
+        id: [{ type: Input }],
+        links: [{ type: Input }],
+        afterClick: [{ type: Output }]
+    };
+    return TdNavLinksComponent;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var CovalentNavLinksModule = /** @class */ (function () {
+    function CovalentNavLinksModule() {
+    }
+    CovalentNavLinksModule.decorators = [
+        { type: NgModule, args: [{
+                    declarations: [TdNavLinksComponent],
+                    // directives, components, and pipes owned by this NgModule
+                    exports: [TdNavLinksComponent],
+                    imports: [
+                        CommonModule,
+                        CovalentCommonModule$1,
+                        CovalentExpansionPanelModule$1,
+                        MatListModule,
+                        MatIconModule,
+                        MatDividerModule,
+                        RouterModule,
+                    ],
+                },] }
+    ];
+    return CovalentNavLinksModule;
+}());
+
+export { CovalentBreadcrumbsModule, CovalentChipsModule, CovalentCommonModule, CovalentDataTableModule, CovalentDialogsModule, CovalentExpansionPanelModule, CovalentFileModule, CovalentJsonFormatterModule, CovalentLayoutModule, CovalentLoadingModule, CovalentMediaModule, CovalentMenuModule, CovalentMessageModule, CovalentNavLinksModule, CovalentNotificationsModule, CovalentPagingModule, CovalentSearchModule, CovalentStepsModule, CovalentTabSelectModule, CovalentValidators, CovalentVirtualScrollModule, DEFAULT_NOTIFICATION_LIMIT, LOADING_FACTORY_PROVIDER, LOADING_FACTORY_PROVIDER_FACTORY, LOADING_PROVIDER, LOADING_PROVIDER_FACTORY, LayoutToggle, LayoutToggleBase, LoadingMode, LoadingStrategy, LoadingStyle, LoadingType, StepMode, StepState, TD_CIRCLE_DIAMETER, TdAlertDialogComponent, TdAutoTrimDirective, TdAutocompleteOptionDirective, TdBreadcrumbComponent, TdBreadcrumbsComponent, TdBytesPipe, TdChipDirective, TdChipsBase, TdChipsComponent, TdConfirmDialogComponent, TdDataTableBase, TdDataTableCellComponent, TdDataTableColumnComponent, TdDataTableColumnRowComponent, TdDataTableComponent, TdDataTableRowComponent, TdDataTableService, TdDataTableSortingOrder, TdDataTableTableComponent, TdDataTableTemplateDirective, TdDecimalBytesPipe, TdDialogActionsDirective, TdDialogComponent, TdDialogContentDirective, TdDialogService, TdDialogTitleDirective, TdDigitsPipe, TdExpansionPanelBase, TdExpansionPanelComponent, TdExpansionPanelGroupComponent, TdExpansionPanelHeaderDirective, TdExpansionPanelLabelDirective, TdExpansionPanelSublabelDirective, TdExpansionPanelSummaryComponent, TdFileDropBase, TdFileDropDirective, TdFileInputBase, TdFileInputComponent, TdFileInputLabelDirective, TdFileSelectDirective, TdFileService, TdFileUploadBase, TdFileUploadComponent, TdFullscreenDirective, TdJsonFormatterComponent, TdLayoutCardOverComponent, TdLayoutCloseDirective, TdLayoutComponent, TdLayoutFooterComponent, TdLayoutManageListCloseDirective, TdLayoutManageListComponent, TdLayoutManageListOpenDirective, TdLayoutManageListToggleDirective, TdLayoutNavComponent, TdLayoutNavListCloseDirective, TdLayoutNavListComponent, TdLayoutNavListOpenDirective, TdLayoutNavListToggleDirective, TdLayoutOpenDirective, TdLayoutToggleDirective, TdLoadingComponent, TdLoadingConfig, TdLoadingContext, TdLoadingDirective, TdLoadingDirectiveConfig, TdLoadingFactory, TdLoadingService, TdMediaService, TdMediaToggleDirective, TdMenuComponent, TdMessageComponent, TdMessageContainerDirective, TdNavLinksComponent, TdNavStepLinkComponent, TdNavStepsHorizontalComponent, TdNavStepsVerticalComponent, TdNavigationDrawerComponent, TdNavigationDrawerMenuDirective, TdNavigationDrawerToolbarDirective, TdNotificationCountComponent, TdNotificationCountPositionX, TdNotificationCountPositionY, TdPagingBarComponent, TdPromptDialogComponent, TdSearchBoxBase, TdSearchBoxComponent, TdSearchInputBase, TdSearchInputComponent, TdStepActionsDirective, TdStepBase, TdStepBodyComponent, TdStepComponent, TdStepHeaderBase, TdStepHeaderComponent, TdStepLabelDirective, TdStepSummaryDirective, TdStepsComponent, TdTabOptionBase, TdTabOptionComponent, TdTabSelectBase, TdTabSelectComponent, TdTimeAgoPipe, TdTimeDifferencePipe, TdTimeUntilPipe, TdTruncatePipe, TdVirtualScrollContainerComponent, TdVirtualScrollRowDirective, _TdChipsMixinBase, _TdDataTableMixinBase, _TdExpansionPanelMixinBase, _TdFileDropMixinBase, _TdFileInputMixinBase, _TdFileUploadMixinBase, _TdLayoutToggleMixinBase, _TdSearchBoxMixinBase, _TdSearchInputMixinBase, _TdStepHeaderMixinBase, _TdStepMixinBase, _TdTabOptionMixinBase, _TdTabSelectMixinBase, convertCSVToJSON, convertObjectsToCSV, copyToClipboard, downloadCSV, downloadFile, downloadJSON, downloadObjectsToCSV, downloadObjectsToJSON, formatJSON, mixinControlValueAccessor, mixinDisableRipple, mixinDisabled, readFile, tdBounceAnimation, tdCollapseAnimation, tdFadeInOutAnimation, tdFlashAnimation, tdHeadshakeAnimation, tdJelloAnimation, tdPulseAnimation, tdRotateAnimation };
 //# sourceMappingURL=covalent-core.js.map

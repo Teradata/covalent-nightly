@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/material/icon'), require('@angular/material/button'), require('@angular/cdk/coercion'), require('@angular/cdk/bidi'), require('@angular/cdk/portal'), require('@angular/platform-browser'), require('rxjs'), require('rxjs/operators'), require('@angular/forms'), require('@angular/animations'), require('@covalent/core/common'), require('@angular/material/input'), require('@angular/material/autocomplete'), require('@angular/material/chips'), require('@angular/cdk/keycodes'), require('@angular/material/core'), require('@angular/material/checkbox'), require('@angular/material/tooltip'), require('@angular/material/dialog'), require('@angular/cdk/drag-drop'), require('@angular/common/http'), require('@angular/cdk/scrolling'), require('@angular/material/sidenav'), require('@angular/material/toolbar'), require('@angular/material/card'), require('@angular/material/divider'), require('@angular/router'), require('@angular/cdk/overlay'), require('@angular/material/progress-bar'), require('@angular/material/progress-spinner'), require('@angular/material/menu'), require('@angular/material/tabs')) :
-    typeof define === 'function' && define.amd ? define('@covalent/core', ['exports', '@angular/core', '@angular/common', '@angular/material/icon', '@angular/material/button', '@angular/cdk/coercion', '@angular/cdk/bidi', '@angular/cdk/portal', '@angular/platform-browser', 'rxjs', 'rxjs/operators', '@angular/forms', '@angular/animations', '@covalent/core/common', '@angular/material/input', '@angular/material/autocomplete', '@angular/material/chips', '@angular/cdk/keycodes', '@angular/material/core', '@angular/material/checkbox', '@angular/material/tooltip', '@angular/material/dialog', '@angular/cdk/drag-drop', '@angular/common/http', '@angular/cdk/scrolling', '@angular/material/sidenav', '@angular/material/toolbar', '@angular/material/card', '@angular/material/divider', '@angular/router', '@angular/cdk/overlay', '@angular/material/progress-bar', '@angular/material/progress-spinner', '@angular/material/menu', '@angular/material/tabs'], factory) :
-    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = {}), global.ng.core, global.ng.common, global.ng.material.icon, global.ng.material.button, global.ng.cdk.coercion, global.ng.cdk.bidi, global.ng.cdk.portal, global.ng.platformBrowser, global.rxjs, global.rxjs.operators, global.ng.forms, global.ng.animations, global.covalent.core.common, global.ng.material.input, global.ng.material.autocomplete, global.ng.material.chips, global.ng.cdk.keycodes, global.ng.material.core, global.ng.material.checkbox, global.ng.material.tooltip, global.ng.material.dialog, global.ng.cdk['drag-drop'], global.ng.common.http, global.ng.cdk.scrolling, global.ng.material.sidenav, global.ng.material.toolbar, global.ng.material.card, global.ng.material.divider, global.ng.router, global.ng.cdk.overlay, global.ng.material['progress-bar'], global.ng.material['progress-spinner'], global.ng.material.menu, global.ng.material.tabs));
-}(this, function (exports, core, common, icon, button, coercion, bidi, portal, platformBrowser, rxjs, operators, forms, animations, common$1, input, autocomplete, chips, keycodes, core$1, checkbox, tooltip, dialog, dragDrop, http, scrolling, sidenav, toolbar, card, divider, router, overlay, progressBar, progressSpinner, menu, tabs) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/material/icon'), require('@angular/material/button'), require('@angular/cdk/coercion'), require('@angular/cdk/bidi'), require('@angular/cdk/portal'), require('@angular/platform-browser'), require('rxjs'), require('rxjs/operators'), require('@angular/forms'), require('@angular/animations'), require('@covalent/core/common'), require('@angular/material/input'), require('@angular/material/autocomplete'), require('@angular/material/chips'), require('@angular/cdk/keycodes'), require('@angular/material/core'), require('@angular/material/checkbox'), require('@angular/material/tooltip'), require('@angular/material/dialog'), require('@angular/cdk/drag-drop'), require('@angular/common/http'), require('@angular/cdk/scrolling'), require('@angular/material/sidenav'), require('@angular/material/toolbar'), require('@angular/material/card'), require('@angular/material/divider'), require('@angular/router'), require('@angular/cdk/overlay'), require('@angular/material/progress-bar'), require('@angular/material/progress-spinner'), require('@angular/material/menu'), require('@angular/material/tabs'), require('@angular/material/list'), require('@covalent/core/expansion-panel')) :
+    typeof define === 'function' && define.amd ? define('@covalent/core', ['exports', '@angular/core', '@angular/common', '@angular/material/icon', '@angular/material/button', '@angular/cdk/coercion', '@angular/cdk/bidi', '@angular/cdk/portal', '@angular/platform-browser', 'rxjs', 'rxjs/operators', '@angular/forms', '@angular/animations', '@covalent/core/common', '@angular/material/input', '@angular/material/autocomplete', '@angular/material/chips', '@angular/cdk/keycodes', '@angular/material/core', '@angular/material/checkbox', '@angular/material/tooltip', '@angular/material/dialog', '@angular/cdk/drag-drop', '@angular/common/http', '@angular/cdk/scrolling', '@angular/material/sidenav', '@angular/material/toolbar', '@angular/material/card', '@angular/material/divider', '@angular/router', '@angular/cdk/overlay', '@angular/material/progress-bar', '@angular/material/progress-spinner', '@angular/material/menu', '@angular/material/tabs', '@angular/material/list', '@covalent/core/expansion-panel'], factory) :
+    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = {}), global.ng.core, global.ng.common, global.ng.material.icon, global.ng.material.button, global.ng.cdk.coercion, global.ng.cdk.bidi, global.ng.cdk.portal, global.ng.platformBrowser, global.rxjs, global.rxjs.operators, global.ng.forms, global.ng.animations, global.covalent.core.common, global.ng.material.input, global.ng.material.autocomplete, global.ng.material.chips, global.ng.cdk.keycodes, global.ng.material.core, global.ng.material.checkbox, global.ng.material.tooltip, global.ng.material.dialog, global.ng.cdk['drag-drop'], global.ng.common.http, global.ng.cdk.scrolling, global.ng.material.sidenav, global.ng.material.toolbar, global.ng.material.card, global.ng.material.divider, global.ng.router, global.ng.cdk.overlay, global.ng.material['progress-bar'], global.ng.material['progress-spinner'], global.ng.material.menu, global.ng.material.tabs, global.ng.material.list, global.covalent.core['expansion-panel']));
+}(this, function (exports, core, common, icon, button, coercion, bidi, portal, platformBrowser, rxjs, operators, forms, animations, common$1, input, autocomplete, chips, keycodes, core$1, checkbox, tooltip, dialog, dragDrop, http, scrolling, sidenav, toolbar, card, divider, router, overlay, progressBar, progressSpinner, menu, tabs, list, expansionPanel) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -486,7 +486,7 @@
             { type: core.Component, args: [{
                         changeDetection: core.ChangeDetectionStrategy.OnPush,
                         selector: 'td-paging-bar',
-                        template: "<div class=\"td-paging-bar\" (change)=\"$event.stopPropagation()\">\n  <ng-content></ng-content>\n  <div class=\"td-paging-bar-navigation\">\n    <button\n      mat-icon-button\n      class=\"td-paging-bar-first-page\"\n      type=\"button\"\n      *ngIf=\"firstLast\"\n      [disabled]=\"isMinPage()\"\n      (click)=\"firstPage()\"\n    >\n      <mat-icon>{{ isRTL ? 'skip_next' : 'skip_previous' }}</mat-icon>\n    </button>\n    <button mat-icon-button class=\"td-paging-bar-prev-page\" type=\"button\" [disabled]=\"isMinPage()\" (click)=\"prevPage()\">\n      <mat-icon>{{ isRTL ? 'navigate_next' : 'navigate_before' }}</mat-icon>\n    </button>\n    <ng-template *ngIf=\"pageLinkCount > 0\" let-link let-index=\"index\" ngFor [ngForOf]=\"pageLinks\">\n      <button\n        class=\"td-paging-bar-link-page\"\n        mat-icon-button\n        type=\"button\"\n        [color]=\"page === link ? 'accent' : ''\"\n        (click)=\"navigateToPage(link)\"\n      >\n        {{ link }}\n      </button>\n    </ng-template>\n    <button mat-icon-button class=\"td-paging-bar-next-page\" type=\"button\" [disabled]=\"isMaxPage()\" (click)=\"nextPage()\">\n      <mat-icon>{{ isRTL ? 'navigate_before' : 'navigate_next' }}</mat-icon>\n    </button>\n    <button\n      mat-icon-button\n      class=\"td-paging-bar-last-page\"\n      type=\"button\"\n      *ngIf=\"firstLast\"\n      [disabled]=\"isMaxPage()\"\n      (click)=\"lastPage()\"\n    >\n      <mat-icon>{{ isRTL ? 'skip_previous' : 'skip_next' }}</mat-icon>\n    </button>\n  </div>\n</div>\n",
+                        template: "<div class=\"td-paging-bar\" (change)=\"$event.stopPropagation()\">\n  <ng-content></ng-content>\n  <div class=\"td-paging-bar-navigation\">\n    <button\n      mat-icon-button\n      class=\"td-paging-bar-first-page\"\n      type=\"button\"\n      *ngIf=\"firstLast\"\n      [disabled]=\"isMinPage()\"\n      (click)=\"firstPage()\"\n    >\n      <mat-icon>{{ isRTL ? 'skip_next' : 'skip_previous' }}</mat-icon>\n    </button>\n    <button mat-icon-button class=\"td-paging-bar-prev-page\" type=\"button\" [disabled]=\"isMinPage()\" (click)=\"prevPage()\">\n      <mat-icon>{{ isRTL ? 'navigate_next' : 'navigate_before' }}</mat-icon>\n    </button>\n    <ng-template *ngIf=\"pageLinkCount > 0\" let-link let-index=\"index\" ngFor [ngForOf]=\"pageLinks\">\n      <button\n        class=\"td-paging-bar-link-page\"\n        mat-icon-button\n        type=\"button\"\n        [color]=\"page === link ? 'accent' : undefined\"\n        (click)=\"navigateToPage(link)\"\n      >\n        {{ link }}\n      </button>\n    </ng-template>\n    <button mat-icon-button class=\"td-paging-bar-next-page\" type=\"button\" [disabled]=\"isMaxPage()\" (click)=\"nextPage()\">\n      <mat-icon>{{ isRTL ? 'navigate_before' : 'navigate_next' }}</mat-icon>\n    </button>\n    <button\n      mat-icon-button\n      class=\"td-paging-bar-last-page\"\n      type=\"button\"\n      *ngIf=\"firstLast\"\n      [disabled]=\"isMaxPage()\"\n      (click)=\"lastPage()\"\n    >\n      <mat-icon>{{ isRTL ? 'skip_previous' : 'skip_next' }}</mat-icon>\n    </button>\n  </div>\n</div>\n",
                         styles: [":host{display:block}:host .td-paging-bar{height:48px;box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:end;justify-content:flex-end}:host .td-paging-bar ::ng-deep>*{margin:0 10px}:host .td-paging-bar [mat-icon-button]{font-size:12px;font-weight:400}"]
                     }] }
         ];
@@ -8378,17 +8378,17 @@
             _this._multiple = false;
             _this._required = false;
             /**
-             * defaultColor?: string
+             * defaultColor?: 'accent' | 'primary' | 'warn'
              * Sets browse button color. Uses same color palette accepted as [MatButton] and defaults to 'primary'.
              */
             _this.defaultColor = 'primary';
             /**
-             * activeColor?: string
+             * activeColor?: 'accent' | 'primary' | 'warn'
              * Sets upload button color. Uses same color palette accepted as [MatButton] and defaults to 'accent'.
              */
             _this.activeColor = 'accent';
             /**
-             * cancelColor?: string
+             * cancelColor?: 'accent' | 'primary' | 'warn'
              * Sets cancel button color. Uses same color palette accepted as [MatButton] and defaults to 'warn'.
              */
             _this.cancelColor = 'warn';
@@ -9618,7 +9618,7 @@
         function TdLayoutNavComponent(_router) {
             this._router = _router;
             /**
-             * color?: string
+             * color?: 'accent' | 'primary' | 'warn'
              *
              * toolbar color option: primary | accent | warn.
              * If [color] is not set, primary is used.
@@ -9679,7 +9679,7 @@
         function TdLayoutNavListComponent(_router) {
             this._router = _router;
             /**
-             * color?: string
+             * color?: 'accent' | 'primary' | 'warn'
              *
              * toolbar color option: primary | accent | warn.
              * If [color] is not set, primary is used.
@@ -9867,6 +9867,7 @@
         TdLayoutNavListToggleDirective.decorators = [
             { type: core.Directive, args: [{
                         selector: '[tdLayoutNavListToggle]',
+                        inputs: ['hideWhenOpened'],
                     },] }
         ];
         /** @nocollapse */
@@ -9911,6 +9912,7 @@
         TdLayoutNavListCloseDirective.decorators = [
             { type: core.Directive, args: [{
                         selector: '[tdLayoutNavListClose]',
+                        inputs: ['hideWhenOpened'],
                     },] }
         ];
         /** @nocollapse */
@@ -9955,6 +9957,7 @@
         TdLayoutNavListOpenDirective.decorators = [
             { type: core.Directive, args: [{
                         selector: '[tdLayoutNavListOpen]',
+                        inputs: ['hideWhenOpened'],
                     },] }
         ];
         /** @nocollapse */
@@ -9986,7 +9989,7 @@
              */
             this.cardWidth = 70;
             /**
-             * color?: string
+             * color?: 'accent' | 'primary' | 'warn'
              *
              * toolbar color option: primary | accent | warn.
              * If [color] is not set, primary is used.
@@ -10164,6 +10167,7 @@
         TdLayoutManageListToggleDirective.decorators = [
             { type: core.Directive, args: [{
                         selector: '[tdLayoutManageListToggle]',
+                        inputs: ['hideWhenOpened'],
                     },] }
         ];
         /** @nocollapse */
@@ -10208,6 +10212,7 @@
         TdLayoutManageListCloseDirective.decorators = [
             { type: core.Directive, args: [{
                         selector: '[tdLayoutManageListClose]',
+                        inputs: ['hideWhenOpened'],
                     },] }
         ];
         /** @nocollapse */
@@ -10252,6 +10257,7 @@
         TdLayoutManageListOpenDirective.decorators = [
             { type: core.Directive, args: [{
                         selector: '[tdLayoutManageListOpen]',
+                        inputs: ['hideWhenOpened'],
                     },] }
         ];
         /** @nocollapse */
@@ -10287,12 +10293,12 @@
                 return this._color;
             },
             /**
-             * color?: string
+             * color?: 'accent' | 'primary' | 'warn'
              *
              * Optional color option: primary | accent | warn.
              */
             set: /**
-             * color?: string
+             * color?: 'accent' | 'primary' | 'warn'
              *
              * Optional color option: primary | accent | warn.
              * @param {?} color
@@ -14979,6 +14985,93 @@
         return CovalentTabSelectModule;
     }());
 
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /** @type {?} */
+    var nextUniqueId = 0;
+    var TdNavLinksComponent = /** @class */ (function () {
+        function TdNavLinksComponent() {
+            this._uniqueId = "td-nav-links-" + ++nextUniqueId;
+            this.id = this._uniqueId;
+            this.afterClick = new core.EventEmitter();
+        }
+        /**
+         * @param {?} link
+         * @return {?}
+         */
+        TdNavLinksComponent.prototype.linkClicked = /**
+         * @param {?} link
+         * @return {?}
+         */
+        function (link) {
+            this.afterClick.emit(link);
+        };
+        /**
+         * @param {?} link
+         * @return {?}
+         */
+        TdNavLinksComponent.prototype.getHref = /**
+         * @param {?} link
+         * @return {?}
+         */
+        function (link) {
+            return link.linkTo && ((/** @type {?} */ (link.linkTo))).href;
+        };
+        /**
+         * @param {?} link
+         * @return {?}
+         */
+        TdNavLinksComponent.prototype.getRouterLink = /**
+         * @param {?} link
+         * @return {?}
+         */
+        function (link) {
+            return link.linkTo && ((/** @type {?} */ (link.linkTo))).routerLink;
+        };
+        TdNavLinksComponent.decorators = [
+            { type: core.Component, args: [{
+                        selector: 'td-nav-links',
+                        template: "<mat-nav-list dense *ngIf=\"links && links.length > 0\">\n  <ng-template ngFor [ngForOf]=\"links\" let-linkGroup let-indexGroup=\"index\">\n    <td-expansion-panel\n      *ngIf=\"linkGroup.name && linkGroup.links.length\"\n      class=\"td-nav-group\"\n      [sublabel]=\"linkGroup.name\"\n      [expand]=\"true\"\n    >\n      <mat-divider></mat-divider>\n      <ng-template [ngTemplateOutlet]=\"links\"></ng-template>\n    </td-expansion-panel>\n    <ng-template *ngIf=\"!linkGroup.name && linkGroup.links.length\" [ngTemplateOutlet]=\"links\"></ng-template>\n    <ng-template #links>\n      <ng-template ngFor [ngForOf]=\"linkGroup.links\" let-link let-indexLink=\"index\">\n        <a\n          mat-list-item\n          *ngIf=\"getHref(link) && (link.show === undefined || link.show)\"\n          [href]=\"getHref(link)\"\n          [target]=\"link.openInNewTab ? '_blank' : '_self'\"\n          id=\"{{ id }}-{{ indexGroup }}-{{ indexLink }}\"\n          class=\"td-nav-link\"\n          (click)=\"linkClicked(link)\"\n        >\n          <mat-icon matListIcon [fontSet]=\"link.fontSet\">{{ link.icon }}</mat-icon>\n          <span matLine>{{ link.label }}</span>\n        </a>\n\n        <a\n          mat-list-item\n          *ngIf=\"getRouterLink(link) && (link.show === undefined || link.show)\"\n          [routerLink]=\"getRouterLink(link)\"\n          [target]=\"link.openInNewTab ? '_blank' : null\"\n          id=\"{{ id }}-{{ indexGroup }}-{{ indexLink }}\"\n          class=\"td-nav-link\"\n          (click)=\"linkClicked(link)\"\n        >\n          <mat-icon matListIcon [fontSet]=\"link.fontSet\">{{ link.icon }}</mat-icon>\n          <span matLine>{{ link.label }}</span>\n        </a>\n      </ng-template>\n    </ng-template>\n  </ng-template>\n</mat-nav-list>\n",
+                        changeDetection: core.ChangeDetectionStrategy.OnPush,
+                        styles: [":host{display:block}:host .mat-nav-list.mat-list-base{padding-top:2px}:host .mat-icon{margin-right:0}"]
+                    }] }
+        ];
+        TdNavLinksComponent.propDecorators = {
+            id: [{ type: core.Input }],
+            links: [{ type: core.Input }],
+            afterClick: [{ type: core.Output }]
+        };
+        return TdNavLinksComponent;
+    }());
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    var CovalentNavLinksModule = /** @class */ (function () {
+        function CovalentNavLinksModule() {
+        }
+        CovalentNavLinksModule.decorators = [
+            { type: core.NgModule, args: [{
+                        declarations: [TdNavLinksComponent],
+                        // directives, components, and pipes owned by this NgModule
+                        exports: [TdNavLinksComponent],
+                        imports: [
+                            common.CommonModule,
+                            common$1.CovalentCommonModule,
+                            expansionPanel.CovalentExpansionPanelModule,
+                            list.MatListModule,
+                            icon.MatIconModule,
+                            divider.MatDividerModule,
+                            router.RouterModule,
+                        ],
+                    },] }
+        ];
+        return CovalentNavLinksModule;
+    }());
+
     exports.CovalentBreadcrumbsModule = CovalentBreadcrumbsModule;
     exports.CovalentChipsModule = CovalentChipsModule;
     exports.CovalentCommonModule = CovalentCommonModule;
@@ -14992,6 +15085,7 @@
     exports.CovalentMediaModule = CovalentMediaModule;
     exports.CovalentMenuModule = CovalentMenuModule;
     exports.CovalentMessageModule = CovalentMessageModule;
+    exports.CovalentNavLinksModule = CovalentNavLinksModule;
     exports.CovalentNotificationsModule = CovalentNotificationsModule;
     exports.CovalentPagingModule = CovalentPagingModule;
     exports.CovalentSearchModule = CovalentSearchModule;
@@ -15016,6 +15110,7 @@
     exports.TdAlertDialogComponent = TdAlertDialogComponent;
     exports.TdAutoTrimDirective = TdAutoTrimDirective;
     exports.TdAutocompleteOptionDirective = TdAutocompleteOptionDirective;
+    exports.TdBreadcrumbComponent = TdBreadcrumbComponent;
     exports.TdBreadcrumbsComponent = TdBreadcrumbsComponent;
     exports.TdBytesPipe = TdBytesPipe;
     exports.TdChipDirective = TdChipDirective;
@@ -15055,6 +15150,7 @@
     exports.TdFileService = TdFileService;
     exports.TdFileUploadBase = TdFileUploadBase;
     exports.TdFileUploadComponent = TdFileUploadComponent;
+    exports.TdFullscreenDirective = TdFullscreenDirective;
     exports.TdJsonFormatterComponent = TdJsonFormatterComponent;
     exports.TdLayoutCardOverComponent = TdLayoutCardOverComponent;
     exports.TdLayoutCloseDirective = TdLayoutCloseDirective;
@@ -15083,6 +15179,10 @@
     exports.TdMenuComponent = TdMenuComponent;
     exports.TdMessageComponent = TdMessageComponent;
     exports.TdMessageContainerDirective = TdMessageContainerDirective;
+    exports.TdNavLinksComponent = TdNavLinksComponent;
+    exports.TdNavStepLinkComponent = TdNavStepLinkComponent;
+    exports.TdNavStepsHorizontalComponent = TdNavStepsHorizontalComponent;
+    exports.TdNavStepsVerticalComponent = TdNavStepsVerticalComponent;
     exports.TdNavigationDrawerComponent = TdNavigationDrawerComponent;
     exports.TdNavigationDrawerMenuDirective = TdNavigationDrawerMenuDirective;
     exports.TdNavigationDrawerToolbarDirective = TdNavigationDrawerToolbarDirective;
@@ -15110,6 +15210,7 @@
     exports.TdTabSelectComponent = TdTabSelectComponent;
     exports.TdTimeAgoPipe = TdTimeAgoPipe;
     exports.TdTimeDifferencePipe = TdTimeDifferencePipe;
+    exports.TdTimeUntilPipe = TdTimeUntilPipe;
     exports.TdTruncatePipe = TdTruncatePipe;
     exports.TdVirtualScrollContainerComponent = TdVirtualScrollContainerComponent;
     exports.TdVirtualScrollRowDirective = TdVirtualScrollRowDirective;
@@ -15147,12 +15248,6 @@
     exports.tdJelloAnimation = tdJelloAnimation;
     exports.tdPulseAnimation = tdPulseAnimation;
     exports.tdRotateAnimation = tdRotateAnimation;
-    exports.ɵa = TdFullscreenDirective;
-    exports.ɵb = TdTimeUntilPipe;
-    exports.ɵc = TdBreadcrumbComponent;
-    exports.ɵd = TdNavStepsHorizontalComponent;
-    exports.ɵe = TdNavStepLinkComponent;
-    exports.ɵf = TdNavStepsVerticalComponent;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

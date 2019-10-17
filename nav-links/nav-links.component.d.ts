@@ -6,9 +6,9 @@ export interface ITdLinkGroup {
 export interface ITdLink {
     label: string;
     linkTo: {
-        href: string;
+        href?: string;
     } | {
-        routerLink?: string | any[];
+        routerLink?: string | string[];
     };
     openInNewTab?: boolean;
     icon?: string;
@@ -21,4 +21,6 @@ export declare class TdNavLinksComponent {
     links: ITdLinkGroup[];
     afterClick: EventEmitter<ITdLink>;
     linkClicked(link: ITdLink): void;
+    getHref(link: ITdLink): string;
+    getRouterLink(link: ITdLink): string | string[];
 }

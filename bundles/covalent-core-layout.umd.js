@@ -451,7 +451,7 @@
         function TdLayoutNavComponent(_router) {
             this._router = _router;
             /**
-             * color?: string
+             * color?: 'accent' | 'primary' | 'warn'
              *
              * toolbar color option: primary | accent | warn.
              * If [color] is not set, primary is used.
@@ -512,7 +512,7 @@
         function TdLayoutNavListComponent(_router) {
             this._router = _router;
             /**
-             * color?: string
+             * color?: 'accent' | 'primary' | 'warn'
              *
              * toolbar color option: primary | accent | warn.
              * If [color] is not set, primary is used.
@@ -700,6 +700,7 @@
         TdLayoutNavListToggleDirective.decorators = [
             { type: core.Directive, args: [{
                         selector: '[tdLayoutNavListToggle]',
+                        inputs: ['hideWhenOpened'],
                     },] }
         ];
         /** @nocollapse */
@@ -744,6 +745,7 @@
         TdLayoutNavListCloseDirective.decorators = [
             { type: core.Directive, args: [{
                         selector: '[tdLayoutNavListClose]',
+                        inputs: ['hideWhenOpened'],
                     },] }
         ];
         /** @nocollapse */
@@ -788,6 +790,7 @@
         TdLayoutNavListOpenDirective.decorators = [
             { type: core.Directive, args: [{
                         selector: '[tdLayoutNavListOpen]',
+                        inputs: ['hideWhenOpened'],
                     },] }
         ];
         /** @nocollapse */
@@ -819,7 +822,7 @@
              */
             this.cardWidth = 70;
             /**
-             * color?: string
+             * color?: 'accent' | 'primary' | 'warn'
              *
              * toolbar color option: primary | accent | warn.
              * If [color] is not set, primary is used.
@@ -997,6 +1000,7 @@
         TdLayoutManageListToggleDirective.decorators = [
             { type: core.Directive, args: [{
                         selector: '[tdLayoutManageListToggle]',
+                        inputs: ['hideWhenOpened'],
                     },] }
         ];
         /** @nocollapse */
@@ -1041,6 +1045,7 @@
         TdLayoutManageListCloseDirective.decorators = [
             { type: core.Directive, args: [{
                         selector: '[tdLayoutManageListClose]',
+                        inputs: ['hideWhenOpened'],
                     },] }
         ];
         /** @nocollapse */
@@ -1085,6 +1090,7 @@
         TdLayoutManageListOpenDirective.decorators = [
             { type: core.Directive, args: [{
                         selector: '[tdLayoutManageListOpen]',
+                        inputs: ['hideWhenOpened'],
                     },] }
         ];
         /** @nocollapse */
@@ -1120,12 +1126,12 @@
                 return this._color;
             },
             /**
-             * color?: string
+             * color?: 'accent' | 'primary' | 'warn'
              *
              * Optional color option: primary | accent | warn.
              */
             set: /**
-             * color?: string
+             * color?: 'accent' | 'primary' | 'warn'
              *
              * Optional color option: primary | accent | warn.
              * @param {?} color

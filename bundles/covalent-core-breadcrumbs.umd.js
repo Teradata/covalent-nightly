@@ -359,8 +359,8 @@
     }());
 
     exports.CovalentBreadcrumbsModule = CovalentBreadcrumbsModule;
+    exports.TdBreadcrumbComponent = TdBreadcrumbComponent;
     exports.TdBreadcrumbsComponent = TdBreadcrumbsComponent;
-    exports.ɵa = TdBreadcrumbComponent;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

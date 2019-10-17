@@ -16,10 +16,10 @@ export declare class TdFileInputComponent extends _TdFileInputMixinBase implemen
     _inputElement: ElementRef;
     readonly inputElement: HTMLInputElement;
     /**
-     * color?: string
+     * color?: 'accent' | 'primary' | 'warn'
      * Sets button color. Uses same color palette accepted as [MatButton].
      */
-    color: string;
+    color: 'accent' | 'primary' | 'warn';
     /**
      * multiple?: boolean
      * Sets if multiple files can be dropped/selected at once in [TdFileInputComponent].
