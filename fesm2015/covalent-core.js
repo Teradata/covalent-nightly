@@ -11573,43 +11573,70 @@ let nextUniqueId = 0;
 class TdNavLinksComponent {
     constructor() {
         this._uniqueId = `td-nav-links-${++nextUniqueId}`;
+        this._collapsedSet = new Set();
         this.id = this._uniqueId;
-        this.afterClick = new EventEmitter();
+        /**
+         * Event trigger after a navigation click
+         */
+        this.afterNavigation = new EventEmitter();
     }
     /**
      * @param {?} link
      * @return {?}
      */
-    linkClicked(link) {
-        this.afterClick.emit(link);
+    _linkClicked(link) {
+        this.afterNavigation.emit(link);
     }
     /**
      * @param {?} link
      * @return {?}
      */
-    getHref(link) {
-        return link.linkTo && ((/** @type {?} */ (link.linkTo))).href;
+    _href(link) {
+        return link.link && ((/** @type {?} */ (link.link))).href;
     }
     /**
      * @param {?} link
      * @return {?}
      */
-    getRouterLink(link) {
-        return link.linkTo && ((/** @type {?} */ (link.linkTo))).routerLink;
+    _routerLink(link) {
+        return link.link && ((/** @type {?} */ (link.link))).routerLink;
+    }
+    /**
+     * @param {?} link
+     * Toggles expand/collapse state of expansion link.
+     * Only applied when `collapsable` is true
+     * @return {?}
+     */
+    _toggle(link) {
+        if (this._isCollapsed(link)) {
+            this._collapsedSet.delete(link);
+        }
+        else {
+            this._collapsedSet.add(link);
+        }
+    }
+    /**
+     * @param {?} link
+     * Returns true if the state of provided expansion link is collapsed.
+     * @return {?}
+     */
+    _isCollapsed(link) {
+        return this._collapsedSet.has(link);
     }
 }
 TdNavLinksComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-nav-links',
-                template: "<mat-nav-list dense *ngIf=\"links && links.length > 0\">\n  <ng-template ngFor [ngForOf]=\"links\" let-linkGroup let-indexGroup=\"index\">\n    <td-expansion-panel\n      *ngIf=\"linkGroup.name && linkGroup.links.length\"\n      class=\"td-nav-group\"\n      [sublabel]=\"linkGroup.name\"\n      [expand]=\"true\"\n    >\n      <mat-divider></mat-divider>\n      <ng-template [ngTemplateOutlet]=\"links\"></ng-template>\n    </td-expansion-panel>\n    <ng-template *ngIf=\"!linkGroup.name && linkGroup.links.length\" [ngTemplateOutlet]=\"links\"></ng-template>\n    <ng-template #links>\n      <ng-template ngFor [ngForOf]=\"linkGroup.links\" let-link let-indexLink=\"index\">\n        <a\n          mat-list-item\n          *ngIf=\"getHref(link) && (link.show === undefined || link.show)\"\n          [href]=\"getHref(link)\"\n          [target]=\"link.openInNewTab ? '_blank' : '_self'\"\n          id=\"{{ id }}-{{ indexGroup }}-{{ indexLink }}\"\n          class=\"td-nav-link\"\n          (click)=\"linkClicked(link)\"\n        >\n          <mat-icon matListIcon [fontSet]=\"link.fontSet\">{{ link.icon }}</mat-icon>\n          <span matLine>{{ link.label }}</span>\n        </a>\n\n        <a\n          mat-list-item\n          *ngIf=\"getRouterLink(link) && (link.show === undefined || link.show)\"\n          [routerLink]=\"getRouterLink(link)\"\n          [target]=\"link.openInNewTab ? '_blank' : null\"\n          id=\"{{ id }}-{{ indexGroup }}-{{ indexLink }}\"\n          class=\"td-nav-link\"\n          (click)=\"linkClicked(link)\"\n        >\n          <mat-icon matListIcon [fontSet]=\"link.fontSet\">{{ link.icon }}</mat-icon>\n          <span matLine>{{ link.label }}</span>\n        </a>\n      </ng-template>\n    </ng-template>\n  </ng-template>\n</mat-nav-list>\n",
+                template: "<mat-nav-list dense *ngIf=\"links && links.length > 0\">\n  <ng-template ngFor [ngForOf]=\"links\" let-link let-linkIndex=\"index\">\n    <ng-container *ngIf=\"link.show === undefined || link.show\">\n      <ng-container *ngIf=\"link.children?.length && !link.link\">\n        <h3\n          [class.td-nav-link-cursor]=\"link.collapsable\"\n          matSubheader\n          matRipple\n          [matRippleDisabled]=\"!link.collapsable\"\n          (click)=\"link.collapsable && _toggle(link)\"\n        >\n          <mat-icon *ngIf=\"link.icon\" [fontSet]=\"link.icon?.fontSet\">{{ link.icon?.name }}</mat-icon>\n          <span [style.width.%]=\"100\">{{ link.label }}</span>\n          <mat-icon [@tdRotate]=\"!_isCollapsed(link)\" *ngIf=\"link.collapsable\">\n            keyboard_arrow_down\n          </mat-icon>\n        </h3>\n        <td-nav-links\n          [id]=\"id + '-' + linkIndex\"\n          [@tdCollapse]=\"!!_isCollapsed(link)\"\n          [links]=\"link.children\"\n        ></td-nav-links>\n      </ng-container>\n      <ng-container *ngIf=\"link.link\">\n        <a\n          mat-list-item\n          *ngIf=\"_href(link)\"\n          [href]=\"_href(link)\"\n          [target]=\"link.link.openInNewTab ? '_blank' : undefined\"\n          id=\"{{ id }}-{{ linkIndex }}\"\n          class=\"td-nav-link\"\n          (click)=\"_linkClicked(link)\"\n        >\n          <mat-icon matListIcon [fontSet]=\"link.icon?.fontSet\">{{ link.icon?.name }}</mat-icon>\n          <span matLine>{{ link.label }}</span>\n          <mat-icon *ngIf=\"link.link.openInNewTab\">\n            launch\n          </mat-icon>\n        </a>\n        <a\n          mat-list-item\n          *ngIf=\"_routerLink(link)\"\n          [routerLink]=\"_routerLink(link)\"\n          [target]=\"link.link.openInNewTab ? '_blank' : undefined\"\n          id=\"{{ id }}-{{ linkIndex }}\"\n          class=\"td-nav-link\"\n          (click)=\"_linkClicked(link)\"\n        >\n          <mat-icon matListIcon [fontSet]=\"link.icon?.fontSet\">{{ link.icon?.name }}</mat-icon>\n          <span matLine>{{ link.label }}</span>\n          <mat-icon *ngIf=\"link.link.openInNewTab\">\n            launch\n          </mat-icon>\n        </a>\n      </ng-container>\n    </ng-container>\n  </ng-template>\n</mat-nav-list>\n",
                 changeDetection: ChangeDetectionStrategy.OnPush,
-                styles: [":host{display:block}:host .mat-nav-list.mat-list-base{padding-top:2px}:host .mat-icon{margin-right:0}"]
+                animations: [tdCollapseAnimation$1, tdRotateAnimation$1],
+                styles: [":host{display:block}:host .mat-nav-list.mat-list-base{padding-top:2px}:host .mat-nav-list.mat-list-base .td-nav-link-cursor{cursor:pointer}:host .mat-nav-list.mat-list-base .mat-list-item{height:40px}:host .mat-icon{margin-right:0}"]
             }] }
 ];
 TdNavLinksComponent.propDecorators = {
     id: [{ type: Input }],
     links: [{ type: Input }],
-    afterClick: [{ type: Output }]
+    afterNavigation: [{ type: Output }]
 };
 
 /**
@@ -11627,6 +11654,8 @@ CovalentNavLinksModule.decorators = [
                     CommonModule,
                     CovalentCommonModule$1,
                     CovalentExpansionPanelModule$1,
+                    MatRippleModule,
+                    MatMenuModule,
                     MatListModule,
                     MatIconModule,
                     MatDividerModule,
