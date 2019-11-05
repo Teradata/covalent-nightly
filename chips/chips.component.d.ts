@@ -129,31 +129,31 @@ export declare class TdChipsComponent extends _TdChipsMixinBase implements ICont
      * Method to be executed when a chip is added.
      * Sends chip value as event.
      */
-    onAdd: EventEmitter<any>;
+    add: EventEmitter<any>;
     /**
      * remove?: function
      * Method to be executed when a chip is removed.
      * Sends chip value as event.
      */
-    onRemove: EventEmitter<any>;
+    remove: EventEmitter<any>;
     /**
      * inputChange?: function
      * Method to be executed when the value in the autocomplete input changes.
      * Sends string value as event.
      */
-    onInputChange: EventEmitter<string>;
+    inputChange: EventEmitter<string>;
     /**
      * chipFocus?: function
      * Method to be executed when a chip is focused.
      * Sends chip value as event.
      */
-    onChipFocus: EventEmitter<any>;
+    chipFocus: EventEmitter<any>;
     /**
      * blur?: function
      * Method to be executed when a chip is blurred.
      * Sends chip value as event.
      */
-    onChipBlur: EventEmitter<any>;
+    chipBlur: EventEmitter<any>;
     /**
      * Hostbinding to set the a11y of the TdChipsComponent depending on its state
      */

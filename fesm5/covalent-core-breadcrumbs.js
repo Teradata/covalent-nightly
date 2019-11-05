@@ -336,7 +336,7 @@ var TdBreadcrumbsComponent = /** @class */ (function () {
     ]; };
     TdBreadcrumbsComponent.propDecorators = {
         _breadcrumbs: [{ type: ContentChildren, args: [TdBreadcrumbComponent,] }],
-        separatorIcon: [{ type: Input, args: ['separatorIcon',] }]
+        separatorIcon: [{ type: Input }]
     };
     return TdBreadcrumbsComponent;
 }());

@@ -92,12 +92,12 @@ var TdStepComponent = /** @class */ (function (_super) {
          * activated?: function
          * Event emitted when [TdStepComponent] is activated.
          */
-        _this.onActivated = new EventEmitter();
+        _this.activated = new EventEmitter();
         /**
          * deactivated?: function
          * Event emitted when [TdStepComponent] is deactivated.
          */
-        _this.onDeactivated = new EventEmitter();
+        _this.deactivated = new EventEmitter();
         return _this;
     }
     Object.defineProperty(TdStepComponent.prototype, "stepContent", {
@@ -260,12 +260,12 @@ var TdStepComponent = /** @class */ (function (_super) {
         }
     };
     /**
-     * Method to change active state internally and emit the [onActivated] event if 'true' or [onDeactivated]
+     * Method to change active state internally and emit the [activated] event if 'true' or [deactivated]
      * event if 'false'. (Blocked if [disabled] is 'true')
      * returns true if successfully changed state
      */
     /**
-     * Method to change active state internally and emit the [onActivated] event if 'true' or [onDeactivated]
+     * Method to change active state internally and emit the [activated] event if 'true' or [deactivated]
      * event if 'false'. (Blocked if [disabled] is 'true')
      * returns true if successfully changed state
      * @private
@@ -273,7 +273,7 @@ var TdStepComponent = /** @class */ (function (_super) {
      * @return {?}
      */
     TdStepComponent.prototype._setActive = /**
-     * Method to change active state internally and emit the [onActivated] event if 'true' or [onDeactivated]
+     * Method to change active state internally and emit the [activated] event if 'true' or [deactivated]
      * event if 'false'. (Blocked if [disabled] is 'true')
      * returns true if successfully changed state
      * @private
@@ -305,7 +305,7 @@ var TdStepComponent = /** @class */ (function (_super) {
      * @return {?}
      */
     function () {
-        this.onActivated.emit(undefined);
+        this.activated.emit();
     };
     /**
      * @private
@@ -316,7 +316,7 @@ var TdStepComponent = /** @class */ (function (_super) {
      * @return {?}
      */
     function () {
-        this.onDeactivated.emit(undefined);
+        this.deactivated.emit();
     };
     TdStepComponent.decorators = [
         { type: Component, args: [{
@@ -334,12 +334,12 @@ var TdStepComponent = /** @class */ (function (_super) {
         stepLabel: [{ type: ContentChild, args: [TdStepLabelDirective, { static: false },] }],
         stepActions: [{ type: ContentChild, args: [TdStepActionsDirective, { static: false },] }],
         stepSummary: [{ type: ContentChild, args: [TdStepSummaryDirective, { static: false },] }],
-        label: [{ type: Input, args: ['label',] }],
-        sublabel: [{ type: Input, args: ['sublabel',] }],
+        label: [{ type: Input }],
+        sublabel: [{ type: Input }],
         active: [{ type: Input, args: ['active',] }],
         state: [{ type: Input, args: ['state',] }],
-        onActivated: [{ type: Output, args: ['activated',] }],
-        onDeactivated: [{ type: Output, args: ['deactivated',] }]
+        activated: [{ type: Output }],
+        deactivated: [{ type: Output }]
     };
     return TdStepComponent;
 }(_TdStepMixinBase));
@@ -358,10 +358,10 @@ var TdStepsComponent = /** @class */ (function () {
         this._mode = StepMode.Vertical;
         /**
          * stepChange?: function
-         * Method to be executed when [onStepChange] event is emitted.
+         * Method to be executed when [stepChange] event is emitted.
          * Emits an [IStepChangeEvent] implemented object.
          */
-        this.onStepChange = new EventEmitter();
+        this.stepChange = new EventEmitter();
     }
     Object.defineProperty(TdStepsComponent.prototype, "stepsContent", {
         set: /**
@@ -405,12 +405,11 @@ var TdStepsComponent = /** @class */ (function () {
          * @return {?}
          */
         function (mode) {
-            switch (mode) {
-                case StepMode.Horizontal:
-                    this._mode = StepMode.Horizontal;
-                    break;
-                default:
-                    this._mode = StepMode.Vertical;
+            if (mode === StepMode.Horizontal) {
+                this._mode = StepMode.Horizontal;
+            }
+            else {
+                this._mode = StepMode.Vertical;
             }
         },
         enumerable: true,
@@ -418,16 +417,16 @@ var TdStepsComponent = /** @class */ (function () {
     });
     /**
      * Executed after content is initialized, loops through any [TdStepComponent] children elements,
-     * assigns them a number and subscribes as an observer to their [onActivated] event.
+     * assigns them a number and subscribes as an observer to their [activated] event.
      */
     /**
      * Executed after content is initialized, loops through any [TdStepComponent] children elements,
-     * assigns them a number and subscribes as an observer to their [onActivated] event.
+     * assigns them a number and subscribes as an observer to their [activated] event.
      * @return {?}
      */
     TdStepsComponent.prototype.ngAfterContentInit = /**
      * Executed after content is initialized, loops through any [TdStepComponent] children elements,
-     * assigns them a number and subscribes as an observer to their [onActivated] event.
+     * assigns them a number and subscribes as an observer to their [activated] event.
      * @return {?}
      */
     function () {
@@ -492,18 +491,18 @@ var TdStepsComponent = /** @class */ (function () {
     };
     /**
      * Wraps previous and new [TdStepComponent] numbers in an object that implements [IStepChangeEvent]
-     * and emits [onStepChange] event.
+     * and emits [stepChange] event.
      */
     /**
      * Wraps previous and new [TdStepComponent] numbers in an object that implements [IStepChangeEvent]
-     * and emits [onStepChange] event.
+     * and emits [stepChange] event.
      * @private
      * @param {?} step
      * @return {?}
      */
     TdStepsComponent.prototype._onStepSelection = /**
      * Wraps previous and new [TdStepComponent] numbers in an object that implements [IStepChangeEvent]
-     * and emits [onStepChange] event.
+     * and emits [stepChange] event.
      * @private
      * @param {?} step
      * @return {?}
@@ -519,7 +518,7 @@ var TdStepsComponent = /** @class */ (function () {
                 prevStep: prevStep,
             };
             this._deactivateAllBut(step);
-            this.onStepChange.emit(event_1);
+            this.stepChange.emit(event_1);
         }
     };
     /**
@@ -569,7 +568,7 @@ var TdStepsComponent = /** @class */ (function () {
          */
         function (step) {
             /** @type {?} */
-            var subscription = step.onActivated.asObservable().subscribe((/**
+            var subscription = step.activated.asObservable().subscribe((/**
              * @return {?}
              */
             function () {
@@ -612,7 +611,7 @@ var TdStepsComponent = /** @class */ (function () {
     TdStepsComponent.propDecorators = {
         stepsContent: [{ type: ContentChildren, args: [TdStepComponent,] }],
         mode: [{ type: Input, args: ['mode',] }],
-        onStepChange: [{ type: Output, args: ['stepChange',] }]
+        stepChange: [{ type: Output }]
     };
     return TdStepsComponent;
 }());
@@ -678,10 +677,10 @@ var TdStepHeaderComponent = /** @class */ (function (_super) {
                 }] }
     ];
     TdStepHeaderComponent.propDecorators = {
-        number: [{ type: Input, args: ['number',] }],
-        active: [{ type: Input, args: ['active',] }],
-        state: [{ type: Input, args: ['state',] }],
-        tabIndex: [{ type: Input, args: ['tabIndex',] }]
+        number: [{ type: Input }],
+        active: [{ type: Input }],
+        state: [{ type: Input }],
+        tabIndex: [{ type: Input }]
     };
     return TdStepHeaderComponent;
 }(_TdStepHeaderMixinBase));
@@ -758,8 +757,8 @@ var TdStepBodyComponent = /** @class */ (function () {
         contentRef: [{ type: ViewChild, args: ['contentRef', { read: ElementRef, static: true },] }],
         actionsRef: [{ type: ViewChild, args: ['actionsRef', { read: ElementRef, static: true },] }],
         summaryRef: [{ type: ViewChild, args: ['summaryRef', { read: ElementRef, static: true },] }],
-        active: [{ type: Input, args: ['active',] }],
-        state: [{ type: Input, args: ['state',] }]
+        active: [{ type: Input }],
+        state: [{ type: Input }]
     };
     return TdStepBodyComponent;
 }());
@@ -875,10 +874,10 @@ var TdNavStepLinkComponent = /** @class */ (function (_super) {
     ]; };
     TdNavStepLinkComponent.propDecorators = {
         state: [{ type: Input, args: ['state',] }],
-        label: [{ type: Input, args: ['label',] }],
-        sublabel: [{ type: Input, args: ['sublabel',] }],
+        label: [{ type: Input }],
+        sublabel: [{ type: Input }],
         active: [{ type: Input, args: ['active',] }],
-        tabIndex: [{ type: Input, args: ['tabIndex',] }]
+        tabIndex: [{ type: Input }]
     };
     return TdNavStepLinkComponent;
 }(_TdStepMixinBase));

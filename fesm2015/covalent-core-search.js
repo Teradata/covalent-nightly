@@ -52,22 +52,22 @@ class TdSearchInputComponent extends _TdSearchInputMixinBase {
          * searchDebounce: function($event)
          * Event emitted after the [debounce] timeout.
          */
-        this.onSearchDebounce = new EventEmitter();
+        this.searchDebounce = new EventEmitter();
         /**
          * search: function($event)
          * Event emitted after the key enter has been pressed.
          */
-        this.onSearch = new EventEmitter();
+        this.search = new EventEmitter();
         /**
          * clear: function()
          * Event emitted after the clear icon has been clicked.
          */
-        this.onClear = new EventEmitter();
+        this.clear = new EventEmitter();
         /**
          * blur: function()
          * Event emitted after the blur event has been called in underlying input.
          */
-        this.onBlur = new EventEmitter();
+        this.blur = new EventEmitter();
     }
     /**
      * @return {?}
@@ -103,7 +103,7 @@ class TdSearchInputComponent extends _TdSearchInputMixinBase {
      * @return {?}
      */
     handleBlur() {
-        this.onBlur.emit(undefined);
+        this.blur.emit();
     }
     /**
      * @param {?} event
@@ -118,7 +118,7 @@ class TdSearchInputComponent extends _TdSearchInputMixinBase {
      */
     handleSearch(event) {
         this.stopPropagation(event);
-        this.onSearch.emit(this.value);
+        this.search.emit(this.value);
     }
     /**
      * Method to clear the underlying input.
@@ -127,7 +127,7 @@ class TdSearchInputComponent extends _TdSearchInputMixinBase {
     clearSearch() {
         this.value = '';
         this._changeDetectorRef.markForCheck();
-        this.onClear.emit(undefined);
+        this.clear.emit();
     }
     /**
      * @private
@@ -135,7 +135,7 @@ class TdSearchInputComponent extends _TdSearchInputMixinBase {
      * @return {?}
      */
     _searchTermChanged(value) {
-        this.onSearchDebounce.emit(value);
+        this.searchDebounce.emit(value);
     }
 }
 TdSearchInputComponent.decorators = [
@@ -182,15 +182,15 @@ TdSearchInputComponent.ctorParameters = () => [
 ];
 TdSearchInputComponent.propDecorators = {
     _input: [{ type: ViewChild, args: [MatInput, { static: true },] }],
-    appearance: [{ type: Input, args: ['appearance',] }],
-    showUnderline: [{ type: Input, args: ['showUnderline',] }],
-    debounce: [{ type: Input, args: ['debounce',] }],
-    placeholder: [{ type: Input, args: ['placeholder',] }],
-    clearIcon: [{ type: Input, args: ['clearIcon',] }],
-    onSearchDebounce: [{ type: Output, args: ['searchDebounce',] }],
-    onSearch: [{ type: Output, args: ['search',] }],
-    onClear: [{ type: Output, args: ['clear',] }],
-    onBlur: [{ type: Output, args: ['blur',] }]
+    appearance: [{ type: Input }],
+    showUnderline: [{ type: Input }],
+    debounce: [{ type: Input }],
+    placeholder: [{ type: Input }],
+    clearIcon: [{ type: Input }],
+    searchDebounce: [{ type: Output }],
+    search: [{ type: Output }],
+    clear: [{ type: Output }],
+    blur: [{ type: Output }]
 };
 
 /**
@@ -252,22 +252,22 @@ class TdSearchBoxComponent extends _TdSearchBoxMixinBase {
          * searchDebounce: function($event)
          * Event emitted after the [debounce] timeout.
          */
-        this.onSearchDebounce = new EventEmitter();
+        this.searchDebounce = new EventEmitter();
         /**
          * search: function($event)
          * Event emitted after the key enter has been pressed.
          */
-        this.onSearch = new EventEmitter();
+        this.search = new EventEmitter();
         /**
          * clear: function()
          * Event emitted after the clear icon has been clicked.
          */
-        this.onClear = new EventEmitter();
+        this.clear = new EventEmitter();
         /**
          * blur: function()
          * Event emitted after the blur event has been called in underlying input.
          */
-        this.onBlur = new EventEmitter();
+        this.blur = new EventEmitter();
     }
     /**
      * @return {?}
@@ -301,26 +301,26 @@ class TdSearchBoxComponent extends _TdSearchBoxMixinBase {
      * @return {?}
      */
     handleSearchDebounce(value) {
-        this.onSearchDebounce.emit(value);
+        this.searchDebounce.emit(value);
     }
     /**
      * @param {?} value
      * @return {?}
      */
     handleSearch(value) {
-        this.onSearch.emit(value);
+        this.search.emit(value);
     }
     /**
      * @return {?}
      */
     handleClear() {
-        this.onClear.emit(undefined);
+        this.clear.emit();
     }
     /**
      * @return {?}
      */
     handleBlur() {
-        this.onBlur.emit(undefined);
+        this.blur.emit();
     }
 }
 TdSearchBoxComponent.decorators = [
@@ -362,17 +362,17 @@ TdSearchBoxComponent.ctorParameters = () => [
 ];
 TdSearchBoxComponent.propDecorators = {
     _searchInput: [{ type: ViewChild, args: [TdSearchInputComponent, { static: true },] }],
-    backIcon: [{ type: Input, args: ['backIcon',] }],
-    searchIcon: [{ type: Input, args: ['searchIcon',] }],
-    clearIcon: [{ type: Input, args: ['clearIcon',] }],
-    showUnderline: [{ type: Input, args: ['showUnderline',] }],
-    debounce: [{ type: Input, args: ['debounce',] }],
-    alwaysVisible: [{ type: Input, args: ['alwaysVisible',] }],
-    placeholder: [{ type: Input, args: ['placeholder',] }],
-    onSearchDebounce: [{ type: Output, args: ['searchDebounce',] }],
-    onSearch: [{ type: Output, args: ['search',] }],
-    onClear: [{ type: Output, args: ['clear',] }],
-    onBlur: [{ type: Output, args: ['blur',] }]
+    backIcon: [{ type: Input }],
+    searchIcon: [{ type: Input }],
+    clearIcon: [{ type: Input }],
+    showUnderline: [{ type: Input }],
+    debounce: [{ type: Input }],
+    alwaysVisible: [{ type: Input }],
+    placeholder: [{ type: Input }],
+    searchDebounce: [{ type: Output }],
+    search: [{ type: Output }],
+    clear: [{ type: Output }],
+    blur: [{ type: Output }]
 };
 
 /**

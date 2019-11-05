@@ -1,4 +1,5 @@
 import { Injectable, NgZone, ɵɵdefineInjectable, ɵɵinject, Directive, Renderer2, ElementRef, Input, NgModule } from '@angular/core';
+import { __values } from 'tslib';
 import { BehaviorSubject, fromEvent } from 'rxjs';
 
 /**
@@ -147,6 +148,7 @@ var TdMediaService = /** @class */ (function () {
      */
     function () {
         var _this = this;
+        var e_1, _a;
         var _loop_1 = function (query) {
             this_1._ngZone.run((/**
              * @return {?}
@@ -156,8 +158,18 @@ var TdMediaService = /** @class */ (function () {
             }));
         };
         var this_1 = this;
-        for (var query in this._querySources) {
-            _loop_1(query);
+        try {
+            for (var _b = __values(Object.keys(this._querySources)), _c = _b.next(); !_c.done; _c = _b.next()) {
+                var query = _c.value;
+                _loop_1(query);
+            }
+        }
+        catch (e_1_1) { e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+            }
+            finally { if (e_1) throw e_1.error; }
         }
     };
     /**

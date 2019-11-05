@@ -88,7 +88,7 @@
         ]; };
         TdTabOptionComponent.propDecorators = {
             _content: [{ type: core.ViewChild, args: [core.TemplateRef, { static: true },] }],
-            value: [{ type: core.Input, args: ['value',] }]
+            value: [{ type: core.Input }]
         };
         return TdTabOptionComponent;
     }(_TdTabOptionMixinBase));
@@ -324,8 +324,8 @@
         TdTabSelectComponent.propDecorators = {
             _tabOptions: [{ type: core.ContentChildren, args: [TdTabOptionComponent,] }],
             stretchTabs: [{ type: core.Input, args: ['stretchTabs',] }],
-            color: [{ type: core.Input, args: ['color',] }],
-            backgroundColor: [{ type: core.Input, args: ['backgroundColor',] }],
+            color: [{ type: core.Input }],
+            backgroundColor: [{ type: core.Input }],
             valueChange: [{ type: core.Output }]
         };
         return TdTabSelectComponent;

@@ -196,25 +196,25 @@ export declare class TdDataTableComponent extends _TdDataTableMixinBase implemen
      * Event emitted when the column headers are clicked. [sortable] needs to be enabled.
      * Emits an [ITdDataTableSortChangeEvent] implemented object.
      */
-    onSortChange: EventEmitter<ITdDataTableSortChangeEvent>;
+    sortChange: EventEmitter<ITdDataTableSortChangeEvent>;
     /**
      * rowSelect?: function
      * Event emitted when a row is selected/deselected. [selectable] needs to be enabled.
      * Emits an [ITdDataTableSelectEvent] implemented object.
      */
-    onRowSelect: EventEmitter<ITdDataTableSelectEvent>;
+    rowSelect: EventEmitter<ITdDataTableSelectEvent>;
     /**
      * rowClick?: function
      * Event emitted when a row is clicked.
      * Emits an [ITdDataTableRowClickEvent] implemented object.
      */
-    onRowClick: EventEmitter<ITdDataTableRowClickEvent>;
+    rowClick: EventEmitter<ITdDataTableRowClickEvent>;
     /**
      * selectAll?: function
      * Event emitted when all rows are selected/deselected by the all checkbox. [selectable] needs to be enabled.
      * Emits an [ITdDataTableSelectAllEvent] implemented object.
      */
-    onSelectAll: EventEmitter<ITdDataTableSelectAllEvent>;
+    selectAll: EventEmitter<ITdDataTableSelectAllEvent>;
     constructor(_document: any, _elementRef: ElementRef, _domSanitizer: DomSanitizer, _changeDetectorRef: ChangeDetectorRef);
     /**
      * compareWith?: function(row, model): boolean
@@ -268,7 +268,7 @@ export declare class TdDataTableComponent extends _TdDataTableMixinBase implemen
     /**
      * Selects or clears all rows depending on 'checked' value.
      */
-    selectAll(checked: boolean): void;
+    _selectAll(checked: boolean): void;
     /**
      * Checks if row is selected
      */

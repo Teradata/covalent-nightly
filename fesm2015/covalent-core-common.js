@@ -197,7 +197,7 @@ class TdTimeAgoPipe {
         // Convert time to date object if not already
         time = new Date(time);
         /** @type {?} */
-        let ref = new Date(reference);
+        const ref = new Date(reference);
         // If not a valid timestamp, return 'Invalid Date'
         if (!time.getTime()) {
             return 'Invalid Date';
@@ -205,7 +205,7 @@ class TdTimeAgoPipe {
         // For unit testing, we need to be able to declare a static start time
         // for calculations, or else speed of tests can bork.
         /** @type {?} */
-        let startTime = isNaN(ref.getTime()) ? Date.now() : ref.getTime();
+        const startTime = isNaN(ref.getTime()) ? Date.now() : ref.getTime();
         /** @type {?} */
         let diff = Math.floor((startTime - time.getTime()) / 1000);
         if (diff < 2) {
@@ -274,7 +274,7 @@ class TdTimeDifferencePipe {
      */
     transform(start, end) {
         /** @type {?} */
-        let startTime = new Date(start);
+        const startTime = new Date(start);
         /** @type {?} */
         let endTime;
         if (end !== undefined) {
@@ -289,18 +289,18 @@ class TdTimeDifferencePipe {
         /** @type {?} */
         let diff = Math.floor((endTime.getTime() - startTime.getTime()) / 1000);
         /** @type {?} */
-        let days = Math.floor(diff / (60 * 60 * 24));
+        const days = Math.floor(diff / (60 * 60 * 24));
         diff = diff - days * (60 * 60 * 24);
         /** @type {?} */
-        let hours = Math.floor(diff / (60 * 60));
+        const hours = Math.floor(diff / (60 * 60));
         diff = diff - hours * (60 * 60);
         /** @type {?} */
-        let minutes = Math.floor(diff / 60);
+        const minutes = Math.floor(diff / 60);
         diff -= minutes * 60;
         /** @type {?} */
-        let seconds = diff;
+        const seconds = diff;
         /** @type {?} */
-        let pad = '00';
+        const pad = '00';
         /** @type {?} */
         let daysFormatted = '';
         if (days > 0 && days < 2) {
@@ -340,7 +340,7 @@ class TdTimeUntilPipe {
         // Convert time to date object if not already
         time = new Date(time);
         /** @type {?} */
-        let ref = new Date(reference);
+        const ref = new Date(reference);
         // If not a valid timestamp, return 'Invalid Date'
         if (!time.getTime()) {
             return 'Invalid Date';
@@ -348,7 +348,7 @@ class TdTimeUntilPipe {
         // For unit testing, we need to be able to declare a static start time
         // for calculations, or else speed of tests can bork.
         /** @type {?} */
-        let startTime = isNaN(ref.getTime()) ? Date.now() : ref.getTime();
+        const startTime = isNaN(ref.getTime()) ? Date.now() : ref.getTime();
         /** @type {?} */
         let diff = Math.floor((time.getTime() - startTime) / 1000);
         if (diff < 2) {
@@ -426,11 +426,11 @@ class TdBytesPipe {
             return 'Invalid Number';
         }
         /** @type {?} */
-        let k = 1024;
+        const k = 1024;
         /** @type {?} */
-        let sizes = ['B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
+        const sizes = ['B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
         /** @type {?} */
-        let i = Math.floor(Math.log(bytes) / Math.log(k));
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
         // if less than 1
         if (i < 0) {
             return 'Invalid Number';
@@ -465,11 +465,11 @@ class TdDecimalBytesPipe {
             return 'Invalid Number';
         }
         /** @type {?} */
-        let k = 1000;
+        const k = 1000;
         /** @type {?} */
-        let sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+        const sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
         /** @type {?} */
-        let i = Math.floor(Math.log(bytes) / Math.log(k));
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
         // if less than 1
         if (i < 0) {
             return 'Invalid Number';
@@ -513,13 +513,13 @@ class TdDigitsPipe {
             return this._decimalPipe.transform(digits.toFixed(precision));
         }
         /** @type {?} */
-        let k = 1000;
+        const k = 1000;
         /** @type {?} */
-        let sizes = ['', 'K', 'M', 'B', 'T', 'Q'];
+        const sizes = ['', 'K', 'M', 'B', 'T', 'Q'];
         /** @type {?} */
-        let i = Math.floor(Math.log(digits) / Math.log(k));
+        const i = Math.floor(Math.log(digits) / Math.log(k));
         /** @type {?} */
-        let size = sizes[i];
+        const size = sizes[i];
         return (this._decimalPipe.transform(parseFloat((digits / Math.pow(k, i)).toFixed(precision))) + (size ? ' ' + size : ''));
     }
 }
@@ -1063,7 +1063,7 @@ function mixinDisabled(base) {
          */
         set disabled(value) {
             /** @type {?} */
-            let newValue = coerceBooleanProperty(value);
+            const newValue = coerceBooleanProperty(value);
             if (this._disabled !== newValue) {
                 this._disabled = newValue;
                 this.onDisabledChange(this._disabled);
@@ -1110,7 +1110,7 @@ function mixinDisableRipple(base) {
          */
         set disableRipple(value) {
             /** @type {?} */
-            let newValue = coerceBooleanProperty(value);
+            const newValue = coerceBooleanProperty(value);
             if (this._disableRipple !== newValue) {
                 this._disableRipple = newValue;
                 this.onDisableRippleChange(this._disableRipple);
@@ -1136,8 +1136,9 @@ class CovalentValidators {
      * @return {?}
      */
     static min(minValue) {
+        // tslint:disable-next-line:prefer-immediate-return
         /** @type {?} */
-        let func = (/**
+        const func = (/**
          * @param {?} c
          * @return {?}
          */
@@ -1146,8 +1147,8 @@ class CovalentValidators {
                 return undefined;
             }
             /** @type {?} */
-            let v = c.value;
-            return v < minValue ? { min: { minValue: minValue, actualValue: v } } : undefined;
+            const v = c.value;
+            return v < minValue ? { min: { minValue, actualValue: v } } : undefined;
         });
         return func;
     }
@@ -1156,8 +1157,9 @@ class CovalentValidators {
      * @return {?}
      */
     static max(maxValue) {
+        // tslint:disable-next-line:prefer-immediate-return
         /** @type {?} */
-        let func = (/**
+        const func = (/**
          * @param {?} c
          * @return {?}
          */
@@ -1166,8 +1168,8 @@ class CovalentValidators {
                 return undefined;
             }
             /** @type {?} */
-            let v = c.value;
-            return v > maxValue ? { max: { maxValue: maxValue, actualValue: v } } : undefined;
+            const v = c.value;
+            return v > maxValue ? { max: { maxValue, actualValue: v } } : undefined;
         });
         return func;
     }
@@ -1237,7 +1239,7 @@ function convertObjectsToCSV(objects, keySeparator = ',', lineSeparator = '\r\n'
     (value, key) => {
         /** @type {?} */
         let line = '';
-        for (const index in objects[key]) {
+        for (const index of Object.keys(objects[key])) {
             if (line !== '') {
                 line += keySeparator;
             }
@@ -1280,16 +1282,16 @@ function convertCSVToJSON(csv, keySeparator = ',', lineSeparator = '\r\n', inden
         return '';
     }
     /** @type {?} */
-    let newObjects = [];
+    const newObjects = [];
     // Extract object keys from header row
     /** @type {?} */
     const keys = csvArray[0].split(keySeparator);
     // Iterate through array, creating one output line per object
     for (let i = 1; i < csvArray.length; i++) {
         /** @type {?} */
-        let newObject = {};
+        const newObject = {};
         /** @type {?} */
-        let values = csvArray[i].split(keySeparator);
+        const values = csvArray[i].split(keySeparator);
         if (values.length !== keys.length) {
             continue;
         }

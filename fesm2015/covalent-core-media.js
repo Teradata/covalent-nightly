@@ -109,7 +109,7 @@ class TdMediaService {
      * @return {?}
      */
     _onResize() {
-        for (let query in this._querySources) {
+        for (const query of Object.keys(this._querySources)) {
             this._ngZone.run((/**
              * @return {?}
              */
@@ -234,7 +234,7 @@ class TdMediaToggleDirective {
      * @return {?}
      */
     _changeAttributes() {
-        for (let attr in this._attributes) {
+        for (const attr in this._attributes) {
             if (this._matches) {
                 this._renderer.setAttribute(this._elementRef.nativeElement, attr, this._attributes[attr]);
             }
@@ -266,7 +266,7 @@ class TdMediaToggleDirective {
      * @return {?}
      */
     _changeStyles() {
-        for (let style in this._styles) {
+        for (const style in this._styles) {
             if (this._matches) {
                 this._renderer.setStyle(this._elementRef.nativeElement, style, this._styles[style]);
             }

@@ -55,12 +55,12 @@ export declare class TdStepComponent extends _TdStepMixinBase implements OnInit,
      * activated?: function
      * Event emitted when [TdStepComponent] is activated.
      */
-    onActivated: EventEmitter<void>;
+    activated: EventEmitter<void>;
     /**
      * deactivated?: function
      * Event emitted when [TdStepComponent] is deactivated.
      */
-    onDeactivated: EventEmitter<void>;
+    deactivated: EventEmitter<void>;
     constructor(_viewContainerRef: ViewContainerRef);
     ngOnInit(): void;
     /**
@@ -85,7 +85,7 @@ export declare class TdStepComponent extends _TdStepMixinBase implements OnInit,
     /** Method executed when the disabled value changes */
     onDisabledChange(v: boolean): void;
     /**
-     * Method to change active state internally and emit the [onActivated] event if 'true' or [onDeactivated]
+     * Method to change active state internally and emit the [activated] event if 'true' or [deactivated]
      * event if 'false'. (Blocked if [disabled] is 'true')
      * returns true if successfully changed state
      */

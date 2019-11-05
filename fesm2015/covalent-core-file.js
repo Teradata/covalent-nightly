@@ -27,7 +27,7 @@ class TdFileSelectDirective {
          * Emits a [FileList | File] object.
          * Alternative to not use [(ngModel)].
          */
-        this.onFileSelect = new EventEmitter();
+        this.fileSelect = new EventEmitter();
     }
     /**
      * multiple?: boolean
@@ -48,21 +48,21 @@ class TdFileSelectDirective {
     }
     /**
      * Listens to 'change' host event to get [HTMLInputElement] files.
-     * Emits the 'onFileSelect' event with a [FileList] or [File] depending if 'multiple' attr exists in host.
-     * Uses [(ngModel)] if declared, instead of emitting 'onFileSelect' event.
+     * Emits the 'fileSelect' event with a [FileList] or [File] depending if 'multiple' attr exists in host.
+     * Uses [(ngModel)] if declared, instead of emitting 'fileSelect' event.
      * @param {?} event
      * @return {?}
      */
     onChange(event) {
         if (event.target instanceof HTMLInputElement) {
             /** @type {?} */
-            let fileInputEl = (/** @type {?} */ (event.target));
+            const fileInputEl = event.target;
             /** @type {?} */
-            let files = fileInputEl.files;
+            const files = fileInputEl.files;
             if (files.length) {
                 /** @type {?} */
-                let value = this._multiple ? (files.length > 1 ? files : files[0]) : files[0];
-                this.model ? this.model.update.emit(value) : this.onFileSelect.emit(value);
+                const value = this._multiple ? (files.length > 1 ? files : files[0]) : files[0];
+                this.model ? this.model.update.emit(value) : this.fileSelect.emit(value);
             }
         }
     }
@@ -78,7 +78,7 @@ TdFileSelectDirective.ctorParameters = () => [
 ];
 TdFileSelectDirective.propDecorators = {
     multiple: [{ type: Input, args: ['multiple',] }],
-    onFileSelect: [{ type: Output, args: ['fileSelect',] }],
+    fileSelect: [{ type: Output }],
     multipleBinding: [{ type: HostBinding, args: ['attr.multiple',] }],
     onChange: [{ type: HostListener, args: ['change', ['$event'],] }]
 };
@@ -107,7 +107,7 @@ class TdFileDropDirective extends _TdFileDropMixinBase {
          * Event emitted when a file or files are dropped in host element after being validated.
          * Emits a [FileList | File] object.
          */
-        this.onFileDrop = new EventEmitter();
+        this.fileDrop = new EventEmitter();
     }
     /**
      * multiple?: boolean
@@ -135,7 +135,7 @@ class TdFileDropDirective extends _TdFileDropMixinBase {
     }
     /**
      * Listens to 'drop' host event to get validated transfer items.
-     * Emits the 'onFileDrop' event with a [FileList] or [File] depending if 'multiple' attr exists in host.
+     * Emits the 'fileDrop' event with a [FileList] or [File] depending if 'multiple' attr exists in host.
      * Stops event propagation and default action from browser for 'drop' event.
      * @param {?} event
      * @return {?}
@@ -143,13 +143,13 @@ class TdFileDropDirective extends _TdFileDropMixinBase {
     onDrop(event) {
         if (!this.disabled) {
             /** @type {?} */
-            let transfer = ((/** @type {?} */ (event))).dataTransfer;
+            const transfer = ((/** @type {?} */ (event))).dataTransfer;
             /** @type {?} */
-            let files = transfer.files;
+            const files = transfer.files;
             if (files.length) {
                 /** @type {?} */
-                let value = this._multiple ? (files.length > 1 ? files : files[0]) : files[0];
-                this.onFileDrop.emit(value);
+                const value = this._multiple ? (files.length > 1 ? files : files[0]) : files[0];
+                this.fileDrop.emit(value);
             }
         }
         this._renderer.removeClass(this._element.nativeElement, 'drop-zone');
@@ -164,7 +164,7 @@ class TdFileDropDirective extends _TdFileDropMixinBase {
      */
     onDragOver(event) {
         /** @type {?} */
-        let transfer = ((/** @type {?} */ (event))).dataTransfer;
+        const transfer = ((/** @type {?} */ (event))).dataTransfer;
         transfer.dropEffect = this._typeCheck(transfer.types);
         if (this.disabled ||
             (!this._multiple && ((transfer.items && transfer.items.length > 1) || ((/** @type {?} */ (transfer))).mozItemCount > 1))) {
@@ -206,11 +206,10 @@ class TdFileDropDirective extends _TdFileDropMixinBase {
     _typeCheck(types) {
         /** @type {?} */
         let dropEffect = 'none';
-        if (types) {
-            if ((((/** @type {?} */ (types))).contains && ((/** @type {?} */ (types))).contains('Files')) ||
-                (((/** @type {?} */ (types))).indexOf && ((/** @type {?} */ (types))).indexOf('Files') !== -1)) {
-                dropEffect = 'copy';
-            }
+        if (types &&
+            ((((/** @type {?} */ (types))).contains && ((/** @type {?} */ (types))).contains('Files')) ||
+                (((/** @type {?} */ (types))).indexOf && ((/** @type {?} */ (types))).indexOf('Files') !== -1))) {
+            dropEffect = 'copy';
         }
         return dropEffect;
     }
@@ -237,7 +236,7 @@ TdFileDropDirective.ctorParameters = () => [
 ];
 TdFileDropDirective.propDecorators = {
     multiple: [{ type: Input, args: ['multiple',] }],
-    onFileDrop: [{ type: Output, args: ['fileDrop',] }],
+    fileDrop: [{ type: Output }],
     multipleBinding: [{ type: HostBinding, args: ['attr.multiple',] }],
     disabledBinding: [{ type: HostBinding, args: ['attr.disabled',] }],
     onDrop: [{ type: HostListener, args: ['drop', ['$event'],] }],
@@ -294,7 +293,7 @@ class TdFileInputComponent extends _TdFileInputMixinBase {
          * Event emitted a file is selected
          * Emits a [File | FileList] object.
          */
-        this.onSelect = new EventEmitter();
+        this.select = new EventEmitter();
     }
     /**
      * @return {?}
@@ -324,7 +323,7 @@ class TdFileInputComponent extends _TdFileInputMixinBase {
      */
     handleSelect(files) {
         this.writeValue(files);
-        this.onSelect.emit(files);
+        this.select.emit(files);
     }
     /**
      * Used to clear the selected files from the [TdFileInputComponent].
@@ -379,10 +378,10 @@ TdFileInputComponent.ctorParameters = () => [
 ];
 TdFileInputComponent.propDecorators = {
     _inputElement: [{ type: ViewChild, args: ['fileInput', { static: true },] }],
-    color: [{ type: Input, args: ['color',] }],
+    color: [{ type: Input }],
     multiple: [{ type: Input, args: ['multiple',] }],
-    accept: [{ type: Input, args: ['accept',] }],
-    onSelect: [{ type: Output, args: ['select',] }]
+    accept: [{ type: Input }],
+    select: [{ type: Output }]
 };
 
 /**
@@ -428,18 +427,18 @@ class TdFileUploadComponent extends _TdFileUploadMixinBase {
          * Event emitted when a file is selected.
          * Emits a [File | FileList] object.
          */
-        this.onSelect = new EventEmitter();
+        this.select = new EventEmitter();
         /**
          * upload?: function
          * Event emitted when upload button is clicked.
          * Emits a [File | FileList] object.
          */
-        this.onUpload = new EventEmitter();
+        this.upload = new EventEmitter();
         /**
          * cancel?: function
          * Event emitted when cancel button is clicked.
          */
-        this.onCancel = new EventEmitter();
+        this.cancel = new EventEmitter();
     }
     /**
      * multiple?: boolean
@@ -478,7 +477,7 @@ class TdFileUploadComponent extends _TdFileUploadMixinBase {
      */
     uploadPressed() {
         if (this.value) {
-            this.onUpload.emit(this.value);
+            this.upload.emit(this.value);
         }
     }
     /**
@@ -488,16 +487,16 @@ class TdFileUploadComponent extends _TdFileUploadMixinBase {
      */
     handleSelect(value) {
         this.value = value;
-        this.onSelect.emit(value);
+        this.select.emit(value);
     }
     /**
      * Methods executed when cancel button is clicked.
      * Clears files.
      * @return {?}
      */
-    cancel() {
+    _cancel() {
         this.value = undefined;
-        this.onCancel.emit(undefined);
+        this.cancel.emit();
         // check if the file input is rendered before clearing it
         if (this.fileInput) {
             this.fileInput.clear();
@@ -510,7 +509,7 @@ class TdFileUploadComponent extends _TdFileUploadMixinBase {
      */
     onDisabledChange(v) {
         if (v) {
-            this.cancel();
+            this._cancel();
         }
     }
 }
@@ -529,7 +528,7 @@ TdFileUploadComponent.decorators = [
                 ],
                 selector: 'td-file-upload',
                 inputs: ['disabled', 'value'],
-                template: "<td-file-input\n  *ngIf=\"!value\"\n  [(ngModel)]=\"value\"\n  [multiple]=\"multiple\"\n  [disabled]=\"disabled\"\n  [accept]=\"accept\"\n  [color]=\"defaultColor\"\n  (select)=\"handleSelect($event)\"\n>\n  <ng-template [cdkPortalOutlet]=\"inputLabel\" [ngIf]=\"true\"></ng-template>\n</td-file-input>\n<div *ngIf=\"value\">\n  <button\n    #fileUpload\n    class=\"td-file-upload\"\n    mat-raised-button\n    type=\"button\"\n    [color]=\"activeColor\"\n    (keyup.delete)=\"cancel()\"\n    (keyup.backspace)=\"cancel()\"\n    (keyup.escape)=\"cancel()\"\n    (click)=\"uploadPressed()\"\n  >\n    <ng-content></ng-content>\n  </button>\n  <button mat-icon-button type=\"button\" class=\"td-file-upload-cancel\" [color]=\"cancelColor\" (click)=\"cancel()\">\n    <mat-icon>cancel</mat-icon>\n  </button>\n</div>\n",
+                template: "<td-file-input\n  *ngIf=\"!value\"\n  [(ngModel)]=\"value\"\n  [multiple]=\"multiple\"\n  [disabled]=\"disabled\"\n  [accept]=\"accept\"\n  [color]=\"defaultColor\"\n  (select)=\"handleSelect($event)\"\n>\n  <ng-template [cdkPortalOutlet]=\"inputLabel\" [ngIf]=\"true\"></ng-template>\n</td-file-input>\n<div *ngIf=\"value\">\n  <button\n    #fileUpload\n    class=\"td-file-upload\"\n    mat-raised-button\n    type=\"button\"\n    [color]=\"activeColor\"\n    (keyup.delete)=\"_cancel()\"\n    (keyup.backspace)=\"_cancel()\"\n    (keyup.escape)=\"_cancel()\"\n    (click)=\"uploadPressed()\"\n  >\n    <ng-content></ng-content>\n  </button>\n  <button mat-icon-button type=\"button\" class=\"td-file-upload-cancel\" [color]=\"cancelColor\" (click)=\"_cancel()\">\n    <mat-icon>cancel</mat-icon>\n  </button>\n</div>\n",
                 styles: [".td-file-upload{padding-left:8px;padding-right:8px}.td-file-upload-cancel{height:24px;width:24px;position:relative;top:24px;left:-12px}::ng-deep [dir=rtl] .td-file-upload-cancel{right:-12px;left:0}.td-file-upload-cancel mat-icon{border-radius:12px;vertical-align:baseline}.drop-zone{border-radius:3px}.drop-zone *{pointer-events:none}"]
             }] }
 ];
@@ -540,15 +539,15 @@ TdFileUploadComponent.ctorParameters = () => [
 TdFileUploadComponent.propDecorators = {
     fileInput: [{ type: ViewChild, args: [TdFileInputComponent, { static: false },] }],
     inputLabel: [{ type: ContentChild, args: [TdFileInputLabelDirective, { static: false },] }],
-    defaultColor: [{ type: Input, args: ['defaultColor',] }],
-    activeColor: [{ type: Input, args: ['activeColor',] }],
-    cancelColor: [{ type: Input, args: ['cancelColor',] }],
+    defaultColor: [{ type: Input }],
+    activeColor: [{ type: Input }],
+    cancelColor: [{ type: Input }],
     multiple: [{ type: Input, args: ['multiple',] }],
     required: [{ type: Input, args: ['required',] }],
-    accept: [{ type: Input, args: ['accept',] }],
-    onSelect: [{ type: Output, args: ['select',] }],
-    onUpload: [{ type: Output, args: ['upload',] }],
-    onCancel: [{ type: Output, args: ['cancel',] }]
+    accept: [{ type: Input }],
+    select: [{ type: Output }],
+    upload: [{ type: Output }],
+    cancel: [{ type: Output }]
 };
 
 /**
@@ -643,7 +642,7 @@ class TdFileService {
          */
         (subscriber) => {
             /** @type {?} */
-            let xhr = new XMLHttpRequest();
+            const xhr = new XMLHttpRequest();
             /** @type {?} */
             let formData = new FormData();
             if (options.file !== undefined) {
@@ -684,7 +683,7 @@ class TdFileService {
             xhr.open(options.method, options.url, true);
             xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
             if (options.headers) {
-                for (let key in options.headers) {
+                for (const key of Object.keys(options.headers)) {
                     xhr.setRequestHeader(key, options.headers[key]);
                 }
             }

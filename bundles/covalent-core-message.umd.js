@@ -320,9 +320,9 @@
             _template: [{ type: core.ViewChild, args: [core.TemplateRef, { static: false },] }],
             collapsedAnimation: [{ type: core.HostBinding, args: ['@tdCollapse',] }],
             hidden: [{ type: core.HostBinding, args: ['style.display',] }],
-            label: [{ type: core.Input, args: ['label',] }],
-            sublabel: [{ type: core.Input, args: ['sublabel',] }],
-            icon: [{ type: core.Input, args: ['icon',] }],
+            label: [{ type: core.Input }],
+            sublabel: [{ type: core.Input }],
+            icon: [{ type: core.Input }],
             color: [{ type: core.Input, args: ['color',] }],
             opened: [{ type: core.Input, args: ['opened',] }],
             animationDoneListener: [{ type: core.HostListener, args: ['@tdCollapse.done',] }]

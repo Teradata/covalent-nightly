@@ -131,7 +131,7 @@ class TdNotificationCountComponent {
     _hasContent() {
         if (this.content) {
             /** @type {?} */
-            let contentElement = this.content.nativeElement;
+            const contentElement = this.content.nativeElement;
             return contentElement && (contentElement.children.length > 0 || !!contentElement.textContent.trim());
         }
         return false;

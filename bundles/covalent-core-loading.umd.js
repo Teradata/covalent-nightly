@@ -139,11 +139,9 @@
         function () {
             // When overlay is used and the host width has a value greater than 1px
             // set the circle diameter when possible incase the loading component was rendered in a hidden state
-            if (this.isOverlay() && this._hostHeight() > 1) {
-                if (this.animation) {
-                    this._setCircleDiameter();
-                    this._changeDetectorRef.markForCheck();
-                }
+            if (this.isOverlay() && this._hostHeight() > 1 && this.animation) {
+                this._setCircleDiameter();
+                this._changeDetectorRef.markForCheck();
             }
         };
         /**
@@ -243,7 +241,7 @@
          * @return {?}
          */
         function () {
-            this._animationIn.next(undefined);
+            this._animationIn.next();
         };
         /**
          * @return {?}
@@ -259,7 +257,7 @@
             this.value = 0;
             // Check for changes for `OnPush` change detection
             this._changeDetectorRef.markForCheck();
-            this._animationOut.next(undefined);
+            this._animationOut.next();
         };
         /**
          * Starts in animation and returns an observable for completition event.
@@ -1190,10 +1188,8 @@
              * @return {?}
              */
             function (name) {
-                if (!this._name) {
-                    if (name) {
-                        this._name = name;
-                    }
+                if (!this._name && name) {
+                    this._name = name;
                 }
             },
             enumerable: true,
@@ -1243,13 +1239,11 @@
              * @return {?}
              */
             function (type) {
-                switch (type) {
-                    case LoadingType.Linear:
-                        this._type = LoadingType.Linear;
-                        break;
-                    default:
-                        this._type = LoadingType.Circular;
-                        break;
+                if (type === LoadingType.Linear) {
+                    this._type = LoadingType.Linear;
+                }
+                else {
+                    this._type = LoadingType.Circular;
                 }
             },
             enumerable: true,
@@ -1269,13 +1263,11 @@
              * @return {?}
              */
             function (mode) {
-                switch (mode) {
-                    case LoadingMode.Determinate:
-                        this._mode = LoadingMode.Determinate;
-                        break;
-                    default:
-                        this._mode = LoadingMode.Indeterminate;
-                        break;
+                if (mode === LoadingMode.Determinate) {
+                    this._mode = LoadingMode.Determinate;
+                }
+                else {
+                    this._mode = LoadingMode.Indeterminate;
                 }
             },
             enumerable: true,
@@ -1291,17 +1283,15 @@
              * tdLoadingStrategy?: LoadingStrategy or ['replace' | 'overlay']
              * Sets the strategy of loading mask depending on value.
              * Defaults to [LoadingMode.Replace | 'replace'].
-             * @param {?} stategy
+             * @param {?} strategy
              * @return {?}
              */
-            function (stategy) {
-                switch (stategy) {
-                    case LoadingStrategy.Overlay:
-                        this._strategy = LoadingStrategy.Overlay;
-                        break;
-                    default:
-                        this._strategy = LoadingStrategy.Replace;
-                        break;
+            function (strategy) {
+                if (strategy === LoadingStrategy.Overlay) {
+                    this._strategy = LoadingStrategy.Overlay;
+                }
+                else {
+                    this._strategy = LoadingStrategy.Replace;
                 }
             },
             enumerable: true,

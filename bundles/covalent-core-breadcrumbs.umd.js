@@ -336,7 +336,7 @@
         ]; };
         TdBreadcrumbsComponent.propDecorators = {
             _breadcrumbs: [{ type: core.ContentChildren, args: [TdBreadcrumbComponent,] }],
-            separatorIcon: [{ type: core.Input, args: ['separatorIcon',] }]
+            separatorIcon: [{ type: core.Input }]
         };
         return TdBreadcrumbsComponent;
     }());

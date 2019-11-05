@@ -227,9 +227,9 @@ TdMessageComponent.propDecorators = {
     _template: [{ type: ViewChild, args: [TemplateRef, { static: false },] }],
     collapsedAnimation: [{ type: HostBinding, args: ['@tdCollapse',] }],
     hidden: [{ type: HostBinding, args: ['style.display',] }],
-    label: [{ type: Input, args: ['label',] }],
-    sublabel: [{ type: Input, args: ['sublabel',] }],
-    icon: [{ type: Input, args: ['icon',] }],
+    label: [{ type: Input }],
+    sublabel: [{ type: Input }],
+    icon: [{ type: Input }],
     color: [{ type: Input, args: ['color',] }],
     opened: [{ type: Input, args: ['opened',] }],
     animationDoneListener: [{ type: HostListener, args: ['@tdCollapse.done',] }]

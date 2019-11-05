@@ -61,7 +61,7 @@ TdTabOptionComponent.ctorParameters = () => [
 ];
 TdTabOptionComponent.propDecorators = {
     _content: [{ type: ViewChild, args: [TemplateRef, { static: true },] }],
-    value: [{ type: Input, args: ['value',] }]
+    value: [{ type: Input }]
 };
 
 /**
@@ -177,7 +177,7 @@ class TdTabSelectComponent extends _TdTabSelectMixinBase {
     selectedIndexChange(selectedIndex) {
         this._selectedIndex = selectedIndex;
         /** @type {?} */
-        let value = this._values[selectedIndex];
+        const value = this._values[selectedIndex];
         this.value = value;
         this.valueChange.emit(value);
         this.onChange(value);
@@ -206,7 +206,7 @@ class TdTabSelectComponent extends _TdTabSelectMixinBase {
      */
     _setValue(value) {
         /** @type {?} */
-        let index = this._values.indexOf(value);
+        const index = this._values.indexOf(value);
         if (index > -1) {
             this._selectedIndex = index;
         }
@@ -244,8 +244,8 @@ TdTabSelectComponent.ctorParameters = () => [
 TdTabSelectComponent.propDecorators = {
     _tabOptions: [{ type: ContentChildren, args: [TdTabOptionComponent,] }],
     stretchTabs: [{ type: Input, args: ['stretchTabs',] }],
-    color: [{ type: Input, args: ['color',] }],
-    backgroundColor: [{ type: Input, args: ['backgroundColor',] }],
+    color: [{ type: Input }],
+    backgroundColor: [{ type: Input }],
     valueChange: [{ type: Output }]
 };
 

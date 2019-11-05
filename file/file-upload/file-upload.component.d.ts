@@ -48,18 +48,18 @@ export declare class TdFileUploadComponent extends _TdFileUploadMixinBase implem
      * Event emitted when a file is selected.
      * Emits a [File | FileList] object.
      */
-    onSelect: EventEmitter<File | FileList>;
+    select: EventEmitter<File | FileList>;
     /**
      * upload?: function
      * Event emitted when upload button is clicked.
      * Emits a [File | FileList] object.
      */
-    onUpload: EventEmitter<File | FileList>;
+    upload: EventEmitter<File | FileList>;
     /**
      * cancel?: function
      * Event emitted when cancel button is clicked.
      */
-    onCancel: EventEmitter<void>;
+    cancel: EventEmitter<void>;
     constructor(_changeDetectorRef: ChangeDetectorRef);
     /**
      * Method executed when upload button is clicked.
@@ -73,7 +73,7 @@ export declare class TdFileUploadComponent extends _TdFileUploadMixinBase implem
      * Methods executed when cancel button is clicked.
      * Clears files.
      */
-    cancel(): void;
+    _cancel(): void;
     /** Method executed when the disabled value changes */
     onDisabledChange(v: boolean): void;
 }

@@ -59,7 +59,7 @@ class TdJsonFormatterComponent {
      */
     get key() {
         /** @type {?} */
-        let elipsis = this._key && this._key.length > TdJsonFormatterComponent.KEY_MAX_LENGTH ? '…' : '';
+        const elipsis = this._key && this._key.length > TdJsonFormatterComponent.KEY_MAX_LENGTH ? '…' : '';
         return this._key ? this._key.substring(0, TdJsonFormatterComponent.KEY_MAX_LENGTH) + elipsis : this._key;
     }
     /**
@@ -132,7 +132,7 @@ class TdJsonFormatterComponent {
      */
     getValue(value) {
         /** @type {?} */
-        let type = this.getType(value);
+        const type = this.getType(value);
         if (type === 'undefined' || type === 'null') {
             return type;
         }
@@ -169,11 +169,9 @@ class TdJsonFormatterComponent {
                 return 'object';
             }
             /** @type {?} */
-            let date = new Date(object);
-            if (Object.prototype.toString.call(date) === '[object Date]') {
-                if (!Number.isNaN(date.getTime())) {
-                    return 'date';
-                }
+            const date = new Date(object);
+            if (Object.prototype.toString.call(date) === '[object Date]' && !Number.isNaN(date.getTime())) {
+                return 'date';
             }
         }
         return typeof object;
@@ -185,14 +183,14 @@ class TdJsonFormatterComponent {
      */
     getObjectName() {
         /** @type {?} */
-        let object = this._data;
+        const object = this._data;
         if (this.isObject() && !object.constructor) {
             return 'Object';
         }
         /** @type {?} */
-        let funcNameRegex = /function (.{1,})\(/;
+        const funcNameRegex = /function (.{1,})\(/;
         /** @type {?} */
-        let results = funcNameRegex.exec(object.constructor.toString());
+        const results = funcNameRegex.exec(object.constructor.toString());
         if (results && results.length > 1) {
             return results[1];
         }
@@ -213,7 +211,7 @@ class TdJsonFormatterComponent {
         let endChar = ' }';
         if (this.isArray()) {
             /** @type {?} */
-            let previewArray = this._data.slice(0, TdJsonFormatterComponent.PREVIEW_LIMIT);
+            const previewArray = this._data.slice(0, TdJsonFormatterComponent.PREVIEW_LIMIT);
             previewData = previewArray.map((/**
              * @param {?} obj
              * @return {?}
@@ -226,7 +224,7 @@ class TdJsonFormatterComponent {
         }
         else {
             /** @type {?} */
-            let previewKeys = this._children.slice(0, TdJsonFormatterComponent.PREVIEW_LIMIT);
+            const previewKeys = this._children.slice(0, TdJsonFormatterComponent.PREVIEW_LIMIT);
             previewData = previewKeys.map((/**
              * @param {?} key
              * @return {?}
@@ -236,9 +234,9 @@ class TdJsonFormatterComponent {
             }));
         }
         /** @type {?} */
-        let previewString = previewData.join(', ');
+        const previewString = previewData.join(', ');
         /** @type {?} */
-        let ellipsis = previewData.length >= TdJsonFormatterComponent.PREVIEW_LIMIT ||
+        const ellipsis = previewData.length >= TdJsonFormatterComponent.PREVIEW_LIMIT ||
             previewString.length > TdJsonFormatterComponent.PREVIEW_STRING_MAX_LENGTH
             ? '…'
             : '';
@@ -251,7 +249,7 @@ class TdJsonFormatterComponent {
     parseChildren() {
         if (this.isObject()) {
             this._children = [];
-            for (let key in this._data) {
+            for (const key of Object.keys(this._data)) {
                 this._children.push(key);
             }
         }

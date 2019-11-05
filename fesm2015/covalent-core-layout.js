@@ -98,10 +98,10 @@ TdLayoutComponent.decorators = [
 ];
 TdLayoutComponent.propDecorators = {
     sidenav: [{ type: ViewChild, args: [MatSidenav, { static: true },] }],
-    mode: [{ type: Input, args: ['mode',] }],
-    opened: [{ type: Input, args: ['opened',] }],
-    sidenavWidth: [{ type: Input, args: ['sidenavWidth',] }],
-    containerAutosize: [{ type: Input, args: ['containerAutosize',] }]
+    mode: [{ type: Input }],
+    opened: [{ type: Input }],
+    sidenavWidth: [{ type: Input }],
+    containerAutosize: [{ type: Input }]
 };
 
 /**
@@ -392,11 +392,11 @@ TdLayoutNavComponent.ctorParameters = () => [
     { type: Router, decorators: [{ type: Optional }] }
 ];
 TdLayoutNavComponent.propDecorators = {
-    toolbarTitle: [{ type: Input, args: ['toolbarTitle',] }],
-    icon: [{ type: Input, args: ['icon',] }],
-    logo: [{ type: Input, args: ['logo',] }],
-    color: [{ type: Input, args: ['color',] }],
-    navigationRoute: [{ type: Input, args: ['navigationRoute',] }]
+    toolbarTitle: [{ type: Input }],
+    icon: [{ type: Input }],
+    logo: [{ type: Input }],
+    color: [{ type: Input }],
+    navigationRoute: [{ type: Input }]
 };
 
 /**
@@ -515,15 +515,15 @@ TdLayoutNavListComponent.ctorParameters = () => [
 ];
 TdLayoutNavListComponent.propDecorators = {
     sidenav: [{ type: ViewChild, args: [MatSidenav, { static: true },] }],
-    toolbarTitle: [{ type: Input, args: ['toolbarTitle',] }],
-    icon: [{ type: Input, args: ['icon',] }],
-    logo: [{ type: Input, args: ['logo',] }],
-    color: [{ type: Input, args: ['color',] }],
-    mode: [{ type: Input, args: ['mode',] }],
-    opened: [{ type: Input, args: ['opened',] }],
-    sidenavWidth: [{ type: Input, args: ['sidenavWidth',] }],
-    containerAutosize: [{ type: Input, args: ['containerAutosize',] }],
-    navigationRoute: [{ type: Input, args: ['navigationRoute',] }]
+    toolbarTitle: [{ type: Input }],
+    icon: [{ type: Input }],
+    logo: [{ type: Input }],
+    color: [{ type: Input }],
+    mode: [{ type: Input }],
+    opened: [{ type: Input }],
+    sidenavWidth: [{ type: Input }],
+    containerAutosize: [{ type: Input }],
+    navigationRoute: [{ type: Input }]
 };
 
 /**
@@ -684,10 +684,10 @@ TdLayoutCardOverComponent.decorators = [
             }] }
 ];
 TdLayoutCardOverComponent.propDecorators = {
-    cardTitle: [{ type: Input, args: ['cardTitle',] }],
-    cardSubtitle: [{ type: Input, args: ['cardSubtitle',] }],
-    cardWidth: [{ type: Input, args: ['cardWidth',] }],
-    color: [{ type: Input, args: ['color',] }]
+    cardTitle: [{ type: Input }],
+    cardSubtitle: [{ type: Input }],
+    cardWidth: [{ type: Input }],
+    color: [{ type: Input }]
 };
 
 /**
@@ -777,10 +777,10 @@ TdLayoutManageListComponent.decorators = [
 ];
 TdLayoutManageListComponent.propDecorators = {
     sidenav: [{ type: ViewChild, args: [MatSidenav, { static: true },] }],
-    mode: [{ type: Input, args: ['mode',] }],
-    opened: [{ type: Input, args: ['opened',] }],
-    sidenavWidth: [{ type: Input, args: ['sidenavWidth',] }],
-    containerAutosize: [{ type: Input, args: ['containerAutosize',] }]
+    mode: [{ type: Input }],
+    opened: [{ type: Input }],
+    sidenavWidth: [{ type: Input }],
+    containerAutosize: [{ type: Input }]
 };
 
 /**
@@ -1031,7 +1031,7 @@ class TdNavigationDrawerComponent {
     set backgroundUrl(backgroundUrl) {
         if (backgroundUrl) {
             /** @type {?} */
-            let sanitizedUrl = this._sanitize.sanitize(SecurityContext.RESOURCE_URL, backgroundUrl);
+            const sanitizedUrl = this._sanitize.sanitize(SecurityContext.RESOURCE_URL, backgroundUrl);
             this._backgroundImage = this._sanitize.sanitize(SecurityContext.STYLE, 'url(' + sanitizedUrl + ')');
         }
     }
@@ -1130,15 +1130,15 @@ TdNavigationDrawerComponent.ctorParameters = () => [
 TdNavigationDrawerComponent.propDecorators = {
     _drawerMenu: [{ type: ContentChildren, args: [TdNavigationDrawerMenuDirective,] }],
     _toolbar: [{ type: ContentChildren, args: [TdNavigationDrawerToolbarDirective,] }],
-    sidenavTitle: [{ type: Input, args: ['sidenavTitle',] }],
-    icon: [{ type: Input, args: ['icon',] }],
-    logo: [{ type: Input, args: ['logo',] }],
-    avatar: [{ type: Input, args: ['avatar',] }],
-    color: [{ type: Input, args: ['color',] }],
-    navigationRoute: [{ type: Input, args: ['navigationRoute',] }],
+    sidenavTitle: [{ type: Input }],
+    icon: [{ type: Input }],
+    logo: [{ type: Input }],
+    avatar: [{ type: Input }],
+    color: [{ type: Input }],
+    navigationRoute: [{ type: Input }],
     backgroundUrl: [{ type: Input, args: ['backgroundUrl',] }],
-    name: [{ type: Input, args: ['name',] }],
-    email: [{ type: Input, args: ['email',] }]
+    name: [{ type: Input }],
+    email: [{ type: Input }]
 };
 
 /**

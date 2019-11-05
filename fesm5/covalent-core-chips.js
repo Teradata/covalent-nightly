@@ -98,31 +98,31 @@ var TdChipsComponent = /** @class */ (function (_super) {
          * Method to be executed when a chip is added.
          * Sends chip value as event.
          */
-        _this.onAdd = new EventEmitter();
+        _this.add = new EventEmitter();
         /**
          * remove?: function
          * Method to be executed when a chip is removed.
          * Sends chip value as event.
          */
-        _this.onRemove = new EventEmitter();
+        _this.remove = new EventEmitter();
         /**
          * inputChange?: function
          * Method to be executed when the value in the autocomplete input changes.
          * Sends string value as event.
          */
-        _this.onInputChange = new EventEmitter();
+        _this.inputChange = new EventEmitter();
         /**
          * chipFocus?: function
          * Method to be executed when a chip is focused.
          * Sends chip value as event.
          */
-        _this.onChipFocus = new EventEmitter();
+        _this.chipFocus = new EventEmitter();
         /**
          * blur?: function
          * Method to be executed when a chip is blurred.
          * Sends chip value as event.
          */
-        _this.onChipBlur = new EventEmitter();
+        _this.chipBlur = new EventEmitter();
         /**
          * compareWith? function
          * Function used to check whether a chip value already exists.
@@ -546,7 +546,7 @@ var TdChipsComponent = /** @class */ (function (_super) {
          * @return {?}
          */
         function (value) {
-            _this.onInputChange.emit(value ? value : '');
+            _this.inputChange.emit(value ? value : '');
         }));
         this._changeDetectorRef.markForCheck();
     };
@@ -705,7 +705,7 @@ var TdChipsComponent = /** @class */ (function (_super) {
             return false;
         }
         this.value.push(value);
-        this.onAdd.emit(value);
+        this.add.emit(value);
         this.onChange(this.value);
         this._changeDetectorRef.markForCheck();
         return true;
@@ -745,7 +745,7 @@ var TdChipsComponent = /** @class */ (function (_super) {
         else if (index > 0) {
             this._focusChip(index - 1);
         }
-        this.onRemove.emit(removedValues[0]);
+        this.remove.emit(removedValues[0]);
         this.onChange(this.value);
         this.inputControl.setValue('');
         this._changeDetectorRef.markForCheck();
@@ -767,7 +767,7 @@ var TdChipsComponent = /** @class */ (function (_super) {
      * @return {?}
      */
     function (event, value) {
-        this.onChipBlur.emit(value);
+        this.chipBlur.emit(value);
     };
     /**
      * Sets focus of chip and sends out event
@@ -786,7 +786,7 @@ var TdChipsComponent = /** @class */ (function (_super) {
      */
     function (event, value) {
         this.setFocusedState();
-        this.onChipFocus.emit(value);
+        this.chipFocus.emit(value);
     };
     /**
      * @return {?}
@@ -1257,16 +1257,16 @@ var TdChipsComponent = /** @class */ (function (_super) {
         required: [{ type: Input, args: ['required',] }],
         chipAddition: [{ type: Input, args: ['chipAddition',] }],
         chipRemoval: [{ type: Input, args: ['chipRemoval',] }],
-        placeholder: [{ type: Input, args: ['placeholder',] }],
-        debounce: [{ type: Input, args: ['debounce',] }],
+        placeholder: [{ type: Input }],
+        debounce: [{ type: Input }],
         color: [{ type: Input, args: ['color',] }],
-        onAdd: [{ type: Output, args: ['add',] }],
-        onRemove: [{ type: Output, args: ['remove',] }],
-        onInputChange: [{ type: Output, args: ['inputChange',] }],
-        onChipFocus: [{ type: Output, args: ['chipFocus',] }],
-        onChipBlur: [{ type: Output, args: ['chipBlur',] }],
+        add: [{ type: Output }],
+        remove: [{ type: Output }],
+        inputChange: [{ type: Output }],
+        chipFocus: [{ type: Output }],
+        chipBlur: [{ type: Output }],
         tabIndex: [{ type: HostBinding, args: ['attr.tabindex',] }],
-        compareWith: [{ type: Input, args: ['compareWith',] }],
+        compareWith: [{ type: Input }],
         focusListener: [{ type: HostListener, args: ['focus', ['$event'],] }],
         mousedownListener: [{ type: HostListener, args: ['mousedown', ['$event'],] }],
         clickListener: [{ type: HostListener, args: ['click', ['$event'],] }],

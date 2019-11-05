@@ -237,11 +237,9 @@ var TdVirtualScrollContainerComponent = /** @class */ (function () {
                     this._calculateVirtualRows();
                 }
             }
-            if (this._initialized) {
+            if (this._initialized && this._data.length * this.rowHeight - (verticalScroll + this._hostHeight) === 0) {
                 // check to see if bottom was hit to throw the bottom event
-                if (this._data.length * this.rowHeight - (verticalScroll + this._hostHeight) === 0) {
-                    this._bottom.next();
-                }
+                this._bottom.next();
             }
         }
     };
@@ -379,7 +377,7 @@ var TdVirtualScrollContainerComponent = /** @class */ (function () {
         bottom: [{ type: Output }],
         _rows: [{ type: ViewChildren, args: ['rowElement',] }],
         _rowTemplate: [{ type: ContentChild, args: [TdVirtualScrollRowDirective, { static: false },] }],
-        trackBy: [{ type: Input, args: ['trackBy',] }],
+        trackBy: [{ type: Input }],
         handleScroll: [{ type: HostListener, args: ['scroll', ['$event'],] }]
     };
     return TdVirtualScrollContainerComponent;

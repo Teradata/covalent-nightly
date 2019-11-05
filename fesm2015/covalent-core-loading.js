@@ -101,11 +101,9 @@ class TdLoadingComponent {
     ngDoCheck() {
         // When overlay is used and the host width has a value greater than 1px
         // set the circle diameter when possible incase the loading component was rendered in a hidden state
-        if (this.isOverlay() && this._hostHeight() > 1) {
-            if (this.animation) {
-                this._setCircleDiameter();
-                this._changeDetectorRef.markForCheck();
-            }
+        if (this.isOverlay() && this._hostHeight() > 1 && this.animation) {
+            this._setCircleDiameter();
+            this._changeDetectorRef.markForCheck();
         }
     }
     /**
@@ -133,7 +131,7 @@ class TdLoadingComponent {
     getCircleStrokeWidth() {
         // we calculate the stroke width by setting it as 10% of its diameter
         /** @type {?} */
-        let strokeWidth = this.getCircleDiameter() / 10;
+        const strokeWidth = this.getCircleDiameter() / 10;
         return Math.abs(strokeWidth);
     }
     /**
@@ -177,7 +175,7 @@ class TdLoadingComponent {
      * @return {?}
      */
     inAnimationCompleted() {
-        this._animationIn.next(undefined);
+        this._animationIn.next();
     }
     /**
      * @return {?}
@@ -190,7 +188,7 @@ class TdLoadingComponent {
         this.value = 0;
         // Check for changes for `OnPush` change detection
         this._changeDetectorRef.markForCheck();
-        this._animationOut.next(undefined);
+        this._animationOut.next();
     }
     /**
      * Starts in animation and returns an observable for completition event.
@@ -303,7 +301,7 @@ class TdLoadingFactory {
         ((/** @type {?} */ (options))).height = undefined;
         ((/** @type {?} */ (options))).style = LoadingStyle.FullScreen;
         /** @type {?} */
-        let loadingRef = this._initializeContext();
+        const loadingRef = this._initializeContext();
         /** @type {?} */
         let loading = false;
         /** @type {?} */
@@ -324,7 +322,7 @@ class TdLoadingFactory {
             else if (registered <= 0 && loading) {
                 loading = false;
                 /** @type {?} */
-                let subs = loadingRef.componentRef.instance.startOutAnimation().subscribe((/**
+                const subs = loadingRef.componentRef.instance.startOutAnimation().subscribe((/**
                  * @return {?}
                  */
                 () => {
@@ -352,7 +350,7 @@ class TdLoadingFactory {
         ((/** @type {?} */ (options))).height = undefined;
         ((/** @type {?} */ (options))).style = LoadingStyle.Overlay;
         /** @type {?} */
-        let loadingRef = this._createComponent(options);
+        const loadingRef = this._createComponent(options);
         /** @type {?} */
         let loading = false;
         loadingRef.componentRef.instance.content = new TemplatePortal(templateRef, viewContainerRef);
@@ -387,18 +385,18 @@ class TdLoadingFactory {
      */
     createReplaceComponent(options, viewContainerRef, templateRef, context) {
         /** @type {?} */
-        let nativeElement = (/** @type {?} */ (templateRef.elementRef.nativeElement));
+        const nativeElement = (/** @type {?} */ (templateRef.elementRef.nativeElement));
         ((/** @type {?} */ (options))).height = nativeElement.nextElementSibling
             ? nativeElement.nextElementSibling.scrollHeight
             : undefined;
         ((/** @type {?} */ (options))).style = LoadingStyle.None;
         /** @type {?} */
-        let loadingRef = this._createComponent(options);
+        const loadingRef = this._createComponent(options);
         /** @type {?} */
         let loading = false;
         // passing context so when the template is attached, we can keep the reference of the variables
         /** @type {?} */
-        let contentRef = viewContainerRef.createEmbeddedView(templateRef, context);
+        const contentRef = viewContainerRef.createEmbeddedView(templateRef, context);
         loadingRef.observable.pipe(distinctUntilChanged()).subscribe((/**
          * @param {?} registered
          * @return {?}
@@ -408,7 +406,7 @@ class TdLoadingFactory {
                 loading = true;
                 // detach the content and attach the loader if loader is there
                 /** @type {?} */
-                let index = viewContainerRef.indexOf(loadingRef.componentRef.hostView);
+                const index = viewContainerRef.indexOf(loadingRef.componentRef.hostView);
                 if (index < 0) {
                     viewContainerRef.detach(viewContainerRef.indexOf(contentRef));
                     viewContainerRef.insert(loadingRef.componentRef.hostView, 0);
@@ -418,14 +416,14 @@ class TdLoadingFactory {
             else if (registered <= 0 && loading) {
                 loading = false;
                 /** @type {?} */
-                let subs = loadingRef.componentRef.instance.startOutAnimation().subscribe((/**
+                const subs = loadingRef.componentRef.instance.startOutAnimation().subscribe((/**
                  * @return {?}
                  */
                 () => {
                     subs.unsubscribe();
                     // detach loader and attach the content if content is there
                     /** @type {?} */
-                    let index = viewContainerRef.indexOf(contentRef);
+                    const index = viewContainerRef.indexOf(contentRef);
                     if (index < 0) {
                         viewContainerRef.detach(viewContainerRef.indexOf(loadingRef.componentRef.hostView));
                         viewContainerRef.insert(contentRef, 0);
@@ -448,7 +446,7 @@ class TdLoadingFactory {
      */
     _createOverlay() {
         /** @type {?} */
-        let state = new OverlayConfig();
+        const state = new OverlayConfig();
         state.hasBackdrop = false;
         state.positionStrategy = this._overlay
             .position()
@@ -465,7 +463,7 @@ class TdLoadingFactory {
      */
     _createComponent(options) {
         /** @type {?} */
-        let compRef = this._initializeContext();
+        const compRef = this._initializeContext();
         compRef.componentRef = this._componentFactoryResolver
             .resolveComponentFactory(TdLoadingComponent)
             .create(this._injector);
@@ -479,10 +477,10 @@ class TdLoadingFactory {
      */
     _initializeContext() {
         /** @type {?} */
-        let subject = new Subject();
+        const subject = new Subject();
         return {
             observable: subject.asObservable(),
-            subject: subject,
+            subject,
             componentRef: undefined,
             times: 0,
         };
@@ -594,7 +592,7 @@ class TdLoadingService {
      */
     createComponent(config, viewContainerRef, templateRef, context) {
         /** @type {?} */
-        let directiveConfig = new TdLoadingDirectiveConfig(config);
+        const directiveConfig = new TdLoadingDirectiveConfig(config);
         if (this._context[directiveConfig.name]) {
             throw Error(`Name duplication: [TdLoading] directive has a name conflict with ${directiveConfig.name}.`);
         }
@@ -617,7 +615,7 @@ class TdLoadingService {
      */
     create(config) {
         /** @type {?} */
-        let fullscreenConfig = new TdLoadingConfig(config);
+        const fullscreenConfig = new TdLoadingConfig(config);
         this.removeComponent(fullscreenConfig.name);
         this._context[fullscreenConfig.name] = this._loadingFactory.createFullScreenComponent(fullscreenConfig);
     }
@@ -751,7 +749,7 @@ class TdLoadingService {
     setValue(name, value) {
         if (this._context[name]) {
             /** @type {?} */
-            let instance = this._context[name].componentRef.instance;
+            const instance = this._context[name].componentRef.instance;
             if (instance.mode === LoadingMode.Determinate && instance.animation) {
                 instance.value = value;
                 return true;
@@ -833,10 +831,8 @@ class TdLoadingDirective {
      * @return {?}
      */
     set name(name) {
-        if (!this._name) {
-            if (name) {
-                this._name = name;
-            }
+        if (!this._name && name) {
+            this._name = name;
         }
     }
     /**
@@ -867,13 +863,11 @@ class TdLoadingDirective {
      * @return {?}
      */
     set type(type) {
-        switch (type) {
-            case LoadingType.Linear:
-                this._type = LoadingType.Linear;
-                break;
-            default:
-                this._type = LoadingType.Circular;
-                break;
+        if (type === LoadingType.Linear) {
+            this._type = LoadingType.Linear;
+        }
+        else {
+            this._type = LoadingType.Circular;
         }
     }
     /**
@@ -884,30 +878,26 @@ class TdLoadingDirective {
      * @return {?}
      */
     set mode(mode) {
-        switch (mode) {
-            case LoadingMode.Determinate:
-                this._mode = LoadingMode.Determinate;
-                break;
-            default:
-                this._mode = LoadingMode.Indeterminate;
-                break;
+        if (mode === LoadingMode.Determinate) {
+            this._mode = LoadingMode.Determinate;
+        }
+        else {
+            this._mode = LoadingMode.Indeterminate;
         }
     }
     /**
      * tdLoadingStrategy?: LoadingStrategy or ['replace' | 'overlay']
      * Sets the strategy of loading mask depending on value.
      * Defaults to [LoadingMode.Replace | 'replace'].
-     * @param {?} stategy
+     * @param {?} strategy
      * @return {?}
      */
-    set strategy(stategy) {
-        switch (stategy) {
-            case LoadingStrategy.Overlay:
-                this._strategy = LoadingStrategy.Overlay;
-                break;
-            default:
-                this._strategy = LoadingStrategy.Replace;
-                break;
+    set strategy(strategy) {
+        if (strategy === LoadingStrategy.Overlay) {
+            this._strategy = LoadingStrategy.Overlay;
+        }
+        else {
+            this._strategy = LoadingStrategy.Replace;
         }
     }
     /**

@@ -117,31 +117,31 @@
              * Method to be executed when a chip is added.
              * Sends chip value as event.
              */
-            _this.onAdd = new core.EventEmitter();
+            _this.add = new core.EventEmitter();
             /**
              * remove?: function
              * Method to be executed when a chip is removed.
              * Sends chip value as event.
              */
-            _this.onRemove = new core.EventEmitter();
+            _this.remove = new core.EventEmitter();
             /**
              * inputChange?: function
              * Method to be executed when the value in the autocomplete input changes.
              * Sends string value as event.
              */
-            _this.onInputChange = new core.EventEmitter();
+            _this.inputChange = new core.EventEmitter();
             /**
              * chipFocus?: function
              * Method to be executed when a chip is focused.
              * Sends chip value as event.
              */
-            _this.onChipFocus = new core.EventEmitter();
+            _this.chipFocus = new core.EventEmitter();
             /**
              * blur?: function
              * Method to be executed when a chip is blurred.
              * Sends chip value as event.
              */
-            _this.onChipBlur = new core.EventEmitter();
+            _this.chipBlur = new core.EventEmitter();
             /**
              * compareWith? function
              * Function used to check whether a chip value already exists.
@@ -565,7 +565,7 @@
              * @return {?}
              */
             function (value) {
-                _this.onInputChange.emit(value ? value : '');
+                _this.inputChange.emit(value ? value : '');
             }));
             this._changeDetectorRef.markForCheck();
         };
@@ -724,7 +724,7 @@
                 return false;
             }
             this.value.push(value);
-            this.onAdd.emit(value);
+            this.add.emit(value);
             this.onChange(this.value);
             this._changeDetectorRef.markForCheck();
             return true;
@@ -764,7 +764,7 @@
             else if (index > 0) {
                 this._focusChip(index - 1);
             }
-            this.onRemove.emit(removedValues[0]);
+            this.remove.emit(removedValues[0]);
             this.onChange(this.value);
             this.inputControl.setValue('');
             this._changeDetectorRef.markForCheck();
@@ -786,7 +786,7 @@
          * @return {?}
          */
         function (event, value) {
-            this.onChipBlur.emit(value);
+            this.chipBlur.emit(value);
         };
         /**
          * Sets focus of chip and sends out event
@@ -805,7 +805,7 @@
          */
         function (event, value) {
             this.setFocusedState();
-            this.onChipFocus.emit(value);
+            this.chipFocus.emit(value);
         };
         /**
          * @return {?}
@@ -1276,16 +1276,16 @@
             required: [{ type: core.Input, args: ['required',] }],
             chipAddition: [{ type: core.Input, args: ['chipAddition',] }],
             chipRemoval: [{ type: core.Input, args: ['chipRemoval',] }],
-            placeholder: [{ type: core.Input, args: ['placeholder',] }],
-            debounce: [{ type: core.Input, args: ['debounce',] }],
+            placeholder: [{ type: core.Input }],
+            debounce: [{ type: core.Input }],
             color: [{ type: core.Input, args: ['color',] }],
-            onAdd: [{ type: core.Output, args: ['add',] }],
-            onRemove: [{ type: core.Output, args: ['remove',] }],
-            onInputChange: [{ type: core.Output, args: ['inputChange',] }],
-            onChipFocus: [{ type: core.Output, args: ['chipFocus',] }],
-            onChipBlur: [{ type: core.Output, args: ['chipBlur',] }],
+            add: [{ type: core.Output }],
+            remove: [{ type: core.Output }],
+            inputChange: [{ type: core.Output }],
+            chipFocus: [{ type: core.Output }],
+            chipBlur: [{ type: core.Output }],
             tabIndex: [{ type: core.HostBinding, args: ['attr.tabindex',] }],
-            compareWith: [{ type: core.Input, args: ['compareWith',] }],
+            compareWith: [{ type: core.Input }],
             focusListener: [{ type: core.HostListener, args: ['focus', ['$event'],] }],
             mousedownListener: [{ type: core.HostListener, args: ['mousedown', ['$event'],] }],
             clickListener: [{ type: core.HostListener, args: ['click', ['$event'],] }],

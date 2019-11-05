@@ -160,7 +160,7 @@ class TdPromptDialogComponent {
      * @return {?}
      */
     cancel() {
-        this._dialogRef.close(undefined);
+        this._dialogRef.close();
     }
     /**
      * @return {?}
@@ -271,11 +271,11 @@ class TdDialogService {
      */
     openAlert(config) {
         /** @type {?} */
-        let dialogConfig = this._createConfig(config);
+        const dialogConfig = this._createConfig(config);
         /** @type {?} */
-        let dialogRef = this._dialogService.open(TdAlertDialogComponent, dialogConfig);
+        const dialogRef = this._dialogService.open(TdAlertDialogComponent, dialogConfig);
         /** @type {?} */
-        let alertDialogComponent = dialogRef.componentInstance;
+        const alertDialogComponent = dialogRef.componentInstance;
         alertDialogComponent.title = config.title;
         alertDialogComponent.message = config.message;
         if (config.closeButton) {
@@ -300,11 +300,11 @@ class TdDialogService {
      */
     openConfirm(config) {
         /** @type {?} */
-        let dialogConfig = this._createConfig(config);
+        const dialogConfig = this._createConfig(config);
         /** @type {?} */
-        let dialogRef = this._dialogService.open(TdConfirmDialogComponent, dialogConfig);
+        const dialogRef = this._dialogService.open(TdConfirmDialogComponent, dialogConfig);
         /** @type {?} */
-        let confirmDialogComponent = dialogRef.componentInstance;
+        const confirmDialogComponent = dialogRef.componentInstance;
         confirmDialogComponent.title = config.title;
         confirmDialogComponent.message = config.message;
         if (config.acceptButton) {
@@ -333,11 +333,11 @@ class TdDialogService {
      */
     openPrompt(config) {
         /** @type {?} */
-        let dialogConfig = this._createConfig(config);
+        const dialogConfig = this._createConfig(config);
         /** @type {?} */
-        let dialogRef = this._dialogService.open(TdPromptDialogComponent, dialogConfig);
+        const dialogRef = this._dialogService.open(TdPromptDialogComponent, dialogConfig);
         /** @type {?} */
-        let promptDialogComponent = dialogRef.componentInstance;
+        const promptDialogComponent = dialogRef.componentInstance;
         promptDialogComponent.title = config.title;
         promptDialogComponent.message = config.message;
         promptDialogComponent.value = config.value;
@@ -407,7 +407,7 @@ class TdDialogService {
      */
     _createConfig(config) {
         /** @type {?} */
-        let dialogConfig = new MatDialogConfig();
+        const dialogConfig = new MatDialogConfig();
         dialogConfig.width = '400px';
         Object.assign(dialogConfig, config);
         return dialogConfig;

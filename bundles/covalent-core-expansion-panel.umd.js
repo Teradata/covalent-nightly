@@ -277,7 +277,7 @@
          * @return {?}
          */
         function () {
-            this.expanded.emit(undefined);
+            this.expanded.emit();
         };
         /**
          * @private
@@ -288,7 +288,7 @@
          * @return {?}
          */
         function () {
-            this.collapsed.emit(undefined);
+            this.collapsed.emit();
         };
         TdExpansionPanelComponent.decorators = [
             { type: core.Component, args: [{

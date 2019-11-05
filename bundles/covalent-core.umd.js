@@ -102,7 +102,7 @@
              * Method to be executed when page size changes or any button is clicked in the paging bar.
              * Emits an [IPageChangeEvent] implemented object.
              */
-            this.onChange = new core.EventEmitter();
+            this.change = new core.EventEmitter();
         }
         Object.defineProperty(TdPagingBarComponent.prototype, "pageLinkCount", {
             get: /**
@@ -480,7 +480,7 @@
                 toRow: this._toRow,
             };
             this._changeDetectorRef.markForCheck();
-            this.onChange.emit(event);
+            this.change.emit(event);
         };
         TdPagingBarComponent.decorators = [
             { type: core.Component, args: [{
@@ -496,12 +496,12 @@
             { type: core.ChangeDetectorRef }
         ]; };
         TdPagingBarComponent.propDecorators = {
-            firstLast: [{ type: core.Input, args: ['firstLast',] }],
-            initialPage: [{ type: core.Input, args: ['initialPage',] }],
+            firstLast: [{ type: core.Input }],
+            initialPage: [{ type: core.Input }],
             pageLinkCount: [{ type: core.Input, args: ['pageLinkCount',] }],
             pageSize: [{ type: core.Input, args: ['pageSize',] }],
             total: [{ type: core.Input, args: ['total',] }],
-            onChange: [{ type: core.Output, args: ['change',] }]
+            change: [{ type: core.Output }]
         };
         return TdPagingBarComponent;
     }());
@@ -754,11 +754,9 @@
                         this._calculateVirtualRows();
                     }
                 }
-                if (this._initialized) {
+                if (this._initialized && this._data.length * this.rowHeight - (verticalScroll + this._hostHeight) === 0) {
                     // check to see if bottom was hit to throw the bottom event
-                    if (this._data.length * this.rowHeight - (verticalScroll + this._hostHeight) === 0) {
-                        this._bottom.next();
-                    }
+                    this._bottom.next();
                 }
             }
         };
@@ -896,7 +894,7 @@
             bottom: [{ type: core.Output }],
             _rows: [{ type: core.ViewChildren, args: ['rowElement',] }],
             _rowTemplate: [{ type: core.ContentChild, args: [TdVirtualScrollRowDirective, { static: false },] }],
-            trackBy: [{ type: core.Input, args: ['trackBy',] }],
+            trackBy: [{ type: core.Input }],
             handleScroll: [{ type: core.HostListener, args: ['scroll', ['$event'],] }]
         };
         return TdVirtualScrollContainerComponent;
@@ -2473,6 +2471,7 @@
          * @return {?}
          */
         function (minValue) {
+            // tslint:disable-next-line:prefer-immediate-return
             /** @type {?} */
             var func = (/**
              * @param {?} c
@@ -2497,6 +2496,7 @@
          * @return {?}
          */
         function (maxValue) {
+            // tslint:disable-next-line:prefer-immediate-return
             /** @type {?} */
             var func = (/**
              * @param {?} c
@@ -2583,16 +2583,27 @@
          * @return {?}
          */
         function (value, key) {
+            var e_1, _a;
             /** @type {?} */
             var line = '';
-            for (var index in objects[key]) {
-                if (line !== '') {
-                    line += keySeparator;
+            try {
+                for (var _b = __values(Object.keys(objects[key])), _c = _b.next(); !_c.done; _c = _b.next()) {
+                    var index = _c.value;
+                    if (line !== '') {
+                        line += keySeparator;
+                    }
+                    if (objects[key][index] === null || objects[key][index] === undefined) {
+                        objects[key][index] = '';
+                    }
+                    line += objects[key][index];
                 }
-                if (objects[key][index] === null || objects[key][index] === undefined) {
-                    objects[key][index] = '';
+            }
+            catch (e_1_1) { e_1 = { error: e_1_1 }; }
+            finally {
+                try {
+                    if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
                 }
-                line += objects[key][index];
+                finally { if (e_1) throw e_1.error; }
             }
             outputString += "" + line + lineSeparator;
         }));
@@ -3099,9 +3110,9 @@
             _template: [{ type: core.ViewChild, args: [core.TemplateRef, { static: false },] }],
             collapsedAnimation: [{ type: core.HostBinding, args: ['@tdCollapse',] }],
             hidden: [{ type: core.HostBinding, args: ['style.display',] }],
-            label: [{ type: core.Input, args: ['label',] }],
-            sublabel: [{ type: core.Input, args: ['sublabel',] }],
-            icon: [{ type: core.Input, args: ['icon',] }],
+            label: [{ type: core.Input }],
+            sublabel: [{ type: core.Input }],
+            icon: [{ type: core.Input }],
             color: [{ type: core.Input, args: ['color',] }],
             opened: [{ type: core.Input, args: ['opened',] }],
             animationDoneListener: [{ type: core.HostListener, args: ['@tdCollapse.done',] }]
@@ -3212,31 +3223,31 @@
              * Method to be executed when a chip is added.
              * Sends chip value as event.
              */
-            _this.onAdd = new core.EventEmitter();
+            _this.add = new core.EventEmitter();
             /**
              * remove?: function
              * Method to be executed when a chip is removed.
              * Sends chip value as event.
              */
-            _this.onRemove = new core.EventEmitter();
+            _this.remove = new core.EventEmitter();
             /**
              * inputChange?: function
              * Method to be executed when the value in the autocomplete input changes.
              * Sends string value as event.
              */
-            _this.onInputChange = new core.EventEmitter();
+            _this.inputChange = new core.EventEmitter();
             /**
              * chipFocus?: function
              * Method to be executed when a chip is focused.
              * Sends chip value as event.
              */
-            _this.onChipFocus = new core.EventEmitter();
+            _this.chipFocus = new core.EventEmitter();
             /**
              * blur?: function
              * Method to be executed when a chip is blurred.
              * Sends chip value as event.
              */
-            _this.onChipBlur = new core.EventEmitter();
+            _this.chipBlur = new core.EventEmitter();
             /**
              * compareWith? function
              * Function used to check whether a chip value already exists.
@@ -3660,7 +3671,7 @@
              * @return {?}
              */
             function (value) {
-                _this.onInputChange.emit(value ? value : '');
+                _this.inputChange.emit(value ? value : '');
             }));
             this._changeDetectorRef.markForCheck();
         };
@@ -3819,7 +3830,7 @@
                 return false;
             }
             this.value.push(value);
-            this.onAdd.emit(value);
+            this.add.emit(value);
             this.onChange(this.value);
             this._changeDetectorRef.markForCheck();
             return true;
@@ -3859,7 +3870,7 @@
             else if (index > 0) {
                 this._focusChip(index - 1);
             }
-            this.onRemove.emit(removedValues[0]);
+            this.remove.emit(removedValues[0]);
             this.onChange(this.value);
             this.inputControl.setValue('');
             this._changeDetectorRef.markForCheck();
@@ -3881,7 +3892,7 @@
          * @return {?}
          */
         function (event, value) {
-            this.onChipBlur.emit(value);
+            this.chipBlur.emit(value);
         };
         /**
          * Sets focus of chip and sends out event
@@ -3900,7 +3911,7 @@
          */
         function (event, value) {
             this.setFocusedState();
-            this.onChipFocus.emit(value);
+            this.chipFocus.emit(value);
         };
         /**
          * @return {?}
@@ -4371,16 +4382,16 @@
             required: [{ type: core.Input, args: ['required',] }],
             chipAddition: [{ type: core.Input, args: ['chipAddition',] }],
             chipRemoval: [{ type: core.Input, args: ['chipRemoval',] }],
-            placeholder: [{ type: core.Input, args: ['placeholder',] }],
-            debounce: [{ type: core.Input, args: ['debounce',] }],
+            placeholder: [{ type: core.Input }],
+            debounce: [{ type: core.Input }],
             color: [{ type: core.Input, args: ['color',] }],
-            onAdd: [{ type: core.Output, args: ['add',] }],
-            onRemove: [{ type: core.Output, args: ['remove',] }],
-            onInputChange: [{ type: core.Output, args: ['inputChange',] }],
-            onChipFocus: [{ type: core.Output, args: ['chipFocus',] }],
-            onChipBlur: [{ type: core.Output, args: ['chipBlur',] }],
+            add: [{ type: core.Output }],
+            remove: [{ type: core.Output }],
+            inputChange: [{ type: core.Output }],
+            chipFocus: [{ type: core.Output }],
+            chipBlur: [{ type: core.Output }],
             tabIndex: [{ type: core.HostBinding, args: ['attr.tabindex',] }],
-            compareWith: [{ type: core.Input, args: ['compareWith',] }],
+            compareWith: [{ type: core.Input }],
             focusListener: [{ type: core.HostListener, args: ['focus', ['$event'],] }],
             mousedownListener: [{ type: core.HostListener, args: ['mousedown', ['$event'],] }],
             clickListener: [{ type: core.HostListener, args: ['click', ['$event'],] }],
@@ -4626,25 +4637,25 @@
              * Event emitted when the column headers are clicked. [sortable] needs to be enabled.
              * Emits an [ITdDataTableSortChangeEvent] implemented object.
              */
-            _this.onSortChange = new core.EventEmitter();
+            _this.sortChange = new core.EventEmitter();
             /**
              * rowSelect?: function
              * Event emitted when a row is selected/deselected. [selectable] needs to be enabled.
              * Emits an [ITdDataTableSelectEvent] implemented object.
              */
-            _this.onRowSelect = new core.EventEmitter();
+            _this.rowSelect = new core.EventEmitter();
             /**
              * rowClick?: function
              * Event emitted when a row is clicked.
              * Emits an [ITdDataTableRowClickEvent] implemented object.
              */
-            _this.onRowClick = new core.EventEmitter();
+            _this.rowClick = new core.EventEmitter();
             /**
              * selectAll?: function
              * Event emitted when all rows are selected/deselected by the all checkbox. [selectable] needs to be enabled.
              * Emits an [ITdDataTableSelectAllEvent] implemented object.
              */
-            _this.onSelectAll = new core.EventEmitter();
+            _this.selectAll = new core.EventEmitter();
             /**
              * compareWith?: function(row, model): boolean
              * Allows custom comparison between row and model to see if row is selected or not
@@ -5172,8 +5183,19 @@
          * @return {?}
          */
         function () {
-            for (var i = 0; i < this._templates.toArray().length; i++) {
-                this._templateMap.set(this._templates.toArray()[i].tdDataTableTemplate, this._templates.toArray()[i].templateRef);
+            var e_1, _a;
+            try {
+                for (var _b = __values(this._templates.toArray()), _c = _b.next(); !_c.done; _c = _b.next()) {
+                    var template = _c.value;
+                    this._templateMap.set(template.tdDataTableTemplate, template.templateRef);
+                }
+            }
+            catch (e_1_1) { e_1 = { error: e_1_1 }; }
+            finally {
+                try {
+                    if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+                }
+                finally { if (e_1) throw e_1.error; }
             }
         };
         /**
@@ -5396,7 +5418,7 @@
          * @param {?} checked
          * @return {?}
          */
-        TdDataTableComponent.prototype.selectAll = /**
+        TdDataTableComponent.prototype._selectAll = /**
          * Selects or clears all rows depending on 'checked' value.
          * @param {?} checked
          * @return {?}
@@ -5448,7 +5470,7 @@
                 this._allSelected = false;
                 this._indeterminate = false;
             }
-            this.onSelectAll.emit({ rows: toggledRows, selected: checked });
+            this.selectAll.emit({ rows: toggledRows, selected: checked });
             this.onChange(this.value);
         };
         /**
@@ -5539,13 +5561,12 @@
                             if ((this._firstCheckboxValue && !rowSelected) || (!this._firstCheckboxValue && rowSelected)) {
                                 this._doSelection(this._data[i], i);
                             }
-                            else if (this._shiftPreviouslyPressed) {
+                            else if (this._shiftPreviouslyPressed &&
+                                ((currentSelected >= this._firstSelectedIndex && currentSelected <= this._lastSelectedIndex) ||
+                                    (currentSelected <= this._firstSelectedIndex && currentSelected >= this._lastSelectedIndex))) {
                                 // else if the checkbox selected was in the middle of the last selection and the first selection
                                 // then we undo the selections
-                                if ((currentSelected >= this._firstSelectedIndex && currentSelected <= this._lastSelectedIndex) ||
-                                    (currentSelected <= this._firstSelectedIndex && currentSelected >= this._lastSelectedIndex)) {
-                                    this._doSelection(this._data[i], i);
-                                }
+                                this._doSelection(this._data[i], i);
                             }
                         }
                     }
@@ -5631,7 +5652,7 @@
                 var element = (/** @type {?} */ (event.target));
                 /* tslint:disable-next-line */
                 if (srcElement.getAttribute('stopRowClick') === null && element.tagName.toLowerCase() !== 'mat-pseudo-checkbox') {
-                    this.onRowClick.emit({
+                    this.rowClick.emit({
                         row: row,
                         index: index,
                     });
@@ -5662,7 +5683,7 @@
                 this._sortBy = column;
                 this._sortOrder = TdDataTableSortingOrder.Ascending;
             }
-            this.onSortChange.next({ name: this._sortBy.name, order: this._sortOrder });
+            this.sortChange.next({ name: this._sortBy.name, order: this._sortOrder });
         };
         /**
          * Handle all keyup events when focusing a data table row
@@ -5871,7 +5892,7 @@
                 }
             }
             this._calculateCheckboxState();
-            this.onRowSelect.emit({ row: row, index: rowIndex, selected: !wasSelected });
+            this.rowSelect.emit({ row: row, index: rowIndex, selected: !wasSelected });
             this.onChange(this.value);
             return !wasSelected;
         };
@@ -5890,7 +5911,7 @@
          */
         function () {
             var _this = this;
-            var e_1, _a;
+            var e_2, _a;
             if (this._data) {
                 this._allSelected = typeof this._data.find((/**
                  * @param {?} d
@@ -5908,12 +5929,12 @@
                         break;
                     }
                 }
-                catch (e_1_1) { e_1 = { error: e_1_1 }; }
+                catch (e_2_1) { e_2 = { error: e_2_1 }; }
                 finally {
                     try {
                         if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
                     }
-                    finally { if (e_1) throw e_1.error; }
+                    finally { if (e_2) throw e_2.error; }
                 }
             }
         };
@@ -6208,7 +6229,7 @@
                             },
                         ],
                         selector: 'td-data-table',
-                        template: "<table td-data-table [style.left.px]=\"columnsLeftScroll\" [class.mat-selectable]=\"selectable\">\n  <thead class=\"td-data-table-head\" (dragover)=\"_handleColumnDrag($event)\">\n    <tr td-data-table-column-row>\n      <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"selectable\">\n        <mat-checkbox\n          #checkBoxAll\n          *ngIf=\"multiple\"\n          [disabled]=\"!hasData\"\n          [indeterminate]=\"indeterminate && !allSelected && hasData\"\n          [checked]=\"allSelected && hasData\"\n          (click)=\"blockEvent($event); selectAll(!checkBoxAll.checked)\"\n          (keyup.enter)=\"selectAll(!checkBoxAll.checked)\"\n          (keyup.space)=\"selectAll(!checkBoxAll.checked)\"\n          (keydown.space)=\"blockEvent($event)\"\n        ></mat-checkbox>\n      </th>\n      <th\n        td-data-table-column\n        #columnElement\n        *ngFor=\"let column of columns; let i = index; let last = last\"\n        [style.min-width.px]=\"getColumnWidth(i)\"\n        [style.max-width.px]=\"getColumnWidth(i)\"\n        [name]=\"column.name\"\n        [numeric]=\"column.numeric\"\n        [active]=\"(column.sortable || sortable) && column === sortByColumn\"\n        [sortable]=\"column.sortable || (sortable && column.sortable !== false)\"\n        [sortOrder]=\"sortOrderEnum\"\n        [hidden]=\"column.hidden\"\n        (sortChange)=\"handleSort(column)\"\n      >\n        <span [matTooltip]=\"column.tooltip\">{{ column.label }}</span>\n        <span\n          td-column-resizer\n          *ngIf=\"resizableColumns\"\n          draggable=\"true\"\n          class=\"td-data-table-column-resizer\"\n          [class.td-resizing]=\"i === resizingColumn\"\n          (mousedown)=\"_handleStartColumnDrag(i, $event)\"\n          (dragstart)=\"$event?.dataTransfer?.setData('text', '')\"\n          (drag)=\"_handleColumnDrag($event)\"\n          (dragend)=\"_handleEndColumnDrag()\"\n          (mouseup)=\"_handleEndColumnDrag()\"\n        >\n          <span class=\"td-data-table-column-separator\"></span>\n        </span>\n      </th>\n    </tr>\n  </thead>\n</table>\n<div #scrollableDiv class=\"td-data-table-scrollable\" (scroll)=\"handleScroll($event)\">\n  <div [style.height.px]=\"totalHeight\"></div>\n  <table\n    td-data-table\n    [style.transform]=\"offsetTransform\"\n    [style.position]=\"'absolute'\"\n    [class.mat-selectable]=\"selectable\"\n    [class.mat-clickable]=\"clickable\"\n  >\n    <tbody class=\"td-data-table-body\">\n      <tr\n        td-data-table-row\n        #dtRow\n        [tabIndex]=\"selectable ? 0 : -1\"\n        [selected]=\"(clickable || selectable) && isRowSelected(row)\"\n        *ngFor=\"let row of virtualData; let rowIndex = index\"\n        (click)=\"handleRowClick(row, fromRow + rowIndex, $event)\"\n        (keyup)=\"selectable && _rowKeyup($event, row, rowIndex)\"\n        (keydown.space)=\"blockEvent($event)\"\n        (keydown.shift.space)=\"blockEvent($event)\"\n        (keydown.shift)=\"disableTextSelection()\"\n        (keyup.shift)=\"enableTextSelection()\"\n      >\n        <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"selectable\">\n          <mat-pseudo-checkbox\n            [state]=\"dtRow.selected ? 'checked' : 'unchecked'\"\n            (mousedown)=\"disableTextSelection()\"\n            (mouseup)=\"enableTextSelection()\"\n            stopRowClick\n            (click)=\"select(row, $event, fromRow + rowIndex)\"\n          ></mat-pseudo-checkbox>\n        </td>\n        <td\n          td-data-table-cell\n          [numeric]=\"column.numeric\"\n          [hidden]=\"column.hidden\"\n          *ngFor=\"let column of columns; let i = index\"\n          [style.min-width.px]=\"getColumnWidth(i)\"\n          [style.max-width.px]=\"getColumnWidth(i)\"\n        >\n          <span *ngIf=\"!getTemplateRef(column.name)\">\n            {{ column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row) }}\n          </span>\n          <ng-template\n            *ngIf=\"getTemplateRef(column.name)\"\n            [ngTemplateOutlet]=\"getTemplateRef(column.name)\"\n            [ngTemplateOutletContext]=\"{\n              value: getCellValue(column, row),\n              row: row,\n              column: column.name,\n              index: rowIndex\n            }\"\n          ></ng-template>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n<ng-content></ng-content>\n",
+                        template: "<table td-data-table [style.left.px]=\"columnsLeftScroll\" [class.mat-selectable]=\"selectable\">\n  <thead class=\"td-data-table-head\" (dragover)=\"_handleColumnDrag($event)\">\n    <tr td-data-table-column-row>\n      <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"selectable\">\n        <mat-checkbox\n          #checkBoxAll\n          *ngIf=\"multiple\"\n          [disabled]=\"!hasData\"\n          [indeterminate]=\"indeterminate && !allSelected && hasData\"\n          [checked]=\"allSelected && hasData\"\n          (click)=\"blockEvent($event); _selectAll(!checkBoxAll.checked)\"\n          (keyup.enter)=\"_selectAll(!checkBoxAll.checked)\"\n          (keyup.space)=\"_selectAll(!checkBoxAll.checked)\"\n          (keydown.space)=\"blockEvent($event)\"\n        ></mat-checkbox>\n      </th>\n      <th\n        td-data-table-column\n        #columnElement\n        *ngFor=\"let column of columns; let i = index; let last = last\"\n        [style.min-width.px]=\"getColumnWidth(i)\"\n        [style.max-width.px]=\"getColumnWidth(i)\"\n        [name]=\"column.name\"\n        [numeric]=\"column.numeric\"\n        [active]=\"(column.sortable || sortable) && column === sortByColumn\"\n        [sortable]=\"column.sortable || (sortable && column.sortable !== false)\"\n        [sortOrder]=\"sortOrderEnum\"\n        [hidden]=\"column.hidden\"\n        (sortChange)=\"handleSort(column)\"\n      >\n        <span [matTooltip]=\"column.tooltip\">{{ column.label }}</span>\n        <span\n          td-column-resizer\n          *ngIf=\"resizableColumns\"\n          draggable=\"true\"\n          class=\"td-data-table-column-resizer\"\n          [class.td-resizing]=\"i === resizingColumn\"\n          (mousedown)=\"_handleStartColumnDrag(i, $event)\"\n          (dragstart)=\"$event?.dataTransfer?.setData('text', '')\"\n          (drag)=\"_handleColumnDrag($event)\"\n          (dragend)=\"_handleEndColumnDrag()\"\n          (mouseup)=\"_handleEndColumnDrag()\"\n        >\n          <span class=\"td-data-table-column-separator\"></span>\n        </span>\n      </th>\n    </tr>\n  </thead>\n</table>\n<div #scrollableDiv class=\"td-data-table-scrollable\" (scroll)=\"handleScroll($event)\">\n  <div [style.height.px]=\"totalHeight\"></div>\n  <table\n    td-data-table\n    [style.transform]=\"offsetTransform\"\n    [style.position]=\"'absolute'\"\n    [class.mat-selectable]=\"selectable\"\n    [class.mat-clickable]=\"clickable\"\n  >\n    <tbody class=\"td-data-table-body\">\n      <tr\n        td-data-table-row\n        #dtRow\n        [tabIndex]=\"selectable ? 0 : -1\"\n        [selected]=\"(clickable || selectable) && isRowSelected(row)\"\n        *ngFor=\"let row of virtualData; let rowIndex = index\"\n        (click)=\"handleRowClick(row, fromRow + rowIndex, $event)\"\n        (keyup)=\"selectable && _rowKeyup($event, row, rowIndex)\"\n        (keydown.space)=\"blockEvent($event)\"\n        (keydown.shift.space)=\"blockEvent($event)\"\n        (keydown.shift)=\"disableTextSelection()\"\n        (keyup.shift)=\"enableTextSelection()\"\n      >\n        <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"selectable\">\n          <mat-pseudo-checkbox\n            [state]=\"dtRow.selected ? 'checked' : 'unchecked'\"\n            (mousedown)=\"disableTextSelection()\"\n            (mouseup)=\"enableTextSelection()\"\n            stopRowClick\n            (click)=\"select(row, $event, fromRow + rowIndex)\"\n          ></mat-pseudo-checkbox>\n        </td>\n        <td\n          td-data-table-cell\n          [numeric]=\"column.numeric\"\n          [hidden]=\"column.hidden\"\n          *ngFor=\"let column of columns; let i = index\"\n          [style.min-width.px]=\"getColumnWidth(i)\"\n          [style.max-width.px]=\"getColumnWidth(i)\"\n        >\n          <span *ngIf=\"!getTemplateRef(column.name)\">\n            {{ column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row) }}\n          </span>\n          <ng-template\n            *ngIf=\"getTemplateRef(column.name)\"\n            [ngTemplateOutlet]=\"getTemplateRef(column.name)\"\n            [ngTemplateOutletContext]=\"{\n              value: getCellValue(column, row),\n              row: row,\n              column: column.name,\n              index: rowIndex\n            }\"\n          ></ng-template>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n<ng-content></ng-content>\n",
                         inputs: ['value'],
                         changeDetection: core.ChangeDetectionStrategy.OnPush,
                         styles: [":host{display:block;overflow:hidden}:host .td-data-table-scrollable{position:relative;overflow:auto;height:calc(100% - 56px)}.td-data-table-column-resizer{right:0;width:6px;cursor:col-resize}.td-data-table-column-resizer,.td-data-table-column-resizer .td-data-table-column-separator{position:absolute;height:100%;top:0}.td-data-table-column-resizer .td-data-table-column-separator{left:2px}.td-data-table-column-resizer.td-resizing{cursor:-webkit-grabbing}table.td-data-table{width:auto!important}table.td-data-table.mat-selectable tbody>tr.td-data-table-row{transition:background-color .2s}table.td-data-table.mat-selectable .td-data-table-column:first-child>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable td.td-data-table-cell:first-child>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable th.td-data-table-column:first-child>.td-data-table-column-content-wrapper{width:18px;min-width:18px;padding:0 24px}table.td-data-table.mat-selectable .td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2)>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper{padding-left:0}[dir=rtl] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper,[dir=rtl] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2)>.td-data-table-column-content-wrapper,[dir=rtl] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper{padding-right:0;padding-left:28px}table.td-data-table td.mat-checkbox-cell,table.td-data-table th.mat-checkbox-column{min-width:42px;width:42px;font-size:0!important}table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox,table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox{width:18px;height:18px}::ng-deep table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after,::ng-deep table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after{width:11px!important;height:4px!important}table.td-data-table td.mat-checkbox-cell mat-checkbox ::ng-deep .mat-checkbox-inner-container,table.td-data-table th.mat-checkbox-column mat-checkbox ::ng-deep .mat-checkbox-inner-container{width:18px;height:18px;margin:0}"]
@@ -6235,11 +6256,11 @@
             sortable: [{ type: core.Input, args: ['sortable',] }],
             sortBy: [{ type: core.Input, args: ['sortBy',] }],
             sortOrder: [{ type: core.Input, args: ['sortOrder',] }],
-            onSortChange: [{ type: core.Output, args: ['sortChange',] }],
-            onRowSelect: [{ type: core.Output, args: ['rowSelect',] }],
-            onRowClick: [{ type: core.Output, args: ['rowClick',] }],
-            onSelectAll: [{ type: core.Output, args: ['selectAll',] }],
-            compareWith: [{ type: core.Input, args: ['compareWith',] }]
+            sortChange: [{ type: core.Output }],
+            rowSelect: [{ type: core.Output }],
+            rowClick: [{ type: core.Output }],
+            selectAll: [{ type: core.Output }],
+            compareWith: [{ type: core.Input }]
         };
         return TdDataTableComponent;
     }(_TdDataTableMixinBase));
@@ -6281,7 +6302,7 @@
              * Event emitted when the column headers are clicked. [sortable] needs to be enabled.
              * Emits an [ITdDataTableSortChangeEvent] implemented object.
              */
-            this.onSortChange = new core.EventEmitter();
+            this.sortChange = new core.EventEmitter();
             this._renderer.addClass(this._elementRef.nativeElement, 'td-data-table-column');
         }
         Object.defineProperty(TdDataTableColumnComponent.prototype, "projectedWidth", {
@@ -6374,7 +6395,7 @@
          */
         function () {
             if (this.sortable) {
-                this.onSortChange.emit({ name: this.name, order: this._sortOrder });
+                this.sortChange.emit({ name: this.name, order: this._sortOrder });
             }
         };
         /**
@@ -6410,12 +6431,12 @@
         ]; };
         TdDataTableColumnComponent.propDecorators = {
             _columnContent: [{ type: core.ViewChild, args: ['columnContent', { read: core.ElementRef, static: true },] }],
-            name: [{ type: core.Input, args: ['name',] }],
-            sortable: [{ type: core.Input, args: ['sortable',] }],
-            active: [{ type: core.Input, args: ['active',] }],
-            numeric: [{ type: core.Input, args: ['numeric',] }],
+            name: [{ type: core.Input }],
+            sortable: [{ type: core.Input }],
+            active: [{ type: core.Input }],
+            numeric: [{ type: core.Input }],
             sortOrder: [{ type: core.Input, args: ['sortOrder',] }],
-            onSortChange: [{ type: core.Output, args: ['sortChange',] }],
+            sortChange: [{ type: core.Output }],
             bindClickable: [{ type: core.HostBinding, args: ['class.mat-clickable',] }],
             bingSortable: [{ type: core.HostBinding, args: ['class.mat-sortable',] }],
             bindActive: [{ type: core.HostBinding, args: ['class.mat-active',] }],
@@ -6490,7 +6511,7 @@
             { type: core.Renderer2 }
         ]; };
         TdDataTableCellComponent.propDecorators = {
-            numeric: [{ type: core.Input, args: ['numeric',] }],
+            numeric: [{ type: core.Input }],
             align: [{ type: core.Input }],
             bindNumeric: [{ type: core.HostBinding, args: ['class.mat-numeric',] }]
         };
@@ -6618,7 +6639,7 @@
                             return itemValue.indexOf(filter) > -1;
                         }
                     }));
-                    return !(typeof res === 'undefined');
+                    return typeof res !== 'undefined';
                 }));
             }
             return data;
@@ -6921,7 +6942,7 @@
          * @return {?}
          */
         function () {
-            this._dialogRef.close(undefined);
+            this._dialogRef.close();
         };
         /**
          * @return {?}
@@ -7561,7 +7582,7 @@
          * @return {?}
          */
         function () {
-            this.expanded.emit(undefined);
+            this.expanded.emit();
         };
         /**
          * @private
@@ -7572,7 +7593,7 @@
          * @return {?}
          */
         function () {
-            this.collapsed.emit(undefined);
+            this.collapsed.emit();
         };
         TdExpansionPanelComponent.decorators = [
             { type: core.Component, args: [{
@@ -7852,7 +7873,7 @@
              * Emits a [FileList | File] object.
              * Alternative to not use [(ngModel)].
              */
-            this.onFileSelect = new core.EventEmitter();
+            this.fileSelect = new core.EventEmitter();
         }
         Object.defineProperty(TdFileSelectDirective.prototype, "multiple", {
             /**
@@ -7889,33 +7910,33 @@
         });
         /**
          * Listens to 'change' host event to get [HTMLInputElement] files.
-         * Emits the 'onFileSelect' event with a [FileList] or [File] depending if 'multiple' attr exists in host.
-         * Uses [(ngModel)] if declared, instead of emitting 'onFileSelect' event.
+         * Emits the 'fileSelect' event with a [FileList] or [File] depending if 'multiple' attr exists in host.
+         * Uses [(ngModel)] if declared, instead of emitting 'fileSelect' event.
          */
         /**
          * Listens to 'change' host event to get [HTMLInputElement] files.
-         * Emits the 'onFileSelect' event with a [FileList] or [File] depending if 'multiple' attr exists in host.
-         * Uses [(ngModel)] if declared, instead of emitting 'onFileSelect' event.
+         * Emits the 'fileSelect' event with a [FileList] or [File] depending if 'multiple' attr exists in host.
+         * Uses [(ngModel)] if declared, instead of emitting 'fileSelect' event.
          * @param {?} event
          * @return {?}
          */
         TdFileSelectDirective.prototype.onChange = /**
          * Listens to 'change' host event to get [HTMLInputElement] files.
-         * Emits the 'onFileSelect' event with a [FileList] or [File] depending if 'multiple' attr exists in host.
-         * Uses [(ngModel)] if declared, instead of emitting 'onFileSelect' event.
+         * Emits the 'fileSelect' event with a [FileList] or [File] depending if 'multiple' attr exists in host.
+         * Uses [(ngModel)] if declared, instead of emitting 'fileSelect' event.
          * @param {?} event
          * @return {?}
          */
         function (event) {
             if (event.target instanceof HTMLInputElement) {
                 /** @type {?} */
-                var fileInputEl = (/** @type {?} */ (event.target));
+                var fileInputEl = event.target;
                 /** @type {?} */
                 var files = fileInputEl.files;
                 if (files.length) {
                     /** @type {?} */
                     var value = this._multiple ? (files.length > 1 ? files : files[0]) : files[0];
-                    this.model ? this.model.update.emit(value) : this.onFileSelect.emit(value);
+                    this.model ? this.model.update.emit(value) : this.fileSelect.emit(value);
                 }
             }
         };
@@ -7930,7 +7951,7 @@
         ]; };
         TdFileSelectDirective.propDecorators = {
             multiple: [{ type: core.Input, args: ['multiple',] }],
-            onFileSelect: [{ type: core.Output, args: ['fileSelect',] }],
+            fileSelect: [{ type: core.Output }],
             multipleBinding: [{ type: core.HostBinding, args: ['attr.multiple',] }],
             onChange: [{ type: core.HostListener, args: ['change', ['$event'],] }]
         };
@@ -7961,7 +7982,7 @@
              * Event emitted when a file or files are dropped in host element after being validated.
              * Emits a [FileList | File] object.
              */
-            _this.onFileDrop = new core.EventEmitter();
+            _this.fileDrop = new core.EventEmitter();
             return _this;
         }
         Object.defineProperty(TdFileDropDirective.prototype, "multiple", {
@@ -8013,19 +8034,19 @@
         });
         /**
          * Listens to 'drop' host event to get validated transfer items.
-         * Emits the 'onFileDrop' event with a [FileList] or [File] depending if 'multiple' attr exists in host.
+         * Emits the 'fileDrop' event with a [FileList] or [File] depending if 'multiple' attr exists in host.
          * Stops event propagation and default action from browser for 'drop' event.
          */
         /**
          * Listens to 'drop' host event to get validated transfer items.
-         * Emits the 'onFileDrop' event with a [FileList] or [File] depending if 'multiple' attr exists in host.
+         * Emits the 'fileDrop' event with a [FileList] or [File] depending if 'multiple' attr exists in host.
          * Stops event propagation and default action from browser for 'drop' event.
          * @param {?} event
          * @return {?}
          */
         TdFileDropDirective.prototype.onDrop = /**
          * Listens to 'drop' host event to get validated transfer items.
-         * Emits the 'onFileDrop' event with a [FileList] or [File] depending if 'multiple' attr exists in host.
+         * Emits the 'fileDrop' event with a [FileList] or [File] depending if 'multiple' attr exists in host.
          * Stops event propagation and default action from browser for 'drop' event.
          * @param {?} event
          * @return {?}
@@ -8039,7 +8060,7 @@
                 if (files.length) {
                     /** @type {?} */
                     var value = this._multiple ? (files.length > 1 ? files : files[0]) : files[0];
-                    this.onFileDrop.emit(value);
+                    this.fileDrop.emit(value);
                 }
             }
             this._renderer.removeClass(this._element.nativeElement, 'drop-zone');
@@ -8137,11 +8158,10 @@
         function (types) {
             /** @type {?} */
             var dropEffect = 'none';
-            if (types) {
-                if ((((/** @type {?} */ (types))).contains && ((/** @type {?} */ (types))).contains('Files')) ||
-                    (((/** @type {?} */ (types))).indexOf && ((/** @type {?} */ (types))).indexOf('Files') !== -1)) {
-                    dropEffect = 'copy';
-                }
+            if (types &&
+                ((((/** @type {?} */ (types))).contains && ((/** @type {?} */ (types))).contains('Files')) ||
+                    (((/** @type {?} */ (types))).indexOf && ((/** @type {?} */ (types))).indexOf('Files') !== -1))) {
+                dropEffect = 'copy';
             }
             return dropEffect;
         };
@@ -8172,7 +8192,7 @@
         ]; };
         TdFileDropDirective.propDecorators = {
             multiple: [{ type: core.Input, args: ['multiple',] }],
-            onFileDrop: [{ type: core.Output, args: ['fileDrop',] }],
+            fileDrop: [{ type: core.Output }],
             multipleBinding: [{ type: core.HostBinding, args: ['attr.multiple',] }],
             disabledBinding: [{ type: core.HostBinding, args: ['attr.disabled',] }],
             onDrop: [{ type: core.HostListener, args: ['drop', ['$event'],] }],
@@ -8224,7 +8244,7 @@
              * Event emitted a file is selected
              * Emits a [File | FileList] object.
              */
-            _this.onSelect = new core.EventEmitter();
+            _this.select = new core.EventEmitter();
             return _this;
         }
         Object.defineProperty(TdFileInputComponent.prototype, "inputElement", {
@@ -8275,7 +8295,7 @@
          */
         function (files) {
             this.writeValue(files);
-            this.onSelect.emit(files);
+            this.select.emit(files);
         };
         /**
          * Used to clear the selected files from the [TdFileInputComponent].
@@ -8350,10 +8370,10 @@
         ]; };
         TdFileInputComponent.propDecorators = {
             _inputElement: [{ type: core.ViewChild, args: ['fileInput', { static: true },] }],
-            color: [{ type: core.Input, args: ['color',] }],
+            color: [{ type: core.Input }],
             multiple: [{ type: core.Input, args: ['multiple',] }],
-            accept: [{ type: core.Input, args: ['accept',] }],
-            onSelect: [{ type: core.Output, args: ['select',] }]
+            accept: [{ type: core.Input }],
+            select: [{ type: core.Output }]
         };
         return TdFileInputComponent;
     }(_TdFileInputMixinBase));
@@ -8397,18 +8417,18 @@
              * Event emitted when a file is selected.
              * Emits a [File | FileList] object.
              */
-            _this.onSelect = new core.EventEmitter();
+            _this.select = new core.EventEmitter();
             /**
              * upload?: function
              * Event emitted when upload button is clicked.
              * Emits a [File | FileList] object.
              */
-            _this.onUpload = new core.EventEmitter();
+            _this.upload = new core.EventEmitter();
             /**
              * cancel?: function
              * Event emitted when cancel button is clicked.
              */
-            _this.onCancel = new core.EventEmitter();
+            _this.cancel = new core.EventEmitter();
             return _this;
         }
         Object.defineProperty(TdFileUploadComponent.prototype, "multiple", {
@@ -8472,7 +8492,7 @@
          */
         function () {
             if (this.value) {
-                this.onUpload.emit(this.value);
+                this.upload.emit(this.value);
             }
         };
         /**
@@ -8490,7 +8510,7 @@
          */
         function (value) {
             this.value = value;
-            this.onSelect.emit(value);
+            this.select.emit(value);
         };
         /**
          * Methods executed when cancel button is clicked.
@@ -8501,14 +8521,14 @@
          * Clears files.
          * @return {?}
          */
-        TdFileUploadComponent.prototype.cancel = /**
+        TdFileUploadComponent.prototype._cancel = /**
          * Methods executed when cancel button is clicked.
          * Clears files.
          * @return {?}
          */
         function () {
             this.value = undefined;
-            this.onCancel.emit(undefined);
+            this.cancel.emit();
             // check if the file input is rendered before clearing it
             if (this.fileInput) {
                 this.fileInput.clear();
@@ -8527,7 +8547,7 @@
          */
         function (v) {
             if (v) {
-                this.cancel();
+                this._cancel();
             }
         };
         TdFileUploadComponent.decorators = [
@@ -8545,7 +8565,7 @@
                         ],
                         selector: 'td-file-upload',
                         inputs: ['disabled', 'value'],
-                        template: "<td-file-input\n  *ngIf=\"!value\"\n  [(ngModel)]=\"value\"\n  [multiple]=\"multiple\"\n  [disabled]=\"disabled\"\n  [accept]=\"accept\"\n  [color]=\"defaultColor\"\n  (select)=\"handleSelect($event)\"\n>\n  <ng-template [cdkPortalOutlet]=\"inputLabel\" [ngIf]=\"true\"></ng-template>\n</td-file-input>\n<div *ngIf=\"value\">\n  <button\n    #fileUpload\n    class=\"td-file-upload\"\n    mat-raised-button\n    type=\"button\"\n    [color]=\"activeColor\"\n    (keyup.delete)=\"cancel()\"\n    (keyup.backspace)=\"cancel()\"\n    (keyup.escape)=\"cancel()\"\n    (click)=\"uploadPressed()\"\n  >\n    <ng-content></ng-content>\n  </button>\n  <button mat-icon-button type=\"button\" class=\"td-file-upload-cancel\" [color]=\"cancelColor\" (click)=\"cancel()\">\n    <mat-icon>cancel</mat-icon>\n  </button>\n</div>\n",
+                        template: "<td-file-input\n  *ngIf=\"!value\"\n  [(ngModel)]=\"value\"\n  [multiple]=\"multiple\"\n  [disabled]=\"disabled\"\n  [accept]=\"accept\"\n  [color]=\"defaultColor\"\n  (select)=\"handleSelect($event)\"\n>\n  <ng-template [cdkPortalOutlet]=\"inputLabel\" [ngIf]=\"true\"></ng-template>\n</td-file-input>\n<div *ngIf=\"value\">\n  <button\n    #fileUpload\n    class=\"td-file-upload\"\n    mat-raised-button\n    type=\"button\"\n    [color]=\"activeColor\"\n    (keyup.delete)=\"_cancel()\"\n    (keyup.backspace)=\"_cancel()\"\n    (keyup.escape)=\"_cancel()\"\n    (click)=\"uploadPressed()\"\n  >\n    <ng-content></ng-content>\n  </button>\n  <button mat-icon-button type=\"button\" class=\"td-file-upload-cancel\" [color]=\"cancelColor\" (click)=\"_cancel()\">\n    <mat-icon>cancel</mat-icon>\n  </button>\n</div>\n",
                         styles: [".td-file-upload{padding-left:8px;padding-right:8px}.td-file-upload-cancel{height:24px;width:24px;position:relative;top:24px;left:-12px}::ng-deep [dir=rtl] .td-file-upload-cancel{right:-12px;left:0}.td-file-upload-cancel mat-icon{border-radius:12px;vertical-align:baseline}.drop-zone{border-radius:3px}.drop-zone *{pointer-events:none}"]
                     }] }
         ];
@@ -8556,15 +8576,15 @@
         TdFileUploadComponent.propDecorators = {
             fileInput: [{ type: core.ViewChild, args: [TdFileInputComponent, { static: false },] }],
             inputLabel: [{ type: core.ContentChild, args: [TdFileInputLabelDirective, { static: false },] }],
-            defaultColor: [{ type: core.Input, args: ['defaultColor',] }],
-            activeColor: [{ type: core.Input, args: ['activeColor',] }],
-            cancelColor: [{ type: core.Input, args: ['cancelColor',] }],
+            defaultColor: [{ type: core.Input }],
+            activeColor: [{ type: core.Input }],
+            cancelColor: [{ type: core.Input }],
             multiple: [{ type: core.Input, args: ['multiple',] }],
             required: [{ type: core.Input, args: ['required',] }],
-            accept: [{ type: core.Input, args: ['accept',] }],
-            onSelect: [{ type: core.Output, args: ['select',] }],
-            onUpload: [{ type: core.Output, args: ['upload',] }],
-            onCancel: [{ type: core.Output, args: ['cancel',] }]
+            accept: [{ type: core.Input }],
+            select: [{ type: core.Output }],
+            upload: [{ type: core.Output }],
+            cancel: [{ type: core.Output }]
         };
         return TdFileUploadComponent;
     }(_TdFileUploadMixinBase));
@@ -8715,6 +8735,7 @@
              * @return {?}
              */
             function (subscriber) {
+                var e_1, _a;
                 /** @type {?} */
                 var xhr = new XMLHttpRequest();
                 /** @type {?} */
@@ -8757,8 +8778,18 @@
                 xhr.open(options.method, options.url, true);
                 xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
                 if (options.headers) {
-                    for (var key in options.headers) {
-                        xhr.setRequestHeader(key, options.headers[key]);
+                    try {
+                        for (var _b = __values(Object.keys(options.headers)), _c = _b.next(); !_c.done; _c = _b.next()) {
+                            var key = _c.value;
+                            xhr.setRequestHeader(key, options.headers[key]);
+                        }
+                    }
+                    catch (e_1_1) { e_1 = { error: e_1_1 }; }
+                    finally {
+                        try {
+                            if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+                        }
+                        finally { if (e_1) throw e_1.error; }
                     }
                 }
                 xhr.send(formData);
@@ -9042,10 +9073,8 @@
                 }
                 /** @type {?} */
                 var date = new Date(object);
-                if (Object.prototype.toString.call(date) === '[object Date]') {
-                    if (!Number.isNaN(date.getTime())) {
-                        return 'date';
-                    }
+                if (Object.prototype.toString.call(date) === '[object Date]' && !Number.isNaN(date.getTime())) {
+                    return 'date';
                 }
             }
             return typeof object;
@@ -9142,10 +9171,21 @@
          * @return {?}
          */
         function () {
+            var e_1, _a;
             if (this.isObject()) {
                 this._children = [];
-                for (var key in this._data) {
-                    this._children.push(key);
+                try {
+                    for (var _b = __values(Object.keys(this._data)), _c = _b.next(); !_c.done; _c = _b.next()) {
+                        var key = _c.value;
+                        this._children.push(key);
+                    }
+                }
+                catch (e_1_1) { e_1 = { error: e_1_1 }; }
+                finally {
+                    try {
+                        if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+                    }
+                    finally { if (e_1) throw e_1.error; }
                 }
             }
         };
@@ -9315,10 +9355,10 @@
         ];
         TdLayoutComponent.propDecorators = {
             sidenav: [{ type: core.ViewChild, args: [sidenav.MatSidenav, { static: true },] }],
-            mode: [{ type: core.Input, args: ['mode',] }],
-            opened: [{ type: core.Input, args: ['opened',] }],
-            sidenavWidth: [{ type: core.Input, args: ['sidenavWidth',] }],
-            containerAutosize: [{ type: core.Input, args: ['containerAutosize',] }]
+            mode: [{ type: core.Input }],
+            opened: [{ type: core.Input }],
+            sidenavWidth: [{ type: core.Input }],
+            containerAutosize: [{ type: core.Input }]
         };
         return TdLayoutComponent;
     }());
@@ -9662,11 +9702,11 @@
             { type: router.Router, decorators: [{ type: core.Optional }] }
         ]; };
         TdLayoutNavComponent.propDecorators = {
-            toolbarTitle: [{ type: core.Input, args: ['toolbarTitle',] }],
-            icon: [{ type: core.Input, args: ['icon',] }],
-            logo: [{ type: core.Input, args: ['logo',] }],
-            color: [{ type: core.Input, args: ['color',] }],
-            navigationRoute: [{ type: core.Input, args: ['navigationRoute',] }]
+            toolbarTitle: [{ type: core.Input }],
+            icon: [{ type: core.Input }],
+            logo: [{ type: core.Input }],
+            color: [{ type: core.Input }],
+            navigationRoute: [{ type: core.Input }]
         };
         return TdLayoutNavComponent;
     }());
@@ -9822,15 +9862,15 @@
         ]; };
         TdLayoutNavListComponent.propDecorators = {
             sidenav: [{ type: core.ViewChild, args: [sidenav.MatSidenav, { static: true },] }],
-            toolbarTitle: [{ type: core.Input, args: ['toolbarTitle',] }],
-            icon: [{ type: core.Input, args: ['icon',] }],
-            logo: [{ type: core.Input, args: ['logo',] }],
-            color: [{ type: core.Input, args: ['color',] }],
-            mode: [{ type: core.Input, args: ['mode',] }],
-            opened: [{ type: core.Input, args: ['opened',] }],
-            sidenavWidth: [{ type: core.Input, args: ['sidenavWidth',] }],
-            containerAutosize: [{ type: core.Input, args: ['containerAutosize',] }],
-            navigationRoute: [{ type: core.Input, args: ['navigationRoute',] }]
+            toolbarTitle: [{ type: core.Input }],
+            icon: [{ type: core.Input }],
+            logo: [{ type: core.Input }],
+            color: [{ type: core.Input }],
+            mode: [{ type: core.Input }],
+            opened: [{ type: core.Input }],
+            sidenavWidth: [{ type: core.Input }],
+            containerAutosize: [{ type: core.Input }],
+            navigationRoute: [{ type: core.Input }]
         };
         return TdLayoutNavListComponent;
     }());
@@ -10004,10 +10044,10 @@
                     }] }
         ];
         TdLayoutCardOverComponent.propDecorators = {
-            cardTitle: [{ type: core.Input, args: ['cardTitle',] }],
-            cardSubtitle: [{ type: core.Input, args: ['cardSubtitle',] }],
-            cardWidth: [{ type: core.Input, args: ['cardWidth',] }],
-            color: [{ type: core.Input, args: ['color',] }]
+            cardTitle: [{ type: core.Input }],
+            cardSubtitle: [{ type: core.Input }],
+            cardWidth: [{ type: core.Input }],
+            color: [{ type: core.Input }]
         };
         return TdLayoutCardOverComponent;
     }());
@@ -10127,10 +10167,10 @@
         ];
         TdLayoutManageListComponent.propDecorators = {
             sidenav: [{ type: core.ViewChild, args: [sidenav.MatSidenav, { static: true },] }],
-            mode: [{ type: core.Input, args: ['mode',] }],
-            opened: [{ type: core.Input, args: ['opened',] }],
-            sidenavWidth: [{ type: core.Input, args: ['sidenavWidth',] }],
-            containerAutosize: [{ type: core.Input, args: ['containerAutosize',] }]
+            mode: [{ type: core.Input }],
+            opened: [{ type: core.Input }],
+            sidenavWidth: [{ type: core.Input }],
+            containerAutosize: [{ type: core.Input }]
         };
         return TdLayoutManageListComponent;
     }());
@@ -10580,15 +10620,15 @@
         TdNavigationDrawerComponent.propDecorators = {
             _drawerMenu: [{ type: core.ContentChildren, args: [TdNavigationDrawerMenuDirective,] }],
             _toolbar: [{ type: core.ContentChildren, args: [TdNavigationDrawerToolbarDirective,] }],
-            sidenavTitle: [{ type: core.Input, args: ['sidenavTitle',] }],
-            icon: [{ type: core.Input, args: ['icon',] }],
-            logo: [{ type: core.Input, args: ['logo',] }],
-            avatar: [{ type: core.Input, args: ['avatar',] }],
-            color: [{ type: core.Input, args: ['color',] }],
-            navigationRoute: [{ type: core.Input, args: ['navigationRoute',] }],
+            sidenavTitle: [{ type: core.Input }],
+            icon: [{ type: core.Input }],
+            logo: [{ type: core.Input }],
+            avatar: [{ type: core.Input }],
+            color: [{ type: core.Input }],
+            navigationRoute: [{ type: core.Input }],
             backgroundUrl: [{ type: core.Input, args: ['backgroundUrl',] }],
-            name: [{ type: core.Input, args: ['name',] }],
-            email: [{ type: core.Input, args: ['email',] }]
+            name: [{ type: core.Input }],
+            email: [{ type: core.Input }]
         };
         return TdNavigationDrawerComponent;
     }());
@@ -10746,11 +10786,9 @@
         function () {
             // When overlay is used and the host width has a value greater than 1px
             // set the circle diameter when possible incase the loading component was rendered in a hidden state
-            if (this.isOverlay() && this._hostHeight() > 1) {
-                if (this.animation) {
-                    this._setCircleDiameter();
-                    this._changeDetectorRef.markForCheck();
-                }
+            if (this.isOverlay() && this._hostHeight() > 1 && this.animation) {
+                this._setCircleDiameter();
+                this._changeDetectorRef.markForCheck();
             }
         };
         /**
@@ -10850,7 +10888,7 @@
          * @return {?}
          */
         function () {
-            this._animationIn.next(undefined);
+            this._animationIn.next();
         };
         /**
          * @return {?}
@@ -10866,7 +10904,7 @@
             this.value = 0;
             // Check for changes for `OnPush` change detection
             this._changeDetectorRef.markForCheck();
-            this._animationOut.next(undefined);
+            this._animationOut.next();
         };
         /**
          * Starts in animation and returns an observable for completition event.
@@ -11797,10 +11835,8 @@
              * @return {?}
              */
             function (name) {
-                if (!this._name) {
-                    if (name) {
-                        this._name = name;
-                    }
+                if (!this._name && name) {
+                    this._name = name;
                 }
             },
             enumerable: true,
@@ -11850,13 +11886,11 @@
              * @return {?}
              */
             function (type) {
-                switch (type) {
-                    case LoadingType.Linear:
-                        this._type = LoadingType.Linear;
-                        break;
-                    default:
-                        this._type = LoadingType.Circular;
-                        break;
+                if (type === LoadingType.Linear) {
+                    this._type = LoadingType.Linear;
+                }
+                else {
+                    this._type = LoadingType.Circular;
                 }
             },
             enumerable: true,
@@ -11876,13 +11910,11 @@
              * @return {?}
              */
             function (mode) {
-                switch (mode) {
-                    case LoadingMode.Determinate:
-                        this._mode = LoadingMode.Determinate;
-                        break;
-                    default:
-                        this._mode = LoadingMode.Indeterminate;
-                        break;
+                if (mode === LoadingMode.Determinate) {
+                    this._mode = LoadingMode.Determinate;
+                }
+                else {
+                    this._mode = LoadingMode.Indeterminate;
                 }
             },
             enumerable: true,
@@ -11898,17 +11930,15 @@
              * tdLoadingStrategy?: LoadingStrategy or ['replace' | 'overlay']
              * Sets the strategy of loading mask depending on value.
              * Defaults to [LoadingMode.Replace | 'replace'].
-             * @param {?} stategy
+             * @param {?} strategy
              * @return {?}
              */
-            function (stategy) {
-                switch (stategy) {
-                    case LoadingStrategy.Overlay:
-                        this._strategy = LoadingStrategy.Overlay;
-                        break;
-                    default:
-                        this._strategy = LoadingStrategy.Replace;
-                        break;
+            function (strategy) {
+                if (strategy === LoadingStrategy.Overlay) {
+                    this._strategy = LoadingStrategy.Overlay;
+                }
+                else {
+                    this._strategy = LoadingStrategy.Replace;
                 }
             },
             enumerable: true,
@@ -12166,6 +12196,7 @@
          */
         function () {
             var _this = this;
+            var e_1, _a;
             var _loop_1 = function (query) {
                 this_1._ngZone.run((/**
                  * @return {?}
@@ -12175,8 +12206,18 @@
                 }));
             };
             var this_1 = this;
-            for (var query in this._querySources) {
-                _loop_1(query);
+            try {
+                for (var _b = __values(Object.keys(this._querySources)), _c = _b.next(); !_c.done; _c = _b.next()) {
+                    var query = _c.value;
+                    _loop_1(query);
+                }
+            }
+            catch (e_1_1) { e_1 = { error: e_1_1 }; }
+            finally {
+                try {
+                    if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+                }
+                finally { if (e_1) throw e_1.error; }
             }
         };
         /**
@@ -12507,22 +12548,22 @@
              * searchDebounce: function($event)
              * Event emitted after the [debounce] timeout.
              */
-            _this.onSearchDebounce = new core.EventEmitter();
+            _this.searchDebounce = new core.EventEmitter();
             /**
              * search: function($event)
              * Event emitted after the key enter has been pressed.
              */
-            _this.onSearch = new core.EventEmitter();
+            _this.search = new core.EventEmitter();
             /**
              * clear: function()
              * Event emitted after the clear icon has been clicked.
              */
-            _this.onClear = new core.EventEmitter();
+            _this.clear = new core.EventEmitter();
             /**
              * blur: function()
              * Event emitted after the blur event has been called in underlying input.
              */
-            _this.onBlur = new core.EventEmitter();
+            _this.blur = new core.EventEmitter();
             return _this;
         }
         Object.defineProperty(TdSearchInputComponent.prototype, "isRTL", {
@@ -12577,7 +12618,7 @@
          * @return {?}
          */
         function () {
-            this.onBlur.emit(undefined);
+            this.blur.emit();
         };
         /**
          * @param {?} event
@@ -12600,7 +12641,7 @@
          */
         function (event) {
             this.stopPropagation(event);
-            this.onSearch.emit(this.value);
+            this.search.emit(this.value);
         };
         /**
          * Method to clear the underlying input.
@@ -12616,7 +12657,7 @@
         function () {
             this.value = '';
             this._changeDetectorRef.markForCheck();
-            this.onClear.emit(undefined);
+            this.clear.emit();
         };
         /**
          * @private
@@ -12629,7 +12670,7 @@
          * @return {?}
          */
         function (value) {
-            this.onSearchDebounce.emit(value);
+            this.searchDebounce.emit(value);
         };
         TdSearchInputComponent.decorators = [
             { type: core.Component, args: [{
@@ -12675,15 +12716,15 @@
         ]; };
         TdSearchInputComponent.propDecorators = {
             _input: [{ type: core.ViewChild, args: [input.MatInput, { static: true },] }],
-            appearance: [{ type: core.Input, args: ['appearance',] }],
-            showUnderline: [{ type: core.Input, args: ['showUnderline',] }],
-            debounce: [{ type: core.Input, args: ['debounce',] }],
-            placeholder: [{ type: core.Input, args: ['placeholder',] }],
-            clearIcon: [{ type: core.Input, args: ['clearIcon',] }],
-            onSearchDebounce: [{ type: core.Output, args: ['searchDebounce',] }],
-            onSearch: [{ type: core.Output, args: ['search',] }],
-            onClear: [{ type: core.Output, args: ['clear',] }],
-            onBlur: [{ type: core.Output, args: ['blur',] }]
+            appearance: [{ type: core.Input }],
+            showUnderline: [{ type: core.Input }],
+            debounce: [{ type: core.Input }],
+            placeholder: [{ type: core.Input }],
+            clearIcon: [{ type: core.Input }],
+            searchDebounce: [{ type: core.Output }],
+            search: [{ type: core.Output }],
+            clear: [{ type: core.Output }],
+            blur: [{ type: core.Output }]
         };
         return TdSearchInputComponent;
     }(_TdSearchInputMixinBase));
@@ -12743,22 +12784,22 @@
              * searchDebounce: function($event)
              * Event emitted after the [debounce] timeout.
              */
-            _this.onSearchDebounce = new core.EventEmitter();
+            _this.searchDebounce = new core.EventEmitter();
             /**
              * search: function($event)
              * Event emitted after the key enter has been pressed.
              */
-            _this.onSearch = new core.EventEmitter();
+            _this.search = new core.EventEmitter();
             /**
              * clear: function()
              * Event emitted after the clear icon has been clicked.
              */
-            _this.onClear = new core.EventEmitter();
+            _this.clear = new core.EventEmitter();
             /**
              * blur: function()
              * Event emitted after the blur event has been called in underlying input.
              */
-            _this.onBlur = new core.EventEmitter();
+            _this.blur = new core.EventEmitter();
             return _this;
         }
         Object.defineProperty(TdSearchBoxComponent.prototype, "searchVisible", {
@@ -12811,7 +12852,7 @@
          * @return {?}
          */
         function (value) {
-            this.onSearchDebounce.emit(value);
+            this.searchDebounce.emit(value);
         };
         /**
          * @param {?} value
@@ -12822,7 +12863,7 @@
          * @return {?}
          */
         function (value) {
-            this.onSearch.emit(value);
+            this.search.emit(value);
         };
         /**
          * @return {?}
@@ -12831,7 +12872,7 @@
          * @return {?}
          */
         function () {
-            this.onClear.emit(undefined);
+            this.clear.emit();
         };
         /**
          * @return {?}
@@ -12840,7 +12881,7 @@
          * @return {?}
          */
         function () {
-            this.onBlur.emit(undefined);
+            this.blur.emit();
         };
         TdSearchBoxComponent.decorators = [
             { type: core.Component, args: [{
@@ -12881,17 +12922,17 @@
         ]; };
         TdSearchBoxComponent.propDecorators = {
             _searchInput: [{ type: core.ViewChild, args: [TdSearchInputComponent, { static: true },] }],
-            backIcon: [{ type: core.Input, args: ['backIcon',] }],
-            searchIcon: [{ type: core.Input, args: ['searchIcon',] }],
-            clearIcon: [{ type: core.Input, args: ['clearIcon',] }],
-            showUnderline: [{ type: core.Input, args: ['showUnderline',] }],
-            debounce: [{ type: core.Input, args: ['debounce',] }],
-            alwaysVisible: [{ type: core.Input, args: ['alwaysVisible',] }],
-            placeholder: [{ type: core.Input, args: ['placeholder',] }],
-            onSearchDebounce: [{ type: core.Output, args: ['searchDebounce',] }],
-            onSearch: [{ type: core.Output, args: ['search',] }],
-            onClear: [{ type: core.Output, args: ['clear',] }],
-            onBlur: [{ type: core.Output, args: ['blur',] }]
+            backIcon: [{ type: core.Input }],
+            searchIcon: [{ type: core.Input }],
+            clearIcon: [{ type: core.Input }],
+            showUnderline: [{ type: core.Input }],
+            debounce: [{ type: core.Input }],
+            alwaysVisible: [{ type: core.Input }],
+            placeholder: [{ type: core.Input }],
+            searchDebounce: [{ type: core.Output }],
+            search: [{ type: core.Output }],
+            clear: [{ type: core.Output }],
+            blur: [{ type: core.Output }]
         };
         return TdSearchBoxComponent;
     }(_TdSearchBoxMixinBase));
@@ -13245,7 +13286,7 @@
         ]; };
         TdBreadcrumbsComponent.propDecorators = {
             _breadcrumbs: [{ type: core.ContentChildren, args: [TdBreadcrumbComponent,] }],
-            separatorIcon: [{ type: core.Input, args: ['separatorIcon',] }]
+            separatorIcon: [{ type: core.Input }]
         };
         return TdBreadcrumbsComponent;
     }());
@@ -13347,12 +13388,12 @@
              * activated?: function
              * Event emitted when [TdStepComponent] is activated.
              */
-            _this.onActivated = new core.EventEmitter();
+            _this.activated = new core.EventEmitter();
             /**
              * deactivated?: function
              * Event emitted when [TdStepComponent] is deactivated.
              */
-            _this.onDeactivated = new core.EventEmitter();
+            _this.deactivated = new core.EventEmitter();
             return _this;
         }
         Object.defineProperty(TdStepComponent.prototype, "stepContent", {
@@ -13515,12 +13556,12 @@
             }
         };
         /**
-         * Method to change active state internally and emit the [onActivated] event if 'true' or [onDeactivated]
+         * Method to change active state internally and emit the [activated] event if 'true' or [deactivated]
          * event if 'false'. (Blocked if [disabled] is 'true')
          * returns true if successfully changed state
          */
         /**
-         * Method to change active state internally and emit the [onActivated] event if 'true' or [onDeactivated]
+         * Method to change active state internally and emit the [activated] event if 'true' or [deactivated]
          * event if 'false'. (Blocked if [disabled] is 'true')
          * returns true if successfully changed state
          * @private
@@ -13528,7 +13569,7 @@
          * @return {?}
          */
         TdStepComponent.prototype._setActive = /**
-         * Method to change active state internally and emit the [onActivated] event if 'true' or [onDeactivated]
+         * Method to change active state internally and emit the [activated] event if 'true' or [deactivated]
          * event if 'false'. (Blocked if [disabled] is 'true')
          * returns true if successfully changed state
          * @private
@@ -13560,7 +13601,7 @@
          * @return {?}
          */
         function () {
-            this.onActivated.emit(undefined);
+            this.activated.emit();
         };
         /**
          * @private
@@ -13571,7 +13612,7 @@
          * @return {?}
          */
         function () {
-            this.onDeactivated.emit(undefined);
+            this.deactivated.emit();
         };
         TdStepComponent.decorators = [
             { type: core.Component, args: [{
@@ -13589,12 +13630,12 @@
             stepLabel: [{ type: core.ContentChild, args: [TdStepLabelDirective, { static: false },] }],
             stepActions: [{ type: core.ContentChild, args: [TdStepActionsDirective, { static: false },] }],
             stepSummary: [{ type: core.ContentChild, args: [TdStepSummaryDirective, { static: false },] }],
-            label: [{ type: core.Input, args: ['label',] }],
-            sublabel: [{ type: core.Input, args: ['sublabel',] }],
+            label: [{ type: core.Input }],
+            sublabel: [{ type: core.Input }],
             active: [{ type: core.Input, args: ['active',] }],
             state: [{ type: core.Input, args: ['state',] }],
-            onActivated: [{ type: core.Output, args: ['activated',] }],
-            onDeactivated: [{ type: core.Output, args: ['deactivated',] }]
+            activated: [{ type: core.Output }],
+            deactivated: [{ type: core.Output }]
         };
         return TdStepComponent;
     }(_TdStepMixinBase));
@@ -13613,10 +13654,10 @@
             this._mode = StepMode.Vertical;
             /**
              * stepChange?: function
-             * Method to be executed when [onStepChange] event is emitted.
+             * Method to be executed when [stepChange] event is emitted.
              * Emits an [IStepChangeEvent] implemented object.
              */
-            this.onStepChange = new core.EventEmitter();
+            this.stepChange = new core.EventEmitter();
         }
         Object.defineProperty(TdStepsComponent.prototype, "stepsContent", {
             set: /**
@@ -13660,12 +13701,11 @@
              * @return {?}
              */
             function (mode) {
-                switch (mode) {
-                    case StepMode.Horizontal:
-                        this._mode = StepMode.Horizontal;
-                        break;
-                    default:
-                        this._mode = StepMode.Vertical;
+                if (mode === StepMode.Horizontal) {
+                    this._mode = StepMode.Horizontal;
+                }
+                else {
+                    this._mode = StepMode.Vertical;
                 }
             },
             enumerable: true,
@@ -13673,16 +13713,16 @@
         });
         /**
          * Executed after content is initialized, loops through any [TdStepComponent] children elements,
-         * assigns them a number and subscribes as an observer to their [onActivated] event.
+         * assigns them a number and subscribes as an observer to their [activated] event.
          */
         /**
          * Executed after content is initialized, loops through any [TdStepComponent] children elements,
-         * assigns them a number and subscribes as an observer to their [onActivated] event.
+         * assigns them a number and subscribes as an observer to their [activated] event.
          * @return {?}
          */
         TdStepsComponent.prototype.ngAfterContentInit = /**
          * Executed after content is initialized, loops through any [TdStepComponent] children elements,
-         * assigns them a number and subscribes as an observer to their [onActivated] event.
+         * assigns them a number and subscribes as an observer to their [activated] event.
          * @return {?}
          */
         function () {
@@ -13747,18 +13787,18 @@
         };
         /**
          * Wraps previous and new [TdStepComponent] numbers in an object that implements [IStepChangeEvent]
-         * and emits [onStepChange] event.
+         * and emits [stepChange] event.
          */
         /**
          * Wraps previous and new [TdStepComponent] numbers in an object that implements [IStepChangeEvent]
-         * and emits [onStepChange] event.
+         * and emits [stepChange] event.
          * @private
          * @param {?} step
          * @return {?}
          */
         TdStepsComponent.prototype._onStepSelection = /**
          * Wraps previous and new [TdStepComponent] numbers in an object that implements [IStepChangeEvent]
-         * and emits [onStepChange] event.
+         * and emits [stepChange] event.
          * @private
          * @param {?} step
          * @return {?}
@@ -13774,7 +13814,7 @@
                     prevStep: prevStep,
                 };
                 this._deactivateAllBut(step);
-                this.onStepChange.emit(event_1);
+                this.stepChange.emit(event_1);
             }
         };
         /**
@@ -13824,7 +13864,7 @@
              */
             function (step) {
                 /** @type {?} */
-                var subscription = step.onActivated.asObservable().subscribe((/**
+                var subscription = step.activated.asObservable().subscribe((/**
                  * @return {?}
                  */
                 function () {
@@ -13867,7 +13907,7 @@
         TdStepsComponent.propDecorators = {
             stepsContent: [{ type: core.ContentChildren, args: [TdStepComponent,] }],
             mode: [{ type: core.Input, args: ['mode',] }],
-            onStepChange: [{ type: core.Output, args: ['stepChange',] }]
+            stepChange: [{ type: core.Output }]
         };
         return TdStepsComponent;
     }());
@@ -13933,10 +13973,10 @@
                     }] }
         ];
         TdStepHeaderComponent.propDecorators = {
-            number: [{ type: core.Input, args: ['number',] }],
-            active: [{ type: core.Input, args: ['active',] }],
-            state: [{ type: core.Input, args: ['state',] }],
-            tabIndex: [{ type: core.Input, args: ['tabIndex',] }]
+            number: [{ type: core.Input }],
+            active: [{ type: core.Input }],
+            state: [{ type: core.Input }],
+            tabIndex: [{ type: core.Input }]
         };
         return TdStepHeaderComponent;
     }(_TdStepHeaderMixinBase));
@@ -14013,8 +14053,8 @@
             contentRef: [{ type: core.ViewChild, args: ['contentRef', { read: core.ElementRef, static: true },] }],
             actionsRef: [{ type: core.ViewChild, args: ['actionsRef', { read: core.ElementRef, static: true },] }],
             summaryRef: [{ type: core.ViewChild, args: ['summaryRef', { read: core.ElementRef, static: true },] }],
-            active: [{ type: core.Input, args: ['active',] }],
-            state: [{ type: core.Input, args: ['state',] }]
+            active: [{ type: core.Input }],
+            state: [{ type: core.Input }]
         };
         return TdStepBodyComponent;
     }());
@@ -14130,10 +14170,10 @@
         ]; };
         TdNavStepLinkComponent.propDecorators = {
             state: [{ type: core.Input, args: ['state',] }],
-            label: [{ type: core.Input, args: ['label',] }],
-            sublabel: [{ type: core.Input, args: ['sublabel',] }],
+            label: [{ type: core.Input }],
+            sublabel: [{ type: core.Input }],
             active: [{ type: core.Input, args: ['active',] }],
-            tabIndex: [{ type: core.Input, args: ['tabIndex',] }]
+            tabIndex: [{ type: core.Input }]
         };
         return TdNavStepLinkComponent;
     }(_TdStepMixinBase));
@@ -14716,7 +14756,7 @@
         ]; };
         TdTabOptionComponent.propDecorators = {
             _content: [{ type: core.ViewChild, args: [core.TemplateRef, { static: true },] }],
-            value: [{ type: core.Input, args: ['value',] }]
+            value: [{ type: core.Input }]
         };
         return TdTabOptionComponent;
     }(_TdTabOptionMixinBase));
@@ -14952,8 +14992,8 @@
         TdTabSelectComponent.propDecorators = {
             _tabOptions: [{ type: core.ContentChildren, args: [TdTabOptionComponent,] }],
             stretchTabs: [{ type: core.Input, args: ['stretchTabs',] }],
-            color: [{ type: core.Input, args: ['color',] }],
-            backgroundColor: [{ type: core.Input, args: ['backgroundColor',] }],
+            color: [{ type: core.Input }],
+            backgroundColor: [{ type: core.Input }],
             valueChange: [{ type: core.Output }]
         };
         return TdTabSelectComponent;

@@ -96,12 +96,12 @@ class TdStepComponent extends _TdStepMixinBase {
          * activated?: function
          * Event emitted when [TdStepComponent] is activated.
          */
-        this.onActivated = new EventEmitter();
+        this.activated = new EventEmitter();
         /**
          * deactivated?: function
          * Event emitted when [TdStepComponent] is deactivated.
          */
-        this.onDeactivated = new EventEmitter();
+        this.deactivated = new EventEmitter();
     }
     /**
      * @return {?}
@@ -199,7 +199,7 @@ class TdStepComponent extends _TdStepMixinBase {
         }
     }
     /**
-     * Method to change active state internally and emit the [onActivated] event if 'true' or [onDeactivated]
+     * Method to change active state internally and emit the [activated] event if 'true' or [deactivated]
      * event if 'false'. (Blocked if [disabled] is 'true')
      * returns true if successfully changed state
      * @private
@@ -227,14 +227,14 @@ class TdStepComponent extends _TdStepMixinBase {
      * @return {?}
      */
     _onActivated() {
-        this.onActivated.emit(undefined);
+        this.activated.emit();
     }
     /**
      * @private
      * @return {?}
      */
     _onDeactivated() {
-        this.onDeactivated.emit(undefined);
+        this.deactivated.emit();
     }
 }
 TdStepComponent.decorators = [
@@ -253,12 +253,12 @@ TdStepComponent.propDecorators = {
     stepLabel: [{ type: ContentChild, args: [TdStepLabelDirective, { static: false },] }],
     stepActions: [{ type: ContentChild, args: [TdStepActionsDirective, { static: false },] }],
     stepSummary: [{ type: ContentChild, args: [TdStepSummaryDirective, { static: false },] }],
-    label: [{ type: Input, args: ['label',] }],
-    sublabel: [{ type: Input, args: ['sublabel',] }],
+    label: [{ type: Input }],
+    sublabel: [{ type: Input }],
     active: [{ type: Input, args: ['active',] }],
     state: [{ type: Input, args: ['state',] }],
-    onActivated: [{ type: Output, args: ['activated',] }],
-    onDeactivated: [{ type: Output, args: ['deactivated',] }]
+    activated: [{ type: Output }],
+    deactivated: [{ type: Output }]
 };
 
 /**
@@ -275,10 +275,10 @@ class TdStepsComponent {
         this._mode = StepMode.Vertical;
         /**
          * stepChange?: function
-         * Method to be executed when [onStepChange] event is emitted.
+         * Method to be executed when [stepChange] event is emitted.
          * Emits an [IStepChangeEvent] implemented object.
          */
-        this.onStepChange = new EventEmitter();
+        this.stepChange = new EventEmitter();
     }
     /**
      * @param {?} steps
@@ -303,12 +303,11 @@ class TdStepsComponent {
      * @return {?}
      */
     set mode(mode) {
-        switch (mode) {
-            case StepMode.Horizontal:
-                this._mode = StepMode.Horizontal;
-                break;
-            default:
-                this._mode = StepMode.Vertical;
+        if (mode === StepMode.Horizontal) {
+            this._mode = StepMode.Horizontal;
+        }
+        else {
+            this._mode = StepMode.Vertical;
         }
     }
     /**
@@ -319,7 +318,7 @@ class TdStepsComponent {
     }
     /**
      * Executed after content is initialized, loops through any [TdStepComponent] children elements,
-     * assigns them a number and subscribes as an observer to their [onActivated] event.
+     * assigns them a number and subscribes as an observer to their [activated] event.
      * @return {?}
      */
     ngAfterContentInit() {
@@ -360,7 +359,7 @@ class TdStepsComponent {
     }
     /**
      * Wraps previous and new [TdStepComponent] numbers in an object that implements [IStepChangeEvent]
-     * and emits [onStepChange] event.
+     * and emits [stepChange] event.
      * @private
      * @param {?} step
      * @return {?}
@@ -368,15 +367,15 @@ class TdStepsComponent {
     _onStepSelection(step) {
         if (this.prevStep !== step) {
             /** @type {?} */
-            let prevStep = this.prevStep;
+            const prevStep = this.prevStep;
             this.prevStep = step;
             /** @type {?} */
-            let event = {
+            const event = {
                 newStep: step,
-                prevStep: prevStep,
+                prevStep,
             };
             this._deactivateAllBut(step);
-            this.onStepChange.emit(event);
+            this.stepChange.emit(event);
         }
     }
     /**
@@ -412,7 +411,7 @@ class TdStepsComponent {
          */
         (step) => {
             /** @type {?} */
-            let subscription = step.onActivated.asObservable().subscribe((/**
+            const subscription = step.activated.asObservable().subscribe((/**
              * @return {?}
              */
             () => {
@@ -452,7 +451,7 @@ TdStepsComponent.decorators = [
 TdStepsComponent.propDecorators = {
     stepsContent: [{ type: ContentChildren, args: [TdStepComponent,] }],
     mode: [{ type: Input, args: ['mode',] }],
-    onStepChange: [{ type: Output, args: ['stepChange',] }]
+    stepChange: [{ type: Output }]
 };
 
 /**
@@ -498,10 +497,10 @@ TdStepHeaderComponent.decorators = [
             }] }
 ];
 TdStepHeaderComponent.propDecorators = {
-    number: [{ type: Input, args: ['number',] }],
-    active: [{ type: Input, args: ['active',] }],
-    state: [{ type: Input, args: ['state',] }],
-    tabIndex: [{ type: Input, args: ['tabIndex',] }]
+    number: [{ type: Input }],
+    active: [{ type: Input }],
+    state: [{ type: Input }],
+    tabIndex: [{ type: Input }]
 };
 
 /**
@@ -558,8 +557,8 @@ TdStepBodyComponent.propDecorators = {
     contentRef: [{ type: ViewChild, args: ['contentRef', { read: ElementRef, static: true },] }],
     actionsRef: [{ type: ViewChild, args: ['actionsRef', { read: ElementRef, static: true },] }],
     summaryRef: [{ type: ViewChild, args: ['summaryRef', { read: ElementRef, static: true },] }],
-    active: [{ type: Input, args: ['active',] }],
-    state: [{ type: Input, args: ['state',] }]
+    active: [{ type: Input }],
+    state: [{ type: Input }]
 };
 
 /**
@@ -655,10 +654,10 @@ TdNavStepLinkComponent.ctorParameters = () => [
 ];
 TdNavStepLinkComponent.propDecorators = {
     state: [{ type: Input, args: ['state',] }],
-    label: [{ type: Input, args: ['label',] }],
-    sublabel: [{ type: Input, args: ['sublabel',] }],
+    label: [{ type: Input }],
+    sublabel: [{ type: Input }],
     active: [{ type: Input, args: ['active',] }],
-    tabIndex: [{ type: Input, args: ['tabIndex',] }]
+    tabIndex: [{ type: Input }]
 };
 
 /**
@@ -708,22 +707,22 @@ class TdNavStepsHorizontalComponent {
      */
     get nativeElementWidth() {
         /** @type {?} */
-        let element = (/** @type {?} */ (this._elementRef.nativeElement));
+        const element = (/** @type {?} */ (this._elementRef.nativeElement));
         // Need to take into account border, margin and padding that might be around all the crumbs
         /** @type {?} */
-        let style = window.getComputedStyle(element);
+        const style = window.getComputedStyle(element);
         /** @type {?} */
-        let borderLeft = parseInt(style.borderLeft, 10);
+        const borderLeft = parseInt(style.borderLeft, 10);
         /** @type {?} */
-        let borderRight = parseInt(style.borderRight, 10);
+        const borderRight = parseInt(style.borderRight, 10);
         /** @type {?} */
-        let marginLeft = parseInt(style.marginLeft, 10);
+        const marginLeft = parseInt(style.marginLeft, 10);
         /** @type {?} */
-        let marginRight = parseInt(style.marginRight, 10);
+        const marginRight = parseInt(style.marginRight, 10);
         /** @type {?} */
-        let paddingLeft = parseInt(style.paddingLeft, 10);
+        const paddingLeft = parseInt(style.paddingLeft, 10);
         /** @type {?} */
-        let paddingRight = parseInt(style.paddingRight, 10);
+        const paddingRight = parseInt(style.paddingRight, 10);
         return (element.getBoundingClientRect().width -
             borderLeft -
             borderRight -
@@ -903,7 +902,7 @@ class TdNavStepsHorizontalComponent {
             this._renderer.removeChild(this._stepList.nativeElement, separator);
         }));
         /** @type {?} */
-        let stepsArray = this._steps.toArray();
+        const stepsArray = this._steps.toArray();
         // set the index number of the step so can display that number in circle
         stepsArray.forEach((/**
          * @param {?} step
@@ -913,7 +912,7 @@ class TdNavStepsHorizontalComponent {
         (step, index) => {
             if (index > 0 && index < stepsArray.length) {
                 /** @type {?} */
-                let separator = this._renderer.createElement('div');
+                const separator = this._renderer.createElement('div');
                 this._renderer.addClass(separator, 'td-horizontal-line');
                 this._separators.push(separator);
                 this._renderer.insertBefore(this._stepList.nativeElement, separator, step.elementRef.nativeElement);
@@ -1003,7 +1002,7 @@ class TdNavStepsVerticalComponent {
             this._renderer.removeChild(this._stepList.nativeElement, separator);
         }));
         /** @type {?} */
-        let stepsArray = this._steps.toArray();
+        const stepsArray = this._steps.toArray();
         // set the index number of the step so can display that number in circle
         stepsArray.forEach((/**
          * @param {?} step
@@ -1013,10 +1012,10 @@ class TdNavStepsVerticalComponent {
         (step, index) => {
             if (index > 0 && index < stepsArray.length) {
                 /** @type {?} */
-                let separator = this._renderer.createElement('div');
+                const separator = this._renderer.createElement('div');
                 this._renderer.addClass(separator, 'td-vertical-line-wrapper');
                 /** @type {?} */
-                let separatorChild = this._renderer.createElement('div');
+                const separatorChild = this._renderer.createElement('div');
                 this._renderer.addClass(separatorChild, 'td-vertical-line');
                 this._renderer.appendChild(separator, separatorChild);
                 this._separators.push(separator);

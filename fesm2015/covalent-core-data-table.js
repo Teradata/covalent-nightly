@@ -230,25 +230,25 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
          * Event emitted when the column headers are clicked. [sortable] needs to be enabled.
          * Emits an [ITdDataTableSortChangeEvent] implemented object.
          */
-        this.onSortChange = new EventEmitter();
+        this.sortChange = new EventEmitter();
         /**
          * rowSelect?: function
          * Event emitted when a row is selected/deselected. [selectable] needs to be enabled.
          * Emits an [ITdDataTableSelectEvent] implemented object.
          */
-        this.onRowSelect = new EventEmitter();
+        this.rowSelect = new EventEmitter();
         /**
          * rowClick?: function
          * Event emitted when a row is clicked.
          * Emits an [ITdDataTableRowClickEvent] implemented object.
          */
-        this.onRowClick = new EventEmitter();
+        this.rowClick = new EventEmitter();
         /**
          * selectAll?: function
          * Event emitted when all rows are selected/deselected by the all checkbox. [selectable] needs to be enabled.
          * Emits an [ITdDataTableSelectAllEvent] implemented object.
          */
-        this.onSelectAll = new EventEmitter();
+        this.selectAll = new EventEmitter();
         /**
          * compareWith?: function(row, model): boolean
          * Allows custom comparison between row and model to see if row is selected or not
@@ -382,7 +382,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             this._columns = [];
             // if columns is undefined, use key in [data] rows as name and label for column headers.
             /** @type {?} */
-            let row = this._data[0];
+            const row = this._data[0];
             Object.keys(row).forEach((/**
              * @param {?} k
              * @return {?}
@@ -518,7 +518,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
      */
     set sortOrder(order) {
         /** @type {?} */
-        let sortOrder = order ? order.toUpperCase() : 'ASC';
+        const sortOrder = order ? order.toUpperCase() : 'ASC';
         if (sortOrder !== 'DESC' && sortOrder !== 'ASC') {
             throw new Error('[sortOrder] must be empty, ASC or DESC');
         }
@@ -604,8 +604,8 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
      * @return {?}
      */
     ngAfterContentInit() {
-        for (let i = 0; i < this._templates.toArray().length; i++) {
-            this._templateMap.set(this._templates.toArray()[i].tdDataTableTemplate, this._templates.toArray()[i].templateRef);
+        for (const template of this._templates.toArray()) {
+            this._templateMap.set(template.tdDataTableTemplate, template.templateRef);
         }
     }
     /**
@@ -620,7 +620,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         }
         if (this._elementRef.nativeElement) {
             /** @type {?} */
-            let newHostWidth = this._elementRef.nativeElement.getBoundingClientRect().width;
+            const newHostWidth = this._elementRef.nativeElement.getBoundingClientRect().width;
             // if the width has changed then we throw a resize event.
             if (this._hostWidth !== newHostWidth) {
                 setTimeout((/**
@@ -634,7 +634,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         }
         if (this._scrollableDiv.nativeElement) {
             /** @type {?} */
-            let newHostHeight = this._scrollableDiv.nativeElement.getBoundingClientRect().height;
+            const newHostHeight = this._scrollableDiv.nativeElement.getBoundingClientRect().height;
             // if the height of the viewport has changed, then we mark for check
             if (this._hostHeight !== newHostHeight) {
                 this._hostHeight = newHostHeight;
@@ -689,15 +689,15 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
      */
     handleScroll(event) {
         /** @type {?} */
-        let element = (/** @type {?} */ (event.target));
+        const element = (/** @type {?} */ (event.target));
         if (element) {
             /** @type {?} */
-            let horizontalScroll = element.scrollLeft;
+            const horizontalScroll = element.scrollLeft;
             if (this._scrollHorizontalOffset !== horizontalScroll) {
                 this._onHorizontalScroll.next(horizontalScroll);
             }
             /** @type {?} */
-            let verticalScroll = element.scrollTop;
+            const verticalScroll = element.scrollTop;
             if (this._scrollVerticalOffset !== verticalScroll) {
                 this._onVerticalScroll.next(verticalScroll);
             }
@@ -755,9 +755,9 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
      * @param {?} checked
      * @return {?}
      */
-    selectAll(checked) {
+    _selectAll(checked) {
         /** @type {?} */
-        let toggledRows = [];
+        const toggledRows = [];
         if (checked) {
             this._data.forEach((/**
              * @param {?} row
@@ -784,7 +784,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
                 if (this.isRowSelected(row)) {
                     toggledRows.push(row);
                     /** @type {?} */
-                    let modelRow = this.value.filter((/**
+                    const modelRow = this.value.filter((/**
                      * @param {?} val
                      * @return {?}
                      */
@@ -792,7 +792,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
                         return this.compareWith(row, val);
                     }))[0];
                     /** @type {?} */
-                    let index = this.value.indexOf(modelRow);
+                    const index = this.value.indexOf(modelRow);
                     if (index > -1) {
                         this.value.splice(index, 1);
                     }
@@ -801,7 +801,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             this._allSelected = false;
             this._indeterminate = false;
         }
-        this.onSelectAll.emit({ rows: toggledRows, selected: checked });
+        this.selectAll.emit({ rows: toggledRows, selected: checked });
         this.onChange(this.value);
     }
     /**
@@ -834,7 +834,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             this.blockEvent(event);
             // Check to see if Shift key is selected and need to select everything in between
             /** @type {?} */
-            let mouseEvent = (/** @type {?} */ (event));
+            const mouseEvent = (/** @type {?} */ (event));
             if (this.multiple && mouseEvent && mouseEvent.shiftKey && this._lastSelectedIndex > -1) {
                 /** @type {?} */
                 let firstIndex = currentSelected;
@@ -864,20 +864,19 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
                     }
                     for (let i = firstIndex; i <= lastIndex; i++) {
                         /** @type {?} */
-                        let rowSelected = this.isRowSelected(this._data[i]);
+                        const rowSelected = this.isRowSelected(this._data[i]);
                         // if row is selected and first checkbox was selected
                         // or if row was unselected and first checkbox was unselected
                         // we ignore the toggle
                         if ((this._firstCheckboxValue && !rowSelected) || (!this._firstCheckboxValue && rowSelected)) {
                             this._doSelection(this._data[i], i);
                         }
-                        else if (this._shiftPreviouslyPressed) {
+                        else if (this._shiftPreviouslyPressed &&
+                            ((currentSelected >= this._firstSelectedIndex && currentSelected <= this._lastSelectedIndex) ||
+                                (currentSelected <= this._firstSelectedIndex && currentSelected >= this._lastSelectedIndex))) {
                             // else if the checkbox selected was in the middle of the last selection and the first selection
                             // then we undo the selections
-                            if ((currentSelected >= this._firstSelectedIndex && currentSelected <= this._lastSelectedIndex) ||
-                                (currentSelected <= this._firstSelectedIndex && currentSelected >= this._lastSelectedIndex)) {
-                                this._doSelection(this._data[i], i);
-                            }
+                            this._doSelection(this._data[i], i);
                         }
                     }
                 }
@@ -932,12 +931,12 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             /** @type {?} */
             const srcElement = event.srcElement || event.currentTarget;
             /** @type {?} */
-            let element = (/** @type {?} */ (event.target));
+            const element = (/** @type {?} */ (event.target));
             /* tslint:disable-next-line */
             if (srcElement.getAttribute('stopRowClick') === null && element.tagName.toLowerCase() !== 'mat-pseudo-checkbox') {
-                this.onRowClick.emit({
-                    row: row,
-                    index: index,
+                this.rowClick.emit({
+                    row,
+                    index,
                 });
             }
         }
@@ -958,7 +957,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             this._sortBy = column;
             this._sortOrder = TdDataTableSortingOrder.Ascending;
         }
-        this.onSortChange.next({ name: this._sortBy.name, order: this._sortOrder });
+        this.sortChange.next({ name: this._sortBy.name, order: this._sortOrder });
     }
     /**
      * Handle all keyup events when focusing a data table row
@@ -1025,7 +1024,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         // check if there was been a separator clicked for resize
         if (this._resizingColumn !== undefined && event.clientX > 0) {
             /** @type {?} */
-            let xPosition = event.clientX;
+            const xPosition = event.clientX;
             // checks if the separator is being moved to try and resize the column, else dont do anything
             if (xPosition > 0 && this._columnClientX > 0 && xPosition - this._columnClientX !== 0) {
                 // calculate the new width depending if making the column bigger or smaller
@@ -1069,7 +1068,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         }
         if (name.indexOf('.') > -1) {
             /** @type {?} */
-            let splitName = name.split(/\.(.+)/, 2);
+            const splitName = name.split(/\.(.+)/, 2);
             return this._getNestedValue(splitName[1], value[splitName[0]]);
         }
         else {
@@ -1085,7 +1084,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
      */
     _doSelection(row, rowIndex) {
         /** @type {?} */
-        let wasSelected = this.isRowSelected(row);
+        const wasSelected = this.isRowSelected(row);
         if (!wasSelected) {
             if (!this._multiple) {
                 this.clearModel();
@@ -1102,13 +1101,13 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
                 return this.compareWith(row, val);
             }))[0];
             /** @type {?} */
-            let index = this.value.indexOf(row);
+            const index = this.value.indexOf(row);
             if (index > -1) {
                 this.value.splice(index, 1);
             }
         }
         this._calculateCheckboxState();
-        this.onRowSelect.emit({ row: row, index: rowIndex, selected: !wasSelected });
+        this.rowSelect.emit({ row, index: rowIndex, selected: !wasSelected });
         this.onChange(this.value);
         return !wasSelected;
     }
@@ -1125,7 +1124,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
              */
             (d) => !this.isRowSelected(d))) === 'undefined';
             this._indeterminate = false;
-            for (let row of this._data) {
+            for (const row of this._data) {
                 if (!this.isRowSelected(row)) {
                     continue;
                 }
@@ -1164,7 +1163,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         let fixedTotalWidth = 0;
         // get the number of total columns that have flexible widths (not fixed or hidden)
         /** @type {?} */
-        let flexibleWidths = this._widths.filter((/**
+        const flexibleWidths = this._widths.filter((/**
          * @param {?} width
          * @param {?} index
          * @return {?}
@@ -1189,7 +1188,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         // we try and spread the pixels across them
         if (flexibleWidths && recalculateHostWidth) {
             /** @type {?} */
-            let newValue = Math.floor(recalculateHostWidth / flexibleWidths);
+            const newValue = Math.floor(recalculateHostWidth / flexibleWidths);
             /** @type {?} */
             let adjustedNumber = 0;
             // adjust the column widths with the spread pixels
@@ -1207,7 +1206,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             }));
             // if there are still columns that need to be recalculated, we start over
             /** @type {?} */
-            let newFlexibleWidths = this._widths.filter((/**
+            const newFlexibleWidths = this._widths.filter((/**
              * @param {?} width
              * @return {?}
              */
@@ -1228,8 +1227,8 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
      */
     _adjustColumnWidth(index, value) {
         this._widths[index] = {
-            value: value,
-            index: index,
+            value,
+            index,
             limit: false,
             min: false,
             max: false,
@@ -1242,7 +1241,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             // if the provided width has min/max, then we check to see if we need to set it
             if (typeof this.columns[index].width === 'object') {
                 /** @type {?} */
-                let widthOpts = (/** @type {?} */ (this.columns[index].width));
+                const widthOpts = (/** @type {?} */ (this.columns[index].width));
                 // if the column width is less than the configured min, we override it
                 skipMinWidthProjection = widthOpts && !!widthOpts.min;
                 if (widthOpts && widthOpts.min >= this._widths[index].value) {
@@ -1275,7 +1274,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
      */
     _calculateWidth() {
         /** @type {?} */
-        let renderedColumns = this.columns.filter((/**
+        const renderedColumns = this.columns.filter((/**
          * @param {?} col
          * @return {?}
          */
@@ -1316,7 +1315,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             this._totalHeight = rowHeightSum;
             // set the initial row to be rendered taking into account the row offset
             /** @type {?} */
-            let fromRow = scrolledRows - TD_VIRTUAL_OFFSET;
+            const fromRow = scrolledRows - TD_VIRTUAL_OFFSET;
             this._fromRow = fromRow > 0 ? fromRow : 0;
             /** @type {?} */
             let hostHeight = this._hostHeight;
@@ -1329,7 +1328,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             }
             // set the last row to be rendered taking into account the row offset
             /** @type {?} */
-            let range = index - 1 + TD_VIRTUAL_OFFSET * 2;
+            const range = index - 1 + TD_VIRTUAL_OFFSET * 2;
             /** @type {?} */
             let toRow = range + this.fromRow;
             // if last row is greater than the total length, then we use the total length
@@ -1381,7 +1380,7 @@ TdDataTableComponent.decorators = [
                     },
                 ],
                 selector: 'td-data-table',
-                template: "<table td-data-table [style.left.px]=\"columnsLeftScroll\" [class.mat-selectable]=\"selectable\">\n  <thead class=\"td-data-table-head\" (dragover)=\"_handleColumnDrag($event)\">\n    <tr td-data-table-column-row>\n      <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"selectable\">\n        <mat-checkbox\n          #checkBoxAll\n          *ngIf=\"multiple\"\n          [disabled]=\"!hasData\"\n          [indeterminate]=\"indeterminate && !allSelected && hasData\"\n          [checked]=\"allSelected && hasData\"\n          (click)=\"blockEvent($event); selectAll(!checkBoxAll.checked)\"\n          (keyup.enter)=\"selectAll(!checkBoxAll.checked)\"\n          (keyup.space)=\"selectAll(!checkBoxAll.checked)\"\n          (keydown.space)=\"blockEvent($event)\"\n        ></mat-checkbox>\n      </th>\n      <th\n        td-data-table-column\n        #columnElement\n        *ngFor=\"let column of columns; let i = index; let last = last\"\n        [style.min-width.px]=\"getColumnWidth(i)\"\n        [style.max-width.px]=\"getColumnWidth(i)\"\n        [name]=\"column.name\"\n        [numeric]=\"column.numeric\"\n        [active]=\"(column.sortable || sortable) && column === sortByColumn\"\n        [sortable]=\"column.sortable || (sortable && column.sortable !== false)\"\n        [sortOrder]=\"sortOrderEnum\"\n        [hidden]=\"column.hidden\"\n        (sortChange)=\"handleSort(column)\"\n      >\n        <span [matTooltip]=\"column.tooltip\">{{ column.label }}</span>\n        <span\n          td-column-resizer\n          *ngIf=\"resizableColumns\"\n          draggable=\"true\"\n          class=\"td-data-table-column-resizer\"\n          [class.td-resizing]=\"i === resizingColumn\"\n          (mousedown)=\"_handleStartColumnDrag(i, $event)\"\n          (dragstart)=\"$event?.dataTransfer?.setData('text', '')\"\n          (drag)=\"_handleColumnDrag($event)\"\n          (dragend)=\"_handleEndColumnDrag()\"\n          (mouseup)=\"_handleEndColumnDrag()\"\n        >\n          <span class=\"td-data-table-column-separator\"></span>\n        </span>\n      </th>\n    </tr>\n  </thead>\n</table>\n<div #scrollableDiv class=\"td-data-table-scrollable\" (scroll)=\"handleScroll($event)\">\n  <div [style.height.px]=\"totalHeight\"></div>\n  <table\n    td-data-table\n    [style.transform]=\"offsetTransform\"\n    [style.position]=\"'absolute'\"\n    [class.mat-selectable]=\"selectable\"\n    [class.mat-clickable]=\"clickable\"\n  >\n    <tbody class=\"td-data-table-body\">\n      <tr\n        td-data-table-row\n        #dtRow\n        [tabIndex]=\"selectable ? 0 : -1\"\n        [selected]=\"(clickable || selectable) && isRowSelected(row)\"\n        *ngFor=\"let row of virtualData; let rowIndex = index\"\n        (click)=\"handleRowClick(row, fromRow + rowIndex, $event)\"\n        (keyup)=\"selectable && _rowKeyup($event, row, rowIndex)\"\n        (keydown.space)=\"blockEvent($event)\"\n        (keydown.shift.space)=\"blockEvent($event)\"\n        (keydown.shift)=\"disableTextSelection()\"\n        (keyup.shift)=\"enableTextSelection()\"\n      >\n        <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"selectable\">\n          <mat-pseudo-checkbox\n            [state]=\"dtRow.selected ? 'checked' : 'unchecked'\"\n            (mousedown)=\"disableTextSelection()\"\n            (mouseup)=\"enableTextSelection()\"\n            stopRowClick\n            (click)=\"select(row, $event, fromRow + rowIndex)\"\n          ></mat-pseudo-checkbox>\n        </td>\n        <td\n          td-data-table-cell\n          [numeric]=\"column.numeric\"\n          [hidden]=\"column.hidden\"\n          *ngFor=\"let column of columns; let i = index\"\n          [style.min-width.px]=\"getColumnWidth(i)\"\n          [style.max-width.px]=\"getColumnWidth(i)\"\n        >\n          <span *ngIf=\"!getTemplateRef(column.name)\">\n            {{ column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row) }}\n          </span>\n          <ng-template\n            *ngIf=\"getTemplateRef(column.name)\"\n            [ngTemplateOutlet]=\"getTemplateRef(column.name)\"\n            [ngTemplateOutletContext]=\"{\n              value: getCellValue(column, row),\n              row: row,\n              column: column.name,\n              index: rowIndex\n            }\"\n          ></ng-template>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n<ng-content></ng-content>\n",
+                template: "<table td-data-table [style.left.px]=\"columnsLeftScroll\" [class.mat-selectable]=\"selectable\">\n  <thead class=\"td-data-table-head\" (dragover)=\"_handleColumnDrag($event)\">\n    <tr td-data-table-column-row>\n      <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"selectable\">\n        <mat-checkbox\n          #checkBoxAll\n          *ngIf=\"multiple\"\n          [disabled]=\"!hasData\"\n          [indeterminate]=\"indeterminate && !allSelected && hasData\"\n          [checked]=\"allSelected && hasData\"\n          (click)=\"blockEvent($event); _selectAll(!checkBoxAll.checked)\"\n          (keyup.enter)=\"_selectAll(!checkBoxAll.checked)\"\n          (keyup.space)=\"_selectAll(!checkBoxAll.checked)\"\n          (keydown.space)=\"blockEvent($event)\"\n        ></mat-checkbox>\n      </th>\n      <th\n        td-data-table-column\n        #columnElement\n        *ngFor=\"let column of columns; let i = index; let last = last\"\n        [style.min-width.px]=\"getColumnWidth(i)\"\n        [style.max-width.px]=\"getColumnWidth(i)\"\n        [name]=\"column.name\"\n        [numeric]=\"column.numeric\"\n        [active]=\"(column.sortable || sortable) && column === sortByColumn\"\n        [sortable]=\"column.sortable || (sortable && column.sortable !== false)\"\n        [sortOrder]=\"sortOrderEnum\"\n        [hidden]=\"column.hidden\"\n        (sortChange)=\"handleSort(column)\"\n      >\n        <span [matTooltip]=\"column.tooltip\">{{ column.label }}</span>\n        <span\n          td-column-resizer\n          *ngIf=\"resizableColumns\"\n          draggable=\"true\"\n          class=\"td-data-table-column-resizer\"\n          [class.td-resizing]=\"i === resizingColumn\"\n          (mousedown)=\"_handleStartColumnDrag(i, $event)\"\n          (dragstart)=\"$event?.dataTransfer?.setData('text', '')\"\n          (drag)=\"_handleColumnDrag($event)\"\n          (dragend)=\"_handleEndColumnDrag()\"\n          (mouseup)=\"_handleEndColumnDrag()\"\n        >\n          <span class=\"td-data-table-column-separator\"></span>\n        </span>\n      </th>\n    </tr>\n  </thead>\n</table>\n<div #scrollableDiv class=\"td-data-table-scrollable\" (scroll)=\"handleScroll($event)\">\n  <div [style.height.px]=\"totalHeight\"></div>\n  <table\n    td-data-table\n    [style.transform]=\"offsetTransform\"\n    [style.position]=\"'absolute'\"\n    [class.mat-selectable]=\"selectable\"\n    [class.mat-clickable]=\"clickable\"\n  >\n    <tbody class=\"td-data-table-body\">\n      <tr\n        td-data-table-row\n        #dtRow\n        [tabIndex]=\"selectable ? 0 : -1\"\n        [selected]=\"(clickable || selectable) && isRowSelected(row)\"\n        *ngFor=\"let row of virtualData; let rowIndex = index\"\n        (click)=\"handleRowClick(row, fromRow + rowIndex, $event)\"\n        (keyup)=\"selectable && _rowKeyup($event, row, rowIndex)\"\n        (keydown.space)=\"blockEvent($event)\"\n        (keydown.shift.space)=\"blockEvent($event)\"\n        (keydown.shift)=\"disableTextSelection()\"\n        (keyup.shift)=\"enableTextSelection()\"\n      >\n        <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"selectable\">\n          <mat-pseudo-checkbox\n            [state]=\"dtRow.selected ? 'checked' : 'unchecked'\"\n            (mousedown)=\"disableTextSelection()\"\n            (mouseup)=\"enableTextSelection()\"\n            stopRowClick\n            (click)=\"select(row, $event, fromRow + rowIndex)\"\n          ></mat-pseudo-checkbox>\n        </td>\n        <td\n          td-data-table-cell\n          [numeric]=\"column.numeric\"\n          [hidden]=\"column.hidden\"\n          *ngFor=\"let column of columns; let i = index\"\n          [style.min-width.px]=\"getColumnWidth(i)\"\n          [style.max-width.px]=\"getColumnWidth(i)\"\n        >\n          <span *ngIf=\"!getTemplateRef(column.name)\">\n            {{ column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row) }}\n          </span>\n          <ng-template\n            *ngIf=\"getTemplateRef(column.name)\"\n            [ngTemplateOutlet]=\"getTemplateRef(column.name)\"\n            [ngTemplateOutletContext]=\"{\n              value: getCellValue(column, row),\n              row: row,\n              column: column.name,\n              index: rowIndex\n            }\"\n          ></ng-template>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n<ng-content></ng-content>\n",
                 inputs: ['value'],
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 styles: [":host{display:block;overflow:hidden}:host .td-data-table-scrollable{position:relative;overflow:auto;height:calc(100% - 56px)}.td-data-table-column-resizer{right:0;width:6px;cursor:col-resize}.td-data-table-column-resizer,.td-data-table-column-resizer .td-data-table-column-separator{position:absolute;height:100%;top:0}.td-data-table-column-resizer .td-data-table-column-separator{left:2px}.td-data-table-column-resizer.td-resizing{cursor:-webkit-grabbing}table.td-data-table{width:auto!important}table.td-data-table.mat-selectable tbody>tr.td-data-table-row{transition:background-color .2s}table.td-data-table.mat-selectable .td-data-table-column:first-child>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable td.td-data-table-cell:first-child>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable th.td-data-table-column:first-child>.td-data-table-column-content-wrapper{width:18px;min-width:18px;padding:0 24px}table.td-data-table.mat-selectable .td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2)>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper{padding-left:0}[dir=rtl] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper,[dir=rtl] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2)>.td-data-table-column-content-wrapper,[dir=rtl] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper{padding-right:0;padding-left:28px}table.td-data-table td.mat-checkbox-cell,table.td-data-table th.mat-checkbox-column{min-width:42px;width:42px;font-size:0!important}table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox,table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox{width:18px;height:18px}::ng-deep table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after,::ng-deep table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after{width:11px!important;height:4px!important}table.td-data-table td.mat-checkbox-cell mat-checkbox ::ng-deep .mat-checkbox-inner-container,table.td-data-table th.mat-checkbox-column mat-checkbox ::ng-deep .mat-checkbox-inner-container{width:18px;height:18px;margin:0}"]
@@ -1408,11 +1407,11 @@ TdDataTableComponent.propDecorators = {
     sortable: [{ type: Input, args: ['sortable',] }],
     sortBy: [{ type: Input, args: ['sortBy',] }],
     sortOrder: [{ type: Input, args: ['sortOrder',] }],
-    onSortChange: [{ type: Output, args: ['sortChange',] }],
-    onRowSelect: [{ type: Output, args: ['rowSelect',] }],
-    onRowClick: [{ type: Output, args: ['rowClick',] }],
-    onSelectAll: [{ type: Output, args: ['selectAll',] }],
-    compareWith: [{ type: Input, args: ['compareWith',] }]
+    sortChange: [{ type: Output }],
+    rowSelect: [{ type: Output }],
+    rowClick: [{ type: Output }],
+    selectAll: [{ type: Output }],
+    compareWith: [{ type: Input }]
 };
 
 /**
@@ -1456,7 +1455,7 @@ class TdDataTableColumnComponent {
          * Event emitted when the column headers are clicked. [sortable] needs to be enabled.
          * Emits an [ITdDataTableSortChangeEvent] implemented object.
          */
-        this.onSortChange = new EventEmitter();
+        this.sortChange = new EventEmitter();
         this._renderer.addClass(this._elementRef.nativeElement, 'td-data-table-column');
     }
     /**
@@ -1477,7 +1476,7 @@ class TdDataTableColumnComponent {
      */
     set sortOrder(order) {
         /** @type {?} */
-        let sortOrder = order ? order.toUpperCase() : 'ASC';
+        const sortOrder = order ? order.toUpperCase() : 'ASC';
         if (sortOrder !== 'DESC' && sortOrder !== 'ASC') {
             throw new Error('[sortOrder] must be empty, ASC or DESC');
         }
@@ -1513,7 +1512,7 @@ class TdDataTableColumnComponent {
      */
     handleClick() {
         if (this.sortable) {
-            this.onSortChange.emit({ name: this.name, order: this._sortOrder });
+            this.sortChange.emit({ name: this.name, order: this._sortOrder });
         }
     }
     /**
@@ -1544,12 +1543,12 @@ TdDataTableColumnComponent.ctorParameters = () => [
 ];
 TdDataTableColumnComponent.propDecorators = {
     _columnContent: [{ type: ViewChild, args: ['columnContent', { read: ElementRef, static: true },] }],
-    name: [{ type: Input, args: ['name',] }],
-    sortable: [{ type: Input, args: ['sortable',] }],
-    active: [{ type: Input, args: ['active',] }],
-    numeric: [{ type: Input, args: ['numeric',] }],
+    name: [{ type: Input }],
+    sortable: [{ type: Input }],
+    active: [{ type: Input }],
+    numeric: [{ type: Input }],
     sortOrder: [{ type: Input, args: ['sortOrder',] }],
-    onSortChange: [{ type: Output, args: ['sortChange',] }],
+    sortChange: [{ type: Output }],
     bindClickable: [{ type: HostBinding, args: ['class.mat-clickable',] }],
     bingSortable: [{ type: HostBinding, args: ['class.mat-sortable',] }],
     bindActive: [{ type: HostBinding, args: ['class.mat-active',] }],
@@ -1614,7 +1613,7 @@ TdDataTableCellComponent.ctorParameters = () => [
     { type: Renderer2 }
 ];
 TdDataTableCellComponent.propDecorators = {
-    numeric: [{ type: Input, args: ['numeric',] }],
+    numeric: [{ type: Input }],
     align: [{ type: Input }],
     bindNumeric: [{ type: HostBinding, args: ['class.mat-numeric',] }]
 };
@@ -1693,7 +1692,7 @@ class TdDataTableService {
      */
     filterData(data, searchTerm, ignoreCase = false, excludedColumns) {
         /** @type {?} */
-        let filter = searchTerm ? (ignoreCase ? searchTerm.toLowerCase() : searchTerm) : '';
+        const filter = searchTerm ? (ignoreCase ? searchTerm.toLowerCase() : searchTerm) : '';
         if (filter) {
             data = data.filter((/**
              * @param {?} item
@@ -1714,7 +1713,7 @@ class TdDataTableService {
                         return itemValue.indexOf(filter) > -1;
                     }
                 }));
-                return !(typeof res === 'undefined');
+                return typeof res !== 'undefined';
             }));
         }
         return data;
@@ -1741,9 +1740,9 @@ class TdDataTableService {
              */
             (a, b) => {
                 /** @type {?} */
-                let compA = a[sortBy];
+                const compA = a[sortBy];
                 /** @type {?} */
-                let compB = b[sortBy];
+                const compB = b[sortBy];
                 /** @type {?} */
                 let direction = 0;
                 if (!Number.isNaN(Number.parseFloat(compA)) && !Number.isNaN(Number.parseFloat(compB))) {

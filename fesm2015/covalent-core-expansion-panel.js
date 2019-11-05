@@ -191,14 +191,14 @@ class TdExpansionPanelComponent extends _TdExpansionPanelMixinBase {
      * @return {?}
      */
     _onExpanded() {
-        this.expanded.emit(undefined);
+        this.expanded.emit();
     }
     /**
      * @private
      * @return {?}
      */
     _onCollapsed() {
-        this.collapsed.emit(undefined);
+        this.collapsed.emit();
     }
 }
 TdExpansionPanelComponent.decorators = [

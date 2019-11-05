@@ -1308,6 +1308,7 @@ var CovalentValidators = /** @class */ (function () {
      * @return {?}
      */
     function (minValue) {
+        // tslint:disable-next-line:prefer-immediate-return
         /** @type {?} */
         var func = (/**
          * @param {?} c
@@ -1332,6 +1333,7 @@ var CovalentValidators = /** @class */ (function () {
      * @return {?}
      */
     function (maxValue) {
+        // tslint:disable-next-line:prefer-immediate-return
         /** @type {?} */
         var func = (/**
          * @param {?} c
@@ -1418,16 +1420,27 @@ function convertObjectsToCSV(objects, keySeparator, lineSeparator) {
      * @return {?}
      */
     function (value, key) {
+        var e_1, _a;
         /** @type {?} */
         var line = '';
-        for (var index in objects[key]) {
-            if (line !== '') {
-                line += keySeparator;
+        try {
+            for (var _b = __values(Object.keys(objects[key])), _c = _b.next(); !_c.done; _c = _b.next()) {
+                var index = _c.value;
+                if (line !== '') {
+                    line += keySeparator;
+                }
+                if (objects[key][index] === null || objects[key][index] === undefined) {
+                    objects[key][index] = '';
+                }
+                line += objects[key][index];
             }
-            if (objects[key][index] === null || objects[key][index] === undefined) {
-                objects[key][index] = '';
+        }
+        catch (e_1_1) { e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
             }
-            line += objects[key][index];
+            finally { if (e_1) throw e_1.error; }
         }
         outputString += "" + line + lineSeparator;
     }));

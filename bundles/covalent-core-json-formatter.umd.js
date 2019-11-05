@@ -4,6 +4,32 @@
     (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core['json-formatter'] = {}), global.ng.core, global.ng.common, global.ng.material.tooltip, global.ng.material.icon, global.ng.cdk.bidi, global.covalent.core.common));
 }(this, function (exports, core, common, tooltip, icon, bidi, common$1) { 'use strict';
 
+    /*! *****************************************************************************
+    Copyright (c) Microsoft Corporation. All rights reserved.
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+    this file except in compliance with the License. You may obtain a copy of the
+    License at http://www.apache.org/licenses/LICENSE-2.0
+
+    THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+    WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+    MERCHANTABLITY OR NON-INFRINGEMENT.
+
+    See the Apache Version 2.0 License for specific language governing permissions
+    and limitations under the License.
+    ***************************************************************************** */
+
+    function __values(o) {
+        var m = typeof Symbol === "function" && o[Symbol.iterator], i = 0;
+        if (m) return m.call(o);
+        return {
+            next: function () {
+                if (o && i >= o.length) o = void 0;
+                return { value: o && o[i++], done: !o };
+            }
+        };
+    }
+
     /**
      * @fileoverview added by tsickle
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
@@ -242,10 +268,8 @@
                 }
                 /** @type {?} */
                 var date = new Date(object);
-                if (Object.prototype.toString.call(date) === '[object Date]') {
-                    if (!Number.isNaN(date.getTime())) {
-                        return 'date';
-                    }
+                if (Object.prototype.toString.call(date) === '[object Date]' && !Number.isNaN(date.getTime())) {
+                    return 'date';
                 }
             }
             return typeof object;
@@ -342,10 +366,21 @@
          * @return {?}
          */
         function () {
+            var e_1, _a;
             if (this.isObject()) {
                 this._children = [];
-                for (var key in this._data) {
-                    this._children.push(key);
+                try {
+                    for (var _b = __values(Object.keys(this._data)), _c = _b.next(); !_c.done; _c = _b.next()) {
+                        var key = _c.value;
+                        this._children.push(key);
+                    }
+                }
+                catch (e_1_1) { e_1 = { error: e_1_1 }; }
+                finally {
+                    try {
+                        if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+                    }
+                    finally { if (e_1) throw e_1.error; }
                 }
             }
         };

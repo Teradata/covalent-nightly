@@ -40,7 +40,7 @@ var TdPagingBarComponent = /** @class */ (function () {
          * Method to be executed when page size changes or any button is clicked in the paging bar.
          * Emits an [IPageChangeEvent] implemented object.
          */
-        this.onChange = new EventEmitter();
+        this.change = new EventEmitter();
     }
     Object.defineProperty(TdPagingBarComponent.prototype, "pageLinkCount", {
         get: /**
@@ -418,7 +418,7 @@ var TdPagingBarComponent = /** @class */ (function () {
             toRow: this._toRow,
         };
         this._changeDetectorRef.markForCheck();
-        this.onChange.emit(event);
+        this.change.emit(event);
     };
     TdPagingBarComponent.decorators = [
         { type: Component, args: [{
@@ -434,12 +434,12 @@ var TdPagingBarComponent = /** @class */ (function () {
         { type: ChangeDetectorRef }
     ]; };
     TdPagingBarComponent.propDecorators = {
-        firstLast: [{ type: Input, args: ['firstLast',] }],
-        initialPage: [{ type: Input, args: ['initialPage',] }],
+        firstLast: [{ type: Input }],
+        initialPage: [{ type: Input }],
         pageLinkCount: [{ type: Input, args: ['pageLinkCount',] }],
         pageSize: [{ type: Input, args: ['pageSize',] }],
         total: [{ type: Input, args: ['total',] }],
-        onChange: [{ type: Output, args: ['change',] }]
+        change: [{ type: Output }]
     };
     return TdPagingBarComponent;
 }());

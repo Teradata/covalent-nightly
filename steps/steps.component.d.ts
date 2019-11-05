@@ -23,13 +23,13 @@ export declare class TdStepsComponent implements OnDestroy, AfterContentInit {
     mode: StepMode;
     /**
      * stepChange?: function
-     * Method to be executed when [onStepChange] event is emitted.
+     * Method to be executed when [stepChange] event is emitted.
      * Emits an [IStepChangeEvent] implemented object.
      */
-    onStepChange: EventEmitter<IStepChangeEvent>;
+    stepChange: EventEmitter<IStepChangeEvent>;
     /**
      * Executed after content is initialized, loops through any [TdStepComponent] children elements,
-     * assigns them a number and subscribes as an observer to their [onActivated] event.
+     * assigns them a number and subscribes as an observer to their [activated] event.
      */
     ngAfterContentInit(): void;
     /**
@@ -47,7 +47,7 @@ export declare class TdStepsComponent implements OnDestroy, AfterContentInit {
     areStepsActive(): boolean;
     /**
      * Wraps previous and new [TdStepComponent] numbers in an object that implements [IStepChangeEvent]
-     * and emits [onStepChange] event.
+     * and emits [stepChange] event.
      */
     private _onStepSelection;
     /**

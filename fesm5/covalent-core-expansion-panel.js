@@ -253,7 +253,7 @@ var TdExpansionPanelComponent = /** @class */ (function (_super) {
      * @return {?}
      */
     function () {
-        this.expanded.emit(undefined);
+        this.expanded.emit();
     };
     /**
      * @private
@@ -264,7 +264,7 @@ var TdExpansionPanelComponent = /** @class */ (function (_super) {
      * @return {?}
      */
     function () {
-        this.collapsed.emit(undefined);
+        this.collapsed.emit();
     };
     TdExpansionPanelComponent.decorators = [
         { type: Component, args: [{

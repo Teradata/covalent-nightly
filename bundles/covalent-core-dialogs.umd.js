@@ -229,7 +229,7 @@
          * @return {?}
          */
         function () {
-            this._dialogRef.close(undefined);
+            this._dialogRef.close();
         };
         /**
          * @return {?}

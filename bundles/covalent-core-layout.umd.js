@@ -148,10 +148,10 @@
         ];
         TdLayoutComponent.propDecorators = {
             sidenav: [{ type: core.ViewChild, args: [sidenav.MatSidenav, { static: true },] }],
-            mode: [{ type: core.Input, args: ['mode',] }],
-            opened: [{ type: core.Input, args: ['opened',] }],
-            sidenavWidth: [{ type: core.Input, args: ['sidenavWidth',] }],
-            containerAutosize: [{ type: core.Input, args: ['containerAutosize',] }]
+            mode: [{ type: core.Input }],
+            opened: [{ type: core.Input }],
+            sidenavWidth: [{ type: core.Input }],
+            containerAutosize: [{ type: core.Input }]
         };
         return TdLayoutComponent;
     }());
@@ -495,11 +495,11 @@
             { type: router.Router, decorators: [{ type: core.Optional }] }
         ]; };
         TdLayoutNavComponent.propDecorators = {
-            toolbarTitle: [{ type: core.Input, args: ['toolbarTitle',] }],
-            icon: [{ type: core.Input, args: ['icon',] }],
-            logo: [{ type: core.Input, args: ['logo',] }],
-            color: [{ type: core.Input, args: ['color',] }],
-            navigationRoute: [{ type: core.Input, args: ['navigationRoute',] }]
+            toolbarTitle: [{ type: core.Input }],
+            icon: [{ type: core.Input }],
+            logo: [{ type: core.Input }],
+            color: [{ type: core.Input }],
+            navigationRoute: [{ type: core.Input }]
         };
         return TdLayoutNavComponent;
     }());
@@ -655,15 +655,15 @@
         ]; };
         TdLayoutNavListComponent.propDecorators = {
             sidenav: [{ type: core.ViewChild, args: [sidenav.MatSidenav, { static: true },] }],
-            toolbarTitle: [{ type: core.Input, args: ['toolbarTitle',] }],
-            icon: [{ type: core.Input, args: ['icon',] }],
-            logo: [{ type: core.Input, args: ['logo',] }],
-            color: [{ type: core.Input, args: ['color',] }],
-            mode: [{ type: core.Input, args: ['mode',] }],
-            opened: [{ type: core.Input, args: ['opened',] }],
-            sidenavWidth: [{ type: core.Input, args: ['sidenavWidth',] }],
-            containerAutosize: [{ type: core.Input, args: ['containerAutosize',] }],
-            navigationRoute: [{ type: core.Input, args: ['navigationRoute',] }]
+            toolbarTitle: [{ type: core.Input }],
+            icon: [{ type: core.Input }],
+            logo: [{ type: core.Input }],
+            color: [{ type: core.Input }],
+            mode: [{ type: core.Input }],
+            opened: [{ type: core.Input }],
+            sidenavWidth: [{ type: core.Input }],
+            containerAutosize: [{ type: core.Input }],
+            navigationRoute: [{ type: core.Input }]
         };
         return TdLayoutNavListComponent;
     }());
@@ -837,10 +837,10 @@
                     }] }
         ];
         TdLayoutCardOverComponent.propDecorators = {
-            cardTitle: [{ type: core.Input, args: ['cardTitle',] }],
-            cardSubtitle: [{ type: core.Input, args: ['cardSubtitle',] }],
-            cardWidth: [{ type: core.Input, args: ['cardWidth',] }],
-            color: [{ type: core.Input, args: ['color',] }]
+            cardTitle: [{ type: core.Input }],
+            cardSubtitle: [{ type: core.Input }],
+            cardWidth: [{ type: core.Input }],
+            color: [{ type: core.Input }]
         };
         return TdLayoutCardOverComponent;
     }());
@@ -960,10 +960,10 @@
         ];
         TdLayoutManageListComponent.propDecorators = {
             sidenav: [{ type: core.ViewChild, args: [sidenav.MatSidenav, { static: true },] }],
-            mode: [{ type: core.Input, args: ['mode',] }],
-            opened: [{ type: core.Input, args: ['opened',] }],
-            sidenavWidth: [{ type: core.Input, args: ['sidenavWidth',] }],
-            containerAutosize: [{ type: core.Input, args: ['containerAutosize',] }]
+            mode: [{ type: core.Input }],
+            opened: [{ type: core.Input }],
+            sidenavWidth: [{ type: core.Input }],
+            containerAutosize: [{ type: core.Input }]
         };
         return TdLayoutManageListComponent;
     }());
@@ -1413,15 +1413,15 @@
         TdNavigationDrawerComponent.propDecorators = {
             _drawerMenu: [{ type: core.ContentChildren, args: [TdNavigationDrawerMenuDirective,] }],
             _toolbar: [{ type: core.ContentChildren, args: [TdNavigationDrawerToolbarDirective,] }],
-            sidenavTitle: [{ type: core.Input, args: ['sidenavTitle',] }],
-            icon: [{ type: core.Input, args: ['icon',] }],
-            logo: [{ type: core.Input, args: ['logo',] }],
-            avatar: [{ type: core.Input, args: ['avatar',] }],
-            color: [{ type: core.Input, args: ['color',] }],
-            navigationRoute: [{ type: core.Input, args: ['navigationRoute',] }],
+            sidenavTitle: [{ type: core.Input }],
+            icon: [{ type: core.Input }],
+            logo: [{ type: core.Input }],
+            avatar: [{ type: core.Input }],
+            color: [{ type: core.Input }],
+            navigationRoute: [{ type: core.Input }],
             backgroundUrl: [{ type: core.Input, args: ['backgroundUrl',] }],
-            name: [{ type: core.Input, args: ['name',] }],
-            email: [{ type: core.Input, args: ['email',] }]
+            name: [{ type: core.Input }],
+            email: [{ type: core.Input }]
         };
         return TdNavigationDrawerComponent;
     }());

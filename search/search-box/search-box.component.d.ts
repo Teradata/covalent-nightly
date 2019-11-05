@@ -52,22 +52,22 @@ export declare class TdSearchBoxComponent extends _TdSearchBoxMixinBase implemen
      * searchDebounce: function($event)
      * Event emitted after the [debounce] timeout.
      */
-    onSearchDebounce: EventEmitter<string>;
+    searchDebounce: EventEmitter<string>;
     /**
      * search: function($event)
      * Event emitted after the key enter has been pressed.
      */
-    onSearch: EventEmitter<string>;
+    search: EventEmitter<string>;
     /**
      * clear: function()
      * Event emitted after the clear icon has been clicked.
      */
-    onClear: EventEmitter<void>;
+    clear: EventEmitter<void>;
     /**
      * blur: function()
      * Event emitted after the blur event has been called in underlying input.
      */
-    onBlur: EventEmitter<void>;
+    blur: EventEmitter<void>;
     constructor(_changeDetectorRef: ChangeDetectorRef);
     /**
      * Method executed when the search icon is clicked.

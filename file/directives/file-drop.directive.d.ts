@@ -19,7 +19,7 @@ export declare class TdFileDropDirective extends _TdFileDropMixinBase implements
      * Event emitted when a file or files are dropped in host element after being validated.
      * Emits a [FileList | File] object.
      */
-    onFileDrop: EventEmitter<FileList | File>;
+    fileDrop: EventEmitter<FileList | File>;
     /**
      * Binds native 'multiple' attribute if [multiple] property is 'true'.
      */
@@ -31,7 +31,7 @@ export declare class TdFileDropDirective extends _TdFileDropMixinBase implements
     constructor(_renderer: Renderer2, _element: ElementRef);
     /**
      * Listens to 'drop' host event to get validated transfer items.
-     * Emits the 'onFileDrop' event with a [FileList] or [File] depending if 'multiple' attr exists in host.
+     * Emits the 'fileDrop' event with a [FileList] or [File] depending if 'multiple' attr exists in host.
      * Stops event propagation and default action from browser for 'drop' event.
      */
     onDrop(event: Event): void;

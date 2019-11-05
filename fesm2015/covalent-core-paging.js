@@ -44,7 +44,7 @@ class TdPagingBarComponent {
          * Method to be executed when page size changes or any button is clicked in the paging bar.
          * Emits an [IPageChangeEvent] implemented object.
          */
-        this.onChange = new EventEmitter();
+        this.change = new EventEmitter();
     }
     /**
      * pageLinkCount?: number
@@ -216,7 +216,7 @@ class TdPagingBarComponent {
      */
     _calculateRows() {
         /** @type {?} */
-        let top = this._pageSize * this._page;
+        const top = this._pageSize * this._page;
         this._fromRow = this._pageSize * (this._page - 1) + 1;
         this._toRow = this._total > top ? top : this._total;
     }
@@ -247,7 +247,7 @@ class TdPagingBarComponent {
         this._pageLinks = [];
         // fill in the array with the pageLinks based on the current selected page
         /** @type {?} */
-        let middlePageLinks = Math.floor(actualPageLinkCount / 2);
+        const middlePageLinks = Math.floor(actualPageLinkCount / 2);
         for (let x = 0; x < actualPageLinkCount; x++) {
             // don't go past the maxPage in the pageLinks
             // have to handle even and odd pageLinkCounts differently so can still lead to the next numbers
@@ -280,7 +280,7 @@ class TdPagingBarComponent {
         this._calculateRows();
         this._calculatePageLinks();
         /** @type {?} */
-        let event = {
+        const event = {
             page: this._page,
             maxPage: this.maxPage,
             pageSize: this._pageSize,
@@ -289,7 +289,7 @@ class TdPagingBarComponent {
             toRow: this._toRow,
         };
         this._changeDetectorRef.markForCheck();
-        this.onChange.emit(event);
+        this.change.emit(event);
     }
 }
 TdPagingBarComponent.decorators = [
@@ -306,12 +306,12 @@ TdPagingBarComponent.ctorParameters = () => [
     { type: ChangeDetectorRef }
 ];
 TdPagingBarComponent.propDecorators = {
-    firstLast: [{ type: Input, args: ['firstLast',] }],
-    initialPage: [{ type: Input, args: ['initialPage',] }],
+    firstLast: [{ type: Input }],
+    initialPage: [{ type: Input }],
     pageLinkCount: [{ type: Input, args: ['pageLinkCount',] }],
     pageSize: [{ type: Input, args: ['pageSize',] }],
     total: [{ type: Input, args: ['total',] }],
-    onChange: [{ type: Output, args: ['change',] }]
+    change: [{ type: Output }]
 };
 
 /**

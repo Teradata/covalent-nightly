@@ -74,7 +74,7 @@ class TdPagingBarComponent {
          * Method to be executed when page size changes or any button is clicked in the paging bar.
          * Emits an [IPageChangeEvent] implemented object.
          */
-        this.onChange = new EventEmitter();
+        this.change = new EventEmitter();
     }
     /**
      * pageLinkCount?: number
@@ -246,7 +246,7 @@ class TdPagingBarComponent {
      */
     _calculateRows() {
         /** @type {?} */
-        let top = this._pageSize * this._page;
+        const top = this._pageSize * this._page;
         this._fromRow = this._pageSize * (this._page - 1) + 1;
         this._toRow = this._total > top ? top : this._total;
     }
@@ -277,7 +277,7 @@ class TdPagingBarComponent {
         this._pageLinks = [];
         // fill in the array with the pageLinks based on the current selected page
         /** @type {?} */
-        let middlePageLinks = Math.floor(actualPageLinkCount / 2);
+        const middlePageLinks = Math.floor(actualPageLinkCount / 2);
         for (let x = 0; x < actualPageLinkCount; x++) {
             // don't go past the maxPage in the pageLinks
             // have to handle even and odd pageLinkCounts differently so can still lead to the next numbers
@@ -310,7 +310,7 @@ class TdPagingBarComponent {
         this._calculateRows();
         this._calculatePageLinks();
         /** @type {?} */
-        let event = {
+        const event = {
             page: this._page,
             maxPage: this.maxPage,
             pageSize: this._pageSize,
@@ -319,7 +319,7 @@ class TdPagingBarComponent {
             toRow: this._toRow,
         };
         this._changeDetectorRef.markForCheck();
-        this.onChange.emit(event);
+        this.change.emit(event);
     }
 }
 TdPagingBarComponent.decorators = [
@@ -336,12 +336,12 @@ TdPagingBarComponent.ctorParameters = () => [
     { type: ChangeDetectorRef }
 ];
 TdPagingBarComponent.propDecorators = {
-    firstLast: [{ type: Input, args: ['firstLast',] }],
-    initialPage: [{ type: Input, args: ['initialPage',] }],
+    firstLast: [{ type: Input }],
+    initialPage: [{ type: Input }],
     pageLinkCount: [{ type: Input, args: ['pageLinkCount',] }],
     pageSize: [{ type: Input, args: ['pageSize',] }],
     total: [{ type: Input, args: ['total',] }],
-    onChange: [{ type: Output, args: ['change',] }]
+    change: [{ type: Output }]
 };
 
 /**
@@ -513,7 +513,7 @@ class TdVirtualScrollContainerComponent {
      */
     ngAfterViewChecked() {
         /** @type {?} */
-        let newHostHeight = this._elementRef.nativeElement.getBoundingClientRect().height;
+        const newHostHeight = this._elementRef.nativeElement.getBoundingClientRect().height;
         if (this._hostHeight !== newHostHeight) {
             this._hostHeight = newHostHeight;
             if (this._initialized) {
@@ -541,21 +541,19 @@ class TdVirtualScrollContainerComponent {
      */
     handleScroll(event) {
         /** @type {?} */
-        let element = (/** @type {?} */ (event.target));
+        const element = (/** @type {?} */ (event.target));
         if (element) {
             /** @type {?} */
-            let verticalScroll = element.scrollTop;
+            const verticalScroll = element.scrollTop;
             if (this._scrollVerticalOffset !== verticalScroll) {
                 this._scrollVerticalOffset = verticalScroll;
                 if (this._initialized) {
                     this._calculateVirtualRows();
                 }
             }
-            if (this._initialized) {
+            if (this._initialized && this._data.length * this.rowHeight - (verticalScroll + this._hostHeight) === 0) {
                 // check to see if bottom was hit to throw the bottom event
-                if (this._data.length * this.rowHeight - (verticalScroll + this._hostHeight) === 0) {
-                    this._bottom.next();
-                }
+                this._bottom.next();
             }
         }
     }
@@ -600,10 +598,10 @@ class TdVirtualScrollContainerComponent {
         if (this._data) {
             this._totalHeight = this._data.length * this.rowHeight;
             /** @type {?} */
-            let fromRow = Math.floor(this._scrollVerticalOffset / this.rowHeight) - TD_VIRTUAL_OFFSET;
+            const fromRow = Math.floor(this._scrollVerticalOffset / this.rowHeight) - TD_VIRTUAL_OFFSET;
             this._fromRow = fromRow > 0 ? fromRow : 0;
             /** @type {?} */
-            let range = Math.floor(this._hostHeight / this.rowHeight) + TD_VIRTUAL_OFFSET * 2;
+            const range = Math.floor(this._hostHeight / this.rowHeight) + TD_VIRTUAL_OFFSET * 2;
             /** @type {?} */
             let toRow = range + this.fromRow;
             if (isFinite(toRow) && toRow > this._data.length) {
@@ -658,7 +656,7 @@ TdVirtualScrollContainerComponent.propDecorators = {
     bottom: [{ type: Output }],
     _rows: [{ type: ViewChildren, args: ['rowElement',] }],
     _rowTemplate: [{ type: ContentChild, args: [TdVirtualScrollRowDirective, { static: false },] }],
-    trackBy: [{ type: Input, args: ['trackBy',] }],
+    trackBy: [{ type: Input }],
     handleScroll: [{ type: HostListener, args: ['scroll', ['$event'],] }]
 };
 
@@ -808,7 +806,7 @@ class TdNotificationCountComponent {
     _hasContent() {
         if (this.content) {
             /** @type {?} */
-            let contentElement = this.content.nativeElement;
+            const contentElement = this.content.nativeElement;
             return contentElement && (contentElement.children.length > 0 || !!contentElement.textContent.trim());
         }
         return false;
@@ -1040,7 +1038,7 @@ class TdTimeAgoPipe {
         // Convert time to date object if not already
         time = new Date(time);
         /** @type {?} */
-        let ref = new Date(reference);
+        const ref = new Date(reference);
         // If not a valid timestamp, return 'Invalid Date'
         if (!time.getTime()) {
             return 'Invalid Date';
@@ -1048,7 +1046,7 @@ class TdTimeAgoPipe {
         // For unit testing, we need to be able to declare a static start time
         // for calculations, or else speed of tests can bork.
         /** @type {?} */
-        let startTime = isNaN(ref.getTime()) ? Date.now() : ref.getTime();
+        const startTime = isNaN(ref.getTime()) ? Date.now() : ref.getTime();
         /** @type {?} */
         let diff = Math.floor((startTime - time.getTime()) / 1000);
         if (diff < 2) {
@@ -1117,7 +1115,7 @@ class TdTimeDifferencePipe {
      */
     transform(start, end) {
         /** @type {?} */
-        let startTime = new Date(start);
+        const startTime = new Date(start);
         /** @type {?} */
         let endTime;
         if (end !== undefined) {
@@ -1132,18 +1130,18 @@ class TdTimeDifferencePipe {
         /** @type {?} */
         let diff = Math.floor((endTime.getTime() - startTime.getTime()) / 1000);
         /** @type {?} */
-        let days = Math.floor(diff / (60 * 60 * 24));
+        const days = Math.floor(diff / (60 * 60 * 24));
         diff = diff - days * (60 * 60 * 24);
         /** @type {?} */
-        let hours = Math.floor(diff / (60 * 60));
+        const hours = Math.floor(diff / (60 * 60));
         diff = diff - hours * (60 * 60);
         /** @type {?} */
-        let minutes = Math.floor(diff / 60);
+        const minutes = Math.floor(diff / 60);
         diff -= minutes * 60;
         /** @type {?} */
-        let seconds = diff;
+        const seconds = diff;
         /** @type {?} */
-        let pad = '00';
+        const pad = '00';
         /** @type {?} */
         let daysFormatted = '';
         if (days > 0 && days < 2) {
@@ -1183,7 +1181,7 @@ class TdTimeUntilPipe {
         // Convert time to date object if not already
         time = new Date(time);
         /** @type {?} */
-        let ref = new Date(reference);
+        const ref = new Date(reference);
         // If not a valid timestamp, return 'Invalid Date'
         if (!time.getTime()) {
             return 'Invalid Date';
@@ -1191,7 +1189,7 @@ class TdTimeUntilPipe {
         // For unit testing, we need to be able to declare a static start time
         // for calculations, or else speed of tests can bork.
         /** @type {?} */
-        let startTime = isNaN(ref.getTime()) ? Date.now() : ref.getTime();
+        const startTime = isNaN(ref.getTime()) ? Date.now() : ref.getTime();
         /** @type {?} */
         let diff = Math.floor((time.getTime() - startTime) / 1000);
         if (diff < 2) {
@@ -1269,11 +1267,11 @@ class TdBytesPipe {
             return 'Invalid Number';
         }
         /** @type {?} */
-        let k = 1024;
+        const k = 1024;
         /** @type {?} */
-        let sizes = ['B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
+        const sizes = ['B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
         /** @type {?} */
-        let i = Math.floor(Math.log(bytes) / Math.log(k));
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
         // if less than 1
         if (i < 0) {
             return 'Invalid Number';
@@ -1308,11 +1306,11 @@ class TdDecimalBytesPipe {
             return 'Invalid Number';
         }
         /** @type {?} */
-        let k = 1000;
+        const k = 1000;
         /** @type {?} */
-        let sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+        const sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
         /** @type {?} */
-        let i = Math.floor(Math.log(bytes) / Math.log(k));
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
         // if less than 1
         if (i < 0) {
             return 'Invalid Number';
@@ -1356,13 +1354,13 @@ class TdDigitsPipe {
             return this._decimalPipe.transform(digits.toFixed(precision));
         }
         /** @type {?} */
-        let k = 1000;
+        const k = 1000;
         /** @type {?} */
-        let sizes = ['', 'K', 'M', 'B', 'T', 'Q'];
+        const sizes = ['', 'K', 'M', 'B', 'T', 'Q'];
         /** @type {?} */
-        let i = Math.floor(Math.log(digits) / Math.log(k));
+        const i = Math.floor(Math.log(digits) / Math.log(k));
         /** @type {?} */
-        let size = sizes[i];
+        const size = sizes[i];
         return (this._decimalPipe.transform(parseFloat((digits / Math.pow(k, i)).toFixed(precision))) + (size ? ' ' + size : ''));
     }
 }
@@ -1906,7 +1904,7 @@ function mixinDisabled(base) {
          */
         set disabled(value) {
             /** @type {?} */
-            let newValue = coerceBooleanProperty(value);
+            const newValue = coerceBooleanProperty(value);
             if (this._disabled !== newValue) {
                 this._disabled = newValue;
                 this.onDisabledChange(this._disabled);
@@ -1953,7 +1951,7 @@ function mixinDisableRipple(base) {
          */
         set disableRipple(value) {
             /** @type {?} */
-            let newValue = coerceBooleanProperty(value);
+            const newValue = coerceBooleanProperty(value);
             if (this._disableRipple !== newValue) {
                 this._disableRipple = newValue;
                 this.onDisableRippleChange(this._disableRipple);
@@ -1979,8 +1977,9 @@ class CovalentValidators {
      * @return {?}
      */
     static min(minValue) {
+        // tslint:disable-next-line:prefer-immediate-return
         /** @type {?} */
-        let func = (/**
+        const func = (/**
          * @param {?} c
          * @return {?}
          */
@@ -1989,8 +1988,8 @@ class CovalentValidators {
                 return undefined;
             }
             /** @type {?} */
-            let v = c.value;
-            return v < minValue ? { min: { minValue: minValue, actualValue: v } } : undefined;
+            const v = c.value;
+            return v < minValue ? { min: { minValue, actualValue: v } } : undefined;
         });
         return func;
     }
@@ -1999,8 +1998,9 @@ class CovalentValidators {
      * @return {?}
      */
     static max(maxValue) {
+        // tslint:disable-next-line:prefer-immediate-return
         /** @type {?} */
-        let func = (/**
+        const func = (/**
          * @param {?} c
          * @return {?}
          */
@@ -2009,8 +2009,8 @@ class CovalentValidators {
                 return undefined;
             }
             /** @type {?} */
-            let v = c.value;
-            return v > maxValue ? { max: { maxValue: maxValue, actualValue: v } } : undefined;
+            const v = c.value;
+            return v > maxValue ? { max: { maxValue, actualValue: v } } : undefined;
         });
         return func;
     }
@@ -2080,7 +2080,7 @@ function convertObjectsToCSV(objects, keySeparator = ',', lineSeparator = '\r\n'
     (value, key) => {
         /** @type {?} */
         let line = '';
-        for (const index in objects[key]) {
+        for (const index of Object.keys(objects[key])) {
             if (line !== '') {
                 line += keySeparator;
             }
@@ -2123,16 +2123,16 @@ function convertCSVToJSON(csv, keySeparator = ',', lineSeparator = '\r\n', inden
         return '';
     }
     /** @type {?} */
-    let newObjects = [];
+    const newObjects = [];
     // Extract object keys from header row
     /** @type {?} */
     const keys = csvArray[0].split(keySeparator);
     // Iterate through array, creating one output line per object
     for (let i = 1; i < csvArray.length; i++) {
         /** @type {?} */
-        let newObject = {};
+        const newObject = {};
         /** @type {?} */
-        let values = csvArray[i].split(keySeparator);
+        const values = csvArray[i].split(keySeparator);
         if (values.length !== keys.length) {
             continue;
         }
@@ -2492,9 +2492,9 @@ TdMessageComponent.propDecorators = {
     _template: [{ type: ViewChild, args: [TemplateRef, { static: false },] }],
     collapsedAnimation: [{ type: HostBinding, args: ['@tdCollapse',] }],
     hidden: [{ type: HostBinding, args: ['style.display',] }],
-    label: [{ type: Input, args: ['label',] }],
-    sublabel: [{ type: Input, args: ['sublabel',] }],
-    icon: [{ type: Input, args: ['icon',] }],
+    label: [{ type: Input }],
+    sublabel: [{ type: Input }],
+    icon: [{ type: Input }],
     color: [{ type: Input, args: ['color',] }],
     opened: [{ type: Input, args: ['opened',] }],
     animationDoneListener: [{ type: HostListener, args: ['@tdCollapse.done',] }]
@@ -2611,31 +2611,31 @@ class TdChipsComponent extends _TdChipsMixinBase {
          * Method to be executed when a chip is added.
          * Sends chip value as event.
          */
-        this.onAdd = new EventEmitter();
+        this.add = new EventEmitter();
         /**
          * remove?: function
          * Method to be executed when a chip is removed.
          * Sends chip value as event.
          */
-        this.onRemove = new EventEmitter();
+        this.remove = new EventEmitter();
         /**
          * inputChange?: function
          * Method to be executed when the value in the autocomplete input changes.
          * Sends string value as event.
          */
-        this.onInputChange = new EventEmitter();
+        this.inputChange = new EventEmitter();
         /**
          * chipFocus?: function
          * Method to be executed when a chip is focused.
          * Sends chip value as event.
          */
-        this.onChipFocus = new EventEmitter();
+        this.chipFocus = new EventEmitter();
         /**
          * blur?: function
          * Method to be executed when a chip is blurred.
          * Sends chip value as event.
          */
-        this.onChipBlur = new EventEmitter();
+        this.chipBlur = new EventEmitter();
         /**
          * compareWith? function
          * Function used to check whether a chip value already exists.
@@ -2911,7 +2911,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
          * @return {?}
          */
         (value) => {
-            this.onInputChange.emit(value ? value : '');
+            this.inputChange.emit(value ? value : '');
         }));
         this._changeDetectorRef.markForCheck();
     }
@@ -2965,7 +2965,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
         let value;
         if (this.requireMatch) {
             /** @type {?} */
-            let selectedOptions = this._options.toArray().filter((/**
+            const selectedOptions = this._options.toArray().filter((/**
              * @param {?} option
              * @return {?}
              */
@@ -3028,7 +3028,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
             return false;
         }
         this.value.push(value);
-        this.onAdd.emit(value);
+        this.add.emit(value);
         this.onChange(this.value);
         this._changeDetectorRef.markForCheck();
         return true;
@@ -3041,7 +3041,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
      */
     removeChip(index) {
         /** @type {?} */
-        let removedValues = this.value.splice(index, 1);
+        const removedValues = this.value.splice(index, 1);
         if (removedValues.length === 0) {
             return false;
         }
@@ -3058,7 +3058,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
         else if (index > 0) {
             this._focusChip(index - 1);
         }
-        this.onRemove.emit(removedValues[0]);
+        this.remove.emit(removedValues[0]);
         this.onChange(this.value);
         this.inputControl.setValue('');
         this._changeDetectorRef.markForCheck();
@@ -3071,7 +3071,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
      * @return {?}
      */
     _handleChipBlur(event, value) {
-        this.onChipBlur.emit(value);
+        this.chipBlur.emit(value);
     }
     /**
      * Sets focus of chip and sends out event
@@ -3081,7 +3081,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
      */
     _handleChipFocus(event, value) {
         this.setFocusedState();
-        this.onChipFocus.emit(value);
+        this.chipFocus.emit(value);
     }
     /**
      * @return {?}
@@ -3138,7 +3138,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
                  */
                 if (this.requireMatch) {
                     /** @type {?} */
-                    let length = this._options.length;
+                    const length = this._options.length;
                     if (length > 1 && this._options.toArray()[0].active && this._internalActivateOption) {
                         this._options.toArray()[0].setInactiveStyles();
                         this._internalActivateOption = false;
@@ -3265,7 +3265,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
      */
     get _totalChips() {
         /** @type {?} */
-        let chips = this._chipsChildren.toArray();
+        const chips = this._chipsChildren.toArray();
         return chips.length;
     }
     /**
@@ -3427,16 +3427,16 @@ TdChipsComponent.propDecorators = {
     required: [{ type: Input, args: ['required',] }],
     chipAddition: [{ type: Input, args: ['chipAddition',] }],
     chipRemoval: [{ type: Input, args: ['chipRemoval',] }],
-    placeholder: [{ type: Input, args: ['placeholder',] }],
-    debounce: [{ type: Input, args: ['debounce',] }],
+    placeholder: [{ type: Input }],
+    debounce: [{ type: Input }],
     color: [{ type: Input, args: ['color',] }],
-    onAdd: [{ type: Output, args: ['add',] }],
-    onRemove: [{ type: Output, args: ['remove',] }],
-    onInputChange: [{ type: Output, args: ['inputChange',] }],
-    onChipFocus: [{ type: Output, args: ['chipFocus',] }],
-    onChipBlur: [{ type: Output, args: ['chipBlur',] }],
+    add: [{ type: Output }],
+    remove: [{ type: Output }],
+    inputChange: [{ type: Output }],
+    chipFocus: [{ type: Output }],
+    chipBlur: [{ type: Output }],
     tabIndex: [{ type: HostBinding, args: ['attr.tabindex',] }],
-    compareWith: [{ type: Input, args: ['compareWith',] }],
+    compareWith: [{ type: Input }],
     focusListener: [{ type: HostListener, args: ['focus', ['$event'],] }],
     mousedownListener: [{ type: HostListener, args: ['mousedown', ['$event'],] }],
     clickListener: [{ type: HostListener, args: ['click', ['$event'],] }],
@@ -3674,25 +3674,25 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
          * Event emitted when the column headers are clicked. [sortable] needs to be enabled.
          * Emits an [ITdDataTableSortChangeEvent] implemented object.
          */
-        this.onSortChange = new EventEmitter();
+        this.sortChange = new EventEmitter();
         /**
          * rowSelect?: function
          * Event emitted when a row is selected/deselected. [selectable] needs to be enabled.
          * Emits an [ITdDataTableSelectEvent] implemented object.
          */
-        this.onRowSelect = new EventEmitter();
+        this.rowSelect = new EventEmitter();
         /**
          * rowClick?: function
          * Event emitted when a row is clicked.
          * Emits an [ITdDataTableRowClickEvent] implemented object.
          */
-        this.onRowClick = new EventEmitter();
+        this.rowClick = new EventEmitter();
         /**
          * selectAll?: function
          * Event emitted when all rows are selected/deselected by the all checkbox. [selectable] needs to be enabled.
          * Emits an [ITdDataTableSelectAllEvent] implemented object.
          */
-        this.onSelectAll = new EventEmitter();
+        this.selectAll = new EventEmitter();
         /**
          * compareWith?: function(row, model): boolean
          * Allows custom comparison between row and model to see if row is selected or not
@@ -3826,7 +3826,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             this._columns = [];
             // if columns is undefined, use key in [data] rows as name and label for column headers.
             /** @type {?} */
-            let row = this._data[0];
+            const row = this._data[0];
             Object.keys(row).forEach((/**
              * @param {?} k
              * @return {?}
@@ -3962,7 +3962,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
      */
     set sortOrder(order) {
         /** @type {?} */
-        let sortOrder = order ? order.toUpperCase() : 'ASC';
+        const sortOrder = order ? order.toUpperCase() : 'ASC';
         if (sortOrder !== 'DESC' && sortOrder !== 'ASC') {
             throw new Error('[sortOrder] must be empty, ASC or DESC');
         }
@@ -4048,8 +4048,8 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
      * @return {?}
      */
     ngAfterContentInit() {
-        for (let i = 0; i < this._templates.toArray().length; i++) {
-            this._templateMap.set(this._templates.toArray()[i].tdDataTableTemplate, this._templates.toArray()[i].templateRef);
+        for (const template of this._templates.toArray()) {
+            this._templateMap.set(template.tdDataTableTemplate, template.templateRef);
         }
     }
     /**
@@ -4064,7 +4064,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         }
         if (this._elementRef.nativeElement) {
             /** @type {?} */
-            let newHostWidth = this._elementRef.nativeElement.getBoundingClientRect().width;
+            const newHostWidth = this._elementRef.nativeElement.getBoundingClientRect().width;
             // if the width has changed then we throw a resize event.
             if (this._hostWidth !== newHostWidth) {
                 setTimeout((/**
@@ -4078,7 +4078,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         }
         if (this._scrollableDiv.nativeElement) {
             /** @type {?} */
-            let newHostHeight = this._scrollableDiv.nativeElement.getBoundingClientRect().height;
+            const newHostHeight = this._scrollableDiv.nativeElement.getBoundingClientRect().height;
             // if the height of the viewport has changed, then we mark for check
             if (this._hostHeight !== newHostHeight) {
                 this._hostHeight = newHostHeight;
@@ -4133,15 +4133,15 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
      */
     handleScroll(event) {
         /** @type {?} */
-        let element = (/** @type {?} */ (event.target));
+        const element = (/** @type {?} */ (event.target));
         if (element) {
             /** @type {?} */
-            let horizontalScroll = element.scrollLeft;
+            const horizontalScroll = element.scrollLeft;
             if (this._scrollHorizontalOffset !== horizontalScroll) {
                 this._onHorizontalScroll.next(horizontalScroll);
             }
             /** @type {?} */
-            let verticalScroll = element.scrollTop;
+            const verticalScroll = element.scrollTop;
             if (this._scrollVerticalOffset !== verticalScroll) {
                 this._onVerticalScroll.next(verticalScroll);
             }
@@ -4199,9 +4199,9 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
      * @param {?} checked
      * @return {?}
      */
-    selectAll(checked) {
+    _selectAll(checked) {
         /** @type {?} */
-        let toggledRows = [];
+        const toggledRows = [];
         if (checked) {
             this._data.forEach((/**
              * @param {?} row
@@ -4228,7 +4228,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
                 if (this.isRowSelected(row)) {
                     toggledRows.push(row);
                     /** @type {?} */
-                    let modelRow = this.value.filter((/**
+                    const modelRow = this.value.filter((/**
                      * @param {?} val
                      * @return {?}
                      */
@@ -4236,7 +4236,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
                         return this.compareWith(row, val);
                     }))[0];
                     /** @type {?} */
-                    let index = this.value.indexOf(modelRow);
+                    const index = this.value.indexOf(modelRow);
                     if (index > -1) {
                         this.value.splice(index, 1);
                     }
@@ -4245,7 +4245,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             this._allSelected = false;
             this._indeterminate = false;
         }
-        this.onSelectAll.emit({ rows: toggledRows, selected: checked });
+        this.selectAll.emit({ rows: toggledRows, selected: checked });
         this.onChange(this.value);
     }
     /**
@@ -4278,7 +4278,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             this.blockEvent(event);
             // Check to see if Shift key is selected and need to select everything in between
             /** @type {?} */
-            let mouseEvent = (/** @type {?} */ (event));
+            const mouseEvent = (/** @type {?} */ (event));
             if (this.multiple && mouseEvent && mouseEvent.shiftKey && this._lastSelectedIndex > -1) {
                 /** @type {?} */
                 let firstIndex = currentSelected;
@@ -4308,20 +4308,19 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
                     }
                     for (let i = firstIndex; i <= lastIndex; i++) {
                         /** @type {?} */
-                        let rowSelected = this.isRowSelected(this._data[i]);
+                        const rowSelected = this.isRowSelected(this._data[i]);
                         // if row is selected and first checkbox was selected
                         // or if row was unselected and first checkbox was unselected
                         // we ignore the toggle
                         if ((this._firstCheckboxValue && !rowSelected) || (!this._firstCheckboxValue && rowSelected)) {
                             this._doSelection(this._data[i], i);
                         }
-                        else if (this._shiftPreviouslyPressed) {
+                        else if (this._shiftPreviouslyPressed &&
+                            ((currentSelected >= this._firstSelectedIndex && currentSelected <= this._lastSelectedIndex) ||
+                                (currentSelected <= this._firstSelectedIndex && currentSelected >= this._lastSelectedIndex))) {
                             // else if the checkbox selected was in the middle of the last selection and the first selection
                             // then we undo the selections
-                            if ((currentSelected >= this._firstSelectedIndex && currentSelected <= this._lastSelectedIndex) ||
-                                (currentSelected <= this._firstSelectedIndex && currentSelected >= this._lastSelectedIndex)) {
-                                this._doSelection(this._data[i], i);
-                            }
+                            this._doSelection(this._data[i], i);
                         }
                     }
                 }
@@ -4376,12 +4375,12 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             /** @type {?} */
             const srcElement = event.srcElement || event.currentTarget;
             /** @type {?} */
-            let element = (/** @type {?} */ (event.target));
+            const element = (/** @type {?} */ (event.target));
             /* tslint:disable-next-line */
             if (srcElement.getAttribute('stopRowClick') === null && element.tagName.toLowerCase() !== 'mat-pseudo-checkbox') {
-                this.onRowClick.emit({
-                    row: row,
-                    index: index,
+                this.rowClick.emit({
+                    row,
+                    index,
                 });
             }
         }
@@ -4402,7 +4401,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             this._sortBy = column;
             this._sortOrder = TdDataTableSortingOrder.Ascending;
         }
-        this.onSortChange.next({ name: this._sortBy.name, order: this._sortOrder });
+        this.sortChange.next({ name: this._sortBy.name, order: this._sortOrder });
     }
     /**
      * Handle all keyup events when focusing a data table row
@@ -4469,7 +4468,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         // check if there was been a separator clicked for resize
         if (this._resizingColumn !== undefined && event.clientX > 0) {
             /** @type {?} */
-            let xPosition = event.clientX;
+            const xPosition = event.clientX;
             // checks if the separator is being moved to try and resize the column, else dont do anything
             if (xPosition > 0 && this._columnClientX > 0 && xPosition - this._columnClientX !== 0) {
                 // calculate the new width depending if making the column bigger or smaller
@@ -4513,7 +4512,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         }
         if (name.indexOf('.') > -1) {
             /** @type {?} */
-            let splitName = name.split(/\.(.+)/, 2);
+            const splitName = name.split(/\.(.+)/, 2);
             return this._getNestedValue(splitName[1], value[splitName[0]]);
         }
         else {
@@ -4529,7 +4528,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
      */
     _doSelection(row, rowIndex) {
         /** @type {?} */
-        let wasSelected = this.isRowSelected(row);
+        const wasSelected = this.isRowSelected(row);
         if (!wasSelected) {
             if (!this._multiple) {
                 this.clearModel();
@@ -4546,13 +4545,13 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
                 return this.compareWith(row, val);
             }))[0];
             /** @type {?} */
-            let index = this.value.indexOf(row);
+            const index = this.value.indexOf(row);
             if (index > -1) {
                 this.value.splice(index, 1);
             }
         }
         this._calculateCheckboxState();
-        this.onRowSelect.emit({ row: row, index: rowIndex, selected: !wasSelected });
+        this.rowSelect.emit({ row, index: rowIndex, selected: !wasSelected });
         this.onChange(this.value);
         return !wasSelected;
     }
@@ -4569,7 +4568,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
              */
             (d) => !this.isRowSelected(d))) === 'undefined';
             this._indeterminate = false;
-            for (let row of this._data) {
+            for (const row of this._data) {
                 if (!this.isRowSelected(row)) {
                     continue;
                 }
@@ -4608,7 +4607,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         let fixedTotalWidth = 0;
         // get the number of total columns that have flexible widths (not fixed or hidden)
         /** @type {?} */
-        let flexibleWidths = this._widths.filter((/**
+        const flexibleWidths = this._widths.filter((/**
          * @param {?} width
          * @param {?} index
          * @return {?}
@@ -4633,7 +4632,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
         // we try and spread the pixels across them
         if (flexibleWidths && recalculateHostWidth) {
             /** @type {?} */
-            let newValue = Math.floor(recalculateHostWidth / flexibleWidths);
+            const newValue = Math.floor(recalculateHostWidth / flexibleWidths);
             /** @type {?} */
             let adjustedNumber = 0;
             // adjust the column widths with the spread pixels
@@ -4651,7 +4650,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             }));
             // if there are still columns that need to be recalculated, we start over
             /** @type {?} */
-            let newFlexibleWidths = this._widths.filter((/**
+            const newFlexibleWidths = this._widths.filter((/**
              * @param {?} width
              * @return {?}
              */
@@ -4672,8 +4671,8 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
      */
     _adjustColumnWidth(index, value) {
         this._widths[index] = {
-            value: value,
-            index: index,
+            value,
+            index,
             limit: false,
             min: false,
             max: false,
@@ -4686,7 +4685,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             // if the provided width has min/max, then we check to see if we need to set it
             if (typeof this.columns[index].width === 'object') {
                 /** @type {?} */
-                let widthOpts = (/** @type {?} */ (this.columns[index].width));
+                const widthOpts = (/** @type {?} */ (this.columns[index].width));
                 // if the column width is less than the configured min, we override it
                 skipMinWidthProjection = widthOpts && !!widthOpts.min;
                 if (widthOpts && widthOpts.min >= this._widths[index].value) {
@@ -4719,7 +4718,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
      */
     _calculateWidth() {
         /** @type {?} */
-        let renderedColumns = this.columns.filter((/**
+        const renderedColumns = this.columns.filter((/**
          * @param {?} col
          * @return {?}
          */
@@ -4760,7 +4759,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             this._totalHeight = rowHeightSum;
             // set the initial row to be rendered taking into account the row offset
             /** @type {?} */
-            let fromRow = scrolledRows - TD_VIRTUAL_OFFSET$1;
+            const fromRow = scrolledRows - TD_VIRTUAL_OFFSET$1;
             this._fromRow = fromRow > 0 ? fromRow : 0;
             /** @type {?} */
             let hostHeight = this._hostHeight;
@@ -4773,7 +4772,7 @@ class TdDataTableComponent extends _TdDataTableMixinBase {
             }
             // set the last row to be rendered taking into account the row offset
             /** @type {?} */
-            let range = index - 1 + TD_VIRTUAL_OFFSET$1 * 2;
+            const range = index - 1 + TD_VIRTUAL_OFFSET$1 * 2;
             /** @type {?} */
             let toRow = range + this.fromRow;
             // if last row is greater than the total length, then we use the total length
@@ -4825,7 +4824,7 @@ TdDataTableComponent.decorators = [
                     },
                 ],
                 selector: 'td-data-table',
-                template: "<table td-data-table [style.left.px]=\"columnsLeftScroll\" [class.mat-selectable]=\"selectable\">\n  <thead class=\"td-data-table-head\" (dragover)=\"_handleColumnDrag($event)\">\n    <tr td-data-table-column-row>\n      <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"selectable\">\n        <mat-checkbox\n          #checkBoxAll\n          *ngIf=\"multiple\"\n          [disabled]=\"!hasData\"\n          [indeterminate]=\"indeterminate && !allSelected && hasData\"\n          [checked]=\"allSelected && hasData\"\n          (click)=\"blockEvent($event); selectAll(!checkBoxAll.checked)\"\n          (keyup.enter)=\"selectAll(!checkBoxAll.checked)\"\n          (keyup.space)=\"selectAll(!checkBoxAll.checked)\"\n          (keydown.space)=\"blockEvent($event)\"\n        ></mat-checkbox>\n      </th>\n      <th\n        td-data-table-column\n        #columnElement\n        *ngFor=\"let column of columns; let i = index; let last = last\"\n        [style.min-width.px]=\"getColumnWidth(i)\"\n        [style.max-width.px]=\"getColumnWidth(i)\"\n        [name]=\"column.name\"\n        [numeric]=\"column.numeric\"\n        [active]=\"(column.sortable || sortable) && column === sortByColumn\"\n        [sortable]=\"column.sortable || (sortable && column.sortable !== false)\"\n        [sortOrder]=\"sortOrderEnum\"\n        [hidden]=\"column.hidden\"\n        (sortChange)=\"handleSort(column)\"\n      >\n        <span [matTooltip]=\"column.tooltip\">{{ column.label }}</span>\n        <span\n          td-column-resizer\n          *ngIf=\"resizableColumns\"\n          draggable=\"true\"\n          class=\"td-data-table-column-resizer\"\n          [class.td-resizing]=\"i === resizingColumn\"\n          (mousedown)=\"_handleStartColumnDrag(i, $event)\"\n          (dragstart)=\"$event?.dataTransfer?.setData('text', '')\"\n          (drag)=\"_handleColumnDrag($event)\"\n          (dragend)=\"_handleEndColumnDrag()\"\n          (mouseup)=\"_handleEndColumnDrag()\"\n        >\n          <span class=\"td-data-table-column-separator\"></span>\n        </span>\n      </th>\n    </tr>\n  </thead>\n</table>\n<div #scrollableDiv class=\"td-data-table-scrollable\" (scroll)=\"handleScroll($event)\">\n  <div [style.height.px]=\"totalHeight\"></div>\n  <table\n    td-data-table\n    [style.transform]=\"offsetTransform\"\n    [style.position]=\"'absolute'\"\n    [class.mat-selectable]=\"selectable\"\n    [class.mat-clickable]=\"clickable\"\n  >\n    <tbody class=\"td-data-table-body\">\n      <tr\n        td-data-table-row\n        #dtRow\n        [tabIndex]=\"selectable ? 0 : -1\"\n        [selected]=\"(clickable || selectable) && isRowSelected(row)\"\n        *ngFor=\"let row of virtualData; let rowIndex = index\"\n        (click)=\"handleRowClick(row, fromRow + rowIndex, $event)\"\n        (keyup)=\"selectable && _rowKeyup($event, row, rowIndex)\"\n        (keydown.space)=\"blockEvent($event)\"\n        (keydown.shift.space)=\"blockEvent($event)\"\n        (keydown.shift)=\"disableTextSelection()\"\n        (keyup.shift)=\"enableTextSelection()\"\n      >\n        <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"selectable\">\n          <mat-pseudo-checkbox\n            [state]=\"dtRow.selected ? 'checked' : 'unchecked'\"\n            (mousedown)=\"disableTextSelection()\"\n            (mouseup)=\"enableTextSelection()\"\n            stopRowClick\n            (click)=\"select(row, $event, fromRow + rowIndex)\"\n          ></mat-pseudo-checkbox>\n        </td>\n        <td\n          td-data-table-cell\n          [numeric]=\"column.numeric\"\n          [hidden]=\"column.hidden\"\n          *ngFor=\"let column of columns; let i = index\"\n          [style.min-width.px]=\"getColumnWidth(i)\"\n          [style.max-width.px]=\"getColumnWidth(i)\"\n        >\n          <span *ngIf=\"!getTemplateRef(column.name)\">\n            {{ column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row) }}\n          </span>\n          <ng-template\n            *ngIf=\"getTemplateRef(column.name)\"\n            [ngTemplateOutlet]=\"getTemplateRef(column.name)\"\n            [ngTemplateOutletContext]=\"{\n              value: getCellValue(column, row),\n              row: row,\n              column: column.name,\n              index: rowIndex\n            }\"\n          ></ng-template>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n<ng-content></ng-content>\n",
+                template: "<table td-data-table [style.left.px]=\"columnsLeftScroll\" [class.mat-selectable]=\"selectable\">\n  <thead class=\"td-data-table-head\" (dragover)=\"_handleColumnDrag($event)\">\n    <tr td-data-table-column-row>\n      <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"selectable\">\n        <mat-checkbox\n          #checkBoxAll\n          *ngIf=\"multiple\"\n          [disabled]=\"!hasData\"\n          [indeterminate]=\"indeterminate && !allSelected && hasData\"\n          [checked]=\"allSelected && hasData\"\n          (click)=\"blockEvent($event); _selectAll(!checkBoxAll.checked)\"\n          (keyup.enter)=\"_selectAll(!checkBoxAll.checked)\"\n          (keyup.space)=\"_selectAll(!checkBoxAll.checked)\"\n          (keydown.space)=\"blockEvent($event)\"\n        ></mat-checkbox>\n      </th>\n      <th\n        td-data-table-column\n        #columnElement\n        *ngFor=\"let column of columns; let i = index; let last = last\"\n        [style.min-width.px]=\"getColumnWidth(i)\"\n        [style.max-width.px]=\"getColumnWidth(i)\"\n        [name]=\"column.name\"\n        [numeric]=\"column.numeric\"\n        [active]=\"(column.sortable || sortable) && column === sortByColumn\"\n        [sortable]=\"column.sortable || (sortable && column.sortable !== false)\"\n        [sortOrder]=\"sortOrderEnum\"\n        [hidden]=\"column.hidden\"\n        (sortChange)=\"handleSort(column)\"\n      >\n        <span [matTooltip]=\"column.tooltip\">{{ column.label }}</span>\n        <span\n          td-column-resizer\n          *ngIf=\"resizableColumns\"\n          draggable=\"true\"\n          class=\"td-data-table-column-resizer\"\n          [class.td-resizing]=\"i === resizingColumn\"\n          (mousedown)=\"_handleStartColumnDrag(i, $event)\"\n          (dragstart)=\"$event?.dataTransfer?.setData('text', '')\"\n          (drag)=\"_handleColumnDrag($event)\"\n          (dragend)=\"_handleEndColumnDrag()\"\n          (mouseup)=\"_handleEndColumnDrag()\"\n        >\n          <span class=\"td-data-table-column-separator\"></span>\n        </span>\n      </th>\n    </tr>\n  </thead>\n</table>\n<div #scrollableDiv class=\"td-data-table-scrollable\" (scroll)=\"handleScroll($event)\">\n  <div [style.height.px]=\"totalHeight\"></div>\n  <table\n    td-data-table\n    [style.transform]=\"offsetTransform\"\n    [style.position]=\"'absolute'\"\n    [class.mat-selectable]=\"selectable\"\n    [class.mat-clickable]=\"clickable\"\n  >\n    <tbody class=\"td-data-table-body\">\n      <tr\n        td-data-table-row\n        #dtRow\n        [tabIndex]=\"selectable ? 0 : -1\"\n        [selected]=\"(clickable || selectable) && isRowSelected(row)\"\n        *ngFor=\"let row of virtualData; let rowIndex = index\"\n        (click)=\"handleRowClick(row, fromRow + rowIndex, $event)\"\n        (keyup)=\"selectable && _rowKeyup($event, row, rowIndex)\"\n        (keydown.space)=\"blockEvent($event)\"\n        (keydown.shift.space)=\"blockEvent($event)\"\n        (keydown.shift)=\"disableTextSelection()\"\n        (keyup.shift)=\"enableTextSelection()\"\n      >\n        <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"selectable\">\n          <mat-pseudo-checkbox\n            [state]=\"dtRow.selected ? 'checked' : 'unchecked'\"\n            (mousedown)=\"disableTextSelection()\"\n            (mouseup)=\"enableTextSelection()\"\n            stopRowClick\n            (click)=\"select(row, $event, fromRow + rowIndex)\"\n          ></mat-pseudo-checkbox>\n        </td>\n        <td\n          td-data-table-cell\n          [numeric]=\"column.numeric\"\n          [hidden]=\"column.hidden\"\n          *ngFor=\"let column of columns; let i = index\"\n          [style.min-width.px]=\"getColumnWidth(i)\"\n          [style.max-width.px]=\"getColumnWidth(i)\"\n        >\n          <span *ngIf=\"!getTemplateRef(column.name)\">\n            {{ column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row) }}\n          </span>\n          <ng-template\n            *ngIf=\"getTemplateRef(column.name)\"\n            [ngTemplateOutlet]=\"getTemplateRef(column.name)\"\n            [ngTemplateOutletContext]=\"{\n              value: getCellValue(column, row),\n              row: row,\n              column: column.name,\n              index: rowIndex\n            }\"\n          ></ng-template>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n<ng-content></ng-content>\n",
                 inputs: ['value'],
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 styles: [":host{display:block;overflow:hidden}:host .td-data-table-scrollable{position:relative;overflow:auto;height:calc(100% - 56px)}.td-data-table-column-resizer{right:0;width:6px;cursor:col-resize}.td-data-table-column-resizer,.td-data-table-column-resizer .td-data-table-column-separator{position:absolute;height:100%;top:0}.td-data-table-column-resizer .td-data-table-column-separator{left:2px}.td-data-table-column-resizer.td-resizing{cursor:-webkit-grabbing}table.td-data-table{width:auto!important}table.td-data-table.mat-selectable tbody>tr.td-data-table-row{transition:background-color .2s}table.td-data-table.mat-selectable .td-data-table-column:first-child>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable td.td-data-table-cell:first-child>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable th.td-data-table-column:first-child>.td-data-table-column-content-wrapper{width:18px;min-width:18px;padding:0 24px}table.td-data-table.mat-selectable .td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2)>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper{padding-left:0}[dir=rtl] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper,[dir=rtl] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2)>.td-data-table-column-content-wrapper,[dir=rtl] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper{padding-right:0;padding-left:28px}table.td-data-table td.mat-checkbox-cell,table.td-data-table th.mat-checkbox-column{min-width:42px;width:42px;font-size:0!important}table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox,table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox{width:18px;height:18px}::ng-deep table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after,::ng-deep table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after{width:11px!important;height:4px!important}table.td-data-table td.mat-checkbox-cell mat-checkbox ::ng-deep .mat-checkbox-inner-container,table.td-data-table th.mat-checkbox-column mat-checkbox ::ng-deep .mat-checkbox-inner-container{width:18px;height:18px;margin:0}"]
@@ -4852,11 +4851,11 @@ TdDataTableComponent.propDecorators = {
     sortable: [{ type: Input, args: ['sortable',] }],
     sortBy: [{ type: Input, args: ['sortBy',] }],
     sortOrder: [{ type: Input, args: ['sortOrder',] }],
-    onSortChange: [{ type: Output, args: ['sortChange',] }],
-    onRowSelect: [{ type: Output, args: ['rowSelect',] }],
-    onRowClick: [{ type: Output, args: ['rowClick',] }],
-    onSelectAll: [{ type: Output, args: ['selectAll',] }],
-    compareWith: [{ type: Input, args: ['compareWith',] }]
+    sortChange: [{ type: Output }],
+    rowSelect: [{ type: Output }],
+    rowClick: [{ type: Output }],
+    selectAll: [{ type: Output }],
+    compareWith: [{ type: Input }]
 };
 
 /**
@@ -4900,7 +4899,7 @@ class TdDataTableColumnComponent {
          * Event emitted when the column headers are clicked. [sortable] needs to be enabled.
          * Emits an [ITdDataTableSortChangeEvent] implemented object.
          */
-        this.onSortChange = new EventEmitter();
+        this.sortChange = new EventEmitter();
         this._renderer.addClass(this._elementRef.nativeElement, 'td-data-table-column');
     }
     /**
@@ -4921,7 +4920,7 @@ class TdDataTableColumnComponent {
      */
     set sortOrder(order) {
         /** @type {?} */
-        let sortOrder = order ? order.toUpperCase() : 'ASC';
+        const sortOrder = order ? order.toUpperCase() : 'ASC';
         if (sortOrder !== 'DESC' && sortOrder !== 'ASC') {
             throw new Error('[sortOrder] must be empty, ASC or DESC');
         }
@@ -4957,7 +4956,7 @@ class TdDataTableColumnComponent {
      */
     handleClick() {
         if (this.sortable) {
-            this.onSortChange.emit({ name: this.name, order: this._sortOrder });
+            this.sortChange.emit({ name: this.name, order: this._sortOrder });
         }
     }
     /**
@@ -4988,12 +4987,12 @@ TdDataTableColumnComponent.ctorParameters = () => [
 ];
 TdDataTableColumnComponent.propDecorators = {
     _columnContent: [{ type: ViewChild, args: ['columnContent', { read: ElementRef, static: true },] }],
-    name: [{ type: Input, args: ['name',] }],
-    sortable: [{ type: Input, args: ['sortable',] }],
-    active: [{ type: Input, args: ['active',] }],
-    numeric: [{ type: Input, args: ['numeric',] }],
+    name: [{ type: Input }],
+    sortable: [{ type: Input }],
+    active: [{ type: Input }],
+    numeric: [{ type: Input }],
     sortOrder: [{ type: Input, args: ['sortOrder',] }],
-    onSortChange: [{ type: Output, args: ['sortChange',] }],
+    sortChange: [{ type: Output }],
     bindClickable: [{ type: HostBinding, args: ['class.mat-clickable',] }],
     bingSortable: [{ type: HostBinding, args: ['class.mat-sortable',] }],
     bindActive: [{ type: HostBinding, args: ['class.mat-active',] }],
@@ -5058,7 +5057,7 @@ TdDataTableCellComponent.ctorParameters = () => [
     { type: Renderer2 }
 ];
 TdDataTableCellComponent.propDecorators = {
-    numeric: [{ type: Input, args: ['numeric',] }],
+    numeric: [{ type: Input }],
     align: [{ type: Input }],
     bindNumeric: [{ type: HostBinding, args: ['class.mat-numeric',] }]
 };
@@ -5137,7 +5136,7 @@ class TdDataTableService {
      */
     filterData(data, searchTerm, ignoreCase = false, excludedColumns) {
         /** @type {?} */
-        let filter = searchTerm ? (ignoreCase ? searchTerm.toLowerCase() : searchTerm) : '';
+        const filter = searchTerm ? (ignoreCase ? searchTerm.toLowerCase() : searchTerm) : '';
         if (filter) {
             data = data.filter((/**
              * @param {?} item
@@ -5158,7 +5157,7 @@ class TdDataTableService {
                         return itemValue.indexOf(filter) > -1;
                     }
                 }));
-                return !(typeof res === 'undefined');
+                return typeof res !== 'undefined';
             }));
         }
         return data;
@@ -5185,9 +5184,9 @@ class TdDataTableService {
              */
             (a, b) => {
                 /** @type {?} */
-                let compA = a[sortBy];
+                const compA = a[sortBy];
                 /** @type {?} */
-                let compB = b[sortBy];
+                const compB = b[sortBy];
                 /** @type {?} */
                 let direction = 0;
                 if (!Number.isNaN(Number.parseFloat(compA)) && !Number.isNaN(Number.parseFloat(compB))) {
@@ -5386,7 +5385,7 @@ class TdPromptDialogComponent {
      * @return {?}
      */
     cancel() {
-        this._dialogRef.close(undefined);
+        this._dialogRef.close();
     }
     /**
      * @return {?}
@@ -5497,11 +5496,11 @@ class TdDialogService {
      */
     openAlert(config) {
         /** @type {?} */
-        let dialogConfig = this._createConfig(config);
+        const dialogConfig = this._createConfig(config);
         /** @type {?} */
-        let dialogRef = this._dialogService.open(TdAlertDialogComponent, dialogConfig);
+        const dialogRef = this._dialogService.open(TdAlertDialogComponent, dialogConfig);
         /** @type {?} */
-        let alertDialogComponent = dialogRef.componentInstance;
+        const alertDialogComponent = dialogRef.componentInstance;
         alertDialogComponent.title = config.title;
         alertDialogComponent.message = config.message;
         if (config.closeButton) {
@@ -5526,11 +5525,11 @@ class TdDialogService {
      */
     openConfirm(config) {
         /** @type {?} */
-        let dialogConfig = this._createConfig(config);
+        const dialogConfig = this._createConfig(config);
         /** @type {?} */
-        let dialogRef = this._dialogService.open(TdConfirmDialogComponent, dialogConfig);
+        const dialogRef = this._dialogService.open(TdConfirmDialogComponent, dialogConfig);
         /** @type {?} */
-        let confirmDialogComponent = dialogRef.componentInstance;
+        const confirmDialogComponent = dialogRef.componentInstance;
         confirmDialogComponent.title = config.title;
         confirmDialogComponent.message = config.message;
         if (config.acceptButton) {
@@ -5559,11 +5558,11 @@ class TdDialogService {
      */
     openPrompt(config) {
         /** @type {?} */
-        let dialogConfig = this._createConfig(config);
+        const dialogConfig = this._createConfig(config);
         /** @type {?} */
-        let dialogRef = this._dialogService.open(TdPromptDialogComponent, dialogConfig);
+        const dialogRef = this._dialogService.open(TdPromptDialogComponent, dialogConfig);
         /** @type {?} */
-        let promptDialogComponent = dialogRef.componentInstance;
+        const promptDialogComponent = dialogRef.componentInstance;
         promptDialogComponent.title = config.title;
         promptDialogComponent.message = config.message;
         promptDialogComponent.value = config.value;
@@ -5633,7 +5632,7 @@ class TdDialogService {
      */
     _createConfig(config) {
         /** @type {?} */
-        let dialogConfig = new MatDialogConfig();
+        const dialogConfig = new MatDialogConfig();
         dialogConfig.width = '400px';
         Object.assign(dialogConfig, config);
         return dialogConfig;
@@ -5836,14 +5835,14 @@ class TdExpansionPanelComponent extends _TdExpansionPanelMixinBase {
      * @return {?}
      */
     _onExpanded() {
-        this.expanded.emit(undefined);
+        this.expanded.emit();
     }
     /**
      * @private
      * @return {?}
      */
     _onCollapsed() {
-        this.collapsed.emit(undefined);
+        this.collapsed.emit();
     }
 }
 TdExpansionPanelComponent.decorators = [
@@ -6083,7 +6082,7 @@ class TdFileSelectDirective {
          * Emits a [FileList | File] object.
          * Alternative to not use [(ngModel)].
          */
-        this.onFileSelect = new EventEmitter();
+        this.fileSelect = new EventEmitter();
     }
     /**
      * multiple?: boolean
@@ -6104,21 +6103,21 @@ class TdFileSelectDirective {
     }
     /**
      * Listens to 'change' host event to get [HTMLInputElement] files.
-     * Emits the 'onFileSelect' event with a [FileList] or [File] depending if 'multiple' attr exists in host.
-     * Uses [(ngModel)] if declared, instead of emitting 'onFileSelect' event.
+     * Emits the 'fileSelect' event with a [FileList] or [File] depending if 'multiple' attr exists in host.
+     * Uses [(ngModel)] if declared, instead of emitting 'fileSelect' event.
      * @param {?} event
      * @return {?}
      */
     onChange(event) {
         if (event.target instanceof HTMLInputElement) {
             /** @type {?} */
-            let fileInputEl = (/** @type {?} */ (event.target));
+            const fileInputEl = event.target;
             /** @type {?} */
-            let files = fileInputEl.files;
+            const files = fileInputEl.files;
             if (files.length) {
                 /** @type {?} */
-                let value = this._multiple ? (files.length > 1 ? files : files[0]) : files[0];
-                this.model ? this.model.update.emit(value) : this.onFileSelect.emit(value);
+                const value = this._multiple ? (files.length > 1 ? files : files[0]) : files[0];
+                this.model ? this.model.update.emit(value) : this.fileSelect.emit(value);
             }
         }
     }
@@ -6134,7 +6133,7 @@ TdFileSelectDirective.ctorParameters = () => [
 ];
 TdFileSelectDirective.propDecorators = {
     multiple: [{ type: Input, args: ['multiple',] }],
-    onFileSelect: [{ type: Output, args: ['fileSelect',] }],
+    fileSelect: [{ type: Output }],
     multipleBinding: [{ type: HostBinding, args: ['attr.multiple',] }],
     onChange: [{ type: HostListener, args: ['change', ['$event'],] }]
 };
@@ -6163,7 +6162,7 @@ class TdFileDropDirective extends _TdFileDropMixinBase {
          * Event emitted when a file or files are dropped in host element after being validated.
          * Emits a [FileList | File] object.
          */
-        this.onFileDrop = new EventEmitter();
+        this.fileDrop = new EventEmitter();
     }
     /**
      * multiple?: boolean
@@ -6191,7 +6190,7 @@ class TdFileDropDirective extends _TdFileDropMixinBase {
     }
     /**
      * Listens to 'drop' host event to get validated transfer items.
-     * Emits the 'onFileDrop' event with a [FileList] or [File] depending if 'multiple' attr exists in host.
+     * Emits the 'fileDrop' event with a [FileList] or [File] depending if 'multiple' attr exists in host.
      * Stops event propagation and default action from browser for 'drop' event.
      * @param {?} event
      * @return {?}
@@ -6199,13 +6198,13 @@ class TdFileDropDirective extends _TdFileDropMixinBase {
     onDrop(event) {
         if (!this.disabled) {
             /** @type {?} */
-            let transfer = ((/** @type {?} */ (event))).dataTransfer;
+            const transfer = ((/** @type {?} */ (event))).dataTransfer;
             /** @type {?} */
-            let files = transfer.files;
+            const files = transfer.files;
             if (files.length) {
                 /** @type {?} */
-                let value = this._multiple ? (files.length > 1 ? files : files[0]) : files[0];
-                this.onFileDrop.emit(value);
+                const value = this._multiple ? (files.length > 1 ? files : files[0]) : files[0];
+                this.fileDrop.emit(value);
             }
         }
         this._renderer.removeClass(this._element.nativeElement, 'drop-zone');
@@ -6220,7 +6219,7 @@ class TdFileDropDirective extends _TdFileDropMixinBase {
      */
     onDragOver(event) {
         /** @type {?} */
-        let transfer = ((/** @type {?} */ (event))).dataTransfer;
+        const transfer = ((/** @type {?} */ (event))).dataTransfer;
         transfer.dropEffect = this._typeCheck(transfer.types);
         if (this.disabled ||
             (!this._multiple && ((transfer.items && transfer.items.length > 1) || ((/** @type {?} */ (transfer))).mozItemCount > 1))) {
@@ -6262,11 +6261,10 @@ class TdFileDropDirective extends _TdFileDropMixinBase {
     _typeCheck(types) {
         /** @type {?} */
         let dropEffect = 'none';
-        if (types) {
-            if ((((/** @type {?} */ (types))).contains && ((/** @type {?} */ (types))).contains('Files')) ||
-                (((/** @type {?} */ (types))).indexOf && ((/** @type {?} */ (types))).indexOf('Files') !== -1)) {
-                dropEffect = 'copy';
-            }
+        if (types &&
+            ((((/** @type {?} */ (types))).contains && ((/** @type {?} */ (types))).contains('Files')) ||
+                (((/** @type {?} */ (types))).indexOf && ((/** @type {?} */ (types))).indexOf('Files') !== -1))) {
+            dropEffect = 'copy';
         }
         return dropEffect;
     }
@@ -6293,7 +6291,7 @@ TdFileDropDirective.ctorParameters = () => [
 ];
 TdFileDropDirective.propDecorators = {
     multiple: [{ type: Input, args: ['multiple',] }],
-    onFileDrop: [{ type: Output, args: ['fileDrop',] }],
+    fileDrop: [{ type: Output }],
     multipleBinding: [{ type: HostBinding, args: ['attr.multiple',] }],
     disabledBinding: [{ type: HostBinding, args: ['attr.disabled',] }],
     onDrop: [{ type: HostListener, args: ['drop', ['$event'],] }],
@@ -6350,7 +6348,7 @@ class TdFileInputComponent extends _TdFileInputMixinBase {
          * Event emitted a file is selected
          * Emits a [File | FileList] object.
          */
-        this.onSelect = new EventEmitter();
+        this.select = new EventEmitter();
     }
     /**
      * @return {?}
@@ -6380,7 +6378,7 @@ class TdFileInputComponent extends _TdFileInputMixinBase {
      */
     handleSelect(files) {
         this.writeValue(files);
-        this.onSelect.emit(files);
+        this.select.emit(files);
     }
     /**
      * Used to clear the selected files from the [TdFileInputComponent].
@@ -6435,10 +6433,10 @@ TdFileInputComponent.ctorParameters = () => [
 ];
 TdFileInputComponent.propDecorators = {
     _inputElement: [{ type: ViewChild, args: ['fileInput', { static: true },] }],
-    color: [{ type: Input, args: ['color',] }],
+    color: [{ type: Input }],
     multiple: [{ type: Input, args: ['multiple',] }],
-    accept: [{ type: Input, args: ['accept',] }],
-    onSelect: [{ type: Output, args: ['select',] }]
+    accept: [{ type: Input }],
+    select: [{ type: Output }]
 };
 
 /**
@@ -6484,18 +6482,18 @@ class TdFileUploadComponent extends _TdFileUploadMixinBase {
          * Event emitted when a file is selected.
          * Emits a [File | FileList] object.
          */
-        this.onSelect = new EventEmitter();
+        this.select = new EventEmitter();
         /**
          * upload?: function
          * Event emitted when upload button is clicked.
          * Emits a [File | FileList] object.
          */
-        this.onUpload = new EventEmitter();
+        this.upload = new EventEmitter();
         /**
          * cancel?: function
          * Event emitted when cancel button is clicked.
          */
-        this.onCancel = new EventEmitter();
+        this.cancel = new EventEmitter();
     }
     /**
      * multiple?: boolean
@@ -6534,7 +6532,7 @@ class TdFileUploadComponent extends _TdFileUploadMixinBase {
      */
     uploadPressed() {
         if (this.value) {
-            this.onUpload.emit(this.value);
+            this.upload.emit(this.value);
         }
     }
     /**
@@ -6544,16 +6542,16 @@ class TdFileUploadComponent extends _TdFileUploadMixinBase {
      */
     handleSelect(value) {
         this.value = value;
-        this.onSelect.emit(value);
+        this.select.emit(value);
     }
     /**
      * Methods executed when cancel button is clicked.
      * Clears files.
      * @return {?}
      */
-    cancel() {
+    _cancel() {
         this.value = undefined;
-        this.onCancel.emit(undefined);
+        this.cancel.emit();
         // check if the file input is rendered before clearing it
         if (this.fileInput) {
             this.fileInput.clear();
@@ -6566,7 +6564,7 @@ class TdFileUploadComponent extends _TdFileUploadMixinBase {
      */
     onDisabledChange(v) {
         if (v) {
-            this.cancel();
+            this._cancel();
         }
     }
 }
@@ -6585,7 +6583,7 @@ TdFileUploadComponent.decorators = [
                 ],
                 selector: 'td-file-upload',
                 inputs: ['disabled', 'value'],
-                template: "<td-file-input\n  *ngIf=\"!value\"\n  [(ngModel)]=\"value\"\n  [multiple]=\"multiple\"\n  [disabled]=\"disabled\"\n  [accept]=\"accept\"\n  [color]=\"defaultColor\"\n  (select)=\"handleSelect($event)\"\n>\n  <ng-template [cdkPortalOutlet]=\"inputLabel\" [ngIf]=\"true\"></ng-template>\n</td-file-input>\n<div *ngIf=\"value\">\n  <button\n    #fileUpload\n    class=\"td-file-upload\"\n    mat-raised-button\n    type=\"button\"\n    [color]=\"activeColor\"\n    (keyup.delete)=\"cancel()\"\n    (keyup.backspace)=\"cancel()\"\n    (keyup.escape)=\"cancel()\"\n    (click)=\"uploadPressed()\"\n  >\n    <ng-content></ng-content>\n  </button>\n  <button mat-icon-button type=\"button\" class=\"td-file-upload-cancel\" [color]=\"cancelColor\" (click)=\"cancel()\">\n    <mat-icon>cancel</mat-icon>\n  </button>\n</div>\n",
+                template: "<td-file-input\n  *ngIf=\"!value\"\n  [(ngModel)]=\"value\"\n  [multiple]=\"multiple\"\n  [disabled]=\"disabled\"\n  [accept]=\"accept\"\n  [color]=\"defaultColor\"\n  (select)=\"handleSelect($event)\"\n>\n  <ng-template [cdkPortalOutlet]=\"inputLabel\" [ngIf]=\"true\"></ng-template>\n</td-file-input>\n<div *ngIf=\"value\">\n  <button\n    #fileUpload\n    class=\"td-file-upload\"\n    mat-raised-button\n    type=\"button\"\n    [color]=\"activeColor\"\n    (keyup.delete)=\"_cancel()\"\n    (keyup.backspace)=\"_cancel()\"\n    (keyup.escape)=\"_cancel()\"\n    (click)=\"uploadPressed()\"\n  >\n    <ng-content></ng-content>\n  </button>\n  <button mat-icon-button type=\"button\" class=\"td-file-upload-cancel\" [color]=\"cancelColor\" (click)=\"_cancel()\">\n    <mat-icon>cancel</mat-icon>\n  </button>\n</div>\n",
                 styles: [".td-file-upload{padding-left:8px;padding-right:8px}.td-file-upload-cancel{height:24px;width:24px;position:relative;top:24px;left:-12px}::ng-deep [dir=rtl] .td-file-upload-cancel{right:-12px;left:0}.td-file-upload-cancel mat-icon{border-radius:12px;vertical-align:baseline}.drop-zone{border-radius:3px}.drop-zone *{pointer-events:none}"]
             }] }
 ];
@@ -6596,15 +6594,15 @@ TdFileUploadComponent.ctorParameters = () => [
 TdFileUploadComponent.propDecorators = {
     fileInput: [{ type: ViewChild, args: [TdFileInputComponent, { static: false },] }],
     inputLabel: [{ type: ContentChild, args: [TdFileInputLabelDirective, { static: false },] }],
-    defaultColor: [{ type: Input, args: ['defaultColor',] }],
-    activeColor: [{ type: Input, args: ['activeColor',] }],
-    cancelColor: [{ type: Input, args: ['cancelColor',] }],
+    defaultColor: [{ type: Input }],
+    activeColor: [{ type: Input }],
+    cancelColor: [{ type: Input }],
     multiple: [{ type: Input, args: ['multiple',] }],
     required: [{ type: Input, args: ['required',] }],
-    accept: [{ type: Input, args: ['accept',] }],
-    onSelect: [{ type: Output, args: ['select',] }],
-    onUpload: [{ type: Output, args: ['upload',] }],
-    onCancel: [{ type: Output, args: ['cancel',] }]
+    accept: [{ type: Input }],
+    select: [{ type: Output }],
+    upload: [{ type: Output }],
+    cancel: [{ type: Output }]
 };
 
 /**
@@ -6699,7 +6697,7 @@ class TdFileService {
          */
         (subscriber) => {
             /** @type {?} */
-            let xhr = new XMLHttpRequest();
+            const xhr = new XMLHttpRequest();
             /** @type {?} */
             let formData = new FormData();
             if (options.file !== undefined) {
@@ -6740,7 +6738,7 @@ class TdFileService {
             xhr.open(options.method, options.url, true);
             xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
             if (options.headers) {
-                for (let key in options.headers) {
+                for (const key of Object.keys(options.headers)) {
                     xhr.setRequestHeader(key, options.headers[key]);
                 }
             }
@@ -6834,7 +6832,7 @@ class TdJsonFormatterComponent {
      */
     get key() {
         /** @type {?} */
-        let elipsis = this._key && this._key.length > TdJsonFormatterComponent.KEY_MAX_LENGTH ? '…' : '';
+        const elipsis = this._key && this._key.length > TdJsonFormatterComponent.KEY_MAX_LENGTH ? '…' : '';
         return this._key ? this._key.substring(0, TdJsonFormatterComponent.KEY_MAX_LENGTH) + elipsis : this._key;
     }
     /**
@@ -6907,7 +6905,7 @@ class TdJsonFormatterComponent {
      */
     getValue(value) {
         /** @type {?} */
-        let type = this.getType(value);
+        const type = this.getType(value);
         if (type === 'undefined' || type === 'null') {
             return type;
         }
@@ -6944,11 +6942,9 @@ class TdJsonFormatterComponent {
                 return 'object';
             }
             /** @type {?} */
-            let date = new Date(object);
-            if (Object.prototype.toString.call(date) === '[object Date]') {
-                if (!Number.isNaN(date.getTime())) {
-                    return 'date';
-                }
+            const date = new Date(object);
+            if (Object.prototype.toString.call(date) === '[object Date]' && !Number.isNaN(date.getTime())) {
+                return 'date';
             }
         }
         return typeof object;
@@ -6960,14 +6956,14 @@ class TdJsonFormatterComponent {
      */
     getObjectName() {
         /** @type {?} */
-        let object = this._data;
+        const object = this._data;
         if (this.isObject() && !object.constructor) {
             return 'Object';
         }
         /** @type {?} */
-        let funcNameRegex = /function (.{1,})\(/;
+        const funcNameRegex = /function (.{1,})\(/;
         /** @type {?} */
-        let results = funcNameRegex.exec(object.constructor.toString());
+        const results = funcNameRegex.exec(object.constructor.toString());
         if (results && results.length > 1) {
             return results[1];
         }
@@ -6988,7 +6984,7 @@ class TdJsonFormatterComponent {
         let endChar = ' }';
         if (this.isArray()) {
             /** @type {?} */
-            let previewArray = this._data.slice(0, TdJsonFormatterComponent.PREVIEW_LIMIT);
+            const previewArray = this._data.slice(0, TdJsonFormatterComponent.PREVIEW_LIMIT);
             previewData = previewArray.map((/**
              * @param {?} obj
              * @return {?}
@@ -7001,7 +6997,7 @@ class TdJsonFormatterComponent {
         }
         else {
             /** @type {?} */
-            let previewKeys = this._children.slice(0, TdJsonFormatterComponent.PREVIEW_LIMIT);
+            const previewKeys = this._children.slice(0, TdJsonFormatterComponent.PREVIEW_LIMIT);
             previewData = previewKeys.map((/**
              * @param {?} key
              * @return {?}
@@ -7011,9 +7007,9 @@ class TdJsonFormatterComponent {
             }));
         }
         /** @type {?} */
-        let previewString = previewData.join(', ');
+        const previewString = previewData.join(', ');
         /** @type {?} */
-        let ellipsis = previewData.length >= TdJsonFormatterComponent.PREVIEW_LIMIT ||
+        const ellipsis = previewData.length >= TdJsonFormatterComponent.PREVIEW_LIMIT ||
             previewString.length > TdJsonFormatterComponent.PREVIEW_STRING_MAX_LENGTH
             ? '…'
             : '';
@@ -7026,7 +7022,7 @@ class TdJsonFormatterComponent {
     parseChildren() {
         if (this.isObject()) {
             this._children = [];
-            for (let key in this._data) {
+            for (const key of Object.keys(this._data)) {
                 this._children.push(key);
             }
         }
@@ -7165,10 +7161,10 @@ TdLayoutComponent.decorators = [
 ];
 TdLayoutComponent.propDecorators = {
     sidenav: [{ type: ViewChild, args: [MatSidenav, { static: true },] }],
-    mode: [{ type: Input, args: ['mode',] }],
-    opened: [{ type: Input, args: ['opened',] }],
-    sidenavWidth: [{ type: Input, args: ['sidenavWidth',] }],
-    containerAutosize: [{ type: Input, args: ['containerAutosize',] }]
+    mode: [{ type: Input }],
+    opened: [{ type: Input }],
+    sidenavWidth: [{ type: Input }],
+    containerAutosize: [{ type: Input }]
 };
 
 /**
@@ -7459,11 +7455,11 @@ TdLayoutNavComponent.ctorParameters = () => [
     { type: Router, decorators: [{ type: Optional }] }
 ];
 TdLayoutNavComponent.propDecorators = {
-    toolbarTitle: [{ type: Input, args: ['toolbarTitle',] }],
-    icon: [{ type: Input, args: ['icon',] }],
-    logo: [{ type: Input, args: ['logo',] }],
-    color: [{ type: Input, args: ['color',] }],
-    navigationRoute: [{ type: Input, args: ['navigationRoute',] }]
+    toolbarTitle: [{ type: Input }],
+    icon: [{ type: Input }],
+    logo: [{ type: Input }],
+    color: [{ type: Input }],
+    navigationRoute: [{ type: Input }]
 };
 
 /**
@@ -7582,15 +7578,15 @@ TdLayoutNavListComponent.ctorParameters = () => [
 ];
 TdLayoutNavListComponent.propDecorators = {
     sidenav: [{ type: ViewChild, args: [MatSidenav, { static: true },] }],
-    toolbarTitle: [{ type: Input, args: ['toolbarTitle',] }],
-    icon: [{ type: Input, args: ['icon',] }],
-    logo: [{ type: Input, args: ['logo',] }],
-    color: [{ type: Input, args: ['color',] }],
-    mode: [{ type: Input, args: ['mode',] }],
-    opened: [{ type: Input, args: ['opened',] }],
-    sidenavWidth: [{ type: Input, args: ['sidenavWidth',] }],
-    containerAutosize: [{ type: Input, args: ['containerAutosize',] }],
-    navigationRoute: [{ type: Input, args: ['navigationRoute',] }]
+    toolbarTitle: [{ type: Input }],
+    icon: [{ type: Input }],
+    logo: [{ type: Input }],
+    color: [{ type: Input }],
+    mode: [{ type: Input }],
+    opened: [{ type: Input }],
+    sidenavWidth: [{ type: Input }],
+    containerAutosize: [{ type: Input }],
+    navigationRoute: [{ type: Input }]
 };
 
 /**
@@ -7751,10 +7747,10 @@ TdLayoutCardOverComponent.decorators = [
             }] }
 ];
 TdLayoutCardOverComponent.propDecorators = {
-    cardTitle: [{ type: Input, args: ['cardTitle',] }],
-    cardSubtitle: [{ type: Input, args: ['cardSubtitle',] }],
-    cardWidth: [{ type: Input, args: ['cardWidth',] }],
-    color: [{ type: Input, args: ['color',] }]
+    cardTitle: [{ type: Input }],
+    cardSubtitle: [{ type: Input }],
+    cardWidth: [{ type: Input }],
+    color: [{ type: Input }]
 };
 
 /**
@@ -7844,10 +7840,10 @@ TdLayoutManageListComponent.decorators = [
 ];
 TdLayoutManageListComponent.propDecorators = {
     sidenav: [{ type: ViewChild, args: [MatSidenav, { static: true },] }],
-    mode: [{ type: Input, args: ['mode',] }],
-    opened: [{ type: Input, args: ['opened',] }],
-    sidenavWidth: [{ type: Input, args: ['sidenavWidth',] }],
-    containerAutosize: [{ type: Input, args: ['containerAutosize',] }]
+    mode: [{ type: Input }],
+    opened: [{ type: Input }],
+    sidenavWidth: [{ type: Input }],
+    containerAutosize: [{ type: Input }]
 };
 
 /**
@@ -8098,7 +8094,7 @@ class TdNavigationDrawerComponent {
     set backgroundUrl(backgroundUrl) {
         if (backgroundUrl) {
             /** @type {?} */
-            let sanitizedUrl = this._sanitize.sanitize(SecurityContext.RESOURCE_URL, backgroundUrl);
+            const sanitizedUrl = this._sanitize.sanitize(SecurityContext.RESOURCE_URL, backgroundUrl);
             this._backgroundImage = this._sanitize.sanitize(SecurityContext.STYLE, 'url(' + sanitizedUrl + ')');
         }
     }
@@ -8197,15 +8193,15 @@ TdNavigationDrawerComponent.ctorParameters = () => [
 TdNavigationDrawerComponent.propDecorators = {
     _drawerMenu: [{ type: ContentChildren, args: [TdNavigationDrawerMenuDirective,] }],
     _toolbar: [{ type: ContentChildren, args: [TdNavigationDrawerToolbarDirective,] }],
-    sidenavTitle: [{ type: Input, args: ['sidenavTitle',] }],
-    icon: [{ type: Input, args: ['icon',] }],
-    logo: [{ type: Input, args: ['logo',] }],
-    avatar: [{ type: Input, args: ['avatar',] }],
-    color: [{ type: Input, args: ['color',] }],
-    navigationRoute: [{ type: Input, args: ['navigationRoute',] }],
+    sidenavTitle: [{ type: Input }],
+    icon: [{ type: Input }],
+    logo: [{ type: Input }],
+    avatar: [{ type: Input }],
+    color: [{ type: Input }],
+    navigationRoute: [{ type: Input }],
     backgroundUrl: [{ type: Input, args: ['backgroundUrl',] }],
-    name: [{ type: Input, args: ['name',] }],
-    email: [{ type: Input, args: ['email',] }]
+    name: [{ type: Input }],
+    email: [{ type: Input }]
 };
 
 /**
@@ -8345,11 +8341,9 @@ class TdLoadingComponent {
     ngDoCheck() {
         // When overlay is used and the host width has a value greater than 1px
         // set the circle diameter when possible incase the loading component was rendered in a hidden state
-        if (this.isOverlay() && this._hostHeight() > 1) {
-            if (this.animation) {
-                this._setCircleDiameter();
-                this._changeDetectorRef.markForCheck();
-            }
+        if (this.isOverlay() && this._hostHeight() > 1 && this.animation) {
+            this._setCircleDiameter();
+            this._changeDetectorRef.markForCheck();
         }
     }
     /**
@@ -8377,7 +8371,7 @@ class TdLoadingComponent {
     getCircleStrokeWidth() {
         // we calculate the stroke width by setting it as 10% of its diameter
         /** @type {?} */
-        let strokeWidth = this.getCircleDiameter() / 10;
+        const strokeWidth = this.getCircleDiameter() / 10;
         return Math.abs(strokeWidth);
     }
     /**
@@ -8421,7 +8415,7 @@ class TdLoadingComponent {
      * @return {?}
      */
     inAnimationCompleted() {
-        this._animationIn.next(undefined);
+        this._animationIn.next();
     }
     /**
      * @return {?}
@@ -8434,7 +8428,7 @@ class TdLoadingComponent {
         this.value = 0;
         // Check for changes for `OnPush` change detection
         this._changeDetectorRef.markForCheck();
-        this._animationOut.next(undefined);
+        this._animationOut.next();
     }
     /**
      * Starts in animation and returns an observable for completition event.
@@ -8547,7 +8541,7 @@ class TdLoadingFactory {
         ((/** @type {?} */ (options))).height = undefined;
         ((/** @type {?} */ (options))).style = LoadingStyle.FullScreen;
         /** @type {?} */
-        let loadingRef = this._initializeContext();
+        const loadingRef = this._initializeContext();
         /** @type {?} */
         let loading = false;
         /** @type {?} */
@@ -8568,7 +8562,7 @@ class TdLoadingFactory {
             else if (registered <= 0 && loading) {
                 loading = false;
                 /** @type {?} */
-                let subs = loadingRef.componentRef.instance.startOutAnimation().subscribe((/**
+                const subs = loadingRef.componentRef.instance.startOutAnimation().subscribe((/**
                  * @return {?}
                  */
                 () => {
@@ -8596,7 +8590,7 @@ class TdLoadingFactory {
         ((/** @type {?} */ (options))).height = undefined;
         ((/** @type {?} */ (options))).style = LoadingStyle.Overlay;
         /** @type {?} */
-        let loadingRef = this._createComponent(options);
+        const loadingRef = this._createComponent(options);
         /** @type {?} */
         let loading = false;
         loadingRef.componentRef.instance.content = new TemplatePortal(templateRef, viewContainerRef);
@@ -8631,18 +8625,18 @@ class TdLoadingFactory {
      */
     createReplaceComponent(options, viewContainerRef, templateRef, context) {
         /** @type {?} */
-        let nativeElement = (/** @type {?} */ (templateRef.elementRef.nativeElement));
+        const nativeElement = (/** @type {?} */ (templateRef.elementRef.nativeElement));
         ((/** @type {?} */ (options))).height = nativeElement.nextElementSibling
             ? nativeElement.nextElementSibling.scrollHeight
             : undefined;
         ((/** @type {?} */ (options))).style = LoadingStyle.None;
         /** @type {?} */
-        let loadingRef = this._createComponent(options);
+        const loadingRef = this._createComponent(options);
         /** @type {?} */
         let loading = false;
         // passing context so when the template is attached, we can keep the reference of the variables
         /** @type {?} */
-        let contentRef = viewContainerRef.createEmbeddedView(templateRef, context);
+        const contentRef = viewContainerRef.createEmbeddedView(templateRef, context);
         loadingRef.observable.pipe(distinctUntilChanged()).subscribe((/**
          * @param {?} registered
          * @return {?}
@@ -8652,7 +8646,7 @@ class TdLoadingFactory {
                 loading = true;
                 // detach the content and attach the loader if loader is there
                 /** @type {?} */
-                let index = viewContainerRef.indexOf(loadingRef.componentRef.hostView);
+                const index = viewContainerRef.indexOf(loadingRef.componentRef.hostView);
                 if (index < 0) {
                     viewContainerRef.detach(viewContainerRef.indexOf(contentRef));
                     viewContainerRef.insert(loadingRef.componentRef.hostView, 0);
@@ -8662,14 +8656,14 @@ class TdLoadingFactory {
             else if (registered <= 0 && loading) {
                 loading = false;
                 /** @type {?} */
-                let subs = loadingRef.componentRef.instance.startOutAnimation().subscribe((/**
+                const subs = loadingRef.componentRef.instance.startOutAnimation().subscribe((/**
                  * @return {?}
                  */
                 () => {
                     subs.unsubscribe();
                     // detach loader and attach the content if content is there
                     /** @type {?} */
-                    let index = viewContainerRef.indexOf(contentRef);
+                    const index = viewContainerRef.indexOf(contentRef);
                     if (index < 0) {
                         viewContainerRef.detach(viewContainerRef.indexOf(loadingRef.componentRef.hostView));
                         viewContainerRef.insert(contentRef, 0);
@@ -8692,7 +8686,7 @@ class TdLoadingFactory {
      */
     _createOverlay() {
         /** @type {?} */
-        let state = new OverlayConfig();
+        const state = new OverlayConfig();
         state.hasBackdrop = false;
         state.positionStrategy = this._overlay
             .position()
@@ -8709,7 +8703,7 @@ class TdLoadingFactory {
      */
     _createComponent(options) {
         /** @type {?} */
-        let compRef = this._initializeContext();
+        const compRef = this._initializeContext();
         compRef.componentRef = this._componentFactoryResolver
             .resolveComponentFactory(TdLoadingComponent)
             .create(this._injector);
@@ -8723,10 +8717,10 @@ class TdLoadingFactory {
      */
     _initializeContext() {
         /** @type {?} */
-        let subject = new Subject();
+        const subject = new Subject();
         return {
             observable: subject.asObservable(),
-            subject: subject,
+            subject,
             componentRef: undefined,
             times: 0,
         };
@@ -8838,7 +8832,7 @@ class TdLoadingService {
      */
     createComponent(config, viewContainerRef, templateRef, context) {
         /** @type {?} */
-        let directiveConfig = new TdLoadingDirectiveConfig(config);
+        const directiveConfig = new TdLoadingDirectiveConfig(config);
         if (this._context[directiveConfig.name]) {
             throw Error(`Name duplication: [TdLoading] directive has a name conflict with ${directiveConfig.name}.`);
         }
@@ -8861,7 +8855,7 @@ class TdLoadingService {
      */
     create(config) {
         /** @type {?} */
-        let fullscreenConfig = new TdLoadingConfig(config);
+        const fullscreenConfig = new TdLoadingConfig(config);
         this.removeComponent(fullscreenConfig.name);
         this._context[fullscreenConfig.name] = this._loadingFactory.createFullScreenComponent(fullscreenConfig);
     }
@@ -8995,7 +8989,7 @@ class TdLoadingService {
     setValue(name, value) {
         if (this._context[name]) {
             /** @type {?} */
-            let instance = this._context[name].componentRef.instance;
+            const instance = this._context[name].componentRef.instance;
             if (instance.mode === LoadingMode.Determinate && instance.animation) {
                 instance.value = value;
                 return true;
@@ -9077,10 +9071,8 @@ class TdLoadingDirective {
      * @return {?}
      */
     set name(name) {
-        if (!this._name) {
-            if (name) {
-                this._name = name;
-            }
+        if (!this._name && name) {
+            this._name = name;
         }
     }
     /**
@@ -9111,13 +9103,11 @@ class TdLoadingDirective {
      * @return {?}
      */
     set type(type) {
-        switch (type) {
-            case LoadingType.Linear:
-                this._type = LoadingType.Linear;
-                break;
-            default:
-                this._type = LoadingType.Circular;
-                break;
+        if (type === LoadingType.Linear) {
+            this._type = LoadingType.Linear;
+        }
+        else {
+            this._type = LoadingType.Circular;
         }
     }
     /**
@@ -9128,30 +9118,26 @@ class TdLoadingDirective {
      * @return {?}
      */
     set mode(mode) {
-        switch (mode) {
-            case LoadingMode.Determinate:
-                this._mode = LoadingMode.Determinate;
-                break;
-            default:
-                this._mode = LoadingMode.Indeterminate;
-                break;
+        if (mode === LoadingMode.Determinate) {
+            this._mode = LoadingMode.Determinate;
+        }
+        else {
+            this._mode = LoadingMode.Indeterminate;
         }
     }
     /**
      * tdLoadingStrategy?: LoadingStrategy or ['replace' | 'overlay']
      * Sets the strategy of loading mask depending on value.
      * Defaults to [LoadingMode.Replace | 'replace'].
-     * @param {?} stategy
+     * @param {?} strategy
      * @return {?}
      */
-    set strategy(stategy) {
-        switch (stategy) {
-            case LoadingStrategy.Overlay:
-                this._strategy = LoadingStrategy.Overlay;
-                break;
-            default:
-                this._strategy = LoadingStrategy.Replace;
-                break;
+    set strategy(strategy) {
+        if (strategy === LoadingStrategy.Overlay) {
+            this._strategy = LoadingStrategy.Overlay;
+        }
+        else {
+            this._strategy = LoadingStrategy.Replace;
         }
     }
     /**
@@ -9340,7 +9326,7 @@ class TdMediaService {
      * @return {?}
      */
     _onResize() {
-        for (let query in this._querySources) {
+        for (const query of Object.keys(this._querySources)) {
             this._ngZone.run((/**
              * @return {?}
              */
@@ -9465,7 +9451,7 @@ class TdMediaToggleDirective {
      * @return {?}
      */
     _changeAttributes() {
-        for (let attr in this._attributes) {
+        for (const attr in this._attributes) {
             if (this._matches) {
                 this._renderer.setAttribute(this._elementRef.nativeElement, attr, this._attributes[attr]);
             }
@@ -9497,7 +9483,7 @@ class TdMediaToggleDirective {
      * @return {?}
      */
     _changeStyles() {
-        for (let style in this._styles) {
+        for (const style in this._styles) {
             if (this._matches) {
                 this._renderer.setStyle(this._elementRef.nativeElement, style, this._styles[style]);
             }
@@ -9613,22 +9599,22 @@ class TdSearchInputComponent extends _TdSearchInputMixinBase {
          * searchDebounce: function($event)
          * Event emitted after the [debounce] timeout.
          */
-        this.onSearchDebounce = new EventEmitter();
+        this.searchDebounce = new EventEmitter();
         /**
          * search: function($event)
          * Event emitted after the key enter has been pressed.
          */
-        this.onSearch = new EventEmitter();
+        this.search = new EventEmitter();
         /**
          * clear: function()
          * Event emitted after the clear icon has been clicked.
          */
-        this.onClear = new EventEmitter();
+        this.clear = new EventEmitter();
         /**
          * blur: function()
          * Event emitted after the blur event has been called in underlying input.
          */
-        this.onBlur = new EventEmitter();
+        this.blur = new EventEmitter();
     }
     /**
      * @return {?}
@@ -9664,7 +9650,7 @@ class TdSearchInputComponent extends _TdSearchInputMixinBase {
      * @return {?}
      */
     handleBlur() {
-        this.onBlur.emit(undefined);
+        this.blur.emit();
     }
     /**
      * @param {?} event
@@ -9679,7 +9665,7 @@ class TdSearchInputComponent extends _TdSearchInputMixinBase {
      */
     handleSearch(event) {
         this.stopPropagation(event);
-        this.onSearch.emit(this.value);
+        this.search.emit(this.value);
     }
     /**
      * Method to clear the underlying input.
@@ -9688,7 +9674,7 @@ class TdSearchInputComponent extends _TdSearchInputMixinBase {
     clearSearch() {
         this.value = '';
         this._changeDetectorRef.markForCheck();
-        this.onClear.emit(undefined);
+        this.clear.emit();
     }
     /**
      * @private
@@ -9696,7 +9682,7 @@ class TdSearchInputComponent extends _TdSearchInputMixinBase {
      * @return {?}
      */
     _searchTermChanged(value) {
-        this.onSearchDebounce.emit(value);
+        this.searchDebounce.emit(value);
     }
 }
 TdSearchInputComponent.decorators = [
@@ -9743,15 +9729,15 @@ TdSearchInputComponent.ctorParameters = () => [
 ];
 TdSearchInputComponent.propDecorators = {
     _input: [{ type: ViewChild, args: [MatInput, { static: true },] }],
-    appearance: [{ type: Input, args: ['appearance',] }],
-    showUnderline: [{ type: Input, args: ['showUnderline',] }],
-    debounce: [{ type: Input, args: ['debounce',] }],
-    placeholder: [{ type: Input, args: ['placeholder',] }],
-    clearIcon: [{ type: Input, args: ['clearIcon',] }],
-    onSearchDebounce: [{ type: Output, args: ['searchDebounce',] }],
-    onSearch: [{ type: Output, args: ['search',] }],
-    onClear: [{ type: Output, args: ['clear',] }],
-    onBlur: [{ type: Output, args: ['blur',] }]
+    appearance: [{ type: Input }],
+    showUnderline: [{ type: Input }],
+    debounce: [{ type: Input }],
+    placeholder: [{ type: Input }],
+    clearIcon: [{ type: Input }],
+    searchDebounce: [{ type: Output }],
+    search: [{ type: Output }],
+    clear: [{ type: Output }],
+    blur: [{ type: Output }]
 };
 
 /**
@@ -9813,22 +9799,22 @@ class TdSearchBoxComponent extends _TdSearchBoxMixinBase {
          * searchDebounce: function($event)
          * Event emitted after the [debounce] timeout.
          */
-        this.onSearchDebounce = new EventEmitter();
+        this.searchDebounce = new EventEmitter();
         /**
          * search: function($event)
          * Event emitted after the key enter has been pressed.
          */
-        this.onSearch = new EventEmitter();
+        this.search = new EventEmitter();
         /**
          * clear: function()
          * Event emitted after the clear icon has been clicked.
          */
-        this.onClear = new EventEmitter();
+        this.clear = new EventEmitter();
         /**
          * blur: function()
          * Event emitted after the blur event has been called in underlying input.
          */
-        this.onBlur = new EventEmitter();
+        this.blur = new EventEmitter();
     }
     /**
      * @return {?}
@@ -9862,26 +9848,26 @@ class TdSearchBoxComponent extends _TdSearchBoxMixinBase {
      * @return {?}
      */
     handleSearchDebounce(value) {
-        this.onSearchDebounce.emit(value);
+        this.searchDebounce.emit(value);
     }
     /**
      * @param {?} value
      * @return {?}
      */
     handleSearch(value) {
-        this.onSearch.emit(value);
+        this.search.emit(value);
     }
     /**
      * @return {?}
      */
     handleClear() {
-        this.onClear.emit(undefined);
+        this.clear.emit();
     }
     /**
      * @return {?}
      */
     handleBlur() {
-        this.onBlur.emit(undefined);
+        this.blur.emit();
     }
 }
 TdSearchBoxComponent.decorators = [
@@ -9923,17 +9909,17 @@ TdSearchBoxComponent.ctorParameters = () => [
 ];
 TdSearchBoxComponent.propDecorators = {
     _searchInput: [{ type: ViewChild, args: [TdSearchInputComponent, { static: true },] }],
-    backIcon: [{ type: Input, args: ['backIcon',] }],
-    searchIcon: [{ type: Input, args: ['searchIcon',] }],
-    clearIcon: [{ type: Input, args: ['clearIcon',] }],
-    showUnderline: [{ type: Input, args: ['showUnderline',] }],
-    debounce: [{ type: Input, args: ['debounce',] }],
-    alwaysVisible: [{ type: Input, args: ['alwaysVisible',] }],
-    placeholder: [{ type: Input, args: ['placeholder',] }],
-    onSearchDebounce: [{ type: Output, args: ['searchDebounce',] }],
-    onSearch: [{ type: Output, args: ['search',] }],
-    onClear: [{ type: Output, args: ['clear',] }],
-    onBlur: [{ type: Output, args: ['blur',] }]
+    backIcon: [{ type: Input }],
+    searchIcon: [{ type: Input }],
+    clearIcon: [{ type: Input }],
+    showUnderline: [{ type: Input }],
+    debounce: [{ type: Input }],
+    alwaysVisible: [{ type: Input }],
+    placeholder: [{ type: Input }],
+    searchDebounce: [{ type: Output }],
+    search: [{ type: Output }],
+    clear: [{ type: Output }],
+    blur: [{ type: Output }]
 };
 
 /**
@@ -10116,22 +10102,22 @@ class TdBreadcrumbsComponent {
      */
     get nativeElementWidth() {
         /** @type {?} */
-        let element = (/** @type {?} */ (this._elementRef.nativeElement));
+        const element = (/** @type {?} */ (this._elementRef.nativeElement));
         // Need to take into account border, margin and padding that might be around all the crumbs
         /** @type {?} */
-        let style = window.getComputedStyle(element);
+        const style = window.getComputedStyle(element);
         /** @type {?} */
-        let borderLeft = parseInt(style.borderLeft, 10);
+        const borderLeft = parseInt(style.borderLeft, 10);
         /** @type {?} */
-        let borderRight = parseInt(style.borderRight, 10);
+        const borderRight = parseInt(style.borderRight, 10);
         /** @type {?} */
-        let marginLeft = parseInt(style.marginLeft, 10);
+        const marginLeft = parseInt(style.marginLeft, 10);
         /** @type {?} */
-        let marginRight = parseInt(style.marginRight, 10);
+        const marginRight = parseInt(style.marginRight, 10);
         /** @type {?} */
-        let paddingLeft = parseInt(style.paddingLeft, 10);
+        const paddingLeft = parseInt(style.paddingLeft, 10);
         /** @type {?} */
-        let paddingRight = parseInt(style.paddingRight, 10);
+        const paddingRight = parseInt(style.paddingRight, 10);
         return (element.getBoundingClientRect().width -
             borderLeft -
             borderRight -
@@ -10154,7 +10140,7 @@ class TdBreadcrumbsComponent {
      */
     setCrumbIcons() {
         /** @type {?} */
-        let breadcrumbArray = this._breadcrumbs.toArray();
+        const breadcrumbArray = this._breadcrumbs.toArray();
         if (breadcrumbArray.length > 0) {
             // don't show the icon on the last breadcrumb
             breadcrumbArray[breadcrumbArray.length - 1]._displayIcon = false;
@@ -10173,15 +10159,15 @@ class TdBreadcrumbsComponent {
      */
     _calculateVisibility() {
         /** @type {?} */
-        let crumbsArray = this._breadcrumbs.toArray();
+        const crumbsArray = this._breadcrumbs.toArray();
         /** @type {?} */
         let crumbWidthSum = 0;
         /** @type {?} */
-        let hiddenCrumbs = [];
+        const hiddenCrumbs = [];
         // loop through crumbs in reverse order to calculate which ones should be removed
         for (let i = crumbsArray.length - 1; i >= 0; i--) {
             /** @type {?} */
-            let breadcrumb = crumbsArray[i];
+            const breadcrumb = crumbsArray[i];
             // if crumb exceeds width, then we skip it from the sum and add it into the hiddencrumbs array
             // and hide it
             if (crumbWidthSum + breadcrumb.width > this.nativeElementWidth) {
@@ -10217,7 +10203,7 @@ TdBreadcrumbsComponent.ctorParameters = () => [
 ];
 TdBreadcrumbsComponent.propDecorators = {
     _breadcrumbs: [{ type: ContentChildren, args: [TdBreadcrumbComponent,] }],
-    separatorIcon: [{ type: Input, args: ['separatorIcon',] }]
+    separatorIcon: [{ type: Input }]
 };
 
 /**
@@ -10319,12 +10305,12 @@ class TdStepComponent extends _TdStepMixinBase {
          * activated?: function
          * Event emitted when [TdStepComponent] is activated.
          */
-        this.onActivated = new EventEmitter();
+        this.activated = new EventEmitter();
         /**
          * deactivated?: function
          * Event emitted when [TdStepComponent] is deactivated.
          */
-        this.onDeactivated = new EventEmitter();
+        this.deactivated = new EventEmitter();
     }
     /**
      * @return {?}
@@ -10422,7 +10408,7 @@ class TdStepComponent extends _TdStepMixinBase {
         }
     }
     /**
-     * Method to change active state internally and emit the [onActivated] event if 'true' or [onDeactivated]
+     * Method to change active state internally and emit the [activated] event if 'true' or [deactivated]
      * event if 'false'. (Blocked if [disabled] is 'true')
      * returns true if successfully changed state
      * @private
@@ -10450,14 +10436,14 @@ class TdStepComponent extends _TdStepMixinBase {
      * @return {?}
      */
     _onActivated() {
-        this.onActivated.emit(undefined);
+        this.activated.emit();
     }
     /**
      * @private
      * @return {?}
      */
     _onDeactivated() {
-        this.onDeactivated.emit(undefined);
+        this.deactivated.emit();
     }
 }
 TdStepComponent.decorators = [
@@ -10476,12 +10462,12 @@ TdStepComponent.propDecorators = {
     stepLabel: [{ type: ContentChild, args: [TdStepLabelDirective, { static: false },] }],
     stepActions: [{ type: ContentChild, args: [TdStepActionsDirective, { static: false },] }],
     stepSummary: [{ type: ContentChild, args: [TdStepSummaryDirective, { static: false },] }],
-    label: [{ type: Input, args: ['label',] }],
-    sublabel: [{ type: Input, args: ['sublabel',] }],
+    label: [{ type: Input }],
+    sublabel: [{ type: Input }],
     active: [{ type: Input, args: ['active',] }],
     state: [{ type: Input, args: ['state',] }],
-    onActivated: [{ type: Output, args: ['activated',] }],
-    onDeactivated: [{ type: Output, args: ['deactivated',] }]
+    activated: [{ type: Output }],
+    deactivated: [{ type: Output }]
 };
 
 /**
@@ -10498,10 +10484,10 @@ class TdStepsComponent {
         this._mode = StepMode.Vertical;
         /**
          * stepChange?: function
-         * Method to be executed when [onStepChange] event is emitted.
+         * Method to be executed when [stepChange] event is emitted.
          * Emits an [IStepChangeEvent] implemented object.
          */
-        this.onStepChange = new EventEmitter();
+        this.stepChange = new EventEmitter();
     }
     /**
      * @param {?} steps
@@ -10526,12 +10512,11 @@ class TdStepsComponent {
      * @return {?}
      */
     set mode(mode) {
-        switch (mode) {
-            case StepMode.Horizontal:
-                this._mode = StepMode.Horizontal;
-                break;
-            default:
-                this._mode = StepMode.Vertical;
+        if (mode === StepMode.Horizontal) {
+            this._mode = StepMode.Horizontal;
+        }
+        else {
+            this._mode = StepMode.Vertical;
         }
     }
     /**
@@ -10542,7 +10527,7 @@ class TdStepsComponent {
     }
     /**
      * Executed after content is initialized, loops through any [TdStepComponent] children elements,
-     * assigns them a number and subscribes as an observer to their [onActivated] event.
+     * assigns them a number and subscribes as an observer to their [activated] event.
      * @return {?}
      */
     ngAfterContentInit() {
@@ -10583,7 +10568,7 @@ class TdStepsComponent {
     }
     /**
      * Wraps previous and new [TdStepComponent] numbers in an object that implements [IStepChangeEvent]
-     * and emits [onStepChange] event.
+     * and emits [stepChange] event.
      * @private
      * @param {?} step
      * @return {?}
@@ -10591,15 +10576,15 @@ class TdStepsComponent {
     _onStepSelection(step) {
         if (this.prevStep !== step) {
             /** @type {?} */
-            let prevStep = this.prevStep;
+            const prevStep = this.prevStep;
             this.prevStep = step;
             /** @type {?} */
-            let event = {
+            const event = {
                 newStep: step,
-                prevStep: prevStep,
+                prevStep,
             };
             this._deactivateAllBut(step);
-            this.onStepChange.emit(event);
+            this.stepChange.emit(event);
         }
     }
     /**
@@ -10635,7 +10620,7 @@ class TdStepsComponent {
          */
         (step) => {
             /** @type {?} */
-            let subscription = step.onActivated.asObservable().subscribe((/**
+            const subscription = step.activated.asObservable().subscribe((/**
              * @return {?}
              */
             () => {
@@ -10675,7 +10660,7 @@ TdStepsComponent.decorators = [
 TdStepsComponent.propDecorators = {
     stepsContent: [{ type: ContentChildren, args: [TdStepComponent,] }],
     mode: [{ type: Input, args: ['mode',] }],
-    onStepChange: [{ type: Output, args: ['stepChange',] }]
+    stepChange: [{ type: Output }]
 };
 
 /**
@@ -10721,10 +10706,10 @@ TdStepHeaderComponent.decorators = [
             }] }
 ];
 TdStepHeaderComponent.propDecorators = {
-    number: [{ type: Input, args: ['number',] }],
-    active: [{ type: Input, args: ['active',] }],
-    state: [{ type: Input, args: ['state',] }],
-    tabIndex: [{ type: Input, args: ['tabIndex',] }]
+    number: [{ type: Input }],
+    active: [{ type: Input }],
+    state: [{ type: Input }],
+    tabIndex: [{ type: Input }]
 };
 
 /**
@@ -10781,8 +10766,8 @@ TdStepBodyComponent.propDecorators = {
     contentRef: [{ type: ViewChild, args: ['contentRef', { read: ElementRef, static: true },] }],
     actionsRef: [{ type: ViewChild, args: ['actionsRef', { read: ElementRef, static: true },] }],
     summaryRef: [{ type: ViewChild, args: ['summaryRef', { read: ElementRef, static: true },] }],
-    active: [{ type: Input, args: ['active',] }],
-    state: [{ type: Input, args: ['state',] }]
+    active: [{ type: Input }],
+    state: [{ type: Input }]
 };
 
 /**
@@ -10878,10 +10863,10 @@ TdNavStepLinkComponent.ctorParameters = () => [
 ];
 TdNavStepLinkComponent.propDecorators = {
     state: [{ type: Input, args: ['state',] }],
-    label: [{ type: Input, args: ['label',] }],
-    sublabel: [{ type: Input, args: ['sublabel',] }],
+    label: [{ type: Input }],
+    sublabel: [{ type: Input }],
     active: [{ type: Input, args: ['active',] }],
-    tabIndex: [{ type: Input, args: ['tabIndex',] }]
+    tabIndex: [{ type: Input }]
 };
 
 /**
@@ -10931,22 +10916,22 @@ class TdNavStepsHorizontalComponent {
      */
     get nativeElementWidth() {
         /** @type {?} */
-        let element = (/** @type {?} */ (this._elementRef.nativeElement));
+        const element = (/** @type {?} */ (this._elementRef.nativeElement));
         // Need to take into account border, margin and padding that might be around all the crumbs
         /** @type {?} */
-        let style = window.getComputedStyle(element);
+        const style = window.getComputedStyle(element);
         /** @type {?} */
-        let borderLeft = parseInt(style.borderLeft, 10);
+        const borderLeft = parseInt(style.borderLeft, 10);
         /** @type {?} */
-        let borderRight = parseInt(style.borderRight, 10);
+        const borderRight = parseInt(style.borderRight, 10);
         /** @type {?} */
-        let marginLeft = parseInt(style.marginLeft, 10);
+        const marginLeft = parseInt(style.marginLeft, 10);
         /** @type {?} */
-        let marginRight = parseInt(style.marginRight, 10);
+        const marginRight = parseInt(style.marginRight, 10);
         /** @type {?} */
-        let paddingLeft = parseInt(style.paddingLeft, 10);
+        const paddingLeft = parseInt(style.paddingLeft, 10);
         /** @type {?} */
-        let paddingRight = parseInt(style.paddingRight, 10);
+        const paddingRight = parseInt(style.paddingRight, 10);
         return (element.getBoundingClientRect().width -
             borderLeft -
             borderRight -
@@ -11126,7 +11111,7 @@ class TdNavStepsHorizontalComponent {
             this._renderer.removeChild(this._stepList.nativeElement, separator);
         }));
         /** @type {?} */
-        let stepsArray = this._steps.toArray();
+        const stepsArray = this._steps.toArray();
         // set the index number of the step so can display that number in circle
         stepsArray.forEach((/**
          * @param {?} step
@@ -11136,7 +11121,7 @@ class TdNavStepsHorizontalComponent {
         (step, index) => {
             if (index > 0 && index < stepsArray.length) {
                 /** @type {?} */
-                let separator = this._renderer.createElement('div');
+                const separator = this._renderer.createElement('div');
                 this._renderer.addClass(separator, 'td-horizontal-line');
                 this._separators.push(separator);
                 this._renderer.insertBefore(this._stepList.nativeElement, separator, step.elementRef.nativeElement);
@@ -11226,7 +11211,7 @@ class TdNavStepsVerticalComponent {
             this._renderer.removeChild(this._stepList.nativeElement, separator);
         }));
         /** @type {?} */
-        let stepsArray = this._steps.toArray();
+        const stepsArray = this._steps.toArray();
         // set the index number of the step so can display that number in circle
         stepsArray.forEach((/**
          * @param {?} step
@@ -11236,10 +11221,10 @@ class TdNavStepsVerticalComponent {
         (step, index) => {
             if (index > 0 && index < stepsArray.length) {
                 /** @type {?} */
-                let separator = this._renderer.createElement('div');
+                const separator = this._renderer.createElement('div');
                 this._renderer.addClass(separator, 'td-vertical-line-wrapper');
                 /** @type {?} */
-                let separatorChild = this._renderer.createElement('div');
+                const separatorChild = this._renderer.createElement('div');
                 this._renderer.addClass(separatorChild, 'td-vertical-line');
                 this._renderer.appendChild(separator, separatorChild);
                 this._separators.push(separator);
@@ -11353,7 +11338,7 @@ TdTabOptionComponent.ctorParameters = () => [
 ];
 TdTabOptionComponent.propDecorators = {
     _content: [{ type: ViewChild, args: [TemplateRef, { static: true },] }],
-    value: [{ type: Input, args: ['value',] }]
+    value: [{ type: Input }]
 };
 
 /**
@@ -11469,7 +11454,7 @@ class TdTabSelectComponent extends _TdTabSelectMixinBase {
     selectedIndexChange(selectedIndex) {
         this._selectedIndex = selectedIndex;
         /** @type {?} */
-        let value = this._values[selectedIndex];
+        const value = this._values[selectedIndex];
         this.value = value;
         this.valueChange.emit(value);
         this.onChange(value);
@@ -11498,7 +11483,7 @@ class TdTabSelectComponent extends _TdTabSelectMixinBase {
      */
     _setValue(value) {
         /** @type {?} */
-        let index = this._values.indexOf(value);
+        const index = this._values.indexOf(value);
         if (index > -1) {
             this._selectedIndex = index;
         }
@@ -11536,8 +11521,8 @@ TdTabSelectComponent.ctorParameters = () => [
 TdTabSelectComponent.propDecorators = {
     _tabOptions: [{ type: ContentChildren, args: [TdTabOptionComponent,] }],
     stretchTabs: [{ type: Input, args: ['stretchTabs',] }],
-    color: [{ type: Input, args: ['color',] }],
-    backgroundColor: [{ type: Input, args: ['backgroundColor',] }],
+    color: [{ type: Input }],
+    backgroundColor: [{ type: Input }],
     valueChange: [{ type: Output }]
 };
 

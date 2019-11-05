@@ -170,22 +170,22 @@ class TdBreadcrumbsComponent {
      */
     get nativeElementWidth() {
         /** @type {?} */
-        let element = (/** @type {?} */ (this._elementRef.nativeElement));
+        const element = (/** @type {?} */ (this._elementRef.nativeElement));
         // Need to take into account border, margin and padding that might be around all the crumbs
         /** @type {?} */
-        let style = window.getComputedStyle(element);
+        const style = window.getComputedStyle(element);
         /** @type {?} */
-        let borderLeft = parseInt(style.borderLeft, 10);
+        const borderLeft = parseInt(style.borderLeft, 10);
         /** @type {?} */
-        let borderRight = parseInt(style.borderRight, 10);
+        const borderRight = parseInt(style.borderRight, 10);
         /** @type {?} */
-        let marginLeft = parseInt(style.marginLeft, 10);
+        const marginLeft = parseInt(style.marginLeft, 10);
         /** @type {?} */
-        let marginRight = parseInt(style.marginRight, 10);
+        const marginRight = parseInt(style.marginRight, 10);
         /** @type {?} */
-        let paddingLeft = parseInt(style.paddingLeft, 10);
+        const paddingLeft = parseInt(style.paddingLeft, 10);
         /** @type {?} */
-        let paddingRight = parseInt(style.paddingRight, 10);
+        const paddingRight = parseInt(style.paddingRight, 10);
         return (element.getBoundingClientRect().width -
             borderLeft -
             borderRight -
@@ -208,7 +208,7 @@ class TdBreadcrumbsComponent {
      */
     setCrumbIcons() {
         /** @type {?} */
-        let breadcrumbArray = this._breadcrumbs.toArray();
+        const breadcrumbArray = this._breadcrumbs.toArray();
         if (breadcrumbArray.length > 0) {
             // don't show the icon on the last breadcrumb
             breadcrumbArray[breadcrumbArray.length - 1]._displayIcon = false;
@@ -227,15 +227,15 @@ class TdBreadcrumbsComponent {
      */
     _calculateVisibility() {
         /** @type {?} */
-        let crumbsArray = this._breadcrumbs.toArray();
+        const crumbsArray = this._breadcrumbs.toArray();
         /** @type {?} */
         let crumbWidthSum = 0;
         /** @type {?} */
-        let hiddenCrumbs = [];
+        const hiddenCrumbs = [];
         // loop through crumbs in reverse order to calculate which ones should be removed
         for (let i = crumbsArray.length - 1; i >= 0; i--) {
             /** @type {?} */
-            let breadcrumb = crumbsArray[i];
+            const breadcrumb = crumbsArray[i];
             // if crumb exceeds width, then we skip it from the sum and add it into the hiddencrumbs array
             // and hide it
             if (crumbWidthSum + breadcrumb.width > this.nativeElementWidth) {
@@ -271,7 +271,7 @@ TdBreadcrumbsComponent.ctorParameters = () => [
 ];
 TdBreadcrumbsComponent.propDecorators = {
     _breadcrumbs: [{ type: ContentChildren, args: [TdBreadcrumbComponent,] }],
-    separatorIcon: [{ type: Input, args: ['separatorIcon',] }]
+    separatorIcon: [{ type: Input }]
 };
 
 /**

@@ -62,7 +62,7 @@ var TdTabOptionComponent = /** @class */ (function (_super) {
     ]; };
     TdTabOptionComponent.propDecorators = {
         _content: [{ type: ViewChild, args: [TemplateRef, { static: true },] }],
-        value: [{ type: Input, args: ['value',] }]
+        value: [{ type: Input }]
     };
     return TdTabOptionComponent;
 }(_TdTabOptionMixinBase));
@@ -298,8 +298,8 @@ var TdTabSelectComponent = /** @class */ (function (_super) {
     TdTabSelectComponent.propDecorators = {
         _tabOptions: [{ type: ContentChildren, args: [TdTabOptionComponent,] }],
         stretchTabs: [{ type: Input, args: ['stretchTabs',] }],
-        color: [{ type: Input, args: ['color',] }],
-        backgroundColor: [{ type: Input, args: ['backgroundColor',] }],
+        color: [{ type: Input }],
+        backgroundColor: [{ type: Input }],
         valueChange: [{ type: Output }]
     };
     return TdTabSelectComponent;

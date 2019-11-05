@@ -71,7 +71,7 @@ export declare class TdPagingBarComponent implements OnInit {
      * Method to be executed when page size changes or any button is clicked in the paging bar.
      * Emits an [IPageChangeEvent] implemented object.
      */
-    onChange: EventEmitter<IPageChangeEvent>;
+    change: EventEmitter<IPageChangeEvent>;
     readonly isRTL: boolean;
     constructor(_dir: Dir, _changeDetectorRef: ChangeDetectorRef);
     ngOnInit(): void;

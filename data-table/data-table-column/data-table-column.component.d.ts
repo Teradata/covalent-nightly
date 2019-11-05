@@ -44,7 +44,7 @@ export declare class TdDataTableColumnComponent {
      * Event emitted when the column headers are clicked. [sortable] needs to be enabled.
      * Emits an [ITdDataTableSortChangeEvent] implemented object.
      */
-    onSortChange: EventEmitter<ITdDataTableSortChangeEvent>;
+    sortChange: EventEmitter<ITdDataTableSortChangeEvent>;
     readonly bindClickable: boolean;
     readonly bingSortable: boolean;
     readonly bindActive: boolean;

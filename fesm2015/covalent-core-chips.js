@@ -108,31 +108,31 @@ class TdChipsComponent extends _TdChipsMixinBase {
          * Method to be executed when a chip is added.
          * Sends chip value as event.
          */
-        this.onAdd = new EventEmitter();
+        this.add = new EventEmitter();
         /**
          * remove?: function
          * Method to be executed when a chip is removed.
          * Sends chip value as event.
          */
-        this.onRemove = new EventEmitter();
+        this.remove = new EventEmitter();
         /**
          * inputChange?: function
          * Method to be executed when the value in the autocomplete input changes.
          * Sends string value as event.
          */
-        this.onInputChange = new EventEmitter();
+        this.inputChange = new EventEmitter();
         /**
          * chipFocus?: function
          * Method to be executed when a chip is focused.
          * Sends chip value as event.
          */
-        this.onChipFocus = new EventEmitter();
+        this.chipFocus = new EventEmitter();
         /**
          * blur?: function
          * Method to be executed when a chip is blurred.
          * Sends chip value as event.
          */
-        this.onChipBlur = new EventEmitter();
+        this.chipBlur = new EventEmitter();
         /**
          * compareWith? function
          * Function used to check whether a chip value already exists.
@@ -408,7 +408,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
          * @return {?}
          */
         (value) => {
-            this.onInputChange.emit(value ? value : '');
+            this.inputChange.emit(value ? value : '');
         }));
         this._changeDetectorRef.markForCheck();
     }
@@ -462,7 +462,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
         let value;
         if (this.requireMatch) {
             /** @type {?} */
-            let selectedOptions = this._options.toArray().filter((/**
+            const selectedOptions = this._options.toArray().filter((/**
              * @param {?} option
              * @return {?}
              */
@@ -525,7 +525,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
             return false;
         }
         this.value.push(value);
-        this.onAdd.emit(value);
+        this.add.emit(value);
         this.onChange(this.value);
         this._changeDetectorRef.markForCheck();
         return true;
@@ -538,7 +538,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
      */
     removeChip(index) {
         /** @type {?} */
-        let removedValues = this.value.splice(index, 1);
+        const removedValues = this.value.splice(index, 1);
         if (removedValues.length === 0) {
             return false;
         }
@@ -555,7 +555,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
         else if (index > 0) {
             this._focusChip(index - 1);
         }
-        this.onRemove.emit(removedValues[0]);
+        this.remove.emit(removedValues[0]);
         this.onChange(this.value);
         this.inputControl.setValue('');
         this._changeDetectorRef.markForCheck();
@@ -568,7 +568,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
      * @return {?}
      */
     _handleChipBlur(event, value) {
-        this.onChipBlur.emit(value);
+        this.chipBlur.emit(value);
     }
     /**
      * Sets focus of chip and sends out event
@@ -578,7 +578,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
      */
     _handleChipFocus(event, value) {
         this.setFocusedState();
-        this.onChipFocus.emit(value);
+        this.chipFocus.emit(value);
     }
     /**
      * @return {?}
@@ -635,7 +635,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
                  */
                 if (this.requireMatch) {
                     /** @type {?} */
-                    let length = this._options.length;
+                    const length = this._options.length;
                     if (length > 1 && this._options.toArray()[0].active && this._internalActivateOption) {
                         this._options.toArray()[0].setInactiveStyles();
                         this._internalActivateOption = false;
@@ -762,7 +762,7 @@ class TdChipsComponent extends _TdChipsMixinBase {
      */
     get _totalChips() {
         /** @type {?} */
-        let chips = this._chipsChildren.toArray();
+        const chips = this._chipsChildren.toArray();
         return chips.length;
     }
     /**
@@ -924,16 +924,16 @@ TdChipsComponent.propDecorators = {
     required: [{ type: Input, args: ['required',] }],
     chipAddition: [{ type: Input, args: ['chipAddition',] }],
     chipRemoval: [{ type: Input, args: ['chipRemoval',] }],
-    placeholder: [{ type: Input, args: ['placeholder',] }],
-    debounce: [{ type: Input, args: ['debounce',] }],
+    placeholder: [{ type: Input }],
+    debounce: [{ type: Input }],
     color: [{ type: Input, args: ['color',] }],
-    onAdd: [{ type: Output, args: ['add',] }],
-    onRemove: [{ type: Output, args: ['remove',] }],
-    onInputChange: [{ type: Output, args: ['inputChange',] }],
-    onChipFocus: [{ type: Output, args: ['chipFocus',] }],
-    onChipBlur: [{ type: Output, args: ['chipBlur',] }],
+    add: [{ type: Output }],
+    remove: [{ type: Output }],
+    inputChange: [{ type: Output }],
+    chipFocus: [{ type: Output }],
+    chipBlur: [{ type: Output }],
     tabIndex: [{ type: HostBinding, args: ['attr.tabindex',] }],
-    compareWith: [{ type: Input, args: ['compareWith',] }],
+    compareWith: [{ type: Input }],
     focusListener: [{ type: HostListener, args: ['focus', ['$event'],] }],
     mousedownListener: [{ type: HostListener, args: ['mousedown', ['$event'],] }],
     clickListener: [{ type: HostListener, args: ['click', ['$event'],] }],

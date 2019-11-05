@@ -160,7 +160,7 @@ class TdVirtualScrollContainerComponent {
      */
     ngAfterViewChecked() {
         /** @type {?} */
-        let newHostHeight = this._elementRef.nativeElement.getBoundingClientRect().height;
+        const newHostHeight = this._elementRef.nativeElement.getBoundingClientRect().height;
         if (this._hostHeight !== newHostHeight) {
             this._hostHeight = newHostHeight;
             if (this._initialized) {
@@ -188,21 +188,19 @@ class TdVirtualScrollContainerComponent {
      */
     handleScroll(event) {
         /** @type {?} */
-        let element = (/** @type {?} */ (event.target));
+        const element = (/** @type {?} */ (event.target));
         if (element) {
             /** @type {?} */
-            let verticalScroll = element.scrollTop;
+            const verticalScroll = element.scrollTop;
             if (this._scrollVerticalOffset !== verticalScroll) {
                 this._scrollVerticalOffset = verticalScroll;
                 if (this._initialized) {
                     this._calculateVirtualRows();
                 }
             }
-            if (this._initialized) {
+            if (this._initialized && this._data.length * this.rowHeight - (verticalScroll + this._hostHeight) === 0) {
                 // check to see if bottom was hit to throw the bottom event
-                if (this._data.length * this.rowHeight - (verticalScroll + this._hostHeight) === 0) {
-                    this._bottom.next();
-                }
+                this._bottom.next();
             }
         }
     }
@@ -247,10 +245,10 @@ class TdVirtualScrollContainerComponent {
         if (this._data) {
             this._totalHeight = this._data.length * this.rowHeight;
             /** @type {?} */
-            let fromRow = Math.floor(this._scrollVerticalOffset / this.rowHeight) - TD_VIRTUAL_OFFSET;
+            const fromRow = Math.floor(this._scrollVerticalOffset / this.rowHeight) - TD_VIRTUAL_OFFSET;
             this._fromRow = fromRow > 0 ? fromRow : 0;
             /** @type {?} */
-            let range = Math.floor(this._hostHeight / this.rowHeight) + TD_VIRTUAL_OFFSET * 2;
+            const range = Math.floor(this._hostHeight / this.rowHeight) + TD_VIRTUAL_OFFSET * 2;
             /** @type {?} */
             let toRow = range + this.fromRow;
             if (isFinite(toRow) && toRow > this._data.length) {
@@ -305,7 +303,7 @@ TdVirtualScrollContainerComponent.propDecorators = {
     bottom: [{ type: Output }],
     _rows: [{ type: ViewChildren, args: ['rowElement',] }],
     _rowTemplate: [{ type: ContentChild, args: [TdVirtualScrollRowDirective, { static: false },] }],
-    trackBy: [{ type: Input, args: ['trackBy',] }],
+    trackBy: [{ type: Input }],
     handleScroll: [{ type: HostListener, args: ['scroll', ['$event'],] }]
 };
 

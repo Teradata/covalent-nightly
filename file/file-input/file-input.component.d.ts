@@ -36,7 +36,7 @@ export declare class TdFileInputComponent extends _TdFileInputMixinBase implemen
      * Event emitted a file is selected
      * Emits a [File | FileList] object.
      */
-    onSelect: EventEmitter<File | FileList>;
+    select: EventEmitter<File | FileList>;
     constructor(_renderer: Renderer2, _changeDetectorRef: ChangeDetectorRef);
     /**
      * Method executed when a file is selected.
