@@ -39,11 +39,38 @@ TdAutoTrimDirective.ctorParameters = () => [
 TdAutoTrimDirective.propDecorators = {
     onBlur: [{ type: HostListener, args: ['blur', ['$event'],] }]
 };
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdAutoTrimDirective.prototype._model;
+}
 
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @record
+ */
+function IFsDocument() { }
+if (false) {
+    /** @type {?} */
+    IFsDocument.prototype.fullscreenElement;
+    /** @type {?} */
+    IFsDocument.prototype.webkitFullscreenElement;
+    /** @type {?} */
+    IFsDocument.prototype.mozFullscreenElement;
+    /** @type {?} */
+    IFsDocument.prototype.msFullscreenElement;
+    /** @type {?} */
+    IFsDocument.prototype.webkitExitFullscreen;
+    /** @type {?} */
+    IFsDocument.prototype.mozCancelFullScreen;
+    /** @type {?} */
+    IFsDocument.prototype.msExitFullscreen;
+}
 class TdFullscreenDirective {
     /**
      * @param {?} _document
@@ -182,6 +209,20 @@ TdFullscreenDirective.ctorParameters = () => [
 TdFullscreenDirective.propDecorators = {
     fsChangeHandler: [{ type: HostListener, args: ['document:fullscreenchange', ['$event'],] }, { type: HostListener, args: ['document:webkitfullscreenchange', ['$event'],] }, { type: HostListener, args: ['document:mozfullscreenchange', ['$event'],] }, { type: HostListener, args: ['document:msfullscreenchange', ['$event'],] }]
 };
+if (false) {
+    /** @type {?} */
+    TdFullscreenDirective.prototype.fullScreenIsActive;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFullscreenDirective.prototype._document;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFullscreenDirective.prototype._el;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -532,6 +573,18 @@ TdDigitsPipe.decorators = [
 TdDigitsPipe.ctorParameters = () => [
     { type: String, decorators: [{ type: Inject, args: [LOCALE_ID,] }] }
 ];
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDigitsPipe.prototype._decimalPipe;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDigitsPipe.prototype._locale;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -602,6 +655,16 @@ CovalentCommonModule.decorators = [
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
+ * @record
+ */
+function IRotateAnimation() { }
+if (false) {
+    /** @type {?|undefined} */
+    IRotateAnimation.prototype.degrees;
+    /** @type {?|undefined} */
+    IRotateAnimation.prototype.ease;
+}
+/**
  * const tdRotateAnimation
  *
  * Parameter Options:
@@ -630,6 +693,16 @@ const tdRotateAnimation = trigger('tdRotate', [
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @record
+ */
+function ICollapseAnimation() { }
+if (false) {
+    /** @type {?|undefined} */
+    ICollapseAnimation.prototype.easeOnClose;
+    /** @type {?|undefined} */
+    ICollapseAnimation.prototype.easeOnOpen;
+}
 /**
  * const tdCollapseAnimation
  *
@@ -685,6 +758,16 @@ const tdCollapseAnimation = trigger('tdCollapse', [
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @record
+ */
+function IFadeInOutAnimation() { }
+if (false) {
+    /** @type {?|undefined} */
+    IFadeInOutAnimation.prototype.easeOnIn;
+    /** @type {?|undefined} */
+    IFadeInOutAnimation.prototype.easeOnOut;
+}
 /**
  * const tdFadeInOutAnimation
  *
@@ -962,6 +1045,29 @@ const noop = (/**
 () => {
     // empty method
 });
+const ɵ0 = noop;
+/**
+ * @record
+ */
+function IControlValueAccessor() { }
+if (false) {
+    /** @type {?} */
+    IControlValueAccessor.prototype.value;
+    /** @type {?} */
+    IControlValueAccessor.prototype.valueChanges;
+    /** @type {?} */
+    IControlValueAccessor.prototype.onChange;
+    /** @type {?} */
+    IControlValueAccessor.prototype.onTouched;
+}
+/**
+ * @record
+ */
+function IHasChangeDetectorRef() { }
+if (false) {
+    /** @type {?} */
+    IHasChangeDetectorRef.prototype._changeDetectorRef;
+}
 /**
  * Mixin to augment a component with ngModel support.
  * @template T
@@ -1037,6 +1143,20 @@ function mixinControlValueAccessor(base, initialValue) {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
+ * Interface to implement when applying the disabled mixin
+ * @record
+ */
+function ICanDisable() { }
+if (false) {
+    /** @type {?} */
+    ICanDisable.prototype.disabled;
+    /**
+     * @param {?} v
+     * @return {?}
+     */
+    ICanDisable.prototype.onDisabledChange = function (v) { };
+}
+/**
  * Mixin to augment a component or directive with a `disabled` property.
  * @template T
  * @param {?} base
@@ -1083,6 +1203,20 @@ function mixinDisabled(base) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * Interface to implement when applying the disabled mixin
+ * @record
+ */
+function ICanDisableRipple() { }
+if (false) {
+    /** @type {?} */
+    ICanDisableRipple.prototype.disableRipple;
+    /**
+     * @param {?} v
+     * @return {?}
+     */
+    ICanDisableRipple.prototype.onDisableRippleChange = function (v) { };
+}
 /**
  * Mixin to augment a component or directive with a `disabled` property.
  * @template T
@@ -1426,6 +1560,21 @@ function readFile(file) {
         });
     }));
 }
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 export { CovalentCommonModule, CovalentValidators, TdAutoTrimDirective, TdBytesPipe, TdDecimalBytesPipe, TdDigitsPipe, TdFullscreenDirective, TdTimeAgoPipe, TdTimeDifferencePipe, TdTimeUntilPipe, TdTruncatePipe, convertCSVToJSON, convertObjectsToCSV, copyToClipboard, downloadCSV, downloadFile, downloadJSON, downloadObjectsToCSV, downloadObjectsToJSON, formatJSON, mixinControlValueAccessor, mixinDisableRipple, mixinDisabled, readFile, tdBounceAnimation, tdCollapseAnimation, tdFadeInOutAnimation, tdFlashAnimation, tdHeadshakeAnimation, tdJelloAnimation, tdPulseAnimation, tdRotateAnimation };
 //# sourceMappingURL=covalent-core-common.js.map

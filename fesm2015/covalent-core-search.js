@@ -21,6 +21,10 @@ class TdSearchInputBase {
         this._changeDetectorRef = _changeDetectorRef;
     }
 }
+if (false) {
+    /** @type {?} */
+    TdSearchInputBase.prototype._changeDetectorRef;
+}
 /* tslint:disable-next-line */
 /** @type {?} */
 const _TdSearchInputMixinBase = mixinControlValueAccessor(TdSearchInputBase);
@@ -172,7 +176,7 @@ TdSearchInputComponent.decorators = [
                         transition('show => *', animate('200ms ease-out')),
                     ]),
                 ],
-                styles: [":host .td-search-input{overflow-x:hidden;box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:baseline;align-items:baseline;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:end;justify-content:flex-end}:host .td-search-input .td-search-input-field{-ms-flex:1;flex:1}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-outline .mat-form-field-wrapper{padding-bottom:0}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-fill .mat-form-field-wrapper{padding-bottom:0}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-fill .mat-form-field-wrapper .mat-form-field-flex{height:52px}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-fill .mat-form-field-wrapper .mat-form-field-underline{bottom:0}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-standard .mat-form-field-wrapper{padding-bottom:0}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-standard .mat-form-field-wrapper .mat-form-field-infix{bottom:.4em}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-standard .mat-form-field-wrapper .mat-form-field-underline{bottom:0}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-legacy .mat-form-field-infix{-ms-flex-item-align:center;-ms-grid-row-align:center;align-self:center}:host .td-search-input ::ng-deep mat-form-field .mat-input-element{caret-color:currentColor}:host .td-search-input ::ng-deep mat-form-field.mat-hide-underline .mat-form-field-underline{display:none}:host .td-search-input .td-search-input-clear{-ms-flex:0 0 auto;flex:0 0 auto;-ms-flex-item-align:center;-ms-grid-row-align:center;align-self:center}"]
+                styles: [":host .td-search-input{overflow-x:hidden;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}:host .td-search-input .td-search-input-field{-webkit-box-flex:1;-ms-flex:1;flex:1}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-outline .mat-form-field-wrapper{padding-bottom:0}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-fill .mat-form-field-wrapper{padding-bottom:0}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-fill .mat-form-field-wrapper .mat-form-field-flex{height:52px}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-fill .mat-form-field-wrapper .mat-form-field-underline{bottom:0}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-standard .mat-form-field-wrapper{padding-bottom:0}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-standard .mat-form-field-wrapper .mat-form-field-infix{bottom:.4em}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-standard .mat-form-field-wrapper .mat-form-field-underline{bottom:0}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-legacy .mat-form-field-infix{-ms-flex-item-align:center;-ms-grid-row-align:center;align-self:center}:host .td-search-input ::ng-deep mat-form-field .mat-input-element{caret-color:currentColor}:host .td-search-input ::ng-deep mat-form-field.mat-hide-underline .mat-form-field-underline{display:none}:host .td-search-input .td-search-input-clear{-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto;-ms-flex-item-align:center;-ms-grid-row-align:center;align-self:center}"]
             }] }
 ];
 /** @nocollapse */
@@ -192,6 +196,70 @@ TdSearchInputComponent.propDecorators = {
     clear: [{ type: Output }],
     blur: [{ type: Output }]
 };
+if (false) {
+    /** @type {?} */
+    TdSearchInputComponent.prototype._input;
+    /**
+     * appearance?: MatFormFieldAppearance
+     * Appearance style for the underlying input component.
+     * @type {?}
+     */
+    TdSearchInputComponent.prototype.appearance;
+    /**
+     * showUnderline?: boolean
+     * Sets if the input underline should be visible. Defaults to 'false'.
+     * @type {?}
+     */
+    TdSearchInputComponent.prototype.showUnderline;
+    /**
+     * debounce?: number
+     * Debounce timeout between keypresses. Defaults to 400.
+     * @type {?}
+     */
+    TdSearchInputComponent.prototype.debounce;
+    /**
+     * placeholder?: string
+     * Placeholder for the underlying input component.
+     * @type {?}
+     */
+    TdSearchInputComponent.prototype.placeholder;
+    /**
+     * clearIcon?: string
+     * The icon used to clear the search input.
+     * Defaults to 'cancel' icon.
+     * @type {?}
+     */
+    TdSearchInputComponent.prototype.clearIcon;
+    /**
+     * searchDebounce: function($event)
+     * Event emitted after the [debounce] timeout.
+     * @type {?}
+     */
+    TdSearchInputComponent.prototype.searchDebounce;
+    /**
+     * search: function($event)
+     * Event emitted after the key enter has been pressed.
+     * @type {?}
+     */
+    TdSearchInputComponent.prototype.search;
+    /**
+     * clear: function()
+     * Event emitted after the clear icon has been clicked.
+     * @type {?}
+     */
+    TdSearchInputComponent.prototype.clear;
+    /**
+     * blur: function()
+     * Event emitted after the blur event has been called in underlying input.
+     * @type {?}
+     */
+    TdSearchInputComponent.prototype.blur;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdSearchInputComponent.prototype._dir;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -204,6 +272,10 @@ class TdSearchBoxBase {
     constructor(_changeDetectorRef) {
         this._changeDetectorRef = _changeDetectorRef;
     }
+}
+if (false) {
+    /** @type {?} */
+    TdSearchBoxBase.prototype._changeDetectorRef;
 }
 /* tslint:disable-next-line */
 /** @type {?} */
@@ -353,7 +425,7 @@ TdSearchBoxComponent.decorators = [
                         transition('1 => 0', animate('200ms ease-out')),
                     ]),
                 ],
-                styles: [":host{display:block}.td-search-box{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:baseline;align-items:baseline;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:end;justify-content:flex-end}.td-search-box .td-search-icon{-ms-flex:0 0 auto;flex:0 0 auto;-ms-flex-item-align:center;-ms-grid-row-align:center;align-self:center}.td-search-box td-search-input{margin-left:12px}::ng-deep [dir=rtl] .td-search-box td-search-input{margin-right:12px;margin-left:0!important}.td-search-box td-search-input ::ng-deep .mat-form.field.mat-form-field-appearance-legacy .mat-form-field-wrapper{padding-bottom:1em}"]
+                styles: [":host{display:block}.td-search-box{box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}.td-search-box .td-search-icon{-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto;-ms-flex-item-align:center;-ms-grid-row-align:center;align-self:center}.td-search-box td-search-input{margin-left:12px}::ng-deep [dir=rtl] .td-search-box td-search-input{margin-right:12px;margin-left:0!important}.td-search-box td-search-input ::ng-deep .mat-form.field.mat-form-field-appearance-legacy .mat-form-field-wrapper{padding-bottom:1em}"]
             }] }
 ];
 /** @nocollapse */
@@ -374,6 +446,84 @@ TdSearchBoxComponent.propDecorators = {
     clear: [{ type: Output }],
     blur: [{ type: Output }]
 };
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdSearchBoxComponent.prototype._searchVisible;
+    /** @type {?} */
+    TdSearchBoxComponent.prototype._searchInput;
+    /**
+     * backIcon?: string
+     * The icon used to close the search toggle, only shown when [alwaysVisible] is false.
+     * Defaults to 'search' icon.
+     * @type {?}
+     */
+    TdSearchBoxComponent.prototype.backIcon;
+    /**
+     * searchIcon?: string
+     * The icon used to open/focus the search toggle.
+     * Defaults to 'search' icon.
+     * @type {?}
+     */
+    TdSearchBoxComponent.prototype.searchIcon;
+    /**
+     * clearIcon?: string
+     * The icon used to clear the search input.
+     * Defaults to 'cancel' icon.
+     * @type {?}
+     */
+    TdSearchBoxComponent.prototype.clearIcon;
+    /**
+     * showUnderline?: boolean
+     * Sets if the input underline should be visible. Defaults to 'false'.
+     * @type {?}
+     */
+    TdSearchBoxComponent.prototype.showUnderline;
+    /**
+     * debounce?: number
+     * Debounce timeout between keypresses. Defaults to 400.
+     * @type {?}
+     */
+    TdSearchBoxComponent.prototype.debounce;
+    /**
+     * alwaysVisible?: boolean
+     * Sets if the input should always be visible. Defaults to 'false'.
+     * @type {?}
+     */
+    TdSearchBoxComponent.prototype.alwaysVisible;
+    /**
+     * placeholder?: string
+     * Placeholder for the underlying input component.
+     * @type {?}
+     */
+    TdSearchBoxComponent.prototype.placeholder;
+    /**
+     * searchDebounce: function($event)
+     * Event emitted after the [debounce] timeout.
+     * @type {?}
+     */
+    TdSearchBoxComponent.prototype.searchDebounce;
+    /**
+     * search: function($event)
+     * Event emitted after the key enter has been pressed.
+     * @type {?}
+     */
+    TdSearchBoxComponent.prototype.search;
+    /**
+     * clear: function()
+     * Event emitted after the clear icon has been clicked.
+     * @type {?}
+     */
+    TdSearchBoxComponent.prototype.clear;
+    /**
+     * blur: function()
+     * Event emitted after the blur event has been called in underlying input.
+     * @type {?}
+     */
+    TdSearchBoxComponent.prototype.blur;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -388,6 +538,21 @@ CovalentSearchModule.decorators = [
                 exports: [TdSearchInputComponent, TdSearchBoxComponent],
             },] }
 ];
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 export { CovalentSearchModule, TdSearchBoxBase, TdSearchBoxComponent, TdSearchInputBase, TdSearchInputComponent, _TdSearchBoxMixinBase, _TdSearchInputMixinBase };
 //# sourceMappingURL=covalent-core-search.js.map

@@ -26,7 +26,7 @@ function addDependenciesAndFiles(options) {
 exports.addDependenciesAndFiles = addDependenciesAndFiles;
 function mergeFiles(options) {
     var templateSource = schematics_1.apply(schematics_1.url('./files'), [
-        schematics_1.template(tslib_1.__assign({}, core_1.strings, options)),
+        schematics_1.template(tslib_1.__assign(tslib_1.__assign({}, core_1.strings), options)),
     ]);
     return schematics_1.branchAndMerge(schematics_1.mergeWith(templateSource));
 }

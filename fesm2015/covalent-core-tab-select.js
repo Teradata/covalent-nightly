@@ -20,6 +20,12 @@ class TdTabOptionBase {
         this._changeDetectorRef = _changeDetectorRef;
     }
 }
+if (false) {
+    /** @type {?} */
+    TdTabOptionBase.prototype._viewContainerRef;
+    /** @type {?} */
+    TdTabOptionBase.prototype._changeDetectorRef;
+}
 /* tslint:disable-next-line */
 /** @type {?} */
 const _TdTabOptionMixinBase = mixinDisabled(TdTabOptionBase);
@@ -63,6 +69,20 @@ TdTabOptionComponent.propDecorators = {
     _content: [{ type: ViewChild, args: [TemplateRef, { static: true },] }],
     value: [{ type: Input }]
 };
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdTabOptionComponent.prototype._contentPortal;
+    /** @type {?} */
+    TdTabOptionComponent.prototype._content;
+    /**
+     * Value to which the option will be binded to.
+     * @type {?}
+     */
+    TdTabOptionComponent.prototype.value;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -75,6 +95,10 @@ class TdTabSelectBase {
     constructor(_changeDetectorRef) {
         this._changeDetectorRef = _changeDetectorRef;
     }
+}
+if (false) {
+    /** @type {?} */
+    TdTabSelectBase.prototype._changeDetectorRef;
 }
 /* tslint:disable-next-line */
 /** @type {?} */
@@ -242,12 +266,55 @@ TdTabSelectComponent.ctorParameters = () => [
     { type: ChangeDetectorRef }
 ];
 TdTabSelectComponent.propDecorators = {
-    _tabOptions: [{ type: ContentChildren, args: [TdTabOptionComponent,] }],
+    _tabOptions: [{ type: ContentChildren, args: [TdTabOptionComponent, { descendants: true },] }],
     stretchTabs: [{ type: Input, args: ['stretchTabs',] }],
     color: [{ type: Input }],
     backgroundColor: [{ type: Input }],
     valueChange: [{ type: Output }]
 };
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdTabSelectComponent.prototype._subs;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdTabSelectComponent.prototype._values;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdTabSelectComponent.prototype._selectedIndex;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdTabSelectComponent.prototype._stretchTabs;
+    /**
+     * Gets all tab option children
+     * @type {?}
+     */
+    TdTabSelectComponent.prototype._tabOptions;
+    /**
+     * Color of the tab group.
+     * @type {?}
+     */
+    TdTabSelectComponent.prototype.color;
+    /**
+     * Background color of the tab group.
+     * @type {?}
+     */
+    TdTabSelectComponent.prototype.backgroundColor;
+    /**
+     * Event that emits whenever the raw value of the select changes. This is here primarily
+     * to facilitate the two-way binding for the `value` input.
+     * @type {?}
+     */
+    TdTabSelectComponent.prototype.valueChange;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -271,6 +338,21 @@ CovalentTabSelectModule.decorators = [
                 exports: [TdTabSelectComponent, TdTabOptionComponent],
             },] }
 ];
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 export { CovalentTabSelectModule, TdTabOptionBase, TdTabOptionComponent, TdTabSelectBase, TdTabSelectComponent, _TdTabOptionMixinBase, _TdTabSelectMixinBase };
 //# sourceMappingURL=covalent-core-tab-select.js.map

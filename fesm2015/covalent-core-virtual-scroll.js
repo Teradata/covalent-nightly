@@ -35,6 +35,16 @@ TdVirtualScrollRowDirective.ctorParameters = () => [
 const TD_VIRTUAL_OFFSET = 2;
 /** @type {?} */
 const SCROLL_DEBOUNCE = 200;
+/**
+ * @record
+ */
+function ITdVirtualScrollBottomEvent() { }
+if (false) {
+    /** @type {?} */
+    ITdVirtualScrollBottomEvent.prototype.lastRow;
+    /** @type {?} */
+    ITdVirtualScrollBottomEvent.prototype.lastIndex;
+}
 class TdVirtualScrollContainerComponent {
     /**
      * @param {?} _elementRef
@@ -306,6 +316,101 @@ TdVirtualScrollContainerComponent.propDecorators = {
     trackBy: [{ type: Input }],
     handleScroll: [{ type: HostListener, args: ['scroll', ['$event'],] }]
 };
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._subs;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._bottom;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._initialized;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._totalHeight;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._hostHeight;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._scrollVerticalOffset;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._offsetTransform;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._fromRow;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._toRow;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._data;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._virtualData;
+    /**
+     * bottom: function
+     * Method to be executed when user scrolled to the last item of the list.
+     * An [ITdVirtualScrollBottomEvent] event is emitted
+     * @type {?}
+     */
+    TdVirtualScrollContainerComponent.prototype.bottom;
+    /** @type {?} */
+    TdVirtualScrollContainerComponent.prototype._rows;
+    /** @type {?} */
+    TdVirtualScrollContainerComponent.prototype._rowTemplate;
+    /**
+     * trackBy?: TrackByFunction
+     * This accepts the same trackBy function [ngFor] does.
+     * https://angular.io/api/core/TrackByFunction
+     * @type {?}
+     */
+    TdVirtualScrollContainerComponent.prototype.trackBy;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._elementRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._domSanitizer;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._renderer;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._changeDetectorRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -322,6 +427,21 @@ CovalentVirtualScrollModule.decorators = [
                 exports: [TD_VIRTUAL_SCROLL],
             },] }
 ];
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 export { CovalentVirtualScrollModule, TdVirtualScrollContainerComponent, TdVirtualScrollRowDirective };
 //# sourceMappingURL=covalent-core-virtual-scroll.js.map

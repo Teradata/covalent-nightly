@@ -183,7 +183,7 @@ TdFileService.decorators = [
 TdFileService.ctorParameters = () => [
     { type: HttpClient, decorators: [{ type: Optional }] }
 ];
-/** @nocollapse */ TdFileService.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function TdFileService_Factory() { return new TdFileService(i0.ɵɵinject(i1.HttpClient, 8)); }, token: TdFileService, providedIn: i2.CovalentFileModule });
+/** @nocollapse */ TdFileService.ɵprov = i0.ɵɵdefineInjectable({ factory: function TdFileService_Factory() { return new TdFileService(i0.ɵɵinject(i1.HttpClient, 8)); }, token: TdFileService, providedIn: i2.CovalentFileModule });
 if (false) {
     /**
      * @type {?}

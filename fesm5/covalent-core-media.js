@@ -1,6 +1,6 @@
 import { Injectable, NgZone, ɵɵdefineInjectable, ɵɵinject, Directive, Renderer2, ElementRef, Input, NgModule } from '@angular/core';
 import { __values } from 'tslib';
-import { BehaviorSubject, fromEvent } from 'rxjs';
+import { fromEvent, BehaviorSubject } from 'rxjs';
 
 /**
  * @fileoverview added by tsickle
@@ -147,8 +147,8 @@ var TdMediaService = /** @class */ (function () {
      * @return {?}
      */
     function () {
-        var _this = this;
         var e_1, _a;
+        var _this = this;
         var _loop_1 = function (query) {
             this_1._ngZone.run((/**
              * @return {?}
@@ -194,9 +194,41 @@ var TdMediaService = /** @class */ (function () {
     TdMediaService.ctorParameters = function () { return [
         { type: NgZone }
     ]; };
-    /** @nocollapse */ TdMediaService.ngInjectableDef = ɵɵdefineInjectable({ factory: function TdMediaService_Factory() { return new TdMediaService(ɵɵinject(NgZone)); }, token: TdMediaService, providedIn: "root" });
+    /** @nocollapse */ TdMediaService.ɵprov = ɵɵdefineInjectable({ factory: function TdMediaService_Factory() { return new TdMediaService(ɵɵinject(NgZone)); }, token: TdMediaService, providedIn: "root" });
     return TdMediaService;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaService.prototype._resizing;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaService.prototype._globalSubscription;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaService.prototype._queryMap;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaService.prototype._querySources;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaService.prototype._queryObservables;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaService.prototype._ngZone;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -407,6 +439,53 @@ var TdMediaToggleDirective = /** @class */ (function () {
     };
     return TdMediaToggleDirective;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._subscription;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._query;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._matches;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._attributes;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._styles;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._classes;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._renderer;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._elementRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._mediaService;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -425,6 +504,21 @@ var CovalentMediaModule = /** @class */ (function () {
     ];
     return CovalentMediaModule;
 }());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 export { CovalentMediaModule, TdMediaService, TdMediaToggleDirective };
 //# sourceMappingURL=covalent-core-media.js.map

@@ -231,6 +231,39 @@ var TdNotificationCountComponent = /** @class */ (function () {
     };
     return TdNotificationCountComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNotificationCountComponent.prototype._notifications;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNotificationCountComponent.prototype._positionY;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNotificationCountComponent.prototype._positionX;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNotificationCountComponent.prototype._limit;
+    /**
+     * Div content wrapper of `ng-content`.
+     * @type {?}
+     */
+    TdNotificationCountComponent.prototype.content;
+    /**
+     * color?: "primary" | "accent" | "warn"
+     * Sets the theme color of the notification tip. Defaults to "warn"
+     * @type {?}
+     */
+    TdNotificationCountComponent.prototype.color;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -250,6 +283,21 @@ var CovalentNotificationsModule = /** @class */ (function () {
     ];
     return CovalentNotificationsModule;
 }());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 export { CovalentNotificationsModule, DEFAULT_NOTIFICATION_LIMIT, TdNotificationCountComponent, TdNotificationCountPositionX, TdNotificationCountPositionY };
 //# sourceMappingURL=covalent-core-notifications.js.map

@@ -2,12 +2,30 @@
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/material/icon'), require('@angular/material/button'), require('@angular/cdk/coercion'), require('@angular/cdk/bidi')) :
     typeof define === 'function' && define.amd ? define('@covalent/core/paging', ['exports', '@angular/core', '@angular/common', '@angular/material/icon', '@angular/material/button', '@angular/cdk/coercion', '@angular/cdk/bidi'], factory) :
     (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.paging = {}), global.ng.core, global.ng.common, global.ng.material.icon, global.ng.material.button, global.ng.cdk.coercion, global.ng.cdk.bidi));
-}(this, function (exports, core, common, icon, button, coercion, bidi) { 'use strict';
+}(this, (function (exports, core, common, icon, button, coercion, bidi) { 'use strict';
 
     /**
      * @fileoverview added by tsickle
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
+    /**
+     * @record
+     */
+    function IPageChangeEvent() { }
+    if (false) {
+        /** @type {?} */
+        IPageChangeEvent.prototype.page;
+        /** @type {?} */
+        IPageChangeEvent.prototype.maxPage;
+        /** @type {?} */
+        IPageChangeEvent.prototype.pageSize;
+        /** @type {?} */
+        IPageChangeEvent.prototype.total;
+        /** @type {?} */
+        IPageChangeEvent.prototype.fromRow;
+        /** @type {?} */
+        IPageChangeEvent.prototype.toRow;
+    }
     var TdPagingBarComponent = /** @class */ (function () {
         function TdPagingBarComponent(_dir, _changeDetectorRef) {
             this._dir = _dir;
@@ -424,7 +442,7 @@
                         changeDetection: core.ChangeDetectionStrategy.OnPush,
                         selector: 'td-paging-bar',
                         template: "<div class=\"td-paging-bar\" (change)=\"$event.stopPropagation()\">\n  <ng-content></ng-content>\n  <div class=\"td-paging-bar-navigation\">\n    <button\n      mat-icon-button\n      class=\"td-paging-bar-first-page\"\n      type=\"button\"\n      *ngIf=\"firstLast\"\n      [disabled]=\"isMinPage()\"\n      (click)=\"firstPage()\"\n    >\n      <mat-icon>{{ isRTL ? 'skip_next' : 'skip_previous' }}</mat-icon>\n    </button>\n    <button mat-icon-button class=\"td-paging-bar-prev-page\" type=\"button\" [disabled]=\"isMinPage()\" (click)=\"prevPage()\">\n      <mat-icon>{{ isRTL ? 'navigate_next' : 'navigate_before' }}</mat-icon>\n    </button>\n    <ng-template *ngIf=\"pageLinkCount > 0\" let-link let-index=\"index\" ngFor [ngForOf]=\"pageLinks\">\n      <button\n        class=\"td-paging-bar-link-page\"\n        mat-icon-button\n        type=\"button\"\n        [color]=\"page === link ? 'accent' : undefined\"\n        (click)=\"navigateToPage(link)\"\n      >\n        {{ link }}\n      </button>\n    </ng-template>\n    <button mat-icon-button class=\"td-paging-bar-next-page\" type=\"button\" [disabled]=\"isMaxPage()\" (click)=\"nextPage()\">\n      <mat-icon>{{ isRTL ? 'navigate_before' : 'navigate_next' }}</mat-icon>\n    </button>\n    <button\n      mat-icon-button\n      class=\"td-paging-bar-last-page\"\n      type=\"button\"\n      *ngIf=\"firstLast\"\n      [disabled]=\"isMaxPage()\"\n      (click)=\"lastPage()\"\n    >\n      <mat-icon>{{ isRTL ? 'skip_previous' : 'skip_next' }}</mat-icon>\n    </button>\n  </div>\n</div>\n",
-                        styles: [":host{display:block}:host .td-paging-bar{height:48px;box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:end;justify-content:flex-end}:host .td-paging-bar ::ng-deep>*{margin:0 10px}:host .td-paging-bar [mat-icon-button]{font-size:12px;font-weight:400}"]
+                        styles: [":host{display:block}:host .td-paging-bar{height:48px;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}:host .td-paging-bar ::ng-deep>*{margin:0 10px}:host .td-paging-bar [mat-icon-button]{font-size:12px;font-weight:400}"]
                     }] }
         ];
         /** @nocollapse */
@@ -442,6 +460,87 @@
         };
         return TdPagingBarComponent;
     }());
+    if (false) {
+        /**
+         * @type {?}
+         * @private
+         */
+        TdPagingBarComponent.prototype._pageSize;
+        /**
+         * @type {?}
+         * @private
+         */
+        TdPagingBarComponent.prototype._total;
+        /**
+         * @type {?}
+         * @private
+         */
+        TdPagingBarComponent.prototype._page;
+        /**
+         * @type {?}
+         * @private
+         */
+        TdPagingBarComponent.prototype._fromRow;
+        /**
+         * @type {?}
+         * @private
+         */
+        TdPagingBarComponent.prototype._toRow;
+        /**
+         * @type {?}
+         * @private
+         */
+        TdPagingBarComponent.prototype._initialized;
+        /**
+         * @type {?}
+         * @private
+         */
+        TdPagingBarComponent.prototype._pageLinks;
+        /**
+         * @type {?}
+         * @private
+         */
+        TdPagingBarComponent.prototype._pageLinkCount;
+        /**
+         * @type {?}
+         * @private
+         */
+        TdPagingBarComponent.prototype._hitEnd;
+        /**
+         * @type {?}
+         * @private
+         */
+        TdPagingBarComponent.prototype._hitStart;
+        /**
+         * firstLast?: boolean
+         * Shows or hides the first and last page buttons of the paging bar. Defaults to 'false'
+         * @type {?}
+         */
+        TdPagingBarComponent.prototype.firstLast;
+        /**
+         * initialPage?: number
+         * Sets starting page for the paging bar. Defaults to '1'
+         * @type {?}
+         */
+        TdPagingBarComponent.prototype.initialPage;
+        /**
+         * change?: function
+         * Method to be executed when page size changes or any button is clicked in the paging bar.
+         * Emits an [IPageChangeEvent] implemented object.
+         * @type {?}
+         */
+        TdPagingBarComponent.prototype.change;
+        /**
+         * @type {?}
+         * @private
+         */
+        TdPagingBarComponent.prototype._dir;
+        /**
+         * @type {?}
+         * @private
+         */
+        TdPagingBarComponent.prototype._changeDetectorRef;
+    }
 
     /**
      * @fileoverview added by tsickle
@@ -465,5 +564,5 @@
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-}));
+})));
 //# sourceMappingURL=covalent-core-paging.umd.js.map

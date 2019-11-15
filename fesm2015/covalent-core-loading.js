@@ -262,7 +262,7 @@ TdLoadingComponent.decorators = [
                 selector: 'td-loading',
                 template: "<div\n  class=\"td-loading-wrapper\"\n  [style.min-height]=\"getHeight()\"\n  [class.td-overlay-circular]=\"(isOverlay() || isFullScreen()) && !isLinear()\"\n  [class.td-overlay]=\"isOverlay() || isFullScreen()\"\n  [class.td-fullscreen]=\"isFullScreen()\"\n>\n  <div\n    [@tdFadeInOut]=\"animation\"\n    (@tdFadeInOut.done)=\"animationComplete($event)\"\n    [style.min-height]=\"getHeight()\"\n    class=\"td-loading\"\n  >\n    <mat-progress-spinner\n      *ngIf=\"isCircular()\"\n      [mode]=\"mode\"\n      [value]=\"value\"\n      [color]=\"color\"\n      [diameter]=\"getCircleDiameter()\"\n      [strokeWidth]=\"getCircleStrokeWidth()\"\n    ></mat-progress-spinner>\n    <mat-progress-bar *ngIf=\"isLinear()\" [mode]=\"mode\" [value]=\"value\" [color]=\"color\"></mat-progress-bar>\n  </div>\n  <ng-template [cdkPortalOutlet]=\"content\"></ng-template>\n</div>\n",
                 animations: [tdFadeInOutAnimation],
-                styles: [".td-loading-wrapper{position:relative;display:block}.td-loading-wrapper.td-fullscreen{position:inherit}.td-loading-wrapper .td-loading{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:center;justify-content:center;-ms-flex:1;flex:1}.td-loading-wrapper.td-overlay .td-loading{position:absolute;margin:0;top:0;left:0;right:0;z-index:1000}.td-loading-wrapper.td-overlay .td-loading mat-progress-bar{position:absolute;top:0;left:0;right:0}.td-loading-wrapper.td-overlay-circular .td-loading{bottom:0}"]
+                styles: [".td-loading-wrapper{position:relative;display:block}.td-loading-wrapper.td-fullscreen{position:inherit}.td-loading-wrapper .td-loading{box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-flex:1;-ms-flex:1;flex:1}.td-loading-wrapper.td-overlay .td-loading{position:absolute;margin:0;top:0;left:0;right:0;z-index:1000}.td-loading-wrapper.td-overlay .td-loading mat-progress-bar{position:absolute;top:0;left:0;right:0}.td-loading-wrapper.td-overlay-circular .td-loading{bottom:0}"]
             }] }
 ];
 /** @nocollapse */
@@ -270,11 +270,107 @@ TdLoadingComponent.ctorParameters = () => [
     { type: ElementRef },
     { type: ChangeDetectorRef }
 ];
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingComponent.prototype._animationIn;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingComponent.prototype._animationOut;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingComponent.prototype._mode;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingComponent.prototype._defaultMode;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingComponent.prototype._value;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingComponent.prototype._circleDiameter;
+    /**
+     * Flag for animation
+     * @type {?}
+     */
+    TdLoadingComponent.prototype.animation;
+    /**
+     * Content injected into loading component.
+     * @type {?}
+     */
+    TdLoadingComponent.prototype.content;
+    /** @type {?} */
+    TdLoadingComponent.prototype.style;
+    /**
+     * height: number
+     * Sets height of [TdLoadingComponent].
+     * @type {?}
+     */
+    TdLoadingComponent.prototype.height;
+    /**
+     * type: LoadingType
+     * Sets type of [TdLoadingComponent] rendered.
+     * @type {?}
+     */
+    TdLoadingComponent.prototype.type;
+    /**
+     * color: primary' | 'accent' | 'warn'
+     * Sets theme color of [TdLoadingComponent] rendered.
+     * @type {?}
+     */
+    TdLoadingComponent.prototype.color;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingComponent.prototype._elementRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingComponent.prototype._changeDetectorRef;
+}
 
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @record
+ */
+function IInternalLoadingOptions() { }
+if (false) {
+    /** @type {?|undefined} */
+    IInternalLoadingOptions.prototype.height;
+    /** @type {?|undefined} */
+    IInternalLoadingOptions.prototype.style;
+}
+/**
+ * @record
+ */
+function ILoadingRef() { }
+if (false) {
+    /** @type {?} */
+    ILoadingRef.prototype.observable;
+    /** @type {?} */
+    ILoadingRef.prototype.componentRef;
+    /** @type {?|undefined} */
+    ILoadingRef.prototype.subject;
+    /** @type {?|undefined} */
+    ILoadingRef.prototype.times;
+}
 /**
  * NOTE: \@internal usage only.
  */
@@ -517,6 +613,23 @@ TdLoadingFactory.ctorParameters = () => [
     { type: Overlay },
     { type: Injector }
 ];
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingFactory.prototype._componentFactoryResolver;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingFactory.prototype._overlay;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingFactory.prototype._injector;
+}
 /**
  * @param {?} parent
  * @param {?} componentFactoryResolver
@@ -539,6 +652,20 @@ const LOADING_FACTORY_PROVIDER = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @record
+ */
+function ITdLoadingConfig() { }
+if (false) {
+    /** @type {?} */
+    ITdLoadingConfig.prototype.name;
+    /** @type {?|undefined} */
+    ITdLoadingConfig.prototype.type;
+    /** @type {?|undefined} */
+    ITdLoadingConfig.prototype.mode;
+    /** @type {?|undefined} */
+    ITdLoadingConfig.prototype.color;
+}
 class TdLoadingConfig {
     /**
      * @param {?} config
@@ -553,6 +680,24 @@ class TdLoadingConfig {
         this.color = config.color ? config.color : 'primary';
     }
 }
+if (false) {
+    /** @type {?} */
+    TdLoadingConfig.prototype.name;
+    /** @type {?} */
+    TdLoadingConfig.prototype.type;
+    /** @type {?} */
+    TdLoadingConfig.prototype.mode;
+    /** @type {?} */
+    TdLoadingConfig.prototype.color;
+}
+/**
+ * @record
+ */
+function ITdLoadingDirectiveConfig() { }
+if (false) {
+    /** @type {?|undefined} */
+    ITdLoadingDirectiveConfig.prototype.strategy;
+}
 class TdLoadingDirectiveConfig extends TdLoadingConfig {
     /**
      * @param {?} config
@@ -561,6 +706,16 @@ class TdLoadingDirectiveConfig extends TdLoadingConfig {
         super(config);
         this.strategy = config.strategy ? config.strategy : LoadingStrategy.Replace;
     }
+}
+if (false) {
+    /** @type {?} */
+    TdLoadingDirectiveConfig.prototype.name;
+    /** @type {?} */
+    TdLoadingDirectiveConfig.prototype.type;
+    /** @type {?} */
+    TdLoadingDirectiveConfig.prototype.mode;
+    /** @type {?} */
+    TdLoadingDirectiveConfig.prototype.strategy;
 }
 class TdLoadingService {
     /**
@@ -775,6 +930,23 @@ TdLoadingService.decorators = [
 TdLoadingService.ctorParameters = () => [
     { type: TdLoadingFactory }
 ];
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingService.prototype._context;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingService.prototype._timeouts;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingService.prototype._loadingFactory;
+}
 /**
  * @param {?} parent
  * @param {?} loadingFactory
@@ -803,6 +975,12 @@ class TdLoadingContext {
         this.$implicit = undefined;
         this.tdLoading = undefined;
     }
+}
+if (false) {
+    /** @type {?} */
+    TdLoadingContext.prototype.$implicit;
+    /** @type {?} */
+    TdLoadingContext.prototype.tdLoading;
 }
 // Constant for generation of the id for the next component
 /** @type {?} */
@@ -957,6 +1135,59 @@ TdLoadingDirective.propDecorators = {
     strategy: [{ type: Input, args: ['tdLoadingStrategy',] }],
     color: [{ type: Input, args: ['tdLoadingColor',] }]
 };
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingDirective.prototype._context;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingDirective.prototype._type;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingDirective.prototype._mode;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingDirective.prototype._strategy;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingDirective.prototype._name;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingDirective.prototype._loadingRef;
+    /**
+     * tdLoadingColor?: "primary" | "accent" | "warn"
+     * Sets the theme color of the loading component. Defaults to "primary"
+     * @type {?}
+     */
+    TdLoadingDirective.prototype.color;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingDirective.prototype._viewContainerRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingDirective.prototype._templateRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingDirective.prototype._loadingService;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -977,6 +1208,21 @@ CovalentLoadingModule.decorators = [
                 entryComponents: [TD_LOADING_ENTRY_COMPONENTS],
             },] }
 ];
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 export { CovalentLoadingModule, LOADING_FACTORY_PROVIDER, LOADING_FACTORY_PROVIDER_FACTORY, LOADING_PROVIDER, LOADING_PROVIDER_FACTORY, LoadingMode, LoadingStrategy, LoadingStyle, LoadingType, TD_CIRCLE_DIAMETER, TdLoadingComponent, TdLoadingConfig, TdLoadingContext, TdLoadingDirective, TdLoadingDirectiveConfig, TdLoadingFactory, TdLoadingService };
 //# sourceMappingURL=covalent-core-loading.js.map

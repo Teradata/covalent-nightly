@@ -2,7 +2,7 @@
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common')) :
     typeof define === 'function' && define.amd ? define('@covalent/core/notifications', ['exports', '@angular/core', '@angular/common'], factory) :
     (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.notifications = {}), global.ng.core, global.ng.common));
-}(this, function (exports, core, common) { 'use strict';
+}(this, (function (exports, core, common) { 'use strict';
 
     /**
      * @fileoverview added by tsickle
@@ -234,6 +234,39 @@
         };
         return TdNotificationCountComponent;
     }());
+    if (false) {
+        /**
+         * @type {?}
+         * @private
+         */
+        TdNotificationCountComponent.prototype._notifications;
+        /**
+         * @type {?}
+         * @private
+         */
+        TdNotificationCountComponent.prototype._positionY;
+        /**
+         * @type {?}
+         * @private
+         */
+        TdNotificationCountComponent.prototype._positionX;
+        /**
+         * @type {?}
+         * @private
+         */
+        TdNotificationCountComponent.prototype._limit;
+        /**
+         * Div content wrapper of `ng-content`.
+         * @type {?}
+         */
+        TdNotificationCountComponent.prototype.content;
+        /**
+         * color?: "primary" | "accent" | "warn"
+         * Sets the theme color of the notification tip. Defaults to "warn"
+         * @type {?}
+         */
+        TdNotificationCountComponent.prototype.color;
+    }
 
     /**
      * @fileoverview added by tsickle
@@ -262,5 +295,5 @@
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-}));
+})));
 //# sourceMappingURL=covalent-core-notifications.umd.js.map

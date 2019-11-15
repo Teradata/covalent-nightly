@@ -181,7 +181,7 @@ var TdDataTableService = /** @class */ (function () {
                     providedIn: 'root',
                 },] }
     ];
-    /** @nocollapse */ TdDataTableService.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function TdDataTableService_Factory() { return new TdDataTableService(); }, token: TdDataTableService, providedIn: "root" });
+    /** @nocollapse */ TdDataTableService.ɵprov = i0.ɵɵdefineInjectable({ factory: function TdDataTableService_Factory() { return new TdDataTableService(); }, token: TdDataTableService, providedIn: "root" });
     return TdDataTableService;
 }());
 export { TdDataTableService };

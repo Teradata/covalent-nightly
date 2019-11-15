@@ -1,4 +1,4 @@
-import { Directive, TemplateRef, ViewContainerRef, Component, ChangeDetectionStrategy, ElementRef, Renderer2, ChangeDetectorRef, Input, Output, ViewChildren, ContentChild, HostListener, EventEmitter, NgModule } from '@angular/core';
+import { Directive, TemplateRef, ViewContainerRef, EventEmitter, Component, ChangeDetectionStrategy, ElementRef, Renderer2, ChangeDetectorRef, Input, Output, ViewChildren, ContentChild, HostListener, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { __extends } from 'tslib';
 import { TemplatePortalDirective } from '@angular/cdk/portal';
@@ -34,6 +34,16 @@ var TdVirtualScrollRowDirective = /** @class */ (function (_super) {
 var TD_VIRTUAL_OFFSET = 2;
 /** @type {?} */
 var SCROLL_DEBOUNCE = 200;
+/**
+ * @record
+ */
+function ITdVirtualScrollBottomEvent() { }
+if (false) {
+    /** @type {?} */
+    ITdVirtualScrollBottomEvent.prototype.lastRow;
+    /** @type {?} */
+    ITdVirtualScrollBottomEvent.prototype.lastIndex;
+}
 var TdVirtualScrollContainerComponent = /** @class */ (function () {
     function TdVirtualScrollContainerComponent(_elementRef, _domSanitizer, _renderer, _changeDetectorRef) {
         this._elementRef = _elementRef;
@@ -382,6 +392,101 @@ var TdVirtualScrollContainerComponent = /** @class */ (function () {
     };
     return TdVirtualScrollContainerComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._subs;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._bottom;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._initialized;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._totalHeight;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._hostHeight;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._scrollVerticalOffset;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._offsetTransform;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._fromRow;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._toRow;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._data;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._virtualData;
+    /**
+     * bottom: function
+     * Method to be executed when user scrolled to the last item of the list.
+     * An [ITdVirtualScrollBottomEvent] event is emitted
+     * @type {?}
+     */
+    TdVirtualScrollContainerComponent.prototype.bottom;
+    /** @type {?} */
+    TdVirtualScrollContainerComponent.prototype._rows;
+    /** @type {?} */
+    TdVirtualScrollContainerComponent.prototype._rowTemplate;
+    /**
+     * trackBy?: TrackByFunction
+     * This accepts the same trackBy function [ngFor] does.
+     * https://angular.io/api/core/TrackByFunction
+     * @type {?}
+     */
+    TdVirtualScrollContainerComponent.prototype.trackBy;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._elementRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._domSanitizer;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._renderer;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._changeDetectorRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -401,6 +506,21 @@ var CovalentVirtualScrollModule = /** @class */ (function () {
     ];
     return CovalentVirtualScrollModule;
 }());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 export { CovalentVirtualScrollModule, TdVirtualScrollContainerComponent, TdVirtualScrollRowDirective };
 //# sourceMappingURL=covalent-core-virtual-scroll.js.map

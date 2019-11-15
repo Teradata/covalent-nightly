@@ -207,7 +207,7 @@ TdExpansionPanelComponent.decorators = [
                 template: "<div\n  class=\"td-expansion-panel-header\"\n  [class.mat-disabled]=\"disabled\"\n  matRipple\n  [matRippleDisabled]=\"disabled || disableRipple\"\n  [tabIndex]=\"disabled ? -1 : 0\"\n  (keydown.enter)=\"clickEvent()\"\n  (click)=\"clickEvent()\"\n>\n  <ng-template [cdkPortalOutlet]=\"expansionPanelHeader\"></ng-template>\n  <div class=\"td-expansion-panel-header-content\" [class.mat-disabled]=\"disabled\" *ngIf=\"!expansionPanelHeader\">\n    <div *ngIf=\"label || expansionPanelLabel\" class=\"td-expansion-label\">\n      <ng-template [cdkPortalOutlet]=\"expansionPanelLabel\"></ng-template>\n      <ng-template [ngIf]=\"!expansionPanelLabel\">{{ label }}</ng-template>\n    </div>\n    <div *ngIf=\"sublabel || expansionPanelSublabel\" class=\"td-expansion-sublabel\">\n      <ng-template [cdkPortalOutlet]=\"expansionPanelSublabel\"></ng-template>\n      <ng-template [ngIf]=\"!expansionPanelSublabel\">{{ sublabel }}</ng-template>\n    </div>\n    <mat-icon class=\"td-expand-icon\" *ngIf=\"!disabled\" [@tdRotate]=\"expand\">keyboard_arrow_down</mat-icon>\n  </div>\n</div>\n<div class=\"td-expansion-content\" [@tdCollapse]=\"!expand\">\n  <ng-content></ng-content>\n</div>\n<div class=\"td-expansion-summary\" [@tdCollapse]=\"expand\">\n  <ng-content select=\"td-expansion-summary\"></ng-content>\n</div>\n",
                 inputs: ['disabled', 'disableRipple'],
                 animations: [tdCollapseAnimation, tdRotateAnimation],
-                styles: [":host{display:block}:host .td-expansion-panel-header{position:relative;outline:0}:host .td-expansion-panel-header:focus:not(.mat-disabled),:host .td-expansion-panel-header:hover:not(.mat-disabled){cursor:pointer}:host .td-expansion-panel-header .td-expansion-panel-header-content{height:48px;padding:0 24px;box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex:1;flex:1;-ms-flex-pack:start;justify-content:flex-start;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%}:host .td-expansion-panel-header .td-expansion-panel-header-content .td-expansion-label,:host .td-expansion-panel-header .td-expansion-panel-header-content .td-expansion-sublabel{-ms-flex:1;flex:1}:host .td-expansion-content.ng-animating,:host .td-expansion-summary.ng-animating{overflow:hidden}.td-expansion-label,.td-expansion-sublabel{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:16px}::ng-deep [dir=rtl] .td-expansion-label,::ng-deep [dir=rtl] .td-expansion-sublabel{margin-left:16px;margin-right:inherit}"]
+                styles: [":host{display:block}:host .td-expansion-panel-header{position:relative;outline:0}:host .td-expansion-panel-header:focus:not(.mat-disabled),:host .td-expansion-panel-header:hover:not(.mat-disabled){cursor:pointer}:host .td-expansion-panel-header .td-expansion-panel-header-content{height:48px;padding:0 24px;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-flex:1;-ms-flex:1;flex:1;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%}:host .td-expansion-panel-header .td-expansion-panel-header-content .td-expansion-label,:host .td-expansion-panel-header .td-expansion-panel-header-content .td-expansion-sublabel{-webkit-box-flex:1;-ms-flex:1;flex:1}:host .td-expansion-content.ng-animating,:host .td-expansion-summary.ng-animating{overflow:hidden}.td-expansion-label,.td-expansion-sublabel{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:16px}::ng-deep [dir=rtl] .td-expansion-label,::ng-deep [dir=rtl] .td-expansion-sublabel{margin-left:16px;margin-right:inherit}"]
             }] }
 ];
 /** @nocollapse */
@@ -225,6 +225,54 @@ TdExpansionPanelComponent.propDecorators = {
     expanded: [{ type: Output }],
     collapsed: [{ type: Output }]
 };
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdExpansionPanelComponent.prototype._expand;
+    /** @type {?} */
+    TdExpansionPanelComponent.prototype.expansionPanelHeader;
+    /** @type {?} */
+    TdExpansionPanelComponent.prototype.expansionPanelLabel;
+    /** @type {?} */
+    TdExpansionPanelComponent.prototype.expansionPanelSublabel;
+    /**
+     * label?: string
+     * Sets label of [TdExpansionPanelComponent] header.
+     * Defaults to 'Click to expand'
+     * @type {?}
+     */
+    TdExpansionPanelComponent.prototype.label;
+    /**
+     * sublabel?: string
+     * Sets sublabel of [TdExpansionPanelComponent] header.
+     * @type {?}
+     */
+    TdExpansionPanelComponent.prototype.sublabel;
+    /**
+     * expanded?: function
+     * Event emitted when [TdExpansionPanelComponent] is expanded.
+     * @type {?}
+     */
+    TdExpansionPanelComponent.prototype.expanded;
+    /**
+     * collapsed?: function
+     * Event emitted when [TdExpansionPanelComponent] is collapsed.
+     * @type {?}
+     */
+    TdExpansionPanelComponent.prototype.collapsed;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdExpansionPanelComponent.prototype._renderer;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdExpansionPanelComponent.prototype._elementRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -395,8 +443,42 @@ TdExpansionPanelGroupComponent.ctorParameters = () => [
 ];
 TdExpansionPanelGroupComponent.propDecorators = {
     multi: [{ type: Input, args: ['multi',] }],
-    expansionPanels: [{ type: ContentChildren, args: [TdExpansionPanelComponent,] }]
+    expansionPanels: [{ type: ContentChildren, args: [TdExpansionPanelComponent, { descendants: true },] }]
 };
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdExpansionPanelGroupComponent.prototype._multi;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdExpansionPanelGroupComponent.prototype._lastOpenedPanels;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdExpansionPanelGroupComponent.prototype._destroyed;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdExpansionPanelGroupComponent.prototype._stopWatchingPanels;
+    /** @type {?} */
+    TdExpansionPanelGroupComponent.prototype.expansionPanels;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdExpansionPanelGroupComponent.prototype._renderer;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdExpansionPanelGroupComponent.prototype._elementRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -420,6 +502,21 @@ CovalentExpansionPanelModule.decorators = [
                 exports: [TD_EXPANSION_PANEL],
             },] }
 ];
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 export { CovalentExpansionPanelModule, TdExpansionPanelBase, TdExpansionPanelComponent, TdExpansionPanelGroupComponent, TdExpansionPanelHeaderDirective, TdExpansionPanelLabelDirective, TdExpansionPanelSublabelDirective, TdExpansionPanelSummaryComponent, _TdExpansionPanelMixinBase };
 //# sourceMappingURL=covalent-core-expansion-panel.js.map

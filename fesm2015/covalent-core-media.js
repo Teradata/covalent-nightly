@@ -136,7 +136,39 @@ TdMediaService.decorators = [
 TdMediaService.ctorParameters = () => [
     { type: NgZone }
 ];
-/** @nocollapse */ TdMediaService.ngInjectableDef = ɵɵdefineInjectable({ factory: function TdMediaService_Factory() { return new TdMediaService(ɵɵinject(NgZone)); }, token: TdMediaService, providedIn: "root" });
+/** @nocollapse */ TdMediaService.ɵprov = ɵɵdefineInjectable({ factory: function TdMediaService_Factory() { return new TdMediaService(ɵɵinject(NgZone)); }, token: TdMediaService, providedIn: "root" });
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaService.prototype._resizing;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaService.prototype._globalSubscription;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaService.prototype._queryMap;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaService.prototype._querySources;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaService.prototype._queryObservables;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaService.prototype._ngZone;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -293,6 +325,53 @@ TdMediaToggleDirective.propDecorators = {
     classes: [{ type: Input, args: ['mediaClasses',] }],
     styles: [{ type: Input, args: ['mediaStyles',] }]
 };
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._subscription;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._query;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._matches;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._attributes;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._styles;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._classes;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._renderer;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._elementRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._mediaService;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -308,6 +387,21 @@ CovalentMediaModule.decorators = [
                 exports: [TD_MEDIA],
             },] }
 ];
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 export { CovalentMediaModule, TdMediaService, TdMediaToggleDirective };
 //# sourceMappingURL=covalent-core-media.js.map

@@ -2,12 +2,48 @@
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/router'), require('@angular/material/core'), require('@angular/material/list'), require('@angular/material/icon'), require('@angular/material/divider'), require('@angular/material/menu'), require('@covalent/core/common'), require('@covalent/core/expansion-panel')) :
     typeof define === 'function' && define.amd ? define('@covalent/core/nav-links', ['exports', '@angular/core', '@angular/common', '@angular/router', '@angular/material/core', '@angular/material/list', '@angular/material/icon', '@angular/material/divider', '@angular/material/menu', '@covalent/core/common', '@covalent/core/expansion-panel'], factory) :
     (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core['nav-links'] = {}), global.ng.core, global.ng.common, global.ng.router, global.ng.material.core, global.ng.material.list, global.ng.material.icon, global.ng.material.divider, global.ng.material.menu, global.covalent.core.common, global.covalent.core['expansion-panel']));
-}(this, function (exports, core, common, router, core$1, list, icon, divider, menu, common$1, expansionPanel) { 'use strict';
+}(this, (function (exports, core, common, router, core$1, list, icon, divider, menu, common$1, expansionPanel) { 'use strict';
 
     /**
      * @fileoverview added by tsickle
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
+    /**
+     * @record
+     */
+    function ITdNavNode() { }
+    if (false) {
+        /** @type {?} */
+        ITdNavNode.prototype.label;
+        /** @type {?|undefined} */
+        ITdNavNode.prototype.show;
+    }
+    /**
+     * @record
+     */
+    function ITdNavHeader() { }
+    if (false) {
+        /** @type {?} */
+        ITdNavHeader.prototype.children;
+    }
+    /**
+     * @record
+     */
+    function ITdNavExpansion() { }
+    if (false) {
+        /** @type {?|undefined} */
+        ITdNavExpansion.prototype.collapsable;
+    }
+    /**
+     * @record
+     */
+    function ITdLink() { }
+    if (false) {
+        /** @type {?} */
+        ITdLink.prototype.link;
+        /** @type {?} */
+        ITdLink.prototype.icon;
+    }
     /** @type {?} */
     var nextUniqueId = 0;
     var TdNavLinksComponent = /** @class */ (function () {
@@ -111,6 +147,30 @@
         };
         return TdNavLinksComponent;
     }());
+    if (false) {
+        /**
+         * @type {?}
+         * @private
+         */
+        TdNavLinksComponent.prototype._uniqueId;
+        /**
+         * @type {?}
+         * @private
+         */
+        TdNavLinksComponent.prototype._collapsedSet;
+        /** @type {?} */
+        TdNavLinksComponent.prototype.id;
+        /**
+         * Links to be rendered by component.
+         * @type {?}
+         */
+        TdNavLinksComponent.prototype.links;
+        /**
+         * Event trigger after a navigation click
+         * @type {?}
+         */
+        TdNavLinksComponent.prototype.afterNavigation;
+    }
 
     /**
      * @fileoverview added by tsickle
@@ -145,5 +205,5 @@
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-}));
+})));
 //# sourceMappingURL=covalent-core-nav-links.umd.js.map

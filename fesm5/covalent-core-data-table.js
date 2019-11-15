@@ -8,7 +8,7 @@ import { __extends, __values } from 'tslib';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { ENTER, SPACE, UP_ARROW, DOWN_ARROW } from '@angular/cdk/keycodes';
+import { DOWN_ARROW, UP_ARROW, SPACE, ENTER } from '@angular/cdk/keycodes';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { TemplatePortalDirective } from '@angular/cdk/portal';
@@ -39,6 +39,18 @@ var TdDataTableColumnRowComponent = /** @class */ (function () {
     ]; };
     return TdDataTableColumnRowComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @protected
+     */
+    TdDataTableColumnRowComponent.prototype._elementRef;
+    /**
+     * @type {?}
+     * @protected
+     */
+    TdDataTableColumnRowComponent.prototype._renderer;
+}
 var TdDataTableRowComponent = /** @class */ (function () {
     function TdDataTableRowComponent(_elementRef, _renderer) {
         this._elementRef = _elementRef;
@@ -126,6 +138,23 @@ var TdDataTableRowComponent = /** @class */ (function () {
     };
     return TdDataTableRowComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableRowComponent.prototype._selected;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableRowComponent.prototype._elementRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableRowComponent.prototype._renderer;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -149,6 +178,10 @@ var TdDataTableTemplateDirective = /** @class */ (function (_super) {
     };
     return TdDataTableTemplateDirective;
 }(TemplatePortalDirective));
+if (false) {
+    /** @type {?} */
+    TdDataTableTemplateDirective.prototype.tdDataTableTemplate;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -159,6 +192,90 @@ var TdDataTableSortingOrder = {
     Ascending: 'ASC',
     Descending: 'DESC',
 };
+/**
+ * @record
+ */
+function ITdDataTableColumnWidth() { }
+if (false) {
+    /** @type {?|undefined} */
+    ITdDataTableColumnWidth.prototype.min;
+    /** @type {?|undefined} */
+    ITdDataTableColumnWidth.prototype.max;
+}
+/**
+ * @record
+ */
+function ITdDataTableColumn() { }
+if (false) {
+    /** @type {?} */
+    ITdDataTableColumn.prototype.name;
+    /** @type {?} */
+    ITdDataTableColumn.prototype.label;
+    /** @type {?|undefined} */
+    ITdDataTableColumn.prototype.tooltip;
+    /** @type {?|undefined} */
+    ITdDataTableColumn.prototype.numeric;
+    /** @type {?|undefined} */
+    ITdDataTableColumn.prototype.format;
+    /** @type {?|undefined} */
+    ITdDataTableColumn.prototype.nested;
+    /** @type {?|undefined} */
+    ITdDataTableColumn.prototype.sortable;
+    /** @type {?|undefined} */
+    ITdDataTableColumn.prototype.hidden;
+    /** @type {?|undefined} */
+    ITdDataTableColumn.prototype.filter;
+    /** @type {?|undefined} */
+    ITdDataTableColumn.prototype.width;
+}
+/**
+ * @record
+ */
+function ITdDataTableSelectEvent() { }
+if (false) {
+    /** @type {?} */
+    ITdDataTableSelectEvent.prototype.row;
+    /** @type {?} */
+    ITdDataTableSelectEvent.prototype.selected;
+    /** @type {?} */
+    ITdDataTableSelectEvent.prototype.index;
+}
+/**
+ * @record
+ */
+function ITdDataTableSelectAllEvent() { }
+if (false) {
+    /** @type {?} */
+    ITdDataTableSelectAllEvent.prototype.rows;
+    /** @type {?} */
+    ITdDataTableSelectAllEvent.prototype.selected;
+}
+/**
+ * @record
+ */
+function ITdDataTableRowClickEvent() { }
+if (false) {
+    /** @type {?} */
+    ITdDataTableRowClickEvent.prototype.row;
+    /** @type {?} */
+    ITdDataTableRowClickEvent.prototype.index;
+}
+/**
+ * @record
+ */
+function IInternalColumnWidth() { }
+if (false) {
+    /** @type {?} */
+    IInternalColumnWidth.prototype.value;
+    /** @type {?} */
+    IInternalColumnWidth.prototype.limit;
+    /** @type {?} */
+    IInternalColumnWidth.prototype.index;
+    /** @type {?|undefined} */
+    IInternalColumnWidth.prototype.min;
+    /** @type {?|undefined} */
+    IInternalColumnWidth.prototype.max;
+}
 /**
  * Constant to set the rows offset before and after the viewport
  * @type {?}
@@ -175,6 +292,10 @@ var TdDataTableBase = /** @class */ (function () {
     }
     return TdDataTableBase;
 }());
+if (false) {
+    /** @type {?} */
+    TdDataTableBase.prototype._changeDetectorRef;
+}
 /* tslint:disable-next-line */
 /** @type {?} */
 var _TdDataTableMixinBase = mixinControlValueAccessor(TdDataTableBase, []);
@@ -1507,8 +1628,8 @@ var TdDataTableComponent = /** @class */ (function (_super) {
      * @return {?}
      */
     function () {
-        var _this = this;
         var e_2, _a;
+        var _this = this;
         if (this._data) {
             this._allSelected = typeof this._data.find((/**
              * @param {?} d
@@ -1829,7 +1950,7 @@ var TdDataTableComponent = /** @class */ (function (_super) {
                     template: "<table td-data-table [style.left.px]=\"columnsLeftScroll\" [class.mat-selectable]=\"selectable\">\n  <thead class=\"td-data-table-head\" (dragover)=\"_handleColumnDrag($event)\">\n    <tr td-data-table-column-row>\n      <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"selectable\">\n        <mat-checkbox\n          #checkBoxAll\n          *ngIf=\"multiple\"\n          [disabled]=\"!hasData\"\n          [indeterminate]=\"indeterminate && !allSelected && hasData\"\n          [checked]=\"allSelected && hasData\"\n          (click)=\"blockEvent($event); _selectAll(!checkBoxAll.checked)\"\n          (keyup.enter)=\"_selectAll(!checkBoxAll.checked)\"\n          (keyup.space)=\"_selectAll(!checkBoxAll.checked)\"\n          (keydown.space)=\"blockEvent($event)\"\n        ></mat-checkbox>\n      </th>\n      <th\n        td-data-table-column\n        #columnElement\n        *ngFor=\"let column of columns; let i = index; let last = last\"\n        [style.min-width.px]=\"getColumnWidth(i)\"\n        [style.max-width.px]=\"getColumnWidth(i)\"\n        [name]=\"column.name\"\n        [numeric]=\"column.numeric\"\n        [active]=\"(column.sortable || sortable) && column === sortByColumn\"\n        [sortable]=\"column.sortable || (sortable && column.sortable !== false)\"\n        [sortOrder]=\"sortOrderEnum\"\n        [hidden]=\"column.hidden\"\n        (sortChange)=\"handleSort(column)\"\n      >\n        <span [matTooltip]=\"column.tooltip\">{{ column.label }}</span>\n        <span\n          td-column-resizer\n          *ngIf=\"resizableColumns\"\n          draggable=\"true\"\n          class=\"td-data-table-column-resizer\"\n          [class.td-resizing]=\"i === resizingColumn\"\n          (mousedown)=\"_handleStartColumnDrag(i, $event)\"\n          (dragstart)=\"$event?.dataTransfer?.setData('text', '')\"\n          (drag)=\"_handleColumnDrag($event)\"\n          (dragend)=\"_handleEndColumnDrag()\"\n          (mouseup)=\"_handleEndColumnDrag()\"\n        >\n          <span class=\"td-data-table-column-separator\"></span>\n        </span>\n      </th>\n    </tr>\n  </thead>\n</table>\n<div #scrollableDiv class=\"td-data-table-scrollable\" (scroll)=\"handleScroll($event)\">\n  <div [style.height.px]=\"totalHeight\"></div>\n  <table\n    td-data-table\n    [style.transform]=\"offsetTransform\"\n    [style.position]=\"'absolute'\"\n    [class.mat-selectable]=\"selectable\"\n    [class.mat-clickable]=\"clickable\"\n  >\n    <tbody class=\"td-data-table-body\">\n      <tr\n        td-data-table-row\n        #dtRow\n        [tabIndex]=\"selectable ? 0 : -1\"\n        [selected]=\"(clickable || selectable) && isRowSelected(row)\"\n        *ngFor=\"let row of virtualData; let rowIndex = index\"\n        (click)=\"handleRowClick(row, fromRow + rowIndex, $event)\"\n        (keyup)=\"selectable && _rowKeyup($event, row, rowIndex)\"\n        (keydown.space)=\"blockEvent($event)\"\n        (keydown.shift.space)=\"blockEvent($event)\"\n        (keydown.shift)=\"disableTextSelection()\"\n        (keyup.shift)=\"enableTextSelection()\"\n      >\n        <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"selectable\">\n          <mat-pseudo-checkbox\n            [state]=\"dtRow.selected ? 'checked' : 'unchecked'\"\n            (mousedown)=\"disableTextSelection()\"\n            (mouseup)=\"enableTextSelection()\"\n            stopRowClick\n            (click)=\"select(row, $event, fromRow + rowIndex)\"\n          ></mat-pseudo-checkbox>\n        </td>\n        <td\n          td-data-table-cell\n          [numeric]=\"column.numeric\"\n          [hidden]=\"column.hidden\"\n          *ngFor=\"let column of columns; let i = index\"\n          [style.min-width.px]=\"getColumnWidth(i)\"\n          [style.max-width.px]=\"getColumnWidth(i)\"\n        >\n          <span *ngIf=\"!getTemplateRef(column.name)\">\n            {{ column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row) }}\n          </span>\n          <ng-template\n            *ngIf=\"getTemplateRef(column.name)\"\n            [ngTemplateOutlet]=\"getTemplateRef(column.name)\"\n            [ngTemplateOutletContext]=\"{\n              value: getCellValue(column, row),\n              row: row,\n              column: column.name,\n              index: rowIndex\n            }\"\n          ></ng-template>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n<ng-content></ng-content>\n",
                     inputs: ['value'],
                     changeDetection: ChangeDetectionStrategy.OnPush,
-                    styles: [":host{display:block;overflow:hidden}:host .td-data-table-scrollable{position:relative;overflow:auto;height:calc(100% - 56px)}.td-data-table-column-resizer{right:0;width:6px;cursor:col-resize}.td-data-table-column-resizer,.td-data-table-column-resizer .td-data-table-column-separator{position:absolute;height:100%;top:0}.td-data-table-column-resizer .td-data-table-column-separator{left:2px}.td-data-table-column-resizer.td-resizing{cursor:-webkit-grabbing}table.td-data-table{width:auto!important}table.td-data-table.mat-selectable tbody>tr.td-data-table-row{transition:background-color .2s}table.td-data-table.mat-selectable .td-data-table-column:first-child>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable td.td-data-table-cell:first-child>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable th.td-data-table-column:first-child>.td-data-table-column-content-wrapper{width:18px;min-width:18px;padding:0 24px}table.td-data-table.mat-selectable .td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2)>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper{padding-left:0}[dir=rtl] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper,[dir=rtl] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2)>.td-data-table-column-content-wrapper,[dir=rtl] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper{padding-right:0;padding-left:28px}table.td-data-table td.mat-checkbox-cell,table.td-data-table th.mat-checkbox-column{min-width:42px;width:42px;font-size:0!important}table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox,table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox{width:18px;height:18px}::ng-deep table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after,::ng-deep table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after{width:11px!important;height:4px!important}table.td-data-table td.mat-checkbox-cell mat-checkbox ::ng-deep .mat-checkbox-inner-container,table.td-data-table th.mat-checkbox-column mat-checkbox ::ng-deep .mat-checkbox-inner-container{width:18px;height:18px;margin:0}"]
+                    styles: [":host{display:block;overflow:hidden}:host .td-data-table-scrollable{position:relative;overflow:auto;height:calc(100% - 56px)}.td-data-table-column-resizer{right:0;width:6px;cursor:col-resize}.td-data-table-column-resizer,.td-data-table-column-resizer .td-data-table-column-separator{position:absolute;height:100%;top:0}.td-data-table-column-resizer .td-data-table-column-separator{left:2px}.td-data-table-column-resizer.td-resizing{cursor:-webkit-grabbing}table.td-data-table{width:auto!important}table.td-data-table.mat-selectable tbody>tr.td-data-table-row{-webkit-transition:background-color .2s;transition:background-color .2s}table.td-data-table.mat-selectable .td-data-table-column:first-child>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable td.td-data-table-cell:first-child>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable th.td-data-table-column:first-child>.td-data-table-column-content-wrapper{width:18px;min-width:18px;padding:0 24px}table.td-data-table.mat-selectable .td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2)>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper{padding-left:0}[dir=rtl] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper,[dir=rtl] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2)>.td-data-table-column-content-wrapper,[dir=rtl] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper{padding-right:0;padding-left:28px}table.td-data-table td.mat-checkbox-cell,table.td-data-table th.mat-checkbox-column{min-width:42px;width:42px;font-size:0!important}table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox,table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox{width:18px;height:18px}::ng-deep table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after,::ng-deep table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after{width:11px!important;height:4px!important}table.td-data-table td.mat-checkbox-cell mat-checkbox ::ng-deep .mat-checkbox-inner-container,table.td-data-table th.mat-checkbox-column mat-checkbox ::ng-deep .mat-checkbox-inner-container{width:18px;height:18px;margin:0}"]
                 }] }
     ];
     /** @nocollapse */
@@ -1840,7 +1961,7 @@ var TdDataTableComponent = /** @class */ (function (_super) {
         { type: ChangeDetectorRef }
     ]; };
     TdDataTableComponent.propDecorators = {
-        _templates: [{ type: ContentChildren, args: [TdDataTableTemplateDirective,] }],
+        _templates: [{ type: ContentChildren, args: [TdDataTableTemplateDirective, { descendants: true },] }],
         _scrollableDiv: [{ type: ViewChild, args: ['scrollableDiv', { static: true },] }],
         _colElements: [{ type: ViewChildren, args: ['columnElement',] }],
         _rows: [{ type: ViewChildren, args: [TdDataTableRowComponent,] }],
@@ -1861,11 +1982,283 @@ var TdDataTableComponent = /** @class */ (function (_super) {
     };
     return TdDataTableComponent;
 }(_TdDataTableMixinBase));
+if (false) {
+    /**
+     * responsive width calculations
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._resizeSubs;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._rowsChangedSubs;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._hostWidth;
+    /**
+     * manually resizable columns
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._resizableColumns;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._columnClientX;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._columnResizeSubs;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._resizingColumn;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._onColumnResize;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._widths;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._onResize;
+    /**
+     * column header reposition and viewpoort
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._verticalScrollSubs;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._horizontalScrollSubs;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._scrollHorizontalOffset;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._onHorizontalScroll;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._onVerticalScroll;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._rowHeightCache;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._totalHeight;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._hostHeight;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._scrollVerticalOffset;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._offsetTransform;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._fromRow;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._toRow;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._valueChangesSubs;
+    /**
+     * internal attributes
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._data;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._virtualData;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._columns;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._selectable;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._clickable;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._multiple;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._allSelected;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._indeterminate;
+    /**
+     * sorting
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._sortable;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._sortBy;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._sortOrder;
+    /**
+     * shift select
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._shiftPreviouslyPressed;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._lastSelectedIndex;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._firstSelectedIndex;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._firstCheckboxValue;
+    /**
+     * template fetching support
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._templateMap;
+    /** @type {?} */
+    TdDataTableComponent.prototype._templates;
+    /** @type {?} */
+    TdDataTableComponent.prototype._scrollableDiv;
+    /** @type {?} */
+    TdDataTableComponent.prototype._colElements;
+    /** @type {?} */
+    TdDataTableComponent.prototype._rows;
+    /**
+     * sortChange?: function
+     * Event emitted when the column headers are clicked. [sortable] needs to be enabled.
+     * Emits an [ITdDataTableSortChangeEvent] implemented object.
+     * @type {?}
+     */
+    TdDataTableComponent.prototype.sortChange;
+    /**
+     * rowSelect?: function
+     * Event emitted when a row is selected/deselected. [selectable] needs to be enabled.
+     * Emits an [ITdDataTableSelectEvent] implemented object.
+     * @type {?}
+     */
+    TdDataTableComponent.prototype.rowSelect;
+    /**
+     * rowClick?: function
+     * Event emitted when a row is clicked.
+     * Emits an [ITdDataTableRowClickEvent] implemented object.
+     * @type {?}
+     */
+    TdDataTableComponent.prototype.rowClick;
+    /**
+     * selectAll?: function
+     * Event emitted when all rows are selected/deselected by the all checkbox. [selectable] needs to be enabled.
+     * Emits an [ITdDataTableSelectAllEvent] implemented object.
+     * @type {?}
+     */
+    TdDataTableComponent.prototype.selectAll;
+    /**
+     * compareWith?: function(row, model): boolean
+     * Allows custom comparison between row and model to see if row is selected or not
+     * Default comparation is by reference
+     * @type {?}
+     */
+    TdDataTableComponent.prototype.compareWith;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._document;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._elementRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._domSanitizer;
+}
 
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @record
+ */
+function ITdDataTableSortChangeEvent() { }
+if (false) {
+    /** @type {?} */
+    ITdDataTableSortChangeEvent.prototype.order;
+    /** @type {?} */
+    ITdDataTableSortChangeEvent.prototype.name;
+}
 var TdDataTableColumnComponent = /** @class */ (function () {
     function TdDataTableColumnComponent(_elementRef, _renderer) {
         this._elementRef = _elementRef;
@@ -2018,7 +2411,7 @@ var TdDataTableColumnComponent = /** @class */ (function () {
                     /* tslint:disable-next-line */
                     selector: 'th[td-data-table-column]',
                     template: "<span #columnContent class=\"td-data-table-heading\">\n  <mat-icon\n    class=\"td-data-table-sort-icon\"\n    *ngIf=\"sortable && numeric\"\n    [class.mat-asc]=\"isAscending()\"\n    [class.mat-desc]=\"isDescending()\"\n  >\n    arrow_upward\n  </mat-icon>\n  <span>\n    <ng-content></ng-content>\n  </span>\n  <mat-icon\n    class=\"td-data-table-sort-icon\"\n    *ngIf=\"sortable && !numeric\"\n    [class.mat-asc]=\"isAscending()\"\n    [class.mat-desc]=\"isDescending()\"\n  >\n    arrow_upward\n  </mat-icon>\n</span>\n<ng-content select=\"[td-column-resizer]\"></ng-content>\n",
-                    styles: [":host{white-space:nowrap;position:relative;padding:0;vertical-align:middle;text-align:left}:host>.td-data-table-heading{padding:0 28px}:host:first-child>.td-data-table-heading{padding-left:24px;padding-right:initial}html[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}body[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}:host:first-child>.td-data-table-heading bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:first-child>.td-data-table-heading bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:last-child>.td-data-table-heading{padding-left:28px;padding-right:24px}html[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}body[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}:host:last-child>.td-data-table-heading bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:last-child>.td-data-table-heading bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host mat-icon{height:16px;width:16px;font-size:16px!important;line-height:16px!important}:host mat-icon.td-data-table-sort-icon{opacity:0;transition:transform .25s;position:absolute;top:0}:host mat-icon.td-data-table-sort-icon.mat-asc{-ms-transform:rotate(0);transform:rotate(0)}:host mat-icon.td-data-table-sort-icon.mat-desc{-ms-transform:rotate(180deg);transform:rotate(180deg)}:host.mat-active.mat-sortable mat-icon.td-data-table-sort-icon,:host:hover.mat-sortable mat-icon.td-data-table-sort-icon{opacity:1}html[dir=rtl] :host{text-align:right;unicode-bidi:embed}body[dir=rtl] :host{text-align:right;unicode-bidi:embed}[dir=rtl] :host{text-align:right;unicode-bidi:embed}:host bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host>*{vertical-align:middle}:host.mat-clickable{cursor:pointer}:host.mat-clickable:focus{outline:0}:host .td-data-table-heading{display:inline-block;position:relative}:host.mat-numeric{text-align:right}html[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}:host.mat-numeric bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:-22px;margin-right:initial}html[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}:host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:6px;margin-right:initial}html[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}body[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}"]
+                    styles: [":host{white-space:nowrap;position:relative;padding:0;vertical-align:middle;text-align:left}:host>.td-data-table-heading{padding:0 28px}:host:first-child>.td-data-table-heading{padding-left:24px;padding-right:initial}html[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}body[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}:host:first-child>.td-data-table-heading bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:first-child>.td-data-table-heading bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:last-child>.td-data-table-heading{padding-left:28px;padding-right:24px}html[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}body[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}:host:last-child>.td-data-table-heading bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:last-child>.td-data-table-heading bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host mat-icon{height:16px;width:16px;font-size:16px!important;line-height:16px!important}:host mat-icon.td-data-table-sort-icon{opacity:0;-webkit-transition:-webkit-transform .25s;transition:transform .25s;transition:transform .25s,-webkit-transform .25s;position:absolute;top:0}:host mat-icon.td-data-table-sort-icon.mat-asc{-webkit-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0)}:host mat-icon.td-data-table-sort-icon.mat-desc{-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg)}:host.mat-active.mat-sortable mat-icon.td-data-table-sort-icon,:host:hover.mat-sortable mat-icon.td-data-table-sort-icon{opacity:1}html[dir=rtl] :host{text-align:right;unicode-bidi:embed}body[dir=rtl] :host{text-align:right;unicode-bidi:embed}[dir=rtl] :host{text-align:right;unicode-bidi:embed}:host bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host>*{vertical-align:middle}:host.mat-clickable{cursor:pointer}:host.mat-clickable:focus{outline:0}:host .td-data-table-heading{display:inline-block;position:relative}:host.mat-numeric{text-align:right}html[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}:host.mat-numeric bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:-22px;margin-right:initial}html[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}:host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:6px;margin-right:initial}html[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}body[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}"]
                 }] }
     ];
     /** @nocollapse */
@@ -2042,6 +2435,59 @@ var TdDataTableColumnComponent = /** @class */ (function () {
     };
     return TdDataTableColumnComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableColumnComponent.prototype._sortOrder;
+    /** @type {?} */
+    TdDataTableColumnComponent.prototype._columnContent;
+    /**
+     * name?: string
+     * Sets unique column [name] for [sortable] events.
+     * @type {?}
+     */
+    TdDataTableColumnComponent.prototype.name;
+    /**
+     * sortable?: boolean
+     * Enables sorting events, sort icons and active column states.
+     * Defaults to 'false'
+     * @type {?}
+     */
+    TdDataTableColumnComponent.prototype.sortable;
+    /**
+     * active?: boolean
+     * Sets column to active state when 'true'.
+     * Defaults to 'false'
+     * @type {?}
+     */
+    TdDataTableColumnComponent.prototype.active;
+    /**
+     * numeric?: boolean
+     * Makes column follow the numeric data-table specs and sort icon.
+     * Defaults to 'false'
+     * @type {?}
+     */
+    TdDataTableColumnComponent.prototype.numeric;
+    /**
+     * sortChange?: function
+     * Event emitted when the column headers are clicked. [sortable] needs to be enabled.
+     * Emits an [ITdDataTableSortChangeEvent] implemented object.
+     * @type {?}
+     */
+    TdDataTableColumnComponent.prototype.sortChange;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableColumnComponent.prototype._elementRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableColumnComponent.prototype._renderer;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -2099,7 +2545,7 @@ var TdDataTableCellComponent = /** @class */ (function () {
                     /* tslint:disable-next-line */
                     selector: 'td[td-data-table-cell]',
                     template: "<div\n  class=\"td-data-table-cell-content-wrapper\"\n  [class.td-data-table-cell-numeric]=\"numeric\"\n  [class.td-data-table-cell-align-center]=\"align === 'center'\"\n  [class.td-data-table-cell-align-end]=\"align === 'end'\"\n  [class.td-data-table-cell-align-start]=\"align === 'start'\"\n>\n  <ng-content></ng-content>\n</div>\n",
-                    styles: [":host{vertical-align:middle;text-align:left;padding:0}html[dir=rtl] :host{text-align:right;unicode-bidi:embed}body[dir=rtl] :host{text-align:right;unicode-bidi:embed}[dir=rtl] :host{text-align:right;unicode-bidi:embed}:host bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host>.td-data-table-cell-content-wrapper{padding:0 28px;box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:start;justify-content:flex-start}:host>.td-data-table-cell-content-wrapper.td-data-table-cell-numeric{-ms-flex-pack:end;justify-content:flex-end}:host>.td-data-table-cell-content-wrapper.td-data-table-cell-align-start{-ms-flex-pack:start;justify-content:flex-start}:host>.td-data-table-cell-content-wrapper.td-data-table-cell-align-end{-ms-flex-pack:end;justify-content:flex-end}:host>.td-data-table-cell-content-wrapper.td-data-table-cell-align-center{-ms-flex-pack:center;justify-content:center}:host:first-child>.td-data-table-cell-content-wrapper{padding-left:24px;padding-right:initial}html[dir=rtl] :host:first-child>.td-data-table-cell-content-wrapper{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}body[dir=rtl] :host:first-child>.td-data-table-cell-content-wrapper{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}[dir=rtl] :host:first-child>.td-data-table-cell-content-wrapper{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}:host:first-child>.td-data-table-cell-content-wrapper bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:first-child>.td-data-table-cell-content-wrapper bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:last-child>.td-data-table-cell-content-wrapper{padding-left:28px;padding-right:24px}html[dir=rtl] :host:last-child>.td-data-table-cell-content-wrapper{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}body[dir=rtl] :host:last-child>.td-data-table-cell-content-wrapper{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}[dir=rtl] :host:last-child>.td-data-table-cell-content-wrapper{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}:host:last-child>.td-data-table-cell-content-wrapper bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:last-child>.td-data-table-cell-content-wrapper bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host>*{vertical-align:middle}:host.mat-clickable{cursor:pointer}:host.mat-clickable:focus{outline:0}:host.mat-numeric{text-align:right}html[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}:host.mat-numeric bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}"]
+                    styles: [":host{vertical-align:middle;text-align:left;padding:0}html[dir=rtl] :host{text-align:right;unicode-bidi:embed}body[dir=rtl] :host{text-align:right;unicode-bidi:embed}[dir=rtl] :host{text-align:right;unicode-bidi:embed}:host bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host>.td-data-table-cell-content-wrapper{padding:0 28px;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}:host>.td-data-table-cell-content-wrapper.td-data-table-cell-numeric{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}:host>.td-data-table-cell-content-wrapper.td-data-table-cell-align-start{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}:host>.td-data-table-cell-content-wrapper.td-data-table-cell-align-end{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}:host>.td-data-table-cell-content-wrapper.td-data-table-cell-align-center{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}:host:first-child>.td-data-table-cell-content-wrapper{padding-left:24px;padding-right:initial}html[dir=rtl] :host:first-child>.td-data-table-cell-content-wrapper{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}body[dir=rtl] :host:first-child>.td-data-table-cell-content-wrapper{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}[dir=rtl] :host:first-child>.td-data-table-cell-content-wrapper{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}:host:first-child>.td-data-table-cell-content-wrapper bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:first-child>.td-data-table-cell-content-wrapper bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:last-child>.td-data-table-cell-content-wrapper{padding-left:28px;padding-right:24px}html[dir=rtl] :host:last-child>.td-data-table-cell-content-wrapper{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}body[dir=rtl] :host:last-child>.td-data-table-cell-content-wrapper{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}[dir=rtl] :host:last-child>.td-data-table-cell-content-wrapper{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}:host:last-child>.td-data-table-cell-content-wrapper bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:last-child>.td-data-table-cell-content-wrapper bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host>*{vertical-align:middle}:host.mat-clickable{cursor:pointer}:host.mat-clickable:focus{outline:0}:host.mat-numeric{text-align:right}html[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}:host.mat-numeric bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}"]
                 }] }
     ];
     /** @nocollapse */
@@ -2114,6 +2560,30 @@ var TdDataTableCellComponent = /** @class */ (function () {
     };
     return TdDataTableCellComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableCellComponent.prototype._align;
+    /**
+     * numeric?: boolean
+     * Makes cell follow the numeric data-table specs.
+     * Defaults to 'false'
+     * @type {?}
+     */
+    TdDataTableCellComponent.prototype.numeric;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableCellComponent.prototype._elementRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableCellComponent.prototype._renderer;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -2140,6 +2610,18 @@ var TdDataTableTableComponent = /** @class */ (function () {
     ]; };
     return TdDataTableTableComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableTableComponent.prototype._elementRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableTableComponent.prototype._renderer;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -2348,9 +2830,24 @@ var TdDataTableService = /** @class */ (function () {
                     providedIn: 'root',
                 },] }
     ];
-    /** @nocollapse */ TdDataTableService.ngInjectableDef = ɵɵdefineInjectable({ factory: function TdDataTableService_Factory() { return new TdDataTableService(); }, token: TdDataTableService, providedIn: "root" });
+    /** @nocollapse */ TdDataTableService.ɵprov = ɵɵdefineInjectable({ factory: function TdDataTableService_Factory() { return new TdDataTableService(); }, token: TdDataTableService, providedIn: "root" });
     return TdDataTableService;
 }());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 export { CovalentDataTableModule, TdDataTableBase, TdDataTableCellComponent, TdDataTableColumnComponent, TdDataTableColumnRowComponent, TdDataTableComponent, TdDataTableRowComponent, TdDataTableService, TdDataTableSortingOrder, TdDataTableTableComponent, TdDataTableTemplateDirective, _TdDataTableMixinBase };
 //# sourceMappingURL=covalent-core-data-table.js.map

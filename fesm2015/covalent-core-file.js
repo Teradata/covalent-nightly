@@ -82,6 +82,26 @@ TdFileSelectDirective.propDecorators = {
     multipleBinding: [{ type: HostBinding, args: ['attr.multiple',] }],
     onChange: [{ type: HostListener, args: ['change', ['$event'],] }]
 };
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFileSelectDirective.prototype._multiple;
+    /**
+     * fileSelect?: function
+     * Event emitted when a file or files are selected in host [HTMLInputElement].
+     * Emits a [FileList | File] object.
+     * Alternative to not use [(ngModel)].
+     * @type {?}
+     */
+    TdFileSelectDirective.prototype.fileSelect;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFileSelectDirective.prototype.model;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -244,6 +264,30 @@ TdFileDropDirective.propDecorators = {
     onDragEnter: [{ type: HostListener, args: ['dragenter', ['$event'],] }],
     onDragLeave: [{ type: HostListener, args: ['dragleave', ['$event'],] }]
 };
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFileDropDirective.prototype._multiple;
+    /**
+     * fileDrop?: function
+     * Event emitted when a file or files are dropped in host element after being validated.
+     * Emits a [FileList | File] object.
+     * @type {?}
+     */
+    TdFileDropDirective.prototype.fileDrop;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFileDropDirective.prototype._renderer;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFileDropDirective.prototype._element;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -275,6 +319,10 @@ class TdFileInputBase {
     constructor(_changeDetectorRef) {
         this._changeDetectorRef = _changeDetectorRef;
     }
+}
+if (false) {
+    /** @type {?} */
+    TdFileInputBase.prototype._changeDetectorRef;
 }
 /* tslint:disable-next-line */
 /** @type {?} */
@@ -383,6 +431,43 @@ TdFileInputComponent.propDecorators = {
     accept: [{ type: Input }],
     select: [{ type: Output }]
 };
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFileInputComponent.prototype._multiple;
+    /**
+     * The native `<input type="file"> element
+     * @type {?}
+     */
+    TdFileInputComponent.prototype._inputElement;
+    /**
+     * color?: 'accent' | 'primary' | 'warn'
+     * Sets button color. Uses same color palette accepted as [MatButton].
+     * @type {?}
+     */
+    TdFileInputComponent.prototype.color;
+    /**
+     * accept?: string
+     * Sets files accepted when opening the file browser dialog.
+     * Same as 'accept' attribute in <input/> element.
+     * @type {?}
+     */
+    TdFileInputComponent.prototype.accept;
+    /**
+     * select?: function
+     * Event emitted a file is selected
+     * Emits a [File | FileList] object.
+     * @type {?}
+     */
+    TdFileInputComponent.prototype.select;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFileInputComponent.prototype._renderer;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -395,6 +480,10 @@ class TdFileUploadBase {
     constructor(_changeDetectorRef) {
         this._changeDetectorRef = _changeDetectorRef;
     }
+}
+if (false) {
+    /** @type {?} */
+    TdFileUploadBase.prototype._changeDetectorRef;
 }
 /* tslint:disable-next-line */
 /** @type {?} */
@@ -549,6 +638,67 @@ TdFileUploadComponent.propDecorators = {
     upload: [{ type: Output }],
     cancel: [{ type: Output }]
 };
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFileUploadComponent.prototype._multiple;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFileUploadComponent.prototype._required;
+    /** @type {?} */
+    TdFileUploadComponent.prototype.fileInput;
+    /** @type {?} */
+    TdFileUploadComponent.prototype.inputLabel;
+    /**
+     * defaultColor?: 'accent' | 'primary' | 'warn'
+     * Sets browse button color. Uses same color palette accepted as [MatButton] and defaults to 'primary'.
+     * @type {?}
+     */
+    TdFileUploadComponent.prototype.defaultColor;
+    /**
+     * activeColor?: 'accent' | 'primary' | 'warn'
+     * Sets upload button color. Uses same color palette accepted as [MatButton] and defaults to 'accent'.
+     * @type {?}
+     */
+    TdFileUploadComponent.prototype.activeColor;
+    /**
+     * cancelColor?: 'accent' | 'primary' | 'warn'
+     * Sets cancel button color. Uses same color palette accepted as [MatButton] and defaults to 'warn'.
+     * @type {?}
+     */
+    TdFileUploadComponent.prototype.cancelColor;
+    /**
+     * accept?: string
+     * Sets files accepted when opening the file browser dialog.
+     * Same as 'accept' attribute in <input/> element.
+     * @type {?}
+     */
+    TdFileUploadComponent.prototype.accept;
+    /**
+     * select?: function
+     * Event emitted when a file is selected.
+     * Emits a [File | FileList] object.
+     * @type {?}
+     */
+    TdFileUploadComponent.prototype.select;
+    /**
+     * upload?: function
+     * Event emitted when upload button is clicked.
+     * Emits a [File | FileList] object.
+     * @type {?}
+     */
+    TdFileUploadComponent.prototype.upload;
+    /**
+     * cancel?: function
+     * Event emitted when cancel button is clicked.
+     * @type {?}
+     */
+    TdFileUploadComponent.prototype.cancel;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -576,6 +726,34 @@ CovalentFileModule.decorators = [
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @deprecated should be removed in favor of IUploadInit
+ * \@breaking-change 3.0.0
+ * @record
+ */
+function IUploadOptions() { }
+if (false) {
+    /** @type {?} */
+    IUploadOptions.prototype.url;
+    /** @type {?} */
+    IUploadOptions.prototype.method;
+    /** @type {?|undefined} */
+    IUploadOptions.prototype.file;
+    /** @type {?|undefined} */
+    IUploadOptions.prototype.headers;
+    /** @type {?|undefined} */
+    IUploadOptions.prototype.formData;
+}
+/**
+ * @record
+ */
+function IUploadExtras() { }
+if (false) {
+    /** @type {?|undefined} */
+    IUploadExtras.prototype.headers;
+    /** @type {?|undefined} */
+    IUploadExtras.prototype.params;
+}
 class TdFileService {
     /**
      * Creates a new instance
@@ -721,7 +899,39 @@ TdFileService.decorators = [
 TdFileService.ctorParameters = () => [
     { type: HttpClient, decorators: [{ type: Optional }] }
 ];
-/** @nocollapse */ TdFileService.ngInjectableDef = ɵɵdefineInjectable({ factory: function TdFileService_Factory() { return new TdFileService(ɵɵinject(HttpClient, 8)); }, token: TdFileService, providedIn: CovalentFileModule });
+/** @nocollapse */ TdFileService.ɵprov = ɵɵdefineInjectable({ factory: function TdFileService_Factory() { return new TdFileService(ɵɵinject(HttpClient, 8)); }, token: TdFileService, providedIn: CovalentFileModule });
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFileService.prototype._progressSubject;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFileService.prototype._progressObservable;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFileService.prototype._http;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 export { CovalentFileModule, TdFileDropBase, TdFileDropDirective, TdFileInputBase, TdFileInputComponent, TdFileInputLabelDirective, TdFileSelectDirective, TdFileService, TdFileUploadBase, TdFileUploadComponent, _TdFileDropMixinBase, _TdFileInputMixinBase, _TdFileUploadMixinBase };
 //# sourceMappingURL=covalent-core-file.js.map

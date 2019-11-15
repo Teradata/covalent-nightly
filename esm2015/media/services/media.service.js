@@ -136,7 +136,7 @@ TdMediaService.decorators = [
 TdMediaService.ctorParameters = () => [
     { type: NgZone }
 ];
-/** @nocollapse */ TdMediaService.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function TdMediaService_Factory() { return new TdMediaService(i0.ɵɵinject(i0.NgZone)); }, token: TdMediaService, providedIn: "root" });
+/** @nocollapse */ TdMediaService.ɵprov = i0.ɵɵdefineInjectable({ factory: function TdMediaService_Factory() { return new TdMediaService(i0.ɵɵinject(i0.NgZone)); }, token: TdMediaService, providedIn: "root" });
 if (false) {
     /**
      * @type {?}

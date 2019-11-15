@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, NgModule } from '@angular/core';
+import { EventEmitter, Component, ChangeDetectionStrategy, Input, Output, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatRippleModule } from '@angular/material/core';
@@ -13,6 +13,42 @@ import { CovalentExpansionPanelModule } from '@covalent/core/expansion-panel';
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @record
+ */
+function ITdNavNode() { }
+if (false) {
+    /** @type {?} */
+    ITdNavNode.prototype.label;
+    /** @type {?|undefined} */
+    ITdNavNode.prototype.show;
+}
+/**
+ * @record
+ */
+function ITdNavHeader() { }
+if (false) {
+    /** @type {?} */
+    ITdNavHeader.prototype.children;
+}
+/**
+ * @record
+ */
+function ITdNavExpansion() { }
+if (false) {
+    /** @type {?|undefined} */
+    ITdNavExpansion.prototype.collapsable;
+}
+/**
+ * @record
+ */
+function ITdLink() { }
+if (false) {
+    /** @type {?} */
+    ITdLink.prototype.link;
+    /** @type {?} */
+    ITdLink.prototype.icon;
+}
 /** @type {?} */
 var nextUniqueId = 0;
 var TdNavLinksComponent = /** @class */ (function () {
@@ -116,6 +152,30 @@ var TdNavLinksComponent = /** @class */ (function () {
     };
     return TdNavLinksComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavLinksComponent.prototype._uniqueId;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavLinksComponent.prototype._collapsedSet;
+    /** @type {?} */
+    TdNavLinksComponent.prototype.id;
+    /**
+     * Links to be rendered by component.
+     * @type {?}
+     */
+    TdNavLinksComponent.prototype.links;
+    /**
+     * Event trigger after a navigation click
+     * @type {?}
+     */
+    TdNavLinksComponent.prototype.afterNavigation;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -144,6 +204,21 @@ var CovalentNavLinksModule = /** @class */ (function () {
     ];
     return CovalentNavLinksModule;
 }());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 export { CovalentNavLinksModule, TdNavLinksComponent };
 //# sourceMappingURL=covalent-core-nav-links.js.map

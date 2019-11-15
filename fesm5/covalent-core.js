@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Optional, ChangeDetectorRef, Input, Output, EventEmitter, NgModule, Directive, TemplateRef, ViewContainerRef, ElementRef, Renderer2, ViewChildren, ContentChild, HostListener, ViewChild, HostBinding, Host, Inject, Pipe, LOCALE_ID, forwardRef, ContentChildren, Injectable, ɵɵdefineInjectable, RendererFactory2, ɵɵinject, SecurityContext, ComponentFactoryResolver, Injector, SkipSelf, NgZone } from '@angular/core';
+import { EventEmitter, Component, ChangeDetectionStrategy, Optional, ChangeDetectorRef, Input, Output, NgModule, Directive, TemplateRef, ViewContainerRef, ElementRef, Renderer2, ViewChildren, ContentChild, HostListener, ViewChild, HostBinding, Host, Inject, Pipe, LOCALE_ID, forwardRef, ContentChildren, Injectable, ɵɵdefineInjectable, RendererFactory2, ɵɵinject, SecurityContext, ComponentFactoryResolver, Injector, SkipSelf, NgZone } from '@angular/core';
 import { CommonModule, DOCUMENT, DecimalPipe } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -15,14 +15,14 @@ import { tdCollapseAnimation as tdCollapseAnimation$1, mixinControlValueAccessor
 import { MatInput, MatInputModule } from '@angular/material/input';
 import { MatAutocompleteTrigger, MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatChip, MatChipsModule } from '@angular/material/chips';
-import { TAB, ESCAPE, UP_ARROW, LEFT_ARROW, DELETE, BACKSPACE, RIGHT_ARROW, DOWN_ARROW, ENTER, SPACE } from '@angular/cdk/keycodes';
+import { ESCAPE, TAB, RIGHT_ARROW, BACKSPACE, DELETE, LEFT_ARROW, UP_ARROW, DOWN_ARROW, SPACE, ENTER } from '@angular/cdk/keycodes';
 import { MatOption, MatPseudoCheckboxModule, MatRippleModule } from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogRef, MatDialogModule, MatDialogConfig, MatDialog } from '@angular/material/dialog';
 import { DragDrop } from '@angular/cdk/drag-drop';
 import { HttpRequest, HttpHeaders, HttpParams, HttpEventType, HttpClient } from '@angular/common/http';
-import { ScrollDispatchModule, ViewportRuler } from '@angular/cdk/scrolling';
+import { ScrollingModule, ViewportRuler } from '@angular/cdk/scrolling';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
@@ -40,6 +40,24 @@ import { CovalentExpansionPanelModule as CovalentExpansionPanelModule$1 } from '
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @record
+ */
+function IPageChangeEvent() { }
+if (false) {
+    /** @type {?} */
+    IPageChangeEvent.prototype.page;
+    /** @type {?} */
+    IPageChangeEvent.prototype.maxPage;
+    /** @type {?} */
+    IPageChangeEvent.prototype.pageSize;
+    /** @type {?} */
+    IPageChangeEvent.prototype.total;
+    /** @type {?} */
+    IPageChangeEvent.prototype.fromRow;
+    /** @type {?} */
+    IPageChangeEvent.prototype.toRow;
+}
 var TdPagingBarComponent = /** @class */ (function () {
     function TdPagingBarComponent(_dir, _changeDetectorRef) {
         this._dir = _dir;
@@ -456,7 +474,7 @@ var TdPagingBarComponent = /** @class */ (function () {
                     changeDetection: ChangeDetectionStrategy.OnPush,
                     selector: 'td-paging-bar',
                     template: "<div class=\"td-paging-bar\" (change)=\"$event.stopPropagation()\">\n  <ng-content></ng-content>\n  <div class=\"td-paging-bar-navigation\">\n    <button\n      mat-icon-button\n      class=\"td-paging-bar-first-page\"\n      type=\"button\"\n      *ngIf=\"firstLast\"\n      [disabled]=\"isMinPage()\"\n      (click)=\"firstPage()\"\n    >\n      <mat-icon>{{ isRTL ? 'skip_next' : 'skip_previous' }}</mat-icon>\n    </button>\n    <button mat-icon-button class=\"td-paging-bar-prev-page\" type=\"button\" [disabled]=\"isMinPage()\" (click)=\"prevPage()\">\n      <mat-icon>{{ isRTL ? 'navigate_next' : 'navigate_before' }}</mat-icon>\n    </button>\n    <ng-template *ngIf=\"pageLinkCount > 0\" let-link let-index=\"index\" ngFor [ngForOf]=\"pageLinks\">\n      <button\n        class=\"td-paging-bar-link-page\"\n        mat-icon-button\n        type=\"button\"\n        [color]=\"page === link ? 'accent' : undefined\"\n        (click)=\"navigateToPage(link)\"\n      >\n        {{ link }}\n      </button>\n    </ng-template>\n    <button mat-icon-button class=\"td-paging-bar-next-page\" type=\"button\" [disabled]=\"isMaxPage()\" (click)=\"nextPage()\">\n      <mat-icon>{{ isRTL ? 'navigate_before' : 'navigate_next' }}</mat-icon>\n    </button>\n    <button\n      mat-icon-button\n      class=\"td-paging-bar-last-page\"\n      type=\"button\"\n      *ngIf=\"firstLast\"\n      [disabled]=\"isMaxPage()\"\n      (click)=\"lastPage()\"\n    >\n      <mat-icon>{{ isRTL ? 'skip_previous' : 'skip_next' }}</mat-icon>\n    </button>\n  </div>\n</div>\n",
-                    styles: [":host{display:block}:host .td-paging-bar{height:48px;box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:end;justify-content:flex-end}:host .td-paging-bar ::ng-deep>*{margin:0 10px}:host .td-paging-bar [mat-icon-button]{font-size:12px;font-weight:400}"]
+                    styles: [":host{display:block}:host .td-paging-bar{height:48px;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}:host .td-paging-bar ::ng-deep>*{margin:0 10px}:host .td-paging-bar [mat-icon-button]{font-size:12px;font-weight:400}"]
                 }] }
     ];
     /** @nocollapse */
@@ -474,6 +492,87 @@ var TdPagingBarComponent = /** @class */ (function () {
     };
     return TdPagingBarComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdPagingBarComponent.prototype._pageSize;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdPagingBarComponent.prototype._total;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdPagingBarComponent.prototype._page;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdPagingBarComponent.prototype._fromRow;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdPagingBarComponent.prototype._toRow;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdPagingBarComponent.prototype._initialized;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdPagingBarComponent.prototype._pageLinks;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdPagingBarComponent.prototype._pageLinkCount;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdPagingBarComponent.prototype._hitEnd;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdPagingBarComponent.prototype._hitStart;
+    /**
+     * firstLast?: boolean
+     * Shows or hides the first and last page buttons of the paging bar. Defaults to 'false'
+     * @type {?}
+     */
+    TdPagingBarComponent.prototype.firstLast;
+    /**
+     * initialPage?: number
+     * Sets starting page for the paging bar. Defaults to '1'
+     * @type {?}
+     */
+    TdPagingBarComponent.prototype.initialPage;
+    /**
+     * change?: function
+     * Method to be executed when page size changes or any button is clicked in the paging bar.
+     * Emits an [IPageChangeEvent] implemented object.
+     * @type {?}
+     */
+    TdPagingBarComponent.prototype.change;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdPagingBarComponent.prototype._dir;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdPagingBarComponent.prototype._changeDetectorRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -491,6 +590,16 @@ var CovalentPagingModule = /** @class */ (function () {
     ];
     return CovalentPagingModule;
 }());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 /**
  * @fileoverview added by tsickle
@@ -520,6 +629,16 @@ var TdVirtualScrollRowDirective = /** @class */ (function (_super) {
 var TD_VIRTUAL_OFFSET = 2;
 /** @type {?} */
 var SCROLL_DEBOUNCE = 200;
+/**
+ * @record
+ */
+function ITdVirtualScrollBottomEvent() { }
+if (false) {
+    /** @type {?} */
+    ITdVirtualScrollBottomEvent.prototype.lastRow;
+    /** @type {?} */
+    ITdVirtualScrollBottomEvent.prototype.lastIndex;
+}
 var TdVirtualScrollContainerComponent = /** @class */ (function () {
     function TdVirtualScrollContainerComponent(_elementRef, _domSanitizer, _renderer, _changeDetectorRef) {
         this._elementRef = _elementRef;
@@ -868,6 +987,101 @@ var TdVirtualScrollContainerComponent = /** @class */ (function () {
     };
     return TdVirtualScrollContainerComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._subs;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._bottom;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._initialized;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._totalHeight;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._hostHeight;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._scrollVerticalOffset;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._offsetTransform;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._fromRow;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._toRow;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._data;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._virtualData;
+    /**
+     * bottom: function
+     * Method to be executed when user scrolled to the last item of the list.
+     * An [ITdVirtualScrollBottomEvent] event is emitted
+     * @type {?}
+     */
+    TdVirtualScrollContainerComponent.prototype.bottom;
+    /** @type {?} */
+    TdVirtualScrollContainerComponent.prototype._rows;
+    /** @type {?} */
+    TdVirtualScrollContainerComponent.prototype._rowTemplate;
+    /**
+     * trackBy?: TrackByFunction
+     * This accepts the same trackBy function [ngFor] does.
+     * https://angular.io/api/core/TrackByFunction
+     * @type {?}
+     */
+    TdVirtualScrollContainerComponent.prototype.trackBy;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._elementRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._domSanitizer;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._renderer;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdVirtualScrollContainerComponent.prototype._changeDetectorRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -887,6 +1101,16 @@ var CovalentVirtualScrollModule = /** @class */ (function () {
     ];
     return CovalentVirtualScrollModule;
 }());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 /**
  * @fileoverview added by tsickle
@@ -1118,6 +1342,39 @@ var TdNotificationCountComponent = /** @class */ (function () {
     };
     return TdNotificationCountComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNotificationCountComponent.prototype._notifications;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNotificationCountComponent.prototype._positionY;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNotificationCountComponent.prototype._positionX;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNotificationCountComponent.prototype._limit;
+    /**
+     * Div content wrapper of `ng-content`.
+     * @type {?}
+     */
+    TdNotificationCountComponent.prototype.content;
+    /**
+     * color?: "primary" | "accent" | "warn"
+     * Sets the theme color of the notification tip. Defaults to "warn"
+     * @type {?}
+     */
+    TdNotificationCountComponent.prototype.color;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -1137,6 +1394,16 @@ var CovalentNotificationsModule = /** @class */ (function () {
     ];
     return CovalentNotificationsModule;
 }());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 /**
  * @fileoverview added by tsickle
@@ -1178,11 +1445,38 @@ var TdAutoTrimDirective = /** @class */ (function () {
     };
     return TdAutoTrimDirective;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdAutoTrimDirective.prototype._model;
+}
 
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @record
+ */
+function IFsDocument() { }
+if (false) {
+    /** @type {?} */
+    IFsDocument.prototype.fullscreenElement;
+    /** @type {?} */
+    IFsDocument.prototype.webkitFullscreenElement;
+    /** @type {?} */
+    IFsDocument.prototype.mozFullscreenElement;
+    /** @type {?} */
+    IFsDocument.prototype.msFullscreenElement;
+    /** @type {?} */
+    IFsDocument.prototype.webkitExitFullscreen;
+    /** @type {?} */
+    IFsDocument.prototype.mozCancelFullScreen;
+    /** @type {?} */
+    IFsDocument.prototype.msExitFullscreen;
+}
 var TdFullscreenDirective = /** @class */ (function () {
     function TdFullscreenDirective(_document, _el) {
         this._document = _document;
@@ -1368,6 +1662,20 @@ var TdFullscreenDirective = /** @class */ (function () {
     };
     return TdFullscreenDirective;
 }());
+if (false) {
+    /** @type {?} */
+    TdFullscreenDirective.prototype.fullScreenIsActive;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFullscreenDirective.prototype._document;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFullscreenDirective.prototype._el;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -1775,6 +2083,18 @@ var TdDigitsPipe = /** @class */ (function () {
     ]; };
     return TdDigitsPipe;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDigitsPipe.prototype._decimalPipe;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDigitsPipe.prototype._locale;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -1856,6 +2176,16 @@ var CovalentCommonModule = /** @class */ (function () {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
+ * @record
+ */
+function IRotateAnimation() { }
+if (false) {
+    /** @type {?|undefined} */
+    IRotateAnimation.prototype.degrees;
+    /** @type {?|undefined} */
+    IRotateAnimation.prototype.ease;
+}
+/**
  * const tdRotateAnimation
  *
  * Parameter Options:
@@ -1884,6 +2214,16 @@ var tdRotateAnimation = trigger('tdRotate', [
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @record
+ */
+function ICollapseAnimation() { }
+if (false) {
+    /** @type {?|undefined} */
+    ICollapseAnimation.prototype.easeOnClose;
+    /** @type {?|undefined} */
+    ICollapseAnimation.prototype.easeOnOpen;
+}
 /**
  * const tdCollapseAnimation
  *
@@ -1939,6 +2279,16 @@ var tdCollapseAnimation = trigger('tdCollapse', [
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @record
+ */
+function IFadeInOutAnimation() { }
+if (false) {
+    /** @type {?|undefined} */
+    IFadeInOutAnimation.prototype.easeOnIn;
+    /** @type {?|undefined} */
+    IFadeInOutAnimation.prototype.easeOnOut;
+}
 /**
  * const tdFadeInOutAnimation
  *
@@ -2216,6 +2566,29 @@ var noop = (/**
 function () {
     // empty method
 });
+var ɵ0 = noop;
+/**
+ * @record
+ */
+function IControlValueAccessor() { }
+if (false) {
+    /** @type {?} */
+    IControlValueAccessor.prototype.value;
+    /** @type {?} */
+    IControlValueAccessor.prototype.valueChanges;
+    /** @type {?} */
+    IControlValueAccessor.prototype.onChange;
+    /** @type {?} */
+    IControlValueAccessor.prototype.onTouched;
+}
+/**
+ * @record
+ */
+function IHasChangeDetectorRef() { }
+if (false) {
+    /** @type {?} */
+    IHasChangeDetectorRef.prototype._changeDetectorRef;
+}
 /**
  * Mixin to augment a component with ngModel support.
  * @template T
@@ -2311,6 +2684,20 @@ function mixinControlValueAccessor(base, initialValue) {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
+ * Interface to implement when applying the disabled mixin
+ * @record
+ */
+function ICanDisable() { }
+if (false) {
+    /** @type {?} */
+    ICanDisable.prototype.disabled;
+    /**
+     * @param {?} v
+     * @return {?}
+     */
+    ICanDisable.prototype.onDisabledChange = function (v) { };
+}
+/**
  * Mixin to augment a component or directive with a `disabled` property.
  * @template T
  * @param {?} base
@@ -2369,6 +2756,20 @@ function mixinDisabled(base) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * Interface to implement when applying the disabled mixin
+ * @record
+ */
+function ICanDisableRipple() { }
+if (false) {
+    /** @type {?} */
+    ICanDisableRipple.prototype.disableRipple;
+    /**
+     * @param {?} v
+     * @return {?}
+     */
+    ICanDisableRipple.prototype.onDisableRippleChange = function (v) { };
+}
 /**
  * Mixin to augment a component or directive with a `disabled` property.
  * @template T
@@ -2767,6 +3168,16 @@ function readFile(file) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 var TdMessageContainerDirective = /** @class */ (function () {
     function TdMessageContainerDirective(viewContainer) {
         this.viewContainer = viewContainer;
@@ -2782,6 +3193,10 @@ var TdMessageContainerDirective = /** @class */ (function () {
     ]; };
     return TdMessageContainerDirective;
 }());
+if (false) {
+    /** @type {?} */
+    TdMessageContainerDirective.prototype.viewContainer;
+}
 var TdMessageComponent = /** @class */ (function () {
     function TdMessageComponent(_renderer, _changeDetectorRef, _elementRef) {
         this._renderer = _renderer;
@@ -3065,7 +3480,7 @@ var TdMessageComponent = /** @class */ (function () {
                     selector: 'td-message',
                     template: "<div tdMessageContainer></div>\n<ng-template>\n  <div class=\"td-message-wrapper\">\n    <mat-icon class=\"td-message-icon\">{{ icon }}</mat-icon>\n    <div class=\"td-message-labels\">\n      <div *ngIf=\"label\" class=\"td-message-label\">{{ label }}</div>\n      <div *ngIf=\"sublabel\" class=\"td-message-sublabel\">{{ sublabel }}</div>\n    </div>\n    <ng-content select=\"[td-message-actions]\"></ng-content>\n  </div>\n</ng-template>\n",
                     animations: [tdCollapseAnimation$1],
-                    styles: [":host{display:block}:host .td-message-wrapper{padding:8px 16px;min-height:52px;box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:start;justify-content:flex-start}:host .td-message-wrapper .td-message-labels{-ms-flex:1;flex:1}.td-message-icon{margin-right:16px}::ng-deep [dir=rtl] .td-message-icon{margin-left:16px;margin-right:0}"]
+                    styles: [":host{display:block}:host .td-message-wrapper{padding:8px 16px;min-height:52px;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}:host .td-message-wrapper .td-message-labels{-webkit-box-flex:1;-ms-flex:1;flex:1}.td-message-icon{margin-right:16px}::ng-deep [dir=rtl] .td-message-icon{margin-left:16px;margin-right:0}"]
                 }] }
     ];
     /** @nocollapse */
@@ -3088,6 +3503,74 @@ var TdMessageComponent = /** @class */ (function () {
     };
     return TdMessageComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMessageComponent.prototype._color;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMessageComponent.prototype._opened;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMessageComponent.prototype._hidden;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMessageComponent.prototype._animating;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMessageComponent.prototype._initialized;
+    /** @type {?} */
+    TdMessageComponent.prototype._childElement;
+    /** @type {?} */
+    TdMessageComponent.prototype._template;
+    /**
+     * label: string
+     *
+     * Sets the label of the message.
+     * @type {?}
+     */
+    TdMessageComponent.prototype.label;
+    /**
+     * sublabel?: string
+     *
+     * Sets the sublabel of the message.
+     * @type {?}
+     */
+    TdMessageComponent.prototype.sublabel;
+    /**
+     * icon?: string
+     *
+     * The icon to be displayed before the title.
+     * Defaults to `info_outline` icon
+     * @type {?}
+     */
+    TdMessageComponent.prototype.icon;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMessageComponent.prototype._renderer;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMessageComponent.prototype._changeDetectorRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMessageComponent.prototype._elementRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -3107,6 +3590,16 @@ var CovalentMessageModule = /** @class */ (function () {
     ];
     return CovalentMessageModule;
 }());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 /**
  * @fileoverview added by tsickle
@@ -3152,6 +3645,10 @@ var TdChipsBase = /** @class */ (function () {
     }
     return TdChipsBase;
 }());
+if (false) {
+    /** @type {?} */
+    TdChipsBase.prototype._changeDetectorRef;
+}
 /* tslint:disable-next-line */
 /** @type {?} */
 var _TdChipsMixinBase = mixinControlValueAccessor$1(mixinDisabled$1(TdChipsBase), []);
@@ -4326,7 +4823,7 @@ var TdChipsComponent = /** @class */ (function (_super) {
                     inputs: ['disabled', 'value'],
                     template: "<div\n  class=\"td-chips-wrapper\"\n  [class.td-chips-stacked]=\"stacked\"\n  [class.td-chips-input-before-position]=\"inputPosition === 'before'\"\n>\n  <ng-template let-chip let-first=\"first\" let-index=\"index\" ngFor [ngForOf]=\"value\">\n    <mat-basic-chip\n      [class.td-chip-disabled]=\"disabled\"\n      [class.td-chip-after-pad]=\"!canRemoveChip\"\n      [disableRipple]=\"true\"\n      [color]=\"color\"\n      (keydown)=\"_chipKeydown($event, index)\"\n      (blur)=\"_handleChipBlur($event, chip)\"\n      (focus)=\"_handleChipFocus($event, chip)\"\n    >\n      <div class=\"td-chip\" [class.td-chip-stacked]=\"stacked\">\n        <span class=\"td-chip-content\">\n          <span *ngIf=\"!_chipTemplate?.templateRef\">{{ chip }}</span>\n          <ng-template\n            *ngIf=\"_chipTemplate?.templateRef\"\n            [ngTemplateOutlet]=\"_chipTemplate?.templateRef\"\n            [ngTemplateOutletContext]=\"{ chip: chip }\"\n          ></ng-template>\n        </span>\n        <mat-icon *ngIf=\"canRemoveChip\" class=\"td-chip-removal\" (click)=\"_internalClick = removeChip(index)\">\n          cancel\n        </mat-icon>\n      </div>\n    </mat-basic-chip>\n  </ng-template>\n  <mat-form-field\n    floatLabel=\"never\"\n    class=\"td-chips-form-field\"\n    [style.width.px]=\"canAddChip ? null : 0\"\n    [style.height.px]=\"canAddChip ? null : 0\"\n    [color]=\"color\"\n  >\n    <input\n      matInput\n      #input\n      [tabIndex]=\"-1\"\n      [matAutocomplete]=\"autocomplete\"\n      [formControl]=\"inputControl\"\n      [placeholder]=\"displayPlaceHolder\"\n      (keydown)=\"_inputKeydown($event)\"\n      (keyup.enter)=\"_handleAddChip()\"\n      (focus)=\"_handleFocus()\"\n    />\n  </mat-form-field>\n  <mat-autocomplete\n    #autocomplete=\"matAutocomplete\"\n    [displayWith]=\"_removeInputDisplay\"\n    (optionSelected)=\"addChip($event.option.value)\"\n  >\n    <ng-template let-item let-first=\"first\" ngFor [ngForOf]=\"items\">\n      <mat-option (click)=\"_setInternalClick()\" [value]=\"item\">\n        <span *ngIf=\"!_autocompleteOptionTemplate?.templateRef\">{{ item }}</span>\n        <ng-template\n          *ngIf=\"_autocompleteOptionTemplate?.templateRef\"\n          [ngTemplateOutlet]=\"_autocompleteOptionTemplate?.templateRef\"\n          [ngTemplateOutletContext]=\"{ option: item }\"\n        ></ng-template>\n      </mat-option>\n    </ng-template>\n  </mat-autocomplete>\n</div>\n<div *ngIf=\"chipAddition\" class=\"mat-form-field-underline\" [class.mat-disabled]=\"disabled\">\n  <span class=\"mat-form-field-ripple\" [class.mat-focused]=\"focused\"></span>\n</div>\n<ng-content></ng-content>\n",
                     changeDetection: ChangeDetectionStrategy.OnPush,
-                    styles: [":host{display:block;padding:0 5px;min-height:48px}:host .td-chips-wrapper{min-height:42px;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:wrap;flex-wrap:wrap;-ms-flex-align:start;align-items:flex-start}:host .td-chips-wrapper.td-chips-stacked .mat-basic-chip,:host .td-chips-wrapper.td-chips-stacked .td-chips-form-field{width:100%}:host .td-chips-wrapper.td-chips-input-before-position .td-chips-form-field{-ms-flex-order:-1;order:-1}:host .td-chip,:host .td-chip>.td-chip-content{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;max-width:100%;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;-ms-flex-pack:start;justify-content:flex-start;min-width:0}:host .td-chip.td-chip-stacked,:host .td-chip>.td-chip-content.td-chip-stacked{-ms-flex-pack:justify;justify-content:space-between}:host ::ng-deep .mat-form-field-wrapper{padding-bottom:2px}:host ::ng-deep .mat-basic-chip{display:inline-block;cursor:default;border-radius:16px;margin:8px 8px 0 0;box-sizing:border-box;max-width:100%;position:relative}html[dir=rtl] :host ::ng-deep .mat-basic-chip{margin:8px 0 0 8px;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip{margin:8px 0 0 8px;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip{margin:8px 0 0 8px;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip{min-height:32px;line-height:32px;font-size:13px;padding:0 0 0 12px}html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{padding:0 12px 0 0;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{padding:0 12px 0 0;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{padding:0 12px 0 0;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip .td-chip bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{display:inline-block;-ms-flex-order:-20;order:-20;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;text-align:center;height:32px;width:32px;margin:0 8px 0 -12px;border-radius:50%;-ms-flex:0 0 auto;flex:0 0 auto;box-sizing:border-box}html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{margin:0 -12px 0 8px;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{margin:0 -12px 0 8px;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{margin:0 -12px 0 8px;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 12px 0 0}html[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 0 0 12px;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 0 0 12px;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 0 0 12px;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal{margin:0 4px;font-size:21px;line-height:22px}:host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal:hover{cursor:pointer}:host ::ng-deep .td-chips-stacked .mat-basic-chip{margin:4px 0}:host ::ng-deep .td-chips-stacked .mat-basic-chip:first-of-type{margin:8px 0 4px}:host ::ng-deep .td-chips-stacked .mat-basic-chip:last-of-type{margin:4px 0 8px}:host .mat-form-field-underline{position:relative;height:1px;width:100%;bottom:0}:host .mat-form-field-underline.mat-disabled{background-position:0;bottom:-4px;background-color:transparent}:host .mat-form-field-underline .mat-form-field-ripple{position:absolute;height:2px;top:0;width:100%;-ms-transform-origin:50%;transform-origin:50%;-ms-transform:scaleX(.5);transform:scaleX(.5);visibility:hidden;opacity:0;transition:background-color .3s cubic-bezier(.55,0,.55,.2)}:host .mat-form-field-underline .mat-form-field-ripple.mat-focused{visibility:visible;opacity:1;-ms-transform:scaleX(1);transform:scaleX(1);transition:transform 150ms linear,background-color .3s cubic-bezier(.55,0,.55,.2)}:host.ng-invalid .mat-form-field-underline .mat-form-field-ripple{visibility:visible;opacity:1;-ms-transform:scaleX(1);transform:scaleX(1);transition:transform 150ms linear,background-color .3s cubic-bezier(.55,0,.55,.2)}:host ::ng-deep mat-form-field .mat-form-field-underline{display:none}"]
+                    styles: [":host{display:block;padding:0 5px;min-height:48px}:host .td-chips-wrapper{min-height:42px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}:host .td-chips-wrapper.td-chips-stacked .mat-basic-chip,:host .td-chips-wrapper.td-chips-stacked .td-chips-form-field{width:100%}:host .td-chips-wrapper.td-chips-input-before-position .td-chips-form-field{-webkit-box-ordinal-group:0;-ms-flex-order:-1;order:-1}:host .td-chip,:host .td-chip>.td-chip-content{box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;max-width:100%;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;min-width:0}:host .td-chip.td-chip-stacked,:host .td-chip>.td-chip-content.td-chip-stacked{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}:host ::ng-deep .mat-form-field-wrapper{padding-bottom:2px}:host ::ng-deep .mat-basic-chip{display:inline-block;cursor:default;border-radius:16px;margin:8px 8px 0 0;box-sizing:border-box;max-width:100%;position:relative}html[dir=rtl] :host ::ng-deep .mat-basic-chip{margin:8px 0 0 8px;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip{margin:8px 0 0 8px;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip{margin:8px 0 0 8px;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip{min-height:32px;line-height:32px;font-size:13px;padding:0 0 0 12px}html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{padding:0 12px 0 0;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{padding:0 12px 0 0;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip{padding:0 12px 0 0;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip .td-chip bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{display:inline-block;-webkit-box-ordinal-group:-19;-ms-flex-order:-20;order:-20;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;text-align:center;height:32px;width:32px;margin:0 8px 0 -12px;border-radius:50%;-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto;box-sizing:border-box}html[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{margin:0 -12px 0 8px;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{margin:0 -12px 0 8px;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar]{margin:0 -12px 0 8px;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip .td-chip [td-chip-avatar] bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 12px 0 0}html[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 0 0 12px;unicode-bidi:embed}body[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 0 0 12px;unicode-bidi:embed}[dir=rtl] :host ::ng-deep .mat-basic-chip.td-chip-after-pad{padding:0 0 0 12px;unicode-bidi:embed}:host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip.td-chip-after-pad bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal{margin:0 4px;font-size:21px;line-height:22px}:host ::ng-deep .mat-basic-chip mat-icon.td-chip-removal:hover{cursor:pointer}:host ::ng-deep .td-chips-stacked .mat-basic-chip{margin:4px 0}:host ::ng-deep .td-chips-stacked .mat-basic-chip:first-of-type{margin:8px 0 4px}:host ::ng-deep .td-chips-stacked .mat-basic-chip:last-of-type{margin:4px 0 8px}:host .mat-form-field-underline{position:relative;height:1px;width:100%;bottom:0}:host .mat-form-field-underline.mat-disabled{background-position:0;bottom:-4px;background-color:transparent}:host .mat-form-field-underline .mat-form-field-ripple{position:absolute;height:2px;top:0;width:100%;-webkit-transform-origin:50%;-ms-transform-origin:50%;transform-origin:50%;-webkit-transform:scaleX(.5);-ms-transform:scaleX(.5);transform:scaleX(.5);visibility:hidden;opacity:0;-webkit-transition:background-color .3s cubic-bezier(.55,0,.55,.2);transition:background-color .3s cubic-bezier(.55,0,.55,.2)}:host .mat-form-field-underline .mat-form-field-ripple.mat-focused{visibility:visible;opacity:1;-webkit-transform:scaleX(1);-ms-transform:scaleX(1);transform:scaleX(1);-webkit-transition:background-color .3s cubic-bezier(.55,0,.55,.2),-webkit-transform 150ms linear;transition:transform 150ms linear,background-color .3s cubic-bezier(.55,0,.55,.2),-webkit-transform 150ms linear}:host.ng-invalid .mat-form-field-underline .mat-form-field-ripple{visibility:visible;opacity:1;-webkit-transform:scaleX(1);-ms-transform:scaleX(1);transform:scaleX(1);-webkit-transition:background-color .3s cubic-bezier(.55,0,.55,.2),-webkit-transform 150ms linear;transition:transform 150ms linear,background-color .3s cubic-bezier(.55,0,.55,.2),-webkit-transform 150ms linear}:host ::ng-deep mat-form-field .mat-form-field-underline{display:none}"]
                 }] }
     ];
     /** @nocollapse */
@@ -4368,6 +4865,175 @@ var TdChipsComponent = /** @class */ (function (_super) {
     };
     return TdChipsComponent;
 }(_TdChipsMixinBase));
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdChipsComponent.prototype._outsideClickSubs;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdChipsComponent.prototype._inputValueChangesSubs;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdChipsComponent.prototype._isMousedown;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdChipsComponent.prototype._items;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdChipsComponent.prototype._length;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdChipsComponent.prototype._stacked;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdChipsComponent.prototype._requireMatch;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdChipsComponent.prototype._color;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdChipsComponent.prototype._inputPosition;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdChipsComponent.prototype._chipAddition;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdChipsComponent.prototype._chipRemoval;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdChipsComponent.prototype._focused;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdChipsComponent.prototype._required;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdChipsComponent.prototype._tabIndex;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdChipsComponent.prototype._touchendDebounce;
+    /** @type {?} */
+    TdChipsComponent.prototype._internalClick;
+    /** @type {?} */
+    TdChipsComponent.prototype._internalActivateOption;
+    /** @type {?} */
+    TdChipsComponent.prototype._nativeInput;
+    /** @type {?} */
+    TdChipsComponent.prototype._inputChild;
+    /** @type {?} */
+    TdChipsComponent.prototype._autocompleteTrigger;
+    /** @type {?} */
+    TdChipsComponent.prototype._chipsChildren;
+    /** @type {?} */
+    TdChipsComponent.prototype._chipTemplate;
+    /** @type {?} */
+    TdChipsComponent.prototype._autocompleteOptionTemplate;
+    /** @type {?} */
+    TdChipsComponent.prototype._options;
+    /**
+     * FormControl for the matInput element.
+     * @type {?}
+     */
+    TdChipsComponent.prototype.inputControl;
+    /**
+     * placeholder?: string
+     * Placeholder for the autocomplete input.
+     * @type {?}
+     */
+    TdChipsComponent.prototype.placeholder;
+    /**
+     * debounce?: number
+     * Debounce timeout between keypresses. Defaults to 200.
+     * @type {?}
+     */
+    TdChipsComponent.prototype.debounce;
+    /**
+     * add?: function
+     * Method to be executed when a chip is added.
+     * Sends chip value as event.
+     * @type {?}
+     */
+    TdChipsComponent.prototype.add;
+    /**
+     * remove?: function
+     * Method to be executed when a chip is removed.
+     * Sends chip value as event.
+     * @type {?}
+     */
+    TdChipsComponent.prototype.remove;
+    /**
+     * inputChange?: function
+     * Method to be executed when the value in the autocomplete input changes.
+     * Sends string value as event.
+     * @type {?}
+     */
+    TdChipsComponent.prototype.inputChange;
+    /**
+     * chipFocus?: function
+     * Method to be executed when a chip is focused.
+     * Sends chip value as event.
+     * @type {?}
+     */
+    TdChipsComponent.prototype.chipFocus;
+    /**
+     * blur?: function
+     * Method to be executed when a chip is blurred.
+     * Sends chip value as event.
+     * @type {?}
+     */
+    TdChipsComponent.prototype.chipBlur;
+    /**
+     * compareWith? function
+     * Function used to check whether a chip value already exists.
+     * Defaults to strict equality comparison ===
+     * @type {?}
+     */
+    TdChipsComponent.prototype.compareWith;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdChipsComponent.prototype._elementRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdChipsComponent.prototype._renderer;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdChipsComponent.prototype._document;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -4385,6 +5051,16 @@ var CovalentChipsModule = /** @class */ (function () {
     ];
     return CovalentChipsModule;
 }());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 /**
  * @fileoverview added by tsickle
@@ -4411,6 +5087,18 @@ var TdDataTableColumnRowComponent = /** @class */ (function () {
     ]; };
     return TdDataTableColumnRowComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @protected
+     */
+    TdDataTableColumnRowComponent.prototype._elementRef;
+    /**
+     * @type {?}
+     * @protected
+     */
+    TdDataTableColumnRowComponent.prototype._renderer;
+}
 var TdDataTableRowComponent = /** @class */ (function () {
     function TdDataTableRowComponent(_elementRef, _renderer) {
         this._elementRef = _elementRef;
@@ -4498,6 +5186,23 @@ var TdDataTableRowComponent = /** @class */ (function () {
     };
     return TdDataTableRowComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableRowComponent.prototype._selected;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableRowComponent.prototype._elementRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableRowComponent.prototype._renderer;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -4521,6 +5226,10 @@ var TdDataTableTemplateDirective = /** @class */ (function (_super) {
     };
     return TdDataTableTemplateDirective;
 }(TemplatePortalDirective));
+if (false) {
+    /** @type {?} */
+    TdDataTableTemplateDirective.prototype.tdDataTableTemplate;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -4531,6 +5240,90 @@ var TdDataTableSortingOrder = {
     Ascending: 'ASC',
     Descending: 'DESC',
 };
+/**
+ * @record
+ */
+function ITdDataTableColumnWidth() { }
+if (false) {
+    /** @type {?|undefined} */
+    ITdDataTableColumnWidth.prototype.min;
+    /** @type {?|undefined} */
+    ITdDataTableColumnWidth.prototype.max;
+}
+/**
+ * @record
+ */
+function ITdDataTableColumn() { }
+if (false) {
+    /** @type {?} */
+    ITdDataTableColumn.prototype.name;
+    /** @type {?} */
+    ITdDataTableColumn.prototype.label;
+    /** @type {?|undefined} */
+    ITdDataTableColumn.prototype.tooltip;
+    /** @type {?|undefined} */
+    ITdDataTableColumn.prototype.numeric;
+    /** @type {?|undefined} */
+    ITdDataTableColumn.prototype.format;
+    /** @type {?|undefined} */
+    ITdDataTableColumn.prototype.nested;
+    /** @type {?|undefined} */
+    ITdDataTableColumn.prototype.sortable;
+    /** @type {?|undefined} */
+    ITdDataTableColumn.prototype.hidden;
+    /** @type {?|undefined} */
+    ITdDataTableColumn.prototype.filter;
+    /** @type {?|undefined} */
+    ITdDataTableColumn.prototype.width;
+}
+/**
+ * @record
+ */
+function ITdDataTableSelectEvent() { }
+if (false) {
+    /** @type {?} */
+    ITdDataTableSelectEvent.prototype.row;
+    /** @type {?} */
+    ITdDataTableSelectEvent.prototype.selected;
+    /** @type {?} */
+    ITdDataTableSelectEvent.prototype.index;
+}
+/**
+ * @record
+ */
+function ITdDataTableSelectAllEvent() { }
+if (false) {
+    /** @type {?} */
+    ITdDataTableSelectAllEvent.prototype.rows;
+    /** @type {?} */
+    ITdDataTableSelectAllEvent.prototype.selected;
+}
+/**
+ * @record
+ */
+function ITdDataTableRowClickEvent() { }
+if (false) {
+    /** @type {?} */
+    ITdDataTableRowClickEvent.prototype.row;
+    /** @type {?} */
+    ITdDataTableRowClickEvent.prototype.index;
+}
+/**
+ * @record
+ */
+function IInternalColumnWidth() { }
+if (false) {
+    /** @type {?} */
+    IInternalColumnWidth.prototype.value;
+    /** @type {?} */
+    IInternalColumnWidth.prototype.limit;
+    /** @type {?} */
+    IInternalColumnWidth.prototype.index;
+    /** @type {?|undefined} */
+    IInternalColumnWidth.prototype.min;
+    /** @type {?|undefined} */
+    IInternalColumnWidth.prototype.max;
+}
 /**
  * Constant to set the rows offset before and after the viewport
  * @type {?}
@@ -4547,6 +5340,10 @@ var TdDataTableBase = /** @class */ (function () {
     }
     return TdDataTableBase;
 }());
+if (false) {
+    /** @type {?} */
+    TdDataTableBase.prototype._changeDetectorRef;
+}
 /* tslint:disable-next-line */
 /** @type {?} */
 var _TdDataTableMixinBase = mixinControlValueAccessor$1(TdDataTableBase, []);
@@ -5879,8 +6676,8 @@ var TdDataTableComponent = /** @class */ (function (_super) {
      * @return {?}
      */
     function () {
-        var _this = this;
         var e_2, _a;
+        var _this = this;
         if (this._data) {
             this._allSelected = typeof this._data.find((/**
              * @param {?} d
@@ -6201,7 +6998,7 @@ var TdDataTableComponent = /** @class */ (function (_super) {
                     template: "<table td-data-table [style.left.px]=\"columnsLeftScroll\" [class.mat-selectable]=\"selectable\">\n  <thead class=\"td-data-table-head\" (dragover)=\"_handleColumnDrag($event)\">\n    <tr td-data-table-column-row>\n      <th td-data-table-column class=\"mat-checkbox-column\" *ngIf=\"selectable\">\n        <mat-checkbox\n          #checkBoxAll\n          *ngIf=\"multiple\"\n          [disabled]=\"!hasData\"\n          [indeterminate]=\"indeterminate && !allSelected && hasData\"\n          [checked]=\"allSelected && hasData\"\n          (click)=\"blockEvent($event); _selectAll(!checkBoxAll.checked)\"\n          (keyup.enter)=\"_selectAll(!checkBoxAll.checked)\"\n          (keyup.space)=\"_selectAll(!checkBoxAll.checked)\"\n          (keydown.space)=\"blockEvent($event)\"\n        ></mat-checkbox>\n      </th>\n      <th\n        td-data-table-column\n        #columnElement\n        *ngFor=\"let column of columns; let i = index; let last = last\"\n        [style.min-width.px]=\"getColumnWidth(i)\"\n        [style.max-width.px]=\"getColumnWidth(i)\"\n        [name]=\"column.name\"\n        [numeric]=\"column.numeric\"\n        [active]=\"(column.sortable || sortable) && column === sortByColumn\"\n        [sortable]=\"column.sortable || (sortable && column.sortable !== false)\"\n        [sortOrder]=\"sortOrderEnum\"\n        [hidden]=\"column.hidden\"\n        (sortChange)=\"handleSort(column)\"\n      >\n        <span [matTooltip]=\"column.tooltip\">{{ column.label }}</span>\n        <span\n          td-column-resizer\n          *ngIf=\"resizableColumns\"\n          draggable=\"true\"\n          class=\"td-data-table-column-resizer\"\n          [class.td-resizing]=\"i === resizingColumn\"\n          (mousedown)=\"_handleStartColumnDrag(i, $event)\"\n          (dragstart)=\"$event?.dataTransfer?.setData('text', '')\"\n          (drag)=\"_handleColumnDrag($event)\"\n          (dragend)=\"_handleEndColumnDrag()\"\n          (mouseup)=\"_handleEndColumnDrag()\"\n        >\n          <span class=\"td-data-table-column-separator\"></span>\n        </span>\n      </th>\n    </tr>\n  </thead>\n</table>\n<div #scrollableDiv class=\"td-data-table-scrollable\" (scroll)=\"handleScroll($event)\">\n  <div [style.height.px]=\"totalHeight\"></div>\n  <table\n    td-data-table\n    [style.transform]=\"offsetTransform\"\n    [style.position]=\"'absolute'\"\n    [class.mat-selectable]=\"selectable\"\n    [class.mat-clickable]=\"clickable\"\n  >\n    <tbody class=\"td-data-table-body\">\n      <tr\n        td-data-table-row\n        #dtRow\n        [tabIndex]=\"selectable ? 0 : -1\"\n        [selected]=\"(clickable || selectable) && isRowSelected(row)\"\n        *ngFor=\"let row of virtualData; let rowIndex = index\"\n        (click)=\"handleRowClick(row, fromRow + rowIndex, $event)\"\n        (keyup)=\"selectable && _rowKeyup($event, row, rowIndex)\"\n        (keydown.space)=\"blockEvent($event)\"\n        (keydown.shift.space)=\"blockEvent($event)\"\n        (keydown.shift)=\"disableTextSelection()\"\n        (keyup.shift)=\"enableTextSelection()\"\n      >\n        <td td-data-table-cell class=\"mat-checkbox-cell\" *ngIf=\"selectable\">\n          <mat-pseudo-checkbox\n            [state]=\"dtRow.selected ? 'checked' : 'unchecked'\"\n            (mousedown)=\"disableTextSelection()\"\n            (mouseup)=\"enableTextSelection()\"\n            stopRowClick\n            (click)=\"select(row, $event, fromRow + rowIndex)\"\n          ></mat-pseudo-checkbox>\n        </td>\n        <td\n          td-data-table-cell\n          [numeric]=\"column.numeric\"\n          [hidden]=\"column.hidden\"\n          *ngFor=\"let column of columns; let i = index\"\n          [style.min-width.px]=\"getColumnWidth(i)\"\n          [style.max-width.px]=\"getColumnWidth(i)\"\n        >\n          <span *ngIf=\"!getTemplateRef(column.name)\">\n            {{ column.format ? column.format(getCellValue(column, row)) : getCellValue(column, row) }}\n          </span>\n          <ng-template\n            *ngIf=\"getTemplateRef(column.name)\"\n            [ngTemplateOutlet]=\"getTemplateRef(column.name)\"\n            [ngTemplateOutletContext]=\"{\n              value: getCellValue(column, row),\n              row: row,\n              column: column.name,\n              index: rowIndex\n            }\"\n          ></ng-template>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n<ng-content></ng-content>\n",
                     inputs: ['value'],
                     changeDetection: ChangeDetectionStrategy.OnPush,
-                    styles: [":host{display:block;overflow:hidden}:host .td-data-table-scrollable{position:relative;overflow:auto;height:calc(100% - 56px)}.td-data-table-column-resizer{right:0;width:6px;cursor:col-resize}.td-data-table-column-resizer,.td-data-table-column-resizer .td-data-table-column-separator{position:absolute;height:100%;top:0}.td-data-table-column-resizer .td-data-table-column-separator{left:2px}.td-data-table-column-resizer.td-resizing{cursor:-webkit-grabbing}table.td-data-table{width:auto!important}table.td-data-table.mat-selectable tbody>tr.td-data-table-row{transition:background-color .2s}table.td-data-table.mat-selectable .td-data-table-column:first-child>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable td.td-data-table-cell:first-child>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable th.td-data-table-column:first-child>.td-data-table-column-content-wrapper{width:18px;min-width:18px;padding:0 24px}table.td-data-table.mat-selectable .td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2)>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper{padding-left:0}[dir=rtl] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper,[dir=rtl] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2)>.td-data-table-column-content-wrapper,[dir=rtl] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper{padding-right:0;padding-left:28px}table.td-data-table td.mat-checkbox-cell,table.td-data-table th.mat-checkbox-column{min-width:42px;width:42px;font-size:0!important}table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox,table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox{width:18px;height:18px}::ng-deep table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after,::ng-deep table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after{width:11px!important;height:4px!important}table.td-data-table td.mat-checkbox-cell mat-checkbox ::ng-deep .mat-checkbox-inner-container,table.td-data-table th.mat-checkbox-column mat-checkbox ::ng-deep .mat-checkbox-inner-container{width:18px;height:18px;margin:0}"]
+                    styles: [":host{display:block;overflow:hidden}:host .td-data-table-scrollable{position:relative;overflow:auto;height:calc(100% - 56px)}.td-data-table-column-resizer{right:0;width:6px;cursor:col-resize}.td-data-table-column-resizer,.td-data-table-column-resizer .td-data-table-column-separator{position:absolute;height:100%;top:0}.td-data-table-column-resizer .td-data-table-column-separator{left:2px}.td-data-table-column-resizer.td-resizing{cursor:-webkit-grabbing}table.td-data-table{width:auto!important}table.td-data-table.mat-selectable tbody>tr.td-data-table-row{-webkit-transition:background-color .2s;transition:background-color .2s}table.td-data-table.mat-selectable .td-data-table-column:first-child>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable td.td-data-table-cell:first-child>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable th.td-data-table-column:first-child>.td-data-table-column-content-wrapper{width:18px;min-width:18px;padding:0 24px}table.td-data-table.mat-selectable .td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2)>.td-data-table-column-content-wrapper,table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper{padding-left:0}[dir=rtl] table.td-data-table.mat-selectable .td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper,[dir=rtl] table.td-data-table.mat-selectable td.td-data-table-cell:nth-child(2)>.td-data-table-column-content-wrapper,[dir=rtl] table.td-data-table.mat-selectable th.td-data-table-column:nth-child(2)>.td-data-table-column-content-wrapper{padding-right:0;padding-left:28px}table.td-data-table td.mat-checkbox-cell,table.td-data-table th.mat-checkbox-column{min-width:42px;width:42px;font-size:0!important}table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox,table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox{width:18px;height:18px}::ng-deep table.td-data-table td.mat-checkbox-cell mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after,::ng-deep table.td-data-table th.mat-checkbox-column mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after{width:11px!important;height:4px!important}table.td-data-table td.mat-checkbox-cell mat-checkbox ::ng-deep .mat-checkbox-inner-container,table.td-data-table th.mat-checkbox-column mat-checkbox ::ng-deep .mat-checkbox-inner-container{width:18px;height:18px;margin:0}"]
                 }] }
     ];
     /** @nocollapse */
@@ -6212,7 +7009,7 @@ var TdDataTableComponent = /** @class */ (function (_super) {
         { type: ChangeDetectorRef }
     ]; };
     TdDataTableComponent.propDecorators = {
-        _templates: [{ type: ContentChildren, args: [TdDataTableTemplateDirective,] }],
+        _templates: [{ type: ContentChildren, args: [TdDataTableTemplateDirective, { descendants: true },] }],
         _scrollableDiv: [{ type: ViewChild, args: ['scrollableDiv', { static: true },] }],
         _colElements: [{ type: ViewChildren, args: ['columnElement',] }],
         _rows: [{ type: ViewChildren, args: [TdDataTableRowComponent,] }],
@@ -6233,11 +7030,283 @@ var TdDataTableComponent = /** @class */ (function (_super) {
     };
     return TdDataTableComponent;
 }(_TdDataTableMixinBase));
+if (false) {
+    /**
+     * responsive width calculations
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._resizeSubs;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._rowsChangedSubs;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._hostWidth;
+    /**
+     * manually resizable columns
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._resizableColumns;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._columnClientX;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._columnResizeSubs;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._resizingColumn;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._onColumnResize;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._widths;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._onResize;
+    /**
+     * column header reposition and viewpoort
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._verticalScrollSubs;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._horizontalScrollSubs;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._scrollHorizontalOffset;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._onHorizontalScroll;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._onVerticalScroll;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._rowHeightCache;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._totalHeight;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._hostHeight;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._scrollVerticalOffset;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._offsetTransform;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._fromRow;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._toRow;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._valueChangesSubs;
+    /**
+     * internal attributes
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._data;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._virtualData;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._columns;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._selectable;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._clickable;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._multiple;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._allSelected;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._indeterminate;
+    /**
+     * sorting
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._sortable;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._sortBy;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._sortOrder;
+    /**
+     * shift select
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._shiftPreviouslyPressed;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._lastSelectedIndex;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._firstSelectedIndex;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._firstCheckboxValue;
+    /**
+     * template fetching support
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._templateMap;
+    /** @type {?} */
+    TdDataTableComponent.prototype._templates;
+    /** @type {?} */
+    TdDataTableComponent.prototype._scrollableDiv;
+    /** @type {?} */
+    TdDataTableComponent.prototype._colElements;
+    /** @type {?} */
+    TdDataTableComponent.prototype._rows;
+    /**
+     * sortChange?: function
+     * Event emitted when the column headers are clicked. [sortable] needs to be enabled.
+     * Emits an [ITdDataTableSortChangeEvent] implemented object.
+     * @type {?}
+     */
+    TdDataTableComponent.prototype.sortChange;
+    /**
+     * rowSelect?: function
+     * Event emitted when a row is selected/deselected. [selectable] needs to be enabled.
+     * Emits an [ITdDataTableSelectEvent] implemented object.
+     * @type {?}
+     */
+    TdDataTableComponent.prototype.rowSelect;
+    /**
+     * rowClick?: function
+     * Event emitted when a row is clicked.
+     * Emits an [ITdDataTableRowClickEvent] implemented object.
+     * @type {?}
+     */
+    TdDataTableComponent.prototype.rowClick;
+    /**
+     * selectAll?: function
+     * Event emitted when all rows are selected/deselected by the all checkbox. [selectable] needs to be enabled.
+     * Emits an [ITdDataTableSelectAllEvent] implemented object.
+     * @type {?}
+     */
+    TdDataTableComponent.prototype.selectAll;
+    /**
+     * compareWith?: function(row, model): boolean
+     * Allows custom comparison between row and model to see if row is selected or not
+     * Default comparation is by reference
+     * @type {?}
+     */
+    TdDataTableComponent.prototype.compareWith;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._document;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._elementRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableComponent.prototype._domSanitizer;
+}
 
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @record
+ */
+function ITdDataTableSortChangeEvent() { }
+if (false) {
+    /** @type {?} */
+    ITdDataTableSortChangeEvent.prototype.order;
+    /** @type {?} */
+    ITdDataTableSortChangeEvent.prototype.name;
+}
 var TdDataTableColumnComponent = /** @class */ (function () {
     function TdDataTableColumnComponent(_elementRef, _renderer) {
         this._elementRef = _elementRef;
@@ -6390,7 +7459,7 @@ var TdDataTableColumnComponent = /** @class */ (function () {
                     /* tslint:disable-next-line */
                     selector: 'th[td-data-table-column]',
                     template: "<span #columnContent class=\"td-data-table-heading\">\n  <mat-icon\n    class=\"td-data-table-sort-icon\"\n    *ngIf=\"sortable && numeric\"\n    [class.mat-asc]=\"isAscending()\"\n    [class.mat-desc]=\"isDescending()\"\n  >\n    arrow_upward\n  </mat-icon>\n  <span>\n    <ng-content></ng-content>\n  </span>\n  <mat-icon\n    class=\"td-data-table-sort-icon\"\n    *ngIf=\"sortable && !numeric\"\n    [class.mat-asc]=\"isAscending()\"\n    [class.mat-desc]=\"isDescending()\"\n  >\n    arrow_upward\n  </mat-icon>\n</span>\n<ng-content select=\"[td-column-resizer]\"></ng-content>\n",
-                    styles: [":host{white-space:nowrap;position:relative;padding:0;vertical-align:middle;text-align:left}:host>.td-data-table-heading{padding:0 28px}:host:first-child>.td-data-table-heading{padding-left:24px;padding-right:initial}html[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}body[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}:host:first-child>.td-data-table-heading bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:first-child>.td-data-table-heading bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:last-child>.td-data-table-heading{padding-left:28px;padding-right:24px}html[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}body[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}:host:last-child>.td-data-table-heading bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:last-child>.td-data-table-heading bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host mat-icon{height:16px;width:16px;font-size:16px!important;line-height:16px!important}:host mat-icon.td-data-table-sort-icon{opacity:0;transition:transform .25s;position:absolute;top:0}:host mat-icon.td-data-table-sort-icon.mat-asc{-ms-transform:rotate(0);transform:rotate(0)}:host mat-icon.td-data-table-sort-icon.mat-desc{-ms-transform:rotate(180deg);transform:rotate(180deg)}:host.mat-active.mat-sortable mat-icon.td-data-table-sort-icon,:host:hover.mat-sortable mat-icon.td-data-table-sort-icon{opacity:1}html[dir=rtl] :host{text-align:right;unicode-bidi:embed}body[dir=rtl] :host{text-align:right;unicode-bidi:embed}[dir=rtl] :host{text-align:right;unicode-bidi:embed}:host bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host>*{vertical-align:middle}:host.mat-clickable{cursor:pointer}:host.mat-clickable:focus{outline:0}:host .td-data-table-heading{display:inline-block;position:relative}:host.mat-numeric{text-align:right}html[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}:host.mat-numeric bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:-22px;margin-right:initial}html[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}:host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:6px;margin-right:initial}html[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}body[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}"]
+                    styles: [":host{white-space:nowrap;position:relative;padding:0;vertical-align:middle;text-align:left}:host>.td-data-table-heading{padding:0 28px}:host:first-child>.td-data-table-heading{padding-left:24px;padding-right:initial}html[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}body[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}[dir=rtl] :host:first-child>.td-data-table-heading{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}:host:first-child>.td-data-table-heading bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:first-child>.td-data-table-heading bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:last-child>.td-data-table-heading{padding-left:28px;padding-right:24px}html[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}body[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}[dir=rtl] :host:last-child>.td-data-table-heading{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}:host:last-child>.td-data-table-heading bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:last-child>.td-data-table-heading bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host mat-icon{height:16px;width:16px;font-size:16px!important;line-height:16px!important}:host mat-icon.td-data-table-sort-icon{opacity:0;-webkit-transition:-webkit-transform .25s;transition:transform .25s;transition:transform .25s,-webkit-transform .25s;position:absolute;top:0}:host mat-icon.td-data-table-sort-icon.mat-asc{-webkit-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0)}:host mat-icon.td-data-table-sort-icon.mat-desc{-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg)}:host.mat-active.mat-sortable mat-icon.td-data-table-sort-icon,:host:hover.mat-sortable mat-icon.td-data-table-sort-icon{opacity:1}html[dir=rtl] :host{text-align:right;unicode-bidi:embed}body[dir=rtl] :host{text-align:right;unicode-bidi:embed}[dir=rtl] :host{text-align:right;unicode-bidi:embed}:host bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host>*{vertical-align:middle}:host.mat-clickable{cursor:pointer}:host.mat-clickable:focus{outline:0}:host .td-data-table-heading{display:inline-block;position:relative}:host.mat-numeric{text-align:right}html[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}:host.mat-numeric bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:-22px;margin-right:initial}html[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}[dir=rtl] :host.mat-numeric mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:-22px;unicode-bidi:embed}:host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric mat-icon.td-data-table-sort-icon bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:6px;margin-right:initial}html[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}body[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}[dir=rtl] :host:not(.mat-numeric) mat-icon.td-data-table-sort-icon{margin-left:initial;unicode-bidi:embed;margin-right:6px;unicode-bidi:embed}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:not(.mat-numeric) mat-icon.td-data-table-sort-icon bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}"]
                 }] }
     ];
     /** @nocollapse */
@@ -6414,6 +7483,59 @@ var TdDataTableColumnComponent = /** @class */ (function () {
     };
     return TdDataTableColumnComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableColumnComponent.prototype._sortOrder;
+    /** @type {?} */
+    TdDataTableColumnComponent.prototype._columnContent;
+    /**
+     * name?: string
+     * Sets unique column [name] for [sortable] events.
+     * @type {?}
+     */
+    TdDataTableColumnComponent.prototype.name;
+    /**
+     * sortable?: boolean
+     * Enables sorting events, sort icons and active column states.
+     * Defaults to 'false'
+     * @type {?}
+     */
+    TdDataTableColumnComponent.prototype.sortable;
+    /**
+     * active?: boolean
+     * Sets column to active state when 'true'.
+     * Defaults to 'false'
+     * @type {?}
+     */
+    TdDataTableColumnComponent.prototype.active;
+    /**
+     * numeric?: boolean
+     * Makes column follow the numeric data-table specs and sort icon.
+     * Defaults to 'false'
+     * @type {?}
+     */
+    TdDataTableColumnComponent.prototype.numeric;
+    /**
+     * sortChange?: function
+     * Event emitted when the column headers are clicked. [sortable] needs to be enabled.
+     * Emits an [ITdDataTableSortChangeEvent] implemented object.
+     * @type {?}
+     */
+    TdDataTableColumnComponent.prototype.sortChange;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableColumnComponent.prototype._elementRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableColumnComponent.prototype._renderer;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -6471,7 +7593,7 @@ var TdDataTableCellComponent = /** @class */ (function () {
                     /* tslint:disable-next-line */
                     selector: 'td[td-data-table-cell]',
                     template: "<div\n  class=\"td-data-table-cell-content-wrapper\"\n  [class.td-data-table-cell-numeric]=\"numeric\"\n  [class.td-data-table-cell-align-center]=\"align === 'center'\"\n  [class.td-data-table-cell-align-end]=\"align === 'end'\"\n  [class.td-data-table-cell-align-start]=\"align === 'start'\"\n>\n  <ng-content></ng-content>\n</div>\n",
-                    styles: [":host{vertical-align:middle;text-align:left;padding:0}html[dir=rtl] :host{text-align:right;unicode-bidi:embed}body[dir=rtl] :host{text-align:right;unicode-bidi:embed}[dir=rtl] :host{text-align:right;unicode-bidi:embed}:host bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host>.td-data-table-cell-content-wrapper{padding:0 28px;box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:start;justify-content:flex-start}:host>.td-data-table-cell-content-wrapper.td-data-table-cell-numeric{-ms-flex-pack:end;justify-content:flex-end}:host>.td-data-table-cell-content-wrapper.td-data-table-cell-align-start{-ms-flex-pack:start;justify-content:flex-start}:host>.td-data-table-cell-content-wrapper.td-data-table-cell-align-end{-ms-flex-pack:end;justify-content:flex-end}:host>.td-data-table-cell-content-wrapper.td-data-table-cell-align-center{-ms-flex-pack:center;justify-content:center}:host:first-child>.td-data-table-cell-content-wrapper{padding-left:24px;padding-right:initial}html[dir=rtl] :host:first-child>.td-data-table-cell-content-wrapper{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}body[dir=rtl] :host:first-child>.td-data-table-cell-content-wrapper{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}[dir=rtl] :host:first-child>.td-data-table-cell-content-wrapper{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}:host:first-child>.td-data-table-cell-content-wrapper bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:first-child>.td-data-table-cell-content-wrapper bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:last-child>.td-data-table-cell-content-wrapper{padding-left:28px;padding-right:24px}html[dir=rtl] :host:last-child>.td-data-table-cell-content-wrapper{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}body[dir=rtl] :host:last-child>.td-data-table-cell-content-wrapper{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}[dir=rtl] :host:last-child>.td-data-table-cell-content-wrapper{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}:host:last-child>.td-data-table-cell-content-wrapper bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:last-child>.td-data-table-cell-content-wrapper bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host>*{vertical-align:middle}:host.mat-clickable{cursor:pointer}:host.mat-clickable:focus{outline:0}:host.mat-numeric{text-align:right}html[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}:host.mat-numeric bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}"]
+                    styles: [":host{vertical-align:middle;text-align:left;padding:0}html[dir=rtl] :host{text-align:right;unicode-bidi:embed}body[dir=rtl] :host{text-align:right;unicode-bidi:embed}[dir=rtl] :host{text-align:right;unicode-bidi:embed}:host bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host>.td-data-table-cell-content-wrapper{padding:0 28px;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}:host>.td-data-table-cell-content-wrapper.td-data-table-cell-numeric{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}:host>.td-data-table-cell-content-wrapper.td-data-table-cell-align-start{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}:host>.td-data-table-cell-content-wrapper.td-data-table-cell-align-end{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}:host>.td-data-table-cell-content-wrapper.td-data-table-cell-align-center{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}:host:first-child>.td-data-table-cell-content-wrapper{padding-left:24px;padding-right:initial}html[dir=rtl] :host:first-child>.td-data-table-cell-content-wrapper{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}body[dir=rtl] :host:first-child>.td-data-table-cell-content-wrapper{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}[dir=rtl] :host:first-child>.td-data-table-cell-content-wrapper{padding-left:initial;unicode-bidi:embed;padding-right:24px;unicode-bidi:embed}:host:first-child>.td-data-table-cell-content-wrapper bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:first-child>.td-data-table-cell-content-wrapper bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host:last-child>.td-data-table-cell-content-wrapper{padding-left:28px;padding-right:24px}html[dir=rtl] :host:last-child>.td-data-table-cell-content-wrapper{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}body[dir=rtl] :host:last-child>.td-data-table-cell-content-wrapper{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}[dir=rtl] :host:last-child>.td-data-table-cell-content-wrapper{padding-left:24px;unicode-bidi:embed;padding-right:28px;unicode-bidi:embed}:host:last-child>.td-data-table-cell-content-wrapper bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host:last-child>.td-data-table-cell-content-wrapper bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}:host>*{vertical-align:middle}:host.mat-clickable{cursor:pointer}:host.mat-clickable:focus{outline:0}:host.mat-numeric{text-align:right}html[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}body[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}[dir=rtl] :host.mat-numeric{text-align:left;unicode-bidi:embed}:host.mat-numeric bdo[dir=rtl]{direction:rtl;unicode-bidi:bidi-override}:host.mat-numeric bdo[dir=ltr]{direction:ltr;unicode-bidi:bidi-override}"]
                 }] }
     ];
     /** @nocollapse */
@@ -6486,6 +7608,30 @@ var TdDataTableCellComponent = /** @class */ (function () {
     };
     return TdDataTableCellComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableCellComponent.prototype._align;
+    /**
+     * numeric?: boolean
+     * Makes cell follow the numeric data-table specs.
+     * Defaults to 'false'
+     * @type {?}
+     */
+    TdDataTableCellComponent.prototype.numeric;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableCellComponent.prototype._elementRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableCellComponent.prototype._renderer;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -6512,6 +7658,18 @@ var TdDataTableTableComponent = /** @class */ (function () {
     ]; };
     return TdDataTableTableComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableTableComponent.prototype._elementRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDataTableTableComponent.prototype._renderer;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -6720,9 +7878,19 @@ var TdDataTableService = /** @class */ (function () {
                     providedIn: 'root',
                 },] }
     ];
-    /** @nocollapse */ TdDataTableService.ngInjectableDef = ɵɵdefineInjectable({ factory: function TdDataTableService_Factory() { return new TdDataTableService(); }, token: TdDataTableService, providedIn: "root" });
+    /** @nocollapse */ TdDataTableService.ɵprov = ɵɵdefineInjectable({ factory: function TdDataTableService_Factory() { return new TdDataTableService(); }, token: TdDataTableService, providedIn: "root" });
     return TdDataTableService;
 }());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 /**
  * @fileoverview added by tsickle
@@ -6776,16 +7944,24 @@ var TdDialogComponent = /** @class */ (function () {
         { type: Component, args: [{
                     selector: 'td-dialog',
                     template: "<div class=\"td-dialog-wrapper\">\n  <h3 class=\"td-dialog-title\" *ngIf=\"dialogTitle.length > 0\">\n    <ng-content select=\"td-dialog-title\"></ng-content>\n  </h3>\n  <div class=\"td-dialog-content\" *ngIf=\"dialogContent.length > 0\">\n    <ng-content select=\"td-dialog-content\"></ng-content>\n  </div>\n  <div class=\"td-dialog-actions\" *ngIf=\"dialogActions.length > 0\">\n    <span class=\"td-dialog-spacer\"></span>\n    <ng-content select=\"td-dialog-actions\"></ng-content>\n  </div>\n</div>\n",
-                    styles: [".td-dialog-title{margin-top:0;margin-bottom:20px}.td-dialog-content{margin-bottom:16px}.td-dialog-actions{position:relative;top:16px;left:16px}::ng-deep [dir=rtl] .td-dialog-actions{right:16px;left:auto}:host{display:block}:host .td-dialog-actions{-ms-flex-direction:row;flex-direction:row;box-sizing:border-box;display:-ms-flexbox;display:flex}:host .td-dialog-actions .td-dialog-spacer{-ms-flex:1;flex:1}:host .td-dialog-actions ::ng-deep button{text-transform:uppercase;margin-left:8px;padding-left:8px;padding-right:8px;min-width:64px}[dir=rtl] :host .td-dialog-actions ::ng-deep button{margin-right:8px;margin-left:inherit}"]
+                    styles: [".td-dialog-title{margin-top:0;margin-bottom:20px}.td-dialog-content{margin-bottom:16px}.td-dialog-actions{position:relative;top:16px;left:16px}::ng-deep [dir=rtl] .td-dialog-actions{right:16px;left:auto}:host{display:block}:host .td-dialog-actions{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex}:host .td-dialog-actions .td-dialog-spacer{-webkit-box-flex:1;-ms-flex:1;flex:1}:host .td-dialog-actions ::ng-deep button{text-transform:uppercase;margin-left:8px;padding-left:8px;padding-right:8px;min-width:64px}[dir=rtl] :host .td-dialog-actions ::ng-deep button{margin-right:8px;margin-left:inherit}"]
                 }] }
     ];
     TdDialogComponent.propDecorators = {
-        dialogTitle: [{ type: ContentChildren, args: [TdDialogTitleDirective,] }],
-        dialogContent: [{ type: ContentChildren, args: [TdDialogContentDirective,] }],
-        dialogActions: [{ type: ContentChildren, args: [TdDialogActionsDirective,] }]
+        dialogTitle: [{ type: ContentChildren, args: [TdDialogTitleDirective, { descendants: true },] }],
+        dialogContent: [{ type: ContentChildren, args: [TdDialogContentDirective, { descendants: true },] }],
+        dialogActions: [{ type: ContentChildren, args: [TdDialogActionsDirective, { descendants: true },] }]
     };
     return TdDialogComponent;
 }());
+if (false) {
+    /** @type {?} */
+    TdDialogComponent.prototype.dialogTitle;
+    /** @type {?} */
+    TdDialogComponent.prototype.dialogContent;
+    /** @type {?} */
+    TdDialogComponent.prototype.dialogActions;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -6818,6 +7994,19 @@ var TdAlertDialogComponent = /** @class */ (function () {
     ]; };
     return TdAlertDialogComponent;
 }());
+if (false) {
+    /** @type {?} */
+    TdAlertDialogComponent.prototype.title;
+    /** @type {?} */
+    TdAlertDialogComponent.prototype.message;
+    /** @type {?} */
+    TdAlertDialogComponent.prototype.closeButton;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdAlertDialogComponent.prototype._dialogRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -6860,6 +8049,21 @@ var TdConfirmDialogComponent = /** @class */ (function () {
     ]; };
     return TdConfirmDialogComponent;
 }());
+if (false) {
+    /** @type {?} */
+    TdConfirmDialogComponent.prototype.title;
+    /** @type {?} */
+    TdConfirmDialogComponent.prototype.message;
+    /** @type {?} */
+    TdConfirmDialogComponent.prototype.cancelButton;
+    /** @type {?} */
+    TdConfirmDialogComponent.prototype.acceptButton;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdConfirmDialogComponent.prototype._dialogRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -6926,7 +8130,7 @@ var TdPromptDialogComponent = /** @class */ (function () {
         { type: Component, args: [{
                     selector: 'td-prompt-dialog',
                     template: "<td-dialog>\n  <td-dialog-title *ngIf=\"title\">\n    {{ title }}\n  </td-dialog-title>\n  <td-dialog-content>\n    <span class=\"td-dialog-message\">{{ message }}</span>\n    <form #form=\"ngForm\" novalidate>\n      <div class=\"td-dialog-input-wrapper\">\n        <mat-form-field class=\"td-dialog-input\">\n          <input\n            matInput\n            #input\n            (focus)=\"handleInputFocus()\"\n            (keydown.enter)=\"$event.preventDefault(); form.valid && accept()\"\n            [(ngModel)]=\"value\"\n            name=\"value\"\n            required\n          />\n        </mat-form-field>\n      </div>\n    </form>\n  </td-dialog-content>\n  <td-dialog-actions>\n    <button mat-button #closeBtn (keydown.arrowright)=\"acceptBtn.focus()\" (click)=\"cancel()\">{{ cancelButton }}</button>\n    <button\n      mat-button\n      color=\"accent\"\n      #acceptBtn\n      (keydown.arrowleft)=\"closeBtn.focus()\"\n      [disabled]=\"!form.valid\"\n      (click)=\"accept()\"\n    >\n      {{ acceptButton }}\n    </button>\n  </td-dialog-actions>\n</td-dialog>\n",
-                    styles: [".td-dialog-input-wrapper{-ms-flex-direction:row;flex-direction:row;box-sizing:border-box;display:-ms-flexbox;display:flex}.td-dialog-input-wrapper .td-dialog-input{-ms-flex:1;flex:1;box-sizing:border-box}.td-dialog-message{word-break:break-word}"]
+                    styles: [".td-dialog-input-wrapper{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex}.td-dialog-input-wrapper .td-dialog-input{-webkit-box-flex:1;-ms-flex:1;flex:1;box-sizing:border-box}.td-dialog-message{word-break:break-word}"]
                 }] }
     ];
     /** @nocollapse */
@@ -6938,6 +8142,25 @@ var TdPromptDialogComponent = /** @class */ (function () {
     };
     return TdPromptDialogComponent;
 }());
+if (false) {
+    /** @type {?} */
+    TdPromptDialogComponent.prototype.title;
+    /** @type {?} */
+    TdPromptDialogComponent.prototype.message;
+    /** @type {?} */
+    TdPromptDialogComponent.prototype.value;
+    /** @type {?} */
+    TdPromptDialogComponent.prototype.cancelButton;
+    /** @type {?} */
+    TdPromptDialogComponent.prototype.acceptButton;
+    /** @type {?} */
+    TdPromptDialogComponent.prototype._input;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdPromptDialogComponent.prototype._dialogRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -6977,6 +8200,57 @@ var CovalentDialogsModule = /** @class */ (function () {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @record
+ */
+function IDialogConfig() { }
+if (false) {
+    /** @type {?|undefined} */
+    IDialogConfig.prototype.title;
+    /** @type {?} */
+    IDialogConfig.prototype.message;
+}
+/**
+ * @record
+ */
+function IAlertConfig() { }
+if (false) {
+    /** @type {?|undefined} */
+    IAlertConfig.prototype.closeButton;
+}
+/**
+ * @record
+ */
+function IConfirmConfig() { }
+if (false) {
+    /** @type {?|undefined} */
+    IConfirmConfig.prototype.acceptButton;
+    /** @type {?|undefined} */
+    IConfirmConfig.prototype.cancelButton;
+}
+/**
+ * @record
+ */
+function IPromptConfig() { }
+if (false) {
+    /** @type {?|undefined} */
+    IPromptConfig.prototype.value;
+}
+/**
+ * @record
+ * @template T
+ */
+function IDraggableConfig() { }
+if (false) {
+    /** @type {?} */
+    IDraggableConfig.prototype.component;
+    /** @type {?|undefined} */
+    IDraggableConfig.prototype.config;
+    /** @type {?|undefined} */
+    IDraggableConfig.prototype.dragHandleSelectors;
+    /** @type {?|undefined} */
+    IDraggableConfig.prototype.draggableClass;
+}
 var TdDialogService = /** @class */ (function () {
     function TdDialogService(_document, _dialogService, _dragDrop, rendererFactory) {
         this._document = _document;
@@ -7303,9 +8577,46 @@ var TdDialogService = /** @class */ (function () {
         { type: DragDrop },
         { type: RendererFactory2 }
     ]; };
-    /** @nocollapse */ TdDialogService.ngInjectableDef = ɵɵdefineInjectable({ factory: function TdDialogService_Factory() { return new TdDialogService(ɵɵinject(DOCUMENT), ɵɵinject(MatDialog), ɵɵinject(DragDrop), ɵɵinject(RendererFactory2)); }, token: TdDialogService, providedIn: CovalentDialogsModule });
+    /** @nocollapse */ TdDialogService.ɵprov = ɵɵdefineInjectable({ factory: function TdDialogService_Factory() { return new TdDialogService(ɵɵinject(DOCUMENT), ɵɵinject(MatDialog), ɵɵinject(DragDrop), ɵɵinject(RendererFactory2)); }, token: TdDialogService, providedIn: CovalentDialogsModule });
     return TdDialogService;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDialogService.prototype._renderer2;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDialogService.prototype._document;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDialogService.prototype._dialogService;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDialogService.prototype._dragDrop;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDialogService.prototype.rendererFactory;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 /**
  * @fileoverview added by tsickle
@@ -7570,7 +8881,7 @@ var TdExpansionPanelComponent = /** @class */ (function (_super) {
                     template: "<div\n  class=\"td-expansion-panel-header\"\n  [class.mat-disabled]=\"disabled\"\n  matRipple\n  [matRippleDisabled]=\"disabled || disableRipple\"\n  [tabIndex]=\"disabled ? -1 : 0\"\n  (keydown.enter)=\"clickEvent()\"\n  (click)=\"clickEvent()\"\n>\n  <ng-template [cdkPortalOutlet]=\"expansionPanelHeader\"></ng-template>\n  <div class=\"td-expansion-panel-header-content\" [class.mat-disabled]=\"disabled\" *ngIf=\"!expansionPanelHeader\">\n    <div *ngIf=\"label || expansionPanelLabel\" class=\"td-expansion-label\">\n      <ng-template [cdkPortalOutlet]=\"expansionPanelLabel\"></ng-template>\n      <ng-template [ngIf]=\"!expansionPanelLabel\">{{ label }}</ng-template>\n    </div>\n    <div *ngIf=\"sublabel || expansionPanelSublabel\" class=\"td-expansion-sublabel\">\n      <ng-template [cdkPortalOutlet]=\"expansionPanelSublabel\"></ng-template>\n      <ng-template [ngIf]=\"!expansionPanelSublabel\">{{ sublabel }}</ng-template>\n    </div>\n    <mat-icon class=\"td-expand-icon\" *ngIf=\"!disabled\" [@tdRotate]=\"expand\">keyboard_arrow_down</mat-icon>\n  </div>\n</div>\n<div class=\"td-expansion-content\" [@tdCollapse]=\"!expand\">\n  <ng-content></ng-content>\n</div>\n<div class=\"td-expansion-summary\" [@tdCollapse]=\"expand\">\n  <ng-content select=\"td-expansion-summary\"></ng-content>\n</div>\n",
                     inputs: ['disabled', 'disableRipple'],
                     animations: [tdCollapseAnimation$1, tdRotateAnimation$1],
-                    styles: [":host{display:block}:host .td-expansion-panel-header{position:relative;outline:0}:host .td-expansion-panel-header:focus:not(.mat-disabled),:host .td-expansion-panel-header:hover:not(.mat-disabled){cursor:pointer}:host .td-expansion-panel-header .td-expansion-panel-header-content{height:48px;padding:0 24px;box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex:1;flex:1;-ms-flex-pack:start;justify-content:flex-start;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%}:host .td-expansion-panel-header .td-expansion-panel-header-content .td-expansion-label,:host .td-expansion-panel-header .td-expansion-panel-header-content .td-expansion-sublabel{-ms-flex:1;flex:1}:host .td-expansion-content.ng-animating,:host .td-expansion-summary.ng-animating{overflow:hidden}.td-expansion-label,.td-expansion-sublabel{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:16px}::ng-deep [dir=rtl] .td-expansion-label,::ng-deep [dir=rtl] .td-expansion-sublabel{margin-left:16px;margin-right:inherit}"]
+                    styles: [":host{display:block}:host .td-expansion-panel-header{position:relative;outline:0}:host .td-expansion-panel-header:focus:not(.mat-disabled),:host .td-expansion-panel-header:hover:not(.mat-disabled){cursor:pointer}:host .td-expansion-panel-header .td-expansion-panel-header-content{height:48px;padding:0 24px;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-flex:1;-ms-flex:1;flex:1;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%}:host .td-expansion-panel-header .td-expansion-panel-header-content .td-expansion-label,:host .td-expansion-panel-header .td-expansion-panel-header-content .td-expansion-sublabel{-webkit-box-flex:1;-ms-flex:1;flex:1}:host .td-expansion-content.ng-animating,:host .td-expansion-summary.ng-animating{overflow:hidden}.td-expansion-label,.td-expansion-sublabel{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:16px}::ng-deep [dir=rtl] .td-expansion-label,::ng-deep [dir=rtl] .td-expansion-sublabel{margin-left:16px;margin-right:inherit}"]
                 }] }
     ];
     /** @nocollapse */
@@ -7590,6 +8901,54 @@ var TdExpansionPanelComponent = /** @class */ (function (_super) {
     };
     return TdExpansionPanelComponent;
 }(_TdExpansionPanelMixinBase));
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdExpansionPanelComponent.prototype._expand;
+    /** @type {?} */
+    TdExpansionPanelComponent.prototype.expansionPanelHeader;
+    /** @type {?} */
+    TdExpansionPanelComponent.prototype.expansionPanelLabel;
+    /** @type {?} */
+    TdExpansionPanelComponent.prototype.expansionPanelSublabel;
+    /**
+     * label?: string
+     * Sets label of [TdExpansionPanelComponent] header.
+     * Defaults to 'Click to expand'
+     * @type {?}
+     */
+    TdExpansionPanelComponent.prototype.label;
+    /**
+     * sublabel?: string
+     * Sets sublabel of [TdExpansionPanelComponent] header.
+     * @type {?}
+     */
+    TdExpansionPanelComponent.prototype.sublabel;
+    /**
+     * expanded?: function
+     * Event emitted when [TdExpansionPanelComponent] is expanded.
+     * @type {?}
+     */
+    TdExpansionPanelComponent.prototype.expanded;
+    /**
+     * collapsed?: function
+     * Event emitted when [TdExpansionPanelComponent] is collapsed.
+     * @type {?}
+     */
+    TdExpansionPanelComponent.prototype.collapsed;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdExpansionPanelComponent.prototype._renderer;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdExpansionPanelComponent.prototype._elementRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -7797,10 +9156,44 @@ var TdExpansionPanelGroupComponent = /** @class */ (function () {
     ]; };
     TdExpansionPanelGroupComponent.propDecorators = {
         multi: [{ type: Input, args: ['multi',] }],
-        expansionPanels: [{ type: ContentChildren, args: [TdExpansionPanelComponent,] }]
+        expansionPanels: [{ type: ContentChildren, args: [TdExpansionPanelComponent, { descendants: true },] }]
     };
     return TdExpansionPanelGroupComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdExpansionPanelGroupComponent.prototype._multi;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdExpansionPanelGroupComponent.prototype._lastOpenedPanels;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdExpansionPanelGroupComponent.prototype._destroyed;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdExpansionPanelGroupComponent.prototype._stopWatchingPanels;
+    /** @type {?} */
+    TdExpansionPanelGroupComponent.prototype.expansionPanels;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdExpansionPanelGroupComponent.prototype._renderer;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdExpansionPanelGroupComponent.prototype._elementRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -7827,6 +9220,16 @@ var CovalentExpansionPanelModule = /** @class */ (function () {
     ];
     return CovalentExpansionPanelModule;
 }());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 /**
  * @fileoverview added by tsickle
@@ -7926,6 +9329,26 @@ var TdFileSelectDirective = /** @class */ (function () {
     };
     return TdFileSelectDirective;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFileSelectDirective.prototype._multiple;
+    /**
+     * fileSelect?: function
+     * Event emitted when a file or files are selected in host [HTMLInputElement].
+     * Emits a [FileList | File] object.
+     * Alternative to not use [(ngModel)].
+     * @type {?}
+     */
+    TdFileSelectDirective.prototype.fileSelect;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFileSelectDirective.prototype.model;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -8171,6 +9594,30 @@ var TdFileDropDirective = /** @class */ (function (_super) {
     };
     return TdFileDropDirective;
 }(_TdFileDropMixinBase));
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFileDropDirective.prototype._multiple;
+    /**
+     * fileDrop?: function
+     * Event emitted when a file or files are dropped in host element after being validated.
+     * Emits a [FileList | File] object.
+     * @type {?}
+     */
+    TdFileDropDirective.prototype.fileDrop;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFileDropDirective.prototype._renderer;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFileDropDirective.prototype._element;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -8199,6 +9646,10 @@ var TdFileInputBase = /** @class */ (function () {
     }
     return TdFileInputBase;
 }());
+if (false) {
+    /** @type {?} */
+    TdFileInputBase.prototype._changeDetectorRef;
+}
 /* tslint:disable-next-line */
 /** @type {?} */
 var _TdFileInputMixinBase = mixinControlValueAccessor$1(mixinDisabled$1(TdFileInputBase));
@@ -8346,6 +9797,43 @@ var TdFileInputComponent = /** @class */ (function (_super) {
     };
     return TdFileInputComponent;
 }(_TdFileInputMixinBase));
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFileInputComponent.prototype._multiple;
+    /**
+     * The native `<input type="file"> element
+     * @type {?}
+     */
+    TdFileInputComponent.prototype._inputElement;
+    /**
+     * color?: 'accent' | 'primary' | 'warn'
+     * Sets button color. Uses same color palette accepted as [MatButton].
+     * @type {?}
+     */
+    TdFileInputComponent.prototype.color;
+    /**
+     * accept?: string
+     * Sets files accepted when opening the file browser dialog.
+     * Same as 'accept' attribute in <input/> element.
+     * @type {?}
+     */
+    TdFileInputComponent.prototype.accept;
+    /**
+     * select?: function
+     * Event emitted a file is selected
+     * Emits a [File | FileList] object.
+     * @type {?}
+     */
+    TdFileInputComponent.prototype.select;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFileInputComponent.prototype._renderer;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -8357,6 +9845,10 @@ var TdFileUploadBase = /** @class */ (function () {
     }
     return TdFileUploadBase;
 }());
+if (false) {
+    /** @type {?} */
+    TdFileUploadBase.prototype._changeDetectorRef;
+}
 /* tslint:disable-next-line */
 /** @type {?} */
 var _TdFileUploadMixinBase = mixinControlValueAccessor$1(mixinDisabled$1(TdFileUploadBase));
@@ -8557,6 +10049,67 @@ var TdFileUploadComponent = /** @class */ (function (_super) {
     };
     return TdFileUploadComponent;
 }(_TdFileUploadMixinBase));
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFileUploadComponent.prototype._multiple;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFileUploadComponent.prototype._required;
+    /** @type {?} */
+    TdFileUploadComponent.prototype.fileInput;
+    /** @type {?} */
+    TdFileUploadComponent.prototype.inputLabel;
+    /**
+     * defaultColor?: 'accent' | 'primary' | 'warn'
+     * Sets browse button color. Uses same color palette accepted as [MatButton] and defaults to 'primary'.
+     * @type {?}
+     */
+    TdFileUploadComponent.prototype.defaultColor;
+    /**
+     * activeColor?: 'accent' | 'primary' | 'warn'
+     * Sets upload button color. Uses same color palette accepted as [MatButton] and defaults to 'accent'.
+     * @type {?}
+     */
+    TdFileUploadComponent.prototype.activeColor;
+    /**
+     * cancelColor?: 'accent' | 'primary' | 'warn'
+     * Sets cancel button color. Uses same color palette accepted as [MatButton] and defaults to 'warn'.
+     * @type {?}
+     */
+    TdFileUploadComponent.prototype.cancelColor;
+    /**
+     * accept?: string
+     * Sets files accepted when opening the file browser dialog.
+     * Same as 'accept' attribute in <input/> element.
+     * @type {?}
+     */
+    TdFileUploadComponent.prototype.accept;
+    /**
+     * select?: function
+     * Event emitted when a file is selected.
+     * Emits a [File | FileList] object.
+     * @type {?}
+     */
+    TdFileUploadComponent.prototype.select;
+    /**
+     * upload?: function
+     * Event emitted when upload button is clicked.
+     * Emits a [File | FileList] object.
+     * @type {?}
+     */
+    TdFileUploadComponent.prototype.upload;
+    /**
+     * cancel?: function
+     * Event emitted when cancel button is clicked.
+     * @type {?}
+     */
+    TdFileUploadComponent.prototype.cancel;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -8587,6 +10140,34 @@ var CovalentFileModule = /** @class */ (function () {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @deprecated should be removed in favor of IUploadInit
+ * \@breaking-change 3.0.0
+ * @record
+ */
+function IUploadOptions() { }
+if (false) {
+    /** @type {?} */
+    IUploadOptions.prototype.url;
+    /** @type {?} */
+    IUploadOptions.prototype.method;
+    /** @type {?|undefined} */
+    IUploadOptions.prototype.file;
+    /** @type {?|undefined} */
+    IUploadOptions.prototype.headers;
+    /** @type {?|undefined} */
+    IUploadOptions.prototype.formData;
+}
+/**
+ * @record
+ */
+function IUploadExtras() { }
+if (false) {
+    /** @type {?|undefined} */
+    IUploadExtras.prototype.headers;
+    /** @type {?|undefined} */
+    IUploadExtras.prototype.params;
+}
 var TdFileService = /** @class */ (function () {
     /**
      * Creates a new instance
@@ -8800,9 +10381,36 @@ var TdFileService = /** @class */ (function () {
     TdFileService.ctorParameters = function () { return [
         { type: HttpClient, decorators: [{ type: Optional }] }
     ]; };
-    /** @nocollapse */ TdFileService.ngInjectableDef = ɵɵdefineInjectable({ factory: function TdFileService_Factory() { return new TdFileService(ɵɵinject(HttpClient, 8)); }, token: TdFileService, providedIn: CovalentFileModule });
+    /** @nocollapse */ TdFileService.ɵprov = ɵɵdefineInjectable({ factory: function TdFileService_Factory() { return new TdFileService(ɵɵinject(HttpClient, 8)); }, token: TdFileService, providedIn: CovalentFileModule });
     return TdFileService;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFileService.prototype._progressSubject;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFileService.prototype._progressObservable;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdFileService.prototype._http;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 /**
  * @fileoverview added by tsickle
@@ -9176,7 +10784,7 @@ var TdJsonFormatterComponent = /** @class */ (function () {
                     selector: 'td-json-formatter',
                     template: "<div class=\"td-json-formatter-wrapper\">\n  <a\n    class=\"td-key\"\n    [class.td-key-node]=\"hasChildren()\"\n    [class.td-key-leaf]=\"!hasChildren()\"\n    [tabIndex]=\"isObject() ? 0 : -1\"\n    (keydown.enter)=\"toggle()\"\n    (click)=\"toggle()\"\n  >\n    <mat-icon class=\"td-node-icon\" *ngIf=\"hasChildren()\">\n      {{ open ? 'keyboard_arrow_down' : isRTL ? 'keyboard_arrow_left' : 'keyboard_arrow_right' }}\n    </mat-icon>\n    <span *ngIf=\"key\" class=\"key\">{{ key }}:</span>\n    <span class=\"value\">\n      <span [class.td-empty]=\"!hasChildren()\" *ngIf=\"isObject()\" [matTooltip]=\"getPreview()\" matTooltipPosition=\"after\">\n        <span class=\"td-object-name\">{{ getObjectName() }}</span>\n        <span class=\"td-array-length\" *ngIf=\"isArray()\">[{{ data.length }}]</span>\n      </span>\n      <span *ngIf=\"!isObject()\" [class]=\"getType(data)\">{{ getValue(data) }}</span>\n    </span>\n  </a>\n  <div class=\"td-object-children\" [@tdCollapse]=\"!(hasChildren() && open)\">\n    <ng-template let-key ngFor [ngForOf]=\"children\">\n      <td-json-formatter [key]=\"key\" [data]=\"data[key]\" [levelsOpen]=\"levelsOpen - 1\"></td-json-formatter>\n    </ng-template>\n  </div>\n</div>\n",
                     animations: [tdCollapseAnimation$1],
-                    styles: [":host{display:block}.td-json-formatter-wrapper{padding-top:2px;padding-bottom:2px}.td-json-formatter-wrapper .td-key{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:start;align-items:flex-start;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:start;justify-content:flex-start}.td-json-formatter-wrapper .td-key.td-key-node:hover{cursor:pointer}.td-json-formatter-wrapper .td-object-children.ng-animating{overflow:hidden}.td-json-formatter-wrapper .td-object-children .td-key,.td-json-formatter-wrapper .td-object-children .td-object-children{padding-left:24px}::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-key,::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-object-children{padding-right:24px;padding-left:0}.td-json-formatter-wrapper .td-object-children .td-key.td-key-leaf,.td-json-formatter-wrapper .td-object-children .td-object-children.td-key-leaf{padding-left:48px}::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-key.td-key-leaf,::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-object-children.td-key-leaf{padding-right:48px;padding-left:0}.td-json-formatter-wrapper .value{margin-left:5px}::ng-deep [dir=rtl] .td-json-formatter-wrapper .value{padding-right:5px;padding-left:0}.td-json-formatter-wrapper .value .td-empty{opacity:.5;text-decoration:line-through}.td-json-formatter-wrapper .value .date,.td-json-formatter-wrapper .value .string{word-break:break-word}"]
+                    styles: [":host{display:block}.td-json-formatter-wrapper{padding-top:2px;padding-bottom:2px}.td-json-formatter-wrapper .td-key{box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}.td-json-formatter-wrapper .td-key.td-key-node:hover{cursor:pointer}.td-json-formatter-wrapper .td-object-children.ng-animating{overflow:hidden}.td-json-formatter-wrapper .td-object-children .td-key,.td-json-formatter-wrapper .td-object-children .td-object-children{padding-left:24px}::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-key,::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-object-children{padding-right:24px;padding-left:0}.td-json-formatter-wrapper .td-object-children .td-key.td-key-leaf,.td-json-formatter-wrapper .td-object-children .td-object-children.td-key-leaf{padding-left:48px}::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-key.td-key-leaf,::ng-deep [dir=rtl] .td-json-formatter-wrapper .td-object-children .td-object-children.td-key-leaf{padding-right:48px;padding-left:0}.td-json-formatter-wrapper .value{margin-left:5px}::ng-deep [dir=rtl] .td-json-formatter-wrapper .value{padding-right:5px;padding-left:0}.td-json-formatter-wrapper .value .td-empty{opacity:.5;text-decoration:line-through}.td-json-formatter-wrapper .value .date,.td-json-formatter-wrapper .value .string{word-break:break-word}"]
                 }] }
     ];
     /** @nocollapse */
@@ -9191,6 +10799,61 @@ var TdJsonFormatterComponent = /** @class */ (function () {
     };
     return TdJsonFormatterComponent;
 }());
+if (false) {
+    /**
+     * Max length for property names. Any names bigger than this get trunctated.
+     * @type {?}
+     * @private
+     */
+    TdJsonFormatterComponent.KEY_MAX_LENGTH;
+    /**
+     * Max length for preview string. Any names bigger than this get trunctated.
+     * @type {?}
+     * @private
+     */
+    TdJsonFormatterComponent.PREVIEW_STRING_MAX_LENGTH;
+    /**
+     * Max tooltip preview elements.
+     * @type {?}
+     * @private
+     */
+    TdJsonFormatterComponent.PREVIEW_LIMIT;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdJsonFormatterComponent.prototype._key;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdJsonFormatterComponent.prototype._data;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdJsonFormatterComponent.prototype._children;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdJsonFormatterComponent.prototype._open;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdJsonFormatterComponent.prototype._levelsOpen;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdJsonFormatterComponent.prototype._changeDetectorRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdJsonFormatterComponent.prototype._dir;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -9208,6 +10871,16 @@ var CovalentJsonFormatterModule = /** @class */ (function () {
     ];
     return CovalentJsonFormatterModule;
 }());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 /**
  * @fileoverview added by tsickle
@@ -9319,7 +10992,7 @@ var TdLayoutComponent = /** @class */ (function () {
         { type: Component, args: [{
                     selector: 'td-layout',
                     template: "<mat-sidenav-container fullscreen [autosize]=\"containerAutosize\">\n  <mat-sidenav\n    #sidenav\n    class=\"td-layout-sidenav\"\n    [mode]=\"mode\"\n    [opened]=\"opened\"\n    [style.max-width]=\"sidenavWidth\"\n    [style.min-width]=\"sidenavWidth\"\n    [disableClose]=\"disableClose\"\n  >\n    <ng-content select=\"td-navigation-drawer\"></ng-content>\n    <ng-content select=\"[td-sidenav-content]\"></ng-content>\n  </mat-sidenav>\n  <ng-content></ng-content>\n</mat-sidenav-container>\n",
-                    styles: [":host{display:-ms-flexbox;display:flex;margin:0;width:100%;min-height:100%;height:100%;overflow:hidden}:host ::ng-deep>mat-sidenav-container .mat-drawer>.mat-drawer-inner-container{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column}"]
+                    styles: [":host{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0;width:100%;min-height:100%;height:100%;overflow:hidden}:host ::ng-deep>mat-sidenav-container .mat-drawer>.mat-drawer-inner-container{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}"]
                 }] }
     ];
     TdLayoutComponent.propDecorators = {
@@ -9331,11 +11004,82 @@ var TdLayoutComponent = /** @class */ (function () {
     };
     return TdLayoutComponent;
 }());
+if (false) {
+    /** @type {?} */
+    TdLayoutComponent.prototype.sidenav;
+    /**
+     * mode?: 'side', 'push' or 'over'
+     *
+     * The mode or styling of the sidenav.
+     * Defaults to "over".
+     * See "MatSidenav" documentation for more info.
+     *
+     * https://github.com/angular/material2/tree/master/src/lib/sidenav
+     * @type {?}
+     */
+    TdLayoutComponent.prototype.mode;
+    /**
+     * opened?: boolean
+     *
+     * Whether or not the sidenav is opened. Use this binding to open/close the sidenav.
+     * Defaults to "false".
+     *
+     * See "MatSidenav" documentation for more info.
+     *
+     * https://github.com/angular/material2/tree/master/src/lib/sidenav
+     * @type {?}
+     */
+    TdLayoutComponent.prototype.opened;
+    /**
+     * sidenavWidth?: string
+     *
+     * Sets the "width" of the sidenav in either "px" or "%"
+     * Defaults to "320px".
+     *
+     * https://github.com/angular/material2/tree/master/src/lib/sidenav
+     * @type {?}
+     */
+    TdLayoutComponent.prototype.sidenavWidth;
+    /**
+     * containerAutosize?: boolean
+     *
+     * Sets "autosize" of the sidenav-container.
+     * Defaults to "false".
+     *
+     * See documentation for more info and potential performance risks.
+     *
+     * https://github.com/angular/material2/blob/master/src/lib/sidenav/sidenav.md#resizing-an-open-sidenav
+     * @type {?}
+     */
+    TdLayoutComponent.prototype.containerAutosize;
+}
 
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @record
+ */
+function ILayoutTogglable() { }
+if (false) {
+    /** @type {?} */
+    ILayoutTogglable.prototype.opened;
+    /** @type {?} */
+    ILayoutTogglable.prototype.sidenav;
+    /**
+     * @return {?}
+     */
+    ILayoutTogglable.prototype.toggle = function () { };
+    /**
+     * @return {?}
+     */
+    ILayoutTogglable.prototype.open = function () { };
+    /**
+     * @return {?}
+     */
+    ILayoutTogglable.prototype.close = function () { };
+}
 var LayoutToggleBase = /** @class */ (function () {
     function LayoutToggleBase() {
     }
@@ -9481,6 +11225,43 @@ var LayoutToggle = /** @class */ (function (_super) {
     };
     return LayoutToggle;
 }(_TdLayoutToggleMixinBase));
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    LayoutToggle.prototype._toggleSubs;
+    /**
+     * @type {?}
+     * @private
+     */
+    LayoutToggle.prototype._initialized;
+    /**
+     * @type {?}
+     * @private
+     */
+    LayoutToggle.prototype._hideWhenOpened;
+    /**
+     * @type {?}
+     * @protected
+     */
+    LayoutToggle.prototype._layout;
+    /**
+     * @type {?}
+     * @private
+     */
+    LayoutToggle.prototype._renderer;
+    /**
+     * @type {?}
+     * @private
+     */
+    LayoutToggle.prototype._elementRef;
+    /**
+     * @abstract
+     * @return {?}
+     */
+    LayoutToggle.prototype.onClick = function () { };
+}
 
 /**
  * @fileoverview added by tsickle
@@ -9663,7 +11444,7 @@ var TdLayoutNavComponent = /** @class */ (function () {
         { type: Component, args: [{
                     selector: 'td-layout-nav',
                     template: "<div class=\"td-layout-nav-wrapper\">\n  <mat-toolbar [color]=\"color\">\n    <ng-content select=\"[td-menu-button]\"></ng-content>\n    <span\n      *ngIf=\"icon || logo || toolbarTitle\"\n      [class.cursor-pointer]=\"routerEnabled\"\n      (click)=\"handleNavigationClick()\"\n      class=\"td-layout-nav-toolbar-content\"\n    >\n      <mat-icon *ngIf=\"icon\">{{ icon }}</mat-icon>\n      <mat-icon *ngIf=\"logo && !icon\" class=\"mat-icon-logo\" [svgIcon]=\"logo\"></mat-icon>\n      <span *ngIf=\"toolbarTitle\">{{ toolbarTitle }}</span>\n    </span>\n    <ng-content select=\"[td-toolbar-content]\"></ng-content>\n  </mat-toolbar>\n  <div class=\"td-layout-nav-content\" cdkScrollable>\n    <ng-content></ng-content>\n  </div>\n  <ng-content select=\"td-layout-footer\"></ng-content>\n</div>\n",
-                    styles: [".td-menu-button{margin-left:0}::ng-deep [dir=rtl] .td-menu-button{margin-right:0;margin-left:6px}:host{display:-ms-flexbox;display:flex;margin:0;width:100%;min-height:100%;height:100%;overflow:hidden}:host .td-layout-nav-wrapper{-ms-flex-direction:column;flex-direction:column;box-sizing:border-box;display:-ms-flexbox;display:flex;margin:0;width:100%;min-height:100%;height:100%}:host .td-layout-nav-wrapper .td-layout-nav-toolbar-content{-ms-flex-direction:row;flex-direction:row;box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:start;justify-content:flex-start}:host .td-layout-nav-wrapper .td-layout-nav-content{-ms-flex-direction:column;flex-direction:column;box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex:1;flex:1;position:relative;overflow:auto;-webkit-overflow-scrolling:touch}"]
+                    styles: [".td-menu-button{margin-left:0}::ng-deep [dir=rtl] .td-menu-button{margin-right:0;margin-left:6px}:host{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0;width:100%;min-height:100%;height:100%;overflow:hidden}:host .td-layout-nav-wrapper{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;margin:0;width:100%;min-height:100%;height:100%}:host .td-layout-nav-wrapper .td-layout-nav-toolbar-content{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}:host .td-layout-nav-wrapper .td-layout-nav-content{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-ms-flex:1;flex:1;position:relative;overflow:auto;-webkit-overflow-scrolling:touch}"]
                 }] }
     ];
     /** @nocollapse */
@@ -9679,6 +11460,50 @@ var TdLayoutNavComponent = /** @class */ (function () {
     };
     return TdLayoutNavComponent;
 }());
+if (false) {
+    /**
+     * toolbarTitle?: string
+     *
+     * Title set in toolbar.
+     * @type {?}
+     */
+    TdLayoutNavComponent.prototype.toolbarTitle;
+    /**
+     * icon?: string
+     *
+     * icon name to be displayed before the title
+     * @type {?}
+     */
+    TdLayoutNavComponent.prototype.icon;
+    /**
+     * logo?: string
+     *
+     * logo icon name to be displayed before the title.
+     * If [icon] is set, then this will not be shown.
+     * @type {?}
+     */
+    TdLayoutNavComponent.prototype.logo;
+    /**
+     * color?: 'accent' | 'primary' | 'warn'
+     *
+     * toolbar color option: primary | accent | warn.
+     * If [color] is not set, primary is used.
+     * @type {?}
+     */
+    TdLayoutNavComponent.prototype.color;
+    /**
+     * navigationRoute?: string
+     *
+     * option to set the combined route for the icon, logo, and toolbarTitle.
+     * @type {?}
+     */
+    TdLayoutNavComponent.prototype.navigationRoute;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLayoutNavComponent.prototype._router;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -9822,7 +11647,7 @@ var TdLayoutNavListComponent = /** @class */ (function () {
         { type: Component, args: [{
                     selector: 'td-layout-nav-list',
                     template: "<div class=\"td-layout-nav-list-wrapper\">\n  <mat-sidenav-container fullscreen [autosize]=\"containerAutosize\" class=\"td-layout-nav-list\">\n    <mat-sidenav\n      #sidenav\n      position=\"start\"\n      [mode]=\"mode\"\n      [opened]=\"opened\"\n      [disableClose]=\"disableClose\"\n      [style.max-width]=\"sidenavWidth\"\n      [style.min-width]=\"sidenavWidth\"\n    >\n      <mat-toolbar [color]=\"color\">\n        <ng-content select=\"[td-menu-button]\"></ng-content>\n        <span\n          *ngIf=\"icon || logo || toolbarTitle\"\n          class=\"td-layout-nav-list-toolbar-content\"\n          [class.cursor-pointer]=\"routerEnabled\"\n          (click)=\"handleNavigationClick()\"\n        >\n          <mat-icon *ngIf=\"icon\">{{ icon }}</mat-icon>\n          <mat-icon *ngIf=\"logo && !icon\" class=\"mat-icon-logo\" [svgIcon]=\"logo\"></mat-icon>\n          <span *ngIf=\"toolbarTitle\">{{ toolbarTitle }}</span>\n        </span>\n        <ng-content select=\"[td-sidenav-toolbar-content]\"></ng-content>\n      </mat-toolbar>\n      <div class=\"td-layout-nav-list-content\" cdkScrollable>\n        <ng-content select=\"[td-sidenav-content]\"></ng-content>\n      </div>\n    </mat-sidenav>\n    <div class=\"td-layout-nav-list-main\">\n      <mat-toolbar [color]=\"color\">\n        <ng-content select=\"[td-toolbar-content]\"></ng-content>\n      </mat-toolbar>\n      <div class=\"td-layout-nav-list-content\" cdkScrollable>\n        <ng-content></ng-content>\n      </div>\n      <ng-content select=\"td-layout-footer-inner\"></ng-content>\n    </div>\n  </mat-sidenav-container>\n</div>\n<ng-content select=\"td-layout-footer\"></ng-content>\n",
-                    styles: [":host{margin:0;width:100%;min-height:100%;height:100%;overflow:hidden;-ms-flex-direction:column;flex-direction:column;box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex:1;flex:1}:host .td-layout-nav-list-wrapper>.mat-sidenav-container>mat-sidenav.mat-drawer-side{border-right:0}[dir=rtl] :host .td-layout-nav-list-wrapper>.mat-sidenav-container>mat-sidenav.mat-drawer-side{border-left:0}:host .td-layout-nav-list-wrapper{-ms-flex-direction:column;flex-direction:column;box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex:1;flex:1;position:relative;overflow:auto;-webkit-overflow-scrolling:touch}:host .td-layout-nav-list-wrapper .td-layout-nav-list-toolbar-content{-ms-flex-direction:row;flex-direction:row;box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:start;justify-content:flex-start}:host .td-layout-nav-list-wrapper .td-layout-nav-list-content{text-align:start;-ms-flex:1;flex:1;display:block;position:relative;overflow:auto;-webkit-overflow-scrolling:touch}:host .td-layout-nav-list-wrapper .td-layout-nav-list-main{-ms-flex-direction:column;flex-direction:column;box-sizing:border-box;display:-ms-flexbox;display:flex;margin:0;width:100%;min-height:100%;height:100%;position:relative;overflow:auto}:host .td-layout-nav-list-wrapper .td-layout-nav-list-main .td-layout-nav-list-content{display:block;position:relative;overflow:auto;-webkit-overflow-scrolling:touch;-ms-flex:1;flex:1}:host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list{-ms-flex:1;flex:1}:host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list>mat-sidenav.mat-drawer-closed,:host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list>mat-sidenav.mat-drawer-closing,:host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list>mat-sidenav.mat-drawer-opened,:host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list>mat-sidenav.mat-drawer-opening{box-shadow:none}:host ::ng-deep mat-sidenav-container.td-layout-nav-list>.mat-drawer-content{-ms-flex-positive:1;flex-grow:1}:host ::ng-deep mat-sidenav-container.td-layout-nav-list>.mat-drawer>.mat-drawer-inner-container{box-shadow:0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column}"]
+                    styles: [":host{margin:0;width:100%;min-height:100%;height:100%;overflow:hidden;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-ms-flex:1;flex:1}:host .td-layout-nav-list-wrapper>.mat-sidenav-container>mat-sidenav.mat-drawer-side{border-right:0}[dir=rtl] :host .td-layout-nav-list-wrapper>.mat-sidenav-container>mat-sidenav.mat-drawer-side{border-left:0}:host .td-layout-nav-list-wrapper{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-ms-flex:1;flex:1;position:relative;overflow:auto;-webkit-overflow-scrolling:touch}:host .td-layout-nav-list-wrapper .td-layout-nav-list-toolbar-content{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}:host .td-layout-nav-list-wrapper .td-layout-nav-list-content{text-align:start;-webkit-box-flex:1;-ms-flex:1;flex:1;display:block;position:relative;overflow:auto;-webkit-overflow-scrolling:touch}:host .td-layout-nav-list-wrapper .td-layout-nav-list-main{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;margin:0;width:100%;min-height:100%;height:100%;position:relative;overflow:auto}:host .td-layout-nav-list-wrapper .td-layout-nav-list-main .td-layout-nav-list-content{display:block;position:relative;overflow:auto;-webkit-overflow-scrolling:touch;-webkit-box-flex:1;-ms-flex:1;flex:1}:host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list{-webkit-box-flex:1;-ms-flex:1;flex:1}:host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list>mat-sidenav.mat-drawer-closed,:host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list>mat-sidenav.mat-drawer-closing,:host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list>mat-sidenav.mat-drawer-opened,:host .td-layout-nav-list-wrapper mat-sidenav-container.td-layout-nav-list>mat-sidenav.mat-drawer-opening{box-shadow:none}:host ::ng-deep mat-sidenav-container.td-layout-nav-list>.mat-drawer-content{-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1}:host ::ng-deep mat-sidenav-container.td-layout-nav-list>.mat-drawer>.mat-drawer-inner-container{box-shadow:0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}"]
                 }] }
     ];
     /** @nocollapse */
@@ -9843,6 +11668,95 @@ var TdLayoutNavListComponent = /** @class */ (function () {
     };
     return TdLayoutNavListComponent;
 }());
+if (false) {
+    /** @type {?} */
+    TdLayoutNavListComponent.prototype.sidenav;
+    /**
+     * toolbarTitle?: string
+     *
+     * Title set in toolbar.
+     * @type {?}
+     */
+    TdLayoutNavListComponent.prototype.toolbarTitle;
+    /**
+     * icon?: string
+     * icon name to be displayed before the title
+     * @type {?}
+     */
+    TdLayoutNavListComponent.prototype.icon;
+    /**
+     * logo?: string
+     *
+     * logo icon name to be displayed before the title.
+     * If [icon] is set, then this will not be shown.
+     * @type {?}
+     */
+    TdLayoutNavListComponent.prototype.logo;
+    /**
+     * color?: 'accent' | 'primary' | 'warn'
+     *
+     * toolbar color option: primary | accent | warn.
+     * If [color] is not set, primary is used.
+     * @type {?}
+     */
+    TdLayoutNavListComponent.prototype.color;
+    /**
+     * mode?: 'side', 'push' or 'over'
+     *
+     * The mode or styling of the sidenav.
+     * Defaults to "side".
+     * See "MatSidenav" documentation for more info.
+     *
+     * https://github.com/angular/material2/tree/master/src/lib/sidenav
+     * @type {?}
+     */
+    TdLayoutNavListComponent.prototype.mode;
+    /**
+     * opened?: boolean
+     * Whether or not the sidenav is opened. Use this binding to open/close the sidenav.
+     * Defaults to "true".
+     *
+     * See "MatSidenav" documentation for more info.
+     *
+     * https://github.com/angular/material2/tree/master/src/lib/sidenav
+     * @type {?}
+     */
+    TdLayoutNavListComponent.prototype.opened;
+    /**
+     * sidenavWidth?: string
+     *
+     * Sets the "width" of the sidenav in either "px" or "%"
+     * Defaults to "350px".
+     *
+     * https://github.com/angular/material2/tree/master/src/lib/sidenav
+     * @type {?}
+     */
+    TdLayoutNavListComponent.prototype.sidenavWidth;
+    /**
+     * containerAutosize?: boolean
+     *
+     * Sets "autosize" of the sidenav-container.
+     * Defaults to "false".
+     *
+     * See documentation for more info and potential performance risks.
+     *
+     * https://github.com/angular/material2/blob/master/src/lib/sidenav/sidenav.md#resizing-an-open-sidenav
+     * @type {?}
+     */
+    TdLayoutNavListComponent.prototype.containerAutosize;
+    /**
+     * navigationRoute?: string
+     *
+     * option to set the combined route for the icon, logo, and toolbarTitle.
+     * @type {?}
+     */
+    TdLayoutNavListComponent.prototype.navigationRoute;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLayoutNavListComponent.prototype._router;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -10009,7 +11923,7 @@ var TdLayoutCardOverComponent = /** @class */ (function () {
         { type: Component, args: [{
                     selector: 'td-layout-card-over',
                     template: "<mat-toolbar [color]=\"color\"></mat-toolbar>\n<div class=\"td-layout-card-over-wrapper\">\n  <div\n    class=\"td-layout-card-over\"\n    [style.max-width.%]=\"cardWidth\"\n    [style.flex]=\"'1 1 ' + cardWidth + '%'\"\n    [style.-ms-flex]=\"'1 1 ' + cardWidth + '%'\"\n    [style.-webkit-box-flex]=\"1\"\n  >\n    <mat-card>\n      <mat-card-title *ngIf=\"cardTitle\">{{ cardTitle }}</mat-card-title>\n      <mat-card-subtitle *ngIf=\"cardSubtitle\">{{ cardSubtitle }}</mat-card-subtitle>\n      <mat-divider *ngIf=\"cardTitle || cardSubtitle\"></mat-divider>\n      <ng-content></ng-content>\n    </mat-card>\n    <ng-content select=\"[td-after-card]\"></ng-content>\n  </div>\n</div>\n",
-                    styles: [":host{position:relative;display:block;z-index:2;width:100%;min-height:100%;height:100%}:host [td-after-card]{display:block}.td-layout-card-over-wrapper{margin:-64px 0;width:100%;min-height:100%;height:100%}@media (min-width:600px){.td-layout-card-over-wrapper{-ms-flex-direction:row;flex-direction:row;box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-align:start;align-items:flex-start;-ms-flex-line-pack:start;align-content:flex-start;-ms-flex-pack:center;justify-content:center}.td-layout-card-over-wrapper .td-layout-card-over{max-height:100%;box-sizing:border-box}}@media (max-width:599px){.td-layout-card-over-wrapper .td-layout-card-over{max-width:100%!important}}"]
+                    styles: [":host{position:relative;display:block;z-index:2;width:100%;min-height:100%;height:100%}:host [td-after-card]{display:block}.td-layout-card-over-wrapper{margin:-64px 0;width:100%;min-height:100%;height:100%}@media (min-width:600px){.td-layout-card-over-wrapper{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start;-ms-flex-line-pack:start;align-content:flex-start;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.td-layout-card-over-wrapper .td-layout-card-over{max-height:100%;box-sizing:border-box}}@media (max-width:599px){.td-layout-card-over-wrapper .td-layout-card-over{max-width:100%!important}}"]
                 }] }
     ];
     TdLayoutCardOverComponent.propDecorators = {
@@ -10020,6 +11934,38 @@ var TdLayoutCardOverComponent = /** @class */ (function () {
     };
     return TdLayoutCardOverComponent;
 }());
+if (false) {
+    /**
+     * cardTitle?: string
+     *
+     * Title set in card.
+     * @type {?}
+     */
+    TdLayoutCardOverComponent.prototype.cardTitle;
+    /**
+     * cardSubtitle?: string
+     *
+     * Subtitle set in card.
+     * @type {?}
+     */
+    TdLayoutCardOverComponent.prototype.cardSubtitle;
+    /**
+     * cardWidth?: string
+     *
+     * Card flex width in %.
+     * Defaults to 70%.
+     * @type {?}
+     */
+    TdLayoutCardOverComponent.prototype.cardWidth;
+    /**
+     * color?: 'accent' | 'primary' | 'warn'
+     *
+     * toolbar color option: primary | accent | warn.
+     * If [color] is not set, primary is used.
+     * @type {?}
+     */
+    TdLayoutCardOverComponent.prototype.color;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -10131,7 +12077,7 @@ var TdLayoutManageListComponent = /** @class */ (function () {
         { type: Component, args: [{
                     selector: 'td-layout-manage-list',
                     template: "<mat-sidenav-container fullscreen [autosize]=\"containerAutosize\" class=\"td-layout-manage-list\">\n  <mat-sidenav\n    #sidenav\n    position=\"start\"\n    [mode]=\"mode\"\n    [opened]=\"opened\"\n    [disableClose]=\"disableClose\"\n    [style.max-width]=\"sidenavWidth\"\n    [style.min-width]=\"sidenavWidth\"\n  >\n    <ng-content select=\"mat-toolbar[td-sidenav-content]\"></ng-content>\n    <div class=\"td-layout-manage-list-sidenav\" cdkScrollable>\n      <ng-content select=\"[td-sidenav-content]\"></ng-content>\n    </div>\n  </mat-sidenav>\n  <div class=\"td-layout-manage-list-main\">\n    <ng-content select=\"mat-toolbar\"></ng-content>\n    <div class=\"td-layout-manage-list-content\" cdkScrollable>\n      <ng-content></ng-content>\n    </div>\n    <ng-content select=\"td-layout-footer-inner\"></ng-content>\n  </div>\n</mat-sidenav-container>\n",
-                    styles: [":host{display:-ms-flexbox;display:flex;margin:0;width:100%;min-height:100%;height:100%;overflow:hidden}:host mat-sidenav-container.td-layout-manage-list{-ms-flex:1;flex:1}:host mat-sidenav-container.td-layout-manage-list>.mat-drawer>.mat-drawer-inner-container.mat-drawer-closed,:host mat-sidenav-container.td-layout-manage-list>.mat-drawer>.mat-drawer-inner-container.mat-drawer-closing,:host mat-sidenav-container.td-layout-manage-list>.mat-drawer>.mat-drawer-inner-container.mat-drawer-opened,:host mat-sidenav-container.td-layout-manage-list>.mat-drawer>.mat-drawer-inner-container.mat-drawer-opening{box-shadow:0 1px 3px 0 rgba(0,0,0,.2)}:host .td-layout-manage-list-sidenav{text-align:start;-ms-flex:1;flex:1;display:block;position:relative;overflow:auto;-webkit-overflow-scrolling:touch}:host .td-layout-manage-list-main{margin:0;width:100%;min-height:100%;height:100%;position:relative;overflow:auto;-ms-flex-direction:column;flex-direction:column;box-sizing:border-box;display:-ms-flexbox;display:flex}:host .td-layout-manage-list-main .td-layout-manage-list-content{display:block;position:relative;overflow:auto;-webkit-overflow-scrolling:touch;-ms-flex:1;flex:1}:host ::ng-deep mat-sidenav-container.td-layout-manage-list>.mat-drawer-content{-ms-flex-positive:1;flex-grow:1}:host ::ng-deep mat-sidenav-container.td-layout-manage-list>.mat-drawer>.mat-drawer-inner-container{box-shadow:0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column}:host ::ng-deep mat-nav-list a[mat-list-item] .mat-list-item-content{font-size:14px}:host ::ng-deep .mat-toolbar{font-weight:400}"]
+                    styles: [":host{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0;width:100%;min-height:100%;height:100%;overflow:hidden}:host mat-sidenav-container.td-layout-manage-list{-webkit-box-flex:1;-ms-flex:1;flex:1}:host mat-sidenav-container.td-layout-manage-list>.mat-drawer>.mat-drawer-inner-container.mat-drawer-closed,:host mat-sidenav-container.td-layout-manage-list>.mat-drawer>.mat-drawer-inner-container.mat-drawer-closing,:host mat-sidenav-container.td-layout-manage-list>.mat-drawer>.mat-drawer-inner-container.mat-drawer-opened,:host mat-sidenav-container.td-layout-manage-list>.mat-drawer>.mat-drawer-inner-container.mat-drawer-opening{box-shadow:0 1px 3px 0 rgba(0,0,0,.2)}:host .td-layout-manage-list-sidenav{text-align:start;-webkit-box-flex:1;-ms-flex:1;flex:1;display:block;position:relative;overflow:auto;-webkit-overflow-scrolling:touch}:host .td-layout-manage-list-main{margin:0;width:100%;min-height:100%;height:100%;position:relative;overflow:auto;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex}:host .td-layout-manage-list-main .td-layout-manage-list-content{display:block;position:relative;overflow:auto;-webkit-overflow-scrolling:touch;-webkit-box-flex:1;-ms-flex:1;flex:1}:host ::ng-deep mat-sidenav-container.td-layout-manage-list>.mat-drawer-content{-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1}:host ::ng-deep mat-sidenav-container.td-layout-manage-list>.mat-drawer>.mat-drawer-inner-container{box-shadow:0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}:host ::ng-deep mat-nav-list a[mat-list-item] .mat-list-item-content{font-size:14px}:host ::ng-deep .mat-toolbar{font-weight:400}"]
                 }] }
     ];
     TdLayoutManageListComponent.propDecorators = {
@@ -10143,6 +12089,55 @@ var TdLayoutManageListComponent = /** @class */ (function () {
     };
     return TdLayoutManageListComponent;
 }());
+if (false) {
+    /** @type {?} */
+    TdLayoutManageListComponent.prototype.sidenav;
+    /**
+     * mode?: 'side', 'push' or 'over'
+     *
+     * The mode or styling of the sidenav.
+     * Defaults to "side".
+     * See "MatSidenav" documentation for more info.
+     *
+     * https://github.com/angular/material2/tree/master/src/lib/sidenav
+     * @type {?}
+     */
+    TdLayoutManageListComponent.prototype.mode;
+    /**
+     * opened?: boolean
+     *
+     * Whether or not the sidenav is opened. Use this binding to open/close the sidenav.
+     * Defaults to "true".
+     *
+     * See "MatSidenav" documentation for more info.
+     *
+     * https://github.com/angular/material2/tree/master/src/lib/sidenav
+     * @type {?}
+     */
+    TdLayoutManageListComponent.prototype.opened;
+    /**
+     * sidenavWidth?: string
+     *
+     * Sets the "width" of the sidenav in either "px" or "%"
+     * Defaults to "257px".
+     *
+     * https://github.com/angular/material2/tree/master/src/lib/sidenav
+     * @type {?}
+     */
+    TdLayoutManageListComponent.prototype.sidenavWidth;
+    /**
+     * containerAutosize?: boolean
+     *
+     * Sets "autosize" of the sidenav-container.
+     * Defaults to "false".
+     *
+     * See documentation for more info and potential performance risks.
+     *
+     * https://github.com/angular/material2/blob/master/src/lib/sidenav/sidenav.md#resizing-an-open-sidenav
+     * @type {?}
+     */
+    TdLayoutManageListComponent.prototype.containerAutosize;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -10341,6 +12336,23 @@ var TdLayoutFooterComponent = /** @class */ (function () {
     };
     return TdLayoutFooterComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLayoutFooterComponent.prototype._color;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLayoutFooterComponent.prototype._renderer;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLayoutFooterComponent.prototype._elementRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -10574,7 +12586,7 @@ var TdNavigationDrawerComponent = /** @class */ (function () {
                     selector: 'td-navigation-drawer',
                     template: "<mat-toolbar\n  [color]=\"color\"\n  [style.background-image]=\"backgroundImage\"\n  [class.td-toolbar-background]=\"!!isBackgroundAvailable\"\n  class=\"td-nagivation-drawer-toolbar\"\n>\n  <ng-content select=\"[td-navigation-drawer-toolbar]\"></ng-content>\n  <ng-container *ngIf=\"!isCustomToolbar\">\n    <div\n      *ngIf=\"icon || logo || sidenavTitle || avatar\"\n      class=\"td-navigation-drawer-toolbar-content\"\n      [class.cursor-pointer]=\"routerEnabled\"\n      (click)=\"handleNavigationClick()\"\n    >\n      <mat-icon *ngIf=\"icon\">{{ icon }}</mat-icon>\n      <mat-icon *ngIf=\"logo && !icon\" class=\"mat-icon-logo\" [svgIcon]=\"logo\"></mat-icon>\n      <img *ngIf=\"avatar && !logo && !icon\" class=\"td-nagivation-drawer-toolbar-avatar\" [attr.src]=\"avatar\" />\n      <span *ngIf=\"sidenavTitle\" class=\"td-navigation-drawer-title\">{{ sidenavTitle }}</span>\n    </div>\n    <div class=\"td-navigation-drawer-name\" *ngIf=\"email && name\">{{ name }}</div>\n    <div class=\"td-navigation-drawer-menu-toggle\" href *ngIf=\"email || name\" (click)=\"toggleMenu()\">\n      <span class=\"td-navigation-drawer-label\">{{ email || name }}</span>\n      <button mat-icon-button class=\"td-navigation-drawer-menu-button\" *ngIf=\"isMenuAvailable\">\n        <mat-icon *ngIf=\"!menuToggled\">arrow_drop_down</mat-icon>\n        <mat-icon *ngIf=\"menuToggled\">arrow_drop_up</mat-icon>\n      </button>\n    </div>\n  </ng-container>\n</mat-toolbar>\n<div class=\"td-navigation-drawer-content\" [@tdCollapse]=\"menuToggled\">\n  <ng-content></ng-content>\n</div>\n<div class=\"td-navigation-drawer-menu-content\" [@tdCollapse]=\"!menuToggled\">\n  <ng-content select=\"[td-navigation-drawer-menu]\"></ng-content>\n</div>\n",
                     animations: [tdCollapseAnimation$1],
-                    styles: [":host{width:100%}:host .td-navigation-drawer-content.ng-animating,:host .td-navigation-drawer-menu-content.ng-animating{overflow:hidden}:host mat-toolbar{padding:16px}:host mat-toolbar.td-toolbar-background{background-repeat:no-repeat;background-size:cover}:host mat-toolbar.td-nagivation-drawer-toolbar{-ms-flex-direction:column;flex-direction:column;height:auto!important;display:block!important}:host mat-toolbar .td-navigation-drawer-toolbar-content{-ms-flex-direction:row;flex-direction:row;box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:start;justify-content:flex-start}:host mat-toolbar .td-navigation-drawer-toolbar-content .td-nagivation-drawer-toolbar-avatar{border-radius:50%;height:60px;width:60px;margin:0 12px 12px 0}:host mat-toolbar .td-navigation-drawer-menu-toggle{-ms-flex-direction:row;flex-direction:row;box-sizing:border-box;display:-ms-flexbox;display:flex}:host mat-toolbar .td-navigation-drawer-menu-toggle .td-navigation-drawer-label{-ms-flex:1;flex:1}:host mat-toolbar .td-navigation-drawer-menu-toggle .td-navigation-drawer-menu-button{height:24px;line-height:24px;width:24px}:host>div{overflow:hidden}"]
+                    styles: [":host{width:100%}:host .td-navigation-drawer-content.ng-animating,:host .td-navigation-drawer-menu-content.ng-animating{overflow:hidden}:host mat-toolbar{padding:16px}:host mat-toolbar.td-toolbar-background{background-repeat:no-repeat;background-size:cover}:host mat-toolbar.td-nagivation-drawer-toolbar{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;height:auto!important;display:block!important}:host mat-toolbar .td-navigation-drawer-toolbar-content{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}:host mat-toolbar .td-navigation-drawer-toolbar-content .td-nagivation-drawer-toolbar-avatar{border-radius:50%;height:60px;width:60px;margin:0 12px 12px 0}:host mat-toolbar .td-navigation-drawer-menu-toggle{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex}:host mat-toolbar .td-navigation-drawer-menu-toggle .td-navigation-drawer-label{-webkit-box-flex:1;-ms-flex:1;flex:1}:host mat-toolbar .td-navigation-drawer-menu-toggle .td-navigation-drawer-menu-button{height:24px;line-height:24px;width:24px}:host>div{overflow:hidden}"]
                 }] }
     ];
     /** @nocollapse */
@@ -10587,8 +12599,8 @@ var TdNavigationDrawerComponent = /** @class */ (function () {
         { type: DomSanitizer }
     ]; };
     TdNavigationDrawerComponent.propDecorators = {
-        _drawerMenu: [{ type: ContentChildren, args: [TdNavigationDrawerMenuDirective,] }],
-        _toolbar: [{ type: ContentChildren, args: [TdNavigationDrawerToolbarDirective,] }],
+        _drawerMenu: [{ type: ContentChildren, args: [TdNavigationDrawerMenuDirective, { descendants: true },] }],
+        _toolbar: [{ type: ContentChildren, args: [TdNavigationDrawerToolbarDirective, { descendants: true },] }],
         sidenavTitle: [{ type: Input }],
         icon: [{ type: Input }],
         logo: [{ type: Input }],
@@ -10601,6 +12613,102 @@ var TdNavigationDrawerComponent = /** @class */ (function () {
     };
     return TdNavigationDrawerComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavigationDrawerComponent.prototype._closeSubscription;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavigationDrawerComponent.prototype._menuToggled;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavigationDrawerComponent.prototype._backgroundImage;
+    /** @type {?} */
+    TdNavigationDrawerComponent.prototype._drawerMenu;
+    /** @type {?} */
+    TdNavigationDrawerComponent.prototype._toolbar;
+    /**
+     * sidenavTitle?: string
+     * Title set in sideNav.
+     * @type {?}
+     */
+    TdNavigationDrawerComponent.prototype.sidenavTitle;
+    /**
+     * icon?: string
+     *
+     * icon name to be displayed before the title
+     * @type {?}
+     */
+    TdNavigationDrawerComponent.prototype.icon;
+    /**
+     * logo?: string
+     *
+     * logo icon name to be displayed before the title.
+     * If [icon] is set, then this will not be shown.
+     * @type {?}
+     */
+    TdNavigationDrawerComponent.prototype.logo;
+    /**
+     * avatar?: string
+     *
+     * avatar url to be displayed before the title
+     * If [icon] or [logo] are set, then this will not be shown.
+     * @type {?}
+     */
+    TdNavigationDrawerComponent.prototype.avatar;
+    /**
+     * color?: 'accent' | 'primary' | 'warn'
+     *
+     * toolbar color option: primary | accent | warn.
+     * If [color] is not set, default is used.
+     * @type {?}
+     */
+    TdNavigationDrawerComponent.prototype.color;
+    /**
+     * navigationRoute?: string
+     *
+     * option to set the combined route for the icon, logo, and sidenavTitle.
+     * @type {?}
+     */
+    TdNavigationDrawerComponent.prototype.navigationRoute;
+    /**
+     * name?: string
+     *
+     * string to be displayed as part of the navigation drawer sublabel.
+     * if [email] is not set, then [name] will be the toggle menu text.
+     * @type {?}
+     */
+    TdNavigationDrawerComponent.prototype.name;
+    /**
+     * email?: string
+     *
+     * string to be displayed as part of the navigation drawer sublabel in the [toggle] menu text.
+     * if [email] and [name] are not set, then the toggle menu is not rendered.
+     * @type {?}
+     */
+    TdNavigationDrawerComponent.prototype.email;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavigationDrawerComponent.prototype._layout;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavigationDrawerComponent.prototype._router;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavigationDrawerComponent.prototype._sanitize;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -10634,7 +12742,7 @@ var CovalentLayoutModule = /** @class */ (function () {
         { type: NgModule, args: [{
                     imports: [
                         CommonModule,
-                        ScrollDispatchModule,
+                        ScrollingModule,
                         MatSidenavModule,
                         MatToolbarModule,
                         MatButtonModule,
@@ -10648,6 +12756,16 @@ var CovalentLayoutModule = /** @class */ (function () {
     ];
     return CovalentLayoutModule;
 }());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 /**
  * @fileoverview added by tsickle
@@ -10976,7 +13094,7 @@ var TdLoadingComponent = /** @class */ (function () {
                     selector: 'td-loading',
                     template: "<div\n  class=\"td-loading-wrapper\"\n  [style.min-height]=\"getHeight()\"\n  [class.td-overlay-circular]=\"(isOverlay() || isFullScreen()) && !isLinear()\"\n  [class.td-overlay]=\"isOverlay() || isFullScreen()\"\n  [class.td-fullscreen]=\"isFullScreen()\"\n>\n  <div\n    [@tdFadeInOut]=\"animation\"\n    (@tdFadeInOut.done)=\"animationComplete($event)\"\n    [style.min-height]=\"getHeight()\"\n    class=\"td-loading\"\n  >\n    <mat-progress-spinner\n      *ngIf=\"isCircular()\"\n      [mode]=\"mode\"\n      [value]=\"value\"\n      [color]=\"color\"\n      [diameter]=\"getCircleDiameter()\"\n      [strokeWidth]=\"getCircleStrokeWidth()\"\n    ></mat-progress-spinner>\n    <mat-progress-bar *ngIf=\"isLinear()\" [mode]=\"mode\" [value]=\"value\" [color]=\"color\"></mat-progress-bar>\n  </div>\n  <ng-template [cdkPortalOutlet]=\"content\"></ng-template>\n</div>\n",
                     animations: [tdFadeInOutAnimation$1],
-                    styles: [".td-loading-wrapper{position:relative;display:block}.td-loading-wrapper.td-fullscreen{position:inherit}.td-loading-wrapper .td-loading{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:center;justify-content:center;-ms-flex:1;flex:1}.td-loading-wrapper.td-overlay .td-loading{position:absolute;margin:0;top:0;left:0;right:0;z-index:1000}.td-loading-wrapper.td-overlay .td-loading mat-progress-bar{position:absolute;top:0;left:0;right:0}.td-loading-wrapper.td-overlay-circular .td-loading{bottom:0}"]
+                    styles: [".td-loading-wrapper{position:relative;display:block}.td-loading-wrapper.td-fullscreen{position:inherit}.td-loading-wrapper .td-loading{box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-flex:1;-ms-flex:1;flex:1}.td-loading-wrapper.td-overlay .td-loading{position:absolute;margin:0;top:0;left:0;right:0;z-index:1000}.td-loading-wrapper.td-overlay .td-loading mat-progress-bar{position:absolute;top:0;left:0;right:0}.td-loading-wrapper.td-overlay-circular .td-loading{bottom:0}"]
                 }] }
     ];
     /** @nocollapse */
@@ -10986,11 +13104,107 @@ var TdLoadingComponent = /** @class */ (function () {
     ]; };
     return TdLoadingComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingComponent.prototype._animationIn;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingComponent.prototype._animationOut;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingComponent.prototype._mode;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingComponent.prototype._defaultMode;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingComponent.prototype._value;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingComponent.prototype._circleDiameter;
+    /**
+     * Flag for animation
+     * @type {?}
+     */
+    TdLoadingComponent.prototype.animation;
+    /**
+     * Content injected into loading component.
+     * @type {?}
+     */
+    TdLoadingComponent.prototype.content;
+    /** @type {?} */
+    TdLoadingComponent.prototype.style;
+    /**
+     * height: number
+     * Sets height of [TdLoadingComponent].
+     * @type {?}
+     */
+    TdLoadingComponent.prototype.height;
+    /**
+     * type: LoadingType
+     * Sets type of [TdLoadingComponent] rendered.
+     * @type {?}
+     */
+    TdLoadingComponent.prototype.type;
+    /**
+     * color: primary' | 'accent' | 'warn'
+     * Sets theme color of [TdLoadingComponent] rendered.
+     * @type {?}
+     */
+    TdLoadingComponent.prototype.color;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingComponent.prototype._elementRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingComponent.prototype._changeDetectorRef;
+}
 
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @record
+ */
+function IInternalLoadingOptions() { }
+if (false) {
+    /** @type {?|undefined} */
+    IInternalLoadingOptions.prototype.height;
+    /** @type {?|undefined} */
+    IInternalLoadingOptions.prototype.style;
+}
+/**
+ * @record
+ */
+function ILoadingRef() { }
+if (false) {
+    /** @type {?} */
+    ILoadingRef.prototype.observable;
+    /** @type {?} */
+    ILoadingRef.prototype.componentRef;
+    /** @type {?|undefined} */
+    ILoadingRef.prototype.subject;
+    /** @type {?|undefined} */
+    ILoadingRef.prototype.times;
+}
 /**
  * NOTE: \@internal usage only.
  */
@@ -11314,6 +13528,23 @@ var TdLoadingFactory = /** @class */ (function () {
     ]; };
     return TdLoadingFactory;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingFactory.prototype._componentFactoryResolver;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingFactory.prototype._overlay;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingFactory.prototype._injector;
+}
 /**
  * @param {?} parent
  * @param {?} componentFactoryResolver
@@ -11336,6 +13567,20 @@ var LOADING_FACTORY_PROVIDER = {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @record
+ */
+function ITdLoadingConfig() { }
+if (false) {
+    /** @type {?} */
+    ITdLoadingConfig.prototype.name;
+    /** @type {?|undefined} */
+    ITdLoadingConfig.prototype.type;
+    /** @type {?|undefined} */
+    ITdLoadingConfig.prototype.mode;
+    /** @type {?|undefined} */
+    ITdLoadingConfig.prototype.color;
+}
 var TdLoadingConfig = /** @class */ (function () {
     function TdLoadingConfig(config) {
         this.name = config.name;
@@ -11348,6 +13593,24 @@ var TdLoadingConfig = /** @class */ (function () {
     }
     return TdLoadingConfig;
 }());
+if (false) {
+    /** @type {?} */
+    TdLoadingConfig.prototype.name;
+    /** @type {?} */
+    TdLoadingConfig.prototype.type;
+    /** @type {?} */
+    TdLoadingConfig.prototype.mode;
+    /** @type {?} */
+    TdLoadingConfig.prototype.color;
+}
+/**
+ * @record
+ */
+function ITdLoadingDirectiveConfig() { }
+if (false) {
+    /** @type {?|undefined} */
+    ITdLoadingDirectiveConfig.prototype.strategy;
+}
 var TdLoadingDirectiveConfig = /** @class */ (function (_super) {
     __extends(TdLoadingDirectiveConfig, _super);
     function TdLoadingDirectiveConfig(config) {
@@ -11357,6 +13620,16 @@ var TdLoadingDirectiveConfig = /** @class */ (function (_super) {
     }
     return TdLoadingDirectiveConfig;
 }(TdLoadingConfig));
+if (false) {
+    /** @type {?} */
+    TdLoadingDirectiveConfig.prototype.name;
+    /** @type {?} */
+    TdLoadingDirectiveConfig.prototype.type;
+    /** @type {?} */
+    TdLoadingDirectiveConfig.prototype.mode;
+    /** @type {?} */
+    TdLoadingDirectiveConfig.prototype.strategy;
+}
 var TdLoadingService = /** @class */ (function () {
     function TdLoadingService(_loadingFactory) {
         this._loadingFactory = _loadingFactory;
@@ -11744,6 +14017,23 @@ var TdLoadingService = /** @class */ (function () {
     ]; };
     return TdLoadingService;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingService.prototype._context;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingService.prototype._timeouts;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingService.prototype._loadingFactory;
+}
 /**
  * @param {?} parent
  * @param {?} loadingFactory
@@ -11777,6 +14067,12 @@ TdLoadingContext = /** @class */ (function () {
     }
     return TdLoadingContext;
 }());
+if (false) {
+    /** @type {?} */
+    TdLoadingContext.prototype.$implicit;
+    /** @type {?} */
+    TdLoadingContext.prototype.tdLoading;
+}
 // Constant for generation of the id for the next component
 /** @type {?} */
 var TD_LOADING_NEXT_ID = 0;
@@ -11995,6 +14291,59 @@ var TdLoadingDirective = /** @class */ (function () {
     };
     return TdLoadingDirective;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingDirective.prototype._context;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingDirective.prototype._type;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingDirective.prototype._mode;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingDirective.prototype._strategy;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingDirective.prototype._name;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingDirective.prototype._loadingRef;
+    /**
+     * tdLoadingColor?: "primary" | "accent" | "warn"
+     * Sets the theme color of the loading component. Defaults to "primary"
+     * @type {?}
+     */
+    TdLoadingDirective.prototype.color;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingDirective.prototype._viewContainerRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingDirective.prototype._templateRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdLoadingDirective.prototype._loadingService;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -12018,6 +14367,16 @@ var CovalentLoadingModule = /** @class */ (function () {
     ];
     return CovalentLoadingModule;
 }());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 /**
  * @fileoverview added by tsickle
@@ -12164,8 +14523,8 @@ var TdMediaService = /** @class */ (function () {
      * @return {?}
      */
     function () {
-        var _this = this;
         var e_1, _a;
+        var _this = this;
         var _loop_1 = function (query) {
             this_1._ngZone.run((/**
              * @return {?}
@@ -12211,9 +14570,41 @@ var TdMediaService = /** @class */ (function () {
     TdMediaService.ctorParameters = function () { return [
         { type: NgZone }
     ]; };
-    /** @nocollapse */ TdMediaService.ngInjectableDef = ɵɵdefineInjectable({ factory: function TdMediaService_Factory() { return new TdMediaService(ɵɵinject(NgZone)); }, token: TdMediaService, providedIn: "root" });
+    /** @nocollapse */ TdMediaService.ɵprov = ɵɵdefineInjectable({ factory: function TdMediaService_Factory() { return new TdMediaService(ɵɵinject(NgZone)); }, token: TdMediaService, providedIn: "root" });
     return TdMediaService;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaService.prototype._resizing;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaService.prototype._globalSubscription;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaService.prototype._queryMap;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaService.prototype._querySources;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaService.prototype._queryObservables;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaService.prototype._ngZone;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -12424,6 +14815,53 @@ var TdMediaToggleDirective = /** @class */ (function () {
     };
     return TdMediaToggleDirective;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._subscription;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._query;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._matches;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._attributes;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._styles;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._classes;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._renderer;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._elementRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMediaToggleDirective.prototype._mediaService;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -12447,6 +14885,16 @@ var CovalentMediaModule = /** @class */ (function () {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 var TdMenuComponent = /** @class */ (function () {
     function TdMenuComponent() {
     }
@@ -12454,7 +14902,7 @@ var TdMenuComponent = /** @class */ (function () {
         { type: Component, args: [{
                     selector: 'td-menu',
                     template: "<ng-content select=\"[td-menu-header]\"></ng-content>\n<mat-divider></mat-divider>\n<div class=\"td-menu-content\">\n  <ng-content></ng-content>\n</div>\n<mat-divider></mat-divider>\n<ng-content select=\"[td-menu-footer]\"></ng-content>\n",
-                    styles: [":host{margin-top:-8px;margin-bottom:-8px;box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column}:host ::ng-deep [td-menu-header]{padding:8px;text-align:center}:host ::ng-deep mat-list a[mat-list-item].mat-2-line,:host ::ng-deep mat-list mat-list-item.mat-2-line,:host ::ng-deep mat-list[dense] a[mat-list-item].mat-2-line,:host ::ng-deep mat-list[dense] mat-list-item.mat-2-line,:host ::ng-deep mat-nav-list a[mat-list-item].mat-2-line,:host ::ng-deep mat-nav-list mat-list-item.mat-2-line,:host ::ng-deep mat-nav-list[dense] a[mat-list-item].mat-2-line,:host ::ng-deep mat-nav-list[dense] mat-list-item.mat-2-line{height:auto}:host ::ng-deep mat-list a[mat-list-item].mat-2-line .mat-list-item-content,:host ::ng-deep mat-list mat-list-item.mat-2-line .mat-list-item-content,:host ::ng-deep mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content,:host ::ng-deep mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content,:host ::ng-deep mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content,:host ::ng-deep mat-nav-list mat-list-item.mat-2-line .mat-list-item-content,:host ::ng-deep mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content,:host ::ng-deep mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content{height:auto;padding:8px}:host ::ng-deep mat-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-nav-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text{padding-right:0}[dir=rtl] :host ::ng-deep mat-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-nav-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text{padding-left:0;padding-right:16px}:host ::ng-deep mat-list a[mat-list-item].mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-list mat-list-item.mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-nav-list mat-list-item.mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content [matLine]+[matLine]{margin-top:4px}.td-menu-content{max-height:calc(50vh);overflow-y:auto}"]
+                    styles: [":host{margin-top:-8px;margin-bottom:-8px;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}:host ::ng-deep [td-menu-header]{padding:8px;text-align:center}:host ::ng-deep mat-list a[mat-list-item].mat-2-line,:host ::ng-deep mat-list mat-list-item.mat-2-line,:host ::ng-deep mat-list[dense] a[mat-list-item].mat-2-line,:host ::ng-deep mat-list[dense] mat-list-item.mat-2-line,:host ::ng-deep mat-nav-list a[mat-list-item].mat-2-line,:host ::ng-deep mat-nav-list mat-list-item.mat-2-line,:host ::ng-deep mat-nav-list[dense] a[mat-list-item].mat-2-line,:host ::ng-deep mat-nav-list[dense] mat-list-item.mat-2-line{height:auto}:host ::ng-deep mat-list a[mat-list-item].mat-2-line .mat-list-item-content,:host ::ng-deep mat-list mat-list-item.mat-2-line .mat-list-item-content,:host ::ng-deep mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content,:host ::ng-deep mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content,:host ::ng-deep mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content,:host ::ng-deep mat-nav-list mat-list-item.mat-2-line .mat-list-item-content,:host ::ng-deep mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content,:host ::ng-deep mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content{height:auto;padding:8px}:host ::ng-deep mat-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-nav-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,:host ::ng-deep mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text{padding-right:0}[dir=rtl] :host ::ng-deep mat-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-nav-list mat-list-item.mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content .mat-list-text,[dir=rtl] :host ::ng-deep mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content .mat-list-text{padding-left:0;padding-right:16px}:host ::ng-deep mat-list a[mat-list-item].mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-list mat-list-item.mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-list[dense] mat-list-item.mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-nav-list a[mat-list-item].mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-nav-list mat-list-item.mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-nav-list[dense] a[mat-list-item].mat-2-line .mat-list-item-content [matLine]+[matLine],:host ::ng-deep mat-nav-list[dense] mat-list-item.mat-2-line .mat-list-item-content [matLine]+[matLine]{margin-top:4px}.td-menu-content{max-height:calc(50vh);overflow-y:auto}"]
                 }] }
     ];
     return TdMenuComponent;
@@ -12483,12 +14931,26 @@ var CovalentMenuModule = /** @class */ (function () {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 var TdSearchInputBase = /** @class */ (function () {
     function TdSearchInputBase(_changeDetectorRef) {
         this._changeDetectorRef = _changeDetectorRef;
     }
     return TdSearchInputBase;
 }());
+if (false) {
+    /** @type {?} */
+    TdSearchInputBase.prototype._changeDetectorRef;
+}
 /* tslint:disable-next-line */
 /** @type {?} */
 var _TdSearchInputMixinBase = mixinControlValueAccessor$1(TdSearchInputBase);
@@ -12675,7 +15137,7 @@ var TdSearchInputComponent = /** @class */ (function (_super) {
                             transition('show => *', animate('200ms ease-out')),
                         ]),
                     ],
-                    styles: [":host .td-search-input{overflow-x:hidden;box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:baseline;align-items:baseline;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:end;justify-content:flex-end}:host .td-search-input .td-search-input-field{-ms-flex:1;flex:1}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-outline .mat-form-field-wrapper{padding-bottom:0}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-fill .mat-form-field-wrapper{padding-bottom:0}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-fill .mat-form-field-wrapper .mat-form-field-flex{height:52px}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-fill .mat-form-field-wrapper .mat-form-field-underline{bottom:0}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-standard .mat-form-field-wrapper{padding-bottom:0}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-standard .mat-form-field-wrapper .mat-form-field-infix{bottom:.4em}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-standard .mat-form-field-wrapper .mat-form-field-underline{bottom:0}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-legacy .mat-form-field-infix{-ms-flex-item-align:center;-ms-grid-row-align:center;align-self:center}:host .td-search-input ::ng-deep mat-form-field .mat-input-element{caret-color:currentColor}:host .td-search-input ::ng-deep mat-form-field.mat-hide-underline .mat-form-field-underline{display:none}:host .td-search-input .td-search-input-clear{-ms-flex:0 0 auto;flex:0 0 auto;-ms-flex-item-align:center;-ms-grid-row-align:center;align-self:center}"]
+                    styles: [":host .td-search-input{overflow-x:hidden;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}:host .td-search-input .td-search-input-field{-webkit-box-flex:1;-ms-flex:1;flex:1}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-outline .mat-form-field-wrapper{padding-bottom:0}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-fill .mat-form-field-wrapper{padding-bottom:0}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-fill .mat-form-field-wrapper .mat-form-field-flex{height:52px}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-fill .mat-form-field-wrapper .mat-form-field-underline{bottom:0}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-standard .mat-form-field-wrapper{padding-bottom:0}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-standard .mat-form-field-wrapper .mat-form-field-infix{bottom:.4em}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-standard .mat-form-field-wrapper .mat-form-field-underline{bottom:0}:host .td-search-input ::ng-deep mat-form-field.mat-form-field-appearance-legacy .mat-form-field-infix{-ms-flex-item-align:center;-ms-grid-row-align:center;align-self:center}:host .td-search-input ::ng-deep mat-form-field .mat-input-element{caret-color:currentColor}:host .td-search-input ::ng-deep mat-form-field.mat-hide-underline .mat-form-field-underline{display:none}:host .td-search-input .td-search-input-clear{-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto;-ms-flex-item-align:center;-ms-grid-row-align:center;align-self:center}"]
                 }] }
     ];
     /** @nocollapse */
@@ -12697,6 +15159,70 @@ var TdSearchInputComponent = /** @class */ (function (_super) {
     };
     return TdSearchInputComponent;
 }(_TdSearchInputMixinBase));
+if (false) {
+    /** @type {?} */
+    TdSearchInputComponent.prototype._input;
+    /**
+     * appearance?: MatFormFieldAppearance
+     * Appearance style for the underlying input component.
+     * @type {?}
+     */
+    TdSearchInputComponent.prototype.appearance;
+    /**
+     * showUnderline?: boolean
+     * Sets if the input underline should be visible. Defaults to 'false'.
+     * @type {?}
+     */
+    TdSearchInputComponent.prototype.showUnderline;
+    /**
+     * debounce?: number
+     * Debounce timeout between keypresses. Defaults to 400.
+     * @type {?}
+     */
+    TdSearchInputComponent.prototype.debounce;
+    /**
+     * placeholder?: string
+     * Placeholder for the underlying input component.
+     * @type {?}
+     */
+    TdSearchInputComponent.prototype.placeholder;
+    /**
+     * clearIcon?: string
+     * The icon used to clear the search input.
+     * Defaults to 'cancel' icon.
+     * @type {?}
+     */
+    TdSearchInputComponent.prototype.clearIcon;
+    /**
+     * searchDebounce: function($event)
+     * Event emitted after the [debounce] timeout.
+     * @type {?}
+     */
+    TdSearchInputComponent.prototype.searchDebounce;
+    /**
+     * search: function($event)
+     * Event emitted after the key enter has been pressed.
+     * @type {?}
+     */
+    TdSearchInputComponent.prototype.search;
+    /**
+     * clear: function()
+     * Event emitted after the clear icon has been clicked.
+     * @type {?}
+     */
+    TdSearchInputComponent.prototype.clear;
+    /**
+     * blur: function()
+     * Event emitted after the blur event has been called in underlying input.
+     * @type {?}
+     */
+    TdSearchInputComponent.prototype.blur;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdSearchInputComponent.prototype._dir;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -12708,6 +15234,10 @@ var TdSearchBoxBase = /** @class */ (function () {
     }
     return TdSearchBoxBase;
 }());
+if (false) {
+    /** @type {?} */
+    TdSearchBoxBase.prototype._changeDetectorRef;
+}
 /* tslint:disable-next-line */
 /** @type {?} */
 var _TdSearchBoxMixinBase = mixinControlValueAccessor$1(TdSearchBoxBase);
@@ -12882,7 +15412,7 @@ var TdSearchBoxComponent = /** @class */ (function (_super) {
                             transition('1 => 0', animate('200ms ease-out')),
                         ]),
                     ],
-                    styles: [":host{display:block}.td-search-box{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:baseline;align-items:baseline;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:end;justify-content:flex-end}.td-search-box .td-search-icon{-ms-flex:0 0 auto;flex:0 0 auto;-ms-flex-item-align:center;-ms-grid-row-align:center;align-self:center}.td-search-box td-search-input{margin-left:12px}::ng-deep [dir=rtl] .td-search-box td-search-input{margin-right:12px;margin-left:0!important}.td-search-box td-search-input ::ng-deep .mat-form.field.mat-form-field-appearance-legacy .mat-form-field-wrapper{padding-bottom:1em}"]
+                    styles: [":host{display:block}.td-search-box{box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}.td-search-box .td-search-icon{-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto;-ms-flex-item-align:center;-ms-grid-row-align:center;align-self:center}.td-search-box td-search-input{margin-left:12px}::ng-deep [dir=rtl] .td-search-box td-search-input{margin-right:12px;margin-left:0!important}.td-search-box td-search-input ::ng-deep .mat-form.field.mat-form-field-appearance-legacy .mat-form-field-wrapper{padding-bottom:1em}"]
                 }] }
     ];
     /** @nocollapse */
@@ -12905,6 +15435,84 @@ var TdSearchBoxComponent = /** @class */ (function (_super) {
     };
     return TdSearchBoxComponent;
 }(_TdSearchBoxMixinBase));
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdSearchBoxComponent.prototype._searchVisible;
+    /** @type {?} */
+    TdSearchBoxComponent.prototype._searchInput;
+    /**
+     * backIcon?: string
+     * The icon used to close the search toggle, only shown when [alwaysVisible] is false.
+     * Defaults to 'search' icon.
+     * @type {?}
+     */
+    TdSearchBoxComponent.prototype.backIcon;
+    /**
+     * searchIcon?: string
+     * The icon used to open/focus the search toggle.
+     * Defaults to 'search' icon.
+     * @type {?}
+     */
+    TdSearchBoxComponent.prototype.searchIcon;
+    /**
+     * clearIcon?: string
+     * The icon used to clear the search input.
+     * Defaults to 'cancel' icon.
+     * @type {?}
+     */
+    TdSearchBoxComponent.prototype.clearIcon;
+    /**
+     * showUnderline?: boolean
+     * Sets if the input underline should be visible. Defaults to 'false'.
+     * @type {?}
+     */
+    TdSearchBoxComponent.prototype.showUnderline;
+    /**
+     * debounce?: number
+     * Debounce timeout between keypresses. Defaults to 400.
+     * @type {?}
+     */
+    TdSearchBoxComponent.prototype.debounce;
+    /**
+     * alwaysVisible?: boolean
+     * Sets if the input should always be visible. Defaults to 'false'.
+     * @type {?}
+     */
+    TdSearchBoxComponent.prototype.alwaysVisible;
+    /**
+     * placeholder?: string
+     * Placeholder for the underlying input component.
+     * @type {?}
+     */
+    TdSearchBoxComponent.prototype.placeholder;
+    /**
+     * searchDebounce: function($event)
+     * Event emitted after the [debounce] timeout.
+     * @type {?}
+     */
+    TdSearchBoxComponent.prototype.searchDebounce;
+    /**
+     * search: function($event)
+     * Event emitted after the key enter has been pressed.
+     * @type {?}
+     */
+    TdSearchBoxComponent.prototype.search;
+    /**
+     * clear: function()
+     * Event emitted after the clear icon has been clicked.
+     * @type {?}
+     */
+    TdSearchBoxComponent.prototype.clear;
+    /**
+     * blur: function()
+     * Event emitted after the blur event has been called in underlying input.
+     * @type {?}
+     */
+    TdSearchBoxComponent.prototype.blur;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -12922,6 +15530,16 @@ var CovalentSearchModule = /** @class */ (function () {
     ];
     return CovalentSearchModule;
 }());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 /**
  * @fileoverview added by tsickle
@@ -13033,7 +15651,7 @@ var TdBreadcrumbComponent = /** @class */ (function () {
                         class: 'mat-button td-breadcrumb',
                     },
                     changeDetection: ChangeDetectionStrategy.OnPush,
-                    styles: [":host.td-breadcrumb{display:inline-block;box-sizing:border-box;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:end;justify-content:flex-end}:host.td-breadcrumb ::ng-deep>*{margin:0 10px}:host .td-breadcrumb-separator-icon{display:-ms-inline-flexbox;display:inline-flex;vertical-align:middle}:host.mat-button{min-width:0;padding:0}"]
+                    styles: [":host.td-breadcrumb{display:inline-block;box-sizing:border-box;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}:host.td-breadcrumb ::ng-deep>*{margin:0 10px}:host .td-breadcrumb-separator-icon{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;vertical-align:middle}:host.mat-button{min-width:0;padding:0}"]
                 }] }
     ];
     /** @nocollapse */
@@ -13046,6 +15664,32 @@ var TdBreadcrumbComponent = /** @class */ (function () {
     };
     return TdBreadcrumbComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdBreadcrumbComponent.prototype._displayCrumb;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdBreadcrumbComponent.prototype._width;
+    /** @type {?} */
+    TdBreadcrumbComponent.prototype.separatorIcon;
+    /** @type {?} */
+    TdBreadcrumbComponent.prototype._displayIcon;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdBreadcrumbComponent.prototype._elementRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdBreadcrumbComponent.prototype._changeDetectorRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -13254,11 +15898,47 @@ var TdBreadcrumbsComponent = /** @class */ (function () {
         { type: ChangeDetectorRef }
     ]; };
     TdBreadcrumbsComponent.propDecorators = {
-        _breadcrumbs: [{ type: ContentChildren, args: [TdBreadcrumbComponent,] }],
+        _breadcrumbs: [{ type: ContentChildren, args: [TdBreadcrumbComponent, { descendants: true },] }],
         separatorIcon: [{ type: Input }]
     };
     return TdBreadcrumbsComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdBreadcrumbsComponent.prototype._resizeSubscription;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdBreadcrumbsComponent.prototype._widthSubject;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdBreadcrumbsComponent.prototype._resizing;
+    /** @type {?} */
+    TdBreadcrumbsComponent.prototype._breadcrumbs;
+    /** @type {?} */
+    TdBreadcrumbsComponent.prototype.hiddenBreadcrumbs;
+    /**
+     * Sets the icon url shown between breadcrumbs. Defaults to 'chevron_right'.
+     * @type {?}
+     */
+    TdBreadcrumbsComponent.prototype.separatorIcon;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdBreadcrumbsComponent.prototype._elementRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdBreadcrumbsComponent.prototype._changeDetectorRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -13276,6 +15956,16 @@ var CovalentBreadcrumbsModule = /** @class */ (function () {
     ];
     return CovalentBreadcrumbsModule;
 }());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 /**
  * @fileoverview added by tsickle
@@ -13608,11 +16298,76 @@ var TdStepComponent = /** @class */ (function (_super) {
     };
     return TdStepComponent;
 }(_TdStepMixinBase));
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdStepComponent.prototype._active;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdStepComponent.prototype._state;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdStepComponent.prototype._contentPortal;
+    /** @type {?} */
+    TdStepComponent.prototype._content;
+    /** @type {?} */
+    TdStepComponent.prototype.stepLabel;
+    /** @type {?} */
+    TdStepComponent.prototype.stepActions;
+    /** @type {?} */
+    TdStepComponent.prototype.stepSummary;
+    /**
+     * label?: string
+     * Sets label of [TdStepComponent] header.
+     * Defaults to 'Step #'
+     * @type {?}
+     */
+    TdStepComponent.prototype.label;
+    /**
+     * sublabel?: string
+     * Sets sublabel of [TdStepComponent] header.
+     * @type {?}
+     */
+    TdStepComponent.prototype.sublabel;
+    /**
+     * activated?: function
+     * Event emitted when [TdStepComponent] is activated.
+     * @type {?}
+     */
+    TdStepComponent.prototype.activated;
+    /**
+     * deactivated?: function
+     * Event emitted when [TdStepComponent] is deactivated.
+     * @type {?}
+     */
+    TdStepComponent.prototype.deactivated;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdStepComponent.prototype._viewContainerRef;
+}
 
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @record
+ */
+function IStepChangeEvent() { }
+if (false) {
+    /** @type {?} */
+    IStepChangeEvent.prototype.newStep;
+    /** @type {?} */
+    IStepChangeEvent.prototype.prevStep;
+}
 /** @enum {string} */
 var StepMode = {
     Vertical: 'vertical',
@@ -13870,16 +16625,42 @@ var TdStepsComponent = /** @class */ (function () {
                     host: {
                         class: 'td-steps',
                     },
-                    styles: [".td-line-wrapper,.td-step{position:relative}.td-steps-header{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row}.td-line-wrapper{width:24px;min-height:1px}.td-horizontal-line{border-bottom-width:1px;border-bottom-style:solid;height:1px;position:relative;top:36px;min-width:15px;-ms-flex:1;flex:1;box-sizing:border-box}::ng-deep :not([dir=rtl]) .td-horizontal-line{left:-6px;right:-3px}::ng-deep [dir=rtl] .td-horizontal-line{left:-3px;right:-6px}.td-vertical-line{position:absolute;bottom:-16px;top:-16px;border-left-width:1px;border-left-style:solid}::ng-deep :not([dir=rtl]) .td-vertical-line{left:20px;right:auto}::ng-deep [dir=rtl] .td-vertical-line{left:auto;right:20px}"]
+                    styles: [".td-line-wrapper,.td-step{position:relative}.td-steps-header{box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}.td-line-wrapper{width:24px;min-height:1px}.td-horizontal-line{border-bottom-width:1px;border-bottom-style:solid;height:1px;position:relative;top:36px;min-width:15px;-webkit-box-flex:1;-ms-flex:1;flex:1;box-sizing:border-box}::ng-deep :not([dir=rtl]) .td-horizontal-line{left:-6px;right:-3px}::ng-deep [dir=rtl] .td-horizontal-line{left:-3px;right:-6px}.td-vertical-line{position:absolute;bottom:-16px;top:-16px;border-left-width:1px;border-left-style:solid}::ng-deep :not([dir=rtl]) .td-vertical-line{left:20px;right:auto}::ng-deep [dir=rtl] .td-vertical-line{left:auto;right:20px}"]
                 }] }
     ];
     TdStepsComponent.propDecorators = {
-        stepsContent: [{ type: ContentChildren, args: [TdStepComponent,] }],
+        stepsContent: [{ type: ContentChildren, args: [TdStepComponent, { descendants: true },] }],
         mode: [{ type: Input, args: ['mode',] }],
         stepChange: [{ type: Output }]
     };
     return TdStepsComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdStepsComponent.prototype._subcriptions;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdStepsComponent.prototype._mode;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdStepsComponent.prototype._steps;
+    /** @type {?} */
+    TdStepsComponent.prototype.prevStep;
+    /**
+     * stepChange?: function
+     * Method to be executed when [stepChange] event is emitted.
+     * Emits an [IStepChangeEvent] implemented object.
+     * @type {?}
+     */
+    TdStepsComponent.prototype.stepChange;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -13938,7 +16719,7 @@ var TdStepHeaderComponent = /** @class */ (function (_super) {
                     selector: 'td-step-header',
                     inputs: ['disabled', 'disableRipple'],
                     template: "<div\n  class=\"td-step-header\"\n  [class.mat-disabled]=\"disabled\"\n  matRipple\n  [matRippleDisabled]=\"disabled || disableRipple\"\n  [tabIndex]=\"disabled ? -1 : tabIndex || 0\"\n>\n  <div\n    class=\"td-circle\"\n    [class.mat-inactive]=\"(!active && !isComplete()) || disabled\"\n    [class.mat-active]=\"active && !disabled\"\n    *ngIf=\"!isRequired() && !isComplete()\"\n  >\n    <span *ngIf=\"active || !isComplete()\">{{ number || '' }}</span>\n  </div>\n  <div class=\"td-complete\" *ngIf=\"isComplete()\">\n    <mat-icon class=\"mat-complete\">check_circle</mat-icon>\n  </div>\n  <div class=\"td-triangle\" [class.bg-muted]=\"disabled\" *ngIf=\"isRequired()\">\n    <mat-icon class=\"mat-warn\">warning</mat-icon>\n  </div>\n  <div\n    class=\"td-step-label-wrapper\"\n    [class.mat-inactive]=\"(!active && !isComplete()) || disabled\"\n    [class.mat-warn]=\"isRequired() && !disabled\"\n  >\n    <div class=\"td-step-label\">\n      <ng-content select=\"[td-step-header-label]\"></ng-content>\n    </div>\n    <div class=\"td-step-sublabel\">\n      <ng-content select=\"[td-step-header-sublabel]\"></ng-content>\n    </div>\n  </div>\n  <span class=\"td-step-header-separator\"></span>\n  <mat-icon class=\"td-edit-icon\" *ngIf=\"isComplete() && !active && !disabled\">mode_edit</mat-icon>\n</div>\n",
-                    styles: [".td-step-header{position:relative;outline:0;min-width:120px;height:72px;-ms-flex-direction:row;flex-direction:row;box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex:1;flex:1;-ms-flex-pack:start;justify-content:flex-start;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%}.td-step-header:hover:not(.mat-disabled){cursor:pointer}.td-step-header mat-icon.td-edit-icon{margin:0 8px}.td-step-header mat-icon.mat-warn{font-size:24px;height:24px;width:24px}.td-step-header mat-icon.mat-complete{position:relative;left:-2px;top:2px;font-size:28px;height:24px;width:24px}.td-step-header .td-circle{height:24px;width:24px;line-height:24px;border-radius:99%;text-align:center;-ms-flex:none;flex:none}.td-step-header .td-circle mat-icon{margin-top:2px;font-weight:700}.td-step-header .td-triangle>mat-icon{font-size:25px}::ng-deep :not([dir=rtl]) .td-step-header .td-circle,::ng-deep :not([dir=rtl]) .td-step-header .td-complete,::ng-deep :not([dir=rtl]) .td-step-header .td-triangle{margin-left:8px;margin-right:0}::ng-deep [dir=rtl] .td-step-header .td-circle,::ng-deep [dir=rtl] .td-step-header .td-complete,::ng-deep [dir=rtl] .td-step-header .td-triangle{margin-left:0;margin-right:8px}.td-step-header .td-circle,.td-step-header .td-complete{font-size:14px}.td-step-header .td-step-label-wrapper{padding-left:8px;padding-right:8px}.td-step-header .td-step-header-separator{-ms-flex:1;flex:1;box-sizing:border-box}"]
+                    styles: [".td-step-header{position:relative;outline:0;min-width:120px;height:72px;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-ms-flex:1;flex:1;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%}.td-step-header:hover:not(.mat-disabled){cursor:pointer}.td-step-header mat-icon.td-edit-icon{margin:0 8px}.td-step-header mat-icon.mat-warn{font-size:24px;height:24px;width:24px}.td-step-header mat-icon.mat-complete{position:relative;left:-2px;top:2px;font-size:28px;height:24px;width:24px}.td-step-header .td-circle{height:24px;width:24px;line-height:24px;border-radius:99%;text-align:center;-webkit-box-flex:0;-ms-flex:none;flex:none}.td-step-header .td-circle mat-icon{margin-top:2px;font-weight:700}.td-step-header .td-triangle>mat-icon{font-size:25px}::ng-deep :not([dir=rtl]) .td-step-header .td-circle,::ng-deep :not([dir=rtl]) .td-step-header .td-complete,::ng-deep :not([dir=rtl]) .td-step-header .td-triangle{margin-left:8px;margin-right:0}::ng-deep [dir=rtl] .td-step-header .td-circle,::ng-deep [dir=rtl] .td-step-header .td-complete,::ng-deep [dir=rtl] .td-step-header .td-triangle{margin-left:0;margin-right:8px}.td-step-header .td-circle,.td-step-header .td-complete{font-size:14px}.td-step-header .td-step-label-wrapper{padding-left:8px;padding-right:8px}.td-step-header .td-step-header-separator{-webkit-box-flex:1;-ms-flex:1;flex:1;box-sizing:border-box}"]
                 }] }
     ];
     TdStepHeaderComponent.propDecorators = {
@@ -13949,6 +16730,32 @@ var TdStepHeaderComponent = /** @class */ (function (_super) {
     };
     return TdStepHeaderComponent;
 }(_TdStepHeaderMixinBase));
+if (false) {
+    /**
+     * Number assigned to [TdStepHeaderComponent].
+     * @type {?}
+     */
+    TdStepHeaderComponent.prototype.number;
+    /**
+     * active?: boolean
+     * Sets for active/inactive states on header.
+     * @type {?}
+     */
+    TdStepHeaderComponent.prototype.active;
+    /**
+     * state?: StepState or ['none' | 'required' | 'complete']
+     * Sets styles for state of header.
+     * Defaults to [StepState.None | 'none'].
+     * @type {?}
+     */
+    TdStepHeaderComponent.prototype.state;
+    /**
+     * tabIndex?: number
+     * tabIndex of the step header for a11y
+     * @type {?}
+     */
+    TdStepHeaderComponent.prototype.tabIndex;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -14015,7 +16822,7 @@ var TdStepBodyComponent = /** @class */ (function () {
                     selector: 'td-step-body',
                     template: "<ng-content></ng-content>\n<div class=\"td-step-body\">\n  <div class=\"td-step-content-wrapper\" [@tdCollapse]=\"!active\">\n    <div #contentRef cdkScrollable [class.td-step-content]=\"hasContent\">\n      <ng-content select=\"[td-step-body-content]\"></ng-content>\n    </div>\n    <div #actionsRef [class.td-step-actions]=\"hasActions\">\n      <ng-content select=\"[td-step-body-actions]\"></ng-content>\n    </div>\n  </div>\n  <div #summaryRef [@tdCollapse]=\"active || !isComplete()\" [class.td-step-summary]=\"hasSummary\">\n    <ng-content select=\"[td-step-body-summary]\"></ng-content>\n  </div>\n</div>\n",
                     animations: [tdCollapseAnimation$1],
-                    styles: [":host{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row}:host .td-step-body{overflow-x:hidden;-ms-flex:1;flex:1;box-sizing:border-box}:host .td-step-body .td-step-content-wrapper.ng-animating,:host .td-step-body .td-step-summary.ng-animating{overflow:hidden}:host .td-step-body .td-step-content{overflow-x:auto}:host .td-step-body .td-step-actions{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row}"]
+                    styles: [":host{box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}:host .td-step-body{overflow-x:hidden;-webkit-box-flex:1;-ms-flex:1;flex:1;box-sizing:border-box}:host .td-step-body .td-step-content-wrapper.ng-animating,:host .td-step-body .td-step-summary.ng-animating{overflow:hidden}:host .td-step-body .td-step-content{overflow-x:auto}:host .td-step-body .td-step-actions{box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}"]
                 }] }
     ];
     TdStepBodyComponent.propDecorators = {
@@ -14027,6 +16834,27 @@ var TdStepBodyComponent = /** @class */ (function () {
     };
     return TdStepBodyComponent;
 }());
+if (false) {
+    /** @type {?} */
+    TdStepBodyComponent.prototype.contentRef;
+    /** @type {?} */
+    TdStepBodyComponent.prototype.actionsRef;
+    /** @type {?} */
+    TdStepBodyComponent.prototype.summaryRef;
+    /**
+     * active?: boolean
+     * Sets for active/inactive states on body.
+     * @type {?}
+     */
+    TdStepBodyComponent.prototype.active;
+    /**
+     * state?: StepState or ['none' | 'required' | 'complete']
+     * Sets styles for state of body.
+     * Defaults to [StepState.None | 'none'].
+     * @type {?}
+     */
+    TdStepBodyComponent.prototype.state;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -14129,7 +16957,7 @@ var TdNavStepLinkComponent = /** @class */ (function (_super) {
                         '[class.mat-disabled]': 'disabled || null',
                         '(click)': '_handleClick($event)',
                     },
-                    styles: [":host{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:start;justify-content:flex-start}:host.mat-disabled{pointer-events:none}:host .td-step-header-wrapper{width:100%}"]
+                    styles: [":host{box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}:host.mat-disabled{pointer-events:none}:host .td-step-header-wrapper{width:100%}"]
                 }] }
     ];
     /** @nocollapse */
@@ -14146,6 +16974,47 @@ var TdNavStepLinkComponent = /** @class */ (function (_super) {
     };
     return TdNavStepLinkComponent;
 }(_TdStepMixinBase));
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepLinkComponent.prototype._active;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepLinkComponent.prototype._state;
+    /** @type {?} */
+    TdNavStepLinkComponent.prototype.number;
+    /**
+     * label?: string
+     * Label to display in step header
+     * Defaults to empty
+     * @type {?}
+     */
+    TdNavStepLinkComponent.prototype.label;
+    /**
+     * sublabel?: string
+     * Sublabel to display in step header
+     * Defaults to empty
+     * @type {?}
+     */
+    TdNavStepLinkComponent.prototype.sublabel;
+    /**
+     * tabIndex?: number
+     * tabIndex for component
+     * @type {?}
+     */
+    TdNavStepLinkComponent.prototype.tabIndex;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepLinkComponent.prototype._changeDetectorRef;
+    /** @type {?} */
+    TdNavStepLinkComponent.prototype.elementRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -14510,7 +17379,7 @@ var TdNavStepsHorizontalComponent = /** @class */ (function () {
                         '[class.td-step-header-pagination-controls-enabled]': '_showPaginationControls',
                         '[class.td-step-header-rtl]': "_getLayoutDirection() == 'rtl'",
                     },
-                    styles: [":host{width:100%;display:block}.td-steps-header,.td-steps-header-list{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row}.td-steps-header-container{display:-ms-flexbox;display:flex;-ms-flex-positive:1;flex-grow:1;overflow:hidden;z-index:1}.td-steps-header-list{-ms-flex-positive:1;flex-grow:1;position:relative;transition:transform .5s cubic-bezier(.35,0,.25,1);-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:start;justify-content:flex-start}.td-step-header-pagination{position:relative;display:none;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;min-width:32px;cursor:pointer;z-index:2}:host.td-step-header-pagination-controls-enabled .td-step-header-pagination{display:-ms-flexbox;display:flex}.td-step-header-pagination-before,:host.td-step-header-rtl .td-step-header-pagination-after{padding-left:4px}.td-step-header-pagination-before .td-step-header-pagination-chevron,:host.td-step-header-rtl .td-step-header-pagination-after .td-step-header-pagination-chevron{-ms-transform:rotate(-135deg);transform:rotate(-135deg)}.td-step-header-pagination-after,:host.td-step-header-rtl .td-step-header-pagination-before{padding-right:4px}.td-step-header-pagination-after .td-step-header-pagination-chevron,:host.td-step-header-rtl .td-step-header-pagination-before .td-step-header-pagination-chevron{-ms-transform:rotate(45deg);transform:rotate(45deg)}.td-step-header-pagination-chevron{border-style:solid;border-width:2px 2px 0 0;content:'';height:8px;width:8px}.td-step-header-pagination-disabled{box-shadow:none;cursor:default}.td-horizontal-line{border-bottom-width:1px;border-bottom-style:solid;height:1px;min-width:20px;-ms-flex:1;flex:1;box-sizing:border-box}"]
+                    styles: [":host{width:100%;display:block}.td-steps-header,.td-steps-header-list{box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}.td-steps-header-container{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;overflow:hidden;z-index:1}.td-steps-header-list{-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;position:relative;-webkit-transition:-webkit-transform .5s cubic-bezier(.35,0,.25,1);transition:transform .5s cubic-bezier(.35,0,.25,1),-webkit-transform .5s cubic-bezier(.35,0,.25,1);-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}.td-step-header-pagination{position:relative;display:none;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;min-width:32px;cursor:pointer;z-index:2}:host.td-step-header-pagination-controls-enabled .td-step-header-pagination{display:-webkit-box;display:-ms-flexbox;display:flex}.td-step-header-pagination-before,:host.td-step-header-rtl .td-step-header-pagination-after{padding-left:4px}.td-step-header-pagination-before .td-step-header-pagination-chevron,:host.td-step-header-rtl .td-step-header-pagination-after .td-step-header-pagination-chevron{-webkit-transform:rotate(-135deg);-ms-transform:rotate(-135deg);transform:rotate(-135deg)}.td-step-header-pagination-after,:host.td-step-header-rtl .td-step-header-pagination-before{padding-right:4px}.td-step-header-pagination-after .td-step-header-pagination-chevron,:host.td-step-header-rtl .td-step-header-pagination-before .td-step-header-pagination-chevron{-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}.td-step-header-pagination-chevron{border-style:solid;border-width:2px 2px 0 0;content:'';height:8px;width:8px}.td-step-header-pagination-disabled{box-shadow:none;cursor:default}.td-horizontal-line{border-bottom-width:1px;border-bottom-style:solid;height:1px;min-width:20px;-webkit-box-flex:1;-ms-flex:1;flex:1;box-sizing:border-box}"]
                 }] }
     ];
     /** @nocollapse */
@@ -14522,12 +17391,86 @@ var TdNavStepsHorizontalComponent = /** @class */ (function () {
         { type: ChangeDetectorRef }
     ]; };
     TdNavStepsHorizontalComponent.propDecorators = {
-        _steps: [{ type: ContentChildren, args: [TdNavStepLinkComponent,] }],
+        _steps: [{ type: ContentChildren, args: [TdNavStepLinkComponent, { descendants: true },] }],
         _stepListContainer: [{ type: ViewChild, args: ['stepListContainer', { static: true },] }],
         _stepList: [{ type: ViewChild, args: ['stepList', { static: true },] }]
     };
     return TdNavStepsHorizontalComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepsHorizontalComponent.prototype._separators;
+    /**
+     * Emits when the component is destroyed.
+     * @type {?}
+     * @private
+     */
+    TdNavStepsHorizontalComponent.prototype._destroyed;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepsHorizontalComponent.prototype._widthSubject;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepsHorizontalComponent.prototype._scrollDistance;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepsHorizontalComponent.prototype._scrollDistanceChanged;
+    /**
+     * Whether the controls for pagination should be displayed
+     * @type {?}
+     */
+    TdNavStepsHorizontalComponent.prototype._showPaginationControls;
+    /**
+     * Whether the step list can be scrolled more towards the end.
+     * @type {?}
+     */
+    TdNavStepsHorizontalComponent.prototype._disableScrollAfter;
+    /**
+     * Whether the step list can be scrolled more towards the beginning.
+     * @type {?}
+     */
+    TdNavStepsHorizontalComponent.prototype._disableScrollBefore;
+    /** @type {?} */
+    TdNavStepsHorizontalComponent.prototype._steps;
+    /** @type {?} */
+    TdNavStepsHorizontalComponent.prototype._stepListContainer;
+    /** @type {?} */
+    TdNavStepsHorizontalComponent.prototype._stepList;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepsHorizontalComponent.prototype._elementRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepsHorizontalComponent.prototype._viewportRuler;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepsHorizontalComponent.prototype._dir;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepsHorizontalComponent.prototype._renderer;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepsHorizontalComponent.prototype._changeDetectorRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -14634,11 +17577,38 @@ var TdNavStepsVerticalComponent = /** @class */ (function () {
         { type: ChangeDetectorRef }
     ]; };
     TdNavStepsVerticalComponent.propDecorators = {
-        _steps: [{ type: ContentChildren, args: [TdNavStepLinkComponent,] }],
+        _steps: [{ type: ContentChildren, args: [TdNavStepLinkComponent, { descendants: true },] }],
         _stepList: [{ type: ViewChild, args: ['stepList', { static: true },] }]
     };
     return TdNavStepsVerticalComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepsVerticalComponent.prototype._separators;
+    /**
+     * Emits when the component is destroyed.
+     * @type {?}
+     * @private
+     */
+    TdNavStepsVerticalComponent.prototype._destroyed;
+    /** @type {?} */
+    TdNavStepsVerticalComponent.prototype._steps;
+    /** @type {?} */
+    TdNavStepsVerticalComponent.prototype._stepList;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepsVerticalComponent.prototype._renderer;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepsVerticalComponent.prototype._changeDetectorRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -14662,13 +17632,23 @@ var CovalentStepsModule = /** @class */ (function () {
     }
     CovalentStepsModule.decorators = [
         { type: NgModule, args: [{
-                    imports: [CommonModule, MatIconModule, MatRippleModule, PortalModule, ScrollDispatchModule, CovalentCommonModule$1],
+                    imports: [CommonModule, MatIconModule, MatRippleModule, PortalModule, ScrollingModule, CovalentCommonModule$1],
                     declarations: [TD_STEPS],
                     exports: [TD_STEPS],
                 },] }
     ];
     return CovalentStepsModule;
 }());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 /**
  * @fileoverview added by tsickle
@@ -14681,6 +17661,12 @@ var TdTabOptionBase = /** @class */ (function () {
     }
     return TdTabOptionBase;
 }());
+if (false) {
+    /** @type {?} */
+    TdTabOptionBase.prototype._viewContainerRef;
+    /** @type {?} */
+    TdTabOptionBase.prototype._changeDetectorRef;
+}
 /* tslint:disable-next-line */
 /** @type {?} */
 var _TdTabOptionMixinBase = mixinDisabled$1(TdTabOptionBase);
@@ -14729,6 +17715,20 @@ var TdTabOptionComponent = /** @class */ (function (_super) {
     };
     return TdTabOptionComponent;
 }(_TdTabOptionMixinBase));
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdTabOptionComponent.prototype._contentPortal;
+    /** @type {?} */
+    TdTabOptionComponent.prototype._content;
+    /**
+     * Value to which the option will be binded to.
+     * @type {?}
+     */
+    TdTabOptionComponent.prototype.value;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -14740,6 +17740,10 @@ var TdTabSelectBase = /** @class */ (function () {
     }
     return TdTabSelectBase;
 }());
+if (false) {
+    /** @type {?} */
+    TdTabSelectBase.prototype._changeDetectorRef;
+}
 /* tslint:disable-next-line */
 /** @type {?} */
 var _TdTabSelectMixinBase = mixinControlValueAccessor$1(mixinDisabled$1(mixinDisableRipple$1(TdTabSelectBase)));
@@ -14959,7 +17963,7 @@ var TdTabSelectComponent = /** @class */ (function (_super) {
         { type: ChangeDetectorRef }
     ]; };
     TdTabSelectComponent.propDecorators = {
-        _tabOptions: [{ type: ContentChildren, args: [TdTabOptionComponent,] }],
+        _tabOptions: [{ type: ContentChildren, args: [TdTabOptionComponent, { descendants: true },] }],
         stretchTabs: [{ type: Input, args: ['stretchTabs',] }],
         color: [{ type: Input }],
         backgroundColor: [{ type: Input }],
@@ -14967,6 +17971,49 @@ var TdTabSelectComponent = /** @class */ (function (_super) {
     };
     return TdTabSelectComponent;
 }(_TdTabSelectMixinBase));
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdTabSelectComponent.prototype._subs;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdTabSelectComponent.prototype._values;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdTabSelectComponent.prototype._selectedIndex;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdTabSelectComponent.prototype._stretchTabs;
+    /**
+     * Gets all tab option children
+     * @type {?}
+     */
+    TdTabSelectComponent.prototype._tabOptions;
+    /**
+     * Color of the tab group.
+     * @type {?}
+     */
+    TdTabSelectComponent.prototype.color;
+    /**
+     * Background color of the tab group.
+     * @type {?}
+     */
+    TdTabSelectComponent.prototype.backgroundColor;
+    /**
+     * Event that emits whenever the raw value of the select changes. This is here primarily
+     * to facilitate the two-way binding for the `value` input.
+     * @type {?}
+     */
+    TdTabSelectComponent.prototype.valueChange;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -14998,6 +18045,52 @@ var CovalentTabSelectModule = /** @class */ (function () {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @record
+ */
+function ITdNavNode() { }
+if (false) {
+    /** @type {?} */
+    ITdNavNode.prototype.label;
+    /** @type {?|undefined} */
+    ITdNavNode.prototype.show;
+}
+/**
+ * @record
+ */
+function ITdNavHeader() { }
+if (false) {
+    /** @type {?} */
+    ITdNavHeader.prototype.children;
+}
+/**
+ * @record
+ */
+function ITdNavExpansion() { }
+if (false) {
+    /** @type {?|undefined} */
+    ITdNavExpansion.prototype.collapsable;
+}
+/**
+ * @record
+ */
+function ITdLink() { }
+if (false) {
+    /** @type {?} */
+    ITdLink.prototype.link;
+    /** @type {?} */
+    ITdLink.prototype.icon;
+}
 /** @type {?} */
 var nextUniqueId = 0;
 var TdNavLinksComponent = /** @class */ (function () {
@@ -15101,6 +18194,30 @@ var TdNavLinksComponent = /** @class */ (function () {
     };
     return TdNavLinksComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavLinksComponent.prototype._uniqueId;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavLinksComponent.prototype._collapsedSet;
+    /** @type {?} */
+    TdNavLinksComponent.prototype.id;
+    /**
+     * Links to be rendered by component.
+     * @type {?}
+     */
+    TdNavLinksComponent.prototype.links;
+    /**
+     * Event trigger after a navigation click
+     * @type {?}
+     */
+    TdNavLinksComponent.prototype.afterNavigation;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -15129,6 +18246,31 @@ var CovalentNavLinksModule = /** @class */ (function () {
     ];
     return CovalentNavLinksModule;
 }());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 export { CovalentBreadcrumbsModule, CovalentChipsModule, CovalentCommonModule, CovalentDataTableModule, CovalentDialogsModule, CovalentExpansionPanelModule, CovalentFileModule, CovalentJsonFormatterModule, CovalentLayoutModule, CovalentLoadingModule, CovalentMediaModule, CovalentMenuModule, CovalentMessageModule, CovalentNavLinksModule, CovalentNotificationsModule, CovalentPagingModule, CovalentSearchModule, CovalentStepsModule, CovalentTabSelectModule, CovalentValidators, CovalentVirtualScrollModule, DEFAULT_NOTIFICATION_LIMIT, LOADING_FACTORY_PROVIDER, LOADING_FACTORY_PROVIDER_FACTORY, LOADING_PROVIDER, LOADING_PROVIDER_FACTORY, LayoutToggle, LayoutToggleBase, LoadingMode, LoadingStrategy, LoadingStyle, LoadingType, StepMode, StepState, TD_CIRCLE_DIAMETER, TdAlertDialogComponent, TdAutoTrimDirective, TdAutocompleteOptionDirective, TdBreadcrumbComponent, TdBreadcrumbsComponent, TdBytesPipe, TdChipDirective, TdChipsBase, TdChipsComponent, TdConfirmDialogComponent, TdDataTableBase, TdDataTableCellComponent, TdDataTableColumnComponent, TdDataTableColumnRowComponent, TdDataTableComponent, TdDataTableRowComponent, TdDataTableService, TdDataTableSortingOrder, TdDataTableTableComponent, TdDataTableTemplateDirective, TdDecimalBytesPipe, TdDialogActionsDirective, TdDialogComponent, TdDialogContentDirective, TdDialogService, TdDialogTitleDirective, TdDigitsPipe, TdExpansionPanelBase, TdExpansionPanelComponent, TdExpansionPanelGroupComponent, TdExpansionPanelHeaderDirective, TdExpansionPanelLabelDirective, TdExpansionPanelSublabelDirective, TdExpansionPanelSummaryComponent, TdFileDropBase, TdFileDropDirective, TdFileInputBase, TdFileInputComponent, TdFileInputLabelDirective, TdFileSelectDirective, TdFileService, TdFileUploadBase, TdFileUploadComponent, TdFullscreenDirective, TdJsonFormatterComponent, TdLayoutCardOverComponent, TdLayoutCloseDirective, TdLayoutComponent, TdLayoutFooterComponent, TdLayoutManageListCloseDirective, TdLayoutManageListComponent, TdLayoutManageListOpenDirective, TdLayoutManageListToggleDirective, TdLayoutNavComponent, TdLayoutNavListCloseDirective, TdLayoutNavListComponent, TdLayoutNavListOpenDirective, TdLayoutNavListToggleDirective, TdLayoutOpenDirective, TdLayoutToggleDirective, TdLoadingComponent, TdLoadingConfig, TdLoadingContext, TdLoadingDirective, TdLoadingDirectiveConfig, TdLoadingFactory, TdLoadingService, TdMediaService, TdMediaToggleDirective, TdMenuComponent, TdMessageComponent, TdMessageContainerDirective, TdNavLinksComponent, TdNavStepLinkComponent, TdNavStepsHorizontalComponent, TdNavStepsVerticalComponent, TdNavigationDrawerComponent, TdNavigationDrawerMenuDirective, TdNavigationDrawerToolbarDirective, TdNotificationCountComponent, TdNotificationCountPositionX, TdNotificationCountPositionY, TdPagingBarComponent, TdPromptDialogComponent, TdSearchBoxBase, TdSearchBoxComponent, TdSearchInputBase, TdSearchInputComponent, TdStepActionsDirective, TdStepBase, TdStepBodyComponent, TdStepComponent, TdStepHeaderBase, TdStepHeaderComponent, TdStepLabelDirective, TdStepSummaryDirective, TdStepsComponent, TdTabOptionBase, TdTabOptionComponent, TdTabSelectBase, TdTabSelectComponent, TdTimeAgoPipe, TdTimeDifferencePipe, TdTimeUntilPipe, TdTruncatePipe, TdVirtualScrollContainerComponent, TdVirtualScrollRowDirective, _TdChipsMixinBase, _TdDataTableMixinBase, _TdExpansionPanelMixinBase, _TdFileDropMixinBase, _TdFileInputMixinBase, _TdFileUploadMixinBase, _TdLayoutToggleMixinBase, _TdSearchBoxMixinBase, _TdSearchInputMixinBase, _TdStepHeaderMixinBase, _TdStepMixinBase, _TdTabOptionMixinBase, _TdTabSelectMixinBase, convertCSVToJSON, convertObjectsToCSV, copyToClipboard, downloadCSV, downloadFile, downloadJSON, downloadObjectsToCSV, downloadObjectsToJSON, formatJSON, mixinControlValueAccessor, mixinDisableRipple, mixinDisabled, readFile, tdBounceAnimation, tdCollapseAnimation, tdFadeInOutAnimation, tdFlashAnimation, tdHeadshakeAnimation, tdJelloAnimation, tdPulseAnimation, tdRotateAnimation };
 //# sourceMappingURL=covalent-core.js.map

@@ -272,7 +272,7 @@ TdDialogService.ctorParameters = () => [
     { type: DragDrop },
     { type: RendererFactory2 }
 ];
-/** @nocollapse */ TdDialogService.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function TdDialogService_Factory() { return new TdDialogService(i0.ɵɵinject(i1.DOCUMENT), i0.ɵɵinject(i2.MatDialog), i0.ɵɵinject(i3.DragDrop), i0.ɵɵinject(i0.RendererFactory2)); }, token: TdDialogService, providedIn: i4.CovalentDialogsModule });
+/** @nocollapse */ TdDialogService.ɵprov = i0.ɵɵdefineInjectable({ factory: function TdDialogService_Factory() { return new TdDialogService(i0.ɵɵinject(i1.DOCUMENT), i0.ɵɵinject(i2.MatDialog), i0.ɵɵinject(i3.DragDrop), i0.ɵɵinject(i0.RendererFactory2)); }, token: TdDialogService, providedIn: i4.CovalentDialogsModule });
 if (false) {
     /**
      * @type {?}

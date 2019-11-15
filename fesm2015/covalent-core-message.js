@@ -24,6 +24,10 @@ TdMessageContainerDirective.decorators = [
 TdMessageContainerDirective.ctorParameters = () => [
     { type: ViewContainerRef }
 ];
+if (false) {
+    /** @type {?} */
+    TdMessageContainerDirective.prototype.viewContainer;
+}
 class TdMessageComponent {
     /**
      * @param {?} _renderer
@@ -213,7 +217,7 @@ TdMessageComponent.decorators = [
                 selector: 'td-message',
                 template: "<div tdMessageContainer></div>\n<ng-template>\n  <div class=\"td-message-wrapper\">\n    <mat-icon class=\"td-message-icon\">{{ icon }}</mat-icon>\n    <div class=\"td-message-labels\">\n      <div *ngIf=\"label\" class=\"td-message-label\">{{ label }}</div>\n      <div *ngIf=\"sublabel\" class=\"td-message-sublabel\">{{ sublabel }}</div>\n    </div>\n    <ng-content select=\"[td-message-actions]\"></ng-content>\n  </div>\n</ng-template>\n",
                 animations: [tdCollapseAnimation],
-                styles: [":host{display:block}:host .td-message-wrapper{padding:8px 16px;min-height:52px;box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:start;justify-content:flex-start}:host .td-message-wrapper .td-message-labels{-ms-flex:1;flex:1}.td-message-icon{margin-right:16px}::ng-deep [dir=rtl] .td-message-icon{margin-left:16px;margin-right:0}"]
+                styles: [":host{display:block}:host .td-message-wrapper{padding:8px 16px;min-height:52px;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}:host .td-message-wrapper .td-message-labels{-webkit-box-flex:1;-ms-flex:1;flex:1}.td-message-icon{margin-right:16px}::ng-deep [dir=rtl] .td-message-icon{margin-left:16px;margin-right:0}"]
             }] }
 ];
 /** @nocollapse */
@@ -234,6 +238,74 @@ TdMessageComponent.propDecorators = {
     opened: [{ type: Input, args: ['opened',] }],
     animationDoneListener: [{ type: HostListener, args: ['@tdCollapse.done',] }]
 };
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMessageComponent.prototype._color;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMessageComponent.prototype._opened;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMessageComponent.prototype._hidden;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMessageComponent.prototype._animating;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMessageComponent.prototype._initialized;
+    /** @type {?} */
+    TdMessageComponent.prototype._childElement;
+    /** @type {?} */
+    TdMessageComponent.prototype._template;
+    /**
+     * label: string
+     *
+     * Sets the label of the message.
+     * @type {?}
+     */
+    TdMessageComponent.prototype.label;
+    /**
+     * sublabel?: string
+     *
+     * Sets the sublabel of the message.
+     * @type {?}
+     */
+    TdMessageComponent.prototype.sublabel;
+    /**
+     * icon?: string
+     *
+     * The icon to be displayed before the title.
+     * Defaults to `info_outline` icon
+     * @type {?}
+     */
+    TdMessageComponent.prototype.icon;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMessageComponent.prototype._renderer;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMessageComponent.prototype._changeDetectorRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdMessageComponent.prototype._elementRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -250,6 +322,21 @@ CovalentMessageModule.decorators = [
                 exports: [TD_MESSAGE],
             },] }
 ];
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 export { CovalentMessageModule, TdMessageComponent, TdMessageContainerDirective };
 //# sourceMappingURL=covalent-core-message.js.map

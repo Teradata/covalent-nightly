@@ -1,7 +1,7 @@
 import { Directive, TemplateRef, ViewContainerRef, EventEmitter, Component, ViewChild, ContentChild, Input, Output, ContentChildren, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, Optional, Renderer2, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TemplatePortalDirective, TemplatePortal, PortalModule } from '@angular/cdk/portal';
-import { ViewportRuler, ScrollDispatchModule } from '@angular/cdk/scrolling';
+import { ViewportRuler, ScrollingModule } from '@angular/cdk/scrolling';
 import { MatIconModule } from '@angular/material/icon';
 import { MatRippleModule } from '@angular/material/core';
 import { mixinDisableRipple, mixinDisabled, tdCollapseAnimation, CovalentCommonModule } from '@covalent/core/common';
@@ -9,7 +9,7 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Subject, merge, of } from 'rxjs';
 import { distinctUntilChanged, takeUntil } from 'rxjs/operators';
 import { Directionality } from '@angular/cdk/bidi';
-import { LEFT_ARROW, RIGHT_ARROW } from '@angular/cdk/keycodes';
+import { RIGHT_ARROW, LEFT_ARROW } from '@angular/cdk/keycodes';
 
 /**
  * @fileoverview added by tsickle
@@ -260,11 +260,76 @@ TdStepComponent.propDecorators = {
     activated: [{ type: Output }],
     deactivated: [{ type: Output }]
 };
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdStepComponent.prototype._active;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdStepComponent.prototype._state;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdStepComponent.prototype._contentPortal;
+    /** @type {?} */
+    TdStepComponent.prototype._content;
+    /** @type {?} */
+    TdStepComponent.prototype.stepLabel;
+    /** @type {?} */
+    TdStepComponent.prototype.stepActions;
+    /** @type {?} */
+    TdStepComponent.prototype.stepSummary;
+    /**
+     * label?: string
+     * Sets label of [TdStepComponent] header.
+     * Defaults to 'Step #'
+     * @type {?}
+     */
+    TdStepComponent.prototype.label;
+    /**
+     * sublabel?: string
+     * Sets sublabel of [TdStepComponent] header.
+     * @type {?}
+     */
+    TdStepComponent.prototype.sublabel;
+    /**
+     * activated?: function
+     * Event emitted when [TdStepComponent] is activated.
+     * @type {?}
+     */
+    TdStepComponent.prototype.activated;
+    /**
+     * deactivated?: function
+     * Event emitted when [TdStepComponent] is deactivated.
+     * @type {?}
+     */
+    TdStepComponent.prototype.deactivated;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdStepComponent.prototype._viewContainerRef;
+}
 
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @record
+ */
+function IStepChangeEvent() { }
+if (false) {
+    /** @type {?} */
+    IStepChangeEvent.prototype.newStep;
+    /** @type {?} */
+    IStepChangeEvent.prototype.prevStep;
+}
 /** @enum {string} */
 const StepMode = {
     Vertical: 'vertical',
@@ -445,14 +510,40 @@ TdStepsComponent.decorators = [
                 host: {
                     class: 'td-steps',
                 },
-                styles: [".td-line-wrapper,.td-step{position:relative}.td-steps-header{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row}.td-line-wrapper{width:24px;min-height:1px}.td-horizontal-line{border-bottom-width:1px;border-bottom-style:solid;height:1px;position:relative;top:36px;min-width:15px;-ms-flex:1;flex:1;box-sizing:border-box}::ng-deep :not([dir=rtl]) .td-horizontal-line{left:-6px;right:-3px}::ng-deep [dir=rtl] .td-horizontal-line{left:-3px;right:-6px}.td-vertical-line{position:absolute;bottom:-16px;top:-16px;border-left-width:1px;border-left-style:solid}::ng-deep :not([dir=rtl]) .td-vertical-line{left:20px;right:auto}::ng-deep [dir=rtl] .td-vertical-line{left:auto;right:20px}"]
+                styles: [".td-line-wrapper,.td-step{position:relative}.td-steps-header{box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}.td-line-wrapper{width:24px;min-height:1px}.td-horizontal-line{border-bottom-width:1px;border-bottom-style:solid;height:1px;position:relative;top:36px;min-width:15px;-webkit-box-flex:1;-ms-flex:1;flex:1;box-sizing:border-box}::ng-deep :not([dir=rtl]) .td-horizontal-line{left:-6px;right:-3px}::ng-deep [dir=rtl] .td-horizontal-line{left:-3px;right:-6px}.td-vertical-line{position:absolute;bottom:-16px;top:-16px;border-left-width:1px;border-left-style:solid}::ng-deep :not([dir=rtl]) .td-vertical-line{left:20px;right:auto}::ng-deep [dir=rtl] .td-vertical-line{left:auto;right:20px}"]
             }] }
 ];
 TdStepsComponent.propDecorators = {
-    stepsContent: [{ type: ContentChildren, args: [TdStepComponent,] }],
+    stepsContent: [{ type: ContentChildren, args: [TdStepComponent, { descendants: true },] }],
     mode: [{ type: Input, args: ['mode',] }],
     stepChange: [{ type: Output }]
 };
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdStepsComponent.prototype._subcriptions;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdStepsComponent.prototype._mode;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdStepsComponent.prototype._steps;
+    /** @type {?} */
+    TdStepsComponent.prototype.prevStep;
+    /**
+     * stepChange?: function
+     * Method to be executed when [stepChange] event is emitted.
+     * Emits an [IStepChangeEvent] implemented object.
+     * @type {?}
+     */
+    TdStepsComponent.prototype.stepChange;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -493,7 +584,7 @@ TdStepHeaderComponent.decorators = [
                 selector: 'td-step-header',
                 inputs: ['disabled', 'disableRipple'],
                 template: "<div\n  class=\"td-step-header\"\n  [class.mat-disabled]=\"disabled\"\n  matRipple\n  [matRippleDisabled]=\"disabled || disableRipple\"\n  [tabIndex]=\"disabled ? -1 : tabIndex || 0\"\n>\n  <div\n    class=\"td-circle\"\n    [class.mat-inactive]=\"(!active && !isComplete()) || disabled\"\n    [class.mat-active]=\"active && !disabled\"\n    *ngIf=\"!isRequired() && !isComplete()\"\n  >\n    <span *ngIf=\"active || !isComplete()\">{{ number || '' }}</span>\n  </div>\n  <div class=\"td-complete\" *ngIf=\"isComplete()\">\n    <mat-icon class=\"mat-complete\">check_circle</mat-icon>\n  </div>\n  <div class=\"td-triangle\" [class.bg-muted]=\"disabled\" *ngIf=\"isRequired()\">\n    <mat-icon class=\"mat-warn\">warning</mat-icon>\n  </div>\n  <div\n    class=\"td-step-label-wrapper\"\n    [class.mat-inactive]=\"(!active && !isComplete()) || disabled\"\n    [class.mat-warn]=\"isRequired() && !disabled\"\n  >\n    <div class=\"td-step-label\">\n      <ng-content select=\"[td-step-header-label]\"></ng-content>\n    </div>\n    <div class=\"td-step-sublabel\">\n      <ng-content select=\"[td-step-header-sublabel]\"></ng-content>\n    </div>\n  </div>\n  <span class=\"td-step-header-separator\"></span>\n  <mat-icon class=\"td-edit-icon\" *ngIf=\"isComplete() && !active && !disabled\">mode_edit</mat-icon>\n</div>\n",
-                styles: [".td-step-header{position:relative;outline:0;min-width:120px;height:72px;-ms-flex-direction:row;flex-direction:row;box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex:1;flex:1;-ms-flex-pack:start;justify-content:flex-start;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%}.td-step-header:hover:not(.mat-disabled){cursor:pointer}.td-step-header mat-icon.td-edit-icon{margin:0 8px}.td-step-header mat-icon.mat-warn{font-size:24px;height:24px;width:24px}.td-step-header mat-icon.mat-complete{position:relative;left:-2px;top:2px;font-size:28px;height:24px;width:24px}.td-step-header .td-circle{height:24px;width:24px;line-height:24px;border-radius:99%;text-align:center;-ms-flex:none;flex:none}.td-step-header .td-circle mat-icon{margin-top:2px;font-weight:700}.td-step-header .td-triangle>mat-icon{font-size:25px}::ng-deep :not([dir=rtl]) .td-step-header .td-circle,::ng-deep :not([dir=rtl]) .td-step-header .td-complete,::ng-deep :not([dir=rtl]) .td-step-header .td-triangle{margin-left:8px;margin-right:0}::ng-deep [dir=rtl] .td-step-header .td-circle,::ng-deep [dir=rtl] .td-step-header .td-complete,::ng-deep [dir=rtl] .td-step-header .td-triangle{margin-left:0;margin-right:8px}.td-step-header .td-circle,.td-step-header .td-complete{font-size:14px}.td-step-header .td-step-label-wrapper{padding-left:8px;padding-right:8px}.td-step-header .td-step-header-separator{-ms-flex:1;flex:1;box-sizing:border-box}"]
+                styles: [".td-step-header{position:relative;outline:0;min-width:120px;height:72px;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-ms-flex:1;flex:1;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%}.td-step-header:hover:not(.mat-disabled){cursor:pointer}.td-step-header mat-icon.td-edit-icon{margin:0 8px}.td-step-header mat-icon.mat-warn{font-size:24px;height:24px;width:24px}.td-step-header mat-icon.mat-complete{position:relative;left:-2px;top:2px;font-size:28px;height:24px;width:24px}.td-step-header .td-circle{height:24px;width:24px;line-height:24px;border-radius:99%;text-align:center;-webkit-box-flex:0;-ms-flex:none;flex:none}.td-step-header .td-circle mat-icon{margin-top:2px;font-weight:700}.td-step-header .td-triangle>mat-icon{font-size:25px}::ng-deep :not([dir=rtl]) .td-step-header .td-circle,::ng-deep :not([dir=rtl]) .td-step-header .td-complete,::ng-deep :not([dir=rtl]) .td-step-header .td-triangle{margin-left:8px;margin-right:0}::ng-deep [dir=rtl] .td-step-header .td-circle,::ng-deep [dir=rtl] .td-step-header .td-complete,::ng-deep [dir=rtl] .td-step-header .td-triangle{margin-left:0;margin-right:8px}.td-step-header .td-circle,.td-step-header .td-complete{font-size:14px}.td-step-header .td-step-label-wrapper{padding-left:8px;padding-right:8px}.td-step-header .td-step-header-separator{-webkit-box-flex:1;-ms-flex:1;flex:1;box-sizing:border-box}"]
             }] }
 ];
 TdStepHeaderComponent.propDecorators = {
@@ -502,6 +593,32 @@ TdStepHeaderComponent.propDecorators = {
     state: [{ type: Input }],
     tabIndex: [{ type: Input }]
 };
+if (false) {
+    /**
+     * Number assigned to [TdStepHeaderComponent].
+     * @type {?}
+     */
+    TdStepHeaderComponent.prototype.number;
+    /**
+     * active?: boolean
+     * Sets for active/inactive states on header.
+     * @type {?}
+     */
+    TdStepHeaderComponent.prototype.active;
+    /**
+     * state?: StepState or ['none' | 'required' | 'complete']
+     * Sets styles for state of header.
+     * Defaults to [StepState.None | 'none'].
+     * @type {?}
+     */
+    TdStepHeaderComponent.prototype.state;
+    /**
+     * tabIndex?: number
+     * tabIndex of the step header for a11y
+     * @type {?}
+     */
+    TdStepHeaderComponent.prototype.tabIndex;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -550,7 +667,7 @@ TdStepBodyComponent.decorators = [
                 selector: 'td-step-body',
                 template: "<ng-content></ng-content>\n<div class=\"td-step-body\">\n  <div class=\"td-step-content-wrapper\" [@tdCollapse]=\"!active\">\n    <div #contentRef cdkScrollable [class.td-step-content]=\"hasContent\">\n      <ng-content select=\"[td-step-body-content]\"></ng-content>\n    </div>\n    <div #actionsRef [class.td-step-actions]=\"hasActions\">\n      <ng-content select=\"[td-step-body-actions]\"></ng-content>\n    </div>\n  </div>\n  <div #summaryRef [@tdCollapse]=\"active || !isComplete()\" [class.td-step-summary]=\"hasSummary\">\n    <ng-content select=\"[td-step-body-summary]\"></ng-content>\n  </div>\n</div>\n",
                 animations: [tdCollapseAnimation],
-                styles: [":host{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row}:host .td-step-body{overflow-x:hidden;-ms-flex:1;flex:1;box-sizing:border-box}:host .td-step-body .td-step-content-wrapper.ng-animating,:host .td-step-body .td-step-summary.ng-animating{overflow:hidden}:host .td-step-body .td-step-content{overflow-x:auto}:host .td-step-body .td-step-actions{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row}"]
+                styles: [":host{box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}:host .td-step-body{overflow-x:hidden;-webkit-box-flex:1;-ms-flex:1;flex:1;box-sizing:border-box}:host .td-step-body .td-step-content-wrapper.ng-animating,:host .td-step-body .td-step-summary.ng-animating{overflow:hidden}:host .td-step-body .td-step-content{overflow-x:auto}:host .td-step-body .td-step-actions{box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}"]
             }] }
 ];
 TdStepBodyComponent.propDecorators = {
@@ -560,6 +677,27 @@ TdStepBodyComponent.propDecorators = {
     active: [{ type: Input }],
     state: [{ type: Input }]
 };
+if (false) {
+    /** @type {?} */
+    TdStepBodyComponent.prototype.contentRef;
+    /** @type {?} */
+    TdStepBodyComponent.prototype.actionsRef;
+    /** @type {?} */
+    TdStepBodyComponent.prototype.summaryRef;
+    /**
+     * active?: boolean
+     * Sets for active/inactive states on body.
+     * @type {?}
+     */
+    TdStepBodyComponent.prototype.active;
+    /**
+     * state?: StepState or ['none' | 'required' | 'complete']
+     * Sets styles for state of body.
+     * Defaults to [StepState.None | 'none'].
+     * @type {?}
+     */
+    TdStepBodyComponent.prototype.state;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -644,7 +782,7 @@ TdNavStepLinkComponent.decorators = [
                     '[class.mat-disabled]': 'disabled || null',
                     '(click)': '_handleClick($event)',
                 },
-                styles: [":host{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:start;justify-content:flex-start}:host.mat-disabled{pointer-events:none}:host .td-step-header-wrapper{width:100%}"]
+                styles: [":host{box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}:host.mat-disabled{pointer-events:none}:host .td-step-header-wrapper{width:100%}"]
             }] }
 ];
 /** @nocollapse */
@@ -659,6 +797,47 @@ TdNavStepLinkComponent.propDecorators = {
     active: [{ type: Input, args: ['active',] }],
     tabIndex: [{ type: Input }]
 };
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepLinkComponent.prototype._active;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepLinkComponent.prototype._state;
+    /** @type {?} */
+    TdNavStepLinkComponent.prototype.number;
+    /**
+     * label?: string
+     * Label to display in step header
+     * Defaults to empty
+     * @type {?}
+     */
+    TdNavStepLinkComponent.prototype.label;
+    /**
+     * sublabel?: string
+     * Sublabel to display in step header
+     * Defaults to empty
+     * @type {?}
+     */
+    TdNavStepLinkComponent.prototype.sublabel;
+    /**
+     * tabIndex?: number
+     * tabIndex for component
+     * @type {?}
+     */
+    TdNavStepLinkComponent.prototype.tabIndex;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepLinkComponent.prototype._changeDetectorRef;
+    /** @type {?} */
+    TdNavStepLinkComponent.prototype.elementRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -932,7 +1111,7 @@ TdNavStepsHorizontalComponent.decorators = [
                     '[class.td-step-header-pagination-controls-enabled]': '_showPaginationControls',
                     '[class.td-step-header-rtl]': "_getLayoutDirection() == 'rtl'",
                 },
-                styles: [":host{width:100%;display:block}.td-steps-header,.td-steps-header-list{box-sizing:border-box;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row}.td-steps-header-container{display:-ms-flexbox;display:flex;-ms-flex-positive:1;flex-grow:1;overflow:hidden;z-index:1}.td-steps-header-list{-ms-flex-positive:1;flex-grow:1;position:relative;transition:transform .5s cubic-bezier(.35,0,.25,1);-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:start;justify-content:flex-start}.td-step-header-pagination{position:relative;display:none;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;min-width:32px;cursor:pointer;z-index:2}:host.td-step-header-pagination-controls-enabled .td-step-header-pagination{display:-ms-flexbox;display:flex}.td-step-header-pagination-before,:host.td-step-header-rtl .td-step-header-pagination-after{padding-left:4px}.td-step-header-pagination-before .td-step-header-pagination-chevron,:host.td-step-header-rtl .td-step-header-pagination-after .td-step-header-pagination-chevron{-ms-transform:rotate(-135deg);transform:rotate(-135deg)}.td-step-header-pagination-after,:host.td-step-header-rtl .td-step-header-pagination-before{padding-right:4px}.td-step-header-pagination-after .td-step-header-pagination-chevron,:host.td-step-header-rtl .td-step-header-pagination-before .td-step-header-pagination-chevron{-ms-transform:rotate(45deg);transform:rotate(45deg)}.td-step-header-pagination-chevron{border-style:solid;border-width:2px 2px 0 0;content:'';height:8px;width:8px}.td-step-header-pagination-disabled{box-shadow:none;cursor:default}.td-horizontal-line{border-bottom-width:1px;border-bottom-style:solid;height:1px;min-width:20px;-ms-flex:1;flex:1;box-sizing:border-box}"]
+                styles: [":host{width:100%;display:block}.td-steps-header,.td-steps-header-list{box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}.td-steps-header-container{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;overflow:hidden;z-index:1}.td-steps-header-list{-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;position:relative;-webkit-transition:-webkit-transform .5s cubic-bezier(.35,0,.25,1);transition:transform .5s cubic-bezier(.35,0,.25,1),-webkit-transform .5s cubic-bezier(.35,0,.25,1);-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}.td-step-header-pagination{position:relative;display:none;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;min-width:32px;cursor:pointer;z-index:2}:host.td-step-header-pagination-controls-enabled .td-step-header-pagination{display:-webkit-box;display:-ms-flexbox;display:flex}.td-step-header-pagination-before,:host.td-step-header-rtl .td-step-header-pagination-after{padding-left:4px}.td-step-header-pagination-before .td-step-header-pagination-chevron,:host.td-step-header-rtl .td-step-header-pagination-after .td-step-header-pagination-chevron{-webkit-transform:rotate(-135deg);-ms-transform:rotate(-135deg);transform:rotate(-135deg)}.td-step-header-pagination-after,:host.td-step-header-rtl .td-step-header-pagination-before{padding-right:4px}.td-step-header-pagination-after .td-step-header-pagination-chevron,:host.td-step-header-rtl .td-step-header-pagination-before .td-step-header-pagination-chevron{-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}.td-step-header-pagination-chevron{border-style:solid;border-width:2px 2px 0 0;content:'';height:8px;width:8px}.td-step-header-pagination-disabled{box-shadow:none;cursor:default}.td-horizontal-line{border-bottom-width:1px;border-bottom-style:solid;height:1px;min-width:20px;-webkit-box-flex:1;-ms-flex:1;flex:1;box-sizing:border-box}"]
             }] }
 ];
 /** @nocollapse */
@@ -944,10 +1123,84 @@ TdNavStepsHorizontalComponent.ctorParameters = () => [
     { type: ChangeDetectorRef }
 ];
 TdNavStepsHorizontalComponent.propDecorators = {
-    _steps: [{ type: ContentChildren, args: [TdNavStepLinkComponent,] }],
+    _steps: [{ type: ContentChildren, args: [TdNavStepLinkComponent, { descendants: true },] }],
     _stepListContainer: [{ type: ViewChild, args: ['stepListContainer', { static: true },] }],
     _stepList: [{ type: ViewChild, args: ['stepList', { static: true },] }]
 };
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepsHorizontalComponent.prototype._separators;
+    /**
+     * Emits when the component is destroyed.
+     * @type {?}
+     * @private
+     */
+    TdNavStepsHorizontalComponent.prototype._destroyed;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepsHorizontalComponent.prototype._widthSubject;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepsHorizontalComponent.prototype._scrollDistance;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepsHorizontalComponent.prototype._scrollDistanceChanged;
+    /**
+     * Whether the controls for pagination should be displayed
+     * @type {?}
+     */
+    TdNavStepsHorizontalComponent.prototype._showPaginationControls;
+    /**
+     * Whether the step list can be scrolled more towards the end.
+     * @type {?}
+     */
+    TdNavStepsHorizontalComponent.prototype._disableScrollAfter;
+    /**
+     * Whether the step list can be scrolled more towards the beginning.
+     * @type {?}
+     */
+    TdNavStepsHorizontalComponent.prototype._disableScrollBefore;
+    /** @type {?} */
+    TdNavStepsHorizontalComponent.prototype._steps;
+    /** @type {?} */
+    TdNavStepsHorizontalComponent.prototype._stepListContainer;
+    /** @type {?} */
+    TdNavStepsHorizontalComponent.prototype._stepList;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepsHorizontalComponent.prototype._elementRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepsHorizontalComponent.prototype._viewportRuler;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepsHorizontalComponent.prototype._dir;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepsHorizontalComponent.prototype._renderer;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepsHorizontalComponent.prototype._changeDetectorRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -1043,9 +1296,36 @@ TdNavStepsVerticalComponent.ctorParameters = () => [
     { type: ChangeDetectorRef }
 ];
 TdNavStepsVerticalComponent.propDecorators = {
-    _steps: [{ type: ContentChildren, args: [TdNavStepLinkComponent,] }],
+    _steps: [{ type: ContentChildren, args: [TdNavStepLinkComponent, { descendants: true },] }],
     _stepList: [{ type: ViewChild, args: ['stepList', { static: true },] }]
 };
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepsVerticalComponent.prototype._separators;
+    /**
+     * Emits when the component is destroyed.
+     * @type {?}
+     * @private
+     */
+    TdNavStepsVerticalComponent.prototype._destroyed;
+    /** @type {?} */
+    TdNavStepsVerticalComponent.prototype._steps;
+    /** @type {?} */
+    TdNavStepsVerticalComponent.prototype._stepList;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepsVerticalComponent.prototype._renderer;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavStepsVerticalComponent.prototype._changeDetectorRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -1068,11 +1348,26 @@ class CovalentStepsModule {
 }
 CovalentStepsModule.decorators = [
     { type: NgModule, args: [{
-                imports: [CommonModule, MatIconModule, MatRippleModule, PortalModule, ScrollDispatchModule, CovalentCommonModule],
+                imports: [CommonModule, MatIconModule, MatRippleModule, PortalModule, ScrollingModule, CovalentCommonModule],
                 declarations: [TD_STEPS],
                 exports: [TD_STEPS],
             },] }
 ];
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 export { CovalentStepsModule, StepMode, StepState, TdNavStepLinkComponent, TdNavStepsHorizontalComponent, TdNavStepsVerticalComponent, TdStepActionsDirective, TdStepBase, TdStepBodyComponent, TdStepComponent, TdStepHeaderBase, TdStepHeaderComponent, TdStepLabelDirective, TdStepSummaryDirective, TdStepsComponent, _TdStepHeaderMixinBase, _TdStepMixinBase };
 //# sourceMappingURL=covalent-core-steps.js.map

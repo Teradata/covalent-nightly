@@ -49,11 +49,11 @@
   margin: 0 0 16px; }
 
 .mat-h5, .mat-typography h5 {
-  font: 400 11.62px/20px Roboto, "Helvetica Neue", sans-serif;
+  font: 400 calc(14px * 0.83)/20px Roboto, "Helvetica Neue", sans-serif;
   margin: 0 0 12px; }
 
 .mat-h6, .mat-typography h6 {
-  font: 400 9.38px/20px Roboto, "Helvetica Neue", sans-serif;
+  font: 400 calc(14px * 0.67)/20px Roboto, "Helvetica Neue", sans-serif;
   margin: 0 0 12px; }
 
 .mat-body-strong, .mat-body-2 {
@@ -669,15 +669,15 @@ textarea.cdk-textarea-autosize-measuring {
 .mat-pseudo-checkbox-disabled {
   color: #b0b0b0; }
 
+.mat-primary .mat-pseudo-checkbox-checked,
+.mat-primary .mat-pseudo-checkbox-indeterminate {
+  background: #455a64; }
+
 .mat-pseudo-checkbox-checked,
 .mat-pseudo-checkbox-indeterminate,
 .mat-accent .mat-pseudo-checkbox-checked,
 .mat-accent .mat-pseudo-checkbox-indeterminate {
   background: #ff5722; }
-
-.mat-primary .mat-pseudo-checkbox-checked,
-.mat-primary .mat-pseudo-checkbox-indeterminate {
-  background: #455a64; }
 
 .mat-warn .mat-pseudo-checkbox-checked,
 .mat-warn .mat-pseudo-checkbox-indeterminate {
@@ -1347,7 +1347,9 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 .mat-action-row {
   border-top-color: rgba(0, 0, 0, 0.12); }
 
-.mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled='true']).cdk-keyboard-focused, .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled='true']).cdk-program-focused, .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled='true']):hover {
+.mat-expansion-panel .mat-expansion-panel-header.cdk-keyboard-focused:not([aria-disabled='true']),
+.mat-expansion-panel .mat-expansion-panel-header.cdk-program-focused:not([aria-disabled='true']),
+.mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:hover:not([aria-disabled='true']) {
   background: rgba(0, 0, 0, 0.04); }
 
 @media (hover: none) {
@@ -1502,6 +1504,8 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
   .mat-input-element::-moz-placeholder {
     color: rgba(0, 0, 0, 0.42); }
   .mat-input-element:-ms-input-placeholder {
+    color: rgba(0, 0, 0, 0.42); }
+  .mat-input-element::-ms-input-placeholder {
     color: rgba(0, 0, 0, 0.42); }
   .mat-input-element::placeholder {
     color: rgba(0, 0, 0, 0.42); }

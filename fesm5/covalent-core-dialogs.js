@@ -1,4 +1,4 @@
-import { Component, ContentChildren, Directive, ViewChild, NgModule, Injectable, Inject, RendererFactory2, ɵɵdefineInjectable, ɵɵinject } from '@angular/core';
+import { Directive, Component, ContentChildren, ViewChild, NgModule, Injectable, Inject, RendererFactory2, ɵɵdefineInjectable, ɵɵinject } from '@angular/core';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatDialogRef, MatDialogModule, MatDialogConfig, MatDialog } from '@angular/material/dialog';
@@ -59,16 +59,24 @@ var TdDialogComponent = /** @class */ (function () {
         { type: Component, args: [{
                     selector: 'td-dialog',
                     template: "<div class=\"td-dialog-wrapper\">\n  <h3 class=\"td-dialog-title\" *ngIf=\"dialogTitle.length > 0\">\n    <ng-content select=\"td-dialog-title\"></ng-content>\n  </h3>\n  <div class=\"td-dialog-content\" *ngIf=\"dialogContent.length > 0\">\n    <ng-content select=\"td-dialog-content\"></ng-content>\n  </div>\n  <div class=\"td-dialog-actions\" *ngIf=\"dialogActions.length > 0\">\n    <span class=\"td-dialog-spacer\"></span>\n    <ng-content select=\"td-dialog-actions\"></ng-content>\n  </div>\n</div>\n",
-                    styles: [".td-dialog-title{margin-top:0;margin-bottom:20px}.td-dialog-content{margin-bottom:16px}.td-dialog-actions{position:relative;top:16px;left:16px}::ng-deep [dir=rtl] .td-dialog-actions{right:16px;left:auto}:host{display:block}:host .td-dialog-actions{-ms-flex-direction:row;flex-direction:row;box-sizing:border-box;display:-ms-flexbox;display:flex}:host .td-dialog-actions .td-dialog-spacer{-ms-flex:1;flex:1}:host .td-dialog-actions ::ng-deep button{text-transform:uppercase;margin-left:8px;padding-left:8px;padding-right:8px;min-width:64px}[dir=rtl] :host .td-dialog-actions ::ng-deep button{margin-right:8px;margin-left:inherit}"]
+                    styles: [".td-dialog-title{margin-top:0;margin-bottom:20px}.td-dialog-content{margin-bottom:16px}.td-dialog-actions{position:relative;top:16px;left:16px}::ng-deep [dir=rtl] .td-dialog-actions{right:16px;left:auto}:host{display:block}:host .td-dialog-actions{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex}:host .td-dialog-actions .td-dialog-spacer{-webkit-box-flex:1;-ms-flex:1;flex:1}:host .td-dialog-actions ::ng-deep button{text-transform:uppercase;margin-left:8px;padding-left:8px;padding-right:8px;min-width:64px}[dir=rtl] :host .td-dialog-actions ::ng-deep button{margin-right:8px;margin-left:inherit}"]
                 }] }
     ];
     TdDialogComponent.propDecorators = {
-        dialogTitle: [{ type: ContentChildren, args: [TdDialogTitleDirective,] }],
-        dialogContent: [{ type: ContentChildren, args: [TdDialogContentDirective,] }],
-        dialogActions: [{ type: ContentChildren, args: [TdDialogActionsDirective,] }]
+        dialogTitle: [{ type: ContentChildren, args: [TdDialogTitleDirective, { descendants: true },] }],
+        dialogContent: [{ type: ContentChildren, args: [TdDialogContentDirective, { descendants: true },] }],
+        dialogActions: [{ type: ContentChildren, args: [TdDialogActionsDirective, { descendants: true },] }]
     };
     return TdDialogComponent;
 }());
+if (false) {
+    /** @type {?} */
+    TdDialogComponent.prototype.dialogTitle;
+    /** @type {?} */
+    TdDialogComponent.prototype.dialogContent;
+    /** @type {?} */
+    TdDialogComponent.prototype.dialogActions;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -101,6 +109,19 @@ var TdAlertDialogComponent = /** @class */ (function () {
     ]; };
     return TdAlertDialogComponent;
 }());
+if (false) {
+    /** @type {?} */
+    TdAlertDialogComponent.prototype.title;
+    /** @type {?} */
+    TdAlertDialogComponent.prototype.message;
+    /** @type {?} */
+    TdAlertDialogComponent.prototype.closeButton;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdAlertDialogComponent.prototype._dialogRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -143,6 +164,21 @@ var TdConfirmDialogComponent = /** @class */ (function () {
     ]; };
     return TdConfirmDialogComponent;
 }());
+if (false) {
+    /** @type {?} */
+    TdConfirmDialogComponent.prototype.title;
+    /** @type {?} */
+    TdConfirmDialogComponent.prototype.message;
+    /** @type {?} */
+    TdConfirmDialogComponent.prototype.cancelButton;
+    /** @type {?} */
+    TdConfirmDialogComponent.prototype.acceptButton;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdConfirmDialogComponent.prototype._dialogRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -209,7 +245,7 @@ var TdPromptDialogComponent = /** @class */ (function () {
         { type: Component, args: [{
                     selector: 'td-prompt-dialog',
                     template: "<td-dialog>\n  <td-dialog-title *ngIf=\"title\">\n    {{ title }}\n  </td-dialog-title>\n  <td-dialog-content>\n    <span class=\"td-dialog-message\">{{ message }}</span>\n    <form #form=\"ngForm\" novalidate>\n      <div class=\"td-dialog-input-wrapper\">\n        <mat-form-field class=\"td-dialog-input\">\n          <input\n            matInput\n            #input\n            (focus)=\"handleInputFocus()\"\n            (keydown.enter)=\"$event.preventDefault(); form.valid && accept()\"\n            [(ngModel)]=\"value\"\n            name=\"value\"\n            required\n          />\n        </mat-form-field>\n      </div>\n    </form>\n  </td-dialog-content>\n  <td-dialog-actions>\n    <button mat-button #closeBtn (keydown.arrowright)=\"acceptBtn.focus()\" (click)=\"cancel()\">{{ cancelButton }}</button>\n    <button\n      mat-button\n      color=\"accent\"\n      #acceptBtn\n      (keydown.arrowleft)=\"closeBtn.focus()\"\n      [disabled]=\"!form.valid\"\n      (click)=\"accept()\"\n    >\n      {{ acceptButton }}\n    </button>\n  </td-dialog-actions>\n</td-dialog>\n",
-                    styles: [".td-dialog-input-wrapper{-ms-flex-direction:row;flex-direction:row;box-sizing:border-box;display:-ms-flexbox;display:flex}.td-dialog-input-wrapper .td-dialog-input{-ms-flex:1;flex:1;box-sizing:border-box}.td-dialog-message{word-break:break-word}"]
+                    styles: [".td-dialog-input-wrapper{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex}.td-dialog-input-wrapper .td-dialog-input{-webkit-box-flex:1;-ms-flex:1;flex:1;box-sizing:border-box}.td-dialog-message{word-break:break-word}"]
                 }] }
     ];
     /** @nocollapse */
@@ -221,6 +257,25 @@ var TdPromptDialogComponent = /** @class */ (function () {
     };
     return TdPromptDialogComponent;
 }());
+if (false) {
+    /** @type {?} */
+    TdPromptDialogComponent.prototype.title;
+    /** @type {?} */
+    TdPromptDialogComponent.prototype.message;
+    /** @type {?} */
+    TdPromptDialogComponent.prototype.value;
+    /** @type {?} */
+    TdPromptDialogComponent.prototype.cancelButton;
+    /** @type {?} */
+    TdPromptDialogComponent.prototype.acceptButton;
+    /** @type {?} */
+    TdPromptDialogComponent.prototype._input;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdPromptDialogComponent.prototype._dialogRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -260,6 +315,57 @@ var CovalentDialogsModule = /** @class */ (function () {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @record
+ */
+function IDialogConfig() { }
+if (false) {
+    /** @type {?|undefined} */
+    IDialogConfig.prototype.title;
+    /** @type {?} */
+    IDialogConfig.prototype.message;
+}
+/**
+ * @record
+ */
+function IAlertConfig() { }
+if (false) {
+    /** @type {?|undefined} */
+    IAlertConfig.prototype.closeButton;
+}
+/**
+ * @record
+ */
+function IConfirmConfig() { }
+if (false) {
+    /** @type {?|undefined} */
+    IConfirmConfig.prototype.acceptButton;
+    /** @type {?|undefined} */
+    IConfirmConfig.prototype.cancelButton;
+}
+/**
+ * @record
+ */
+function IPromptConfig() { }
+if (false) {
+    /** @type {?|undefined} */
+    IPromptConfig.prototype.value;
+}
+/**
+ * @record
+ * @template T
+ */
+function IDraggableConfig() { }
+if (false) {
+    /** @type {?} */
+    IDraggableConfig.prototype.component;
+    /** @type {?|undefined} */
+    IDraggableConfig.prototype.config;
+    /** @type {?|undefined} */
+    IDraggableConfig.prototype.dragHandleSelectors;
+    /** @type {?|undefined} */
+    IDraggableConfig.prototype.draggableClass;
+}
 var TdDialogService = /** @class */ (function () {
     function TdDialogService(_document, _dialogService, _dragDrop, rendererFactory) {
         this._document = _document;
@@ -586,9 +692,51 @@ var TdDialogService = /** @class */ (function () {
         { type: DragDrop },
         { type: RendererFactory2 }
     ]; };
-    /** @nocollapse */ TdDialogService.ngInjectableDef = ɵɵdefineInjectable({ factory: function TdDialogService_Factory() { return new TdDialogService(ɵɵinject(DOCUMENT), ɵɵinject(MatDialog), ɵɵinject(DragDrop), ɵɵinject(RendererFactory2)); }, token: TdDialogService, providedIn: CovalentDialogsModule });
+    /** @nocollapse */ TdDialogService.ɵprov = ɵɵdefineInjectable({ factory: function TdDialogService_Factory() { return new TdDialogService(ɵɵinject(DOCUMENT), ɵɵinject(MatDialog), ɵɵinject(DragDrop), ɵɵinject(RendererFactory2)); }, token: TdDialogService, providedIn: CovalentDialogsModule });
     return TdDialogService;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDialogService.prototype._renderer2;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDialogService.prototype._document;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDialogService.prototype._dialogService;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDialogService.prototype._dragDrop;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdDialogService.prototype.rendererFactory;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 export { CovalentDialogsModule, TdAlertDialogComponent, TdConfirmDialogComponent, TdDialogActionsDirective, TdDialogComponent, TdDialogContentDirective, TdDialogService, TdDialogTitleDirective, TdPromptDialogComponent };
 //# sourceMappingURL=covalent-core-dialogs.js.map

@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, ElementRef, ChangeDetectorRef, HostBinding, ContentChildren, Input, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { merge, fromEvent, Subscription, Subject } from 'rxjs';
+import { Subscription, Subject, merge, fromEvent } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 /**
@@ -114,7 +114,7 @@ var TdBreadcrumbComponent = /** @class */ (function () {
                         class: 'mat-button td-breadcrumb',
                     },
                     changeDetection: ChangeDetectionStrategy.OnPush,
-                    styles: [":host.td-breadcrumb{display:inline-block;box-sizing:border-box;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-ms-flex-pack:end;justify-content:flex-end}:host.td-breadcrumb ::ng-deep>*{margin:0 10px}:host .td-breadcrumb-separator-icon{display:-ms-inline-flexbox;display:inline-flex;vertical-align:middle}:host.mat-button{min-width:0;padding:0}"]
+                    styles: [":host.td-breadcrumb{display:inline-block;box-sizing:border-box;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}:host.td-breadcrumb ::ng-deep>*{margin:0 10px}:host .td-breadcrumb-separator-icon{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;vertical-align:middle}:host.mat-button{min-width:0;padding:0}"]
                 }] }
     ];
     /** @nocollapse */
@@ -127,6 +127,32 @@ var TdBreadcrumbComponent = /** @class */ (function () {
     };
     return TdBreadcrumbComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdBreadcrumbComponent.prototype._displayCrumb;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdBreadcrumbComponent.prototype._width;
+    /** @type {?} */
+    TdBreadcrumbComponent.prototype.separatorIcon;
+    /** @type {?} */
+    TdBreadcrumbComponent.prototype._displayIcon;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdBreadcrumbComponent.prototype._elementRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdBreadcrumbComponent.prototype._changeDetectorRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -335,11 +361,47 @@ var TdBreadcrumbsComponent = /** @class */ (function () {
         { type: ChangeDetectorRef }
     ]; };
     TdBreadcrumbsComponent.propDecorators = {
-        _breadcrumbs: [{ type: ContentChildren, args: [TdBreadcrumbComponent,] }],
+        _breadcrumbs: [{ type: ContentChildren, args: [TdBreadcrumbComponent, { descendants: true },] }],
         separatorIcon: [{ type: Input }]
     };
     return TdBreadcrumbsComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdBreadcrumbsComponent.prototype._resizeSubscription;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdBreadcrumbsComponent.prototype._widthSubject;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdBreadcrumbsComponent.prototype._resizing;
+    /** @type {?} */
+    TdBreadcrumbsComponent.prototype._breadcrumbs;
+    /** @type {?} */
+    TdBreadcrumbsComponent.prototype.hiddenBreadcrumbs;
+    /**
+     * Sets the icon url shown between breadcrumbs. Defaults to 'chevron_right'.
+     * @type {?}
+     */
+    TdBreadcrumbsComponent.prototype.separatorIcon;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdBreadcrumbsComponent.prototype._elementRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdBreadcrumbsComponent.prototype._changeDetectorRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -357,6 +419,21 @@ var CovalentBreadcrumbsModule = /** @class */ (function () {
     ];
     return CovalentBreadcrumbsModule;
 }());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 export { CovalentBreadcrumbsModule, TdBreadcrumbComponent, TdBreadcrumbsComponent };
 //# sourceMappingURL=covalent-core-breadcrumbs.js.map

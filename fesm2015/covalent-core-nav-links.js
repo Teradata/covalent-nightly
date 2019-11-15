@@ -13,6 +13,42 @@ import { CovalentExpansionPanelModule } from '@covalent/core/expansion-panel';
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @record
+ */
+function ITdNavNode() { }
+if (false) {
+    /** @type {?} */
+    ITdNavNode.prototype.label;
+    /** @type {?|undefined} */
+    ITdNavNode.prototype.show;
+}
+/**
+ * @record
+ */
+function ITdNavHeader() { }
+if (false) {
+    /** @type {?} */
+    ITdNavHeader.prototype.children;
+}
+/**
+ * @record
+ */
+function ITdNavExpansion() { }
+if (false) {
+    /** @type {?|undefined} */
+    ITdNavExpansion.prototype.collapsable;
+}
+/**
+ * @record
+ */
+function ITdLink() { }
+if (false) {
+    /** @type {?} */
+    ITdLink.prototype.link;
+    /** @type {?} */
+    ITdLink.prototype.icon;
+}
 /** @type {?} */
 let nextUniqueId = 0;
 class TdNavLinksComponent {
@@ -83,6 +119,30 @@ TdNavLinksComponent.propDecorators = {
     links: [{ type: Input }],
     afterNavigation: [{ type: Output }]
 };
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavLinksComponent.prototype._uniqueId;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdNavLinksComponent.prototype._collapsedSet;
+    /** @type {?} */
+    TdNavLinksComponent.prototype.id;
+    /**
+     * Links to be rendered by component.
+     * @type {?}
+     */
+    TdNavLinksComponent.prototype.links;
+    /**
+     * Event trigger after a navigation click
+     * @type {?}
+     */
+    TdNavLinksComponent.prototype.afterNavigation;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -108,6 +168,21 @@ CovalentNavLinksModule.decorators = [
                 ],
             },] }
 ];
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 export { CovalentNavLinksModule, TdNavLinksComponent };
 //# sourceMappingURL=covalent-core-nav-links.js.map
