@@ -5,6 +5,8 @@ import { MatDialogRef, MatDialogModule, MatDialogConfig, MatDialog } from '@angu
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { DragDrop } from '@angular/cdk/drag-drop';
+import { Subject, merge } from 'rxjs';
+import { fromEvent } from 'rxjs/internal/observable/fromEvent';
 
 /**
  * @fileoverview added by tsickle
@@ -325,6 +327,17 @@ if (false) {
     /** @type {?|undefined} */
     IDraggableConfig.prototype.draggableClass;
 }
+/**
+ * @record
+ * @template T
+ */
+function IDraggableRefs() { }
+if (false) {
+    /** @type {?} */
+    IDraggableRefs.prototype.matDialogRef;
+    /** @type {?} */
+    IDraggableRefs.prototype.dragRefSubject;
+}
 class TdDialogService {
     /**
      * @param {?} _document
@@ -463,17 +476,19 @@ class TdDialogService {
      */
     openDraggable({ component, config, dragHandleSelectors, draggableClass, }) {
         /** @type {?} */
-        const dialogRef = this._dialogService.open(component, config);
+        const matDialogRef = this._dialogService.open(component, config);
+        /** @type {?} */
+        const dragRefSubject = new Subject();
         /** @type {?} */
         const CDK_OVERLAY_PANE_SELECTOR = '.cdk-overlay-pane';
         /** @type {?} */
         const CDK_OVERLAY_CONTAINER_SELECTOR = '.cdk-overlay-container';
-        dialogRef.afterOpened().subscribe((/**
+        matDialogRef.afterOpened().subscribe((/**
          * @return {?}
          */
         () => {
             /** @type {?} */
-            const dialogElement = (/** @type {?} */ (this._document.getElementById(dialogRef.id)));
+            const dialogElement = (/** @type {?} */ (this._document.getElementById(matDialogRef.id)));
             /** @type {?} */
             const draggableElement = this._dragDrop.createDrag(dialogElement);
             if (draggableClass) {
@@ -503,8 +518,9 @@ class TdDialogService {
             if (boundaryElement) {
                 draggableElement.withBoundaryElement((/** @type {?} */ (boundaryElement)));
             }
+            dragRefSubject.next(draggableElement);
         }));
-        return dialogRef;
+        return { matDialogRef, dragRefSubject };
     }
     /**
      * @private
@@ -564,6 +580,322 @@ if (false) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/** @enum {string} */
+const corners = {
+    topRight: 'topRight',
+    bottomRight: 'bottomRight',
+    bottomLeft: 'bottomLeft',
+    topLeft: 'topLeft',
+};
+/** @enum {string} */
+const cursors = {
+    nesw: 'nesw-resize',
+    nwse: 'nwse-resize',
+};
+/** @enum {string} */
+const verticalAlignment = {
+    top: 'top',
+    bottom: 'bottom',
+};
+/** @enum {string} */
+const horizontalAlignment = {
+    right: 'right',
+    left: 'left',
+};
+/** @type {?} */
+const cornerWidth = '16px';
+/** @type {?} */
+const offset = '0px';
+/** @type {?} */
+const minWidth = 200;
+/** @type {?} */
+const minHeight = 200;
+/**
+ * @param {?} sizeString
+ * @return {?}
+ */
+function getPixels(sizeString) {
+    return parseFloat((sizeString || '').replace('px', ''));
+}
+/**
+ * @param {?} min
+ * @param {?} num
+ * @param {?} max
+ * @return {?}
+ */
+function clamp(min, num, max) {
+    return Math.min(Math.max(num, min), max);
+}
+class ResizableDraggableDialog {
+    /**
+     * @param {?} _document
+     * @param {?} _renderer2
+     * @param {?} _dialogRef
+     * @param {?} _dragRef
+     */
+    constructor(_document, _renderer2, _dialogRef, _dragRef) {
+        this._document = _document;
+        this._renderer2 = _renderer2;
+        this._dialogRef = _dialogRef;
+        this._dragRef = _dragRef;
+        this.cornerElements = [];
+        this.pointerDownSubs = [];
+        this._initialPositionReset();
+        this._attachCorners();
+    }
+    /**
+     * @return {?}
+     */
+    attach() {
+        this.detach();
+        this._attachCorners();
+    }
+    /**
+     * @return {?}
+     */
+    detach() {
+        this.pointerDownSubs.forEach((/**
+         * @param {?} sub
+         * @return {?}
+         */
+        (sub) => sub.unsubscribe()));
+        this.pointerDownSubs = [];
+        this.cornerElements.forEach((/**
+         * @param {?} elem
+         * @return {?}
+         */
+        (elem) => this._renderer2.removeChild(this._getDialogWrapper(), elem)));
+        this.cornerElements = [];
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    _getDialogWrapper() {
+        return ((/** @type {?} */ (this._document.getElementById(this._dialogRef.id))) || {}).parentElement;
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    _getViewportDimensions() {
+        return this._getDialogWrapper().parentElement.getBoundingClientRect();
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    _getDialogWrapperDimensions() {
+        /** @type {?} */
+        const dimensions = getComputedStyle(this._getDialogWrapper());
+        return {
+            width: getPixels(dimensions.width),
+            height: getPixels(dimensions.height),
+        };
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    _initialPositionReset() {
+        const { right: viewportWidth, bottom: viewportHeight } = this._getViewportDimensions();
+        const { width, height } = this._getDialogWrapperDimensions();
+        const { marginRight: originalDialogRight, marginLeft: originalDialogLeft, marginBottom: originalDialogBottom, marginTop: originalDialogTop, } = this._getDialogWrapper().style;
+        /** @type {?} */
+        let x;
+        if (originalDialogLeft) {
+            x = getPixels(originalDialogLeft);
+        }
+        else if (originalDialogRight) {
+            x = viewportWidth - getPixels(originalDialogRight) - width;
+        }
+        else {
+            x = (viewportWidth - width) / 2;
+        }
+        /** @type {?} */
+        let y;
+        if (originalDialogTop) {
+            y = getPixels(originalDialogTop);
+        }
+        else if (originalDialogBottom) {
+            y = viewportHeight - getPixels(originalDialogBottom) - height;
+        }
+        else {
+            y = (viewportHeight - height) / 2;
+        }
+        // use drag ref's mechanisms for positioning instead of the dialog's
+        this._dialogRef.updatePosition({ top: '0px', right: '0px', bottom: '0px', left: '0px' });
+        this._dragRef.setFreeDragPosition({ x, y });
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    _attachCorners() {
+        Object.values(corners).forEach((/**
+         * @param {?} corner
+         * @return {?}
+         */
+        (corner) => {
+            /** @type {?} */
+            const element = this._renderer2.createElement('div');
+            this.cornerElements = [...this.cornerElements, element];
+            this._renderer2.setStyle(element, 'position', 'absolute');
+            this._renderer2.setStyle(element, 'width', cornerWidth);
+            this._renderer2.setStyle(element, 'height', cornerWidth);
+            this._renderer2.appendChild(this._getDialogWrapper(), element);
+            /** @type {?} */
+            let cursor;
+            /** @type {?} */
+            let topBottom;
+            /** @type {?} */
+            let rightLeft;
+            if (corner === corners.topRight) {
+                cursor = cursors.nesw;
+                topBottom = verticalAlignment.top;
+                rightLeft = horizontalAlignment.right;
+            }
+            else if (corner === corners.bottomRight) {
+                cursor = cursors.nwse;
+                topBottom = verticalAlignment.bottom;
+                rightLeft = horizontalAlignment.right;
+                /** @type {?} */
+                const icon = this._renderer2.createElement('i');
+                this._renderer2.addClass(icon, 'material-icons');
+                this._renderer2.appendChild(icon, this._renderer2.createText('filter_list'));
+                this._renderer2.appendChild(element, icon);
+                this._renderer2.setStyle(icon, 'transform', `rotate(${315}deg) translate(0px, ${offset})`);
+                this._renderer2.setStyle(icon, 'font-size', cornerWidth);
+            }
+            else if (corner === corners.bottomLeft) {
+                cursor = cursors.nesw;
+                topBottom = verticalAlignment.bottom;
+                rightLeft = horizontalAlignment.left;
+            }
+            else if (corner === corners.topLeft) {
+                cursor = cursors.nwse;
+                topBottom = verticalAlignment.top;
+                rightLeft = horizontalAlignment.left;
+            }
+            this._renderer2.setStyle(element, topBottom, offset);
+            this._renderer2.setStyle(element, rightLeft, offset);
+            this._renderer2.setStyle(element, 'cursor', cursor);
+            /** @type {?} */
+            const pointerDownSub = fromEvent(element, 'pointerdown').subscribe((/**
+             * @param {?} event
+             * @return {?}
+             */
+            (event) => {
+                this._handleMouseDown(event, corner);
+            }));
+            this.pointerDownSubs = [...this.pointerDownSubs, pointerDownSub];
+        }));
+    }
+    /**
+     * @private
+     * @param {?} event
+     * @param {?} corner
+     * @return {?}
+     */
+    _handleMouseDown(event, corner) {
+        const { width: originalWidth, height: originalHeight } = this._getDialogWrapperDimensions();
+        /** @type {?} */
+        const originalMouseX = event.pageX;
+        /** @type {?} */
+        const originalMouseY = event.pageY;
+        const { x: currentTransformX, y: currentTransformY } = this._dragRef.getFreeDragPosition();
+        const { bottom: distanceFromBottom, right: distanceFromRight, } = this._getDialogWrapper().getBoundingClientRect();
+        const { right: viewportWidth, bottom: viewportHeight } = this._getViewportDimensions();
+        /** @type {?} */
+        const mouseMoveSub = fromEvent(window, 'pointermove').subscribe((/**
+         * @param {?} e
+         * @return {?}
+         */
+        (e) => {
+            e.preventDefault(); // prevent highlighting of text when dragging
+            // prevent highlighting of text when dragging
+            /** @type {?} */
+            const yDelta = clamp(0, e.pageY, viewportHeight) - originalMouseY;
+            /** @type {?} */
+            const xDelta = clamp(0, e.pageX, viewportWidth) - originalMouseX;
+            /** @type {?} */
+            let newHeight;
+            /** @type {?} */
+            let newWidth;
+            /** @type {?} */
+            let newTransformY = 0;
+            /** @type {?} */
+            let newTransformX = 0;
+            // top right
+            if (corner === corners.topRight) {
+                newHeight = clamp(minHeight, originalHeight - yDelta, viewportHeight);
+                newWidth = clamp(minWidth, originalWidth + xDelta, viewportWidth);
+                newTransformY = clamp(0, currentTransformY + yDelta, distanceFromBottom - newHeight);
+                newTransformX = currentTransformX;
+            }
+            // bottom right
+            else if (corner === corners.bottomRight) {
+                newHeight = clamp(minHeight, originalHeight + yDelta, viewportHeight);
+                newWidth = clamp(minWidth, originalWidth + xDelta, viewportWidth);
+                newTransformY = currentTransformY;
+                newTransformX = currentTransformX;
+            }
+            // bottom left
+            else if (corner === corners.bottomLeft) {
+                newHeight = clamp(minHeight, originalHeight + yDelta, viewportHeight);
+                newWidth = clamp(minWidth, originalWidth - xDelta, viewportWidth);
+                newTransformY = currentTransformY;
+                newTransformX = clamp(0, currentTransformX + xDelta, distanceFromRight - newWidth);
+            }
+            // top left
+            else if (corner === corners.topLeft) {
+                newHeight = clamp(minHeight, originalHeight - yDelta, viewportHeight);
+                newWidth = clamp(minWidth, originalWidth - xDelta, viewportWidth);
+                newTransformX = clamp(0, currentTransformX + xDelta, distanceFromRight - newWidth);
+                newTransformY = clamp(0, currentTransformY + yDelta, distanceFromBottom - newHeight);
+            }
+            this._dialogRef.updateSize(`${newWidth}px`, `${newHeight}px`);
+            this._dragRef.setFreeDragPosition({
+                x: newTransformX,
+                y: newTransformY,
+            });
+        }));
+        /** @type {?} */
+        const mouseUpSub = merge(fromEvent(window, 'pointerup'), fromEvent(window, 'pointercancel')).subscribe((/**
+         * @return {?}
+         */
+        () => {
+            mouseMoveSub.unsubscribe();
+            mouseUpSub.unsubscribe();
+        }));
+    }
+}
+if (false) {
+    /** @type {?} */
+    ResizableDraggableDialog.prototype.cornerElements;
+    /** @type {?} */
+    ResizableDraggableDialog.prototype.pointerDownSubs;
+    /**
+     * @type {?}
+     * @private
+     */
+    ResizableDraggableDialog.prototype._document;
+    /**
+     * @type {?}
+     * @private
+     */
+    ResizableDraggableDialog.prototype._renderer2;
+    /**
+     * @type {?}
+     * @private
+     */
+    ResizableDraggableDialog.prototype._dialogRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    ResizableDraggableDialog.prototype._dragRef;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -575,5 +907,10 @@ if (false) {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
-export { CovalentDialogsModule, TdAlertDialogComponent, TdConfirmDialogComponent, TdDialogActionsDirective, TdDialogComponent, TdDialogContentDirective, TdDialogService, TdDialogTitleDirective, TdPromptDialogComponent };
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+export { CovalentDialogsModule, ResizableDraggableDialog, TdAlertDialogComponent, TdConfirmDialogComponent, TdDialogActionsDirective, TdDialogComponent, TdDialogContentDirective, TdDialogService, TdDialogTitleDirective, TdPromptDialogComponent };
 //# sourceMappingURL=covalent-core-dialogs.js.map

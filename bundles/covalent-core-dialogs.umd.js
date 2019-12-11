@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/material/dialog'), require('@angular/material/input'), require('@angular/material/button'), require('@angular/cdk/drag-drop')) :
-    typeof define === 'function' && define.amd ? define('@covalent/core/dialogs', ['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/material/dialog', '@angular/material/input', '@angular/material/button', '@angular/cdk/drag-drop'], factory) :
-    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.dialogs = {}), global.ng.core, global.ng.common, global.ng.forms, global.ng.material.dialog, global.ng.material.input, global.ng.material.button, global.ng.cdk['drag-drop']));
-}(this, (function (exports, core, common, forms, dialog, input, button, dragDrop) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/material/dialog'), require('@angular/material/input'), require('@angular/material/button'), require('@angular/cdk/drag-drop'), require('rxjs'), require('rxjs/internal/observable/fromEvent')) :
+    typeof define === 'function' && define.amd ? define('@covalent/core/dialogs', ['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/material/dialog', '@angular/material/input', '@angular/material/button', '@angular/cdk/drag-drop', 'rxjs', 'rxjs/internal/observable/fromEvent'], factory) :
+    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.dialogs = {}), global.ng.core, global.ng.common, global.ng.forms, global.ng.material.dialog, global.ng.material.input, global.ng.material.button, global.ng.cdk['drag-drop'], global.rxjs, global.rxjs['internal/observable/fromEvent']));
+}(this, (function (exports, core, common, forms, dialog, input, button, dragDrop, rxjs, fromEvent) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -560,6 +560,17 @@
         /** @type {?|undefined} */
         IDraggableConfig.prototype.draggableClass;
     }
+    /**
+     * @record
+     * @template T
+     */
+    function IDraggableRefs() { }
+    if (false) {
+        /** @type {?} */
+        IDraggableRefs.prototype.matDialogRef;
+        /** @type {?} */
+        IDraggableRefs.prototype.dragRefSubject;
+    }
     var TdDialogService = /** @class */ (function () {
         function TdDialogService(_document, _dialogService, _dragDrop, rendererFactory) {
             this._document = _document;
@@ -814,17 +825,19 @@
             var _this = this;
             var component = _a.component, config = _a.config, dragHandleSelectors = _a.dragHandleSelectors, draggableClass = _a.draggableClass;
             /** @type {?} */
-            var dialogRef = this._dialogService.open(component, config);
+            var matDialogRef = this._dialogService.open(component, config);
+            /** @type {?} */
+            var dragRefSubject = new rxjs.Subject();
             /** @type {?} */
             var CDK_OVERLAY_PANE_SELECTOR = '.cdk-overlay-pane';
             /** @type {?} */
             var CDK_OVERLAY_CONTAINER_SELECTOR = '.cdk-overlay-container';
-            dialogRef.afterOpened().subscribe((/**
+            matDialogRef.afterOpened().subscribe((/**
              * @return {?}
              */
             function () {
                 /** @type {?} */
-                var dialogElement = (/** @type {?} */ (_this._document.getElementById(dialogRef.id)));
+                var dialogElement = (/** @type {?} */ (_this._document.getElementById(matDialogRef.id)));
                 /** @type {?} */
                 var draggableElement = _this._dragDrop.createDrag(dialogElement);
                 if (draggableClass) {
@@ -854,8 +867,9 @@
                 if (boundaryElement) {
                     draggableElement.withBoundaryElement((/** @type {?} */ (boundaryElement)));
                 }
+                dragRefSubject.next(draggableElement);
             }));
-            return dialogRef;
+            return { matDialogRef: matDialogRef, dragRefSubject: dragRefSubject };
         };
         /**
          * @private
@@ -917,7 +931,359 @@
         TdDialogService.prototype.rendererFactory;
     }
 
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /** @enum {string} */
+    var corners = {
+        topRight: 'topRight',
+        bottomRight: 'bottomRight',
+        bottomLeft: 'bottomLeft',
+        topLeft: 'topLeft',
+    };
+    /** @enum {string} */
+    var cursors = {
+        nesw: 'nesw-resize',
+        nwse: 'nwse-resize',
+    };
+    /** @enum {string} */
+    var verticalAlignment = {
+        top: 'top',
+        bottom: 'bottom',
+    };
+    /** @enum {string} */
+    var horizontalAlignment = {
+        right: 'right',
+        left: 'left',
+    };
+    /** @type {?} */
+    var cornerWidth = '16px';
+    /** @type {?} */
+    var offset = '0px';
+    /** @type {?} */
+    var minWidth = 200;
+    /** @type {?} */
+    var minHeight = 200;
+    /**
+     * @param {?} sizeString
+     * @return {?}
+     */
+    function getPixels(sizeString) {
+        return parseFloat((sizeString || '').replace('px', ''));
+    }
+    /**
+     * @param {?} min
+     * @param {?} num
+     * @param {?} max
+     * @return {?}
+     */
+    function clamp(min, num, max) {
+        return Math.min(Math.max(num, min), max);
+    }
+    var ResizableDraggableDialog = /** @class */ (function () {
+        function ResizableDraggableDialog(_document, _renderer2, _dialogRef, _dragRef) {
+            this._document = _document;
+            this._renderer2 = _renderer2;
+            this._dialogRef = _dialogRef;
+            this._dragRef = _dragRef;
+            this.cornerElements = [];
+            this.pointerDownSubs = [];
+            this._initialPositionReset();
+            this._attachCorners();
+        }
+        /**
+         * @return {?}
+         */
+        ResizableDraggableDialog.prototype.attach = /**
+         * @return {?}
+         */
+        function () {
+            this.detach();
+            this._attachCorners();
+        };
+        /**
+         * @return {?}
+         */
+        ResizableDraggableDialog.prototype.detach = /**
+         * @return {?}
+         */
+        function () {
+            var _this = this;
+            this.pointerDownSubs.forEach((/**
+             * @param {?} sub
+             * @return {?}
+             */
+            function (sub) { return sub.unsubscribe(); }));
+            this.pointerDownSubs = [];
+            this.cornerElements.forEach((/**
+             * @param {?} elem
+             * @return {?}
+             */
+            function (elem) { return _this._renderer2.removeChild(_this._getDialogWrapper(), elem); }));
+            this.cornerElements = [];
+        };
+        /**
+         * @private
+         * @return {?}
+         */
+        ResizableDraggableDialog.prototype._getDialogWrapper = /**
+         * @private
+         * @return {?}
+         */
+        function () {
+            return ((/** @type {?} */ (this._document.getElementById(this._dialogRef.id))) || {}).parentElement;
+        };
+        /**
+         * @private
+         * @return {?}
+         */
+        ResizableDraggableDialog.prototype._getViewportDimensions = /**
+         * @private
+         * @return {?}
+         */
+        function () {
+            return this._getDialogWrapper().parentElement.getBoundingClientRect();
+        };
+        /**
+         * @private
+         * @return {?}
+         */
+        ResizableDraggableDialog.prototype._getDialogWrapperDimensions = /**
+         * @private
+         * @return {?}
+         */
+        function () {
+            /** @type {?} */
+            var dimensions = getComputedStyle(this._getDialogWrapper());
+            return {
+                width: getPixels(dimensions.width),
+                height: getPixels(dimensions.height),
+            };
+        };
+        /**
+         * @private
+         * @return {?}
+         */
+        ResizableDraggableDialog.prototype._initialPositionReset = /**
+         * @private
+         * @return {?}
+         */
+        function () {
+            var _a = this._getViewportDimensions(), viewportWidth = _a.right, viewportHeight = _a.bottom;
+            var _b = this._getDialogWrapperDimensions(), width = _b.width, height = _b.height;
+            var _c = this._getDialogWrapper().style, originalDialogRight = _c.marginRight, originalDialogLeft = _c.marginLeft, originalDialogBottom = _c.marginBottom, originalDialogTop = _c.marginTop;
+            /** @type {?} */
+            var x;
+            if (originalDialogLeft) {
+                x = getPixels(originalDialogLeft);
+            }
+            else if (originalDialogRight) {
+                x = viewportWidth - getPixels(originalDialogRight) - width;
+            }
+            else {
+                x = (viewportWidth - width) / 2;
+            }
+            /** @type {?} */
+            var y;
+            if (originalDialogTop) {
+                y = getPixels(originalDialogTop);
+            }
+            else if (originalDialogBottom) {
+                y = viewportHeight - getPixels(originalDialogBottom) - height;
+            }
+            else {
+                y = (viewportHeight - height) / 2;
+            }
+            // use drag ref's mechanisms for positioning instead of the dialog's
+            this._dialogRef.updatePosition({ top: '0px', right: '0px', bottom: '0px', left: '0px' });
+            this._dragRef.setFreeDragPosition({ x: x, y: y });
+        };
+        /**
+         * @private
+         * @return {?}
+         */
+        ResizableDraggableDialog.prototype._attachCorners = /**
+         * @private
+         * @return {?}
+         */
+        function () {
+            var _this = this;
+            Object.values(corners).forEach((/**
+             * @param {?} corner
+             * @return {?}
+             */
+            function (corner) {
+                /** @type {?} */
+                var element = _this._renderer2.createElement('div');
+                _this.cornerElements = __spread(_this.cornerElements, [element]);
+                _this._renderer2.setStyle(element, 'position', 'absolute');
+                _this._renderer2.setStyle(element, 'width', cornerWidth);
+                _this._renderer2.setStyle(element, 'height', cornerWidth);
+                _this._renderer2.appendChild(_this._getDialogWrapper(), element);
+                /** @type {?} */
+                var cursor;
+                /** @type {?} */
+                var topBottom;
+                /** @type {?} */
+                var rightLeft;
+                if (corner === corners.topRight) {
+                    cursor = cursors.nesw;
+                    topBottom = verticalAlignment.top;
+                    rightLeft = horizontalAlignment.right;
+                }
+                else if (corner === corners.bottomRight) {
+                    cursor = cursors.nwse;
+                    topBottom = verticalAlignment.bottom;
+                    rightLeft = horizontalAlignment.right;
+                    /** @type {?} */
+                    var icon = _this._renderer2.createElement('i');
+                    _this._renderer2.addClass(icon, 'material-icons');
+                    _this._renderer2.appendChild(icon, _this._renderer2.createText('filter_list'));
+                    _this._renderer2.appendChild(element, icon);
+                    _this._renderer2.setStyle(icon, 'transform', "rotate(" + 315 + "deg) translate(0px, " + offset + ")");
+                    _this._renderer2.setStyle(icon, 'font-size', cornerWidth);
+                }
+                else if (corner === corners.bottomLeft) {
+                    cursor = cursors.nesw;
+                    topBottom = verticalAlignment.bottom;
+                    rightLeft = horizontalAlignment.left;
+                }
+                else if (corner === corners.topLeft) {
+                    cursor = cursors.nwse;
+                    topBottom = verticalAlignment.top;
+                    rightLeft = horizontalAlignment.left;
+                }
+                _this._renderer2.setStyle(element, topBottom, offset);
+                _this._renderer2.setStyle(element, rightLeft, offset);
+                _this._renderer2.setStyle(element, 'cursor', cursor);
+                /** @type {?} */
+                var pointerDownSub = fromEvent.fromEvent(element, 'pointerdown').subscribe((/**
+                 * @param {?} event
+                 * @return {?}
+                 */
+                function (event) {
+                    _this._handleMouseDown(event, corner);
+                }));
+                _this.pointerDownSubs = __spread(_this.pointerDownSubs, [pointerDownSub]);
+            }));
+        };
+        /**
+         * @private
+         * @param {?} event
+         * @param {?} corner
+         * @return {?}
+         */
+        ResizableDraggableDialog.prototype._handleMouseDown = /**
+         * @private
+         * @param {?} event
+         * @param {?} corner
+         * @return {?}
+         */
+        function (event, corner) {
+            var _this = this;
+            var _a = this._getDialogWrapperDimensions(), originalWidth = _a.width, originalHeight = _a.height;
+            /** @type {?} */
+            var originalMouseX = event.pageX;
+            /** @type {?} */
+            var originalMouseY = event.pageY;
+            var _b = this._dragRef.getFreeDragPosition(), currentTransformX = _b.x, currentTransformY = _b.y;
+            var _c = this._getDialogWrapper().getBoundingClientRect(), distanceFromBottom = _c.bottom, distanceFromRight = _c.right;
+            var _d = this._getViewportDimensions(), viewportWidth = _d.right, viewportHeight = _d.bottom;
+            /** @type {?} */
+            var mouseMoveSub = fromEvent.fromEvent(window, 'pointermove').subscribe((/**
+             * @param {?} e
+             * @return {?}
+             */
+            function (e) {
+                e.preventDefault(); // prevent highlighting of text when dragging
+                // prevent highlighting of text when dragging
+                /** @type {?} */
+                var yDelta = clamp(0, e.pageY, viewportHeight) - originalMouseY;
+                /** @type {?} */
+                var xDelta = clamp(0, e.pageX, viewportWidth) - originalMouseX;
+                /** @type {?} */
+                var newHeight;
+                /** @type {?} */
+                var newWidth;
+                /** @type {?} */
+                var newTransformY = 0;
+                /** @type {?} */
+                var newTransformX = 0;
+                // top right
+                if (corner === corners.topRight) {
+                    newHeight = clamp(minHeight, originalHeight - yDelta, viewportHeight);
+                    newWidth = clamp(minWidth, originalWidth + xDelta, viewportWidth);
+                    newTransformY = clamp(0, currentTransformY + yDelta, distanceFromBottom - newHeight);
+                    newTransformX = currentTransformX;
+                }
+                // bottom right
+                else if (corner === corners.bottomRight) {
+                    newHeight = clamp(minHeight, originalHeight + yDelta, viewportHeight);
+                    newWidth = clamp(minWidth, originalWidth + xDelta, viewportWidth);
+                    newTransformY = currentTransformY;
+                    newTransformX = currentTransformX;
+                }
+                // bottom left
+                else if (corner === corners.bottomLeft) {
+                    newHeight = clamp(minHeight, originalHeight + yDelta, viewportHeight);
+                    newWidth = clamp(minWidth, originalWidth - xDelta, viewportWidth);
+                    newTransformY = currentTransformY;
+                    newTransformX = clamp(0, currentTransformX + xDelta, distanceFromRight - newWidth);
+                }
+                // top left
+                else if (corner === corners.topLeft) {
+                    newHeight = clamp(minHeight, originalHeight - yDelta, viewportHeight);
+                    newWidth = clamp(minWidth, originalWidth - xDelta, viewportWidth);
+                    newTransformX = clamp(0, currentTransformX + xDelta, distanceFromRight - newWidth);
+                    newTransformY = clamp(0, currentTransformY + yDelta, distanceFromBottom - newHeight);
+                }
+                _this._dialogRef.updateSize(newWidth + "px", newHeight + "px");
+                _this._dragRef.setFreeDragPosition({
+                    x: newTransformX,
+                    y: newTransformY,
+                });
+            }));
+            /** @type {?} */
+            var mouseUpSub = rxjs.merge(fromEvent.fromEvent(window, 'pointerup'), fromEvent.fromEvent(window, 'pointercancel')).subscribe((/**
+             * @return {?}
+             */
+            function () {
+                mouseMoveSub.unsubscribe();
+                mouseUpSub.unsubscribe();
+            }));
+        };
+        return ResizableDraggableDialog;
+    }());
+    if (false) {
+        /** @type {?} */
+        ResizableDraggableDialog.prototype.cornerElements;
+        /** @type {?} */
+        ResizableDraggableDialog.prototype.pointerDownSubs;
+        /**
+         * @type {?}
+         * @private
+         */
+        ResizableDraggableDialog.prototype._document;
+        /**
+         * @type {?}
+         * @private
+         */
+        ResizableDraggableDialog.prototype._renderer2;
+        /**
+         * @type {?}
+         * @private
+         */
+        ResizableDraggableDialog.prototype._dialogRef;
+        /**
+         * @type {?}
+         * @private
+         */
+        ResizableDraggableDialog.prototype._dragRef;
+    }
+
     exports.CovalentDialogsModule = CovalentDialogsModule;
+    exports.ResizableDraggableDialog = ResizableDraggableDialog;
     exports.TdAlertDialogComponent = TdAlertDialogComponent;
     exports.TdConfirmDialogComponent = TdConfirmDialogComponent;
     exports.TdDialogActionsDirective = TdDialogActionsDirective;

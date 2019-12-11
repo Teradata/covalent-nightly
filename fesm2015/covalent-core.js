@@ -20,6 +20,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogRef, MatDialogModule, MatDialogConfig, MatDialog } from '@angular/material/dialog';
 import { DragDrop } from '@angular/cdk/drag-drop';
+import { fromEvent as fromEvent$1 } from 'rxjs/internal/observable/fromEvent';
 import { HttpRequest, HttpHeaders, HttpParams, HttpEventType, HttpClient } from '@angular/common/http';
 import { ScrollingModule, ViewportRuler } from '@angular/cdk/scrolling';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
@@ -6718,6 +6719,17 @@ if (false) {
     /** @type {?|undefined} */
     IDraggableConfig.prototype.draggableClass;
 }
+/**
+ * @record
+ * @template T
+ */
+function IDraggableRefs() { }
+if (false) {
+    /** @type {?} */
+    IDraggableRefs.prototype.matDialogRef;
+    /** @type {?} */
+    IDraggableRefs.prototype.dragRefSubject;
+}
 class TdDialogService {
     /**
      * @param {?} _document
@@ -6856,17 +6868,19 @@ class TdDialogService {
      */
     openDraggable({ component, config, dragHandleSelectors, draggableClass, }) {
         /** @type {?} */
-        const dialogRef = this._dialogService.open(component, config);
+        const matDialogRef = this._dialogService.open(component, config);
+        /** @type {?} */
+        const dragRefSubject = new Subject();
         /** @type {?} */
         const CDK_OVERLAY_PANE_SELECTOR = '.cdk-overlay-pane';
         /** @type {?} */
         const CDK_OVERLAY_CONTAINER_SELECTOR = '.cdk-overlay-container';
-        dialogRef.afterOpened().subscribe((/**
+        matDialogRef.afterOpened().subscribe((/**
          * @return {?}
          */
         () => {
             /** @type {?} */
-            const dialogElement = (/** @type {?} */ (this._document.getElementById(dialogRef.id)));
+            const dialogElement = (/** @type {?} */ (this._document.getElementById(matDialogRef.id)));
             /** @type {?} */
             const draggableElement = this._dragDrop.createDrag(dialogElement);
             if (draggableClass) {
@@ -6896,8 +6910,9 @@ class TdDialogService {
             if (boundaryElement) {
                 draggableElement.withBoundaryElement((/** @type {?} */ (boundaryElement)));
             }
+            dragRefSubject.next(draggableElement);
         }));
-        return dialogRef;
+        return { matDialogRef, dragRefSubject };
     }
     /**
      * @private
@@ -6951,6 +6966,327 @@ if (false) {
      * @private
      */
     TdDialogService.prototype.rendererFactory;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @enum {string} */
+const corners = {
+    topRight: 'topRight',
+    bottomRight: 'bottomRight',
+    bottomLeft: 'bottomLeft',
+    topLeft: 'topLeft',
+};
+/** @enum {string} */
+const cursors = {
+    nesw: 'nesw-resize',
+    nwse: 'nwse-resize',
+};
+/** @enum {string} */
+const verticalAlignment = {
+    top: 'top',
+    bottom: 'bottom',
+};
+/** @enum {string} */
+const horizontalAlignment = {
+    right: 'right',
+    left: 'left',
+};
+/** @type {?} */
+const cornerWidth = '16px';
+/** @type {?} */
+const offset = '0px';
+/** @type {?} */
+const minWidth = 200;
+/** @type {?} */
+const minHeight = 200;
+/**
+ * @param {?} sizeString
+ * @return {?}
+ */
+function getPixels(sizeString) {
+    return parseFloat((sizeString || '').replace('px', ''));
+}
+/**
+ * @param {?} min
+ * @param {?} num
+ * @param {?} max
+ * @return {?}
+ */
+function clamp(min, num, max) {
+    return Math.min(Math.max(num, min), max);
+}
+class ResizableDraggableDialog {
+    /**
+     * @param {?} _document
+     * @param {?} _renderer2
+     * @param {?} _dialogRef
+     * @param {?} _dragRef
+     */
+    constructor(_document, _renderer2, _dialogRef, _dragRef) {
+        this._document = _document;
+        this._renderer2 = _renderer2;
+        this._dialogRef = _dialogRef;
+        this._dragRef = _dragRef;
+        this.cornerElements = [];
+        this.pointerDownSubs = [];
+        this._initialPositionReset();
+        this._attachCorners();
+    }
+    /**
+     * @return {?}
+     */
+    attach() {
+        this.detach();
+        this._attachCorners();
+    }
+    /**
+     * @return {?}
+     */
+    detach() {
+        this.pointerDownSubs.forEach((/**
+         * @param {?} sub
+         * @return {?}
+         */
+        (sub) => sub.unsubscribe()));
+        this.pointerDownSubs = [];
+        this.cornerElements.forEach((/**
+         * @param {?} elem
+         * @return {?}
+         */
+        (elem) => this._renderer2.removeChild(this._getDialogWrapper(), elem)));
+        this.cornerElements = [];
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    _getDialogWrapper() {
+        return ((/** @type {?} */ (this._document.getElementById(this._dialogRef.id))) || {}).parentElement;
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    _getViewportDimensions() {
+        return this._getDialogWrapper().parentElement.getBoundingClientRect();
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    _getDialogWrapperDimensions() {
+        /** @type {?} */
+        const dimensions = getComputedStyle(this._getDialogWrapper());
+        return {
+            width: getPixels(dimensions.width),
+            height: getPixels(dimensions.height),
+        };
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    _initialPositionReset() {
+        const { right: viewportWidth, bottom: viewportHeight } = this._getViewportDimensions();
+        const { width, height } = this._getDialogWrapperDimensions();
+        const { marginRight: originalDialogRight, marginLeft: originalDialogLeft, marginBottom: originalDialogBottom, marginTop: originalDialogTop, } = this._getDialogWrapper().style;
+        /** @type {?} */
+        let x;
+        if (originalDialogLeft) {
+            x = getPixels(originalDialogLeft);
+        }
+        else if (originalDialogRight) {
+            x = viewportWidth - getPixels(originalDialogRight) - width;
+        }
+        else {
+            x = (viewportWidth - width) / 2;
+        }
+        /** @type {?} */
+        let y;
+        if (originalDialogTop) {
+            y = getPixels(originalDialogTop);
+        }
+        else if (originalDialogBottom) {
+            y = viewportHeight - getPixels(originalDialogBottom) - height;
+        }
+        else {
+            y = (viewportHeight - height) / 2;
+        }
+        // use drag ref's mechanisms for positioning instead of the dialog's
+        this._dialogRef.updatePosition({ top: '0px', right: '0px', bottom: '0px', left: '0px' });
+        this._dragRef.setFreeDragPosition({ x, y });
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    _attachCorners() {
+        Object.values(corners).forEach((/**
+         * @param {?} corner
+         * @return {?}
+         */
+        (corner) => {
+            /** @type {?} */
+            const element = this._renderer2.createElement('div');
+            this.cornerElements = [...this.cornerElements, element];
+            this._renderer2.setStyle(element, 'position', 'absolute');
+            this._renderer2.setStyle(element, 'width', cornerWidth);
+            this._renderer2.setStyle(element, 'height', cornerWidth);
+            this._renderer2.appendChild(this._getDialogWrapper(), element);
+            /** @type {?} */
+            let cursor;
+            /** @type {?} */
+            let topBottom;
+            /** @type {?} */
+            let rightLeft;
+            if (corner === corners.topRight) {
+                cursor = cursors.nesw;
+                topBottom = verticalAlignment.top;
+                rightLeft = horizontalAlignment.right;
+            }
+            else if (corner === corners.bottomRight) {
+                cursor = cursors.nwse;
+                topBottom = verticalAlignment.bottom;
+                rightLeft = horizontalAlignment.right;
+                /** @type {?} */
+                const icon = this._renderer2.createElement('i');
+                this._renderer2.addClass(icon, 'material-icons');
+                this._renderer2.appendChild(icon, this._renderer2.createText('filter_list'));
+                this._renderer2.appendChild(element, icon);
+                this._renderer2.setStyle(icon, 'transform', `rotate(${315}deg) translate(0px, ${offset})`);
+                this._renderer2.setStyle(icon, 'font-size', cornerWidth);
+            }
+            else if (corner === corners.bottomLeft) {
+                cursor = cursors.nesw;
+                topBottom = verticalAlignment.bottom;
+                rightLeft = horizontalAlignment.left;
+            }
+            else if (corner === corners.topLeft) {
+                cursor = cursors.nwse;
+                topBottom = verticalAlignment.top;
+                rightLeft = horizontalAlignment.left;
+            }
+            this._renderer2.setStyle(element, topBottom, offset);
+            this._renderer2.setStyle(element, rightLeft, offset);
+            this._renderer2.setStyle(element, 'cursor', cursor);
+            /** @type {?} */
+            const pointerDownSub = fromEvent$1(element, 'pointerdown').subscribe((/**
+             * @param {?} event
+             * @return {?}
+             */
+            (event) => {
+                this._handleMouseDown(event, corner);
+            }));
+            this.pointerDownSubs = [...this.pointerDownSubs, pointerDownSub];
+        }));
+    }
+    /**
+     * @private
+     * @param {?} event
+     * @param {?} corner
+     * @return {?}
+     */
+    _handleMouseDown(event, corner) {
+        const { width: originalWidth, height: originalHeight } = this._getDialogWrapperDimensions();
+        /** @type {?} */
+        const originalMouseX = event.pageX;
+        /** @type {?} */
+        const originalMouseY = event.pageY;
+        const { x: currentTransformX, y: currentTransformY } = this._dragRef.getFreeDragPosition();
+        const { bottom: distanceFromBottom, right: distanceFromRight, } = this._getDialogWrapper().getBoundingClientRect();
+        const { right: viewportWidth, bottom: viewportHeight } = this._getViewportDimensions();
+        /** @type {?} */
+        const mouseMoveSub = fromEvent$1(window, 'pointermove').subscribe((/**
+         * @param {?} e
+         * @return {?}
+         */
+        (e) => {
+            e.preventDefault(); // prevent highlighting of text when dragging
+            // prevent highlighting of text when dragging
+            /** @type {?} */
+            const yDelta = clamp(0, e.pageY, viewportHeight) - originalMouseY;
+            /** @type {?} */
+            const xDelta = clamp(0, e.pageX, viewportWidth) - originalMouseX;
+            /** @type {?} */
+            let newHeight;
+            /** @type {?} */
+            let newWidth;
+            /** @type {?} */
+            let newTransformY = 0;
+            /** @type {?} */
+            let newTransformX = 0;
+            // top right
+            if (corner === corners.topRight) {
+                newHeight = clamp(minHeight, originalHeight - yDelta, viewportHeight);
+                newWidth = clamp(minWidth, originalWidth + xDelta, viewportWidth);
+                newTransformY = clamp(0, currentTransformY + yDelta, distanceFromBottom - newHeight);
+                newTransformX = currentTransformX;
+            }
+            // bottom right
+            else if (corner === corners.bottomRight) {
+                newHeight = clamp(minHeight, originalHeight + yDelta, viewportHeight);
+                newWidth = clamp(minWidth, originalWidth + xDelta, viewportWidth);
+                newTransformY = currentTransformY;
+                newTransformX = currentTransformX;
+            }
+            // bottom left
+            else if (corner === corners.bottomLeft) {
+                newHeight = clamp(minHeight, originalHeight + yDelta, viewportHeight);
+                newWidth = clamp(minWidth, originalWidth - xDelta, viewportWidth);
+                newTransformY = currentTransformY;
+                newTransformX = clamp(0, currentTransformX + xDelta, distanceFromRight - newWidth);
+            }
+            // top left
+            else if (corner === corners.topLeft) {
+                newHeight = clamp(minHeight, originalHeight - yDelta, viewportHeight);
+                newWidth = clamp(minWidth, originalWidth - xDelta, viewportWidth);
+                newTransformX = clamp(0, currentTransformX + xDelta, distanceFromRight - newWidth);
+                newTransformY = clamp(0, currentTransformY + yDelta, distanceFromBottom - newHeight);
+            }
+            this._dialogRef.updateSize(`${newWidth}px`, `${newHeight}px`);
+            this._dragRef.setFreeDragPosition({
+                x: newTransformX,
+                y: newTransformY,
+            });
+        }));
+        /** @type {?} */
+        const mouseUpSub = merge(fromEvent$1(window, 'pointerup'), fromEvent$1(window, 'pointercancel')).subscribe((/**
+         * @return {?}
+         */
+        () => {
+            mouseMoveSub.unsubscribe();
+            mouseUpSub.unsubscribe();
+        }));
+    }
+}
+if (false) {
+    /** @type {?} */
+    ResizableDraggableDialog.prototype.cornerElements;
+    /** @type {?} */
+    ResizableDraggableDialog.prototype.pointerDownSubs;
+    /**
+     * @type {?}
+     * @private
+     */
+    ResizableDraggableDialog.prototype._document;
+    /**
+     * @type {?}
+     * @private
+     */
+    ResizableDraggableDialog.prototype._renderer2;
+    /**
+     * @type {?}
+     * @private
+     */
+    ResizableDraggableDialog.prototype._dialogRef;
+    /**
+     * @type {?}
+     * @private
+     */
+    ResizableDraggableDialog.prototype._dragRef;
 }
 
 /**
@@ -14791,5 +15127,5 @@ CovalentNavLinksModule.decorators = [
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
-export { CovalentBreadcrumbsModule, CovalentChipsModule, CovalentCommonModule, CovalentDataTableModule, CovalentDialogsModule, CovalentExpansionPanelModule, CovalentFileModule, CovalentJsonFormatterModule, CovalentLayoutModule, CovalentLoadingModule, CovalentMediaModule, CovalentMenuModule, CovalentMessageModule, CovalentNavLinksModule, CovalentNotificationsModule, CovalentPagingModule, CovalentSearchModule, CovalentStepsModule, CovalentTabSelectModule, CovalentValidators, CovalentVirtualScrollModule, DEFAULT_NOTIFICATION_LIMIT, LOADING_FACTORY_PROVIDER, LOADING_FACTORY_PROVIDER_FACTORY, LOADING_PROVIDER, LOADING_PROVIDER_FACTORY, LayoutToggle, LayoutToggleBase, LoadingMode, LoadingStrategy, LoadingStyle, LoadingType, StepMode, StepState, TD_CIRCLE_DIAMETER, TdAlertDialogComponent, TdAutoTrimDirective, TdAutocompleteOptionDirective, TdBreadcrumbComponent, TdBreadcrumbsComponent, TdBytesPipe, TdChipDirective, TdChipsBase, TdChipsComponent, TdConfirmDialogComponent, TdDataTableBase, TdDataTableCellComponent, TdDataTableColumnComponent, TdDataTableColumnRowComponent, TdDataTableComponent, TdDataTableRowComponent, TdDataTableService, TdDataTableSortingOrder, TdDataTableTableComponent, TdDataTableTemplateDirective, TdDecimalBytesPipe, TdDialogActionsDirective, TdDialogComponent, TdDialogContentDirective, TdDialogService, TdDialogTitleDirective, TdDigitsPipe, TdExpansionPanelBase, TdExpansionPanelComponent, TdExpansionPanelGroupComponent, TdExpansionPanelHeaderDirective, TdExpansionPanelLabelDirective, TdExpansionPanelSublabelDirective, TdExpansionPanelSummaryComponent, TdFileDropBase, TdFileDropDirective, TdFileInputBase, TdFileInputComponent, TdFileInputLabelDirective, TdFileSelectDirective, TdFileService, TdFileUploadBase, TdFileUploadComponent, TdFullscreenDirective, TdJsonFormatterComponent, TdLayoutCardOverComponent, TdLayoutCloseDirective, TdLayoutComponent, TdLayoutFooterComponent, TdLayoutManageListCloseDirective, TdLayoutManageListComponent, TdLayoutManageListOpenDirective, TdLayoutManageListToggleDirective, TdLayoutNavComponent, TdLayoutNavListCloseDirective, TdLayoutNavListComponent, TdLayoutNavListOpenDirective, TdLayoutNavListToggleDirective, TdLayoutOpenDirective, TdLayoutToggleDirective, TdLoadingComponent, TdLoadingConfig, TdLoadingContext, TdLoadingDirective, TdLoadingDirectiveConfig, TdLoadingFactory, TdLoadingService, TdMediaService, TdMediaToggleDirective, TdMenuComponent, TdMessageComponent, TdMessageContainerDirective, TdNavLinksComponent, TdNavStepLinkComponent, TdNavStepsHorizontalComponent, TdNavStepsVerticalComponent, TdNavigationDrawerComponent, TdNavigationDrawerMenuDirective, TdNavigationDrawerToolbarDirective, TdNotificationCountComponent, TdNotificationCountPositionX, TdNotificationCountPositionY, TdPagingBarComponent, TdPromptDialogComponent, TdSearchBoxBase, TdSearchBoxComponent, TdSearchInputBase, TdSearchInputComponent, TdStepActionsDirective, TdStepBase, TdStepBodyComponent, TdStepComponent, TdStepHeaderBase, TdStepHeaderComponent, TdStepLabelDirective, TdStepSummaryDirective, TdStepsComponent, TdTabOptionBase, TdTabOptionComponent, TdTabSelectBase, TdTabSelectComponent, TdTimeAgoPipe, TdTimeDifferencePipe, TdTimeUntilPipe, TdTruncatePipe, TdVirtualScrollContainerComponent, TdVirtualScrollRowDirective, _TdChipsMixinBase, _TdDataTableMixinBase, _TdExpansionPanelMixinBase, _TdFileDropMixinBase, _TdFileInputMixinBase, _TdFileUploadMixinBase, _TdLayoutToggleMixinBase, _TdSearchBoxMixinBase, _TdSearchInputMixinBase, _TdStepHeaderMixinBase, _TdStepMixinBase, _TdTabOptionMixinBase, _TdTabSelectMixinBase, convertCSVToJSON, convertObjectsToCSV, copyToClipboard, downloadCSV, downloadFile, downloadJSON, downloadObjectsToCSV, downloadObjectsToJSON, formatJSON, mixinControlValueAccessor, mixinDisableRipple, mixinDisabled, readFile, tdBounceAnimation, tdCollapseAnimation, tdFadeInOutAnimation, tdFlashAnimation, tdHeadshakeAnimation, tdJelloAnimation, tdPulseAnimation, tdRotateAnimation };
+export { CovalentBreadcrumbsModule, CovalentChipsModule, CovalentCommonModule, CovalentDataTableModule, CovalentDialogsModule, CovalentExpansionPanelModule, CovalentFileModule, CovalentJsonFormatterModule, CovalentLayoutModule, CovalentLoadingModule, CovalentMediaModule, CovalentMenuModule, CovalentMessageModule, CovalentNavLinksModule, CovalentNotificationsModule, CovalentPagingModule, CovalentSearchModule, CovalentStepsModule, CovalentTabSelectModule, CovalentValidators, CovalentVirtualScrollModule, DEFAULT_NOTIFICATION_LIMIT, LOADING_FACTORY_PROVIDER, LOADING_FACTORY_PROVIDER_FACTORY, LOADING_PROVIDER, LOADING_PROVIDER_FACTORY, LayoutToggle, LayoutToggleBase, LoadingMode, LoadingStrategy, LoadingStyle, LoadingType, ResizableDraggableDialog, StepMode, StepState, TD_CIRCLE_DIAMETER, TdAlertDialogComponent, TdAutoTrimDirective, TdAutocompleteOptionDirective, TdBreadcrumbComponent, TdBreadcrumbsComponent, TdBytesPipe, TdChipDirective, TdChipsBase, TdChipsComponent, TdConfirmDialogComponent, TdDataTableBase, TdDataTableCellComponent, TdDataTableColumnComponent, TdDataTableColumnRowComponent, TdDataTableComponent, TdDataTableRowComponent, TdDataTableService, TdDataTableSortingOrder, TdDataTableTableComponent, TdDataTableTemplateDirective, TdDecimalBytesPipe, TdDialogActionsDirective, TdDialogComponent, TdDialogContentDirective, TdDialogService, TdDialogTitleDirective, TdDigitsPipe, TdExpansionPanelBase, TdExpansionPanelComponent, TdExpansionPanelGroupComponent, TdExpansionPanelHeaderDirective, TdExpansionPanelLabelDirective, TdExpansionPanelSublabelDirective, TdExpansionPanelSummaryComponent, TdFileDropBase, TdFileDropDirective, TdFileInputBase, TdFileInputComponent, TdFileInputLabelDirective, TdFileSelectDirective, TdFileService, TdFileUploadBase, TdFileUploadComponent, TdFullscreenDirective, TdJsonFormatterComponent, TdLayoutCardOverComponent, TdLayoutCloseDirective, TdLayoutComponent, TdLayoutFooterComponent, TdLayoutManageListCloseDirective, TdLayoutManageListComponent, TdLayoutManageListOpenDirective, TdLayoutManageListToggleDirective, TdLayoutNavComponent, TdLayoutNavListCloseDirective, TdLayoutNavListComponent, TdLayoutNavListOpenDirective, TdLayoutNavListToggleDirective, TdLayoutOpenDirective, TdLayoutToggleDirective, TdLoadingComponent, TdLoadingConfig, TdLoadingContext, TdLoadingDirective, TdLoadingDirectiveConfig, TdLoadingFactory, TdLoadingService, TdMediaService, TdMediaToggleDirective, TdMenuComponent, TdMessageComponent, TdMessageContainerDirective, TdNavLinksComponent, TdNavStepLinkComponent, TdNavStepsHorizontalComponent, TdNavStepsVerticalComponent, TdNavigationDrawerComponent, TdNavigationDrawerMenuDirective, TdNavigationDrawerToolbarDirective, TdNotificationCountComponent, TdNotificationCountPositionX, TdNotificationCountPositionY, TdPagingBarComponent, TdPromptDialogComponent, TdSearchBoxBase, TdSearchBoxComponent, TdSearchInputBase, TdSearchInputComponent, TdStepActionsDirective, TdStepBase, TdStepBodyComponent, TdStepComponent, TdStepHeaderBase, TdStepHeaderComponent, TdStepLabelDirective, TdStepSummaryDirective, TdStepsComponent, TdTabOptionBase, TdTabOptionComponent, TdTabSelectBase, TdTabSelectComponent, TdTimeAgoPipe, TdTimeDifferencePipe, TdTimeUntilPipe, TdTruncatePipe, TdVirtualScrollContainerComponent, TdVirtualScrollRowDirective, _TdChipsMixinBase, _TdDataTableMixinBase, _TdExpansionPanelMixinBase, _TdFileDropMixinBase, _TdFileInputMixinBase, _TdFileUploadMixinBase, _TdLayoutToggleMixinBase, _TdSearchBoxMixinBase, _TdSearchInputMixinBase, _TdStepHeaderMixinBase, _TdStepMixinBase, _TdTabOptionMixinBase, _TdTabSelectMixinBase, convertCSVToJSON, convertObjectsToCSV, copyToClipboard, downloadCSV, downloadFile, downloadJSON, downloadObjectsToCSV, downloadObjectsToJSON, formatJSON, mixinControlValueAccessor, mixinDisableRipple, mixinDisabled, readFile, tdBounceAnimation, tdCollapseAnimation, tdFadeInOutAnimation, tdFlashAnimation, tdHeadshakeAnimation, tdJelloAnimation, tdPulseAnimation, tdRotateAnimation };
 //# sourceMappingURL=covalent-core.js.map
