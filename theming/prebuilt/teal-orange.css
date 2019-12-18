@@ -510,9 +510,8 @@ input.mat-input-element {
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
           transform: scale(0); }
-  @media (-ms-high-contrast: active) {
-    .mat-ripple-element {
-      display: none; } }
+  .cdk-high-contrast-active .mat-ripple-element {
+    display: none; }
 
 .cdk-visually-hidden {
   border: 0;
@@ -808,10 +807,9 @@ textarea.cdk-textarea-autosize-measuring {
 .mat-badge-content {
   color: white;
   background: #00796b; }
-  @media (-ms-high-contrast: active) {
-    .mat-badge-content {
-      outline: solid 1px;
-      border-radius: 0; } }
+  .cdk-high-contrast-active .mat-badge-content {
+    outline: solid 1px;
+    border-radius: 0; }
 
 .mat-badge-accent .mat-badge-content {
   background: #ef6c00;
@@ -1136,9 +1134,8 @@ textarea.cdk-textarea-autosize-measuring {
 
 .mat-checkbox-checkmark-path {
   stroke: #fafafa !important; }
-  @media (-ms-high-contrast: black-on-white) {
-    .mat-checkbox-checkmark-path {
-      stroke: #000 !important; } }
+  .cdk-high-contrast-black-on-white .mat-checkbox-checkmark-path {
+    stroke: #000 !important; }
 
 .mat-checkbox-mixedmark {
   background-color: #fafafa; }
@@ -1161,13 +1158,11 @@ textarea.cdk-textarea-autosize-measuring {
 .mat-checkbox-disabled .mat-checkbox-label {
   color: rgba(0, 0, 0, 0.54); }
 
-@media (-ms-high-contrast: active) {
-  .mat-checkbox-disabled {
-    opacity: 0.5; } }
+.cdk-high-contrast-active .mat-checkbox-disabled {
+  opacity: 0.5; }
 
-@media (-ms-high-contrast: active) {
-  .mat-checkbox-background {
-    background: none; } }
+.cdk-high-contrast-active .mat-checkbox-background {
+  background: none; }
 
 .mat-checkbox .mat-ripple-element {
   background-color: black; }
@@ -1207,7 +1202,7 @@ textarea.cdk-textarea-autosize-measuring {
     color: white;
     opacity: 0.4; }
   .mat-chip.mat-standard-chip.mat-chip-selected.mat-primary .mat-ripple-element {
-    background: rgba(255, 255, 255, 0.1); }
+    background-color: rgba(255, 255, 255, 0.1); }
 
 .mat-chip.mat-standard-chip.mat-chip-selected.mat-warn {
   background-color: #e53935;
@@ -1216,7 +1211,7 @@ textarea.cdk-textarea-autosize-measuring {
     color: white;
     opacity: 0.4; }
   .mat-chip.mat-standard-chip.mat-chip-selected.mat-warn .mat-ripple-element {
-    background: rgba(255, 255, 255, 0.1); }
+    background-color: rgba(255, 255, 255, 0.1); }
 
 .mat-chip.mat-standard-chip.mat-chip-selected.mat-accent {
   background-color: #ef6c00;
@@ -1225,7 +1220,7 @@ textarea.cdk-textarea-autosize-measuring {
     color: white;
     opacity: 0.4; }
   .mat-chip.mat-standard-chip.mat-chip-selected.mat-accent .mat-ripple-element {
-    background: rgba(255, 255, 255, 0.1); }
+    background-color: rgba(255, 255, 255, 0.1); }
 
 .mat-table {
   background: white; }
