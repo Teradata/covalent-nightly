@@ -385,15 +385,12 @@
             this._querySources[query].next(matchMedia(query).matches);
         };
         TdMediaService.decorators = [
-            { type: core.Injectable, args: [{
-                        providedIn: 'root',
-                    },] }
+            { type: core.Injectable }
         ];
         /** @nocollapse */
         TdMediaService.ctorParameters = function () { return [
             { type: core.NgZone }
         ]; };
-        /** @nocollapse */ TdMediaService.ɵprov = core.ɵɵdefineInjectable({ factory: function TdMediaService_Factory() { return new TdMediaService(core.ɵɵinject(core.NgZone)); }, token: TdMediaService, providedIn: "root" });
         return TdMediaService;
     }());
     if (false) {
@@ -699,6 +696,7 @@
             { type: core.NgModule, args: [{
                         declarations: [TD_MEDIA],
                         exports: [TD_MEDIA],
+                        providers: [TdMediaService],
                     },] }
         ];
         return CovalentMediaModule;

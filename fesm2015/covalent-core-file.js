@@ -1,4 +1,4 @@
-import { EventEmitter, Directive, Optional, Host, Input, Output, HostBinding, HostListener, Renderer2, ElementRef, TemplateRef, ViewContainerRef, Component, ChangeDetectionStrategy, forwardRef, ChangeDetectorRef, ViewChild, ContentChild, NgModule, Injectable, ɵɵdefineInjectable, ɵɵinject } from '@angular/core';
+import { EventEmitter, Directive, Optional, Host, Input, Output, HostBinding, HostListener, Renderer2, ElementRef, TemplateRef, ViewContainerRef, Component, ChangeDetectionStrategy, forwardRef, ChangeDetectorRef, ViewChild, ContentChild, Injectable, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgModel, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
 import { TemplatePortalDirective, PortalModule } from '@angular/cdk/portal';
@@ -704,28 +704,6 @@ if (false) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
-/** @type {?} */
-const TD_FILE = [
-    TdFileSelectDirective,
-    TdFileDropDirective,
-    TdFileUploadComponent,
-    TdFileInputComponent,
-    TdFileInputLabelDirective,
-];
-class CovalentFileModule {
-}
-CovalentFileModule.decorators = [
-    { type: NgModule, args: [{
-                imports: [FormsModule, CommonModule, MatIconModule, MatButtonModule, PortalModule],
-                declarations: [TD_FILE],
-                exports: [TD_FILE],
-            },] }
-];
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
 /**
  * @deprecated should be removed in favor of IUploadInit
  * \@breaking-change 3.0.0
@@ -891,15 +869,12 @@ class TdFileService {
     }
 }
 TdFileService.decorators = [
-    { type: Injectable, args: [{
-                providedIn: CovalentFileModule,
-            },] }
+    { type: Injectable }
 ];
 /** @nocollapse */
 TdFileService.ctorParameters = () => [
     { type: HttpClient, decorators: [{ type: Optional }] }
 ];
-/** @nocollapse */ TdFileService.ɵprov = ɵɵdefineInjectable({ factory: function TdFileService_Factory() { return new TdFileService(ɵɵinject(HttpClient, 8)); }, token: TdFileService, providedIn: CovalentFileModule });
 if (false) {
     /**
      * @type {?}
@@ -917,6 +892,29 @@ if (false) {
      */
     TdFileService.prototype._http;
 }
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+const TD_FILE = [
+    TdFileSelectDirective,
+    TdFileDropDirective,
+    TdFileUploadComponent,
+    TdFileInputComponent,
+    TdFileInputLabelDirective,
+];
+class CovalentFileModule {
+}
+CovalentFileModule.decorators = [
+    { type: NgModule, args: [{
+                imports: [FormsModule, CommonModule, MatIconModule, MatButtonModule, PortalModule],
+                declarations: [TD_FILE],
+                exports: [TD_FILE],
+                providers: [TdFileService],
+            },] }
+];
 
 /**
  * @fileoverview added by tsickle

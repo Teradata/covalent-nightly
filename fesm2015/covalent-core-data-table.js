@@ -1,4 +1,4 @@
-import { Component, ElementRef, Renderer2, Input, HostListener, Directive, TemplateRef, ViewContainerRef, EventEmitter, forwardRef, ChangeDetectionStrategy, Optional, Inject, ChangeDetectorRef, ContentChildren, ViewChild, ViewChildren, Output, HostBinding, NgModule, Injectable, ɵɵdefineInjectable } from '@angular/core';
+import { Component, ElementRef, Renderer2, Input, HostListener, Directive, TemplateRef, ViewContainerRef, EventEmitter, forwardRef, ChangeDetectionStrategy, Optional, Inject, ChangeDetectorRef, ContentChildren, ViewChild, ViewChildren, Output, HostBinding, Injectable, NgModule } from '@angular/core';
 import { DOCUMENT, CommonModule } from '@angular/common';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -2133,30 +2133,6 @@ if (false) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
-/** @type {?} */
-const TD_DATA_TABLE = [
-    TdDataTableComponent,
-    TdDataTableTemplateDirective,
-    TdDataTableColumnComponent,
-    TdDataTableCellComponent,
-    TdDataTableRowComponent,
-    TdDataTableColumnRowComponent,
-    TdDataTableTableComponent,
-];
-class CovalentDataTableModule {
-}
-CovalentDataTableModule.decorators = [
-    { type: NgModule, args: [{
-                imports: [CommonModule, MatCheckboxModule, MatTooltipModule, MatIconModule, MatPseudoCheckboxModule],
-                declarations: [TD_DATA_TABLE],
-                exports: [TD_DATA_TABLE],
-            },] }
-];
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
 class TdDataTableService {
     /**
      * params:
@@ -2263,11 +2239,33 @@ class TdDataTableService {
     }
 }
 TdDataTableService.decorators = [
-    { type: Injectable, args: [{
-                providedIn: 'root',
+    { type: Injectable }
+];
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+const TD_DATA_TABLE = [
+    TdDataTableComponent,
+    TdDataTableTemplateDirective,
+    TdDataTableColumnComponent,
+    TdDataTableCellComponent,
+    TdDataTableRowComponent,
+    TdDataTableColumnRowComponent,
+    TdDataTableTableComponent,
+];
+class CovalentDataTableModule {
+}
+CovalentDataTableModule.decorators = [
+    { type: NgModule, args: [{
+                imports: [CommonModule, MatCheckboxModule, MatTooltipModule, MatIconModule, MatPseudoCheckboxModule],
+                declarations: [TD_DATA_TABLE],
+                exports: [TD_DATA_TABLE],
+                providers: [TdDataTableService],
             },] }
 ];
-/** @nocollapse */ TdDataTableService.ɵprov = ɵɵdefineInjectable({ factory: function TdDataTableService_Factory() { return new TdDataTableService(); }, token: TdDataTableService, providedIn: "root" });
 
 /**
  * @fileoverview added by tsickle

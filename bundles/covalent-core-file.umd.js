@@ -1085,31 +1085,6 @@
      * @fileoverview added by tsickle
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
-    /** @type {?} */
-    var TD_FILE = [
-        TdFileSelectDirective,
-        TdFileDropDirective,
-        TdFileUploadComponent,
-        TdFileInputComponent,
-        TdFileInputLabelDirective,
-    ];
-    var CovalentFileModule = /** @class */ (function () {
-        function CovalentFileModule() {
-        }
-        CovalentFileModule.decorators = [
-            { type: core.NgModule, args: [{
-                        imports: [forms.FormsModule, common.CommonModule, icon.MatIconModule, button.MatButtonModule, portal.PortalModule],
-                        declarations: [TD_FILE],
-                        exports: [TD_FILE],
-                    },] }
-        ];
-        return CovalentFileModule;
-    }());
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
     /**
      * @deprecated should be removed in favor of IUploadInit
      * \@breaking-change 3.0.0
@@ -1343,15 +1318,12 @@
             }
         };
         TdFileService.decorators = [
-            { type: core.Injectable, args: [{
-                        providedIn: CovalentFileModule,
-                    },] }
+            { type: core.Injectable }
         ];
         /** @nocollapse */
         TdFileService.ctorParameters = function () { return [
             { type: http.HttpClient, decorators: [{ type: core.Optional }] }
         ]; };
-        /** @nocollapse */ TdFileService.ɵprov = core.ɵɵdefineInjectable({ factory: function TdFileService_Factory() { return new TdFileService(core.ɵɵinject(http.HttpClient, 8)); }, token: TdFileService, providedIn: CovalentFileModule });
         return TdFileService;
     }());
     if (false) {
@@ -1371,6 +1343,32 @@
          */
         TdFileService.prototype._http;
     }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /** @type {?} */
+    var TD_FILE = [
+        TdFileSelectDirective,
+        TdFileDropDirective,
+        TdFileUploadComponent,
+        TdFileInputComponent,
+        TdFileInputLabelDirective,
+    ];
+    var CovalentFileModule = /** @class */ (function () {
+        function CovalentFileModule() {
+        }
+        CovalentFileModule.decorators = [
+            { type: core.NgModule, args: [{
+                        imports: [forms.FormsModule, common.CommonModule, icon.MatIconModule, button.MatButtonModule, portal.PortalModule],
+                        declarations: [TD_FILE],
+                        exports: [TD_FILE],
+                        providers: [TdFileService],
+                    },] }
+        ];
+        return CovalentFileModule;
+    }());
 
     exports.CovalentFileModule = CovalentFileModule;
     exports.TdFileDropBase = TdFileDropBase;

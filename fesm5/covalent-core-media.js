@@ -1,4 +1,4 @@
-import { Injectable, NgZone, ɵɵdefineInjectable, ɵɵinject, Directive, Renderer2, ElementRef, Input, NgModule } from '@angular/core';
+import { Injectable, NgZone, Directive, Renderer2, ElementRef, Input, NgModule } from '@angular/core';
 import { __values } from 'tslib';
 import { fromEvent, BehaviorSubject } from 'rxjs';
 
@@ -186,15 +186,12 @@ var TdMediaService = /** @class */ (function () {
         this._querySources[query].next(matchMedia(query).matches);
     };
     TdMediaService.decorators = [
-        { type: Injectable, args: [{
-                    providedIn: 'root',
-                },] }
+        { type: Injectable }
     ];
     /** @nocollapse */
     TdMediaService.ctorParameters = function () { return [
         { type: NgZone }
     ]; };
-    /** @nocollapse */ TdMediaService.ɵprov = ɵɵdefineInjectable({ factory: function TdMediaService_Factory() { return new TdMediaService(ɵɵinject(NgZone)); }, token: TdMediaService, providedIn: "root" });
     return TdMediaService;
 }());
 if (false) {
@@ -500,6 +497,7 @@ var CovalentMediaModule = /** @class */ (function () {
         { type: NgModule, args: [{
                     declarations: [TD_MEDIA],
                     exports: [TD_MEDIA],
+                    providers: [TdMediaService],
                 },] }
     ];
     return CovalentMediaModule;

@@ -1,7 +1,7 @@
-import { Directive, Component, ContentChildren, ViewChild, NgModule, Injectable, Inject, RendererFactory2, ɵɵdefineInjectable, ɵɵinject } from '@angular/core';
-import { CommonModule, DOCUMENT } from '@angular/common';
+import { Directive, Component, ContentChildren, ViewChild, Injectable, Inject, RendererFactory2, NgModule } from '@angular/core';
+import { DOCUMENT, CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MatDialogRef, MatDialogModule, MatDialogConfig, MatDialog } from '@angular/material/dialog';
+import { MatDialogRef, MatDialogConfig, MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { DragDrop } from '@angular/cdk/drag-drop';
@@ -240,37 +240,6 @@ if (false) {
      */
     TdPromptDialogComponent.prototype._dialogRef;
 }
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/** @type {?} */
-const TD_DIALOGS = [
-    TdAlertDialogComponent,
-    TdConfirmDialogComponent,
-    TdPromptDialogComponent,
-    TdDialogComponent,
-    TdDialogTitleDirective,
-    TdDialogActionsDirective,
-    TdDialogContentDirective,
-];
-/** @type {?} */
-const TD_DIALOGS_ENTRY_COMPONENTS = [
-    TdAlertDialogComponent,
-    TdConfirmDialogComponent,
-    TdPromptDialogComponent,
-];
-class CovalentDialogsModule {
-}
-CovalentDialogsModule.decorators = [
-    { type: NgModule, args: [{
-                imports: [FormsModule, CommonModule, MatDialogModule, MatInputModule, MatButtonModule],
-                declarations: [TD_DIALOGS],
-                exports: [TD_DIALOGS],
-                entryComponents: [TD_DIALOGS_ENTRY_COMPONENTS],
-            },] }
-];
 
 /**
  * @fileoverview added by tsickle
@@ -536,9 +505,7 @@ class TdDialogService {
     }
 }
 TdDialogService.decorators = [
-    { type: Injectable, args: [{
-                providedIn: CovalentDialogsModule,
-            },] }
+    { type: Injectable }
 ];
 /** @nocollapse */
 TdDialogService.ctorParameters = () => [
@@ -547,7 +514,6 @@ TdDialogService.ctorParameters = () => [
     { type: DragDrop },
     { type: RendererFactory2 }
 ];
-/** @nocollapse */ TdDialogService.ɵprov = ɵɵdefineInjectable({ factory: function TdDialogService_Factory() { return new TdDialogService(ɵɵinject(DOCUMENT), ɵɵinject(MatDialog), ɵɵinject(DragDrop), ɵɵinject(RendererFactory2)); }, token: TdDialogService, providedIn: CovalentDialogsModule });
 if (false) {
     /**
      * @type {?}
@@ -575,6 +541,38 @@ if (false) {
      */
     TdDialogService.prototype.rendererFactory;
 }
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+const TD_DIALOGS = [
+    TdAlertDialogComponent,
+    TdConfirmDialogComponent,
+    TdPromptDialogComponent,
+    TdDialogComponent,
+    TdDialogTitleDirective,
+    TdDialogActionsDirective,
+    TdDialogContentDirective,
+];
+/** @type {?} */
+const TD_DIALOGS_ENTRY_COMPONENTS = [
+    TdAlertDialogComponent,
+    TdConfirmDialogComponent,
+    TdPromptDialogComponent,
+];
+class CovalentDialogsModule {
+}
+CovalentDialogsModule.decorators = [
+    { type: NgModule, args: [{
+                imports: [FormsModule, CommonModule, MatDialogModule, MatInputModule, MatButtonModule],
+                declarations: [TD_DIALOGS],
+                exports: [TD_DIALOGS],
+                entryComponents: [TD_DIALOGS_ENTRY_COMPONENTS],
+                providers: [TdDialogService],
+            },] }
+];
 
 /**
  * @fileoverview added by tsickle

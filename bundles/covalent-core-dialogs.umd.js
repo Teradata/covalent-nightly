@@ -475,40 +475,6 @@
      * @fileoverview added by tsickle
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
-    /** @type {?} */
-    var TD_DIALOGS = [
-        TdAlertDialogComponent,
-        TdConfirmDialogComponent,
-        TdPromptDialogComponent,
-        TdDialogComponent,
-        TdDialogTitleDirective,
-        TdDialogActionsDirective,
-        TdDialogContentDirective,
-    ];
-    /** @type {?} */
-    var TD_DIALOGS_ENTRY_COMPONENTS = [
-        TdAlertDialogComponent,
-        TdConfirmDialogComponent,
-        TdPromptDialogComponent,
-    ];
-    var CovalentDialogsModule = /** @class */ (function () {
-        function CovalentDialogsModule() {
-        }
-        CovalentDialogsModule.decorators = [
-            { type: core.NgModule, args: [{
-                        imports: [forms.FormsModule, common.CommonModule, dialog.MatDialogModule, input.MatInputModule, button.MatButtonModule],
-                        declarations: [TD_DIALOGS],
-                        exports: [TD_DIALOGS],
-                        entryComponents: [TD_DIALOGS_ENTRY_COMPONENTS],
-                    },] }
-        ];
-        return CovalentDialogsModule;
-    }());
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
     /**
      * @record
      */
@@ -889,9 +855,7 @@
             return dialogConfig;
         };
         TdDialogService.decorators = [
-            { type: core.Injectable, args: [{
-                        providedIn: CovalentDialogsModule,
-                    },] }
+            { type: core.Injectable }
         ];
         /** @nocollapse */
         TdDialogService.ctorParameters = function () { return [
@@ -900,7 +864,6 @@
             { type: dragDrop.DragDrop },
             { type: core.RendererFactory2 }
         ]; };
-        /** @nocollapse */ TdDialogService.ɵprov = core.ɵɵdefineInjectable({ factory: function TdDialogService_Factory() { return new TdDialogService(core.ɵɵinject(common.DOCUMENT), core.ɵɵinject(dialog.MatDialog), core.ɵɵinject(dragDrop.DragDrop), core.ɵɵinject(core.RendererFactory2)); }, token: TdDialogService, providedIn: CovalentDialogsModule });
         return TdDialogService;
     }());
     if (false) {
@@ -930,6 +893,41 @@
          */
         TdDialogService.prototype.rendererFactory;
     }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /** @type {?} */
+    var TD_DIALOGS = [
+        TdAlertDialogComponent,
+        TdConfirmDialogComponent,
+        TdPromptDialogComponent,
+        TdDialogComponent,
+        TdDialogTitleDirective,
+        TdDialogActionsDirective,
+        TdDialogContentDirective,
+    ];
+    /** @type {?} */
+    var TD_DIALOGS_ENTRY_COMPONENTS = [
+        TdAlertDialogComponent,
+        TdConfirmDialogComponent,
+        TdPromptDialogComponent,
+    ];
+    var CovalentDialogsModule = /** @class */ (function () {
+        function CovalentDialogsModule() {
+        }
+        CovalentDialogsModule.decorators = [
+            { type: core.NgModule, args: [{
+                        imports: [forms.FormsModule, common.CommonModule, dialog.MatDialogModule, input.MatInputModule, button.MatButtonModule],
+                        declarations: [TD_DIALOGS],
+                        exports: [TD_DIALOGS],
+                        entryComponents: [TD_DIALOGS_ENTRY_COMPONENTS],
+                        providers: [TdDialogService],
+                    },] }
+        ];
+        return CovalentDialogsModule;
+    }());
 
     /**
      * @fileoverview added by tsickle

@@ -1,7 +1,7 @@
-import { Directive, Component, ContentChildren, ViewChild, NgModule, Injectable, Inject, RendererFactory2, ɵɵdefineInjectable, ɵɵinject } from '@angular/core';
-import { CommonModule, DOCUMENT } from '@angular/common';
+import { Directive, Component, ContentChildren, ViewChild, Injectable, Inject, RendererFactory2, NgModule } from '@angular/core';
+import { DOCUMENT, CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MatDialogRef, MatDialogModule, MatDialogConfig, MatDialog } from '@angular/material/dialog';
+import { MatDialogRef, MatDialogConfig, MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { __spread } from 'tslib';
@@ -278,40 +278,6 @@ if (false) {
      */
     TdPromptDialogComponent.prototype._dialogRef;
 }
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/** @type {?} */
-var TD_DIALOGS = [
-    TdAlertDialogComponent,
-    TdConfirmDialogComponent,
-    TdPromptDialogComponent,
-    TdDialogComponent,
-    TdDialogTitleDirective,
-    TdDialogActionsDirective,
-    TdDialogContentDirective,
-];
-/** @type {?} */
-var TD_DIALOGS_ENTRY_COMPONENTS = [
-    TdAlertDialogComponent,
-    TdConfirmDialogComponent,
-    TdPromptDialogComponent,
-];
-var CovalentDialogsModule = /** @class */ (function () {
-    function CovalentDialogsModule() {
-    }
-    CovalentDialogsModule.decorators = [
-        { type: NgModule, args: [{
-                    imports: [FormsModule, CommonModule, MatDialogModule, MatInputModule, MatButtonModule],
-                    declarations: [TD_DIALOGS],
-                    exports: [TD_DIALOGS],
-                    entryComponents: [TD_DIALOGS_ENTRY_COMPONENTS],
-                },] }
-    ];
-    return CovalentDialogsModule;
-}());
 
 /**
  * @fileoverview added by tsickle
@@ -697,9 +663,7 @@ var TdDialogService = /** @class */ (function () {
         return dialogConfig;
     };
     TdDialogService.decorators = [
-        { type: Injectable, args: [{
-                    providedIn: CovalentDialogsModule,
-                },] }
+        { type: Injectable }
     ];
     /** @nocollapse */
     TdDialogService.ctorParameters = function () { return [
@@ -708,7 +672,6 @@ var TdDialogService = /** @class */ (function () {
         { type: DragDrop },
         { type: RendererFactory2 }
     ]; };
-    /** @nocollapse */ TdDialogService.ɵprov = ɵɵdefineInjectable({ factory: function TdDialogService_Factory() { return new TdDialogService(ɵɵinject(DOCUMENT), ɵɵinject(MatDialog), ɵɵinject(DragDrop), ɵɵinject(RendererFactory2)); }, token: TdDialogService, providedIn: CovalentDialogsModule });
     return TdDialogService;
 }());
 if (false) {
@@ -738,6 +701,41 @@ if (false) {
      */
     TdDialogService.prototype.rendererFactory;
 }
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+var TD_DIALOGS = [
+    TdAlertDialogComponent,
+    TdConfirmDialogComponent,
+    TdPromptDialogComponent,
+    TdDialogComponent,
+    TdDialogTitleDirective,
+    TdDialogActionsDirective,
+    TdDialogContentDirective,
+];
+/** @type {?} */
+var TD_DIALOGS_ENTRY_COMPONENTS = [
+    TdAlertDialogComponent,
+    TdConfirmDialogComponent,
+    TdPromptDialogComponent,
+];
+var CovalentDialogsModule = /** @class */ (function () {
+    function CovalentDialogsModule() {
+    }
+    CovalentDialogsModule.decorators = [
+        { type: NgModule, args: [{
+                    imports: [FormsModule, CommonModule, MatDialogModule, MatInputModule, MatButtonModule],
+                    declarations: [TD_DIALOGS],
+                    exports: [TD_DIALOGS],
+                    entryComponents: [TD_DIALOGS_ENTRY_COMPONENTS],
+                    providers: [TdDialogService],
+                },] }
+    ];
+    return CovalentDialogsModule;
+}());
 
 /**
  * @fileoverview added by tsickle
