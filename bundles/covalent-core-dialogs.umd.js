@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/material/dialog'), require('@angular/material/input'), require('@angular/material/button'), require('@angular/cdk/drag-drop'), require('rxjs'), require('rxjs/internal/observable/fromEvent')) :
-    typeof define === 'function' && define.amd ? define('@covalent/core/dialogs', ['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/material/dialog', '@angular/material/input', '@angular/material/button', '@angular/cdk/drag-drop', 'rxjs', 'rxjs/internal/observable/fromEvent'], factory) :
-    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.dialogs = {}), global.ng.core, global.ng.common, global.ng.forms, global.ng.material.dialog, global.ng.material.input, global.ng.material.button, global.ng.cdk['drag-drop'], global.rxjs, global.rxjs['internal/observable/fromEvent']));
-}(this, (function (exports, core, common, forms, dialog, input, button, dragDrop, rxjs, fromEvent) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/material/dialog'), require('@angular/material/input'), require('@angular/material/button'), require('@angular/cdk/drag-drop'), require('rxjs')) :
+    typeof define === 'function' && define.amd ? define('@covalent/core/dialogs', ['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/material/dialog', '@angular/material/input', '@angular/material/button', '@angular/cdk/drag-drop', 'rxjs'], factory) :
+    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.dialogs = {}), global.ng.core, global.ng.common, global.ng.forms, global.ng.material.dialog, global.ng.material.input, global.ng.material.button, global.ng.cdk['drag-drop'], global.rxjs));
+}(this, (function (exports, core, common, forms, dialog, input, button, dragDrop, rxjs) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -1156,7 +1156,7 @@
                 _this._renderer2.setStyle(element, rightLeft, offset);
                 _this._renderer2.setStyle(element, 'cursor', cursor);
                 /** @type {?} */
-                var pointerDownSub = fromEvent.fromEvent(element, 'pointerdown').subscribe((/**
+                var pointerDownSub = rxjs.fromEvent(element, 'pointerdown').subscribe((/**
                  * @param {?} event
                  * @return {?}
                  */
@@ -1189,7 +1189,7 @@
             var _c = this._getDialogWrapper().getBoundingClientRect(), distanceFromBottom = _c.bottom, distanceFromRight = _c.right;
             var _d = this._getViewportDimensions(), viewportWidth = _d.right, viewportHeight = _d.bottom;
             /** @type {?} */
-            var mouseMoveSub = fromEvent.fromEvent(window, 'pointermove').subscribe((/**
+            var mouseMoveSub = rxjs.fromEvent(window, 'pointermove').subscribe((/**
              * @param {?} e
              * @return {?}
              */
@@ -1243,7 +1243,7 @@
                 });
             }));
             /** @type {?} */
-            var mouseUpSub = rxjs.merge(fromEvent.fromEvent(window, 'pointerup'), fromEvent.fromEvent(window, 'pointercancel')).subscribe((/**
+            var mouseUpSub = rxjs.merge(rxjs.fromEvent(window, 'pointerup'), rxjs.fromEvent(window, 'pointercancel')).subscribe((/**
              * @return {?}
              */
             function () {

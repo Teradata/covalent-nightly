@@ -6,8 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { __spread } from 'tslib';
 import { DragDrop } from '@angular/cdk/drag-drop';
-import { Subject, merge } from 'rxjs';
-import { fromEvent } from 'rxjs/internal/observable/fromEvent';
+import { Subject, fromEvent, merge } from 'rxjs';
 
 /**
  * @fileoverview added by tsickle

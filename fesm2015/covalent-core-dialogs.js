@@ -5,8 +5,7 @@ import { MatDialogRef, MatDialogConfig, MatDialog, MatDialogModule } from '@angu
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { DragDrop } from '@angular/cdk/drag-drop';
-import { Subject, merge } from 'rxjs';
-import { fromEvent } from 'rxjs/internal/observable/fromEvent';
+import { Subject, fromEvent, merge } from 'rxjs';
 
 /**
  * @fileoverview added by tsickle

@@ -21,7 +21,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogRef, MatDialogConfig, MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { DragDrop } from '@angular/cdk/drag-drop';
-import { fromEvent as fromEvent$1 } from 'rxjs/internal/observable/fromEvent';
 import { HttpRequest, HttpHeaders, HttpParams, HttpEventType, HttpClient } from '@angular/common/http';
 import { ScrollingModule, ViewportRuler } from '@angular/cdk/scrolling';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
@@ -8326,7 +8325,7 @@ class ResizableDraggableDialog {
             this._renderer2.setStyle(element, rightLeft, offset);
             this._renderer2.setStyle(element, 'cursor', cursor);
             /** @type {?} */
-            const pointerDownSub = fromEvent$1(element, 'pointerdown').subscribe((/**
+            const pointerDownSub = fromEvent(element, 'pointerdown').subscribe((/**
              * @param {?} event
              * @return {?}
              */
@@ -8352,7 +8351,7 @@ class ResizableDraggableDialog {
         const { bottom: distanceFromBottom, right: distanceFromRight, } = this._getDialogWrapper().getBoundingClientRect();
         const { right: viewportWidth, bottom: viewportHeight } = this._getViewportDimensions();
         /** @type {?} */
-        const mouseMoveSub = fromEvent$1(window, 'pointermove').subscribe((/**
+        const mouseMoveSub = fromEvent(window, 'pointermove').subscribe((/**
          * @param {?} e
          * @return {?}
          */
@@ -8406,7 +8405,7 @@ class ResizableDraggableDialog {
             });
         }));
         /** @type {?} */
-        const mouseUpSub = merge(fromEvent$1(window, 'pointerup'), fromEvent$1(window, 'pointercancel')).subscribe((/**
+        const mouseUpSub = merge(fromEvent(window, 'pointerup'), fromEvent(window, 'pointercancel')).subscribe((/**
          * @return {?}
          */
         () => {

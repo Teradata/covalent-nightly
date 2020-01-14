@@ -22,7 +22,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogRef, MatDialogConfig, MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { DragDrop } from '@angular/cdk/drag-drop';
-import { fromEvent as fromEvent$1 } from 'rxjs/internal/observable/fromEvent';
 import { HttpRequest, HttpHeaders, HttpParams, HttpEventType, HttpClient } from '@angular/common/http';
 import { ScrollingModule, ViewportRuler } from '@angular/cdk/scrolling';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
@@ -10021,7 +10020,7 @@ var ResizableDraggableDialog = /** @class */ (function () {
             _this._renderer2.setStyle(element, rightLeft, offset);
             _this._renderer2.setStyle(element, 'cursor', cursor);
             /** @type {?} */
-            var pointerDownSub = fromEvent$1(element, 'pointerdown').subscribe((/**
+            var pointerDownSub = fromEvent(element, 'pointerdown').subscribe((/**
              * @param {?} event
              * @return {?}
              */
@@ -10054,7 +10053,7 @@ var ResizableDraggableDialog = /** @class */ (function () {
         var _c = this._getDialogWrapper().getBoundingClientRect(), distanceFromBottom = _c.bottom, distanceFromRight = _c.right;
         var _d = this._getViewportDimensions(), viewportWidth = _d.right, viewportHeight = _d.bottom;
         /** @type {?} */
-        var mouseMoveSub = fromEvent$1(window, 'pointermove').subscribe((/**
+        var mouseMoveSub = fromEvent(window, 'pointermove').subscribe((/**
          * @param {?} e
          * @return {?}
          */
@@ -10108,7 +10107,7 @@ var ResizableDraggableDialog = /** @class */ (function () {
             });
         }));
         /** @type {?} */
-        var mouseUpSub = merge(fromEvent$1(window, 'pointerup'), fromEvent$1(window, 'pointercancel')).subscribe((/**
+        var mouseUpSub = merge(fromEvent(window, 'pointerup'), fromEvent(window, 'pointercancel')).subscribe((/**
          * @return {?}
          */
         function () {
