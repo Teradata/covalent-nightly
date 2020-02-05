@@ -5,7 +5,9 @@ export declare class TdBreadcrumbsComponent implements OnInit, DoCheck, AfterCon
     private _changeDetectorRef;
     private _resizeSubscription;
     private _widthSubject;
+    private _contentChildrenSub;
     private _resizing;
+    private _separatorIcon;
     _breadcrumbs: QueryList<TdBreadcrumbComponent>;
     hiddenBreadcrumbs: TdBreadcrumbComponent[];
     /**

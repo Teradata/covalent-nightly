@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, ElementRef, ChangeDetectorRef, Host
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { Subscription, Subject, merge, fromEvent } from 'rxjs';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, startWith } from 'rxjs/operators';
 
 /**
  * @fileoverview added by tsickle
@@ -18,10 +18,48 @@ class TdBreadcrumbComponent {
         this._changeDetectorRef = _changeDetectorRef;
         this._displayCrumb = true;
         this._width = 0;
-        // Sets the icon url shown between breadcrumbs. Defaults to 'chevron_right'
-        this.separatorIcon = 'chevron_right';
-        // Should show the right chevron or not before the label
         this._displayIcon = true;
+        this._separatorIcon = 'chevron_right';
+    }
+    // Sets the icon url shown between breadcrumbs. Defaults to 'chevron_right'
+    /**
+     * @return {?}
+     */
+    get separatorIcon() {
+        return this._separatorIcon;
+    }
+    /**
+     * @param {?} separatorIcon
+     * @return {?}
+     */
+    set separatorIcon(separatorIcon) {
+        this._separatorIcon = separatorIcon;
+        setTimeout((/**
+         * @return {?}
+         */
+        () => {
+            this._changeDetectorRef.markForCheck();
+        }));
+    }
+    // Should show the right chevron or not before the label
+    /**
+     * @return {?}
+     */
+    get displayIcon() {
+        return this._displayIcon;
+    }
+    /**
+     * @param {?} displayIcon
+     * @return {?}
+     */
+    set displayIcon(displayIcon) {
+        this._displayIcon = displayIcon;
+        setTimeout((/**
+         * @return {?}
+         */
+        () => {
+            this._changeDetectorRef.markForCheck();
+        }));
     }
     /**
      * @return {?}
@@ -36,7 +74,12 @@ class TdBreadcrumbComponent {
      */
     set displayCrumb(shouldDisplay) {
         this._displayCrumb = shouldDisplay;
-        this._changeDetectorRef.markForCheck();
+        setTimeout((/**
+         * @return {?}
+         */
+        () => {
+            this._changeDetectorRef.markForCheck();
+        }));
     }
     /**
      * Width of the DOM element of the crumb
@@ -80,7 +123,7 @@ class TdBreadcrumbComponent {
 TdBreadcrumbComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-breadcrumb, a[td-breadcrumb]',
-                template: "<ng-content></ng-content>\n<mat-icon\n  *ngIf=\"_displayIcon\"\n  class=\"td-breadcrumb-separator-icon\"\n  [style.cursor]=\"'default'\"\n  (click)=\"_handleIconClick($event)\"\n>\n  {{ separatorIcon }}\n</mat-icon>\n",
+                template: "<ng-content></ng-content>\n<mat-icon\n  *ngIf=\"displayIcon\"\n  class=\"td-breadcrumb-separator-icon\"\n  [style.cursor]=\"'default'\"\n  (click)=\"_handleIconClick($event)\"\n>\n  {{ separatorIcon }}\n</mat-icon>\n",
                 /* tslint:disable-next-line */
                 host: {
                     class: 'mat-button td-breadcrumb',
@@ -108,10 +151,16 @@ if (false) {
      * @private
      */
     TdBreadcrumbComponent.prototype._width;
-    /** @type {?} */
-    TdBreadcrumbComponent.prototype.separatorIcon;
-    /** @type {?} */
+    /**
+     * @type {?}
+     * @private
+     */
     TdBreadcrumbComponent.prototype._displayIcon;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdBreadcrumbComponent.prototype._separatorIcon;
     /**
      * @type {?}
      * @private
@@ -139,12 +188,24 @@ class TdBreadcrumbsComponent {
         this._resizeSubscription = Subscription.EMPTY;
         this._widthSubject = new Subject();
         this._resizing = false;
+        this._separatorIcon = 'chevron_right';
         // the list of hidden breadcrumbs not shown right now (responsive)
         this.hiddenBreadcrumbs = [];
-        /**
-         * Sets the icon url shown between breadcrumbs. Defaults to 'chevron_right'.
-         */
-        this.separatorIcon = 'chevron_right';
+    }
+    /**
+     * Sets the icon url shown between breadcrumbs. Defaults to 'chevron_right'.
+     * @param {?} separatorIcon
+     * @return {?}
+     */
+    set separatorIcon(separatorIcon) {
+        this._separatorIcon = separatorIcon;
+        this.setCrumbIcons();
+    }
+    /**
+     * @return {?}
+     */
+    get separatorIcon() {
+        return this._separatorIcon;
     }
     /**
      * @return {?}
@@ -179,14 +240,20 @@ class TdBreadcrumbsComponent {
      * @return {?}
      */
     ngAfterContentInit() {
-        this.setCrumbIcons();
-        this._changeDetectorRef.markForCheck();
+        this._contentChildrenSub = this._breadcrumbs.changes.pipe(startWith(this._breadcrumbs)).subscribe((/**
+         * @return {?}
+         */
+        () => {
+            this.setCrumbIcons();
+            this._changeDetectorRef.markForCheck();
+        }));
     }
     /**
      * @return {?}
      */
     ngOnDestroy() {
         this._resizeSubscription.unsubscribe();
+        this._contentChildrenSub.unsubscribe();
     }
     /*
        * Current width of the element container
@@ -233,19 +300,20 @@ class TdBreadcrumbsComponent {
      * @return {?}
      */
     setCrumbIcons() {
-        /** @type {?} */
-        const breadcrumbArray = this._breadcrumbs.toArray();
-        if (breadcrumbArray.length > 0) {
-            // don't show the icon on the last breadcrumb
-            breadcrumbArray[breadcrumbArray.length - 1]._displayIcon = false;
+        if (this._breadcrumbs) {
+            /** @type {?} */
+            const breadcrumbArray = this._breadcrumbs.toArray();
+            breadcrumbArray.forEach((/**
+             * @param {?} breadcrumb
+             * @param {?} index
+             * @return {?}
+             */
+            (breadcrumb, index) => {
+                breadcrumb.separatorIcon = this.separatorIcon;
+                // don't show the icon on the last breadcrumb
+                breadcrumb.displayIcon = index < breadcrumbArray.length - 1;
+            }));
         }
-        breadcrumbArray.forEach((/**
-         * @param {?} breadcrumb
-         * @return {?}
-         */
-        (breadcrumb) => {
-            breadcrumb.separatorIcon = this.separatorIcon;
-        }));
     }
     /**
      * @private
@@ -314,16 +382,21 @@ if (false) {
      * @type {?}
      * @private
      */
+    TdBreadcrumbsComponent.prototype._contentChildrenSub;
+    /**
+     * @type {?}
+     * @private
+     */
     TdBreadcrumbsComponent.prototype._resizing;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdBreadcrumbsComponent.prototype._separatorIcon;
     /** @type {?} */
     TdBreadcrumbsComponent.prototype._breadcrumbs;
     /** @type {?} */
     TdBreadcrumbsComponent.prototype.hiddenBreadcrumbs;
-    /**
-     * Sets the icon url shown between breadcrumbs. Defaults to 'chevron_right'.
-     * @type {?}
-     */
-    TdBreadcrumbsComponent.prototype.separatorIcon;
     /**
      * @type {?}
      * @private

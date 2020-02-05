@@ -4,8 +4,10 @@ export declare class TdBreadcrumbComponent implements AfterViewInit {
     private _changeDetectorRef;
     private _displayCrumb;
     private _width;
+    private _displayIcon;
+    private _separatorIcon;
     separatorIcon: string;
-    _displayIcon: boolean;
+    displayIcon: boolean;
     /**
     * Whether to display the crumb or not
     */
