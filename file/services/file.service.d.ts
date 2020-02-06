@@ -1,18 +1,5 @@
 import { HttpClient, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
-/**
- * @deprecated should be removed in favor of IUploadInit
- * @breaking-change 3.0.0
- */
-export interface IUploadOptions {
-    url: string;
-    method: 'post' | 'put';
-    file?: File;
-    headers?: {
-        [key: string]: string;
-    };
-    formData?: FormData;
-}
 export interface IUploadExtras {
     headers?: {
         [name: string]: string | string[];
@@ -37,23 +24,8 @@ export declare class TdFileService {
      */
     constructor(_http: HttpClient);
     /**
-     * Uploads a file to URL.
+     * Uploads a file to a URL.
      */
     send(url: string, method: string, body: File | FormData, { headers, params }?: IUploadExtras): Observable<HttpEvent<any>>;
-    /**
-     * params:
-     * - options: IUploadOptions {
-     *     url: string,
-     *     method: 'post' | 'put',
-     *     file?: File,
-     *     headers?: {[key: string]: string},
-     *     formData?: FormData
-     * }
-     *
-     * Uses underlying [XMLHttpRequest] to upload a file to a url.
-     * @deprecated use send instead
-     * @breaking-change 3.0.0
-     */
-    upload(options: IUploadOptions): Observable<any>;
     private handleEvent;
 }
