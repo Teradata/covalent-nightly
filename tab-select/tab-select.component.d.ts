@@ -12,16 +12,17 @@ export declare class TdTabSelectComponent extends _TdTabSelectMixinBase implemen
     private _values;
     private _selectedIndex;
     private _stretchTabs;
-    readonly selectedIndex: number;
+    get selectedIndex(): number;
     /**
      * Gets all tab option children
      */
     readonly _tabOptions: QueryList<TdTabOptionComponent>;
-    readonly tabOptions: TdTabOptionComponent[];
+    get tabOptions(): TdTabOptionComponent[];
     /**
      * Makes the tabs stretch to fit the parent container.
      */
-    stretchTabs: boolean;
+    set stretchTabs(stretchTabs: boolean);
+    get stretchTabs(): boolean;
     /**
      * Color of the tab group.
      */

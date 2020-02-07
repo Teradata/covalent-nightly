@@ -79,11 +79,11 @@ export declare class TdLayoutNavListComponent implements ILayoutTogglable {
      * Checks if `ESC` should close the sidenav
      * Should only close it for `push` and `over` modes
      */
-    readonly disableClose: boolean;
+    get disableClose(): boolean;
     /**
      * Checks if router was injected.
      */
-    readonly routerEnabled: boolean;
+    get routerEnabled(): boolean;
     constructor(_router: Router);
     handleNavigationClick(): void;
     /**

@@ -1205,7 +1205,6 @@ CovalentLoadingModule.decorators = [
                 declarations: [TD_LOADING],
                 exports: [TD_LOADING],
                 providers: [LOADING_FACTORY_PROVIDER, LOADING_PROVIDER],
-                entryComponents: [TD_LOADING_ENTRY_COMPONENTS],
             },] }
 ];
 

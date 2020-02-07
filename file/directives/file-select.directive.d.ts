@@ -8,7 +8,7 @@ export declare class TdFileSelectDirective {
      * Sets whether multiple files can be selected at once in host element, or just a single file.
      * Can also be 'multiple' native attribute.
      */
-    multiple: boolean;
+    set multiple(multiple: boolean);
     /**
      * fileSelect?: function
      * Event emitted when a file or files are selected in host [HTMLInputElement].
@@ -19,7 +19,7 @@ export declare class TdFileSelectDirective {
     /**
      * Binds native 'multiple' attribute if [multiple] property is 'true'.
      */
-    readonly multipleBinding: string;
+    get multipleBinding(): string;
     constructor(model: NgModel);
     /**
      * Listens to 'change' host event to get [HTMLInputElement] files.

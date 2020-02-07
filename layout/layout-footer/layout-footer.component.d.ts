@@ -8,6 +8,7 @@ export declare class TdLayoutFooterComponent {
      *
      * Optional color option: primary | accent | warn.
      */
-    color: 'primary' | 'accent' | 'warn';
+    set color(color: 'primary' | 'accent' | 'warn');
+    get color(): 'primary' | 'accent' | 'warn';
     constructor(_renderer: Renderer2, _elementRef: ElementRef);
 }

@@ -24,7 +24,7 @@ export declare class TdStepComponent extends _TdStepMixinBase implements OnInit,
     private _active;
     private _state;
     private _contentPortal;
-    readonly stepContent: TemplatePortal<any>;
+    get stepContent(): TemplatePortal<any>;
     _content: TemplateRef<any>;
     stepLabel: TdStepLabelDirective;
     stepActions: TdStepActionsDirective;
@@ -44,13 +44,15 @@ export declare class TdStepComponent extends _TdStepMixinBase implements OnInit,
      * active?: boolean
      * Toggles [TdStepComponent] between active/deactive.
      */
-    active: boolean;
+    set active(active: boolean);
+    get active(): boolean;
     /**
      * state?: StepState or ['none' | 'required' | 'complete']
      * Sets state of [TdStepComponent] depending on value.
      * Defaults to [StepState.None | 'none'].
      */
-    state: StepState;
+    set state(state: StepState);
+    get state(): StepState;
     /**
      * activated?: function
      * Event emitted when [TdStepComponent] is activated.

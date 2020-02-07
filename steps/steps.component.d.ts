@@ -13,14 +13,15 @@ export declare class TdStepsComponent implements OnDestroy, AfterContentInit {
     private _subcriptions;
     private _mode;
     private _steps;
-    stepsContent: QueryList<TdStepComponent>;
-    readonly steps: TdStepComponent[];
+    set stepsContent(steps: QueryList<TdStepComponent>);
+    get steps(): TdStepComponent[];
     prevStep: TdStepComponent;
     /**
      * mode?: StepMode or ["vertical" | "horizontal"]
      * Defines if the mode of the [TdStepsComponent].  Defaults to [StepMode.Vertical | "vertical"]
      */
-    mode: StepMode;
+    set mode(mode: StepMode);
+    get mode(): StepMode;
     /**
      * stepChange?: function
      * Method to be executed when [stepChange] event is emitted.

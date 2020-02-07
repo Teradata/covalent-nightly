@@ -30,13 +30,15 @@ export declare class TdFileUploadComponent extends _TdFileUploadMixinBase implem
      * multiple?: boolean
      * Sets if multiple files can be dropped/selected at once in [TdFileUploadComponent].
      */
-    multiple: boolean;
+    set multiple(multiple: boolean);
+    get multiple(): boolean;
     /**
      * required?: boolean
      * Forces at least one file upload.
      * Defaults to 'false'
      */
-    required: boolean;
+    set required(required: boolean);
+    get required(): boolean;
     /**
      * accept?: string
      * Sets files accepted when opening the file browser dialog.

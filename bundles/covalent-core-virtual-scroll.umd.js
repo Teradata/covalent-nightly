@@ -581,7 +581,7 @@
             data: [{ type: core.Input, args: ['data',] }],
             bottom: [{ type: core.Output }],
             _rows: [{ type: core.ViewChildren, args: ['rowElement',] }],
-            _rowTemplate: [{ type: core.ContentChild, args: [TdVirtualScrollRowDirective, { static: false },] }],
+            _rowTemplate: [{ type: core.ContentChild, args: [TdVirtualScrollRowDirective,] }],
             trackBy: [{ type: core.Input }],
             handleScroll: [{ type: core.HostListener, args: ['scroll', ['$event'],] }]
         };

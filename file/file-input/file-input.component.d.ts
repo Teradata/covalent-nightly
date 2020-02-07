@@ -14,7 +14,7 @@ export declare class TdFileInputComponent extends _TdFileInputMixinBase implemen
     private _multiple;
     /** The native `<input type="file"> element */
     _inputElement: ElementRef;
-    readonly inputElement: HTMLInputElement;
+    get inputElement(): HTMLInputElement;
     /**
      * color?: 'accent' | 'primary' | 'warn'
      * Sets button color. Uses same color palette accepted as [MatButton].
@@ -24,7 +24,8 @@ export declare class TdFileInputComponent extends _TdFileInputMixinBase implemen
      * multiple?: boolean
      * Sets if multiple files can be dropped/selected at once in [TdFileInputComponent].
      */
-    multiple: boolean;
+    set multiple(multiple: boolean);
+    get multiple(): boolean;
     /**
      * accept?: string
      * Sets files accepted when opening the file browser dialog.

@@ -320,7 +320,7 @@ var TdMessageComponent = /** @class */ (function () {
     ]; };
     TdMessageComponent.propDecorators = {
         _childElement: [{ type: ViewChild, args: [TdMessageContainerDirective, { static: true },] }],
-        _template: [{ type: ViewChild, args: [TemplateRef, { static: false },] }],
+        _template: [{ type: ViewChild, args: [TemplateRef,] }],
         collapsedAnimation: [{ type: HostBinding, args: ['@tdCollapse',] }],
         hidden: [{ type: HostBinding, args: ['style.display',] }],
         label: [{ type: Input }],

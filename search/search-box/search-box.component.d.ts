@@ -9,7 +9,7 @@ export declare const _TdSearchBoxMixinBase: (new (...args: any[]) => IControlVal
 export declare class TdSearchBoxComponent extends _TdSearchBoxMixinBase implements IControlValueAccessor {
     private _searchVisible;
     _searchInput: TdSearchInputComponent;
-    readonly searchVisible: boolean;
+    get searchVisible(): boolean;
     /**
      * backIcon?: string
      * The icon used to close the search toggle, only shown when [alwaysVisible] is false.

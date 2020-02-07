@@ -13,17 +13,18 @@ export declare class TdBreadcrumbsComponent implements OnInit, DoCheck, AfterCon
     /**
      * Sets the icon url shown between breadcrumbs. Defaults to 'chevron_right'.
      */
-    separatorIcon: string;
+    set separatorIcon(separatorIcon: string);
+    get separatorIcon(): string;
     constructor(_elementRef: ElementRef, _changeDetectorRef: ChangeDetectorRef);
     ngOnInit(): void;
     ngDoCheck(): void;
     ngAfterContentInit(): void;
     ngOnDestroy(): void;
-    readonly nativeElementWidth: number;
+    get nativeElementWidth(): number;
     /**
      * The total count of individual breadcrumbs
      */
-    readonly count: number;
+    get count(): number;
     /**
      * Set the crumb icon separators
      */

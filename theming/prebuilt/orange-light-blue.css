@@ -1134,8 +1134,6 @@ textarea.cdk-textarea-autosize-measuring {
 
 .mat-checkbox-checkmark-path {
   stroke: #fafafa !important; }
-  .cdk-high-contrast-black-on-white .mat-checkbox-checkmark-path {
-    stroke: #000 !important; }
 
 .mat-checkbox-mixedmark {
   background-color: #fafafa; }
@@ -1157,12 +1155,6 @@ textarea.cdk-textarea-autosize-measuring {
 
 .mat-checkbox-disabled .mat-checkbox-label {
   color: rgba(0, 0, 0, 0.54); }
-
-.cdk-high-contrast-active .mat-checkbox-disabled {
-  opacity: 0.5; }
-
-.cdk-high-contrast-active .mat-checkbox-background {
-  background: none; }
 
 .mat-checkbox .mat-ripple-element {
   background-color: black; }

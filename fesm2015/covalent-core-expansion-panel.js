@@ -216,9 +216,9 @@ TdExpansionPanelComponent.ctorParameters = () => [
     { type: ElementRef }
 ];
 TdExpansionPanelComponent.propDecorators = {
-    expansionPanelHeader: [{ type: ContentChild, args: [TdExpansionPanelHeaderDirective, { static: false },] }],
-    expansionPanelLabel: [{ type: ContentChild, args: [TdExpansionPanelLabelDirective, { static: false },] }],
-    expansionPanelSublabel: [{ type: ContentChild, args: [TdExpansionPanelSublabelDirective, { static: false },] }],
+    expansionPanelHeader: [{ type: ContentChild, args: [TdExpansionPanelHeaderDirective,] }],
+    expansionPanelLabel: [{ type: ContentChild, args: [TdExpansionPanelLabelDirective,] }],
+    expansionPanelSublabel: [{ type: ContentChild, args: [TdExpansionPanelSublabelDirective,] }],
     label: [{ type: Input }],
     sublabel: [{ type: Input }],
     expand: [{ type: Input, args: ['expand',] }],

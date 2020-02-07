@@ -922,7 +922,6 @@
                         imports: [forms.FormsModule, common.CommonModule, dialog.MatDialogModule, input.MatInputModule, button.MatButtonModule],
                         declarations: [TD_DIALOGS],
                         exports: [TD_DIALOGS],
-                        entryComponents: [TD_DIALOGS_ENTRY_COMPONENTS],
                         providers: [TdDialogService],
                     },] }
         ];

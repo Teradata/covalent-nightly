@@ -9,7 +9,7 @@ export declare class TdDataTableColumnComponent {
     private _renderer;
     private _sortOrder;
     _columnContent: ElementRef;
-    readonly projectedWidth: number;
+    get projectedWidth(): number;
     /**
      * name?: string
      * Sets unique column [name] for [sortable] events.
@@ -38,17 +38,17 @@ export declare class TdDataTableColumnComponent {
      * Sets the sort order of column.
      * Defaults to 'ASC' or TdDataTableSortingOrder.Ascending
      */
-    sortOrder: 'ASC' | 'DESC';
+    set sortOrder(order: 'ASC' | 'DESC');
     /**
      * sortChange?: function
      * Event emitted when the column headers are clicked. [sortable] needs to be enabled.
      * Emits an [ITdDataTableSortChangeEvent] implemented object.
      */
     sortChange: EventEmitter<ITdDataTableSortChangeEvent>;
-    readonly bindClickable: boolean;
-    readonly bingSortable: boolean;
-    readonly bindActive: boolean;
-    readonly bindNumeric: boolean;
+    get bindClickable(): boolean;
+    get bingSortable(): boolean;
+    get bindActive(): boolean;
+    get bindNumeric(): boolean;
     constructor(_elementRef: ElementRef, _renderer: Renderer2);
     /**
      * Listening to click event on host to throw a sort event

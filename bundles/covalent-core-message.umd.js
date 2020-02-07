@@ -321,7 +321,7 @@
         ]; };
         TdMessageComponent.propDecorators = {
             _childElement: [{ type: core.ViewChild, args: [TdMessageContainerDirective, { static: true },] }],
-            _template: [{ type: core.ViewChild, args: [core.TemplateRef, { static: false },] }],
+            _template: [{ type: core.ViewChild, args: [core.TemplateRef,] }],
             collapsedAnimation: [{ type: core.HostBinding, args: ['@tdCollapse',] }],
             hidden: [{ type: core.HostBinding, args: ['style.display',] }],
             label: [{ type: core.Input }],

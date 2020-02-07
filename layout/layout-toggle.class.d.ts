@@ -23,7 +23,7 @@ export declare abstract class LayoutToggle extends _TdLayoutToggleMixinBase impl
      * When this is set to true, the host will be hidden when
      * the sidenav is opened.
      */
-    hideWhenOpened: boolean;
+    set hideWhenOpened(hideWhenOpened: boolean);
     constructor(_layout: ILayoutTogglable, _renderer: Renderer2, _elementRef: ElementRef);
     ngAfterViewInit(): void;
     ngOnDestroy(): void;

@@ -250,9 +250,9 @@ TdStepComponent.ctorParameters = () => [
 ];
 TdStepComponent.propDecorators = {
     _content: [{ type: ViewChild, args: [TemplateRef, { static: true },] }],
-    stepLabel: [{ type: ContentChild, args: [TdStepLabelDirective, { static: false },] }],
-    stepActions: [{ type: ContentChild, args: [TdStepActionsDirective, { static: false },] }],
-    stepSummary: [{ type: ContentChild, args: [TdStepSummaryDirective, { static: false },] }],
+    stepLabel: [{ type: ContentChild, args: [TdStepLabelDirective,] }],
+    stepActions: [{ type: ContentChild, args: [TdStepActionsDirective,] }],
+    stepSummary: [{ type: ContentChild, args: [TdStepSummaryDirective,] }],
     label: [{ type: Input }],
     sublabel: [{ type: Input }],
     active: [{ type: Input, args: ['active',] }],

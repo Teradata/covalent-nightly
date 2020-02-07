@@ -386,7 +386,7 @@ var TdVirtualScrollContainerComponent = /** @class */ (function () {
         data: [{ type: Input, args: ['data',] }],
         bottom: [{ type: Output }],
         _rows: [{ type: ViewChildren, args: ['rowElement',] }],
-        _rowTemplate: [{ type: ContentChild, args: [TdVirtualScrollRowDirective, { static: false },] }],
+        _rowTemplate: [{ type: ContentChild, args: [TdVirtualScrollRowDirective,] }],
         trackBy: [{ type: Input }],
         handleScroll: [{ type: HostListener, args: ['scroll', ['$event'],] }]
     };

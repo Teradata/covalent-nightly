@@ -73,8 +73,8 @@ var TdSidesheetComponent = /** @class */ (function () {
                 }] }
     ];
     TdSidesheetComponent.propDecorators = {
-        headerExists: [{ type: ContentChild, args: [TdSidesheetHeaderComponent, { static: false },] }],
-        actionsExist: [{ type: ContentChild, args: [TdSidesheetActionsDirective, { static: false },] }]
+        headerExists: [{ type: ContentChild, args: [TdSidesheetHeaderComponent,] }],
+        actionsExist: [{ type: ContentChild, args: [TdSidesheetActionsDirective,] }]
     };
     return TdSidesheetComponent;
 }());

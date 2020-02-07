@@ -40,11 +40,13 @@ export declare class TdLoadingComponent implements DoCheck {
     /**
      * Sets mode of [TdLoadingComponent] to LoadingMode.Determinate or LoadingMode.Indeterminate
      */
-    mode: LoadingMode;
+    set mode(mode: LoadingMode);
+    get mode(): LoadingMode;
     /**
      * Sets value of [TdLoadingComponent] if mode is 'LoadingMode.Determinate'
      */
-    value: number;
+    set value(value: number);
+    get value(): number;
     style: LoadingStyle;
     /**
      * height: number

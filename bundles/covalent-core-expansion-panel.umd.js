@@ -473,9 +473,9 @@
             { type: core.ElementRef }
         ]; };
         TdExpansionPanelComponent.propDecorators = {
-            expansionPanelHeader: [{ type: core.ContentChild, args: [TdExpansionPanelHeaderDirective, { static: false },] }],
-            expansionPanelLabel: [{ type: core.ContentChild, args: [TdExpansionPanelLabelDirective, { static: false },] }],
-            expansionPanelSublabel: [{ type: core.ContentChild, args: [TdExpansionPanelSublabelDirective, { static: false },] }],
+            expansionPanelHeader: [{ type: core.ContentChild, args: [TdExpansionPanelHeaderDirective,] }],
+            expansionPanelLabel: [{ type: core.ContentChild, args: [TdExpansionPanelLabelDirective,] }],
+            expansionPanelSublabel: [{ type: core.ContentChild, args: [TdExpansionPanelSublabelDirective,] }],
             label: [{ type: core.Input }],
             sublabel: [{ type: core.Input }],
             expand: [{ type: core.Input, args: ['expand',] }],

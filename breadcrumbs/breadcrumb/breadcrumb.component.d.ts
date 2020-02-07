@@ -6,20 +6,23 @@ export declare class TdBreadcrumbComponent implements AfterViewInit {
     private _width;
     private _displayIcon;
     private _separatorIcon;
-    separatorIcon: string;
-    displayIcon: boolean;
+    get separatorIcon(): string;
+    set separatorIcon(separatorIcon: string);
+    get displayIcon(): boolean;
+    set displayIcon(displayIcon: boolean);
+    get displayCrumb(): boolean;
     /**
-    * Whether to display the crumb or not
-    */
-    displayCrumb: boolean;
+     * Whether to display the crumb or not
+     */
+    set displayCrumb(shouldDisplay: boolean);
     /**
      * Width of the DOM element of the crumb
      */
-    readonly width: number;
+    get width(): number;
     /**
      * Gets the display style of the crumb
      */
-    readonly displayBinding: string;
+    get displayBinding(): string;
     constructor(_elementRef: ElementRef, _changeDetectorRef: ChangeDetectorRef);
     ngAfterViewInit(): void;
     /**

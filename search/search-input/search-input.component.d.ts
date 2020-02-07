@@ -57,7 +57,7 @@ export declare class TdSearchInputComponent extends _TdSearchInputMixinBase impl
      * Event emitted after the blur event has been called in underlying input.
      */
     blur: EventEmitter<void>;
-    readonly isRTL: boolean;
+    get isRTL(): boolean;
     constructor(_dir: Dir, _changeDetectorRef: ChangeDetectorRef);
     ngOnInit(): void;
     /**

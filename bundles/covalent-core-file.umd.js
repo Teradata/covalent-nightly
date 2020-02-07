@@ -1005,8 +1005,8 @@
             { type: core.ChangeDetectorRef }
         ]; };
         TdFileUploadComponent.propDecorators = {
-            fileInput: [{ type: core.ViewChild, args: [TdFileInputComponent, { static: false },] }],
-            inputLabel: [{ type: core.ContentChild, args: [TdFileInputLabelDirective, { static: false },] }],
+            fileInput: [{ type: core.ViewChild, args: [TdFileInputComponent,] }],
+            inputLabel: [{ type: core.ContentChild, args: [TdFileInputLabelDirective,] }],
             defaultColor: [{ type: core.Input }],
             activeColor: [{ type: core.Input }],
             cancelColor: [{ type: core.Input }],

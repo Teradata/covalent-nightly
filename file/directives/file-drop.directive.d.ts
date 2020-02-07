@@ -13,7 +13,7 @@ export declare class TdFileDropDirective extends _TdFileDropMixinBase implements
      * Sets whether multiple files can be dropped at once in host element, or just a single file.
      * Can also be 'multiple' native attribute.
      */
-    multiple: boolean;
+    set multiple(multiple: boolean);
     /**
      * fileDrop?: function
      * Event emitted when a file or files are dropped in host element after being validated.
@@ -23,11 +23,11 @@ export declare class TdFileDropDirective extends _TdFileDropMixinBase implements
     /**
      * Binds native 'multiple' attribute if [multiple] property is 'true'.
      */
-    readonly multipleBinding: string;
+    get multipleBinding(): string;
     /**
      * Binds native 'disabled' attribute if [disabled] property is 'true'.
      */
-    readonly disabledBinding: string;
+    get disabledBinding(): string;
     constructor(_renderer: Renderer2, _element: ElementRef);
     /**
      * Listens to 'drop' host event to get validated transfer items.

@@ -520,9 +520,9 @@
         ]; };
         TdStepComponent.propDecorators = {
             _content: [{ type: core.ViewChild, args: [core.TemplateRef, { static: true },] }],
-            stepLabel: [{ type: core.ContentChild, args: [TdStepLabelDirective, { static: false },] }],
-            stepActions: [{ type: core.ContentChild, args: [TdStepActionsDirective, { static: false },] }],
-            stepSummary: [{ type: core.ContentChild, args: [TdStepSummaryDirective, { static: false },] }],
+            stepLabel: [{ type: core.ContentChild, args: [TdStepLabelDirective,] }],
+            stepActions: [{ type: core.ContentChild, args: [TdStepActionsDirective,] }],
+            stepSummary: [{ type: core.ContentChild, args: [TdStepSummaryDirective,] }],
             label: [{ type: core.Input }],
             sublabel: [{ type: core.Input }],
             active: [{ type: core.Input, args: ['active',] }],

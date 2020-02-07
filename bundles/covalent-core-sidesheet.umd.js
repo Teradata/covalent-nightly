@@ -75,8 +75,8 @@
                     }] }
         ];
         TdSidesheetComponent.propDecorators = {
-            headerExists: [{ type: core.ContentChild, args: [TdSidesheetHeaderComponent, { static: false },] }],
-            actionsExist: [{ type: core.ContentChild, args: [TdSidesheetActionsDirective, { static: false },] }]
+            headerExists: [{ type: core.ContentChild, args: [TdSidesheetHeaderComponent,] }],
+            actionsExist: [{ type: core.ContentChild, args: [TdSidesheetActionsDirective,] }]
         };
         return TdSidesheetComponent;
     }());

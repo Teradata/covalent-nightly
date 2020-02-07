@@ -36,7 +36,7 @@ export declare class TdLayoutNavComponent {
     /**
      * Checks if router was injected.
      */
-    readonly routerEnabled: boolean;
+    get routerEnabled(): boolean;
     constructor(_router: Router);
     handleNavigationClick(): void;
 }

@@ -16,7 +16,7 @@ export declare class TdFileService {
      * Gets progress observable to keep track of the files being uploaded.
      * Needs to be supported by backend.
      */
-    readonly progress: Observable<number>;
+    get progress(): Observable<number>;
     /**
      * Creates a new instance
      * @param _http the http client instance
