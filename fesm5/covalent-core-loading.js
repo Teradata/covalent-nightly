@@ -5,8 +5,8 @@ import { OverlayConfig, Overlay, OverlayModule } from '@angular/cdk/overlay';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { __extends } from 'tslib';
-import { Subject } from 'rxjs';
 import { tdFadeInOutAnimation } from '@covalent/core/common';
+import { Subject } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
 
 /**
@@ -40,8 +40,6 @@ var TdLoadingComponent = /** @class */ (function () {
     function TdLoadingComponent(_elementRef, _changeDetectorRef) {
         this._elementRef = _elementRef;
         this._changeDetectorRef = _changeDetectorRef;
-        this._animationIn = new Subject();
-        this._animationOut = new Subject();
         this._mode = LoadingMode.Indeterminate;
         this._defaultMode = LoadingMode.Indeterminate;
         this._value = 0;
@@ -194,55 +192,13 @@ var TdLoadingComponent = /** @class */ (function () {
         return this.style === LoadingStyle.Overlay;
     };
     /**
-     * @param {?} event
-     * @return {?}
-     */
-    TdLoadingComponent.prototype.animationComplete = /**
-     * @param {?} event
-     * @return {?}
-     */
-    function (event) {
-        // Check to see if its "in" or "out" animation to execute the proper callback
-        if (!event.fromState) {
-            this.inAnimationCompleted();
-        }
-        else {
-            this.outAnimationCompleted();
-        }
-    };
-    /**
-     * @return {?}
-     */
-    TdLoadingComponent.prototype.inAnimationCompleted = /**
-     * @return {?}
-     */
-    function () {
-        this._animationIn.next();
-    };
-    /**
-     * @return {?}
-     */
-    TdLoadingComponent.prototype.outAnimationCompleted = /**
-     * @return {?}
-     */
-    function () {
-        /* little hack to reset the loader value and animation before removing it from DOM
-         * else, the loader will appear with prev value when its registered again
-         * and will do an animation going prev value to 0.
-         */
-        this.value = 0;
-        // Check for changes for `OnPush` change detection
-        this._changeDetectorRef.markForCheck();
-        this._animationOut.next();
-    };
-    /**
      * Starts in animation and returns an observable for completition event.
      */
     /**
      * Starts in animation and returns an observable for completition event.
      * @return {?}
      */
-    TdLoadingComponent.prototype.startInAnimation = /**
+    TdLoadingComponent.prototype.show = /**
      * Starts in animation and returns an observable for completition event.
      * @return {?}
      */
@@ -256,7 +212,6 @@ var TdLoadingComponent = /** @class */ (function () {
         // Check for changes for `OnPush` change detection
         this.animation = true;
         this._changeDetectorRef.markForCheck();
-        return this._animationIn.asObservable();
     };
     /**
      * Starts out animation and returns an observable for completition event.
@@ -265,7 +220,7 @@ var TdLoadingComponent = /** @class */ (function () {
      * Starts out animation and returns an observable for completition event.
      * @return {?}
      */
-    TdLoadingComponent.prototype.startOutAnimation = /**
+    TdLoadingComponent.prototype.hide = /**
      * Starts out animation and returns an observable for completition event.
      * @return {?}
      */
@@ -276,8 +231,13 @@ var TdLoadingComponent = /** @class */ (function () {
          */
         this._mode = LoadingMode.Determinate;
         // Check for changes for `OnPush` change detection
+        /* little hack to reset the loader value and animation before removing it from DOM
+         * else, the loader will appear with prev value when its registered again
+         * and will do an animation going prev value to 0.
+         */
+        this.value = 0;
+        // Check for changes for `OnPush` change detection
         this._changeDetectorRef.markForCheck();
-        return this._animationOut.asObservable();
     };
     /**
      * Calculate the proper diameter for the circle and set it
@@ -334,7 +294,7 @@ var TdLoadingComponent = /** @class */ (function () {
     TdLoadingComponent.decorators = [
         { type: Component, args: [{
                     selector: 'td-loading',
-                    template: "<div\n  class=\"td-loading-wrapper\"\n  [style.min-height]=\"getHeight()\"\n  [class.td-overlay-circular]=\"(isOverlay() || isFullScreen()) && !isLinear()\"\n  [class.td-overlay]=\"isOverlay() || isFullScreen()\"\n  [class.td-fullscreen]=\"isFullScreen()\"\n>\n  <div\n    [@tdFadeInOut]=\"animation\"\n    (@tdFadeInOut.done)=\"animationComplete($event)\"\n    [style.min-height]=\"getHeight()\"\n    class=\"td-loading\"\n  >\n    <mat-progress-spinner\n      *ngIf=\"isCircular()\"\n      [mode]=\"mode\"\n      [value]=\"value\"\n      [color]=\"color\"\n      [diameter]=\"getCircleDiameter()\"\n      [strokeWidth]=\"getCircleStrokeWidth()\"\n    ></mat-progress-spinner>\n    <mat-progress-bar *ngIf=\"isLinear()\" [mode]=\"mode\" [value]=\"value\" [color]=\"color\"></mat-progress-bar>\n  </div>\n  <ng-template [cdkPortalOutlet]=\"content\"></ng-template>\n</div>\n",
+                    template: "<div\n  class=\"td-loading-wrapper\"\n  [style.min-height]=\"getHeight()\"\n  [class.td-overlay-circular]=\"(isOverlay() || isFullScreen()) && !isLinear()\"\n  [class.td-overlay]=\"isOverlay() || isFullScreen()\"\n  [class.td-fullscreen]=\"isFullScreen()\"\n>\n  <div [@tdFadeInOut]=\"animation\" [style.min-height]=\"getHeight()\" class=\"td-loading\">\n    <mat-progress-spinner\n      *ngIf=\"isCircular()\"\n      [mode]=\"mode\"\n      [value]=\"value\"\n      [color]=\"color\"\n      [diameter]=\"getCircleDiameter()\"\n      [strokeWidth]=\"getCircleStrokeWidth()\"\n    ></mat-progress-spinner>\n    <mat-progress-bar *ngIf=\"isLinear()\" [mode]=\"mode\" [value]=\"value\" [color]=\"color\"></mat-progress-bar>\n  </div>\n  <ng-template [cdkPortalOutlet]=\"content\"></ng-template>\n</div>\n",
                     animations: [tdFadeInOutAnimation],
                     styles: [".td-loading-wrapper{position:relative;display:block}.td-loading-wrapper.td-fullscreen{position:inherit}.td-loading-wrapper .td-loading{box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-flex:1;-ms-flex:1;flex:1}.td-loading-wrapper.td-overlay .td-loading{position:absolute;margin:0;top:0;left:0;right:0;z-index:1000}.td-loading-wrapper.td-overlay .td-loading mat-progress-bar{position:absolute;top:0;left:0;right:0}.td-loading-wrapper.td-overlay-circular .td-loading{bottom:0}"]
                 }] }
@@ -347,16 +307,6 @@ var TdLoadingComponent = /** @class */ (function () {
     return TdLoadingComponent;
 }());
 if (false) {
-    /**
-     * @type {?}
-     * @private
-     */
-    TdLoadingComponent.prototype._animationIn;
-    /**
-     * @type {?}
-     * @private
-     */
-    TdLoadingComponent.prototype._animationOut;
     /**
      * @type {?}
      * @private
@@ -498,21 +448,15 @@ var TdLoadingFactory = /** @class */ (function () {
                 overlayRef = _this._createOverlay();
                 loadingRef.componentRef = overlayRef.attach(new ComponentPortal(TdLoadingComponent));
                 _this._mapOptions(options, loadingRef.componentRef.instance);
-                loadingRef.componentRef.instance.startInAnimation();
+                loadingRef.componentRef.instance.show();
                 loadingRef.componentRef.changeDetectorRef.detectChanges();
             }
             else if (registered <= 0 && loading) {
                 loading = false;
-                /** @type {?} */
-                var subs_1 = loadingRef.componentRef.instance.startOutAnimation().subscribe((/**
-                 * @return {?}
-                 */
-                function () {
-                    subs_1.unsubscribe();
-                    loadingRef.componentRef.destroy();
-                    overlayRef.detach();
-                    overlayRef.dispose();
-                }));
+                loadingRef.componentRef.instance.hide();
+                loadingRef.componentRef.destroy();
+                overlayRef.detach();
+                overlayRef.dispose();
             }
         }));
         return loadingRef;
@@ -563,11 +507,11 @@ var TdLoadingFactory = /** @class */ (function () {
         function (registered) {
             if (registered > 0 && !loading) {
                 loading = true;
-                loadingRef.componentRef.instance.startInAnimation();
+                loadingRef.componentRef.instance.show();
             }
             else if (registered <= 0 && loading) {
                 loading = false;
-                loadingRef.componentRef.instance.startOutAnimation();
+                loadingRef.componentRef.instance.hide();
             }
         }));
         return loadingRef;
@@ -628,30 +572,24 @@ var TdLoadingFactory = /** @class */ (function () {
                     viewContainerRef.detach(viewContainerRef.indexOf(contentRef));
                     viewContainerRef.insert(loadingRef.componentRef.hostView, 0);
                 }
-                loadingRef.componentRef.instance.startInAnimation();
+                loadingRef.componentRef.instance.show();
             }
             else if (registered <= 0 && loading) {
                 loading = false;
+                loadingRef.componentRef.instance.hide();
+                // detach loader and attach the content if content is there
                 /** @type {?} */
-                var subs_2 = loadingRef.componentRef.instance.startOutAnimation().subscribe((/**
-                 * @return {?}
+                var index = viewContainerRef.indexOf(contentRef);
+                if (index < 0) {
+                    viewContainerRef.detach(viewContainerRef.indexOf(loadingRef.componentRef.hostView));
+                    viewContainerRef.insert(contentRef, 0);
+                }
+                /**
+                 * Need to call "markForCheck" and "detectChanges" on attached template, so its detected by parent component when attached
+                 * with "OnPush" change detection
                  */
-                function () {
-                    subs_2.unsubscribe();
-                    // detach loader and attach the content if content is there
-                    /** @type {?} */
-                    var index = viewContainerRef.indexOf(contentRef);
-                    if (index < 0) {
-                        viewContainerRef.detach(viewContainerRef.indexOf(loadingRef.componentRef.hostView));
-                        viewContainerRef.insert(contentRef, 0);
-                    }
-                    /**
-                     * Need to call "markForCheck" and "detectChanges" on attached template, so its detected by parent component when attached
-                     * with "OnPush" change detection
-                     */
-                    contentRef.detectChanges();
-                    contentRef.markForCheck();
-                }));
+                contentRef.detectChanges();
+                contentRef.markForCheck();
             }
         }));
         return loadingRef;

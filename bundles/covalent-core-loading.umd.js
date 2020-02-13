@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/cdk/portal'), require('@angular/cdk/overlay'), require('@angular/material/progress-bar'), require('@angular/material/progress-spinner'), require('rxjs'), require('@covalent/core/common'), require('rxjs/operators')) :
-    typeof define === 'function' && define.amd ? define('@covalent/core/loading', ['exports', '@angular/core', '@angular/common', '@angular/cdk/portal', '@angular/cdk/overlay', '@angular/material/progress-bar', '@angular/material/progress-spinner', 'rxjs', '@covalent/core/common', 'rxjs/operators'], factory) :
-    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.loading = {}), global.ng.core, global.ng.common, global.ng.cdk.portal, global.ng.cdk.overlay, global.ng.material['progress-bar'], global.ng.material['progress-spinner'], global.rxjs, global.covalent.core.common, global.rxjs.operators));
-}(this, (function (exports, core, common, portal, overlay, progressBar, progressSpinner, rxjs, common$1, operators) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/cdk/portal'), require('@angular/cdk/overlay'), require('@angular/material/progress-bar'), require('@angular/material/progress-spinner'), require('@covalent/core/common'), require('rxjs'), require('rxjs/operators')) :
+    typeof define === 'function' && define.amd ? define('@covalent/core/loading', ['exports', '@angular/core', '@angular/common', '@angular/cdk/portal', '@angular/cdk/overlay', '@angular/material/progress-bar', '@angular/material/progress-spinner', '@covalent/core/common', 'rxjs', 'rxjs/operators'], factory) :
+    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.loading = {}), global.ng.core, global.ng.common, global.ng.cdk.portal, global.ng.cdk.overlay, global.ng.material['progress-bar'], global.ng.material['progress-spinner'], global.covalent.core.common, global.rxjs, global.rxjs.operators));
+}(this, (function (exports, core, common, portal, overlay, progressBar, progressSpinner, common$1, rxjs, operators) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -232,8 +232,6 @@
         function TdLoadingComponent(_elementRef, _changeDetectorRef) {
             this._elementRef = _elementRef;
             this._changeDetectorRef = _changeDetectorRef;
-            this._animationIn = new rxjs.Subject();
-            this._animationOut = new rxjs.Subject();
             this._mode = LoadingMode.Indeterminate;
             this._defaultMode = LoadingMode.Indeterminate;
             this._value = 0;
@@ -386,55 +384,13 @@
             return this.style === LoadingStyle.Overlay;
         };
         /**
-         * @param {?} event
-         * @return {?}
-         */
-        TdLoadingComponent.prototype.animationComplete = /**
-         * @param {?} event
-         * @return {?}
-         */
-        function (event) {
-            // Check to see if its "in" or "out" animation to execute the proper callback
-            if (!event.fromState) {
-                this.inAnimationCompleted();
-            }
-            else {
-                this.outAnimationCompleted();
-            }
-        };
-        /**
-         * @return {?}
-         */
-        TdLoadingComponent.prototype.inAnimationCompleted = /**
-         * @return {?}
-         */
-        function () {
-            this._animationIn.next();
-        };
-        /**
-         * @return {?}
-         */
-        TdLoadingComponent.prototype.outAnimationCompleted = /**
-         * @return {?}
-         */
-        function () {
-            /* little hack to reset the loader value and animation before removing it from DOM
-             * else, the loader will appear with prev value when its registered again
-             * and will do an animation going prev value to 0.
-             */
-            this.value = 0;
-            // Check for changes for `OnPush` change detection
-            this._changeDetectorRef.markForCheck();
-            this._animationOut.next();
-        };
-        /**
          * Starts in animation and returns an observable for completition event.
          */
         /**
          * Starts in animation and returns an observable for completition event.
          * @return {?}
          */
-        TdLoadingComponent.prototype.startInAnimation = /**
+        TdLoadingComponent.prototype.show = /**
          * Starts in animation and returns an observable for completition event.
          * @return {?}
          */
@@ -448,7 +404,6 @@
             // Check for changes for `OnPush` change detection
             this.animation = true;
             this._changeDetectorRef.markForCheck();
-            return this._animationIn.asObservable();
         };
         /**
          * Starts out animation and returns an observable for completition event.
@@ -457,7 +412,7 @@
          * Starts out animation and returns an observable for completition event.
          * @return {?}
          */
-        TdLoadingComponent.prototype.startOutAnimation = /**
+        TdLoadingComponent.prototype.hide = /**
          * Starts out animation and returns an observable for completition event.
          * @return {?}
          */
@@ -468,8 +423,13 @@
              */
             this._mode = LoadingMode.Determinate;
             // Check for changes for `OnPush` change detection
+            /* little hack to reset the loader value and animation before removing it from DOM
+             * else, the loader will appear with prev value when its registered again
+             * and will do an animation going prev value to 0.
+             */
+            this.value = 0;
+            // Check for changes for `OnPush` change detection
             this._changeDetectorRef.markForCheck();
-            return this._animationOut.asObservable();
         };
         /**
          * Calculate the proper diameter for the circle and set it
@@ -526,7 +486,7 @@
         TdLoadingComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'td-loading',
-                        template: "<div\n  class=\"td-loading-wrapper\"\n  [style.min-height]=\"getHeight()\"\n  [class.td-overlay-circular]=\"(isOverlay() || isFullScreen()) && !isLinear()\"\n  [class.td-overlay]=\"isOverlay() || isFullScreen()\"\n  [class.td-fullscreen]=\"isFullScreen()\"\n>\n  <div\n    [@tdFadeInOut]=\"animation\"\n    (@tdFadeInOut.done)=\"animationComplete($event)\"\n    [style.min-height]=\"getHeight()\"\n    class=\"td-loading\"\n  >\n    <mat-progress-spinner\n      *ngIf=\"isCircular()\"\n      [mode]=\"mode\"\n      [value]=\"value\"\n      [color]=\"color\"\n      [diameter]=\"getCircleDiameter()\"\n      [strokeWidth]=\"getCircleStrokeWidth()\"\n    ></mat-progress-spinner>\n    <mat-progress-bar *ngIf=\"isLinear()\" [mode]=\"mode\" [value]=\"value\" [color]=\"color\"></mat-progress-bar>\n  </div>\n  <ng-template [cdkPortalOutlet]=\"content\"></ng-template>\n</div>\n",
+                        template: "<div\n  class=\"td-loading-wrapper\"\n  [style.min-height]=\"getHeight()\"\n  [class.td-overlay-circular]=\"(isOverlay() || isFullScreen()) && !isLinear()\"\n  [class.td-overlay]=\"isOverlay() || isFullScreen()\"\n  [class.td-fullscreen]=\"isFullScreen()\"\n>\n  <div [@tdFadeInOut]=\"animation\" [style.min-height]=\"getHeight()\" class=\"td-loading\">\n    <mat-progress-spinner\n      *ngIf=\"isCircular()\"\n      [mode]=\"mode\"\n      [value]=\"value\"\n      [color]=\"color\"\n      [diameter]=\"getCircleDiameter()\"\n      [strokeWidth]=\"getCircleStrokeWidth()\"\n    ></mat-progress-spinner>\n    <mat-progress-bar *ngIf=\"isLinear()\" [mode]=\"mode\" [value]=\"value\" [color]=\"color\"></mat-progress-bar>\n  </div>\n  <ng-template [cdkPortalOutlet]=\"content\"></ng-template>\n</div>\n",
                         animations: [common$1.tdFadeInOutAnimation],
                         styles: [".td-loading-wrapper{position:relative;display:block}.td-loading-wrapper.td-fullscreen{position:inherit}.td-loading-wrapper .td-loading{box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;max-width:100%;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-flex:1;-ms-flex:1;flex:1}.td-loading-wrapper.td-overlay .td-loading{position:absolute;margin:0;top:0;left:0;right:0;z-index:1000}.td-loading-wrapper.td-overlay .td-loading mat-progress-bar{position:absolute;top:0;left:0;right:0}.td-loading-wrapper.td-overlay-circular .td-loading{bottom:0}"]
                     }] }
@@ -539,16 +499,6 @@
         return TdLoadingComponent;
     }());
     if (false) {
-        /**
-         * @type {?}
-         * @private
-         */
-        TdLoadingComponent.prototype._animationIn;
-        /**
-         * @type {?}
-         * @private
-         */
-        TdLoadingComponent.prototype._animationOut;
         /**
          * @type {?}
          * @private
@@ -690,21 +640,15 @@
                     overlayRef = _this._createOverlay();
                     loadingRef.componentRef = overlayRef.attach(new portal.ComponentPortal(TdLoadingComponent));
                     _this._mapOptions(options, loadingRef.componentRef.instance);
-                    loadingRef.componentRef.instance.startInAnimation();
+                    loadingRef.componentRef.instance.show();
                     loadingRef.componentRef.changeDetectorRef.detectChanges();
                 }
                 else if (registered <= 0 && loading) {
                     loading = false;
-                    /** @type {?} */
-                    var subs_1 = loadingRef.componentRef.instance.startOutAnimation().subscribe((/**
-                     * @return {?}
-                     */
-                    function () {
-                        subs_1.unsubscribe();
-                        loadingRef.componentRef.destroy();
-                        overlayRef.detach();
-                        overlayRef.dispose();
-                    }));
+                    loadingRef.componentRef.instance.hide();
+                    loadingRef.componentRef.destroy();
+                    overlayRef.detach();
+                    overlayRef.dispose();
                 }
             }));
             return loadingRef;
@@ -755,11 +699,11 @@
             function (registered) {
                 if (registered > 0 && !loading) {
                     loading = true;
-                    loadingRef.componentRef.instance.startInAnimation();
+                    loadingRef.componentRef.instance.show();
                 }
                 else if (registered <= 0 && loading) {
                     loading = false;
-                    loadingRef.componentRef.instance.startOutAnimation();
+                    loadingRef.componentRef.instance.hide();
                 }
             }));
             return loadingRef;
@@ -820,30 +764,24 @@
                         viewContainerRef.detach(viewContainerRef.indexOf(contentRef));
                         viewContainerRef.insert(loadingRef.componentRef.hostView, 0);
                     }
-                    loadingRef.componentRef.instance.startInAnimation();
+                    loadingRef.componentRef.instance.show();
                 }
                 else if (registered <= 0 && loading) {
                     loading = false;
+                    loadingRef.componentRef.instance.hide();
+                    // detach loader and attach the content if content is there
                     /** @type {?} */
-                    var subs_2 = loadingRef.componentRef.instance.startOutAnimation().subscribe((/**
-                     * @return {?}
+                    var index = viewContainerRef.indexOf(contentRef);
+                    if (index < 0) {
+                        viewContainerRef.detach(viewContainerRef.indexOf(loadingRef.componentRef.hostView));
+                        viewContainerRef.insert(contentRef, 0);
+                    }
+                    /**
+                     * Need to call "markForCheck" and "detectChanges" on attached template, so its detected by parent component when attached
+                     * with "OnPush" change detection
                      */
-                    function () {
-                        subs_2.unsubscribe();
-                        // detach loader and attach the content if content is there
-                        /** @type {?} */
-                        var index = viewContainerRef.indexOf(contentRef);
-                        if (index < 0) {
-                            viewContainerRef.detach(viewContainerRef.indexOf(loadingRef.componentRef.hostView));
-                            viewContainerRef.insert(contentRef, 0);
-                        }
-                        /**
-                         * Need to call "markForCheck" and "detectChanges" on attached template, so its detected by parent component when attached
-                         * with "OnPush" change detection
-                         */
-                        contentRef.detectChanges();
-                        contentRef.markForCheck();
-                    }));
+                    contentRef.detectChanges();
+                    contentRef.markForCheck();
                 }
             }));
             return loadingRef;
