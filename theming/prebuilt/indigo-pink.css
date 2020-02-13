@@ -2,6 +2,7 @@
 /* stylelint-disable material/no-prefixes */
 /* stylelint-enable */
 /** Mixin to create distinct classes for fab positions, e.g. ".mat-fab-position-bottom-right". */
+/* stylelint-disable function-url-quotes, no-duplicate-selectors */
 /*
 *
 *  Responsive attributes
@@ -2057,84 +2058,84 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
   color: #ff4081; }
 
 body {
-  font-family: Roboto, "Helvetica Neue", sans-serif; }
+  font-family: "Roboto", "Helvetica Neue", sans-serif; }
 
 .td-chip-content {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
   font-size: 12px; }
 
 .td-data-table-cell {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px; }
 
 .td-data-table-column {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
   font-size: 12px;
   font-weight: 600; }
 
 .td-dialog-title {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
   font-size: 20px;
   font-weight: 500; }
 
 .td-dialog-message {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 28px; }
 
 .td-expansion-label {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
   font-size: 16px;
   font-weight: 400; }
 
 .td-expansion-sublabel {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
   font-size: 14px;
   font-weight: 400; }
 
 .td-key {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
   font-size: 14px; }
 
 .td-message-label {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
   font-size: 14px;
   font-weight: 600;
   line-height: 24px; }
 
 .td-message-sublabel {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
   font-size: 14px; }
 
 .td-paging-bar {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
   font-size: 12px; }
 
 .td-step-label {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
   font-size: 14px;
   font-weight: 500; }
 
 .td-step-sublabel {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
   font-size: 14px;
   line-height: 20px; }
 
 td-navigation-drawer .td-navigation-drawer-title {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
   font-size: 16px; }
 
 td-navigation-drawer .td-navigation-drawer-name {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 20px; }
 
 td-navigation-drawer .td-navigation-drawer-menu-toggle {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 24px; }

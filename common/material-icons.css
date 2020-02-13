@@ -1,4 +1,5 @@
 /** Mixin to create distinct classes for fab positions, e.g. ".mat-fab-position-bottom-right". */
+/* stylelint-disable function-url-quotes, no-duplicate-selectors */
 /*
 *
 *  Responsive attributes
@@ -25,6 +26,7 @@
   src: url("styles/font/MaterialIcons-Regular-v48.woff2") format("woff2"); }
 
 .material-icons {
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
