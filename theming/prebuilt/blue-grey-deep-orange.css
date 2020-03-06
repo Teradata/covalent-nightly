@@ -2173,6 +2173,25 @@ td-layout mat-toolbar {
           box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   z-index: 1; }
 
+body[dense] td-layout-nav mat-toolbar.td-layout-toolbar.mat-toolbar-row, body[dense] td-layout-nav mat-toolbar.td-layout-toolbar.mat-toolbar-single-row,
+body[dense] td-layout-nav-list mat-toolbar.td-layout-toolbar.mat-toolbar-row,
+body[dense] td-layout-nav-list mat-toolbar.td-layout-toolbar.mat-toolbar-single-row,
+body[dense] td-layout-card-over mat-toolbar.td-layout-toolbar.mat-toolbar-row,
+body[dense] td-layout-card-over mat-toolbar.td-layout-toolbar.mat-toolbar-single-row,
+td-layout-nav[dense] mat-toolbar.td-layout-toolbar.mat-toolbar-row,
+td-layout-nav[dense] mat-toolbar.td-layout-toolbar.mat-toolbar-single-row,
+td-layout-nav-list[dense] mat-toolbar.td-layout-toolbar.mat-toolbar-row,
+td-layout-nav-list[dense] mat-toolbar.td-layout-toolbar.mat-toolbar-single-row,
+td-layout-card-over[dense] mat-toolbar.td-layout-toolbar.mat-toolbar-row,
+td-layout-card-over[dense] mat-toolbar.td-layout-toolbar.mat-toolbar-single-row {
+  height: 48px; }
+
+body[dense] td-layout-card-over .td-layout-card-over-wrapper,
+td-layout-card-over[dense] .td-layout-card-over-wrapper {
+  margin: -48px;
+  margin-left: 0;
+  margin-right: 0; }
+
 .mat-drawer-side.td-layout-sidenav {
   -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
           box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12); }
