@@ -735,6 +735,25 @@ input[type='search'] {
   .mat-padding {
     padding: 16px; } }
 
+body[dense] mat-toolbar.mat-toolbar-multiple-rows .mat-toolbar-row,
+body[dense] mat-toolbar.mat-toolbar-multiple-rows .mat-toolbar-single-row,
+body[dense] mat-toolbar-row.mat-toolbar-multiple-rows .mat-toolbar-row,
+body[dense] mat-toolbar-row.mat-toolbar-multiple-rows .mat-toolbar-single-row,
+mat-toolbar[dense].mat-toolbar-multiple-rows .mat-toolbar-row,
+mat-toolbar[dense].mat-toolbar-multiple-rows .mat-toolbar-single-row,
+mat-toolbar-row[dense].mat-toolbar-multiple-rows .mat-toolbar-row,
+mat-toolbar-row[dense].mat-toolbar-multiple-rows .mat-toolbar-single-row {
+  height: 48px; }
+
+body[dense] mat-toolbar.mat-toolbar-single-row, body[dense] mat-toolbar.mat-toolbar-row,
+body[dense] mat-toolbar-row.mat-toolbar-single-row,
+body[dense] mat-toolbar-row.mat-toolbar-row,
+mat-toolbar[dense].mat-toolbar-single-row,
+mat-toolbar[dense].mat-toolbar-row,
+mat-toolbar-row[dense].mat-toolbar-single-row,
+mat-toolbar-row[dense].mat-toolbar-row {
+  height: 48px; }
+
 mat-toolbar [mat-button]:first-of-type:not(:last-child) {
   margin-left: -6px; }
   [dir='rtl'] mat-toolbar [mat-button]:first-of-type:not(:last-child) {
