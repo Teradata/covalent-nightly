@@ -1,5 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.covalentCoreVersion = '2.1.0';
-exports.materialVersion = '8.1.1';
+exports.covalentCoreVersion = '3.0.0';
+exports.materialVersion = '9.0.0';
 //# sourceMappingURL=version-names.js.map
