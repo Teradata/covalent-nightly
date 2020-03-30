@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/material/dialog'), require('@angular/material/input'), require('@angular/material/button'), require('@angular/cdk/drag-drop'), require('rxjs')) :
-    typeof define === 'function' && define.amd ? define('@covalent/core/dialogs', ['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/material/dialog', '@angular/material/input', '@angular/material/button', '@angular/cdk/drag-drop', 'rxjs'], factory) :
-    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.dialogs = {}), global.ng.core, global.ng.common, global.ng.forms, global.ng.material.dialog, global.ng.material.input, global.ng.material.button, global.ng.cdk['drag-drop'], global.rxjs));
-}(this, (function (exports, core, common, forms, dialog, input, button, dragDrop, rxjs) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/material/dialog'), require('@angular/material/input'), require('@angular/material/button'), require('@angular/cdk/drag-drop'), require('rxjs'), require('@angular/material/toolbar'), require('@angular/material/tooltip'), require('@angular/material/icon')) :
+    typeof define === 'function' && define.amd ? define('@covalent/core/dialogs', ['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/material/dialog', '@angular/material/input', '@angular/material/button', '@angular/cdk/drag-drop', 'rxjs', '@angular/material/toolbar', '@angular/material/tooltip', '@angular/material/icon'], factory) :
+    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.dialogs = {}), global.ng.core, global.ng.common, global.ng.forms, global.ng.material.dialog, global.ng.material.input, global.ng.material.button, global.ng.cdk['drag-drop'], global.rxjs, global.ng.material.toolbar, global.ng.material.tooltip, global.ng.material.icon));
+}(this, (function (exports, core, common, forms, dialog, input, button, dragDrop, rxjs, toolbar, tooltip, icon) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -898,6 +898,64 @@
      * @fileoverview added by tsickle
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
+    var TdWindowDialogComponent = /** @class */ (function () {
+        function TdWindowDialogComponent() {
+            this.docked = false;
+            this.dockToggled = new core.EventEmitter();
+            this.closed = new core.EventEmitter();
+            this.toolbarHeight = 56;
+        }
+        /**
+         * @return {?}
+         */
+        TdWindowDialogComponent.prototype.toggleDockedState = /**
+         * @return {?}
+         */
+        function () {
+            this.dockToggled.emit(this.docked);
+        };
+        TdWindowDialogComponent.decorators = [
+            { type: core.Component, args: [{
+                        selector: 'td-window-dialog',
+                        template: "<mat-toolbar\n  [color]=\"toolbarColor\"\n  class=\"td-window-dialog-toolbar\"\n  [style.min-height.px]=\"toolbarHeight\"\n  [style.cursor]=\"docked ? 'inherit' : 'move'\"\n>\n  <mat-toolbar-row [style.height.px]=\"toolbarHeight\">\n    <div layout=\"row\" layout-align=\"start center\" flex>\n      <span class=\"mat-title td-window-dialog-title truncate\" flex>\n        {{ title }}\n      </span>\n      <!-- TODO: Resizing a drag-and-drop element was not working so removed docking/undocking for now-->\n      <!-- <button mat-icon-button [matTooltip]=\"toggleDockedStateLabel\" (click)=\"toggleDockedState()\">\n        <mat-icon [attr.aria-label]=\"toggleDockedStateLabel\">\n          {{ docked ? 'unfold_more' : 'unfold_less' }}\n        </mat-icon>\n      </button> -->\n\n      <button\n        mat-icon-button\n        [matTooltip]=\"closeLabel\"\n        (click)=\"closed.emit()\"\n        class=\"td-window-dialog-close\"\n        [attr.data-test]=\"'close-button'\"\n      >\n        <mat-icon [attr.aria-label]=\"closeLabel\">\n          close\n        </mat-icon>\n      </button>\n    </div>\n  </mat-toolbar-row>\n</mat-toolbar>\n<ng-content></ng-content>\n",
+                        changeDetection: core.ChangeDetectionStrategy.OnPush,
+                        styles: [":host{height:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}.truncate{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.td-window-dialog-title{margin-bottom:0}.td-window-dialog-close{margin-right:-8px}::ng-deep .td-window-dialog .mat-dialog-container{padding:0}"]
+                    }] }
+        ];
+        TdWindowDialogComponent.propDecorators = {
+            toolbarColor: [{ type: core.Input }],
+            docked: [{ type: core.Input }],
+            title: [{ type: core.Input }],
+            toggleDockedStateLabel: [{ type: core.Input }],
+            closeLabel: [{ type: core.Input }],
+            dockToggled: [{ type: core.Output }],
+            closed: [{ type: core.Output }]
+        };
+        return TdWindowDialogComponent;
+    }());
+    if (false) {
+        /** @type {?} */
+        TdWindowDialogComponent.prototype.toolbarColor;
+        /** @type {?} */
+        TdWindowDialogComponent.prototype.docked;
+        /** @type {?} */
+        TdWindowDialogComponent.prototype.title;
+        /** @type {?} */
+        TdWindowDialogComponent.prototype.toggleDockedStateLabel;
+        /** @type {?} */
+        TdWindowDialogComponent.prototype.closeLabel;
+        /** @type {?} */
+        TdWindowDialogComponent.prototype.dockToggled;
+        /** @type {?} */
+        TdWindowDialogComponent.prototype.closed;
+        /** @type {?} */
+        TdWindowDialogComponent.prototype.toolbarHeight;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
     /** @type {?} */
     var TD_DIALOGS = [
         TdAlertDialogComponent,
@@ -907,6 +965,7 @@
         TdDialogTitleDirective,
         TdDialogActionsDirective,
         TdDialogContentDirective,
+        TdWindowDialogComponent,
     ];
     /** @type {?} */
     var TD_DIALOGS_ENTRY_COMPONENTS = [
@@ -919,7 +978,16 @@
         }
         CovalentDialogsModule.decorators = [
             { type: core.NgModule, args: [{
-                        imports: [forms.FormsModule, common.CommonModule, dialog.MatDialogModule, input.MatInputModule, button.MatButtonModule],
+                        imports: [
+                            forms.FormsModule,
+                            common.CommonModule,
+                            dialog.MatDialogModule,
+                            input.MatInputModule,
+                            button.MatButtonModule,
+                            toolbar.MatToolbarModule,
+                            tooltip.MatTooltipModule,
+                            icon.MatIconModule,
+                        ],
                         declarations: [TD_DIALOGS],
                         exports: [TD_DIALOGS],
                         providers: [TdDialogService],
@@ -1289,6 +1357,7 @@
     exports.TdDialogService = TdDialogService;
     exports.TdDialogTitleDirective = TdDialogTitleDirective;
     exports.TdPromptDialogComponent = TdPromptDialogComponent;
+    exports.ɵa = TdWindowDialogComponent;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
