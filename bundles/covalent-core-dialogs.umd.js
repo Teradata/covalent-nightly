@@ -1247,6 +1247,7 @@
          */
         function (event, corner) {
             var _this = this;
+            this._renderer2.setStyle((/** @type {?} */ (this._document.body)), 'user-select', 'none');
             var _a = this._getDialogWrapperDimensions(), originalWidth = _a.width, originalHeight = _a.height;
             /** @type {?} */
             var originalMouseX = event.pageX;
@@ -1314,6 +1315,7 @@
              * @return {?}
              */
             function () {
+                _this._renderer2.removeStyle((/** @type {?} */ (_this._document.body)), 'user-select');
                 mouseMoveSub.unsubscribe();
                 mouseUpSub.unsubscribe();
             }));

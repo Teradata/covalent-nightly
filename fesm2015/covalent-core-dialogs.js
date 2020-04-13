@@ -861,6 +861,7 @@ class ResizableDraggableDialog {
      * @return {?}
      */
     _handleMouseDown(event, corner) {
+        this._renderer2.setStyle((/** @type {?} */ (this._document.body)), 'user-select', 'none');
         const { width: originalWidth, height: originalHeight } = this._getDialogWrapperDimensions();
         /** @type {?} */
         const originalMouseX = event.pageX;
@@ -928,6 +929,7 @@ class ResizableDraggableDialog {
          * @return {?}
          */
         () => {
+            this._renderer2.removeStyle((/** @type {?} */ (this._document.body)), 'user-select');
             mouseMoveSub.unsubscribe();
             mouseUpSub.unsubscribe();
         }));
