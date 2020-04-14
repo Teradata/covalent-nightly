@@ -1,11 +1,13 @@
-import { Component, ChangeDetectionStrategy, ViewContainerRef, ChangeDetectorRef, ViewChild, TemplateRef, Input, EventEmitter, forwardRef, ContentChildren, Output, NgModule } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ViewContainerRef, ChangeDetectorRef, ViewChild, TemplateRef, Input, EventEmitter, forwardRef, NgZone, ElementRef, ContentChildren, Output, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
 import { TemplatePortal, PortalModule } from '@angular/cdk/portal';
-import { MatTabsModule } from '@angular/material/tabs';
+import { MatTabGroup, MatTabsModule } from '@angular/material/tabs';
 import { __extends } from 'tslib';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { mixinDisabled, mixinControlValueAccessor, mixinDisableRipple } from '@covalent/core/common';
+import { Subject, timer } from 'rxjs';
+import { takeUntil, distinctUntilChanged, debounceTime } from 'rxjs/operators';
 
 /**
  * @fileoverview added by tsickle
@@ -106,9 +108,12 @@ if (false) {
 var _TdTabSelectMixinBase = mixinControlValueAccessor(mixinDisabled(mixinDisableRipple(TdTabSelectBase)));
 var TdTabSelectComponent = /** @class */ (function (_super) {
     __extends(TdTabSelectComponent, _super);
-    function TdTabSelectComponent(_changeDetectorRef) {
+    function TdTabSelectComponent(_changeDetectorRef, _ngZone, _elementRef) {
         var _this = _super.call(this, _changeDetectorRef) || this;
-        _this._subs = [];
+        _this._ngZone = _ngZone;
+        _this._elementRef = _elementRef;
+        _this._destroy = new Subject();
+        _this._widthSubject = new Subject();
         _this._values = [];
         _this._selectedIndex = 0;
         _this._stretchTabs = false;
@@ -168,14 +173,46 @@ var TdTabSelectComponent = /** @class */ (function (_super) {
      */
     function () {
         var _this = this;
+        // set a timer to check every 250ms if the width has changed.
+        // if the width has changed, then we realign the ink bar
+        this._ngZone.runOutsideAngular((/**
+         * @return {?}
+         */
+        function () {
+            _this._widthSubject
+                .asObservable()
+                .pipe(takeUntil(_this._destroy), distinctUntilChanged(), debounceTime(100))
+                .subscribe((/**
+             * @return {?}
+             */
+            function () {
+                _this._ngZone.run((/**
+                 * @return {?}
+                 */
+                function () {
+                    _this._matTabGroup.realignInkBar();
+                    _this._changeDetectorRef.markForCheck();
+                }));
+            }));
+            timer(500, 250)
+                .pipe(takeUntil(_this._destroy))
+                .subscribe((/**
+             * @return {?}
+             */
+            function () {
+                if (_this._elementRef && _this._elementRef.nativeElement) {
+                    _this._widthSubject.next(((/** @type {?} */ (_this._elementRef.nativeElement))).getBoundingClientRect().width);
+                }
+            }));
+        }));
         // subscribe to check if value changes and update the selectedIndex internally.
-        this._subs.push(this.valueChanges.subscribe((/**
+        this.valueChanges.pipe(takeUntil(this._destroy)).subscribe((/**
          * @param {?} value
          * @return {?}
          */
         function (value) {
             _this._setValue(value);
-        })));
+        }));
     };
     /**
      * @return {?}
@@ -187,12 +224,12 @@ var TdTabSelectComponent = /** @class */ (function (_super) {
         var _this = this;
         // subscribe to listen to any tab changes.
         this._refreshValues();
-        this._subs.push(this._tabOptions.changes.subscribe((/**
+        this._tabOptions.changes.pipe(takeUntil(this._destroy)).subscribe((/**
          * @return {?}
          */
         function () {
             _this._refreshValues();
-        })));
+        }));
         // initialize value
         Promise.resolve().then((/**
          * @return {?}
@@ -208,15 +245,8 @@ var TdTabSelectComponent = /** @class */ (function (_super) {
      * @return {?}
      */
     function () {
-        if (this._subs && this._subs.length) {
-            this._subs.forEach((/**
-             * @param {?} sub
-             * @return {?}
-             */
-            function (sub) {
-                sub.unsubscribe();
-            }));
-        }
+        this._destroy.next(true);
+        this._destroy.unsubscribe();
     };
     /**
      * Method executed when user selects a different tab
@@ -317,9 +347,12 @@ var TdTabSelectComponent = /** @class */ (function (_super) {
     ];
     /** @nocollapse */
     TdTabSelectComponent.ctorParameters = function () { return [
-        { type: ChangeDetectorRef }
+        { type: ChangeDetectorRef },
+        { type: NgZone },
+        { type: ElementRef }
     ]; };
     TdTabSelectComponent.propDecorators = {
+        _matTabGroup: [{ type: ViewChild, args: [MatTabGroup, { static: true },] }],
         _tabOptions: [{ type: ContentChildren, args: [TdTabOptionComponent, { descendants: true },] }],
         stretchTabs: [{ type: Input, args: ['stretchTabs',] }],
         color: [{ type: Input }],
@@ -333,7 +366,12 @@ if (false) {
      * @type {?}
      * @private
      */
-    TdTabSelectComponent.prototype._subs;
+    TdTabSelectComponent.prototype._destroy;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdTabSelectComponent.prototype._widthSubject;
     /**
      * @type {?}
      * @private
@@ -349,6 +387,8 @@ if (false) {
      * @private
      */
     TdTabSelectComponent.prototype._stretchTabs;
+    /** @type {?} */
+    TdTabSelectComponent.prototype._matTabGroup;
     /**
      * Gets all tab option children
      * @type {?}
@@ -370,6 +410,16 @@ if (false) {
      * @type {?}
      */
     TdTabSelectComponent.prototype.valueChange;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdTabSelectComponent.prototype._ngZone;
+    /**
+     * @type {?}
+     * @private
+     */
+    TdTabSelectComponent.prototype._elementRef;
 }
 
 /**

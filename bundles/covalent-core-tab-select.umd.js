@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/cdk/portal'), require('@angular/material/tabs'), require('@angular/cdk/coercion'), require('@covalent/core/common')) :
-    typeof define === 'function' && define.amd ? define('@covalent/core/tab-select', ['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/cdk/portal', '@angular/material/tabs', '@angular/cdk/coercion', '@covalent/core/common'], factory) :
-    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core['tab-select'] = {}), global.ng.core, global.ng.common, global.ng.forms, global.ng.cdk.portal, global.ng.material.tabs, global.ng.cdk.coercion, global.covalent.core.common));
-}(this, (function (exports, core, common, forms, portal, tabs, coercion, common$1) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/cdk/portal'), require('@angular/material/tabs'), require('@angular/cdk/coercion'), require('@covalent/core/common'), require('rxjs'), require('rxjs/operators')) :
+    typeof define === 'function' && define.amd ? define('@covalent/core/tab-select', ['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/cdk/portal', '@angular/material/tabs', '@angular/cdk/coercion', '@covalent/core/common', 'rxjs', 'rxjs/operators'], factory) :
+    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core['tab-select'] = {}), global.ng.core, global.ng.common, global.ng.forms, global.ng.cdk.portal, global.ng.material.tabs, global.ng.cdk.coercion, global.covalent.core.common, global.rxjs, global.rxjs.operators));
+}(this, (function (exports, core, common, forms, portal, tabs, coercion, common$1, rxjs, operators) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -300,9 +300,12 @@
     var _TdTabSelectMixinBase = common$1.mixinControlValueAccessor(common$1.mixinDisabled(common$1.mixinDisableRipple(TdTabSelectBase)));
     var TdTabSelectComponent = /** @class */ (function (_super) {
         __extends(TdTabSelectComponent, _super);
-        function TdTabSelectComponent(_changeDetectorRef) {
+        function TdTabSelectComponent(_changeDetectorRef, _ngZone, _elementRef) {
             var _this = _super.call(this, _changeDetectorRef) || this;
-            _this._subs = [];
+            _this._ngZone = _ngZone;
+            _this._elementRef = _elementRef;
+            _this._destroy = new rxjs.Subject();
+            _this._widthSubject = new rxjs.Subject();
             _this._values = [];
             _this._selectedIndex = 0;
             _this._stretchTabs = false;
@@ -362,14 +365,46 @@
          */
         function () {
             var _this = this;
+            // set a timer to check every 250ms if the width has changed.
+            // if the width has changed, then we realign the ink bar
+            this._ngZone.runOutsideAngular((/**
+             * @return {?}
+             */
+            function () {
+                _this._widthSubject
+                    .asObservable()
+                    .pipe(operators.takeUntil(_this._destroy), operators.distinctUntilChanged(), operators.debounceTime(100))
+                    .subscribe((/**
+                 * @return {?}
+                 */
+                function () {
+                    _this._ngZone.run((/**
+                     * @return {?}
+                     */
+                    function () {
+                        _this._matTabGroup.realignInkBar();
+                        _this._changeDetectorRef.markForCheck();
+                    }));
+                }));
+                rxjs.timer(500, 250)
+                    .pipe(operators.takeUntil(_this._destroy))
+                    .subscribe((/**
+                 * @return {?}
+                 */
+                function () {
+                    if (_this._elementRef && _this._elementRef.nativeElement) {
+                        _this._widthSubject.next(((/** @type {?} */ (_this._elementRef.nativeElement))).getBoundingClientRect().width);
+                    }
+                }));
+            }));
             // subscribe to check if value changes and update the selectedIndex internally.
-            this._subs.push(this.valueChanges.subscribe((/**
+            this.valueChanges.pipe(operators.takeUntil(this._destroy)).subscribe((/**
              * @param {?} value
              * @return {?}
              */
             function (value) {
                 _this._setValue(value);
-            })));
+            }));
         };
         /**
          * @return {?}
@@ -381,12 +416,12 @@
             var _this = this;
             // subscribe to listen to any tab changes.
             this._refreshValues();
-            this._subs.push(this._tabOptions.changes.subscribe((/**
+            this._tabOptions.changes.pipe(operators.takeUntil(this._destroy)).subscribe((/**
              * @return {?}
              */
             function () {
                 _this._refreshValues();
-            })));
+            }));
             // initialize value
             Promise.resolve().then((/**
              * @return {?}
@@ -402,15 +437,8 @@
          * @return {?}
          */
         function () {
-            if (this._subs && this._subs.length) {
-                this._subs.forEach((/**
-                 * @param {?} sub
-                 * @return {?}
-                 */
-                function (sub) {
-                    sub.unsubscribe();
-                }));
-            }
+            this._destroy.next(true);
+            this._destroy.unsubscribe();
         };
         /**
          * Method executed when user selects a different tab
@@ -511,9 +539,12 @@
         ];
         /** @nocollapse */
         TdTabSelectComponent.ctorParameters = function () { return [
-            { type: core.ChangeDetectorRef }
+            { type: core.ChangeDetectorRef },
+            { type: core.NgZone },
+            { type: core.ElementRef }
         ]; };
         TdTabSelectComponent.propDecorators = {
+            _matTabGroup: [{ type: core.ViewChild, args: [tabs.MatTabGroup, { static: true },] }],
             _tabOptions: [{ type: core.ContentChildren, args: [TdTabOptionComponent, { descendants: true },] }],
             stretchTabs: [{ type: core.Input, args: ['stretchTabs',] }],
             color: [{ type: core.Input }],
@@ -527,7 +558,12 @@
          * @type {?}
          * @private
          */
-        TdTabSelectComponent.prototype._subs;
+        TdTabSelectComponent.prototype._destroy;
+        /**
+         * @type {?}
+         * @private
+         */
+        TdTabSelectComponent.prototype._widthSubject;
         /**
          * @type {?}
          * @private
@@ -543,6 +579,8 @@
          * @private
          */
         TdTabSelectComponent.prototype._stretchTabs;
+        /** @type {?} */
+        TdTabSelectComponent.prototype._matTabGroup;
         /**
          * Gets all tab option children
          * @type {?}
@@ -564,6 +602,16 @@
          * @type {?}
          */
         TdTabSelectComponent.prototype.valueChange;
+        /**
+         * @type {?}
+         * @private
+         */
+        TdTabSelectComponent.prototype._ngZone;
+        /**
+         * @type {?}
+         * @private
+         */
+        TdTabSelectComponent.prototype._elementRef;
     }
 
     /**

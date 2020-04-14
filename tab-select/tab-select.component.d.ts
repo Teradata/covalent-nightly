@@ -1,5 +1,6 @@
-import { ChangeDetectorRef, QueryList, OnInit, AfterContentInit, EventEmitter, OnDestroy } from '@angular/core';
+import { ChangeDetectorRef, QueryList, OnInit, AfterContentInit, EventEmitter, OnDestroy, ElementRef, NgZone } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
+import { MatTabGroup } from '@angular/material/tabs';
 import { ICanDisable, IControlValueAccessor, ICanDisableRipple } from '@covalent/core/common';
 import { TdTabOptionComponent } from './tab-option.component';
 export declare class TdTabSelectBase {
@@ -8,10 +9,14 @@ export declare class TdTabSelectBase {
 }
 export declare const _TdTabSelectMixinBase: (new (...args: any[]) => IControlValueAccessor) & (new (...args: any[]) => ICanDisable) & (new (...args: any[]) => ICanDisableRipple) & typeof TdTabSelectBase;
 export declare class TdTabSelectComponent extends _TdTabSelectMixinBase implements IControlValueAccessor, ICanDisable, ICanDisableRipple, OnInit, AfterContentInit, OnDestroy {
-    private _subs;
+    private _ngZone;
+    private _elementRef;
+    private _destroy;
+    private _widthSubject;
     private _values;
     private _selectedIndex;
     private _stretchTabs;
+    _matTabGroup: MatTabGroup;
     get selectedIndex(): number;
     /**
      * Gets all tab option children
@@ -36,7 +41,7 @@ export declare class TdTabSelectComponent extends _TdTabSelectMixinBase implemen
      * to facilitate the two-way binding for the `value` input.
      */
     readonly valueChange: EventEmitter<any>;
-    constructor(_changeDetectorRef: ChangeDetectorRef);
+    constructor(_changeDetectorRef: ChangeDetectorRef, _ngZone: NgZone, _elementRef: ElementRef);
     ngOnInit(): void;
     ngAfterContentInit(): void;
     ngOnDestroy(): void;
