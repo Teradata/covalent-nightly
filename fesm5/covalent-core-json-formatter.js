@@ -2,7 +2,6 @@ import { Component, ChangeDetectionStrategy, ChangeDetectorRef, Optional, Input,
 import { CommonModule } from '@angular/common';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
-import { __values } from 'tslib';
 import { Dir } from '@angular/cdk/bidi';
 import { tdCollapseAnimation } from '@covalent/core/common';
 
@@ -342,22 +341,8 @@ var TdJsonFormatterComponent = /** @class */ (function () {
      * @return {?}
      */
     function () {
-        var e_1, _a;
         if (this.isObject()) {
-            this._children = [];
-            try {
-                for (var _b = __values(Object.keys(this._data)), _c = _b.next(); !_c.done; _c = _b.next()) {
-                    var key = _c.value;
-                    this._children.push(key);
-                }
-            }
-            catch (e_1_1) { e_1 = { error: e_1_1 }; }
-            finally {
-                try {
-                    if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
-                }
-                finally { if (e_1) throw e_1.error; }
-            }
+            this._children = Object.keys(this._data);
         }
     };
     /**
