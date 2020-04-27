@@ -35,18 +35,22 @@
 
 .mat-h1, .mat-headline, .mat-typography h1 {
   font: 400 24px/32px Roboto, "Helvetica Neue", sans-serif;
+  letter-spacing: normal;
   margin: 0 0 16px; }
 
 .mat-h2, .mat-title, .mat-typography h2 {
   font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+  letter-spacing: normal;
   margin: 0 0 16px; }
 
 .mat-h3, .mat-subheading-2, .mat-typography h3 {
   font: 400 16px/28px Roboto, "Helvetica Neue", sans-serif;
+  letter-spacing: normal;
   margin: 0 0 16px; }
 
 .mat-h4, .mat-subheading-1, .mat-typography h4 {
   font: 400 15px/24px Roboto, "Helvetica Neue", sans-serif;
+  letter-spacing: normal;
   margin: 0 0 16px; }
 
 .mat-h5, .mat-typography h5 {
@@ -58,15 +62,18 @@
   margin: 0 0 12px; }
 
 .mat-body-strong, .mat-body-2 {
-  font: 500 14px/24px Roboto, "Helvetica Neue", sans-serif; }
+  font: 500 14px/24px Roboto, "Helvetica Neue", sans-serif;
+  letter-spacing: normal; }
 
 .mat-body, .mat-body-1, .mat-typography {
-  font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif; }
+  font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif;
+  letter-spacing: normal; }
   .mat-body p, .mat-body-1 p, .mat-typography p {
     margin: 0 0 12px; }
 
 .mat-small, .mat-caption {
-  font: 400 12px/20px Roboto, "Helvetica Neue", sans-serif; }
+  font: 400 12px/20px Roboto, "Helvetica Neue", sans-serif;
+  letter-spacing: normal; }
 
 .mat-display-4, .mat-typography .mat-display-4 {
   font: 300 112px/112px Roboto, "Helvetica Neue", sans-serif;
@@ -85,10 +92,12 @@
 
 .mat-display-1, .mat-typography .mat-display-1 {
   font: 400 34px/40px Roboto, "Helvetica Neue", sans-serif;
+  letter-spacing: normal;
   margin: 0 0 64px; }
 
 .mat-bottom-sheet-container {
-  font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif; }
+  font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif;
+  letter-spacing: normal; }
 
 .mat-button, .mat-raised-button, .mat-icon-button, .mat-stroked-button,
 .mat-flat-button, .mat-fab, .mat-mini-fab {
@@ -152,7 +161,8 @@
   font-weight: 400; }
 
 .mat-dialog-title {
-  font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif; }
+  font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+  letter-spacing: normal; }
 
 .mat-expansion-panel-header {
   font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -160,13 +170,15 @@
   font-weight: 400; }
 
 .mat-expansion-panel-content {
-  font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif; }
+  font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif;
+  letter-spacing: normal; }
 
 .mat-form-field {
   font-size: inherit;
   font-weight: 400;
   line-height: 1.125;
-  font-family: Roboto, "Helvetica Neue", sans-serif; }
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  letter-spacing: normal; }
 
 .mat-form-field-wrapper {
   padding-bottom: 1.34375em; }
@@ -391,6 +403,7 @@ input.mat-input-element {
 .mat-toolbar h5,
 .mat-toolbar h6 {
   font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+  letter-spacing: normal;
   margin: 0; }
 
 .mat-tooltip {
@@ -473,7 +486,8 @@ input.mat-input-element {
   font-size: 16px; }
 
 .mat-optgroup-label {
-  font: 500 14px/24px Roboto, "Helvetica Neue", sans-serif; }
+  font: 500 14px/24px Roboto, "Helvetica Neue", sans-serif;
+  letter-spacing: normal; }
 
 .mat-simple-snackbar {
   font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -496,6 +510,9 @@ input.mat-input-element {
 .mat-ripple {
   overflow: hidden;
   position: relative; }
+  .mat-ripple:not(:empty) {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0); }
 
 .mat-ripple.mat-ripple-unbounded {
   overflow: visible; }
@@ -614,12 +631,12 @@ input.mat-input-element {
   /*!*/ }
 
 .cdk-text-field-autofill-monitored:-webkit-autofill {
-  -webkit-animation-name: cdk-text-field-autofill-start;
-          animation-name: cdk-text-field-autofill-start; }
+  -webkit-animation: cdk-text-field-autofill-start 0s 1ms;
+          animation: cdk-text-field-autofill-start 0s 1ms; }
 
 .cdk-text-field-autofill-monitored:not(:-webkit-autofill) {
-  -webkit-animation-name: cdk-text-field-autofill-end;
-          animation-name: cdk-text-field-autofill-end; }
+  -webkit-animation: cdk-text-field-autofill-end 0s 1ms;
+          animation: cdk-text-field-autofill-end 0s 1ms; }
 
 textarea.cdk-textarea-autosize {
   resize: none; }
@@ -1532,6 +1549,9 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 .mat-action-list .mat-list-item:hover,
 .mat-action-list .mat-list-item:focus {
   background: rgba(0, 0, 0, 0.04); }
+
+.mat-list-single-selected-option, .mat-list-single-selected-option:hover, .mat-list-single-selected-option:focus {
+  background: rgba(0, 0, 0, 0.12); }
 
 .mat-menu-panel {
   background: white; }
