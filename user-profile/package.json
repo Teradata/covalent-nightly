@@ -1,0 +1,13 @@
+{
+  "main": "../bundles/covalent-core-user-profile.umd.js",
+  "module": "../fesm5/covalent-core-user-profile.js",
+  "es2015": "../fesm2015/covalent-core-user-profile.js",
+  "esm5": "../esm5/user-profile/covalent-core-user-profile.js",
+  "esm2015": "../esm2015/user-profile/covalent-core-user-profile.js",
+  "fesm5": "../fesm5/covalent-core-user-profile.js",
+  "fesm2015": "../fesm2015/covalent-core-user-profile.js",
+  "typings": "covalent-core-user-profile.d.ts",
+  "metadata": "covalent-core-user-profile.metadata.json",
+  "sideEffects": false,
+  "name": "@covalent/core/user-profile"
+}
