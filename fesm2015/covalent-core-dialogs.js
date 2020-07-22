@@ -122,6 +122,7 @@ class TdConfirmDialogComponent {
         this._dialogRef = _dialogRef;
         this.cancelButton = 'CANCEL';
         this.acceptButton = 'ACCEPT';
+        this.isDestructive = false;
     }
     /**
      * @return {?}
@@ -139,7 +140,7 @@ class TdConfirmDialogComponent {
 TdConfirmDialogComponent.decorators = [
     { type: Component, args: [{
                 selector: 'td-confirm-dialog',
-                template: "<td-dialog>\n  <td-dialog-title *ngIf=\"title\">\n    {{ title }}\n  </td-dialog-title>\n  <td-dialog-content>\n    <span class=\"td-dialog-message\">{{ message }}</span>\n  </td-dialog-content>\n  <td-dialog-actions>\n    <button mat-button #closeBtn (keydown.arrowright)=\"acceptBtn.focus()\" (click)=\"cancel()\">{{ cancelButton }}</button>\n    <button mat-button color=\"accent\" #acceptBtn (keydown.arrowleft)=\"closeBtn.focus()\" (click)=\"accept()\">\n      {{ acceptButton }}\n    </button>\n  </td-dialog-actions>\n</td-dialog>\n",
+                template: "<td-dialog>\n  <td-dialog-title *ngIf=\"title\">\n    {{ title }}\n  </td-dialog-title>\n  <td-dialog-content>\n    <span class=\"td-dialog-message\">{{ message }}</span>\n  </td-dialog-content>\n  <td-dialog-actions>\n    <button mat-button #closeBtn (keydown.arrowright)=\"acceptBtn.focus()\" (click)=\"cancel()\">{{ cancelButton }}</button>\n    <button\n      mat-button\n      [color]=\"isDestructive ? 'warn' : 'accent'\"\n      #acceptBtn\n      (keydown.arrowleft)=\"closeBtn.focus()\"\n      (click)=\"accept()\"\n    >\n      {{ acceptButton }}\n    </button>\n  </td-dialog-actions>\n</td-dialog>\n",
                 styles: [".td-dialog-message{word-break:break-word}"]
             }] }
 ];
@@ -156,6 +157,8 @@ if (false) {
     TdConfirmDialogComponent.prototype.cancelButton;
     /** @type {?} */
     TdConfirmDialogComponent.prototype.acceptButton;
+    /** @type {?} */
+    TdConfirmDialogComponent.prototype.isDestructive;
     /**
      * @type {?}
      * @private
@@ -274,6 +277,8 @@ if (false) {
     IConfirmConfig.prototype.acceptButton;
     /** @type {?|undefined} */
     IConfirmConfig.prototype.cancelButton;
+    /** @type {?|undefined} */
+    IConfirmConfig.prototype.isDestructive;
 }
 /**
  * @record
@@ -381,6 +386,7 @@ class TdDialogService {
      *     viewContainerRef?: ViewContainerRef;
      *     acceptButton?: string;
      *     cancelButton?: string;
+     *     isDestructive?: boolean;
      * }
      *
      * Opens a confirm dialog with the provided config.
@@ -399,6 +405,9 @@ class TdDialogService {
         confirmDialogComponent.message = config.message;
         if (config.acceptButton) {
             confirmDialogComponent.acceptButton = config.acceptButton;
+        }
+        if (config.isDestructive) {
+            confirmDialogComponent.isDestructive = config.isDestructive;
         }
         if (config.cancelButton) {
             confirmDialogComponent.cancelButton = config.cancelButton;
