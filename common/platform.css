@@ -578,9 +578,7 @@ mat-sidenav {
   width: 320px; }
   mat-sidenav .mat-list-item-content mat-icon {
     margin-left: 0;
-    margin-right: 16px;
-    color: #737373;
-    fill: #737373; }
+    margin-right: 16px; }
     html[dir='rtl'] mat-sidenav .mat-list-item-content mat-icon {
       margin-left: 16px;
       unicode-bidi: embed; }
