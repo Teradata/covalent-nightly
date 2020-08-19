@@ -1,3 +1,4 @@
+import { EventEmitter } from '@angular/core';
 export interface IMenuTrigger {
     id?: string;
     text?: string;
@@ -14,8 +15,15 @@ export interface IMenuItem {
     children?: IMenuItem[];
     link?: string;
     newTab?: boolean;
+    action?: string;
+}
+export interface ITdDynamicMenuLinkClickEvent {
+    text: string;
+    action: string;
 }
 export declare class TdDynamicMenuComponent {
     trigger: IMenuTrigger;
     items: IMenuItem[];
+    itemClicked: EventEmitter<ITdDynamicMenuLinkClickEvent>;
+    emitClicked(event: ITdDynamicMenuLinkClickEvent): void;
 }
