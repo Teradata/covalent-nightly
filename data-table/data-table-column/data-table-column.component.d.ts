@@ -34,6 +34,10 @@ export declare class TdDataTableColumnComponent {
      */
     numeric: boolean;
     /**
+     * if column sort order is present
+     */
+    isColumnSortOrder: boolean;
+    /**
      * sortOrder?: ['ASC' | 'DESC'] or TdDataTableSortingOrder
      * Sets the sort order of column.
      * Defaults to 'ASC' or TdDataTableSortingOrder.Ascending

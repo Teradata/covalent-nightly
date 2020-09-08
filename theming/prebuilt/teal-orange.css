@@ -2095,6 +2095,11 @@ body {
   font-size: 12px;
   font-weight: 600; }
 
+.td-data-table-sort-badge {
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
+  font-size: 12px;
+  font-weight: 400; }
+
 .td-dialog-title {
   font-family: "Roboto", "Helvetica Neue", sans-serif;
   font-size: 20px;
@@ -2475,6 +2480,10 @@ table[td-data-table].mat-clickable tbody > tr.td-data-table-row:hover {
 .mat-selected-title {
   background-color: rgba(239, 108, 0, 0.12);
   color: #ef6c00; }
+
+.td-data-table-sort-badge {
+  background-color: whitesmoke;
+  color: rgba(0, 0, 0, 0.54); }
 
 .td-notification-count {
   -webkit-box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
