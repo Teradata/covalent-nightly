@@ -1,8 +1,0 @@
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-export { CovalentDynamicMenuModule } from './dynamic-menu.module';
-export { TdDynamicMenuComponent } from './dynamic-menu.component';
-export { TdDynamicMenuItemComponent } from './dynamic-menu-item/dynamic-menu-item.component';
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljX2FwaS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL0Bjb3ZhbGVudC9jb3JlL2R5bmFtaWMtbWVudS8iLCJzb3VyY2VzIjpbInB1YmxpY19hcGkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7OztBQUFBLDBDQUFjLHVCQUF1QixDQUFDO0FBQ3RDLHVDQUFjLDBCQUEwQixDQUFDO0FBQ3pDLDJDQUFjLGlEQUFpRCxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0ICogZnJvbSAnLi9keW5hbWljLW1lbnUubW9kdWxlJztcbmV4cG9ydCAqIGZyb20gJy4vZHluYW1pYy1tZW51LmNvbXBvbmVudCc7XG5leHBvcnQgKiBmcm9tICcuL2R5bmFtaWMtbWVudS1pdGVtL2R5bmFtaWMtbWVudS1pdGVtLmNvbXBvbmVudCc7XG4iXX0=

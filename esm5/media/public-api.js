@@ -1,8 +1,0 @@
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-export { CovalentMediaModule } from './media.module';
-export { TdMediaToggleDirective } from './directives/media-toggle.directive';
-export { TdMediaService } from './services/media.service';
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL0Bjb3ZhbGVudC9jb3JlL21lZGlhLyIsInNvdXJjZXMiOlsicHVibGljLWFwaS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7O0FBQUEsb0NBQWMsZ0JBQWdCLENBQUM7QUFDL0IsdUNBQWMscUNBQXFDLENBQUM7QUFDcEQsK0JBQWMsMEJBQTBCLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgKiBmcm9tICcuL21lZGlhLm1vZHVsZSc7XG5leHBvcnQgKiBmcm9tICcuL2RpcmVjdGl2ZXMvbWVkaWEtdG9nZ2xlLmRpcmVjdGl2ZSc7XG5leHBvcnQgKiBmcm9tICcuL3NlcnZpY2VzL21lZGlhLnNlcnZpY2UnO1xuIl19

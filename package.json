@@ -33,22 +33,22 @@
     "Steven Ov <steven.ov@teradata.com>"
   ],
   "peerDependencies": {
-    "@angular/common": "^8.0.0 || ^9.0.0 || ^10.0.0-0",
-    "@angular/core": "^8.0.0 || ^9.0.0 || ^10.0.0-0",
-    "@angular/forms": "^8.0.0 || ^9.0.0 || ^10.0.0-0",
-    "@angular/router": "^8.0.0 || ^9.0.0 || ^10.0.0-0",
-    "@angular/cdk": "^8.0.0 || ^9.0.0 || ^10.0.0-0",
-    "@angular/material": "^8.0.0 || ^9.0.0 || ^10.0.0-0",
-    "tslib": "^1.10.0"
+    "@angular/common": "^9.0.0 || ^10.0.0-0",
+    "@angular/core": "^9.0.0 || ^10.0.0-0",
+    "@angular/forms": "^9.0.0 || ^10.0.0-0",
+    "@angular/router": "^9.0.0 || ^10.0.0-0",
+    "@angular/cdk": "^9.0.0 || ^10.0.0-0",
+    "@angular/material": "^9.0.0 || ^10.0.0-0"
   },
   "main": "bundles/covalent-core.umd.js",
-  "module": "fesm5/covalent-core.js",
+  "module": "fesm2015/covalent-core.js",
   "es2015": "fesm2015/covalent-core.js",
-  "esm5": "esm5/covalent-core.js",
   "esm2015": "esm2015/covalent-core.js",
-  "fesm5": "fesm5/covalent-core.js",
   "fesm2015": "fesm2015/covalent-core.js",
   "typings": "covalent-core.d.ts",
   "metadata": "covalent-core.metadata.json",
-  "sideEffects": false
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
 }

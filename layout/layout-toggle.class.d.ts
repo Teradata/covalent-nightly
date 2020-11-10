@@ -11,7 +11,7 @@ export interface ILayoutTogglable {
 export declare class LayoutToggleBase {
 }
 export declare const _TdLayoutToggleMixinBase: (new (...args: any[]) => ICanDisable) & typeof LayoutToggleBase;
-export declare abstract class LayoutToggle extends _TdLayoutToggleMixinBase implements AfterViewInit, OnDestroy, ICanDisable {
+export declare abstract class BaseLayoutToggleDirective extends _TdLayoutToggleMixinBase implements AfterViewInit, OnDestroy, ICanDisable {
     protected _layout: ILayoutTogglable;
     private _renderer;
     private _elementRef;

@@ -1,263 +1,45 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/forms'), require('@angular/router'), require('rxjs/operators'), require('@angular/animations'), require('rxjs'), require('@angular/cdk/coercion')) :
     typeof define === 'function' && define.amd ? define('@covalent/core/common', ['exports', '@angular/core', '@angular/common', '@angular/forms', '@angular/router', 'rxjs/operators', '@angular/animations', 'rxjs', '@angular/cdk/coercion'], factory) :
-    (global = global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.common = {}), global.ng.core, global.ng.common, global.ng.forms, global.ng.router, global.rxjs.operators, global.ng.animations, global.rxjs, global.ng.cdk.coercion));
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.covalent = global.covalent || {}, global.covalent.core = global.covalent.core || {}, global.covalent.core.common = {}), global.ng.core, global.ng.common, global.ng.forms, global.ng.router, global.rxjs.operators, global.ng.animations, global.rxjs, global.ng.cdk.coercion));
 }(this, (function (exports, core, common, forms, router, operators, animations, rxjs, coercion) { 'use strict';
-
-    /*! *****************************************************************************
-    Copyright (c) Microsoft Corporation. All rights reserved.
-    Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-    this file except in compliance with the License. You may obtain a copy of the
-    License at http://www.apache.org/licenses/LICENSE-2.0
-
-    THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-    KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
-    WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
-    MERCHANTABLITY OR NON-INFRINGEMENT.
-
-    See the Apache Version 2.0 License for specific language governing permissions
-    and limitations under the License.
-    ***************************************************************************** */
-    /* global Reflect, Promise */
-
-    var extendStatics = function(d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-
-    function __extends(d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    }
-
-    var __assign = function() {
-        __assign = Object.assign || function __assign(t) {
-            for (var s, i = 1, n = arguments.length; i < n; i++) {
-                s = arguments[i];
-                for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-            }
-            return t;
-        };
-        return __assign.apply(this, arguments);
-    };
-
-    function __rest(s, e) {
-        var t = {};
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-            t[p] = s[p];
-        if (s != null && typeof Object.getOwnPropertySymbols === "function")
-            for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-                if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                    t[p[i]] = s[p[i]];
-            }
-        return t;
-    }
-
-    function __decorate(decorators, target, key, desc) {
-        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-        return c > 3 && r && Object.defineProperty(target, key, r), r;
-    }
-
-    function __param(paramIndex, decorator) {
-        return function (target, key) { decorator(target, key, paramIndex); }
-    }
-
-    function __metadata(metadataKey, metadataValue) {
-        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
-    }
-
-    function __awaiter(thisArg, _arguments, P, generator) {
-        function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-        return new (P || (P = Promise))(function (resolve, reject) {
-            function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-            function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-            function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-            step((generator = generator.apply(thisArg, _arguments || [])).next());
-        });
-    }
-
-    function __generator(thisArg, body) {
-        var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-        return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-        function verb(n) { return function (v) { return step([n, v]); }; }
-        function step(op) {
-            if (f) throw new TypeError("Generator is already executing.");
-            while (_) try {
-                if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-                if (y = 0, t) op = [op[0] & 2, t.value];
-                switch (op[0]) {
-                    case 0: case 1: t = op; break;
-                    case 4: _.label++; return { value: op[1], done: false };
-                    case 5: _.label++; y = op[1]; op = [0]; continue;
-                    case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                    default:
-                        if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                        if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                        if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                        if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                        if (t[2]) _.ops.pop();
-                        _.trys.pop(); continue;
-                }
-                op = body.call(thisArg, _);
-            } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-            if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-        }
-    }
-
-    function __exportStar(m, exports) {
-        for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-    }
-
-    function __values(o) {
-        var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
-        if (m) return m.call(o);
-        if (o && typeof o.length === "number") return {
-            next: function () {
-                if (o && i >= o.length) o = void 0;
-                return { value: o && o[i++], done: !o };
-            }
-        };
-        throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
-    }
-
-    function __read(o, n) {
-        var m = typeof Symbol === "function" && o[Symbol.iterator];
-        if (!m) return o;
-        var i = m.call(o), r, ar = [], e;
-        try {
-            while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
-        }
-        catch (error) { e = { error: error }; }
-        finally {
-            try {
-                if (r && !r.done && (m = i["return"])) m.call(i);
-            }
-            finally { if (e) throw e.error; }
-        }
-        return ar;
-    }
-
-    function __spread() {
-        for (var ar = [], i = 0; i < arguments.length; i++)
-            ar = ar.concat(__read(arguments[i]));
-        return ar;
-    }
-
-    function __spreadArrays() {
-        for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-        for (var r = Array(s), k = 0, i = 0; i < il; i++)
-            for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-                r[k] = a[j];
-        return r;
-    };
-
-    function __await(v) {
-        return this instanceof __await ? (this.v = v, this) : new __await(v);
-    }
-
-    function __asyncGenerator(thisArg, _arguments, generator) {
-        if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
-        var g = generator.apply(thisArg, _arguments || []), i, q = [];
-        return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i;
-        function verb(n) { if (g[n]) i[n] = function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]) > 1 || resume(n, v); }); }; }
-        function resume(n, v) { try { step(g[n](v)); } catch (e) { settle(q[0][3], e); } }
-        function step(r) { r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r); }
-        function fulfill(value) { resume("next", value); }
-        function reject(value) { resume("throw", value); }
-        function settle(f, v) { if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]); }
-    }
-
-    function __asyncDelegator(o) {
-        var i, p;
-        return i = {}, verb("next"), verb("throw", function (e) { throw e; }), verb("return"), i[Symbol.iterator] = function () { return this; }, i;
-        function verb(n, f) { i[n] = o[n] ? function (v) { return (p = !p) ? { value: __await(o[n](v)), done: n === "return" } : f ? f(v) : v; } : f; }
-    }
-
-    function __asyncValues(o) {
-        if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
-        var m = o[Symbol.asyncIterator], i;
-        return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
-        function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
-        function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
-    }
-
-    function __makeTemplateObject(cooked, raw) {
-        if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
-        return cooked;
-    };
-
-    function __importStar(mod) {
-        if (mod && mod.__esModule) return mod;
-        var result = {};
-        if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-        result.default = mod;
-        return result;
-    }
-
-    function __importDefault(mod) {
-        return (mod && mod.__esModule) ? mod : { default: mod };
-    }
-
-    function __classPrivateFieldGet(receiver, privateMap) {
-        if (!privateMap.has(receiver)) {
-            throw new TypeError("attempted to get private field on non-instance");
-        }
-        return privateMap.get(receiver);
-    }
-
-    function __classPrivateFieldSet(receiver, privateMap, value) {
-        if (!privateMap.has(receiver)) {
-            throw new TypeError("attempted to set private field on non-instance");
-        }
-        privateMap.set(receiver, value);
-        return value;
-    }
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * Generated from: forms/auto-trim/auto-trim.directive.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdAutoTrimDirective = /** @class */ (function () {
+        /**
+         * @param {?} _model
+         */
         function TdAutoTrimDirective(_model) {
             this._model = _model;
         }
         /**
          * Listens to host's (blur) event and trims value.
-         */
-        /**
-         * Listens to host's (blur) event and trims value.
          * @param {?} event
          * @return {?}
          */
-        TdAutoTrimDirective.prototype.onBlur = /**
-         * Listens to host's (blur) event and trims value.
-         * @param {?} event
-         * @return {?}
-         */
-        function (event) {
+        TdAutoTrimDirective.prototype.onBlur = function (event) {
             if (this._model && this._model.value && typeof this._model.value === 'string') {
                 this._model.update.emit(this._model.value.trim());
             }
         };
-        TdAutoTrimDirective.decorators = [
-            { type: core.Directive, args: [{
-                        selector: '[tdAutoTrim]',
-                    },] }
-        ];
-        /** @nocollapse */
-        TdAutoTrimDirective.ctorParameters = function () { return [
-            { type: forms.NgModel, decorators: [{ type: core.Optional }, { type: core.Host }] }
-        ]; };
-        TdAutoTrimDirective.propDecorators = {
-            onBlur: [{ type: core.HostListener, args: ['blur', ['$event'],] }]
-        };
         return TdAutoTrimDirective;
     }());
+    TdAutoTrimDirective.decorators = [
+        { type: core.Directive, args: [{
+                    selector: '[tdAutoTrim]',
+                },] }
+    ];
+    /** @nocollapse */
+    TdAutoTrimDirective.ctorParameters = function () { return [
+        { type: forms.NgModel, decorators: [{ type: core.Optional }, { type: core.Host }] }
+    ]; };
+    TdAutoTrimDirective.propDecorators = {
+        onBlur: [{ type: core.HostListener, args: ['blur', ['$event'],] }]
+    };
     if (false) {
         /**
          * @type {?}
@@ -266,10 +48,307 @@
         TdAutoTrimDirective.prototype._model;
     }
 
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
+    /*! *****************************************************************************
+    Copyright (c) Microsoft Corporation.
+
+    Permission to use, copy, modify, and/or distribute this software for any
+    purpose with or without fee is hereby granted.
+
+    THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+    REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+    AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+    INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+    LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+    OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+    PERFORMANCE OF THIS SOFTWARE.
+    ***************************************************************************** */
+    /* global Reflect, Promise */
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b)
+                if (Object.prototype.hasOwnProperty.call(b, p))
+                    d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    function __extends(d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    }
+    var __assign = function () {
+        __assign = Object.assign || function __assign(t) {
+            for (var s, i = 1, n = arguments.length; i < n; i++) {
+                s = arguments[i];
+                for (var p in s)
+                    if (Object.prototype.hasOwnProperty.call(s, p))
+                        t[p] = s[p];
+            }
+            return t;
+        };
+        return __assign.apply(this, arguments);
+    };
+    function __rest(s, e) {
+        var t = {};
+        for (var p in s)
+            if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+                t[p] = s[p];
+        if (s != null && typeof Object.getOwnPropertySymbols === "function")
+            for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+                if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                    t[p[i]] = s[p[i]];
+            }
+        return t;
+    }
+    function __decorate(decorators, target, key, desc) {
+        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+        if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+            r = Reflect.decorate(decorators, target, key, desc);
+        else
+            for (var i = decorators.length - 1; i >= 0; i--)
+                if (d = decorators[i])
+                    r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+        return c > 3 && r && Object.defineProperty(target, key, r), r;
+    }
+    function __param(paramIndex, decorator) {
+        return function (target, key) { decorator(target, key, paramIndex); };
+    }
+    function __metadata(metadataKey, metadataValue) {
+        if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+            return Reflect.metadata(metadataKey, metadataValue);
+    }
+    function __awaiter(thisArg, _arguments, P, generator) {
+        function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+        return new (P || (P = Promise))(function (resolve, reject) {
+            function fulfilled(value) { try {
+                step(generator.next(value));
+            }
+            catch (e) {
+                reject(e);
+            } }
+            function rejected(value) { try {
+                step(generator["throw"](value));
+            }
+            catch (e) {
+                reject(e);
+            } }
+            function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+            step((generator = generator.apply(thisArg, _arguments || [])).next());
+        });
+    }
+    function __generator(thisArg, body) {
+        var _ = { label: 0, sent: function () { if (t[0] & 1)
+                throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+        return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function () { return this; }), g;
+        function verb(n) { return function (v) { return step([n, v]); }; }
+        function step(op) {
+            if (f)
+                throw new TypeError("Generator is already executing.");
+            while (_)
+                try {
+                    if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done)
+                        return t;
+                    if (y = 0, t)
+                        op = [op[0] & 2, t.value];
+                    switch (op[0]) {
+                        case 0:
+                        case 1:
+                            t = op;
+                            break;
+                        case 4:
+                            _.label++;
+                            return { value: op[1], done: false };
+                        case 5:
+                            _.label++;
+                            y = op[1];
+                            op = [0];
+                            continue;
+                        case 7:
+                            op = _.ops.pop();
+                            _.trys.pop();
+                            continue;
+                        default:
+                            if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) {
+                                _ = 0;
+                                continue;
+                            }
+                            if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) {
+                                _.label = op[1];
+                                break;
+                            }
+                            if (op[0] === 6 && _.label < t[1]) {
+                                _.label = t[1];
+                                t = op;
+                                break;
+                            }
+                            if (t && _.label < t[2]) {
+                                _.label = t[2];
+                                _.ops.push(op);
+                                break;
+                            }
+                            if (t[2])
+                                _.ops.pop();
+                            _.trys.pop();
+                            continue;
+                    }
+                    op = body.call(thisArg, _);
+                }
+                catch (e) {
+                    op = [6, e];
+                    y = 0;
+                }
+                finally {
+                    f = t = 0;
+                }
+            if (op[0] & 5)
+                throw op[1];
+            return { value: op[0] ? op[1] : void 0, done: true };
+        }
+    }
+    var __createBinding = Object.create ? (function (o, m, k, k2) {
+        if (k2 === undefined)
+            k2 = k;
+        Object.defineProperty(o, k2, { enumerable: true, get: function () { return m[k]; } });
+    }) : (function (o, m, k, k2) {
+        if (k2 === undefined)
+            k2 = k;
+        o[k2] = m[k];
+    });
+    function __exportStar(m, o) {
+        for (var p in m)
+            if (p !== "default" && !Object.prototype.hasOwnProperty.call(o, p))
+                __createBinding(o, m, p);
+    }
+    function __values(o) {
+        var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+        if (m)
+            return m.call(o);
+        if (o && typeof o.length === "number")
+            return {
+                next: function () {
+                    if (o && i >= o.length)
+                        o = void 0;
+                    return { value: o && o[i++], done: !o };
+                }
+            };
+        throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+    }
+    function __read(o, n) {
+        var m = typeof Symbol === "function" && o[Symbol.iterator];
+        if (!m)
+            return o;
+        var i = m.call(o), r, ar = [], e;
+        try {
+            while ((n === void 0 || n-- > 0) && !(r = i.next()).done)
+                ar.push(r.value);
+        }
+        catch (error) {
+            e = { error: error };
+        }
+        finally {
+            try {
+                if (r && !r.done && (m = i["return"]))
+                    m.call(i);
+            }
+            finally {
+                if (e)
+                    throw e.error;
+            }
+        }
+        return ar;
+    }
+    function __spread() {
+        for (var ar = [], i = 0; i < arguments.length; i++)
+            ar = ar.concat(__read(arguments[i]));
+        return ar;
+    }
+    function __spreadArrays() {
+        for (var s = 0, i = 0, il = arguments.length; i < il; i++)
+            s += arguments[i].length;
+        for (var r = Array(s), k = 0, i = 0; i < il; i++)
+            for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+                r[k] = a[j];
+        return r;
+    }
+    ;
+    function __await(v) {
+        return this instanceof __await ? (this.v = v, this) : new __await(v);
+    }
+    function __asyncGenerator(thisArg, _arguments, generator) {
+        if (!Symbol.asyncIterator)
+            throw new TypeError("Symbol.asyncIterator is not defined.");
+        var g = generator.apply(thisArg, _arguments || []), i, q = [];
+        return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i;
+        function verb(n) { if (g[n])
+            i[n] = function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]) > 1 || resume(n, v); }); }; }
+        function resume(n, v) { try {
+            step(g[n](v));
+        }
+        catch (e) {
+            settle(q[0][3], e);
+        } }
+        function step(r) { r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r); }
+        function fulfill(value) { resume("next", value); }
+        function reject(value) { resume("throw", value); }
+        function settle(f, v) { if (f(v), q.shift(), q.length)
+            resume(q[0][0], q[0][1]); }
+    }
+    function __asyncDelegator(o) {
+        var i, p;
+        return i = {}, verb("next"), verb("throw", function (e) { throw e; }), verb("return"), i[Symbol.iterator] = function () { return this; }, i;
+        function verb(n, f) { i[n] = o[n] ? function (v) { return (p = !p) ? { value: __await(o[n](v)), done: n === "return" } : f ? f(v) : v; } : f; }
+    }
+    function __asyncValues(o) {
+        if (!Symbol.asyncIterator)
+            throw new TypeError("Symbol.asyncIterator is not defined.");
+        var m = o[Symbol.asyncIterator], i;
+        return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
+        function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
+        function settle(resolve, reject, d, v) { Promise.resolve(v).then(function (v) { resolve({ value: v, done: d }); }, reject); }
+    }
+    function __makeTemplateObject(cooked, raw) {
+        if (Object.defineProperty) {
+            Object.defineProperty(cooked, "raw", { value: raw });
+        }
+        else {
+            cooked.raw = raw;
+        }
+        return cooked;
+    }
+    ;
+    var __setModuleDefault = Object.create ? (function (o, v) {
+        Object.defineProperty(o, "default", { enumerable: true, value: v });
+    }) : function (o, v) {
+        o["default"] = v;
+    };
+    function __importStar(mod) {
+        if (mod && mod.__esModule)
+            return mod;
+        var result = {};
+        if (mod != null)
+            for (var k in mod)
+                if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k))
+                    __createBinding(result, mod, k);
+        __setModuleDefault(result, mod);
+        return result;
+    }
+    function __importDefault(mod) {
+        return (mod && mod.__esModule) ? mod : { default: mod };
+    }
+    function __classPrivateFieldGet(receiver, privateMap) {
+        if (!privateMap.has(receiver)) {
+            throw new TypeError("attempted to get private field on non-instance");
+        }
+        return privateMap.get(receiver);
+    }
+    function __classPrivateFieldSet(receiver, privateMap, value) {
+        if (!privateMap.has(receiver)) {
+            throw new TypeError("attempted to set private field on non-instance");
+        }
+        privateMap.set(receiver, value);
+        return value;
+    }
+
     /**
      * @record
      */
@@ -291,6 +370,10 @@
         IFsDocument.prototype.msExitFullscreen;
     }
     var TdFullscreenDirective = /** @class */ (function () {
+        /**
+         * @param {?} _document
+         * @param {?} _el
+         */
         function TdFullscreenDirective(_document, _el) {
             this._document = _document;
             this._el = _el;
@@ -300,52 +383,38 @@
          * @param {?} event
          * @return {?}
          */
-        TdFullscreenDirective.prototype.fsChangeHandler = /**
-         * @param {?} event
-         * @return {?}
-         */
-        function (event) {
+        TdFullscreenDirective.prototype.fsChangeHandler = function (event) {
             this.fullScreenIsActive = event.srcElement === this._getFullScreenElement();
         };
         /**
          * @return {?}
          */
-        TdFullscreenDirective.prototype.toggleFullScreen = /**
-         * @return {?}
-         */
-        function () {
+        TdFullscreenDirective.prototype.toggleFullScreen = function () {
             this._getFullScreenElement() === this._el.nativeElement ? this.exitFullScreen() : this.enterFullScreen();
         };
         /**
          * @return {?}
          */
-        TdFullscreenDirective.prototype.enterFullScreen = /**
-         * @return {?}
-         */
-        function () {
+        TdFullscreenDirective.prototype.enterFullScreen = function () {
             var e_1, _a;
             var nativeElement = this._el.nativeElement;
             /** @type {?} */
             var enterFullScreenMap = {
-                requestFullscreen: (/**
+                requestFullscreen: ( /**
                  * @return {?}
-                 */
-                function () { return nativeElement.requestFullscreen(); }),
+                 */function () { return nativeElement.requestFullscreen(); }),
                 // Chrome
-                webkitRequestFullscreen: (/**
+                webkitRequestFullscreen: ( /**
                  * @return {?}
-                 */
-                function () { return nativeElement.webkitRequestFullscreen(); }),
+                 */function () { return nativeElement.webkitRequestFullscreen(); }),
                 // Safari
-                mozRequestFullScreen: (/**
+                mozRequestFullScreen: ( /**
                  * @return {?}
-                 */
-                function () { return nativeElement.mozRequestFullScreen(); }),
+                 */function () { return nativeElement.mozRequestFullScreen(); }),
                 // Firefox
-                msRequestFullscreen: (/**
+                msRequestFullscreen: ( /**
                  * @return {?}
-                 */
-                function () { return nativeElement.msRequestFullscreen(); }),
+                 */function () { return nativeElement.msRequestFullscreen(); }),
             };
             try {
                 for (var _b = __values(Object.keys(enterFullScreenMap)), _c = _b.next(); !_c.done; _c = _b.next()) {
@@ -366,33 +435,26 @@
         /**
          * @return {?}
          */
-        TdFullscreenDirective.prototype.exitFullScreen = /**
-         * @return {?}
-         */
-        function () {
+        TdFullscreenDirective.prototype.exitFullScreen = function () {
             var e_2, _a;
             var _b = this, _document = _b._document, nativeElement = _b._el.nativeElement;
             /** @type {?} */
             var exitFullScreenMap = {
-                exitFullscreen: (/**
+                exitFullscreen: ( /**
                  * @return {?}
-                 */
-                function () { return _document.exitFullscreen(); }),
+                 */function () { return _document.exitFullscreen(); }),
                 // Chrome
-                webkitExitFullscreen: (/**
+                webkitExitFullscreen: ( /**
                  * @return {?}
-                 */
-                function () { return _document.webkitExitFullscreen(); }),
+                 */function () { return _document.webkitExitFullscreen(); }),
                 // Safari
-                mozCancelFullScreen: (/**
+                mozCancelFullScreen: ( /**
                  * @return {?}
-                 */
-                function () { return _document.mozCancelFullScreen(); }),
+                 */function () { return _document.mozCancelFullScreen(); }),
                 // Firefox
-                msExitFullscreen: (/**
+                msExitFullscreen: ( /**
                  * @return {?}
-                 */
-                function () { return _document.msExitFullscreen(); }),
+                 */function () { return _document.msExitFullscreen(); }),
             };
             try {
                 for (var _c = __values(Object.keys(exitFullScreenMap)), _d = _c.next(); !_d.done; _d = _c.next()) {
@@ -414,34 +476,26 @@
          * @private
          * @return {?}
          */
-        TdFullscreenDirective.prototype._getFullScreenElement = /**
-         * @private
-         * @return {?}
-         */
-        function () {
+        TdFullscreenDirective.prototype._getFullScreenElement = function () {
             var e_3, _a;
             var _document = this._document;
             /** @type {?} */
             var tdFullScreenElementMap = {
-                fullscreenElement: (/**
+                fullscreenElement: ( /**
                  * @return {?}
-                 */
-                function () { return _document.fullscreenElement; }),
+                 */function () { return _document.fullscreenElement; }),
                 // Chrome, Opera
-                webkitFullscreenElement: (/**
+                webkitFullscreenElement: ( /**
                  * @return {?}
-                 */
-                function () { return _document.webkitFullscreenElement; }),
+                 */function () { return _document.webkitFullscreenElement; }),
                 // Safari
-                mozFullscreenElement: (/**
+                mozFullscreenElement: ( /**
                  * @return {?}
-                 */
-                function () { return _document.mozFullscreenElement; }),
+                 */function () { return _document.mozFullscreenElement; }),
                 // Firefox
-                msFullscreenElement: (/**
+                msFullscreenElement: ( /**
                  * @return {?}
-                 */
-                function () { return _document.msFullscreenElement; }),
+                 */function () { return _document.msFullscreenElement; }),
             };
             try {
                 for (var _b = __values(Object.keys(tdFullScreenElementMap)), _c = _b.next(); !_c.done; _c = _b.next()) {
@@ -459,22 +513,22 @@
                 finally { if (e_3) throw e_3.error; }
             }
         };
-        TdFullscreenDirective.decorators = [
-            { type: core.Directive, args: [{
-                        selector: '[tdFullScreen]',
-                        exportAs: 'tdFullScreen',
-                    },] }
-        ];
-        /** @nocollapse */
-        TdFullscreenDirective.ctorParameters = function () { return [
-            { type: undefined, decorators: [{ type: core.Inject, args: [common.DOCUMENT,] }] },
-            { type: core.ElementRef }
-        ]; };
-        TdFullscreenDirective.propDecorators = {
-            fsChangeHandler: [{ type: core.HostListener, args: ['document:fullscreenchange', ['$event'],] }, { type: core.HostListener, args: ['document:webkitfullscreenchange', ['$event'],] }, { type: core.HostListener, args: ['document:mozfullscreenchange', ['$event'],] }, { type: core.HostListener, args: ['document:msfullscreenchange', ['$event'],] }]
-        };
         return TdFullscreenDirective;
     }());
+    TdFullscreenDirective.decorators = [
+        { type: core.Directive, args: [{
+                    selector: '[tdFullScreen]',
+                    exportAs: 'tdFullScreen',
+                },] }
+    ];
+    /** @nocollapse */
+    TdFullscreenDirective.ctorParameters = function () { return [
+        { type: undefined, decorators: [{ type: core.Inject, args: [common.DOCUMENT,] }] },
+        { type: core.ElementRef }
+    ]; };
+    TdFullscreenDirective.propDecorators = {
+        fsChangeHandler: [{ type: core.HostListener, args: ['document:fullscreenchange', ['$event'],] }, { type: core.HostListener, args: ['document:webkitfullscreenchange', ['$event'],] }, { type: core.HostListener, args: ['document:mozfullscreenchange', ['$event'],] }, { type: core.HostListener, args: ['document:msfullscreenchange', ['$event'],] }]
+    };
     if (false) {
         /** @type {?} */
         TdFullscreenDirective.prototype.fullScreenIsActive;
@@ -492,7 +546,8 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * Generated from: pipes/time-ago/time-ago.pipe.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdTimeAgoPipe = /** @class */ (function () {
         function TdTimeAgoPipe() {
@@ -502,12 +557,7 @@
          * @param {?=} reference
          * @return {?}
          */
-        TdTimeAgoPipe.prototype.transform = /**
-         * @param {?} time
-         * @param {?=} reference
-         * @return {?}
-         */
-        function (time, reference) {
+        TdTimeAgoPipe.prototype.transform = function (time, reference) {
             // Convert time to date object if not already
             time = new Date(time);
             /** @type {?} */
@@ -569,17 +619,18 @@
                 return Math.floor(diff) + ' years ago';
             }
         };
-        TdTimeAgoPipe.decorators = [
-            { type: core.Pipe, args: [{
-                        name: 'timeAgo',
-                    },] }
-        ];
         return TdTimeAgoPipe;
     }());
+    TdTimeAgoPipe.decorators = [
+        { type: core.Pipe, args: [{
+                    name: 'timeAgo',
+                },] }
+    ];
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * Generated from: pipes/time-difference/time-difference.pipe.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdTimeDifferencePipe = /** @class */ (function () {
         function TdTimeDifferencePipe() {
@@ -589,12 +640,7 @@
          * @param {?=} end
          * @return {?}
          */
-        TdTimeDifferencePipe.prototype.transform = /**
-         * @param {?} start
-         * @param {?=} end
-         * @return {?}
-         */
-        function (start, end) {
+        TdTimeDifferencePipe.prototype.transform = function (start, end) {
             /** @type {?} */
             var startTime = new Date(start);
             /** @type {?} */
@@ -641,17 +687,18 @@
                 pad.substring(0, pad.length - (seconds + '').length) +
                 seconds);
         };
-        TdTimeDifferencePipe.decorators = [
-            { type: core.Pipe, args: [{
-                        name: 'timeDifference',
-                    },] }
-        ];
         return TdTimeDifferencePipe;
     }());
+    TdTimeDifferencePipe.decorators = [
+        { type: core.Pipe, args: [{
+                    name: 'timeDifference',
+                },] }
+    ];
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * Generated from: pipes/time-until/time-until.pipe.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdTimeUntilPipe = /** @class */ (function () {
         function TdTimeUntilPipe() {
@@ -661,12 +708,7 @@
          * @param {?=} reference
          * @return {?}
          */
-        TdTimeUntilPipe.prototype.transform = /**
-         * @param {?} time
-         * @param {?=} reference
-         * @return {?}
-         */
-        function (time, reference) {
+        TdTimeUntilPipe.prototype.transform = function (time, reference) {
             // Convert time to date object if not already
             time = new Date(time);
             /** @type {?} */
@@ -728,38 +770,30 @@
                 return 'in ' + Math.floor(diff) + ' years';
             }
         };
-        TdTimeUntilPipe.decorators = [
-            { type: core.Pipe, args: [{
-                        name: 'timeUntil',
-                    },] }
-        ];
         return TdTimeUntilPipe;
     }());
+    TdTimeUntilPipe.decorators = [
+        { type: core.Pipe, args: [{
+                    name: 'timeUntil',
+                },] }
+    ];
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * Generated from: pipes/bytes/bytes.pipe.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdBytesPipe = /** @class */ (function () {
         function TdBytesPipe() {
         }
         /* `bytes` needs to be `any` or TypeScript complains
-        Tried both `number` and `number | string` */
-        /* `bytes` needs to be `any` or TypeScript complains
           Tried both `number` and `number | string` */
         /**
          * @param {?} bytes
          * @param {?=} precision
          * @return {?}
          */
-        TdBytesPipe.prototype.transform = /* `bytes` needs to be `any` or TypeScript complains
-          Tried both `number` and `number | string` */
-        /**
-         * @param {?} bytes
-         * @param {?=} precision
-         * @return {?}
-         */
-        function (bytes, precision) {
+        TdBytesPipe.prototype.transform = function (bytes, precision) {
             if (precision === void 0) { precision = 2; }
             if (bytes === 0) {
                 return '0 B';
@@ -780,38 +814,30 @@
             }
             return parseFloat((bytes / Math.pow(k, i)).toFixed(precision)) + ' ' + sizes[i];
         };
-        TdBytesPipe.decorators = [
-            { type: core.Pipe, args: [{
-                        name: 'bytes',
-                    },] }
-        ];
         return TdBytesPipe;
     }());
+    TdBytesPipe.decorators = [
+        { type: core.Pipe, args: [{
+                    name: 'bytes',
+                },] }
+    ];
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * Generated from: pipes/decimal-bytes/decimal-bytes.pipe.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdDecimalBytesPipe = /** @class */ (function () {
         function TdDecimalBytesPipe() {
         }
         /* `bytes` needs to be `any` or TypeScript complains
-        Tried both `number` and `number | string` */
-        /* `bytes` needs to be `any` or TypeScript complains
           Tried both `number` and `number | string` */
         /**
          * @param {?} bytes
          * @param {?=} precision
          * @return {?}
          */
-        TdDecimalBytesPipe.prototype.transform = /* `bytes` needs to be `any` or TypeScript complains
-          Tried both `number` and `number | string` */
-        /**
-         * @param {?} bytes
-         * @param {?=} precision
-         * @return {?}
-         */
-        function (bytes, precision) {
+        TdDecimalBytesPipe.prototype.transform = function (bytes, precision) {
             if (precision === void 0) { precision = 2; }
             if (bytes === 0) {
                 return '0 B';
@@ -832,38 +858,35 @@
             }
             return parseFloat((bytes / Math.pow(k, i)).toFixed(precision)) + ' ' + sizes[i];
         };
-        TdDecimalBytesPipe.decorators = [
-            { type: core.Pipe, args: [{
-                        name: 'decimalBytes',
-                    },] }
-        ];
         return TdDecimalBytesPipe;
     }());
+    TdDecimalBytesPipe.decorators = [
+        { type: core.Pipe, args: [{
+                    name: 'decimalBytes',
+                },] }
+    ];
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * Generated from: pipes/digits/digits.pipe.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdDigitsPipe = /** @class */ (function () {
+        /**
+         * @param {?=} _locale
+         */
         function TdDigitsPipe(_locale) {
             if (_locale === void 0) { _locale = 'en'; }
             this._locale = _locale;
             this._decimalPipe = new common.DecimalPipe(this._locale);
         }
         /* `digits` needs to be type `digits: any` or TypeScript complains */
-        /* `digits` needs to be type `digits: any` or TypeScript complains */
         /**
          * @param {?} digits
          * @param {?=} precision
          * @return {?}
          */
-        TdDigitsPipe.prototype.transform = /* `digits` needs to be type `digits: any` or TypeScript complains */
-        /**
-         * @param {?} digits
-         * @param {?=} precision
-         * @return {?}
-         */
-        function (digits, precision) {
+        TdDigitsPipe.prototype.transform = function (digits, precision) {
             if (precision === void 0) { precision = 1; }
             if (digits === 0) {
                 return '0';
@@ -885,17 +908,17 @@
             var size = sizes[i];
             return (this._decimalPipe.transform(parseFloat((digits / Math.pow(k, i)).toFixed(precision))) + (size ? ' ' + size : ''));
         };
-        TdDigitsPipe.decorators = [
-            { type: core.Pipe, args: [{
-                        name: 'digits',
-                    },] }
-        ];
-        /** @nocollapse */
-        TdDigitsPipe.ctorParameters = function () { return [
-            { type: String, decorators: [{ type: core.Inject, args: [core.LOCALE_ID,] }] }
-        ]; };
         return TdDigitsPipe;
     }());
+    TdDigitsPipe.decorators = [
+        { type: core.Pipe, args: [{
+                    name: 'digits',
+                },] }
+    ];
+    /** @nocollapse */
+    TdDigitsPipe.ctorParameters = function () { return [
+        { type: String, decorators: [{ type: core.Inject, args: [core.LOCALE_ID,] }] }
+    ]; };
     if (false) {
         /**
          * @type {?}
@@ -911,7 +934,8 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * Generated from: pipes/truncate/truncate.pipe.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TdTruncatePipe = /** @class */ (function () {
         function TdTruncatePipe() {
@@ -921,12 +945,7 @@
          * @param {?} length
          * @return {?}
          */
-        TdTruncatePipe.prototype.transform = /**
-         * @param {?} text
-         * @param {?} length
-         * @return {?}
-         */
-        function (text, length) {
+        TdTruncatePipe.prototype.transform = function (text, length) {
             if (typeof text !== 'string') {
                 return '';
             }
@@ -941,66 +960,57 @@
             }
             return truncated;
         };
-        TdTruncatePipe.decorators = [
-            { type: core.Pipe, args: [{
-                        name: 'truncate',
-                    },] }
-        ];
         return TdTruncatePipe;
     }());
+    TdTruncatePipe.decorators = [
+        { type: core.Pipe, args: [{
+                    name: 'truncate',
+                },] }
+    ];
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * Generated from: services/router-path.service.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var RouterPathService = /** @class */ (function () {
+        /**
+         * @param {?} _router
+         */
         function RouterPathService(_router) {
             this._router = _router;
             this._router.events
-                .pipe(operators.filter((/**
-             * @param {?} e
-             * @return {?}
-             */
-            function (e) { return e instanceof router.RoutesRecognized; })), operators.pairwise())
-                .subscribe((/**
-             * @param {?} e
-             * @return {?}
-             */
-            function (e) {
+                .pipe(operators.filter(( /**
+         * @param {?} e
+         * @return {?}
+         */function (e) { return e instanceof router.RoutesRecognized; })), operators.pairwise())
+                .subscribe(( /**
+         * @param {?} e
+         * @return {?}
+         */function (e) {
                 RouterPathService._previousRoute = e[0].urlAfterRedirects;
             }));
         }
         /*
-         * Utility function to get the route the user previously went to
-         * good for use in a "back button"
-         */
-        /*
            * Utility function to get the route the user previously went to
            * good for use in a "back button"
            */
         /**
          * @return {?}
          */
-        RouterPathService.prototype.getPreviousRoute = /*
-           * Utility function to get the route the user previously went to
-           * good for use in a "back button"
-           */
-        /**
-         * @return {?}
-         */
-        function () {
+        RouterPathService.prototype.getPreviousRoute = function () {
             return RouterPathService._previousRoute;
         };
-        RouterPathService._previousRoute = '/';
-        RouterPathService.decorators = [
-            { type: core.Injectable }
-        ];
-        /** @nocollapse */
-        RouterPathService.ctorParameters = function () { return [
-            { type: router.Router }
-        ]; };
         return RouterPathService;
     }());
+    RouterPathService._previousRoute = '/';
+    RouterPathService.decorators = [
+        { type: core.Injectable }
+    ];
+    /** @nocollapse */
+    RouterPathService.ctorParameters = function () { return [
+        { type: router.Router }
+    ]; };
     if (false) {
         /**
          * @type {?}
@@ -1016,7 +1026,8 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * Generated from: services/icon.service.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var IconService = /** @class */ (function () {
         function IconService() {
@@ -2087,37 +2098,32 @@
             ];
         }
         Object.defineProperty(IconService.prototype, "icons", {
-            get: /**
+            /**
              * @return {?}
              */
-            function () {
+            get: function () {
                 return this._icons;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         /**
          * @param {?} query
          * @return {?}
          */
-        IconService.prototype.filter = /**
-         * @param {?} query
-         * @return {?}
-         */
-        function (query) {
-            return this.icons.filter((/**
+        IconService.prototype.filter = function (query) {
+            return this.icons.filter(( /**
              * @param {?} el
              * @return {?}
-             */
-            function (el) {
+             */function (el) {
                 return el.toLowerCase().indexOf(query ? query.toLowerCase() : '') > -1;
             }));
         };
-        IconService.decorators = [
-            { type: core.Injectable }
-        ];
         return IconService;
     }());
+    IconService.decorators = [
+        { type: core.Injectable }
+    ];
     if (false) {
         /**
          * @type {?}
@@ -2128,7 +2134,8 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * Generated from: common.module.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
     var TD_DIRECTIVES = [TdAutoTrimDirective, TdFullscreenDirective];
@@ -2148,20 +2155,21 @@
     var CovalentCommonModule = /** @class */ (function () {
         function CovalentCommonModule() {
         }
-        CovalentCommonModule.decorators = [
-            { type: core.NgModule, args: [{
-                        imports: [forms.FormsModule, common.CommonModule],
-                        declarations: [TD_DIRECTIVES, TD_PIPES, TD_VALIDATORS],
-                        exports: [forms.FormsModule, common.CommonModule, TD_DIRECTIVES, TD_PIPES, TD_VALIDATORS],
-                        providers: [RouterPathService, IconService],
-                    },] }
-        ];
         return CovalentCommonModule;
     }());
+    CovalentCommonModule.decorators = [
+        { type: core.NgModule, args: [{
+                    imports: [forms.FormsModule, common.CommonModule],
+                    declarations: [TD_DIRECTIVES, TD_PIPES, TD_VALIDATORS],
+                    exports: [forms.FormsModule, common.CommonModule, TD_DIRECTIVES, TD_PIPES, TD_VALIDATORS],
+                    providers: [RouterPathService, IconService],
+                },] }
+    ];
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * Generated from: animations/rotate/rotate.animation.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
      * @record
@@ -2200,7 +2208,8 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * Generated from: animations/collapse/collapse.animation.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
      * @record
@@ -2265,7 +2274,8 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * Generated from: animations/fade/fadeInOut.animation.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
      * @record
@@ -2316,7 +2326,8 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * Generated from: animations/bounce/bounce.animation.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
      * const tdBounceAnimation
@@ -2390,7 +2401,8 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * Generated from: animations/flash/flash.animation.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
      * const tdFlashAnimation
@@ -2428,7 +2440,8 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * Generated from: animations/headshake/headshake.animation.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
      * const tdHeadshakeAnimation
@@ -2467,7 +2480,8 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * Generated from: animations/jello/jello.animation.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
      * const tdJelloAnimation
@@ -2509,7 +2523,8 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * Generated from: animations/pulse/pulse.animation.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
      * const tdPulseAnimation
@@ -2543,15 +2558,10 @@
         ], { params: { duration: 500, delay: '0', ease: 'ease-out' } }),
     ]);
 
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
     /** @type {?} */
-    var noop = (/**
+    var noop = ( /**
      * @return {?}
-     */
-    function () {
+     */function () {
         // empty method
     });
     var ɵ0 = noop;
@@ -2587,6 +2597,9 @@
     function mixinControlValueAccessor(base, initialValue) {
         return /** @class */ (function (_super) {
             __extends(class_1, _super);
+            /**
+             * @param {...?} args
+             */
             function class_1() {
                 var args = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
@@ -2594,31 +2607,29 @@
                 }
                 var _this = _super.apply(this, __spread(args)) || this;
                 _this._value = initialValue instanceof Array ? Object.assign([], initialValue) : initialValue;
-                _this.onChange = (/**
+                _this.onChange = ( /**
                  * @param {?} _
                  * @return {?}
-                 */
-                function (_) { return noop; });
-                _this.onTouched = (/**
+                 */function (_) { return noop; });
+                _this.onTouched = ( /**
                  * @return {?}
-                 */
-                function () { return noop; });
+                 */function () { return noop; });
                 _this._subjectValueChanges = new rxjs.Subject();
                 _this.valueChanges = _this._subjectValueChanges.asObservable();
                 return _this;
             }
             Object.defineProperty(class_1.prototype, "value", {
-                get: /**
+                /**
                  * @return {?}
                  */
-                function () {
+                get: function () {
                     return this._value;
                 },
-                set: /**
+                /**
                  * @param {?} v
                  * @return {?}
                  */
-                function (v) {
+                set: function (v) {
                     if (v !== this._value) {
                         this._value = v;
                         this.onChange(v);
@@ -2626,18 +2637,14 @@
                         this._subjectValueChanges.next(v);
                     }
                 },
-                enumerable: true,
+                enumerable: false,
                 configurable: true
             });
             /**
              * @param {?} value
              * @return {?}
              */
-            class_1.prototype.writeValue = /**
-             * @param {?} value
-             * @return {?}
-             */
-            function (value) {
+            class_1.prototype.writeValue = function (value) {
                 this.value = value;
                 this._changeDetectorRef.markForCheck();
             };
@@ -2645,32 +2652,20 @@
              * @param {?} fn
              * @return {?}
              */
-            class_1.prototype.registerOnChange = /**
-             * @param {?} fn
-             * @return {?}
-             */
-            function (fn) {
+            class_1.prototype.registerOnChange = function (fn) {
                 this.onChange = fn;
             };
             /**
              * @param {?} fn
              * @return {?}
              */
-            class_1.prototype.registerOnTouched = /**
-             * @param {?} fn
-             * @return {?}
-             */
-            function (fn) {
+            class_1.prototype.registerOnTouched = function (fn) {
                 this.onTouched = fn;
             };
             return class_1;
         }(base));
     }
 
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
     /**
      * Interface to implement when applying the disabled mixin
      * @record
@@ -2694,6 +2689,9 @@
     function mixinDisabled(base) {
         return /** @class */ (function (_super) {
             __extends(class_1, _super);
+            /**
+             * @param {...?} args
+             */
             function class_1() {
                 var args = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
@@ -2704,17 +2702,17 @@
                 return _this;
             }
             Object.defineProperty(class_1.prototype, "disabled", {
-                get: /**
+                /**
                  * @return {?}
                  */
-                function () {
+                get: function () {
                     return this._disabled;
                 },
-                set: /**
+                /**
                  * @param {?} value
                  * @return {?}
                  */
-                function (value) {
+                set: function (value) {
                     /** @type {?} */
                     var newValue = coercion.coerceBooleanProperty(value);
                     if (this._disabled !== newValue) {
@@ -2722,28 +2720,20 @@
                         this.onDisabledChange(this._disabled);
                     }
                 },
-                enumerable: true,
+                enumerable: false,
                 configurable: true
             });
             /**
              * @param {?} v
              * @return {?}
              */
-            class_1.prototype.onDisabledChange = /**
-             * @param {?} v
-             * @return {?}
-             */
-            function (v) {
+            class_1.prototype.onDisabledChange = function (v) {
                 /** NOT IMPLEMENTED, this needs to be overriden by subclasses if needed */
             };
             return class_1;
         }(base));
     }
 
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
     /**
      * Interface to implement when applying the disabled mixin
      * @record
@@ -2767,6 +2757,9 @@
     function mixinDisableRipple(base) {
         return /** @class */ (function (_super) {
             __extends(class_1, _super);
+            /**
+             * @param {...?} args
+             */
             function class_1() {
                 var args = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
@@ -2777,17 +2770,17 @@
                 return _this;
             }
             Object.defineProperty(class_1.prototype, "disableRipple", {
-                get: /**
+                /**
                  * @return {?}
                  */
-                function () {
+                get: function () {
                     return this._disableRipple;
                 },
-                set: /**
+                /**
                  * @param {?} value
                  * @return {?}
                  */
-                function (value) {
+                set: function (value) {
                     /** @type {?} */
                     var newValue = coercion.coerceBooleanProperty(value);
                     if (this._disableRipple !== newValue) {
@@ -2795,18 +2788,14 @@
                         this.onDisableRippleChange(this._disableRipple);
                     }
                 },
-                enumerable: true,
+                enumerable: false,
                 configurable: true
             });
             /**
              * @param {?} v
              * @return {?}
              */
-            class_1.prototype.onDisableRippleChange = /**
-             * @param {?} v
-             * @return {?}
-             */
-            function (v) {
+            class_1.prototype.onDisableRippleChange = function (v) {
                 /** NOT IMPLEMENTED, this needs to be overriden by subclasses if needed */
             };
             return class_1;
@@ -2815,7 +2804,8 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * Generated from: forms/validators/validators.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var CovalentValidators = /** @class */ (function () {
         function CovalentValidators() {
@@ -2824,18 +2814,13 @@
          * @param {?} minValue
          * @return {?}
          */
-        CovalentValidators.min = /**
-         * @param {?} minValue
-         * @return {?}
-         */
-        function (minValue) {
+        CovalentValidators.min = function (minValue) {
             // tslint:disable-next-line:prefer-immediate-return
             /** @type {?} */
-            var func = (/**
+            var func = ( /**
              * @param {?} c
              * @return {?}
-             */
-            function (c) {
+             */function (c) {
                 if (!!forms.Validators.required(c) || (!minValue && minValue !== 0)) {
                     return undefined;
                 }
@@ -2849,18 +2834,13 @@
          * @param {?} maxValue
          * @return {?}
          */
-        CovalentValidators.max = /**
-         * @param {?} maxValue
-         * @return {?}
-         */
-        function (maxValue) {
+        CovalentValidators.max = function (maxValue) {
             // tslint:disable-next-line:prefer-immediate-return
             /** @type {?} */
-            var func = (/**
+            var func = ( /**
              * @param {?} c
              * @return {?}
-             */
-            function (c) {
+             */function (c) {
                 if (!!forms.Validators.required(c) || (!maxValue && maxValue !== 0)) {
                     return undefined;
                 }
@@ -2874,11 +2854,7 @@
          * @param {?} c
          * @return {?}
          */
-        CovalentValidators.numberRequired = /**
-         * @param {?} c
-         * @return {?}
-         */
-        function (c) {
+        CovalentValidators.numberRequired = function (c) {
             return Number.isNaN(c.value) ? { required: true } : undefined;
         };
         return CovalentValidators;
@@ -2886,7 +2862,8 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * Generated from: functions/clipboard.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
      * Assign a text value to the system clipboard. Note: Due to browser
@@ -2915,7 +2892,8 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * Generated from: functions/convert.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
      * Conversion function that takes an array of objects and converts
@@ -2935,12 +2913,11 @@
         /** @type {?} */
         var outputString = '';
         // Iterate through array, creating one output line per object
-        objects.forEach((/**
+        objects.forEach(( /**
          * @param {?} value
          * @param {?} key
          * @return {?}
-         */
-        function (value, key) {
+         */function (value, key) {
             var e_1, _a;
             /** @type {?} */
             var line = '';
@@ -3034,7 +3011,8 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * Generated from: functions/download.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
      * Download CSV content to the specified file with .csv extension
@@ -3126,7 +3104,8 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * Generated from: functions/file.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
      * Read file as UTF-8 text. Return string contents on read completion.
@@ -3135,22 +3114,38 @@
      * @return {?} promise that resolves to file content string
      */
     function readFile(file) {
-        return new Promise((/**
+        return new Promise(( /**
          * @param {?} resolve
          * @return {?}
-         */
-        function (resolve) {
+         */function (resolve) {
             /** @type {?} */
             var reader = new FileReader();
             reader.readAsText(file, 'UTF-8');
-            reader.onload = (/**
+            reader.onload = ( /**
              * @return {?}
-             */
-            function () {
-                resolve((/** @type {?} */ (reader.result)));
+             */function () {
+                resolve(( /** @type {?} */(reader.result)));
             });
         }));
     }
+
+    /**
+     * @fileoverview added by tsickle
+     * Generated from: public-api.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+
+    /**
+     * @fileoverview added by tsickle
+     * Generated from: index.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+
+    /**
+     * @fileoverview added by tsickle
+     * Generated from: covalent-core-common.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
 
     exports.CovalentCommonModule = CovalentCommonModule;
     exports.CovalentValidators = CovalentValidators;

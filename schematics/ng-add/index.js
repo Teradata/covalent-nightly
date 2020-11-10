@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.addDependenciesAndFiles = void 0;
 var tslib_1 = require("tslib");
 var schematics_1 = require("@angular-devkit/schematics");
 var package_config_1 = require("@angular/material/schematics/ng-add/package-config");

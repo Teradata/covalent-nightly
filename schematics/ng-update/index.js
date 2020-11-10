@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.updatePackageInPackageJson = exports.updateToV3 = void 0;
 var chalk_1 = require("chalk");
 var target_version_1 = require("./target-version");
 var components_1 = require("../components");

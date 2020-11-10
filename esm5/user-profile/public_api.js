@@ -1,8 +1,0 @@
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-export { CovalentUserProfileModule } from './user-profile.module';
-export { TdUserProfileComponent } from './user-profile.component';
-export { TdUserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljX2FwaS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL0Bjb3ZhbGVudC9jb3JlL3VzZXItcHJvZmlsZS8iLCJzb3VyY2VzIjpbInB1YmxpY19hcGkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7OztBQUFBLDBDQUFjLHVCQUF1QixDQUFDO0FBQ3RDLHVDQUFjLDBCQUEwQixDQUFDO0FBQ3pDLDJDQUFjLGlEQUFpRCxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0ICogZnJvbSAnLi91c2VyLXByb2ZpbGUubW9kdWxlJztcbmV4cG9ydCAqIGZyb20gJy4vdXNlci1wcm9maWxlLmNvbXBvbmVudCc7XG5leHBvcnQgKiBmcm9tICcuL3VzZXItcHJvZmlsZS1tZW51L3VzZXItcHJvZmlsZS1tZW51LmNvbXBvbmVudCc7XG4iXX0=

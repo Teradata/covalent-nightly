@@ -1,6 +1,7 @@
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: animations/common/interfaces.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * @record
@@ -14,4 +15,4 @@ if (false) {
     /** @type {?|undefined} */
     IAnimationOptions.prototype.delay;
 }
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW50ZXJmYWNlcy5qcyIsInNvdXJjZVJvb3QiOiJuZzovL0Bjb3ZhbGVudC9jb3JlL2NvbW1vbi8iLCJzb3VyY2VzIjpbImFuaW1hdGlvbnMvY29tbW9uL2ludGVyZmFjZXMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUFBLHVDQUlDOzs7SUFIQyxtQ0FBZ0I7O0lBQ2hCLHFDQUFrQjs7SUFDbEIsa0NBQWUiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgaW50ZXJmYWNlIElBbmltYXRpb25PcHRpb25zIHtcbiAgYW5jaG9yPzogc3RyaW5nO1xuICBkdXJhdGlvbj86IG51bWJlcjtcbiAgZGVsYXk/OiBudW1iZXI7XG59XG4iXX0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW50ZXJmYWNlcy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uLy4uL3NyYy9wbGF0Zm9ybS9jb3JlL2NvbW1vbi9hbmltYXRpb25zL2NvbW1vbi9pbnRlcmZhY2VzLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7O0FBQUEsdUNBSUM7OztJQUhDLG1DQUFnQjs7SUFDaEIscUNBQWtCOztJQUNsQixrQ0FBZSIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBpbnRlcmZhY2UgSUFuaW1hdGlvbk9wdGlvbnMge1xuICBhbmNob3I/OiBzdHJpbmc7XG4gIGR1cmF0aW9uPzogbnVtYmVyO1xuICBkZWxheT86IG51bWJlcjtcbn1cbiJdfQ==
