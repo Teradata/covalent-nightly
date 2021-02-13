@@ -8,7 +8,7 @@ var version_names_1 = require("../version-names");
 var components_1 = require("../components");
 var core_1 = require("@angular-devkit/core");
 var schematics_2 = require("@angular/cdk/schematics");
-var config_1 = require("@schematics/angular/utility/config");
+var workspace_1 = require("@schematics/angular/utility/workspace");
 function addDependenciesAndFiles(options) {
     return schematics_1.chain([
         function (host) {
@@ -32,8 +32,7 @@ function mergeFiles(options) {
     return schematics_1.branchAndMerge(schematics_1.mergeWith(templateSource));
 }
 function addThemeToAngularJson() {
-    return function (host) {
-        var workspace = config_1.getWorkspace(host);
+    return workspace_1.updateWorkspace(function (workspace) {
         var project = schematics_2.getProjectFromWorkspace(workspace);
         var targetOptions = schematics_2.getProjectTargetOptions(project, 'build');
         var assetPath = "theme.scss";
@@ -54,8 +53,6 @@ function addThemeToAngularJson() {
             }
             targetOptions.styles.unshift(assetPath);
         }
-        host.overwrite('angular.json', JSON.stringify(workspace, undefined, 2));
-        return host;
-    };
+    });
 }
 //# sourceMappingURL=index.js.map

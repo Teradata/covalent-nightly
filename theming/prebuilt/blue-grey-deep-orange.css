@@ -1657,7 +1657,8 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 .mat-menu-item {
   background: transparent;
   color: rgba(0, 0, 0, 0.87); }
-  .mat-menu-item[disabled], .mat-menu-item[disabled]::after {
+  .mat-menu-item[disabled], .mat-menu-item[disabled]::after,
+  .mat-menu-item[disabled] .mat-icon-no-color {
     color: rgba(0, 0, 0, 0.38); }
 
 .mat-menu-item .mat-icon-no-color,
@@ -1976,6 +1977,24 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 .mat-step-header .mat-step-icon-state-edit {
   background-color: #455a64;
   color: rgba(255, 255, 255, 0.87); }
+
+.mat-step-header.mat-accent .mat-step-icon {
+  color: white; }
+
+.mat-step-header.mat-accent .mat-step-icon-selected,
+.mat-step-header.mat-accent .mat-step-icon-state-done,
+.mat-step-header.mat-accent .mat-step-icon-state-edit {
+  background-color: #ff5722;
+  color: white; }
+
+.mat-step-header.mat-warn .mat-step-icon {
+  color: white; }
+
+.mat-step-header.mat-warn .mat-step-icon-selected,
+.mat-step-header.mat-warn .mat-step-icon-state-done,
+.mat-step-header.mat-warn .mat-step-icon-state-edit {
+  background-color: #e53935;
+  color: white; }
 
 .mat-step-header .mat-step-icon-state-error {
   background-color: transparent;
