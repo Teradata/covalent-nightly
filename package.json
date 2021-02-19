@@ -33,12 +33,12 @@
     "Steven Ov <steven.ov@teradata.com>"
   ],
   "peerDependencies": {
-    "@angular/common": "^9.0.0 || ^10.0.0-0",
-    "@angular/core": "^9.0.0 || ^10.0.0-0",
-    "@angular/forms": "^9.0.0 || ^10.0.0-0",
-    "@angular/router": "^9.0.0 || ^10.0.0-0",
-    "@angular/cdk": "^9.0.0 || ^10.0.0-0",
-    "@angular/material": "^9.0.0 || ^10.0.0-0"
+    "@angular/common": "^9.0.0 || ^10.0.0-0 || ^11.0.0-0",
+    "@angular/core": "^9.0.0 || ^10.0.0-0 || ^11.0.0-0",
+    "@angular/forms": "^9.0.0 || ^10.0.0-0 || ^11.0.0-0",
+    "@angular/router": "^9.0.0 || ^10.0.0-0 || ^11.0.0-0",
+    "@angular/cdk": "^9.0.0 || ^10.0.0-0 || ^11.0.0-0",
+    "@angular/material": "^9.0.0 || ^10.0.0-0 || ^11.0.0-0"
   },
   "main": "bundles/covalent-core.umd.js",
   "module": "fesm2015/covalent-core.js",
